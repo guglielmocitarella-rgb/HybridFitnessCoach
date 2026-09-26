@@ -48,7 +48,78 @@ private fun recommendedExerciseRest(role:String,name:String,equipment:String):In
     val set=recommendedSetRest(role,name,equipment)
     return when { set>=180->240; set>=150->180; set>=120->150; else->120 }
 }
-data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skills: List<String> = emptyList(), val role: String = "Base", val setRestSec: Int = recommendedSetRest(role, name, equipment), val exerciseRestSec: Int = recommendedExerciseRest(role, name, equipment))
+enum class ExerciseMeasure { REPS, SECONDS, DURATION, DISTANCE, INTERVALS }
+enum class ExerciseCategory { PUSH, PULL, LEGS, CORE, CARDIO, MOBILITY, SKILL, OTHER }
+enum class Laterality { BILATERAL, UNILATERAL, ALTERNATING, NONE }
+enum class ResistanceMode { BODYWEIGHT, EXTERNAL_LOAD, ASSISTED, NONE }
+
+/**
+ * Universal exercise definition for the v0.8 evolved runner.
+ * Legacy constructor fields stay first and keep defaults so the existing catalogue and
+ * generated workouts remain source/data compatible. progressionKey is intentionally
+ * opaque: v0.9 can attach a progression graph without changing this schema again.
+ */
+data class Exercise(
+    val name: String,
+    val group: String,
+    val equipment: String,
+    val level: String,
+    val skills: List<String> = emptyList(),
+    val role: String = "Base",
+    val setRestSec: Int = recommendedSetRest(role, name, equipment),
+    val exerciseRestSec: Int = recommendedExerciseRest(role, name, equipment),
+    val secondaryGroups: List<String> = emptyList(),
+    val movementPattern: String = "",
+    val category: ExerciseCategory = ExerciseCategory.OTHER,
+    val intensity: Int = 5,
+    val systemicFatigue: Int = 5,
+    val technicalComplexity: Int = 5,
+    val measure: ExerciseMeasure = ExerciseMeasure.REPS,
+    val laterality: Laterality = Laterality.BILATERAL,
+    val resistanceMode: ResistanceMode = ResistanceMode.NONE,
+    val progressionKey: String? = null
+)
+
+enum class WorkoutExerciseStatus { PENDING, ACTIVE, COMPLETED, SKIPPED, PARTIAL }
+data class WorkoutSetState(
+    val index: Int,
+    val targetReps: Int? = null,
+    val targetSeconds: Int? = null,
+    val targetDistanceMeters: Double? = null,
+    val targetLoadKg: Double? = null,
+    val targetAssistanceKg: Double? = null,
+    val actualReps: Int? = null,
+    val actualSeconds: Int? = null,
+    val actualDistanceMeters: Double? = null,
+    val actualLoadKg: Double? = null,
+    val actualAssistanceKg: Double? = null,
+    val completed: Boolean = false,
+    val restUsedSec: Int? = null
+)
+data class WorkoutExerciseState(
+    val exerciseName: String,
+    val measure: ExerciseMeasure = ExerciseMeasure.REPS,
+    val sets: List<WorkoutSetState> = emptyList(),
+    val status: WorkoutExerciseStatus = WorkoutExerciseStatus.PENDING,
+    val rpe: Int? = null,
+    val pinned: Boolean = false,
+    val setRestSec: Int = 90,
+    val exerciseRestSec: Int = 120,
+    val originalOrder: Int = 0,
+    val currentOrder: Int = originalOrder
+)
+data class WorkoutSessionState(
+    val id: String,
+    val startedAtEpochMs: Long,
+    val profileName: String,
+    val exercises: List<WorkoutExerciseState>,
+    val currentExerciseIndex: Int = 0,
+    val elapsedBeforePauseMs: Long = 0L,
+    val pausedAtEpochMs: Long? = null,
+    val restEndsAtEpochMs: Long? = null,
+    val workoutRpe: Int? = null,
+    val finishedAtEpochMs: Long? = null
+)
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
