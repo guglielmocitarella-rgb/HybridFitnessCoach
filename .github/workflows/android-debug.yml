@@ -3,8 +3,12 @@ name: Android Debug APK
 on:
   push:
     branches:
-      - main\n      - 'feature/**'
-  pull_request:\n    branches:\n      - main\n  workflow_dispatch:
+      - main
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
