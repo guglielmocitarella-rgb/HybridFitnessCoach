@@ -48,23 +48,27 @@ private fun recommendedExerciseRest(role:String,name:String,equipment:String):In
     return when { set>=180->240; set>=150->180; set>=120->150; else->120 }
 }
 data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skills: List<String> = emptyList(), val role: String = "Base", val setRestSec: Int = recommendedSetRest(role, name, equipment), val exerciseRestSec: Int = recommendedExerciseRest(role, name, equipment))
-data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato")
-data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0)
+data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
+data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
 private class AppStore(context: Context) {
     private val prefs = context.getSharedPreferences("hybrid_fitness_store", Context.MODE_PRIVATE)
-    fun loadAthlete() = AthleteProfile(prefs.getString("athlete_name","") ?: "", prefs.getString("athlete_goal","Forza + skill") ?: "Forza + skill", prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3),prefs.getInt("athlete_age",0),prefs.getFloat("athlete_height",0f),prefs.getFloat("athlete_weight",0f),prefs.getString("athlete_sex","Non specificato")?:"Non specificato")
-    fun saveAthlete(p: AthleteProfile) { prefs.edit().putString("athlete_name",p.name).putString("athlete_goal",p.goal).putString("athlete_level",p.level).putInt("athlete_days",p.daysPerWeek).putInt("athlete_age",p.age).putFloat("athlete_height",p.heightCm).putFloat("athlete_weight",p.weightKg).putString("athlete_sex",p.sex).apply(); if(p.weightKg>0){val h=prefs.getString("weight_history","")?:"";prefs.edit().putString("weight_history",(System.currentTimeMillis().toString()+":"+p.weightKg+";"+h).take(4000)).apply()} }
+    fun loadAthlete() = AthleteProfile(prefs.getString("athlete_name","") ?: "", prefs.getString("athlete_goal","Forza + skill") ?: "Forza + skill", prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3),prefs.getInt("athlete_age",0),prefs.getFloat("athlete_height",0f),prefs.getFloat("athlete_weight",0f),prefs.getString("athlete_sex","Non specificato")?:"Non specificato",(prefs.getString("athlete_priority_skills","")?:"").split("|").filter{it.isNotBlank()})
+    fun saveAthlete(p: AthleteProfile) { prefs.edit().putString("athlete_name",p.name).putString("athlete_goal",p.goal).putString("athlete_level",p.level).putInt("athlete_days",p.daysPerWeek).putInt("athlete_age",p.age).putFloat("athlete_height",p.heightCm).putFloat("athlete_weight",p.weightKg).putString("athlete_sex",p.sex).putString("athlete_priority_skills",p.prioritySkills.joinToString("|")).apply(); if(p.weightKg>0){val h=prefs.getString("weight_history","")?:"";prefs.edit().putString("weight_history",(System.currentTimeMillis().toString()+":"+p.weightKg+";"+h).take(4000)).apply()} }
     fun loadActiveProfileName() = prefs.getString("active_equipment","Palestra") ?: "Palestra"
     fun saveActiveProfileName(name:String) { prefs.edit().putString("active_equipment",name).apply() }
     fun loadCustomProfiles(): List<EquipmentProfile> = try {
+        if(!prefs.getBoolean("equipment_profiles_migrated",false)){
+            val a=JSONArray();profiles.forEach{p->val e=JSONArray();p.equipment.forEach{e.put(it)};a.put(JSONObject().put("name",p.name).put("icon",p.icon).put("equipment",e))}
+            prefs.edit().putString("custom_profiles",a.toString()).putBoolean("equipment_profiles_migrated",true).apply()
+        }
         val a=JSONArray(prefs.getString("custom_profiles","[]") ?: "[]")
-        (0 until a.length()).map { i -> val o=a.getJSONObject(i); val e=o.getJSONArray("equipment"); EquipmentProfile(o.getString("name"),"📍",(0 until e.length()).map { e.getString(it) }) }
+        (0 until a.length()).map { i -> val o=a.getJSONObject(i); val e=o.getJSONArray("equipment"); EquipmentProfile(o.getString("name"),o.optString("icon","📍"),(0 until e.length()).map { e.getString(it) }) }
     } catch(_:Exception){ emptyList() }
-    fun saveCustomProfiles(items:List<EquipmentProfile>) { val a=JSONArray(); items.forEach { p -> val e=JSONArray(); p.equipment.forEach{e.put(it)}; a.put(JSONObject().put("name",p.name).put("equipment",e)) }; prefs.edit().putString("custom_profiles",a.toString()).apply() }
-    fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList(), if(o.has("exerciseRpe")){val r=o.getJSONObject("exerciseRpe");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("workoutRpe",0)) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
-    fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.take(50).forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e).put("exerciseRpe",JSONObject(x.exerciseRpe.mapValues{it.value})).put("workoutRpe",x.workoutRpe))}; prefs.edit().putString("sessions",a.toString()).apply() }
+    fun saveCustomProfiles(items:List<EquipmentProfile>) { val a=JSONArray(); items.forEach { p -> val e=JSONArray(); p.equipment.forEach{e.put(it)}; a.put(JSONObject().put("name",p.name).put("icon",p.icon).put("equipment",e)) }; prefs.edit().putString("custom_profiles",a.toString()).apply() }
+    fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList(), if(o.has("exerciseRpe")){val r=o.getJSONObject("exerciseRpe");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("workoutRpe",0),if(o.has("completedByExercise")){val r=o.getJSONObject("completedByExercise");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("durationSec",0)) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
+    fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.take(50).forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e).put("exerciseRpe",JSONObject(x.exerciseRpe.mapValues{it.value})).put("workoutRpe",x.workoutRpe).put("completedByExercise",JSONObject(x.completedByExercise.mapValues{it.value})).put("durationSec",x.durationSec))}; prefs.edit().putString("sessions",a.toString()).apply() }
     fun addSession(s:SessionRecord){ saveSessions(listOf(s)+loadSessions()) }
     fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
 }
@@ -240,13 +244,16 @@ private fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cur
         val ageHours = (now - session.timestamp).coerceAtLeast(0L) / 3_600_000.0
         if (ageHours < 96.0 && session.totalSets > 0) {
             val completion = (session.completedSets.toDouble() / session.totalSets).coerceIn(0.0, 1.0)
+            // Recovery model V0.8: exponential fatigue decay, time constant 38h. A single fatigue contribution falls to ~28% after 48h and ~15% after 72h; UI returns toward 100 progressively.
             val recoveryFactor = kotlin.math.exp(-ageHours / 38.0)
             val setsPerExercise = session.totalSets.toDouble() / session.exerciseNames.size.coerceAtLeast(1)
             session.exerciseNames.mapNotNull { n -> exercises.firstOrNull { it.name == n } }.forEach { ex ->
+                val actualSets=if(session.completedByExercise.isNotEmpty()) (session.completedByExercise[ex.name]?:0).toDouble() else setsPerExercise
+                if(actualSets<=0) return@forEach
                 val matched = recoveryGroups.filter { ex.group.contains(it, ignoreCase = true) }
                 matched.forEachIndexed { index, group ->
                     val muscleWeight = if (index == 0) 1.0 else 0.55
-                    fatigue[group] = (fatigue[group] ?: 0.0) + (setsPerExercise * 5.0 * completion * recoveryFactor * muscleWeight)
+                    fatigue[group] = (fatigue[group] ?: 0.0) + (actualSets * 5.0 * completion * recoveryFactor * muscleWeight)
                 }
             }
         }
@@ -260,7 +267,7 @@ private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, 
     val preferredRoles = when (athlete.goal) {
         "Calisthenics" -> listOf("Progressione", "Prerequisito", "Forza", "Accessorio")
         "Ipertrofia" -> listOf("Forza", "Accessorio", "Prerequisito", "Progressione")
-        "Forza + skill" -> listOf("Prerequisito", "Progressione", "Forza", "Accessorio")
+        "Forza + skill", "Forza + Skill Calisthenics" -> if(athlete.prioritySkills.isEmpty()) listOf("Forza","Prerequisito","Accessorio","Progressione") else listOf("Prerequisito","Progressione","Forza","Accessorio")
         else -> listOf("Forza", "Prerequisito", "Accessorio", "Progressione")
     }
     val recentNames = sessions.take(3).flatMap { it.exerciseNames }.groupingBy { it }.eachCount()
@@ -295,7 +302,7 @@ fun HybridFitnessApp() {
     val store = remember { AppStore(context) }
     var tab by remember { mutableStateOf(Tab.HOME) }
     val customProfiles = remember { mutableStateListOf<EquipmentProfile>().apply { addAll(store.loadCustomProfiles()) } }
-    var activeProfile by remember { mutableStateOf((profiles + customProfiles).firstOrNull { it.name == store.loadActiveProfileName() } ?: profiles.first()) }
+    var activeProfile by remember { mutableStateOf(customProfiles.firstOrNull { it.name == store.loadActiveProfileName() } ?: customProfiles.firstOrNull() ?: EquipmentProfile("Nessun profilo","📍",emptyList())) }
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     MaterialTheme(colorScheme = lightColorScheme(primary = Accent, background = Bg, surface = Color.White)) {
@@ -322,7 +329,7 @@ fun HybridFitnessApp() {
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
  { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile=created; store.saveActiveProfileName(created.name) },
  { old, updated -> val i=customProfiles.indexOfFirst{it.name==old.name}; if(i>=0){customProfiles[i]=updated;store.saveCustomProfiles(customProfiles);if(activeProfile.name==old.name){activeProfile=updated;store.saveActiveProfileName(updated.name)}} },
- { doomed -> customProfiles.removeAll{it.name==doomed.name};store.saveCustomProfiles(customProfiles);if(activeProfile.name==doomed.name){activeProfile=profiles.first();store.saveActiveProfileName(activeProfile.name)} }
+ { doomed -> customProfiles.removeAll{it.name==doomed.name};store.saveCustomProfiles(customProfiles);if(activeProfile.name==doomed.name){activeProfile=customProfiles.firstOrNull()?:EquipmentProfile("Nessun profilo","📍",emptyList());store.saveActiveProfileName(activeProfile.name)} }
 )
                     Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
                 }
@@ -437,7 +444,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
     selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }) }
     skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> onSessionSaved(record); skillWorkout=null }, initialSkill=skill) }
-    if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->onSessionSaved(record);filteredWorkout=false},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna")
+    if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->onSessionSaved(record);filteredWorkout=false},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna",filtersLocked=true)
 }
 @Composable
 private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDismiss: () -> Unit, onGenerate: () -> Unit) {
@@ -481,18 +488,17 @@ private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentPr
     var deleting by remember { mutableStateOf<EquipmentProfile?>(null) }
     Column {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
-        (profiles + customProfiles).forEach { p ->
-            val custom=customProfiles.any{it.name==p.name}
-            Card(Modifier.padding(horizontal=20.dp,vertical=6.dp).fillMaxWidth().clickable{select(p)},colors=CardDefaults.cardColors(containerColor=if(p==active)Accent.copy(alpha=.10f) else Color.White)){
+        customProfiles.forEach { p ->
+                        Card(Modifier.padding(horizontal=20.dp,vertical=6.dp).fillMaxWidth().clickable{select(p)},colors=CardDefaults.cardColors(containerColor=if(p==active)Accent.copy(alpha=.10f) else Color.White)){
                 Row(Modifier.padding(18.dp),verticalAlignment=Alignment.CenterVertically){
                     Text(p.icon,fontSize=32.sp);Spacer(Modifier.width(14.dp))
                     Column(Modifier.weight(1f)){Text(p.name,fontSize=19.sp,fontWeight=FontWeight.Bold);Text(p.equipment.joinToString(" • "),color=Color.Gray,fontSize=13.sp)}
-                    if(custom){IconButton(onClick={editing=p}){Icon(Icons.Default.Edit,"Modifica")};IconButton(onClick={deleting=p}){Icon(Icons.Default.Delete,"Elimina")}}
+                    IconButton(onClick={editing=p}){Icon(Icons.Default.Edit,"Modifica")};IconButton(onClick={deleting=p}){Icon(Icons.Default.Delete,"Elimina")}
                     if(p==active)Icon(Icons.Default.CheckCircle,"Attivo",tint=Accent)
                 }
             }
         }
-        OutlinedButton(onClick={showCreator=true},modifier=Modifier.padding(20.dp).fillMaxWidth()){Icon(Icons.Default.Add,null);Spacer(Modifier.width(8.dp));Text("NUOVO PROFILO")}
+        if(customProfiles.isEmpty()) Text("Nessun profilo attrezzatura. Creane uno per generare workout.",color=Accent,modifier=Modifier.padding(horizontal=20.dp));OutlinedButton(onClick={showCreator=true},modifier=Modifier.padding(20.dp).fillMaxWidth()){Icon(Icons.Default.Add,null);Spacer(Modifier.width(8.dp));Text("NUOVO PROFILO")}
     }
     if(showCreator) EquipmentProfileDialog(null,{showCreator=false}){created->addProfile(created);showCreator=false}
     editing?.let{old->EquipmentProfileDialog(old,{editing=null}){updated->editProfile(old,updated);editing=null}}
@@ -518,24 +524,24 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
     if(edit) AthleteDialog(athlete,{edit=false}) { onAthleteSave(it); edit=false }
     selectedSession?.let { s ->
         AlertDialog(onDismissRequest={selectedSession=null},title={Text("Dettaglio allenamento")},text={LazyColumn(Modifier.heightIn(max=500.dp)){
-            item{Text(s.profileName,fontWeight=FontWeight.Bold);Text(java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray);Text(s.completedSets.toString()+"/"+s.totalSets+" serie completate",color=Accent,modifier=Modifier.padding(vertical=8.dp));if(s.workoutRpe>0)Text("Fatica workout: "+s.workoutRpe+"/10",fontWeight=FontWeight.Bold);Text("Esercizi",fontWeight=FontWeight.Bold)}
-            items(s.exerciseNames){name->val ex=exercises.firstOrNull{it.name==name};Card(Modifier.fillMaxWidth().padding(vertical=3.dp)){Column(Modifier.padding(10.dp)){Text(name,fontWeight=FontWeight.Bold);if(ex!=null){Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);val target=if(timed)if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10;Text("Prescrizione: 3 × "+target+(if(timed)" sec" else " rip"),color=Accent,fontSize=12.sp);s.exerciseRpe[name]?.let{Text("Fatica percepita: "+it+"/10",fontWeight=FontWeight.Bold,fontSize=12.sp)}}}}}
+            item{Text(s.profileName,fontWeight=FontWeight.Bold);Text(java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray);Text(s.completedSets.toString()+"/"+s.totalSets+" serie completate",color=Accent,modifier=Modifier.padding(vertical=8.dp));if(s.workoutRpe>0)Text("Fatica workout: "+s.workoutRpe+"/10",fontWeight=FontWeight.Bold);if(s.durationSec>0)Text("Durata effettiva: "+String.format("%02d:%02d",s.durationSec/60,s.durationSec%60));Text("Workout programmato / eseguito",fontWeight=FontWeight.Bold)}
+            items(s.exerciseNames){name->val ex=exercises.firstOrNull{it.name==name};val done=s.completedByExercise[name]?:if(s.completedByExercise.isEmpty())0 else 0;Card(Modifier.fillMaxWidth().padding(vertical=3.dp)){Column(Modifier.padding(10.dp)){Text((if(done>=3)"✓ " else if(done>0)"◐ " else "○ ")+name+"  "+done+"/3",fontWeight=FontWeight.Bold);if(ex!=null){Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);val target=if(timed)if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10;Text("Prescrizione: 3 × "+target+(if(timed)" sec" else " rip"),color=Accent,fontSize=12.sp);s.exerciseRpe[name]?.let{Text("Fatica percepita: "+it+"/10",fontWeight=FontWeight.Bold,fontSize=12.sp)}}}}}
         }},confirmButton={TextButton(onClick={selectedSession=null}){Text("CHIUDI")}},dismissButton={TextButton(onClick={onDeleteSession(s.timestamp);selectedSession=null}){Text("ELIMINA SESSIONE")}})
     }
 }
 
 @Composable
 private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(AthleteProfile)->Unit){
-    var name by remember{mutableStateOf(current.name)}; var goal by remember{mutableStateOf(current.goal)}; var level by remember{mutableStateOf(current.level)}; var days by remember{mutableIntStateOf(current.daysPerWeek)};var age by remember{mutableStateOf(if(current.age>0)current.age.toString() else "")};var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")};var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")};var sex by remember{mutableStateOf(current.sex)}
+    var name by remember{mutableStateOf(current.name)}; var goal by remember{mutableStateOf(current.goal)}; var level by remember{mutableStateOf(current.level)}; var days by remember{mutableIntStateOf(current.daysPerWeek)};var age by remember{mutableStateOf(if(current.age>0)current.age.toString() else "")};var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")};var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")};var sex by remember{mutableStateOf(current.sex)};val prioritySkills=remember{mutableStateListOf<String>().apply{addAll(current.prioritySkills)}}
     AlertDialog(onDismissRequest=onDismiss,title={Text("Profilo atleta")},text={LazyColumn(Modifier.heightIn(max=520.dp)){
         item{OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(age,{age=it.filter{ch->ch.isDigit()}},label={Text("Età")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(height,{height=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Altezza (cm)")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(weight,{weight=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Peso (kg)")},singleLine=true,modifier=Modifier.fillMaxWidth());Text("Sesso (opzionale)",fontWeight=FontWeight.Bold);Row{listOf("Non specificato","Uomo","Donna").forEach{x->FilterChip(sex==x,{sex=x},{Text(x)},Modifier.padding(end=4.dp))}};if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}; Text("Obiettivo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))}
-        items(listOf("Forza + skill","Ipertrofia","Calisthenics","Fitness generale")){x->Row(Modifier.fillMaxWidth().clickable{goal=x},verticalAlignment=Alignment.CenterVertically){RadioButton(goal==x,{goal=x});Text(x)}}
-        item{Text("Livello",fontWeight=FontWeight.Bold); listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}; Text("Allenamenti a settimana: "+days,fontWeight=FontWeight.Bold); Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(days>1)days--}){Text("−")};Spacer(Modifier.width(12.dp));Text(days.toString(),fontSize=20.sp);Spacer(Modifier.width(12.dp));Button(onClick={if(days<7)days++}){Text("+")}}}
-    }},confirmButton={Button(onClick={onSave(AthleteProfile(name.trim(),goal,level,days,age.toIntOrNull()?:0,height.toFloatOrNull()?:0f,weight.toFloatOrNull()?:0f,sex))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
+        items(listOf("Forza + Skill Calisthenics","Ipertrofia","Calisthenics","Fitness generale")){x->Row(Modifier.fillMaxWidth().clickable{goal=x},verticalAlignment=Alignment.CenterVertically){RadioButton(goal==x,{goal=x});Text(x)}}
+        item{if(goal=="Forza + Skill Calisthenics"){Text("Skill prioritarie (opzionali)",fontWeight=FontWeight.Bold);Text("Se non ne selezioni nessuna, il profilo viene trattato come Forza.",color=Color.Gray,fontSize=11.sp);calisthenicsSkills.forEach{s->Row(Modifier.fillMaxWidth().clickable{if(s.name in prioritySkills)prioritySkills.remove(s.name)else prioritySkills.add(s.name)},verticalAlignment=Alignment.CenterVertically){Checkbox(s.name in prioritySkills,{if(it){if(s.name !in prioritySkills)prioritySkills.add(s.name)}else prioritySkills.remove(s.name)});Text(s.name)}}};Text("Livello",fontWeight=FontWeight.Bold); listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}; Text("Allenamenti a settimana: "+days,fontWeight=FontWeight.Bold); Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(days>1)days--}){Text("−")};Spacer(Modifier.width(12.dp));Text(days.toString(),fontSize=20.sp);Spacer(Modifier.width(12.dp));Button(onClick={if(days<7)days++}){Text("+")}}}
+    }},confirmButton={Button(onClick={onSave(AthleteProfile(name.trim(),goal,level,days,age.toIntOrNull()?:0,height.toFloatOrNull()?:0f,weight.toFloatOrNull()?:0f,sex,prioritySkills.toList()))}){Text("SALVA")}},dismissButton={if(running)Column{Text("Tempo "+String.format("%02d:%02d",elapsedSeconds/60,elapsedSeconds%60)+(if(restRemaining>0)" • Recupero "+restRemaining+"s" else ""),fontSize=12.sp,fontWeight=FontWeight.Bold);Row{TextButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")};if(restRemaining>0)TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}}}else TextButton(onClick=onDismiss){Text("ANNULLA")}})
 }
 
 @Composable
-private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList()) {
+private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false) {
     var minutes by remember { mutableIntStateOf(45) }
     val selectedEquipment = remember { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment) } }
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
@@ -567,12 +573,22 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     }
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
-        generated=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(mode!="Skill"||skill=="Nessuna"||skill in ex.skills)}
+        generated=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(mode!="Skill"||selectedSkills.isEmpty()||selectedSkills.any{it in ex.skills})}
             .sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(skill!="Nessuna"&&skill in it.skills)0 else 1}).take(count)
         completed.clear();reps.clear();restSeconds.clear();generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second};exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0;currentExercise=generated.firstOrNull()?.name;generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova ad ampliare attrezzatura, muscoli o livello/skill." else "Workout pronto: "+generated.size+" esercizi. Scorri il piano e premi AVVIA WORKOUT."
     }
     AlertDialog(onDismissRequest=onDismiss,title={Text(if(running)"Workout in corso" else "Crea workout personalizzato")},text={LazyColumn(Modifier.heightIn(max=590.dp)){
         if(!running){
+            if(filtersLocked){
+                item{
+                    Text("Workout basato sui filtri",fontWeight=FontWeight.Bold)
+                    Text((initialGroups+initialEquipment+selectedSkills).joinToString(" • "),color=Accent)
+                    Text("Durata workout",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
+                    Row{listOf(20,30,45,60,75).forEach{m->FilterChip(minutes==m,{minutes=m},{Text("$m")},Modifier.padding(end=4.dp))}}
+                    Button(onClick={build()},modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")}
+                    generationMessage?.let{Text(it,color=if(generated.isEmpty())MaterialTheme.colorScheme.error else Accent,fontWeight=FontWeight.Bold)}
+                }
+            } else {
             item{
                 Text("1. Attrezzatura disponibile",fontWeight=FontWeight.Bold)
                 Text("Profilo attivo: "+profile.name+" • modifica valida solo per questo workout",color=Color.Gray,fontSize=12.sp)
@@ -584,18 +600,18 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                 Text("2. Durata",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
                 Row{listOf(20,30,45,60,75).forEach{m->FilterChip(minutes==m,{minutes=m},{Text("$m")},Modifier.padding(end=4.dp))}}
                 Text("3. Cosa vuoi allenare?",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
-                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){FilterChip(mode=="Parti del corpo",{mode="Parti del corpo";skill="Nessuna"},{Text("Parti del corpo")});FilterChip(mode=="Skill",{mode="Skill";selectedGroups.clear()},{Text("Skill calisthenics")})}
+                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){FilterChip(mode=="Parti del corpo",{mode="Parti del corpo";selectedSkills.clear()},{Text("Parti del corpo")});FilterChip(mode=="Skill",{mode="Skill";selectedGroups.clear()},{Text("Skill calisthenics")})}
             }
             if(mode=="Parti del corpo") items(recoveryGroups){g->Row(Modifier.fillMaxWidth().clickable{if(g in selectedGroups)selectedGroups.remove(g)else selectedGroups.add(g)},verticalAlignment=Alignment.CenterVertically){Checkbox(g in selectedGroups,{if(it){if(g !in selectedGroups)selectedGroups.add(g)}else selectedGroups.remove(g)});Text(g)}}
             if(mode=="Skill") item{
                 skills.filter{it!="Nessuna"}.forEach{s->
                     val linked=exercises.filter{s in it.skills}
                     val muscles=linked.flatMap{ex->recoveryGroups.filter{g->ex.group.contains(g,true)}}.distinct().joinToString(" • ")
-                    Row(Modifier.fillMaxWidth().clickable{skill=s},verticalAlignment=Alignment.CenterVertically){RadioButton(skill==s,{skill=s});Column{Text(s);if(skill==s)Text("Coinvolge: "+muscles,color=Color.Gray,fontSize=11.sp)}}
+                    Row(Modifier.fillMaxWidth().clickable{if(s in selectedSkills)selectedSkills.remove(s)else selectedSkills.add(s)},verticalAlignment=Alignment.CenterVertically){Checkbox(s in selectedSkills,{checked->if(checked){if(s !in selectedSkills)selectedSkills.add(s)}else selectedSkills.remove(s)});Column{Text(s);if(s in selectedSkills)Text("Coinvolge: "+muscles,color=Color.Gray,fontSize=11.sp)}}
                 }
             }
             item{
-                Button(onClick={build()},enabled=selectedEquipment.isNotEmpty()&&(mode!="Skill"||skill!="Nessuna"),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")}
+                Button(onClick={build()},enabled=selectedEquipment.isNotEmpty()&&(mode!="Skill"||selectedSkills.isNotEmpty()),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")}
                 generationMessage?.let{Text(it,color=if(generated.isEmpty())MaterialTheme.colorScheme.error else Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=6.dp))}
                 if(generated.isNotEmpty())Text("Workout generato: "+generated.size+" esercizi • circa "+minutes+" min",color=Color.Gray)
             }
@@ -608,16 +624,16 @@ Row{OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAU
 if(running){
  Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
 }
-if(running){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)};if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3&&restRemaining==0){
+if(running){if((completed[ex.name]?:0)>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)};if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3&&restRemaining==0){
  val previousExercise=lastCompletedExercise
  completed[ex.name]=n+1;currentExercise=ex.name
  val finishedExercise=(n+1)>=3
  restKind=if(finishedExercise)"Esercizio" else "Serie"
  restRemaining=if(finishedExercise && previousExercise!=ex.name) exerciseRestSeconds else if(finishedExercise) exerciseRestSeconds else (restSeconds[ex.name]?:60)
- if(finishedExercise) lastCompletedExercise=ex.name
-}},enabled=restRemaining==0&&!paused){Text("+ SERIE")}}}}}
+ if(finishedExercise){lastCompletedExercise=ex.name;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<3}?.name}
+}},enabled=restRemaining==0&&!paused){Text("+ SERIE")}}}}}}
         if(running) item { Text("Fatica complessiva workout: "+workoutRpe+"/10",fontWeight=FontWeight.Bold); Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8) }
-    }},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(skill!="Nessuna")" • "+skill else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
+    }},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
 }
 
 @Composable
@@ -658,7 +674,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                             val timed = ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)
                             val target = if(timed) if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10
                             val rest = ex.setRestSec
-                            Text("3 serie × "+target+(if(timed)" sec" else " rip")+" • recupero consigliato "+rest+" sec", color = Accent, fontSize = 12.sp);if(started){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
+                            Text("3 serie × "+target+(if(timed)" sec" else " rip")+" • recupero consigliato "+rest+" sec", color = Accent, fontSize = 12.sp);if(started && (completed[ex.name]?:0)>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                             Text(ex.equipment + " • " + ex.role, color = Color.Gray, fontSize = 12.sp)
                             Row(
                                 Modifier.fillMaxWidth().padding(top = 8.dp),
@@ -675,7 +691,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                 if(started)item{Text("Fatica complessiva workout: "+workoutRpe+"/10",fontWeight=FontWeight.Bold);Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8)}
             }
         },
-        confirmButton = { Button(onClick = { if(!started) started=true else {onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets, compatible.map { it.name },exerciseRpe.toMap(),workoutRpe)); onDismiss()} }) { Text(if(!started)"AVVIA WORKOUT" else if (totalSets > 0 && doneSets == totalSets) "TERMINA E SALVA" else "SALVA E CHIUDI") } },
+        confirmButton = { Button(onClick = { if(!started) started=true else {onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets, compatible.map { it.name },exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completed[it.name]?:0)},elapsedSeconds)); onDismiss()} }) { Text(if(!started)"AVVIA WORKOUT" else if (totalSets > 0 && doneSets == totalSets) "TERMINA E SALVA" else "SALVA E CHIUDI") } },
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }
