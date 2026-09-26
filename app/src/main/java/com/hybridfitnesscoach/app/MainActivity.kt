@@ -294,7 +294,7 @@ fun HybridFitnessApp() {
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
-                    Tab.LIBRARY -> Library()
+                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles, { selected -> activeProfile = selected; store.saveActiveProfileName(selected.name) }, { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile = created; store.saveActiveProfileName(created.name) })
                     Tab.PROGRESS -> Progress(athlete, sessions) { updated -> athlete = updated; store.saveAthlete(updated) }
                 }
@@ -364,7 +364,9 @@ private fun RecoveryChart(sessions: List<SessionRecord>) {
 @Composable private fun ExerciseRow(a: String, b: String) { Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth()) { Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.FitnessCenter, null, tint = Accent); Spacer(Modifier.width(14.dp)); Column { Text(a, fontWeight = FontWeight.SemiBold); Text(b, color = Color.Gray, fontSize = 13.sp) } } } }
 
 @Composable
-private fun Library() {
+private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onSessionSaved: (SessionRecord) -> Unit) {
+    var selectedSkill by remember { mutableStateOf<String?>(null) }
+    var skillWorkout by remember { mutableStateOf<String?>(null) }
     var query by remember { mutableStateOf("") }
     var selected by remember { mutableStateOf<Exercise?>(null) }
     val equipmentFilters = remember { mutableStateListOf<String>() }
@@ -396,10 +398,47 @@ private fun Library() {
         val title=when(type){"equipment"->"Filtra per attrezzatura";"groups"->"Filtra per gruppi muscolari";else->"Filtra per skill"}
         val opts=when(type){"equipment"->equipmentOptions;"groups"->recoveryGroups;else->calisthenicsSkills.map{it.name}}
         val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;else->skillFilters}
-        AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column{Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
+        AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column(Modifier.clickable(enabled=type=="skills"){if(type=="skills"){selectedSkill=o;filterDialog=null}}){Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
     }
     selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
+    selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }) }
+    skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> onSessionSaved(record); skillWorkout=null }, initialSkill=skill) }
 }
+@Composable
+private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDismiss: () -> Unit, onGenerate: () -> Unit) {
+    val skill = calisthenicsSkills.firstOrNull { it.name == skillName }
+    val linked = exercises.filter { skillName in it.skills }
+    val roleOrder = mapOf("Prerequisito" to 0, "Progressione" to 1, "Forza" to 2, "Accessorio" to 3)
+    val ordered = linked.sortedWith(compareBy<Exercise> { roleOrder[it.role] ?: 9 }.thenBy { levelScore(it.level) })
+    val accessible = ordered.filter { levelScore(it.level) <= levelScore(athlete.level) }
+    val current = accessible.lastOrNull()
+    AlertDialog(
+        onDismissRequest=onDismiss,
+        title={Text(skillName)},
+        text={LazyColumn(Modifier.heightIn(max=560.dp)){
+            item {
+                Text((skill?.category ?: "Calisthenics")+" • "+(skill?.level ?: ""),color=Color.Gray)
+                Text("Livello atleta: "+athlete.level,modifier=Modifier.padding(top=6.dp))
+                if(current!=null) Text("Livello attuale suggerito: "+current.name,color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=8.dp))
+                Text("Percorso",fontWeight=FontWeight.Bold,fontSize=18.sp,modifier=Modifier.padding(top=6.dp,bottom=6.dp))
+            }
+            items(ordered){ex->
+                val unlocked=levelScore(ex.level)<=levelScore(athlete.level)
+                Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){
+                    Column(Modifier.padding(12.dp)){
+                        Text(ex.name,fontWeight=FontWeight.Bold)
+                        Text(ex.role+" • "+ex.level+" • "+ex.equipment,color=if(unlocked) Accent else Color.Gray,fontSize=12.sp)
+                        Text(if(unlocked)"Adatto al tuo livello" else "Da sbloccare con il livello successivo",fontSize=11.sp,color=Color.Gray)
+                    }
+                }
+            }
+            if(ordered.isEmpty()) item{Text("Progressione in preparazione.",color=Color.Gray)}
+        }},
+        confirmButton={Button(onClick=onGenerate,enabled=linked.isNotEmpty()){Text("GENERA WORKOUT")}},
+        dismissButton={TextButton(onClick=onDismiss){Text("CHIUDI")}}
+    )
+}
+
 @Composable
 private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentProfile>, select: (EquipmentProfile) -> Unit, addProfile: (EquipmentProfile) -> Unit) {
     var showCreator by remember { mutableStateOf(false) }
@@ -453,11 +492,11 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
 }
 
 @Composable
-private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
+private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna") {
     var minutes by remember { mutableIntStateOf(45) }
     val selectedEquipment = remember { mutableStateListOf<String>().apply { addAll(profile.equipment) } }
     val selectedGroups = remember { mutableStateListOf<String>() }
-    var skill by remember { mutableStateOf("Nessuna") }
+    var skill by remember(initialSkill) { mutableStateOf(initialSkill) }
     var generated by remember { mutableStateOf<List<Exercise>>(emptyList()) }
     val completed = remember { mutableStateMapOf<String, Int>() }
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
