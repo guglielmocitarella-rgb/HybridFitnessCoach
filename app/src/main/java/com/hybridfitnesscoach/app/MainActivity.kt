@@ -470,6 +470,7 @@ private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentPr
 @Composable
 private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit, onDeleteSession: (Long) -> Unit) {
     var edit by remember { mutableStateOf(false) }
+    var selectedSession by remember { mutableStateOf<SessionRecord?>(null) }
     Column {
         Header("Profilo e progressi", "Dati salvati sul dispositivo")
         Card(Modifier.padding(horizontal=20.dp).fillMaxWidth().clickable { edit=true }) {
@@ -481,9 +482,15 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
         }
         SectionTitle("Storico allenamenti")
         if(sessions.isEmpty()) Text("Completa un allenamento per iniziare lo storico.", color=Color.Gray, modifier=Modifier.padding(horizontal=20.dp))
-        else LazyColumn(Modifier.padding(horizontal=20.dp).weight(1f,false)){items(sessions){s->Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Row(verticalAlignment=Alignment.CenterVertically){Column(Modifier.weight(1f)){Text(s.profileName,fontWeight=FontWeight.Bold);Text(s.completedSets.toString()+"/"+s.totalSets+" serie • "+java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray,fontSize=12.sp)};TextButton(onClick={onDeleteSession(s.timestamp)}){Text("ELIMINA")}};if(s.exerciseNames.isNotEmpty())Text(s.exerciseNames.joinToString(" • "),fontSize=12.sp,color=Color.Gray)}}}}
+        else LazyColumn(Modifier.padding(horizontal=20.dp).weight(1f,false)){items(sessions){s->Card(Modifier.fillMaxWidth().padding(bottom=8.dp).clickable{selectedSession=s}){Column(Modifier.padding(12.dp)){Row(verticalAlignment=Alignment.CenterVertically){Column(Modifier.weight(1f)){Text(s.profileName,fontWeight=FontWeight.Bold);Text(s.completedSets.toString()+"/"+s.totalSets+" serie • "+java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray,fontSize=12.sp);Text("TOCCA PER DETTAGLI",color=Accent,fontSize=11.sp)};TextButton(onClick={onDeleteSession(s.timestamp)}){Text("ELIMINA")}}}}}
     }
     if(edit) AthleteDialog(athlete,{edit=false}) { onAthleteSave(it); edit=false }
+    selectedSession?.let { s ->
+        AlertDialog(onDismissRequest={selectedSession=null},title={Text("Dettaglio allenamento")},text={LazyColumn(Modifier.heightIn(max=500.dp)){
+            item{Text(s.profileName,fontWeight=FontWeight.Bold);Text(java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray);Text(s.completedSets.toString()+"/"+s.totalSets+" serie completate",color=Accent,modifier=Modifier.padding(vertical=8.dp));Text("Esercizi",fontWeight=FontWeight.Bold)}
+            items(s.exerciseNames){name->val ex=exercises.firstOrNull{it.name==name};Card(Modifier.fillMaxWidth().padding(vertical=3.dp)){Column(Modifier.padding(10.dp)){Text(name,fontWeight=FontWeight.Bold);if(ex!=null){Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);val target=if(timed)if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10;Text("Prescrizione: 3 × "+target+(if(timed)" sec" else " rip"),color=Accent,fontSize=12.sp)}}}}
+        }},confirmButton={TextButton(onClick={selectedSession=null}){Text("CHIUDI")}},dismissButton={TextButton(onClick={onDeleteSession(s.timestamp);selectedSession=null}){Text("ELIMINA SESSIONE")}})
+    }
 }
 
 @Composable
@@ -508,6 +515,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     var elapsedSeconds by remember { mutableIntStateOf(0) }
     var restRemaining by remember { mutableIntStateOf(0) }
     var currentExercise by remember { mutableStateOf<String?>(null) }
+    var generationMessage by remember { mutableStateOf<String?>(null) }
     val completed = remember { mutableStateMapOf<String, Int>() }
     val reps = remember { mutableStateMapOf<String, Int>() }
     val restSeconds = remember { mutableStateMapOf<String, Int>() }
@@ -524,7 +532,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
         generated=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}&&(selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(skill=="Nessuna"||skill in ex.skills)}
             .sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(skill!="Nessuna"&&skill in it.skills)0 else 1}).take(count)
-        completed.clear();reps.clear();restSeconds.clear();generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second};running=false;paused=false;elapsedSeconds=0;restRemaining=0;currentExercise=generated.firstOrNull()?.name
+        completed.clear();reps.clear();restSeconds.clear();generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second};running=false;paused=false;elapsedSeconds=0;restRemaining=0;currentExercise=generated.firstOrNull()?.name;generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova ad ampliare attrezzatura, muscoli o livello/skill." else "Workout pronto: "+generated.size+" esercizi. Scorri il piano e premi AVVIA WORKOUT."
     }
     AlertDialog(onDismissRequest=onDismiss,title={Text(if(running)"Workout in corso" else "Crea workout personalizzato")},text={LazyColumn(Modifier.heightIn(max=590.dp)){
         if(!running){
@@ -532,7 +540,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             items(recoveryGroups){g->Row(Modifier.fillMaxWidth().clickable{if(g in selectedGroups)selectedGroups.remove(g)else selectedGroups.add(g)},verticalAlignment=Alignment.CenterVertically){Checkbox(g in selectedGroups,{if(it){if(g !in selectedGroups)selectedGroups.add(g)}else selectedGroups.remove(g)});Text(g)}}
             item{Text("Skill calisthenics",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp));skills.forEach{s->Row(Modifier.fillMaxWidth().clickable{skill=s},verticalAlignment=Alignment.CenterVertically){RadioButton(skill==s,{skill=s});Text(s)}};Text("Attrezzatura",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))}
             items(equipmentOptions){e->Row(Modifier.fillMaxWidth().clickable{if(e in selectedEquipment)selectedEquipment.remove(e)else selectedEquipment.add(e)},verticalAlignment=Alignment.CenterVertically){Checkbox(e in selectedEquipment,{if(it){if(e !in selectedEquipment)selectedEquipment.add(e)}else selectedEquipment.remove(e)});Text(e)}}
-            item{Button(onClick={build()},enabled=selectedEquipment.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")};if(generated.isNotEmpty()){Text("Workout generato: "+generated.size+" esercizi • circa "+minutes+" min",color=Accent,fontWeight=FontWeight.Bold);Text("Controlla il piano qui sotto, poi premi AVVIA.",color=Color.Gray)}}
+            item{Button(onClick={build()},enabled=selectedEquipment.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")};generationMessage?.let{Text(it,color=if(generated.isEmpty())MaterialTheme.colorScheme.error else Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=6.dp))};if(generated.isNotEmpty())Text("Workout generato: "+generated.size+" esercizi • circa "+minutes+" min",color=Color.Gray)}
         }
         if(running) item { val mm=elapsedSeconds/60; val ss=elapsedSeconds%60; Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Text("Tempo allenamento: "+String.format("%02d:%02d",mm,ss),fontWeight=FontWeight.Bold); if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold); if(restRemaining>0) Text("Recupero: "+restRemaining+" sec",color=Accent,fontSize=20.sp,fontWeight=FontWeight.Bold); Row{OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}; if(restRemaining>0){Spacer(Modifier.width(6.dp));TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}}}}} }
         items(generated){ex->val n=completed[ex.name]?:0;val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){Column(Modifier.padding(10.dp)){Text(ex.name,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);Text("3 serie × "+(reps[ex.name]?:0)+(if(timed)" sec" else " rip")+" • recupero "+(restSeconds[ex.name]?:60)+" sec",color=Accent,fontSize=12.sp);if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3){completed[ex.name]=n+1;currentExercise=ex.name;restRemaining=restSeconds[ex.name]?:60}}){Text("+ SERIE")}}}}}
