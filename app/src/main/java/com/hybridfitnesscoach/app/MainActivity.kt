@@ -691,59 +691,97 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
     val compatible = remember(profile, athlete, sessions) { generateWorkout(profile, athlete, sessions) }
     val completedSets = remember { mutableStateMapOf<String, Int>() }
+    val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
     val totalSets = compatible.size * 3
     val doneSets = completedSets.values.sum()
     var started by remember { mutableStateOf(false) }
     var paused by remember { mutableStateOf(false) }
     var elapsedSeconds by remember { mutableIntStateOf(0) }
     var restRemaining by remember { mutableIntStateOf(0) }
-    val exerciseRpe=remember{mutableStateMapOf<String,Int>()};var workoutRpe by remember{mutableIntStateOf(5)}
+    var restKind by remember { mutableStateOf("Serie") }
+    var currentExercise by remember { mutableStateOf<String?>(null) }
+    val exerciseRpe = remember { mutableStateMapOf<String,Int>() }
+    var workoutRpe by remember { mutableIntStateOf(5) }
+    val listState = rememberLazyListState()
+
     LaunchedEffect(started,paused,restRemaining){while(started&&!paused){delay(1000);elapsedSeconds++;if(restRemaining>0)restRemaining--}}
+    LaunchedEffect(started){if(started){currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<3}?.name;listState.scrollToItem(0)}}
+    LaunchedEffect(currentExercise){if(started){val i=compatible.indexOfFirst{it.name==currentExercise};if(i>=0)listState.animateScrollToItem(i)}}
 
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Allenamento • " + profile.name) },
         text = {
-            LazyColumn(modifier = Modifier.heightIn(max = 520.dp)) {
-                item {
-                    Text("Generato per " + athlete.goal + " • " + athlete.level + " • " + profile.name, color = Color.Gray)
-                    if (sessions.any { it.exerciseNames.isNotEmpty() }) Text("Adattato anche agli allenamenti recenti", color = Accent, fontSize = 12.sp)
-                    if(started){Text("Tempo: "+String.format("%02d:%02d",elapsedSeconds/60,elapsedSeconds%60)+" • "+if(paused)"PAUSA" else if(restRemaining>0)"recupero "+restRemaining+" sec" else "in corso",color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=6.dp));Row{TextButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")};if(restRemaining>0)TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}}}
-                    LinearProgressIndicator(
-                        progress = { if (totalSets == 0) 0f else doneSets.toFloat() / totalSets },
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp)
-                    )
-                }
-                if (compatible.isEmpty()) {
-                    item { Text("Nessun esercizio compatibile con questo profilo.") }
-                }
-                items(compatible) { ex ->
-                    val count = completedSets[ex.name] ?: 0
-                    Card(Modifier.fillMaxWidth().padding(vertical = 5.dp)) {
-                        Column(Modifier.padding(12.dp)) {
-                            Text(ex.name, fontWeight = FontWeight.Bold)
-                            val timed = ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)
-                            val target = if(timed) if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10
-                            val rest = ex.setRestSec
-                            Text("3 serie × "+target+(if(timed)" sec" else " rip")+" • recupero consigliato "+rest+" sec", color = Accent, fontSize = 12.sp);if(started && (completedSets[ex.name]?:0)>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
-                            Text(ex.equipment + " • " + ex.role, color = Color.Gray, fontSize = 12.sp)
-                            Row(
-                                Modifier.fillMaxWidth().padding(top = 8.dp),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Text(count.toString() + "/3", color = Accent, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
-                                OutlinedButton(onClick = { if (count > 0) completedSets[ex.name] = count - 1 }) { Text("−") }
-                                Spacer(Modifier.width(8.dp))
-                                Button(onClick = { if (started && !paused && count < 3) { completedSets[ex.name] = count + 1; restRemaining=rest } },enabled=started&&!paused) { Text("+ SERIE") }
+            Column(Modifier.heightIn(max=520.dp)){
+                if(started){
+                    Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){
+                        Column(Modifier.padding(10.dp)){
+                            Text("Tempo allenamento: "+String.format("%02d:%02d",elapsedSeconds/60,elapsedSeconds%60),fontWeight=FontWeight.Bold)
+                            if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold)
+                            if(restRemaining>0) Text("Recupero "+restKind.lowercase()+": "+restRemaining+" sec",color=Accent,fontSize=18.sp,fontWeight=FontWeight.Bold)
+                            Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){
+                                OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}
+                                if(restRemaining>0) TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}
                             }
                         }
                     }
                 }
-                if(started)item{Text("Fatica complessiva workout: "+workoutRpe+"/10",fontWeight=FontWeight.Bold);Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8)}
+                LazyColumn(state=listState,modifier=Modifier.weight(1f)){
+                    if(!started)item{
+                        Text("Generato per "+athlete.goal+" • "+athlete.level+" • "+profile.name,color=Color.Gray)
+                        if(sessions.any{it.exerciseNames.isNotEmpty()})Text("Adattato anche agli allenamenti recenti",color=Accent,fontSize=12.sp)
+                    }
+                    item{LinearProgressIndicator(progress={if(totalSets==0)0f else doneSets.toFloat()/totalSets},modifier=Modifier.fillMaxWidth().padding(vertical=12.dp))}
+                    if(compatible.isEmpty())item{Text("Nessun esercizio compatibile con questo profilo.")}
+                    items(compatible){ex->
+                        val count=completedSets[ex.name]?:0
+                        val done=count>=3
+                        val expanded=!done||(expandedCompleted[ex.name]?:false)
+                        Card(Modifier.fillMaxWidth().padding(vertical=5.dp).clickable{
+                            if(started){
+                                if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false)
+                                else currentExercise=ex.name
+                            }
+                        }){
+                            Column(Modifier.padding(12.dp)){
+                                Text((if(done)"✓ " else if(started&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
+                                if(done)Text("COMPLETATO • 3/3 serie",color=Accent,fontSize=12.sp)
+                                if(expanded){
+                                    val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)
+                                    val target=if(timed)if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10
+                                    Text("3 serie × "+target+(if(timed)" sec" else " rip")+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
+                                    if(started&&count>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
+                                    Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
+                                    if(started&&!done)Row(Modifier.fillMaxWidth().padding(top=8.dp),verticalAlignment=Alignment.CenterVertically){
+                                        Text("$count/3",color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f))
+                                        OutlinedButton(onClick={if(count>0)completedSets[ex.name]=count-1}){Text("−")}
+                                        Spacer(Modifier.width(8.dp))
+                                        Button(onClick={
+                                            if(!paused&&restRemaining==0&&count<3){
+                                                val next=count+1
+                                                completedSets[ex.name]=next
+                                                if(next>=3){
+                                                    restKind="Esercizio";restRemaining=ex.exerciseRestSec
+                                                    currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<3}?.name?:compatible.firstOrNull{(completedSets[it.name]?:0)<3}?.name
+                                                }else{
+                                                    restKind="Serie";restRemaining=ex.setRestSec;currentExercise=ex.name
+                                                }
+                                            }
+                                        },enabled=!paused&&restRemaining==0){Text("+ SERIE")}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if(started)item{Text("Fatica complessiva workout: $workoutRpe/10",fontWeight=FontWeight.Bold);Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8)}
+                }
             }
         },
-        confirmButton = { Button(onClick = { if(!started) started=true else {onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets, compatible.map { it.name },exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds)); onDismiss()} }) { Text(if(!started)"AVVIA WORKOUT" else if (totalSets > 0 && doneSets == totalSets) "TERMINA E SALVA" else "SALVA E CHIUDI") } },
-        dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
+        confirmButton = { Button(onClick={
+            if(!started){started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<3}?.name}
+            else{onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds));onDismiss()}
+        }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "SALVA E CHIUDI")} },
+        dismissButton = { TextButton(onClick=onDismiss){Text("ANNULLA")} }
     )
 }
 
