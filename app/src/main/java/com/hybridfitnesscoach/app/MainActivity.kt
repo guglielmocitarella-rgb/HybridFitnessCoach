@@ -340,7 +340,7 @@ private val exercises = listOf(
 )
 
 private data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
-private fun prescriptionFor(ex:Exercise):ExercisePrescription {
+internal fun prescriptionFor(ex:Exercise):ExercisePrescription {
     val defaultValue = when(ex.measure) {
         ExerciseMeasure.REPS -> when(ex.role){"Forza"->6.0;"Progressione"->5.0;else->10.0}
         ExerciseMeasure.SECONDS, ExerciseMeasure.DURATION -> when(ex.level){"Principiante"->20.0;"Intermedio"->30.0;else->40.0}
@@ -362,7 +362,7 @@ private fun completedExerciseState(index:Int,ex:Exercise,completed:Int,rpe:Int?)
     val status=when { sets.isNotEmpty()&&completed>=sets.size->WorkoutExerciseStatus.COMPLETED;completed>0->WorkoutExerciseStatus.PARTIAL;else->WorkoutExerciseStatus.PENDING }
     return planned.copy(sets=sets,status=status,rpe=rpe)
 }
-private fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMillis()):Int =
+internal fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMillis()):Int =
     if(endEpochMs==null) 0 else kotlin.math.ceil((endEpochMs-now).coerceAtLeast(0L)/1000.0).toInt()
 
 private fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean =
@@ -376,7 +376,7 @@ private fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Inte
 
 private val recoveryGroups = listOf("Dorso", "Petto", "Spalle", "Gambe", "Core", "Bicipiti", "Tricipiti")
 
-private fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.currentTimeMillis()): Map<String, Int> {
+internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.currentTimeMillis()): Map<String, Int> {
     val fatigue = recoveryGroups.associateWith { 0.0 }.toMutableMap()
     sessions.take(16).forEach { session ->
         val ageHours = (now - session.timestamp).coerceAtLeast(0L) / 3_600_000.0
