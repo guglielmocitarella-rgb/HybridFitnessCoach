@@ -92,7 +92,8 @@ fun HybridFitnessApp() {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {\n    var workoutOpen by remember { mutableStateOf(false) }
+private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {
+    var workoutOpen by remember { mutableStateOf(false) }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item { Header("Buongiorno 👋", "Il tuo coach ibrido: palestra + calisthenics") }
         item {
@@ -131,6 +132,7 @@ private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {\n    va
 @Composable
 private fun Library() {
     var query by remember { mutableStateOf("") }
+    var selected by remember { mutableStateOf<Exercise?>(null) }
     val shown = exercises.filter { query.isBlank() || it.name.contains(query, true) || it.group.contains(query, true) }
     Column {
         Header("Libreria esercizi", "Pesi, corpo libero e progressioni")
@@ -151,6 +153,8 @@ private fun Library() {
 
 @Composable
 private fun Equipment(active: EquipmentProfile, select: (EquipmentProfile) -> Unit) {
+    var showCreator by remember { mutableStateOf(false) }
+    var customProfile by remember { mutableStateOf<EquipmentProfile?>(null) }
     Column {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
         (profiles + listOfNotNull(customProfile)).forEach { p ->
