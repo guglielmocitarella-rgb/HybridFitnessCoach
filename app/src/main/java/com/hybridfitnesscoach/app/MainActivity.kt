@@ -43,7 +43,9 @@ private class AppStore(context: Context) {
     } catch(_:Exception){ emptyList() }
     fun saveCustomProfiles(items:List<EquipmentProfile>) { val a=JSONArray(); items.forEach { p -> val e=JSONArray(); p.equipment.forEach{e.put(it)}; a.put(JSONObject().put("name",p.name).put("equipment",e)) }; prefs.edit().putString("custom_profiles",a.toString()).apply() }
     fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList()) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
-    fun addSession(s:SessionRecord){ val all=(listOf(s)+loadSessions()).take(50); val a=JSONArray(); all.forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e))}; prefs.edit().putString("sessions",a.toString()).apply() }
+    fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.take(50).forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e))}; prefs.edit().putString("sessions",a.toString()).apply() }
+    fun addSession(s:SessionRecord){ saveSessions(listOf(s)+loadSessions()) }
+    fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
 }
 
 private val profiles = listOf(
@@ -296,7 +298,7 @@ fun HybridFitnessApp() {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.LIBRARY -> Library(activeProfile, athlete, sessions) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles, { selected -> activeProfile = selected; store.saveActiveProfileName(selected.name) }, { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile = created; store.saveActiveProfileName(created.name) })
-                    Tab.PROGRESS -> Progress(athlete, sessions) { updated -> athlete = updated; store.saveAthlete(updated) }
+                    Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
                 }
             }
         }
@@ -375,14 +377,14 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     var filterDialog by remember { mutableStateOf<String?>(null) }
     val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Anelli","TRX","Bilanciere","Manubri","Panca","Cavi","Macchine","Elastici","Kettlebell","Leg press")
     val shown = exercises.filter { ex ->
-        (query.isBlank() || ex.name.contains(query,true) || ex.group.contains(query,true) || ex.equipment.contains(query,true) || ex.skills.any{it.contains(query,true)}) &&
+        (query.isBlank() || query.trim().split(Regex("\\s+")).all { token -> ex.name.contains(token,true) || ex.group.contains(token,true) || ex.equipment.contains(token,true) || ex.skills.any{it.contains(token,true)} }) &&
         (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
         (groupFilters.isEmpty() || groupFilters.any { ex.group.contains(it,true) }) &&
         (skillFilters.isEmpty() || skillFilters.any { it in ex.skills })
     }
     Column {
         Header("Libreria esercizi", exercises.size.toString()+" esercizi • "+calisthenicsSkills.size+" skill calisthenics")
-        OutlinedTextField(query,{query=it},leadingIcon={Icon(Icons.Default.Search,null)},placeholder={Text("Cerca esercizio, muscolo, attrezzo o skill")},modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth(),shape=RoundedCornerShape(16.dp))
+        OutlinedTextField(query,{query=it},leadingIcon={Icon(Icons.Default.Search,null)},placeholder={Text("Ricerca istantanea: esercizio, muscolo, attrezzo, skill")},modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth(),shape=RoundedCornerShape(16.dp))
         Row(Modifier.padding(horizontal=20.dp,vertical=6.dp),horizontalArrangement=Arrangement.spacedBy(5.dp)){
             FilterChip(selected=equipmentFilters.isNotEmpty(),onClick={filterDialog="equipment"},label={Text("Attrezzi"+if(equipmentFilters.isEmpty())"" else " ("+equipmentFilters.size+")")})
             FilterChip(selected=groupFilters.isNotEmpty(),onClick={filterDialog="groups"},label={Text("Muscoli"+if(groupFilters.isEmpty())"" else " ("+groupFilters.size+")")})
@@ -463,7 +465,7 @@ private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentPr
 }
 
 @Composable
-private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit) {
+private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit, onDeleteSession: (Long) -> Unit) {
     var edit by remember { mutableStateOf(false) }
     Column {
         Header("Profilo e progressi", "Dati salvati sul dispositivo")
@@ -476,7 +478,7 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
         }
         SectionTitle("Storico allenamenti")
         if(sessions.isEmpty()) Text("Completa un allenamento per iniziare lo storico.", color=Color.Gray, modifier=Modifier.padding(horizontal=20.dp))
-        else sessions.take(6).forEach { s -> ExerciseRow(s.profileName, s.completedSets.toString()+"/"+s.totalSets+" serie • "+java.text.SimpleDateFormat("dd/MM/yyyy",java.util.Locale.ITALY).format(java.util.Date(s.timestamp))) }
+        else LazyColumn(Modifier.padding(horizontal=20.dp).weight(1f,false)){items(sessions){s->Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Row(verticalAlignment=Alignment.CenterVertically){Column(Modifier.weight(1f)){Text(s.profileName,fontWeight=FontWeight.Bold);Text(s.completedSets.toString()+"/"+s.totalSets+" serie • "+java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray,fontSize=12.sp)};TextButton(onClick={onDeleteSession(s.timestamp)}){Text("ELIMINA")}};if(s.exerciseNames.isNotEmpty())Text(s.exerciseNames.joinToString(" • "),fontSize=12.sp,color=Color.Gray)}}}}
     }
     if(edit) AthleteDialog(athlete,{edit=false}) { onAthleteSave(it); edit=false }
 }
