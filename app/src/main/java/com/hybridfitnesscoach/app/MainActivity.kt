@@ -613,6 +613,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                 generationMessage?.let{Text(it,color=if(generated.isEmpty())MaterialTheme.colorScheme.error else Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=6.dp))}
                 if(generated.isNotEmpty())Text("Workout generato: "+generated.size+" esercizi • circa "+minutes+" min",color=Color.Gray)
             }
+            }
         }
         if(running) item { val mm=elapsedSeconds/60; val ss=elapsedSeconds%60; Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Text("Tempo allenamento: "+String.format("%02d:%02d",mm,ss),fontWeight=FontWeight.Bold); if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold); if(restRemaining>0) Text("Recupero "+restKind.lowercase()+": "+restRemaining+" sec",color=Accent,fontSize=20.sp,fontWeight=FontWeight.Bold)
 Text("Recupero tra esercizi: "+exerciseRestSeconds+" sec • consigliato dal workout",color=Color.Gray,fontSize=12.sp)
