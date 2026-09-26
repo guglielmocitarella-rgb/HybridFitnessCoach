@@ -7,18 +7,40 @@ plugins {
 android {
     namespace = "com.hybridfitnesscoach.app"
     compileSdk = 37
+
     defaultConfig {
         applicationId = "com.hybridfitnesscoach.app"
         minSdk = 26
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 5
+        versionName = "0.5.0"
     }
+
+    signingConfigs {
+        create("release") {
+            val keystorePath = System.getenv("HFC_KEYSTORE_PATH")
+            if (!keystorePath.isNullOrBlank()) {
+                storeFile = file(keystorePath)
+                storePassword = System.getenv("HFC_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("HFC_KEY_ALIAS")
+                keyPassword = System.getenv("HFC_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
+            isMinifyEnabled = false
+        }
+    }
+
     buildFeatures { compose = true }
-compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
