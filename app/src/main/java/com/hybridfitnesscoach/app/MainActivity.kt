@@ -558,7 +558,11 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                     Card(Modifier.fillMaxWidth().padding(vertical = 5.dp)) {
                         Column(Modifier.padding(12.dp)) {
                             Text(ex.name, fontWeight = FontWeight.Bold)
-                            Text("3 serie • " + ex.equipment + " • " + ex.role, color = Color.Gray, fontSize = 12.sp)
+                            val timed = ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)
+                            val target = if(timed) if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10
+                            val rest = if(ex.role=="Forza"||ex.role=="Progressione")120 else if(ex.role=="Prerequisito")90 else 60
+                            Text("3 serie × "+target+(if(timed)" sec" else " rip")+" • recupero "+rest+" sec", color = Accent, fontSize = 12.sp)
+                            Text(ex.equipment + " • " + ex.role, color = Color.Gray, fontSize = 12.sp)
                             Row(
                                 Modifier.fillMaxWidth().padding(top = 8.dp),
                                 verticalAlignment = Alignment.CenterVertically
