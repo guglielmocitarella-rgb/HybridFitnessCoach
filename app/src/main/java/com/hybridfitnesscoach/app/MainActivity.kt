@@ -526,6 +526,9 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     var paused by remember { mutableStateOf(false) }
     var elapsedSeconds by remember { mutableIntStateOf(0) }
     var restRemaining by remember { mutableIntStateOf(0) }
+    var exerciseRestSeconds by remember { mutableIntStateOf(180) }
+    var restKind by remember { mutableStateOf("Serie") }
+    var lastCompletedExercise by remember { mutableStateOf<String?>(null) }
     var currentExercise by remember { mutableStateOf<String?>(null) }
     var generationMessage by remember { mutableStateOf<String?>(null) }
     val completed = remember { mutableStateMapOf<String, Int>() }
@@ -575,8 +578,22 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                 if(generated.isNotEmpty())Text("Workout generato: "+generated.size+" esercizi • circa "+minutes+" min",color=Color.Gray)
             }
         }
-        if(running) item { val mm=elapsedSeconds/60; val ss=elapsedSeconds%60; Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Text("Tempo allenamento: "+String.format("%02d:%02d",mm,ss),fontWeight=FontWeight.Bold); if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold); if(restRemaining>0) Text("Recupero: "+restRemaining+" sec",color=Accent,fontSize=20.sp,fontWeight=FontWeight.Bold); Row{OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}; if(restRemaining>0){Spacer(Modifier.width(6.dp));TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}}}}} }
-        items(generated){ex->val n=completed[ex.name]?:0;val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){Column(Modifier.padding(10.dp)){Text(ex.name,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);Text("3 serie × "+(reps[ex.name]?:0)+(if(timed)" sec" else " rip")+" • recupero "+(restSeconds[ex.name]?:60)+" sec",color=Accent,fontSize=12.sp);if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3&&restRemaining==0){completed[ex.name]=n+1;currentExercise=ex.name;restRemaining=restSeconds[ex.name]?:60}},enabled=restRemaining==0&&!paused){Text("+ SERIE")}}}}}
+        if(running) item { val mm=elapsedSeconds/60; val ss=elapsedSeconds%60; Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Text("Tempo allenamento: "+String.format("%02d:%02d",mm,ss),fontWeight=FontWeight.Bold); if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold); if(restRemaining>0) Text("Recupero "+restKind.lowercase()+": "+restRemaining+" sec",color=Accent,fontSize=20.sp,fontWeight=FontWeight.Bold)
+Text("Recupero tra esercizi: "+exerciseRestSeconds+" sec",color=Color.Gray,fontSize=12.sp)
+Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){listOf(60,90,120,180,240).forEach{v->FilterChip(exerciseRestSeconds==v,{exerciseRestSeconds=v},{Text(v.toString()+"s")})}}
+Row{OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}; if(restRemaining>0){Spacer(Modifier.width(6.dp));TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}}}}} }
+        items(generated){ex->val n=completed[ex.name]?:0;val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){Column(Modifier.padding(10.dp)){Text(ex.name,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);Text("3 serie × "+(reps[ex.name]?:0)+(if(timed)" sec" else " rip"),color=Accent,fontSize=12.sp)
+if(running){
+ Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
+}
+if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3&&restRemaining==0){
+ val previousExercise=lastCompletedExercise
+ completed[ex.name]=n+1;currentExercise=ex.name
+ val finishedExercise=(n+1)>=3
+ restKind=if(finishedExercise)"Esercizio" else "Serie"
+ restRemaining=if(finishedExercise && previousExercise!=ex.name) exerciseRestSeconds else if(finishedExercise) exerciseRestSeconds else (restSeconds[ex.name]?:60)
+ if(finishedExercise) lastCompletedExercise=ex.name
+}},enabled=restRemaining==0&&!paused){Text("+ SERIE")}}}}}
     }},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(skill!="Nessuna")" • "+skill else "",completed.values.sum(),total,generated.map{it.name}));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
 }
 
