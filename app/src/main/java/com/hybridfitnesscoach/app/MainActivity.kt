@@ -689,6 +689,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     var paused by remember { mutableStateOf(false) }
     var elapsedSeconds by remember { mutableIntStateOf(0) }
     var restRemaining by remember { mutableIntStateOf(0) }
+    var restEndsAt by remember { mutableStateOf<Long?>(null) }
     var exerciseRestSeconds by remember { mutableIntStateOf(180) }
     var restKind by remember { mutableStateOf("Serie") }
     var currentExercise by remember { mutableStateOf<String?>(null) }
@@ -701,7 +702,14 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     var workoutRpe by remember { mutableIntStateOf(5) }
     val listState = rememberLazyListState()
 
-    LaunchedEffect(running,paused,restRemaining){ while(running && !paused){ delay(1000); elapsedSeconds++; if(restRemaining>0) restRemaining-- } }
+    LaunchedEffect(running,paused,restEndsAt){ while(running&&!paused){ val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);delay(500);elapsedSeconds++/2 } }
+    LaunchedEffect(running,currentExercise,restRemaining,completed.toMap(),exerciseRpe.toMap(),workoutRpe) {
+        if(running&&store!=null){
+            val now=System.currentTimeMillis()
+            val states=generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name])}
+            store.saveActiveWorkout(WorkoutSessionState("custom-"+now,now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe))
+        }
+    }
     LaunchedEffect(running) { if(running){ currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name; listState.scrollToItem(0) } }
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
@@ -732,8 +740,8 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold)
                             if(restRemaining>0) Text("Recupero "+restKind.lowercase()+": "+restRemaining+" sec",color=Accent,fontSize=18.sp,fontWeight=FontWeight.Bold)
                             Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){
-                                OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}
-                                if(restRemaining>0) TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}
+                                OutlinedButton(onClick={if(paused){paused=false;if(restRemaining>0)restEndsAt=System.currentTimeMillis()+restRemaining*1000L}else{paused=true;restRemaining=remainingSeconds(restEndsAt);restEndsAt=null}}){Text(if(paused)"RIPRENDI" else "PAUSA")}
+                                if(restRemaining>0) TextButton(onClick={restRemaining=0;restEndsAt=null}){Text("SALTA RECUPERO")}
                             }
                         }
                     }
@@ -793,8 +801,8 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                             Button(onClick={
                                                 if(n<targetSets&&restRemaining==0&&!paused){
                                                     val next=n+1;completed[ex.name]=next
-                                                    if(next>=targetSets){restKind="Esercizio";restRemaining=exerciseRestSeconds;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name?:generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
-                                                    else {restKind="Serie";restRemaining=restSeconds[ex.name]?:60;currentExercise=ex.name}
+                                                    if(next>=targetSets){restKind="Esercizio";restRemaining=exerciseRestSeconds;restEndsAt=System.currentTimeMillis()+exerciseRestSeconds*1000L;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name?:generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
+                                                    else {restKind="Serie";restRemaining=restSeconds[ex.name]?:60;restEndsAt=System.currentTimeMillis()+restRemaining*1000L;currentExercise=ex.name}
                                                 }
                                             },enabled=restRemaining==0&&!paused){Text("+ SERIE")}
                                         }
@@ -811,7 +819,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             if(generated.isNotEmpty()){
                 Button(onClick={
                     if(!running){running=true;paused=false;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
-                    else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds));onDismiss()}
+                    else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name])}));store?.clearActiveWorkout();onDismiss()}
                 }){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}
             }
         },
@@ -833,13 +841,14 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     var paused by remember { mutableStateOf(restored?.pausedAtEpochMs != null) }
     var elapsedSeconds by remember { mutableIntStateOf(restored?.let{((System.currentTimeMillis()-it.startedAtEpochMs)/1000).toInt().coerceAtLeast(0)}?:0) }
     var restRemaining by remember { mutableIntStateOf(remainingSeconds(restored?.restEndsAtEpochMs)) }
+    var restEndsAt by remember { mutableStateOf(restored?.restEndsAtEpochMs) }
     var restKind by remember { mutableStateOf("Serie") }
     var currentExercise by remember { mutableStateOf<String?>(restored?.exercises?.getOrNull(restored.currentExerciseIndex)?.exerciseName) }
     val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply { restored?.exercises?.forEach{e->e.rpe?.let{put(e.exerciseName,it)}} } }
     var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
     val listState = rememberLazyListState()
 
-    LaunchedEffect(started,paused,restRemaining){while(started&&!paused){delay(1000);elapsedSeconds++;if(restRemaining>0)restRemaining--}}
+    LaunchedEffect(started,paused,restEndsAt){while(started&&!paused){restRemaining=remainingSeconds(restEndsAt);delay(500);elapsedSeconds++/2}}
     LaunchedEffect(started, paused, currentExercise, restRemaining, doneSets, workoutRpe) {
         if(started) {
             val now=System.currentTimeMillis()
@@ -847,7 +856,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                 val p=prescriptionFor(ex); val done=completedSets[ex.name]?:0
                 WorkoutExerciseState(ex.name,ex.measure,(0 until p.sets).map { s -> WorkoutSetState(s,targetReps=if(ex.measure==ExerciseMeasure.REPS)p.value.toInt() else null,targetSeconds=if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION)p.value.toInt() else null,targetDistanceMeters=if(ex.measure==ExerciseMeasure.DISTANCE)p.value else null,completed=s<done) },when{done>=p.sets->WorkoutExerciseStatus.COMPLETED;done>0->WorkoutExerciseStatus.PARTIAL;else->WorkoutExerciseStatus.PENDING},exerciseRpe[ex.name],false,ex.setRestSec,ex.exerciseRestSec,index,index)
             }
-            store.saveActiveWorkout(WorkoutSessionState(restored?.id?:"auto-"+now,restored?.startedAtEpochMs?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,if(restRemaining>0)now+restRemaining*1000L else null,workoutRpe))
+            store.saveActiveWorkout(WorkoutSessionState(restored?.id?:"auto-"+now,restored?.startedAtEpochMs?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe))
         }
     }
     LaunchedEffect(started){if(started){currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;listState.scrollToItem(0)}}
@@ -865,8 +874,8 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                             if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold)
                             if(restRemaining>0) Text("Recupero "+restKind.lowercase()+": "+restRemaining+" sec",color=Accent,fontSize=18.sp,fontWeight=FontWeight.Bold)
                             Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){
-                                OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}
-                                if(restRemaining>0) TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}
+                                OutlinedButton(onClick={if(paused){paused=false;if(restRemaining>0)restEndsAt=System.currentTimeMillis()+restRemaining*1000L}else{paused=true;restRemaining=remainingSeconds(restEndsAt);restEndsAt=null}}){Text(if(paused)"RIPRENDI" else "PAUSA")}
+                                if(restRemaining>0) TextButton(onClick={restRemaining=0;restEndsAt=null}){Text("SALTA RECUPERO")}
                             }
                         }
                     }
@@ -906,10 +915,10 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                                 val next=count+1
                                                 completedSets[ex.name]=next
                                                 if(next>=targetSets){
-                                                    restKind="Esercizio";restRemaining=ex.exerciseRestSec
+                                                    restKind="Esercizio";restRemaining=ex.exerciseRestSec;restEndsAt=System.currentTimeMillis()+ex.exerciseRestSec*1000L
                                                     currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name?:compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name
                                                 }else{
-                                                    restKind="Serie";restRemaining=ex.setRestSec;currentExercise=ex.name
+                                                    restKind="Serie";restRemaining=ex.setRestSec;restEndsAt=System.currentTimeMillis()+ex.setRestSec*1000L;currentExercise=ex.name
                                                 }
                                             }
                                         },enabled=!paused&&restRemaining==0){Text("+ SERIE")}
