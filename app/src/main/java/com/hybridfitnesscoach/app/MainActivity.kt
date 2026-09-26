@@ -546,6 +546,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     val equipmentFilters = remember { mutableStateListOf<String>() }
     val groupFilters = remember { mutableStateListOf<String>() }
     val skillFilters = remember { mutableStateListOf<String>() }
+    val typeFilters = remember { mutableStateListOf<String>() }
     val measureFilters = remember { mutableStateListOf<ExerciseMeasure>() }
     var filterDialog by remember { mutableStateOf<String?>(null) }
     val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Anelli","TRX","Bilanciere","Manubri","Panca","Cavi","Macchine","Elastici","Kettlebell","Leg press")
@@ -555,6 +556,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
         (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
         (groupFilters.isEmpty() || groupFilters.any { ex.group.contains(it,true) }) &&
         (skillFilters.isEmpty() || skillFilters.any { it in ex.skills }) &&
+        (typeFilters.isEmpty() || typeFilters.any { t -> ex.measure.name.equals(t,true) || ex.category.name.equals(t,true) }) &&
         (measureFilters.isEmpty() || ex.measure in measureFilters)
     }
     Column {
@@ -564,10 +566,11 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
             FilterChip(selected=equipmentFilters.isNotEmpty(),onClick={filterDialog="equipment"},label={Text("Attrezzi"+if(equipmentFilters.isEmpty())"" else " ("+equipmentFilters.size+")")})
             FilterChip(selected=groupFilters.isNotEmpty(),onClick={filterDialog="groups"},label={Text("Muscoli"+if(groupFilters.isEmpty())"" else " ("+groupFilters.size+")")})
             FilterChip(selected=skillFilters.isNotEmpty(),onClick={filterDialog="skills"},label={Text("Skill"+if(skillFilters.isEmpty())"" else " ("+skillFilters.size+")")})
+            FilterChip(selected=typeFilters.isNotEmpty(),onClick={filterDialog="types"},label={Text("Tipo"+if(typeFilters.isEmpty())"" else " ("+typeFilters.size+")")})
             FilterChip(selected=measureFilters.isNotEmpty(),onClick={filterDialog="measure"},label={Text("Tipo"+if(measureFilters.isEmpty())"" else " ("+measureFilters.size+")")})
         }
-        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()||measureFilters.isNotEmpty()) {
- Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear();measureFilters.clear()}){Text("AZZERA")}}
+        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()||typeFilters.isNotEmpty()||measureFilters.isNotEmpty()) {
+ Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear();typeFilters.clear();measureFilters.clear()}){Text("AZZERA")}}
  Button(onClick={filteredWorkout=true},enabled=shown.isNotEmpty(),modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth()){Text("GENERA WORKOUT DAI FILTRI")}
 }
         LazyColumn(contentPadding=PaddingValues(horizontal=20.dp,vertical=6.dp)){
@@ -580,9 +583,9 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
         AlertDialog(onDismissRequest={filterDialog=null},title={Text("Filtra per tipo esercizio")},text={Column{ExerciseMeasure.entries.forEach{m->Row(Modifier.fillMaxWidth().clickable{if(m in measureFilters)measureFilters.remove(m)else measureFilters.add(m)},verticalAlignment=Alignment.CenterVertically){Checkbox(m in measureFilters,{checked->if(checked){if(m !in measureFilters)measureFilters.add(m)}else measureFilters.remove(m)});Text(m.name)}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={measureFilters.clear()}){Text("AZZERA")}})
     }
     filterDialog?.takeIf{it!="measure"}?.let { type ->
-        val title=when(type){"equipment"->"Filtra per attrezzatura";"groups"->"Filtra per gruppi muscolari";else->"Filtra per skill"}
-        val opts=when(type){"equipment"->equipmentOptions;"groups"->recoveryGroups;else->calisthenicsSkills.map{it.name}}
-        val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;else->skillFilters}
+        val title=when(type){"equipment"->"Filtra per attrezzatura";"groups"->"Filtra per gruppi muscolari";"types"->"Filtra per tipologia";else->"Filtra per skill"}
+        val opts=when(type){"equipment"->equipmentOptions;"groups"->recoveryGroups;"types"->ExerciseMeasure.entries.map{it.name}+ExerciseCategory.entries.filter{it!=ExerciseCategory.OTHER}.map{it.name};else->calisthenicsSkills.map{it.name}}
+        val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;"types"->typeFilters;else->skillFilters}
         AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column(Modifier.clickable(enabled=type=="skills"){if(type=="skills"){selectedSkill=o;filterDialog=null}}){Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
     }
     selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
