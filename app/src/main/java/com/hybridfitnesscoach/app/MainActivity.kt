@@ -1,6 +1,7 @@
 package com.hybridfitnesscoach.app
 
 import android.os.Bundle
+import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
@@ -18,12 +19,31 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.json.JSONArray
+import org.json.JSONObject
 
 private val Accent = Color(0xFF3568E8)
 private val Bg = Color(0xFFF7F8FA)
 
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
 data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skill: String? = null)
+data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3)
+data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int)
+
+private class AppStore(context: Context) {
+    private val prefs = context.getSharedPreferences("hybrid_fitness_store", Context.MODE_PRIVATE)
+    fun loadAthlete() = AthleteProfile(prefs.getString("athlete_name","") ?: "", prefs.getString("athlete_goal","Forza + skill") ?: "Forza + skill", prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3))
+    fun saveAthlete(p: AthleteProfile) { prefs.edit().putString("athlete_name",p.name).putString("athlete_goal",p.goal).putString("athlete_level",p.level).putInt("athlete_days",p.daysPerWeek).apply() }
+    fun loadActiveProfileName() = prefs.getString("active_equipment","Palestra") ?: "Palestra"
+    fun saveActiveProfileName(name:String) { prefs.edit().putString("active_equipment",name).apply() }
+    fun loadCustomProfiles(): List<EquipmentProfile> = try {
+        val a=JSONArray(prefs.getString("custom_profiles","[]") ?: "[]")
+        (0 until a.length()).map { i -> val o=a.getJSONObject(i); val e=o.getJSONArray("equipment"); EquipmentProfile(o.getString("name"),"📍",(0 until e.length()).map { e.getString(it) }) }
+    } catch(_:Exception){ emptyList() }
+    fun saveCustomProfiles(items:List<EquipmentProfile>) { val a=JSONArray(); items.forEach { p -> val e=JSONArray(); p.equipment.forEach{e.put(it)}; a.put(JSONObject().put("name",p.name).put("equipment",e)) }; prefs.edit().putString("custom_profiles",a.toString()).apply() }
+    fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total")) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
+    fun addSession(s:SessionRecord){ val all=(listOf(s)+loadSessions()).take(50); val a=JSONArray(); all.forEach{x->a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets))}; prefs.edit().putString("sessions",a.toString()).apply() }
+}
 
 private val profiles = listOf(
     EquipmentProfile("Palestra", "🏋️", listOf("Bilanciere", "Manubri", "Cavi", "Macchine", "Sbarra", "Parallele")),
@@ -54,8 +74,13 @@ enum class Tab { HOME, LIBRARY, EQUIPMENT, PROGRESS }
 
 @Composable
 fun HybridFitnessApp() {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val store = remember { AppStore(context) }
     var tab by remember { mutableStateOf(Tab.HOME) }
-    var activeProfile by remember { mutableStateOf(profiles.first()) }
+    val customProfiles = remember { mutableStateListOf<EquipmentProfile>().apply { addAll(store.loadCustomProfiles()) } }
+    var activeProfile by remember { mutableStateOf((profiles + customProfiles).firstOrNull { it.name == store.loadActiveProfileName() } ?: profiles.first()) }
+    var athlete by remember { mutableStateOf(store.loadAthlete()) }
+    var sessions by remember { mutableStateOf(store.loadSessions()) }
     MaterialTheme(colorScheme = lightColorScheme(primary = Accent, background = Bg, surface = Color.White)) {
         Scaffold(
             containerColor = Bg,
@@ -74,10 +99,10 @@ fun HybridFitnessApp() {
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
-                    Tab.HOME -> Home(activeProfile) { tab = Tab.EQUIPMENT }
+                    Tab.HOME -> Home(activeProfile, athlete, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.LIBRARY -> Library()
-                    Tab.EQUIPMENT -> Equipment(activeProfile) { activeProfile = it }
-                    Tab.PROGRESS -> Progress()
+                    Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles, { selected -> activeProfile = selected; store.saveActiveProfileName(selected.name) }, { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile = created; store.saveActiveProfileName(created.name) })
+                    Tab.PROGRESS -> Progress(athlete, sessions) { updated -> athlete = updated; store.saveAthlete(updated) }
                 }
             }
         }
@@ -92,10 +117,10 @@ fun HybridFitnessApp() {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {
+private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, changeProfile: () -> Unit, onSessionSaved: (SessionRecord) -> Unit) {
     var workoutOpen by remember { mutableStateOf(false) }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
-        item { Header("Buongiorno 👋", "Il tuo coach ibrido: palestra + calisthenics") }
+        item { Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", athlete.goal + " • " + athlete.daysPerWeek + " giorni/settimana") }
         item {
             Card(Modifier.padding(horizontal = 20.dp).fillMaxWidth(), shape = RoundedCornerShape(20.dp)) {
                 Column(Modifier.padding(20.dp)) {
@@ -123,7 +148,7 @@ private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {
             }
         }
     }
-    if (workoutOpen) { WorkoutDialog(profile = profile, onDismiss = { workoutOpen = false }) }
+    if (workoutOpen) { WorkoutDialog(profile = profile, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
 }
 
 @Composable private fun Recovery(name: String, value: String) { Column(horizontalAlignment = Alignment.CenterHorizontally) { Text(value, fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Accent); Text(name, color = Color.Gray) } }
@@ -154,12 +179,11 @@ private fun Library() {
 }
 
 @Composable
-private fun Equipment(active: EquipmentProfile, select: (EquipmentProfile) -> Unit) {
+private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentProfile>, select: (EquipmentProfile) -> Unit, addProfile: (EquipmentProfile) -> Unit) {
     var showCreator by remember { mutableStateOf(false) }
-    var customProfile by remember { mutableStateOf<EquipmentProfile?>(null) }
     Column {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
-        (profiles + listOfNotNull(customProfile)).forEach { p ->
+        (profiles + customProfiles).forEach { p ->
             Card(Modifier.padding(horizontal = 20.dp, vertical = 6.dp).fillMaxWidth().clickable { select(p) }, colors = CardDefaults.cardColors(containerColor = if (p == active) Accent.copy(alpha=.10f) else Color.White)) {
                 Row(Modifier.padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(p.icon, fontSize = 32.sp); Spacer(Modifier.width(14.dp)); Column(Modifier.weight(1f)) { Text(p.name, fontSize = 19.sp, fontWeight = FontWeight.Bold); Text(p.equipment.joinToString(" • "), color = Color.Gray, fontSize = 13.sp) }
@@ -172,28 +196,42 @@ private fun Equipment(active: EquipmentProfile, select: (EquipmentProfile) -> Un
     if (showCreator) {
         EquipmentProfileDialog(
             onDismiss = { showCreator = false },
-            onCreate = { created -> customProfile = created; select(created); showCreator = false }
+            onCreate = { created -> addProfile(created); showCreator = false }
         )
     }
 }
 
 @Composable
-private fun Progress() {
+private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit) {
+    var edit by remember { mutableStateOf(false) }
     Column {
-        Header("Progressi", "Forza e skill nello stesso posto")
-        SectionTitle("Skill")
-        listOf("Muscle-up" to 34, "Handstand push-up" to 48, "Front lever" to 21).forEach { (name, pct) ->
-            Card(Modifier.padding(horizontal = 20.dp, vertical = 6.dp).fillMaxWidth()) { Column(Modifier.padding(16.dp)) { Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { Text(name, fontWeight = FontWeight.Bold); Text("$pct%", color = Accent) }; LinearProgressIndicator(progress = { pct/100f }, modifier = Modifier.fillMaxWidth().padding(top=10.dp)) } }
+        Header("Profilo e progressi", "Dati salvati sul dispositivo")
+        Card(Modifier.padding(horizontal=20.dp).fillMaxWidth().clickable { edit=true }) {
+            Column(Modifier.padding(18.dp)) {
+                Text(if(athlete.name.isBlank()) "Configura profilo atleta" else athlete.name, fontSize=20.sp, fontWeight=FontWeight.Bold)
+                Text(athlete.goal + " • " + athlete.level + " • " + athlete.daysPerWeek + " giorni/settimana", color=Color.Gray)
+                Text("TOCCA PER MODIFICARE", color=Accent, fontSize=12.sp, modifier=Modifier.padding(top=8.dp))
+            }
         }
-        SectionTitle("Forza")
-        ExerciseRow("Panca piana", "70 kg × 8 · +5 kg nelle ultime 6 settimane")
-        ExerciseRow("Trazioni", "8 reps · +2 reps nelle ultime 4 settimane")
+        SectionTitle("Storico allenamenti")
+        if(sessions.isEmpty()) Text("Completa un allenamento per iniziare lo storico.", color=Color.Gray, modifier=Modifier.padding(horizontal=20.dp))
+        else sessions.take(6).forEach { s -> ExerciseRow(s.profileName, s.completedSets.toString()+"/"+s.totalSets+" serie • "+java.text.SimpleDateFormat("dd/MM/yyyy",java.util.Locale.ITALY).format(java.util.Date(s.timestamp))) }
     }
+    if(edit) AthleteDialog(athlete,{edit=false}) { onAthleteSave(it); edit=false }
 }
 
+@Composable
+private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(AthleteProfile)->Unit){
+    var name by remember{mutableStateOf(current.name)}; var goal by remember{mutableStateOf(current.goal)}; var level by remember{mutableStateOf(current.level)}; var days by remember{mutableIntStateOf(current.daysPerWeek)}
+    AlertDialog(onDismissRequest=onDismiss,title={Text("Profilo atleta")},text={LazyColumn(Modifier.heightIn(max=520.dp)){
+        item{OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth()); Text("Obiettivo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))}
+        items(listOf("Forza + skill","Ipertrofia","Calisthenics","Fitness generale")){x->Row(Modifier.fillMaxWidth().clickable{goal=x},verticalAlignment=Alignment.CenterVertically){RadioButton(goal==x,{goal=x});Text(x)}}
+        item{Text("Livello",fontWeight=FontWeight.Bold); listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}; Text("Allenamenti a settimana: "+days,fontWeight=FontWeight.Bold); Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(days>1)days--}){Text("−")};Spacer(Modifier.width(12.dp));Text(days.toString(),fontSize=20.sp);Spacer(Modifier.width(12.dp));Button(onClick={if(days<7)days++}){Text("+")}}}
+    }},confirmButton={Button(onClick={onSave(AthleteProfile(name.trim(),goal,level,days))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
+}
 
 @Composable
-private fun WorkoutDialog(profile: EquipmentProfile, onDismiss: () -> Unit) {
+private fun WorkoutDialog(profile: EquipmentProfile, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
     val compatible = remember(profile) {
         exercises.filter { ex ->
             profile.equipment.any { eq ->
@@ -242,7 +280,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, onDismiss: () -> Unit) {
                 }
             }
         },
-        confirmButton = { Button(onClick = onDismiss) { Text(if (totalSets > 0 && doneSets == totalSets) "TERMINA" else "SALVA E CHIUDI") } },
+        confirmButton = { Button(onClick = { onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets)); onDismiss() }) { Text(if (totalSets > 0 && doneSets == totalSets) "TERMINA" else "SALVA E CHIUDI") } },
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }
