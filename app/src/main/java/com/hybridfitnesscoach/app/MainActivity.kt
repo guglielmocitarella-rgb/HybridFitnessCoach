@@ -46,7 +46,7 @@ private class AppStore(context: Context) {
 }
 
 private val profiles = listOf(
-    EquipmentProfile("Palestra", "🏋️", listOf("Bilanciere", "Manubri", "Cavi", "Macchine", "Sbarra", "Parallele")),
+    EquipmentProfile("Palestra", "🏋️", listOf("Bilanciere", "Manubri", "Cavi", "Macchine", "Sbarra", "Parallele", "Panca", "Kettlebell", "Leg press")),
     EquipmentProfile("Casa", "🏠", listOf("Corpo libero", "Sbarra", "Elastici")),
     EquipmentProfile("Parco", "🌳", listOf("Sbarra", "Parallele", "Corpo libero"))
 )
@@ -66,7 +66,31 @@ private val exercises = listOf(
     Exercise("Pike push-up", "Spalle", "Corpo libero", "Intermedio", listOf("Handstand push-up"), "Prerequisito"),
     Exercise("Wall handstand", "Spalle / Core", "Corpo libero", "Intermedio", listOf("Handstand", "Handstand push-up"), "Progressione"),
     Exercise("Hollow body hold", "Core", "Corpo libero", "Principiante", listOf("Front lever", "Planche"), "Prerequisito"),
-    Exercise("Tuck front lever", "Dorso / Core", "Sbarra", "Intermedio", listOf("Front lever"), "Progressione")
+    Exercise("Tuck front lever", "Dorso / Core", "Sbarra", "Intermedio", listOf("Front lever"), "Progressione"),
+    Exercise("Chin-up", "Dorso / Bicipiti", "Sbarra", "Intermedio", listOf("Muscle-up"), "Prerequisito"),
+    Exercise("Scapular pull-up", "Dorso", "Sbarra", "Principiante", listOf("Trazioni", "Front lever"), "Accessorio"),
+    Exercise("Rematore bilanciere", "Dorso", "Bilanciere", "Intermedio", emptyList(), "Forza"),
+    Exercise("Rematore manubrio", "Dorso", "Manubri", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Pulley basso", "Dorso", "Cavi", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Military press", "Spalle", "Bilanciere", "Intermedio", listOf("Handstand push-up"), "Forza"),
+    Exercise("Shoulder press manubri", "Spalle", "Manubri", "Principiante", listOf("Handstand push-up"), "Forza"),
+    Exercise("Alzate laterali", "Spalle", "Manubri", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Chest press", "Petto", "Macchine", "Principiante", emptyList(), "Forza"),
+    Exercise("Croci ai cavi", "Petto", "Cavi", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Diamond push-up", "Petto / Tricipiti", "Corpo libero", "Intermedio", listOf("Planche"), "Accessorio"),
+    Exercise("Affondi", "Gambe", "Manubri / corpo libero", "Principiante", listOf("Pistol squat"), "Accessorio"),
+    Exercise("Goblet squat", "Gambe", "Kettlebell", "Principiante", listOf("Pistol squat"), "Forza"),
+    Exercise("Leg press", "Gambe", "Leg press", "Principiante", emptyList(), "Forza"),
+    Exercise("Romanian deadlift", "Gambe / Dorso", "Bilanciere", "Intermedio", emptyList(), "Forza"),
+    Exercise("Calf raise", "Gambe", "Corpo libero", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Plank", "Core", "Corpo libero", "Principiante", listOf("Planche"), "Prerequisito"),
+    Exercise("Side plank", "Core", "Corpo libero", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Hanging knee raise", "Core", "Sbarra", "Intermedio", listOf("Front lever"), "Accessorio"),
+    Exercise("L-sit tuck", "Core", "Parallele", "Intermedio", listOf("L-sit"), "Progressione"),
+    Exercise("Band pull-apart", "Dorso / Spalle", "Elastici", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Face pull elastico", "Dorso / Spalle", "Elastici", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Curl manubri", "Bicipiti", "Manubri", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Pushdown cavo", "Tricipiti", "Cavi", "Principiante", emptyList(), "Accessorio")
 )
 
 private fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean =
@@ -78,6 +102,25 @@ private fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolea
 
 private fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 
+private val recoveryGroups = listOf("Dorso", "Petto", "Spalle", "Gambe", "Core", "Bicipiti", "Tricipiti")
+
+private fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.currentTimeMillis()): Map<String, Int> {
+    val fatigue = recoveryGroups.associateWith { 0.0 }.toMutableMap()
+    sessions.take(12).forEach { session ->
+        val ageHours = (now - session.timestamp).coerceAtLeast(0L) / 3_600_000.0
+        if (ageHours < 72.0 && session.totalSets > 0) {
+            val completion = (session.completedSets.toDouble() / session.totalSets).coerceIn(0.0, 1.0)
+            val timeWeight = (1.0 - ageHours / 72.0).coerceIn(0.0, 1.0)
+            session.exerciseNames.mapNotNull { n -> exercises.firstOrNull { it.name == n } }.forEach { ex ->
+                recoveryGroups.filter { ex.group.contains(it, ignoreCase = true) }.forEach { group ->
+                    fatigue[group] = (fatigue[group] ?: 0.0) + 42.0 * completion * timeWeight
+                }
+            }
+        }
+    }
+    return fatigue.mapValues { (_, load) -> (100.0 - load.coerceAtMost(90.0)).toInt().coerceIn(10, 100) }
+}
+
 private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>): List<Exercise> {
     val maxLevel = levelScore(athlete.level)
     val available = exercises.filter { equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
@@ -87,8 +130,15 @@ private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, 
         "Forza + skill" -> listOf("Prerequisito", "Progressione", "Forza", "Accessorio")
         else -> listOf("Forza", "Prerequisito", "Accessorio", "Progressione")
     }
-    val recentNames = sessions.take(2).flatMap { it.exerciseNames }.toSet()
-    val freshnessSorted = available.sortedWith(compareBy<Exercise> { if (it.name in recentNames) 1 else 0 }.thenBy { preferredRoles.indexOf(it.role).let { i -> if(i < 0) 99 else i } })
+    val recentNames = sessions.take(3).flatMap { it.exerciseNames }.groupingBy { it }.eachCount()
+    val recovery = recoveryScores(sessions)
+    val freshnessSorted = available.sortedWith(
+        compareBy<Exercise> { ex ->
+            val repeatPenalty = (recentNames[ex.name] ?: 0) * 35
+            val musclePenalty = recovery.filterKeys { ex.group.contains(it, true) }.values.minOrNull()?.let { 100 - it } ?: 0
+            repeatPenalty + musclePenalty
+        }.thenBy { preferredRoles.indexOf(it.role).let { i -> if(i < 0) 99 else i } }
+    )
     val result = mutableListOf<Exercise>()
     preferredRoles.forEach { role -> freshnessSorted.filter { it.role == role }.forEach { if (it !in result && result.size < 6) result.add(it) } }
     freshnessSorted.forEach { if (it !in result && result.size < 6) result.add(it) }
@@ -172,18 +222,29 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         item { SectionTitle("Oggi") }
         items(listOf("Trazioni prone" to "3 × 6 · Skill: Muscle-up", "Panca piana" to "3 × 8 · 70 kg", "Pike push-up" to "3 × 10 · Skill: HSPU")) { (a,b) -> ExerciseRow(a,b) }
         item { SectionTitle("Recupero") }
-        item {
-            Card(Modifier.padding(horizontal = 20.dp).fillMaxWidth()) {
-                Row(Modifier.padding(18.dp), horizontalArrangement = Arrangement.SpaceBetween) {
-                    Recovery("Dorso", "92%"); Recovery("Petto", "78%"); Recovery("Gambe", "100%")
-                }
-            }
-        }
+        item { RecoveryChart(sessions) }
     }
     if (workoutOpen) { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
 }
 
-@Composable private fun Recovery(name: String, value: String) { Column(horizontalAlignment = Alignment.CenterHorizontally) { Text(value, fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Accent); Text(name, color = Color.Gray) } }
+@Composable
+private fun RecoveryChart(sessions: List<SessionRecord>) {
+    val scores = remember(sessions) { recoveryScores(sessions) }
+    Card(Modifier.padding(horizontal = 20.dp).fillMaxWidth()) {
+        Column(Modifier.padding(18.dp)) {
+            Text("Stima recupero muscolare", fontWeight = FontWeight.SemiBold)
+            Text("Basata su allenamenti completati e tempo trascorso", color = Color.Gray, fontSize = 12.sp, modifier = Modifier.padding(bottom = 12.dp))
+            recoveryGroups.forEach { group ->
+                val value = scores[group] ?: 100
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                    Text(group); Text("$value%", fontWeight = FontWeight.Bold, color = Accent)
+                }
+                LinearProgressIndicator(progress = { value / 100f }, modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp))
+            }
+            Text("Indicatore orientativo: non è una misura fisiologica o medica.", color = Color.Gray, fontSize = 11.sp)
+        }
+    }
+}
 @Composable private fun SectionTitle(s: String) { Text(s, fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(start = 20.dp, top = 24.dp, bottom = 10.dp)) }
 @Composable private fun ExerciseRow(a: String, b: String) { Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth()) { Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.FitnessCenter, null, tint = Accent); Spacer(Modifier.width(14.dp)); Column { Text(a, fontWeight = FontWeight.SemiBold); Text(b, color = Color.Gray, fontSize = 13.sp) } } } }
 
@@ -352,7 +413,7 @@ private fun EquipmentProfileDialog(
     onCreate: (EquipmentProfile) -> Unit
 ) {
     var name by remember { mutableStateOf("") }
-    val options = listOf("Corpo libero", "Sbarra", "Parallele", "Bilanciere", "Manubri", "Cavi", "Macchine", "Elastici")
+    val options = listOf("Corpo libero", "Sbarra", "Parallele", "Bilanciere", "Manubri", "Cavi", "Macchine", "Elastici", "Panca", "Kettlebell", "Leg press", "Anelli", "TRX")
     val selected = remember { mutableStateListOf<String>() }
 
     AlertDialog(
