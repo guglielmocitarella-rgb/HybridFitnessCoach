@@ -350,6 +350,18 @@ private fun prescriptionFor(ex:Exercise):ExercisePrescription {
     val unit=when(ex.measure){ExerciseMeasure.REPS->"rip";ExerciseMeasure.SECONDS,ExerciseMeasure.DURATION->"sec";ExerciseMeasure.DISTANCE->"m";ExerciseMeasure.INTERVALS->"sec lavoro"}
     return ExercisePrescription(ex.targetSets,ex.targetValue?:defaultValue,unit)
 }
+private fun plannedExerciseState(index:Int,ex:Exercise):WorkoutExerciseState {
+    val p=prescriptionFor(ex)
+    val sets=(0 until p.sets).map { n -> WorkoutSetState(index=n,targetReps=if(ex.measure==ExerciseMeasure.REPS)p.value.toInt() else null,targetSeconds=if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION||ex.measure==ExerciseMeasure.INTERVALS)p.value.toInt() else null,targetDistanceMeters=if(ex.measure==ExerciseMeasure.DISTANCE)p.value else null) }
+    return WorkoutExerciseState(ex.name,ex.measure,sets,WorkoutExerciseStatus.PENDING,null,false,ex.setRestSec,ex.exerciseRestSec,index,index)
+}
+private fun buildActiveWorkout(profileName:String,items:List<Exercise>,now:Long=System.currentTimeMillis())=WorkoutSessionState(now.toString(),now,profileName,items.mapIndexed(::plannedExerciseState))
+private fun completedExerciseState(index:Int,ex:Exercise,completed:Int,rpe:Int?):WorkoutExerciseState {
+    val planned=plannedExerciseState(index,ex)
+    val sets=planned.sets.mapIndexed { n,s -> if(n<completed) s.copy(actualReps=s.targetReps,actualSeconds=s.targetSeconds,actualDistanceMeters=s.targetDistanceMeters,completed=true) else s }
+    val status=when { sets.isNotEmpty()&&completed>=sets.size->WorkoutExerciseStatus.COMPLETED;completed>0->WorkoutExerciseStatus.PARTIAL;else->WorkoutExerciseStatus.PENDING }
+    return planned.copy(sets=sets,status=status,rpe=rpe)
+}
 private fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMillis()):Int =
     if(endEpochMs==null) 0 else kotlin.math.ceil((endEpochMs-now).coerceAtLeast(0L)/1000.0).toInt()
 
