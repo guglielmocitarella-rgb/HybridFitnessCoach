@@ -26,7 +26,7 @@ private val Accent = Color(0xFF3568E8)
 private val Bg = Color(0xFFF7F8FA)
 
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
-data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skill: String? = null)
+data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skills: List<String> = emptyList(), val role: String = "Base")
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3)
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int)
 
@@ -52,16 +52,46 @@ private val profiles = listOf(
 )
 
 private val exercises = listOf(
-    Exercise("Trazioni prone", "Dorso", "Sbarra", "Intermedio", "Muscle-up"),
-    Exercise("Lat machine", "Dorso", "Macchina", "Principiante"),
-    Exercise("Panca piana", "Petto", "Bilanciere", "Intermedio"),
-    Exercise("Push-up", "Petto", "Corpo libero", "Principiante", "Planche"),
-    Exercise("Dip alle parallele", "Petto / Tricipiti", "Parallele", "Intermedio", "Muscle-up"),
-    Exercise("Squat", "Gambe", "Bilanciere", "Intermedio"),
-    Exercise("Bulgarian split squat", "Gambe", "Manubri / corpo libero", "Intermedio"),
-    Exercise("Pike push-up", "Spalle", "Corpo libero", "Intermedio", "Handstand push-up"),
-    Exercise("Hollow body hold", "Core", "Corpo libero", "Principiante", "Front lever")
+    Exercise("Trazioni prone", "Dorso", "Sbarra", "Intermedio", listOf("Muscle-up", "Front lever"), "Prerequisito"),
+    Exercise("Trazioni esplosive", "Dorso", "Sbarra", "Avanzato", listOf("Muscle-up"), "Progressione"),
+    Exercise("Australian pull-up", "Dorso", "Sbarra", "Principiante", listOf("Trazioni", "Front lever"), "Prerequisito"),
+    Exercise("Lat machine", "Dorso", "Macchina", "Principiante", listOf("Trazioni"), "Accessorio"),
+    Exercise("Panca piana", "Petto", "Bilanciere", "Intermedio", emptyList(), "Forza"),
+    Exercise("Push-up", "Petto", "Corpo libero", "Principiante", listOf("Planche"), "Prerequisito"),
+    Exercise("Pseudo planche push-up", "Petto / Spalle", "Corpo libero", "Avanzato", listOf("Planche"), "Progressione"),
+    Exercise("Dip alle parallele", "Petto / Tricipiti", "Parallele", "Intermedio", listOf("Muscle-up"), "Prerequisito"),
+    Exercise("Squat", "Gambe", "Bilanciere", "Intermedio", emptyList(), "Forza"),
+    Exercise("Bulgarian split squat", "Gambe", "Manubri / corpo libero", "Intermedio", listOf("Pistol squat"), "Accessorio"),
+    Exercise("Pistol squat assistito", "Gambe", "Corpo libero", "Intermedio", listOf("Pistol squat"), "Progressione"),
+    Exercise("Pike push-up", "Spalle", "Corpo libero", "Intermedio", listOf("Handstand push-up"), "Prerequisito"),
+    Exercise("Wall handstand", "Spalle / Core", "Corpo libero", "Intermedio", listOf("Handstand", "Handstand push-up"), "Progressione"),
+    Exercise("Hollow body hold", "Core", "Corpo libero", "Principiante", listOf("Front lever", "Planche"), "Prerequisito"),
+    Exercise("Tuck front lever", "Dorso / Core", "Sbarra", "Intermedio", listOf("Front lever"), "Progressione")
 )
+
+private fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean =
+    profile.equipment.any { eq ->
+        ex.equipment.contains(eq, ignoreCase = true) ||
+        (eq == "Corpo libero" && ex.equipment.contains("corpo libero", ignoreCase = true)) ||
+        (eq == "Macchine" && ex.equipment.contains("Macchina", ignoreCase = true))
+    }
+
+private fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
+
+private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile): List<Exercise> {
+    val maxLevel = levelScore(athlete.level)
+    val available = exercises.filter { equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
+    val preferredRoles = when (athlete.goal) {
+        "Calisthenics" -> listOf("Progressione", "Prerequisito", "Forza", "Accessorio")
+        "Ipertrofia" -> listOf("Forza", "Accessorio", "Prerequisito", "Progressione")
+        "Forza + skill" -> listOf("Prerequisito", "Progressione", "Forza", "Accessorio")
+        else -> listOf("Forza", "Prerequisito", "Accessorio", "Progressione")
+    }
+    val result = mutableListOf<Exercise>()
+    preferredRoles.forEach { role -> available.filter { it.role == role }.forEach { if (it !in result && result.size < 6) result.add(it) } }
+    available.forEach { if (it !in result && result.size < 6) result.add(it) }
+    return result
+}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,7 +178,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, changeProfi
             }
         }
     }
-    if (workoutOpen) { WorkoutDialog(profile = profile, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
+    if (workoutOpen) { WorkoutDialog(profile = profile, athlete = athlete, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
 }
 
 @Composable private fun Recovery(name: String, value: String) { Column(horizontalAlignment = Alignment.CenterHorizontally) { Text(value, fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Accent); Text(name, color = Color.Gray) } }
@@ -169,7 +199,7 @@ private fun Library() {
                     Column(Modifier.padding(16.dp)) {
                         Text(ex.name, fontSize = 18.sp, fontWeight = FontWeight.Bold)
                         Text("${ex.group} • ${ex.equipment} • ${ex.level}", color = Color.Gray)
-                        ex.skill?.let { AssistChip(onClick = { selected = ex }, label = { Text("Progressione → $it") }, leadingIcon = { Icon(Icons.Default.AccountTree, null) }) }
+                        ex.skills.forEach { skill -> AssistChip(onClick = { selected = ex }, label = { Text(ex.role + " → " + skill) }, leadingIcon = { Icon(Icons.Default.AccountTree, null) }) }
                     }
                 }
             }
@@ -231,16 +261,8 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
 }
 
 @Composable
-private fun WorkoutDialog(profile: EquipmentProfile, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
-    val compatible = remember(profile) {
-        exercises.filter { ex ->
-            profile.equipment.any { eq ->
-                ex.equipment.contains(eq, ignoreCase = true) ||
-                    (eq == "Corpo libero" && ex.equipment.contains("corpo libero", ignoreCase = true)) ||
-                    (eq == "Macchine" && ex.equipment.contains("Macchina", ignoreCase = true))
-            }
-        }.take(6)
-    }
+private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
+    val compatible = remember(profile, athlete) { generateWorkout(profile, athlete) }
     val completedSets = remember { mutableStateMapOf<String, Int>() }
     val totalSets = compatible.size * 3
     val doneSets = completedSets.values.sum()
@@ -251,7 +273,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, onDismiss: () -> Unit, onSa
         text = {
             LazyColumn(modifier = Modifier.heightIn(max = 520.dp)) {
                 item {
-                    Text("Sessione generata usando l'attrezzatura disponibile.", color = Color.Gray)
+                    Text("Generato per " + athlete.goal + " • " + athlete.level + " • " + profile.name, color = Color.Gray)
                     LinearProgressIndicator(
                         progress = { if (totalSets == 0) 0f else doneSets.toFloat() / totalSets },
                         modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp)
@@ -265,7 +287,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, onDismiss: () -> Unit, onSa
                     Card(Modifier.fillMaxWidth().padding(vertical = 5.dp)) {
                         Column(Modifier.padding(12.dp)) {
                             Text(ex.name, fontWeight = FontWeight.Bold)
-                            Text("3 serie • " + ex.equipment, color = Color.Gray, fontSize = 12.sp)
+                            Text("3 serie • " + ex.equipment + " • " + ex.role, color = Color.Gray, fontSize = 12.sp)
                             Row(
                                 Modifier.fillMaxWidth().padding(top = 8.dp),
                                 verticalAlignment = Alignment.CenterVertically
@@ -308,9 +330,12 @@ private fun ExerciseDetailDialog(ex: Exercise, onDismiss: () -> Unit) {
                 Spacer(Modifier.height(14.dp))
                 Text("Come eseguirlo", fontWeight = FontWeight.Bold)
                 Text(instructions, modifier = Modifier.padding(top = 6.dp))
-                ex.skill?.let {
-                    Spacer(Modifier.height(12.dp))
-                    Text("Progressione collegata: " + it, color = Accent, fontWeight = FontWeight.SemiBold)
+                Spacer(Modifier.height(12.dp))
+                Text("Ruolo: " + ex.role, fontWeight = FontWeight.SemiBold)
+                if (ex.skills.isNotEmpty()) {
+                    Text("Collegamenti: " + ex.skills.joinToString(" • "), color = Accent, modifier = Modifier.padding(top = 6.dp))
+                } else {
+                    Text("Esercizio base/accessorio senza skill obbligatoria", color = Color.Gray, modifier = Modifier.padding(top = 6.dp))
                 }
             }
         },
