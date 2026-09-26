@@ -92,7 +92,7 @@ fun HybridFitnessApp() {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {
+private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {\n    var workoutOpen by remember { mutableStateOf(false) }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item { Header("Buongiorno 👋", "Il tuo coach ibrido: palestra + calisthenics") }
         item {
@@ -107,7 +107,7 @@ private fun Home(profile: EquipmentProfile, changeProfile: () -> Unit) {
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
                     Text("Upper body ibrido", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text("55 min  •  6 esercizi  •  Forza + skill", color = Color.Gray)
-                    Button(onClick = {}, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
+                    Button(onClick = { workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
                 }
             }
         }
@@ -137,11 +137,11 @@ private fun Library() {
         OutlinedTextField(query, { query = it }, leadingIcon = { Icon(Icons.Default.Search, null) }, placeholder = { Text("Cerca esercizio o muscolo") }, modifier = Modifier.padding(horizontal = 20.dp).fillMaxWidth(), shape = RoundedCornerShape(16.dp))
         LazyColumn(contentPadding = PaddingValues(20.dp)) {
             items(shown) { ex ->
-                Card(Modifier.fillMaxWidth().padding(bottom = 10.dp)) {
+                Card(Modifier.fillMaxWidth().padding(bottom = 10.dp).clickable { selected = ex }) {
                     Column(Modifier.padding(16.dp)) {
                         Text(ex.name, fontSize = 18.sp, fontWeight = FontWeight.Bold)
                         Text("${ex.group} • ${ex.equipment} • ${ex.level}", color = Color.Gray)
-                        ex.skill?.let { AssistChip(onClick = {}, label = { Text("Progressione → $it") }, leadingIcon = { Icon(Icons.Default.AccountTree, null) }) }
+                        ex.skill?.let { AssistChip(onClick = { selected = ex }, label = { Text("Progressione → $it") }, leadingIcon = { Icon(Icons.Default.AccountTree, null) }) }
                     }
                 }
             }
@@ -153,7 +153,7 @@ private fun Library() {
 private fun Equipment(active: EquipmentProfile, select: (EquipmentProfile) -> Unit) {
     Column {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
-        profiles.forEach { p ->
+        (profiles + listOfNotNull(customProfile)).forEach { p ->
             Card(Modifier.padding(horizontal = 20.dp, vertical = 6.dp).fillMaxWidth().clickable { select(p) }, colors = CardDefaults.cardColors(containerColor = if (p == active) Accent.copy(alpha=.10f) else Color.White)) {
                 Row(Modifier.padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(p.icon, fontSize = 32.sp); Spacer(Modifier.width(14.dp)); Column(Modifier.weight(1f)) { Text(p.name, fontSize = 19.sp, fontWeight = FontWeight.Bold); Text(p.equipment.joinToString(" • "), color = Color.Gray, fontSize = 13.sp) }
@@ -161,7 +161,7 @@ private fun Equipment(active: EquipmentProfile, select: (EquipmentProfile) -> Un
                 }
             }
         }
-        OutlinedButton(onClick = {}, modifier = Modifier.padding(20.dp).fillMaxWidth()) { Icon(Icons.Default.Add, null); Spacer(Modifier.width(8.dp)); Text("NUOVO PROFILO") }
+        OutlinedButton(onClick = { showCreator = true }, modifier = Modifier.padding(20.dp).fillMaxWidth()) { Icon(Icons.Default.Add, null); Spacer(Modifier.width(8.dp)); Text("NUOVO PROFILO") }
     }
 }
 
