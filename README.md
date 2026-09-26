@@ -25,7 +25,7 @@ Build stabile di riferimento prima dell'evoluzione: **Build #69**.
 - Persistenza locale di profilo, attrezzatura, storico e recovery
 - Build Android firmata tramite GitHub Actions
 
-### V0.8 Evoluta — in sviluppo
+### V0.8 Evoluta — infrastruttura implementata e in validazione finale
 
 L'evoluzione corrente introduce progressivamente:
 
@@ -86,3 +86,22 @@ Profilo atleta + Attrezzatura + Recovery
 ```
 
 L'obiettivo della V0.8 Evoluta non è anticipare l'Adaptive Coach, ma assicurare che Workout Runner, dati e storico siano abbastanza solidi da non dover essere riscritti nella V0.9.
+
+
+## Implementato nella V0.8 Evoluta
+
+- Modello esercizio universale con modalità reps, secondi, durata, distanza e intervalli.
+- Metadati per lateralità, resistenza, recuperi, intensità e futura progressione.
+- Stato sessione strutturato con previsto vs eseguito, RPE, skip, ordine e pinned.
+- Persistenza locale della sessione attiva e ripristino del workout automatico.
+- Recuperi basati su deadline assolute, ricostruibili dopo background/process recreation.
+- State transitions pure per selezione, skip/ripresa, aggiunta serie e riordino.
+- Storico retrocompatibile esteso con dati strutturati.
+- Recovery deterministico basato sulle serie realmente completate e usato dal generatore.
+- Filtri Libreria per attrezzatura, muscoli, skill e tipologia universale.
+- Boundary architetturali Health Connect: raw data → normalizzazione → readiness input.
+- Test JVM dell'infrastruttura e delle transizioni principali.
+
+## Previsto per la V0.9
+
+La V0.9 utilizzerà queste fondamenta per Progression Engine, grafi di progressione/regressione, deload, Workout Sequencing Engine, rigenerazione parziale con esercizi pinned e Adaptive Coach. Queste funzioni **non sono dichiarate implementate nella V0.8**.
