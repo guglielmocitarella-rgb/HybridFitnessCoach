@@ -298,7 +298,12 @@ fun HybridFitnessApp() {
                 when (tab) {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.LIBRARY -> Library(activeProfile, athlete, sessions) { record -> store.addSession(record); sessions = store.loadSessions() }
-                    Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles, { selected -> activeProfile = selected; store.saveActiveProfileName(selected.name) }, { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile = created; store.saveActiveProfileName(created.name) })
+                    Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
+ { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
+ { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile=created; store.saveActiveProfileName(created.name) },
+ { old, updated -> val i=customProfiles.indexOfFirst{it.name==old.name}; if(i>=0){customProfiles[i]=updated;store.saveCustomProfiles(customProfiles);if(activeProfile.name==old.name){activeProfile=updated;store.saveActiveProfileName(updated.name)}} },
+ { doomed -> customProfiles.removeAll{it.name==doomed.name};store.saveCustomProfiles(customProfiles);if(activeProfile.name==doomed.name){activeProfile=profiles.first();store.saveActiveProfileName(activeProfile.name)} }
+)
                     Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
                 }
             }
@@ -370,6 +375,7 @@ private fun RecoveryChart(sessions: List<SessionRecord>) {
 private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onSessionSaved: (SessionRecord) -> Unit) {
     var selectedSkill by remember { mutableStateOf<String?>(null) }
     var skillWorkout by remember { mutableStateOf<String?>(null) }
+    var filteredWorkout by remember { mutableStateOf(false) }
     var query by remember { mutableStateOf("") }
     var selected by remember { mutableStateOf<Exercise?>(null) }
     val equipmentFilters = remember { mutableStateListOf<String>() }
@@ -392,7 +398,10 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
             FilterChip(selected=groupFilters.isNotEmpty(),onClick={filterDialog="groups"},label={Text("Muscoli"+if(groupFilters.isEmpty())"" else " ("+groupFilters.size+")")})
             FilterChip(selected=skillFilters.isNotEmpty(),onClick={filterDialog="skills"},label={Text("Skill"+if(skillFilters.isEmpty())"" else " ("+skillFilters.size+")")})
         }
-        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()) Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear()}){Text("AZZERA")}}
+        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()) {
+ Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear()}){Text("AZZERA")}}
+ Button(onClick={filteredWorkout=true},enabled=shown.isNotEmpty(),modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth()){Text("GENERA WORKOUT DAI FILTRI")}
+}
         LazyColumn(contentPadding=PaddingValues(horizontal=20.dp,vertical=6.dp)){
             items(matchingSkills){s->Card(Modifier.fillMaxWidth().padding(bottom=10.dp).clickable{selectedSkill=s.name}){Column(Modifier.padding(16.dp)){Text(s.name,fontSize=18.sp,fontWeight=FontWeight.Bold);Text("Skill calisthenics • "+s.category+" • "+s.level,color=Accent)}}}
             items(shown){ex->Card(Modifier.fillMaxWidth().padding(bottom=10.dp).clickable{selected=ex}){Column(Modifier.padding(16.dp)){Text(ex.name,fontSize=18.sp,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.level,color=Color.Gray);if(ex.skills.isNotEmpty())Text(ex.role+" → "+ex.skills.joinToString(" • "),color=Accent,fontSize=12.sp,modifier=Modifier.padding(top=6.dp))}}}
@@ -408,6 +417,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
     selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }) }
     skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> onSessionSaved(record); skillWorkout=null }, initialSkill=skill) }
+    if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->onSessionSaved(record);filteredWorkout=false},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna")
 }
 @Composable
 private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDismiss: () -> Unit, onGenerate: () -> Unit) {
@@ -445,28 +455,29 @@ private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDism
 }
 
 @Composable
-private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentProfile>, select: (EquipmentProfile) -> Unit, addProfile: (EquipmentProfile) -> Unit) {
+private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentProfile>, select: (EquipmentProfile) -> Unit, addProfile: (EquipmentProfile) -> Unit, editProfile: (EquipmentProfile,EquipmentProfile)->Unit, deleteProfile:(EquipmentProfile)->Unit) {
     var showCreator by remember { mutableStateOf(false) }
+    var editing by remember { mutableStateOf<EquipmentProfile?>(null) }
+    var deleting by remember { mutableStateOf<EquipmentProfile?>(null) }
     Column {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
         (profiles + customProfiles).forEach { p ->
-            Card(Modifier.padding(horizontal = 20.dp, vertical = 6.dp).fillMaxWidth().clickable { select(p) }, colors = CardDefaults.cardColors(containerColor = if (p == active) Accent.copy(alpha=.10f) else Color.White)) {
-                Row(Modifier.padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text(p.icon, fontSize = 32.sp); Spacer(Modifier.width(14.dp)); Column(Modifier.weight(1f)) { Text(p.name, fontSize = 19.sp, fontWeight = FontWeight.Bold); Text(p.equipment.joinToString(" • "), color = Color.Gray, fontSize = 13.sp) }
-                    if (p == active) Icon(Icons.Default.CheckCircle, "Attivo", tint = Accent)
+            val custom=customProfiles.any{it.name==p.name}
+            Card(Modifier.padding(horizontal=20.dp,vertical=6.dp).fillMaxWidth().clickable{select(p)},colors=CardDefaults.cardColors(containerColor=if(p==active)Accent.copy(alpha=.10f) else Color.White)){
+                Row(Modifier.padding(18.dp),verticalAlignment=Alignment.CenterVertically){
+                    Text(p.icon,fontSize=32.sp);Spacer(Modifier.width(14.dp))
+                    Column(Modifier.weight(1f)){Text(p.name,fontSize=19.sp,fontWeight=FontWeight.Bold);Text(p.equipment.joinToString(" • "),color=Color.Gray,fontSize=13.sp)}
+                    if(custom){IconButton(onClick={editing=p}){Icon(Icons.Default.Edit,"Modifica")};IconButton(onClick={deleting=p}){Icon(Icons.Default.Delete,"Elimina")}}
+                    if(p==active)Icon(Icons.Default.CheckCircle,"Attivo",tint=Accent)
                 }
             }
         }
-        OutlinedButton(onClick = { showCreator = true }, modifier = Modifier.padding(20.dp).fillMaxWidth()) { Icon(Icons.Default.Add, null); Spacer(Modifier.width(8.dp)); Text("NUOVO PROFILO") }
+        OutlinedButton(onClick={showCreator=true},modifier=Modifier.padding(20.dp).fillMaxWidth()){Icon(Icons.Default.Add,null);Spacer(Modifier.width(8.dp));Text("NUOVO PROFILO")}
     }
-    if (showCreator) {
-        EquipmentProfileDialog(
-            onDismiss = { showCreator = false },
-            onCreate = { created -> addProfile(created); showCreator = false }
-        )
-    }
+    if(showCreator) EquipmentProfileDialog(null,{showCreator=false}){created->addProfile(created);showCreator=false}
+    editing?.let{old->EquipmentProfileDialog(old,{editing=null}){updated->editProfile(old,updated);editing=null}}
+    deleting?.let{p->AlertDialog(onDismissRequest={deleting=null},title={Text("Elimina profilo?")},text={Text("Vuoi eliminare "+p.name+"?")},confirmButton={Button(onClick={deleteProfile(p);deleting=null}){Text("ELIMINA")}},dismissButton={TextButton(onClick={deleting=null}){Text("ANNULLA")}})}
 }
-
 @Composable
 private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit, onDeleteSession: (Long) -> Unit) {
     var edit by remember { mutableStateOf(false) }
@@ -504,10 +515,11 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
 }
 
 @Composable
-private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna") {
+private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList()) {
     var minutes by remember { mutableIntStateOf(45) }
-    val selectedEquipment = remember { mutableStateListOf<String>().apply { addAll(profile.equipment) } }
-    val selectedGroups = remember { mutableStateListOf<String>() }
+    val selectedEquipment = remember { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment) } }
+    val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
+    var mode by remember(initialSkill,initialGroups) { mutableStateOf(if(initialSkill!="Nessuna") "Skill" else "Parti del corpo") }
     var skill by remember(initialSkill) { mutableStateOf(initialSkill) }
     var generated by remember { mutableStateOf<List<Exercise>>(emptyList()) }
     var running by remember { mutableStateOf(false) }
@@ -530,20 +542,41 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     }
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
-        generated=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}&&(selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(skill=="Nessuna"||skill in ex.skills)}
+        generated=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(mode!="Skill"||skill=="Nessuna"||skill in ex.skills)}
             .sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(skill!="Nessuna"&&skill in it.skills)0 else 1}).take(count)
         completed.clear();reps.clear();restSeconds.clear();generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second};running=false;paused=false;elapsedSeconds=0;restRemaining=0;currentExercise=generated.firstOrNull()?.name;generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova ad ampliare attrezzatura, muscoli o livello/skill." else "Workout pronto: "+generated.size+" esercizi. Scorri il piano e premi AVVIA WORKOUT."
     }
     AlertDialog(onDismissRequest=onDismiss,title={Text(if(running)"Workout in corso" else "Crea workout personalizzato")},text={LazyColumn(Modifier.heightIn(max=590.dp)){
         if(!running){
-            item{Text("Durata: $minutes min",fontWeight=FontWeight.Bold);Row{listOf(20,30,45,60,75).forEach{m->FilterChip(minutes==m,{minutes=m},{Text("$m")},Modifier.padding(end=4.dp))}};Text("Parti del corpo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))}
-            items(recoveryGroups){g->Row(Modifier.fillMaxWidth().clickable{if(g in selectedGroups)selectedGroups.remove(g)else selectedGroups.add(g)},verticalAlignment=Alignment.CenterVertically){Checkbox(g in selectedGroups,{if(it){if(g !in selectedGroups)selectedGroups.add(g)}else selectedGroups.remove(g)});Text(g)}}
-            item{Text("Skill calisthenics",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp));skills.forEach{s->Row(Modifier.fillMaxWidth().clickable{skill=s},verticalAlignment=Alignment.CenterVertically){RadioButton(skill==s,{skill=s});Text(s)}};Text("Attrezzatura",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))}
+            item{
+                Text("1. Attrezzatura disponibile",fontWeight=FontWeight.Bold)
+                Text("Profilo attivo: "+profile.name+" • modifica valida solo per questo workout",color=Color.Gray,fontSize=12.sp)
+            }
             items(equipmentOptions){e->Row(Modifier.fillMaxWidth().clickable{if(e in selectedEquipment)selectedEquipment.remove(e)else selectedEquipment.add(e)},verticalAlignment=Alignment.CenterVertically){Checkbox(e in selectedEquipment,{if(it){if(e !in selectedEquipment)selectedEquipment.add(e)}else selectedEquipment.remove(e)});Text(e)}}
-            item{Button(onClick={build()},enabled=selectedEquipment.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")};generationMessage?.let{Text(it,color=if(generated.isEmpty())MaterialTheme.colorScheme.error else Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=6.dp))};if(generated.isNotEmpty())Text("Workout generato: "+generated.size+" esercizi • circa "+minutes+" min",color=Color.Gray)}
+            item{
+                val available=exercises.count{ex->selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}}
+                Text(available.toString()+" esercizi compatibili con l'attrezzatura",color=Accent,fontSize=12.sp)
+                Text("2. Durata",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
+                Row{listOf(20,30,45,60,75).forEach{m->FilterChip(minutes==m,{minutes=m},{Text("$m")},Modifier.padding(end=4.dp))}}
+                Text("3. Cosa vuoi allenare?",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
+                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){FilterChip(mode=="Parti del corpo",{mode="Parti del corpo";skill="Nessuna"},{Text("Parti del corpo")});FilterChip(mode=="Skill",{mode="Skill";selectedGroups.clear()},{Text("Skill calisthenics")})}
+            }
+            if(mode=="Parti del corpo") items(recoveryGroups){g->Row(Modifier.fillMaxWidth().clickable{if(g in selectedGroups)selectedGroups.remove(g)else selectedGroups.add(g)},verticalAlignment=Alignment.CenterVertically){Checkbox(g in selectedGroups,{if(it){if(g !in selectedGroups)selectedGroups.add(g)}else selectedGroups.remove(g)});Text(g)}}
+            if(mode=="Skill") item{
+                skills.filter{it!="Nessuna"}.forEach{s->
+                    val linked=exercises.filter{s in it.skills}
+                    val muscles=linked.flatMap{ex->recoveryGroups.filter{g->ex.group.contains(g,true)}}.distinct().joinToString(" • ")
+                    Row(Modifier.fillMaxWidth().clickable{skill=s},verticalAlignment=Alignment.CenterVertically){RadioButton(skill==s,{skill=s});Column{Text(s);if(skill==s)Text("Coinvolge: "+muscles,color=Color.Gray,fontSize=11.sp)}}
+                }
+            }
+            item{
+                Button(onClick={build()},enabled=selectedEquipment.isNotEmpty()&&(mode!="Skill"||skill!="Nessuna"),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")}
+                generationMessage?.let{Text(it,color=if(generated.isEmpty())MaterialTheme.colorScheme.error else Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=6.dp))}
+                if(generated.isNotEmpty())Text("Workout generato: "+generated.size+" esercizi • circa "+minutes+" min",color=Color.Gray)
+            }
         }
         if(running) item { val mm=elapsedSeconds/60; val ss=elapsedSeconds%60; Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Text("Tempo allenamento: "+String.format("%02d:%02d",mm,ss),fontWeight=FontWeight.Bold); if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold); if(restRemaining>0) Text("Recupero: "+restRemaining+" sec",color=Accent,fontSize=20.sp,fontWeight=FontWeight.Bold); Row{OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}; if(restRemaining>0){Spacer(Modifier.width(6.dp));TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}}}}} }
-        items(generated){ex->val n=completed[ex.name]?:0;val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){Column(Modifier.padding(10.dp)){Text(ex.name,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);Text("3 serie × "+(reps[ex.name]?:0)+(if(timed)" sec" else " rip")+" • recupero "+(restSeconds[ex.name]?:60)+" sec",color=Accent,fontSize=12.sp);if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3){completed[ex.name]=n+1;currentExercise=ex.name;restRemaining=restSeconds[ex.name]?:60}}){Text("+ SERIE")}}}}}
+        items(generated){ex->val n=completed[ex.name]?:0;val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){Column(Modifier.padding(10.dp)){Text(ex.name,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);Text("3 serie × "+(reps[ex.name]?:0)+(if(timed)" sec" else " rip")+" • recupero "+(restSeconds[ex.name]?:60)+" sec",color=Accent,fontSize=12.sp);if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3&&restRemaining==0){completed[ex.name]=n+1;currentExercise=ex.name;restRemaining=restSeconds[ex.name]?:60}},enabled=restRemaining==0&&!paused){Text("+ SERIE")}}}}}
     }},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(skill!="Nessuna")" • "+skill else "",completed.values.sum(),total,generated.map{it.name}));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
 }
 
@@ -647,17 +680,14 @@ private fun ExerciseDetailDialog(ex: Exercise, onDismiss: () -> Unit) {
 }
 
 @Composable
-private fun EquipmentProfileDialog(
-    onDismiss: () -> Unit,
-    onCreate: (EquipmentProfile) -> Unit
-) {
-    var name by remember { mutableStateOf("") }
+private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss: () -> Unit, onCreate: (EquipmentProfile) -> Unit) {
+    var name by remember(current) { mutableStateOf(current?.name ?: "") }
     val options = listOf("Corpo libero", "Sbarra", "Parallele", "Bilanciere", "Manubri", "Cavi", "Macchine", "Elastici", "Panca", "Kettlebell", "Leg press", "Anelli", "TRX")
-    val selected = remember { mutableStateListOf<String>() }
+    val selected = remember(current) { mutableStateListOf<String>().apply { addAll(current?.equipment ?: emptyList()) } }
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Nuovo profilo attrezzatura") },
+        title = { Text(if(current==null)"Nuovo profilo attrezzatura" else "Modifica profilo attrezzatura") },
         text = {
             LazyColumn(modifier = Modifier.heightIn(max = 520.dp)) {
                 item {
@@ -694,7 +724,7 @@ private fun EquipmentProfileDialog(
             Button(
                 onClick = { onCreate(EquipmentProfile(name.trim(), "📍", selected.toList())) },
                 enabled = name.isNotBlank() && selected.isNotEmpty()
-            ) { Text("CREA") }
+            ) { Text(if(current==null)"CREA" else "SALVA") }
         },
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
