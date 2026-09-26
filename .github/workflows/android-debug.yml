@@ -29,6 +29,9 @@ jobs:
         with:
           gradle-version: '9.6.0'
 
+      - name: Run unit tests
+        run: gradle :app:testDebugUnitTest
+
       - name: Restore signing keystore
         if: ${{ github.event_name != 'pull_request' }}
         env:
