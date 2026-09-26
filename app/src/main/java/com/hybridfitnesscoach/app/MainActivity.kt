@@ -367,31 +367,39 @@ private fun RecoveryChart(sessions: List<SessionRecord>) {
 private fun Library() {
     var query by remember { mutableStateOf("") }
     var selected by remember { mutableStateOf<Exercise?>(null) }
-    var equipmentFilter by remember { mutableStateOf("Tutte") }
-    var groupFilter by remember { mutableStateOf("Tutti") }
-    var skillFilter by remember { mutableStateOf("Tutte") }
-    var showSkills by remember { mutableStateOf(false) }
-    val shown = exercises.filter { ex -> (query.isBlank() || ex.name.contains(query,true) || ex.group.contains(query,true) || ex.skills.any{it.contains(query,true)}) && (equipmentFilter=="Tutte" || ex.equipment.contains(equipmentFilter,true)) && (groupFilter=="Tutti" || ex.group.contains(groupFilter,true)) && (skillFilter=="Tutte" || skillFilter in ex.skills) }
+    val equipmentFilters = remember { mutableStateListOf<String>() }
+    val groupFilters = remember { mutableStateListOf<String>() }
+    val skillFilters = remember { mutableStateListOf<String>() }
+    var filterDialog by remember { mutableStateOf<String?>(null) }
+    val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Anelli","TRX","Bilanciere","Manubri","Panca","Cavi","Macchine","Elastici","Kettlebell","Leg press")
+    val shown = exercises.filter { ex ->
+        (query.isBlank() || ex.name.contains(query,true) || ex.group.contains(query,true) || ex.equipment.contains(query,true) || ex.skills.any{it.contains(query,true)}) &&
+        (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
+        (groupFilters.isEmpty() || groupFilters.any { ex.group.contains(it,true) }) &&
+        (skillFilters.isEmpty() || skillFilters.any { it in ex.skills })
+    }
     Column {
         Header("Libreria esercizi", exercises.size.toString()+" esercizi • "+calisthenicsSkills.size+" skill calisthenics")
-        OutlinedTextField(query, { query = it }, leadingIcon = { Icon(Icons.Default.Search, null) }, placeholder = { Text("Cerca esercizio, muscolo o skill") }, modifier = Modifier.padding(horizontal = 20.dp).fillMaxWidth(), shape = RoundedCornerShape(16.dp))
-        Row(Modifier.padding(horizontal=20.dp)){ TextButton(onClick={showSkills=true}){Text("SKILL")}; TextButton(onClick={equipmentFilter=if(equipmentFilter=="Tutte")"Sbarra" else "Tutte"}){Text("ATTREZZI: "+equipmentFilter)}; TextButton(onClick={groupFilter=if(groupFilter=="Tutti")"Dorso" else "Tutti"}){Text("MUSCOLI: "+groupFilter)} }
-        LazyColumn(contentPadding = PaddingValues(20.dp)) {
-            items(shown) { ex ->
-                Card(Modifier.fillMaxWidth().padding(bottom = 10.dp).clickable { selected = ex }) {
-                    Column(Modifier.padding(16.dp)) {
-                        Text(ex.name, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                        Text("${ex.group} • ${ex.equipment} • ${ex.level}", color = Color.Gray)
-                        ex.skills.forEach { skill -> AssistChip(onClick = { selected = ex }, label = { Text(ex.role + " → " + skill) }, leadingIcon = { Icon(Icons.Default.AccountTree, null) }) }
-                    }
-                }
-            }
+        OutlinedTextField(query,{query=it},leadingIcon={Icon(Icons.Default.Search,null)},placeholder={Text("Cerca esercizio, muscolo, attrezzo o skill")},modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth(),shape=RoundedCornerShape(16.dp))
+        Row(Modifier.padding(horizontal=20.dp,vertical=6.dp),horizontalArrangement=Arrangement.spacedBy(5.dp)){
+            FilterChip(selected=equipmentFilters.isNotEmpty(),onClick={filterDialog="equipment"},label={Text("Attrezzi"+if(equipmentFilters.isEmpty())"" else " ("+equipmentFilters.size+")")})
+            FilterChip(selected=groupFilters.isNotEmpty(),onClick={filterDialog="groups"},label={Text("Muscoli"+if(groupFilters.isEmpty())"" else " ("+groupFilters.size+")")})
+            FilterChip(selected=skillFilters.isNotEmpty(),onClick={filterDialog="skills"},label={Text("Skill"+if(skillFilters.isEmpty())"" else " ("+skillFilters.size+")")})
+        }
+        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()) Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear()}){Text("AZZERA")}}
+        LazyColumn(contentPadding=PaddingValues(horizontal=20.dp,vertical=6.dp)){
+            items(shown){ex->Card(Modifier.fillMaxWidth().padding(bottom=10.dp).clickable{selected=ex}){Column(Modifier.padding(16.dp)){Text(ex.name,fontSize=18.sp,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.level,color=Color.Gray);if(ex.skills.isNotEmpty())Text(ex.role+" → "+ex.skills.joinToString(" • "),color=Accent,fontSize=12.sp,modifier=Modifier.padding(top=6.dp))}}}
+            if(shown.isEmpty()) item{Text("Nessun esercizio corrisponde ai filtri selezionati.",color=Color.Gray,modifier=Modifier.padding(12.dp))}
         }
     }
-    if(showSkills) AlertDialog(onDismissRequest={showSkills=false},title={Text("Skill calisthenics")},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(calisthenicsSkills){s->Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{skillFilter=s.name;showSkills=false}){Column(Modifier.padding(12.dp)){Text(s.name,fontWeight=FontWeight.Bold);Text(s.category+" • "+s.level,color=Color.Gray)}}}}},confirmButton={TextButton(onClick={showSkills=false}){Text("CHIUDI")}})
-    selected?.let { ex -> ExerciseDetailDialog(ex = ex, onDismiss = { selected = null }) }
+    filterDialog?.let { type ->
+        val title=when(type){"equipment"->"Filtra per attrezzatura";"groups"->"Filtra per gruppi muscolari";else->"Filtra per skill"}
+        val opts=when(type){"equipment"->equipmentOptions;"groups"->recoveryGroups;else->calisthenicsSkills.map{it.name}}
+        val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;else->skillFilters}
+        AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column{Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
+    }
+    selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
 }
-
 @Composable
 private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentProfile>, select: (EquipmentProfile) -> Unit, addProfile: (EquipmentProfile) -> Unit) {
     var showCreator by remember { mutableStateOf(false) }
