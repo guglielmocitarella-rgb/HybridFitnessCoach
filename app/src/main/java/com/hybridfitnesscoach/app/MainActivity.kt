@@ -28,7 +28,7 @@ private val Bg = Color(0xFFF7F8FA)
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
 data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skills: List<String> = emptyList(), val role: String = "Base")
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3)
-data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int)
+data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList())
 
 private class AppStore(context: Context) {
     private val prefs = context.getSharedPreferences("hybrid_fitness_store", Context.MODE_PRIVATE)
@@ -41,8 +41,8 @@ private class AppStore(context: Context) {
         (0 until a.length()).map { i -> val o=a.getJSONObject(i); val e=o.getJSONArray("equipment"); EquipmentProfile(o.getString("name"),"📍",(0 until e.length()).map { e.getString(it) }) }
     } catch(_:Exception){ emptyList() }
     fun saveCustomProfiles(items:List<EquipmentProfile>) { val a=JSONArray(); items.forEach { p -> val e=JSONArray(); p.equipment.forEach{e.put(it)}; a.put(JSONObject().put("name",p.name).put("equipment",e)) }; prefs.edit().putString("custom_profiles",a.toString()).apply() }
-    fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total")) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
-    fun addSession(s:SessionRecord){ val all=(listOf(s)+loadSessions()).take(50); val a=JSONArray(); all.forEach{x->a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets))}; prefs.edit().putString("sessions",a.toString()).apply() }
+    fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList()) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
+    fun addSession(s:SessionRecord){ val all=(listOf(s)+loadSessions()).take(50); val a=JSONArray(); all.forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e))}; prefs.edit().putString("sessions",a.toString()).apply() }
 }
 
 private val profiles = listOf(
@@ -78,7 +78,7 @@ private fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolea
 
 private fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 
-private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile): List<Exercise> {
+private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>): List<Exercise> {
     val maxLevel = levelScore(athlete.level)
     val available = exercises.filter { equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
     val preferredRoles = when (athlete.goal) {
@@ -87,9 +87,11 @@ private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile):
         "Forza + skill" -> listOf("Prerequisito", "Progressione", "Forza", "Accessorio")
         else -> listOf("Forza", "Prerequisito", "Accessorio", "Progressione")
     }
+    val recentNames = sessions.take(2).flatMap { it.exerciseNames }.toSet()
+    val freshnessSorted = available.sortedWith(compareBy<Exercise> { if (it.name in recentNames) 1 else 0 }.thenBy { preferredRoles.indexOf(it.role).let { i -> if(i < 0) 99 else i } })
     val result = mutableListOf<Exercise>()
-    preferredRoles.forEach { role -> available.filter { it.role == role }.forEach { if (it !in result && result.size < 6) result.add(it) } }
-    available.forEach { if (it !in result && result.size < 6) result.add(it) }
+    preferredRoles.forEach { role -> freshnessSorted.filter { it.role == role }.forEach { if (it !in result && result.size < 6) result.add(it) } }
+    freshnessSorted.forEach { if (it !in result && result.size < 6) result.add(it) }
     return result
 }
 
@@ -129,7 +131,7 @@ fun HybridFitnessApp() {
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
-                    Tab.HOME -> Home(activeProfile, athlete, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
+                    Tab.HOME -> Home(activeProfile, athlete, sessions, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.LIBRARY -> Library()
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles, { selected -> activeProfile = selected; store.saveActiveProfileName(selected.name) }, { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile = created; store.saveActiveProfileName(created.name) })
                     Tab.PROGRESS -> Progress(athlete, sessions) { updated -> athlete = updated; store.saveAthlete(updated) }
@@ -147,7 +149,7 @@ fun HybridFitnessApp() {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, changeProfile: () -> Unit, onSessionSaved: (SessionRecord) -> Unit) {
+private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, changeProfile: () -> Unit, onSessionSaved: (SessionRecord) -> Unit) {
     var workoutOpen by remember { mutableStateOf(false) }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item { Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", athlete.goal + " • " + athlete.daysPerWeek + " giorni/settimana") }
@@ -178,7 +180,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, changeProfi
             }
         }
     }
-    if (workoutOpen) { WorkoutDialog(profile = profile, athlete = athlete, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
+    if (workoutOpen) { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
 }
 
 @Composable private fun Recovery(name: String, value: String) { Column(horizontalAlignment = Alignment.CenterHorizontally) { Text(value, fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Accent); Text(name, color = Color.Gray) } }
@@ -261,8 +263,8 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
 }
 
 @Composable
-private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
-    val compatible = remember(profile, athlete) { generateWorkout(profile, athlete) }
+private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
+    val compatible = remember(profile, athlete, sessions) { generateWorkout(profile, athlete, sessions) }
     val completedSets = remember { mutableStateMapOf<String, Int>() }
     val totalSets = compatible.size * 3
     val doneSets = completedSets.values.sum()
@@ -274,6 +276,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, on
             LazyColumn(modifier = Modifier.heightIn(max = 520.dp)) {
                 item {
                     Text("Generato per " + athlete.goal + " • " + athlete.level + " • " + profile.name, color = Color.Gray)
+                    if (sessions.any { it.exerciseNames.isNotEmpty() }) Text("Adattato anche agli allenamenti recenti", color = Accent, fontSize = 12.sp)
                     LinearProgressIndicator(
                         progress = { if (totalSets == 0) 0f else doneSets.toFloat() / totalSets },
                         modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp)
@@ -302,7 +305,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, on
                 }
             }
         },
-        confirmButton = { Button(onClick = { onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets)); onDismiss() }) { Text(if (totalSets > 0 && doneSets == totalSets) "TERMINA" else "SALVA E CHIUDI") } },
+        confirmButton = { Button(onClick = { onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets, compatible.map { it.name })); onDismiss() }) { Text(if (totalSets > 0 && doneSets == totalSets) "TERMINA" else "SALVA E CHIUDI") } },
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }

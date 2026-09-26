@@ -57,7 +57,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v4
         with:
-          name: HybridFitnessCoach-v0.5-signed
+          name: HybridFitnessCoach-v0.6-signed
           path: app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
 
