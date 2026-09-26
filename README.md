@@ -23,4 +23,4 @@ La prima base include:
 
 A ogni push su `main`, GitHub Actions esegue `.github/workflows/android-debug.yml`, compila `:app:assembleDebug` e pubblica `HybridFitnessCoach-debug` come artifact scaricabile dalla pagina della workflow.
 
-> V0.1 è un prototipo funzionale dell'interfaccia e del modello iniziale. Database, workout engine adattivo e catalogo esercizi esteso arriveranno nelle milestone successive.
+## V0.2 in sviluppo\n- sessione di allenamento interattiva\n- schede esercizio apribili\n- creazione di profili attrezzatura personalizzati\n\n> V0.1 è un prototipo funzionale dell'interfaccia e del modello iniziale. Database, workout engine adattivo e catalogo esercizi esteso arriveranno nelle milestone successive.
