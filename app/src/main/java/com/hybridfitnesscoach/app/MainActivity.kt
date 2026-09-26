@@ -800,7 +800,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                         }
                     }
                     items(generated){ex->
-                        val n=completed[ex.name]?:0;val targetSets=prescriptionFor(ex).sets;val done=n>=targetSets;val expanded=!done||(expandedCompleted[ex.name]?:false)
+                        val n=completed[ex.name]?:0;val targetSets=prescriptionFor(ex).sets;val done=n>=targetSets;val isSkipped=skipped[ex.name]==true;val expanded=!done||(expandedCompleted[ex.name]?:false)
                         Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else {skipped[ex.name]=false;currentExercise=ex.name}}){
                             Column(Modifier.padding(10.dp)){
                                 Text((if(done)"✓ " else if(running&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
@@ -909,6 +909,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                     if(compatible.isEmpty())item{Text("Nessun esercizio compatibile con questo profilo.")}
                     items(compatible){ex->
                         val count=completedSets[ex.name]?:0
+                        val isSkipped=skipped[ex.name]==true
                         val targetSets=prescriptionFor(ex).sets
                         val done=count>=targetSets
                         val expanded=!done||(expandedCompleted[ex.name]?:false)
