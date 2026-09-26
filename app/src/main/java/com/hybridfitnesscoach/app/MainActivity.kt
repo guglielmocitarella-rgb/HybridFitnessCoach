@@ -368,8 +368,6 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 }
             }
         }
-        item { SectionTitle("Oggi") }
-        items(listOf("Trazioni prone" to "3 × 6 · Skill: Muscle-up", "Panca piana" to "3 × 8 · 70 kg", "Pike push-up" to "3 × 10 · Skill: HSPU")) { (a,b) -> ExerciseRow(a,b) }
         item { SectionTitle("Recupero") }
         item { RecoveryChart(sessions) }
     }
