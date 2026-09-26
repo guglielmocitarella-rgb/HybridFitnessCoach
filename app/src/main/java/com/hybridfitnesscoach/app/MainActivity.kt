@@ -48,14 +48,14 @@ private fun recommendedExerciseRest(role:String,name:String,equipment:String):In
     return when { set>=180->240; set>=150->180; set>=120->150; else->120 }
 }
 data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skills: List<String> = emptyList(), val role: String = "Base", val setRestSec: Int = recommendedSetRest(role, name, equipment), val exerciseRestSec: Int = recommendedExerciseRest(role, name, equipment))
-data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3)
-data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList())
+data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato")
+data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
 private class AppStore(context: Context) {
     private val prefs = context.getSharedPreferences("hybrid_fitness_store", Context.MODE_PRIVATE)
-    fun loadAthlete() = AthleteProfile(prefs.getString("athlete_name","") ?: "", prefs.getString("athlete_goal","Forza + skill") ?: "Forza + skill", prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3))
-    fun saveAthlete(p: AthleteProfile) { prefs.edit().putString("athlete_name",p.name).putString("athlete_goal",p.goal).putString("athlete_level",p.level).putInt("athlete_days",p.daysPerWeek).apply() }
+    fun loadAthlete() = AthleteProfile(prefs.getString("athlete_name","") ?: "", prefs.getString("athlete_goal","Forza + skill") ?: "Forza + skill", prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3),prefs.getInt("athlete_age",0),prefs.getFloat("athlete_height",0f),prefs.getFloat("athlete_weight",0f),prefs.getString("athlete_sex","Non specificato")?:"Non specificato")
+    fun saveAthlete(p: AthleteProfile) { prefs.edit().putString("athlete_name",p.name).putString("athlete_goal",p.goal).putString("athlete_level",p.level).putInt("athlete_days",p.daysPerWeek).putInt("athlete_age",p.age).putFloat("athlete_height",p.heightCm).putFloat("athlete_weight",p.weightKg).putString("athlete_sex",p.sex).apply(); if(p.weightKg>0){val h=prefs.getString("weight_history","")?:"";prefs.edit().putString("weight_history",(System.currentTimeMillis().toString()+":"+p.weightKg+";"+h).take(4000)).apply()} }
     fun loadActiveProfileName() = prefs.getString("active_equipment","Palestra") ?: "Palestra"
     fun saveActiveProfileName(name:String) { prefs.edit().putString("active_equipment",name).apply() }
     fun loadCustomProfiles(): List<EquipmentProfile> = try {
@@ -63,8 +63,8 @@ private class AppStore(context: Context) {
         (0 until a.length()).map { i -> val o=a.getJSONObject(i); val e=o.getJSONArray("equipment"); EquipmentProfile(o.getString("name"),"📍",(0 until e.length()).map { e.getString(it) }) }
     } catch(_:Exception){ emptyList() }
     fun saveCustomProfiles(items:List<EquipmentProfile>) { val a=JSONArray(); items.forEach { p -> val e=JSONArray(); p.equipment.forEach{e.put(it)}; a.put(JSONObject().put("name",p.name).put("equipment",e)) }; prefs.edit().putString("custom_profiles",a.toString()).apply() }
-    fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList()) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
-    fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.take(50).forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e))}; prefs.edit().putString("sessions",a.toString()).apply() }
+    fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList(), if(o.has("exerciseRpe")){val r=o.getJSONObject("exerciseRpe");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("workoutRpe",0)) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
+    fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.take(50).forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e).put("exerciseRpe",JSONObject(x.exerciseRpe.mapValues{it.value})).put("workoutRpe",x.workoutRpe))}; prefs.edit().putString("sessions",a.toString()).apply() }
     fun addSession(s:SessionRecord){ saveSessions(listOf(s)+loadSessions()) }
     fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
 }
@@ -507,7 +507,7 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
         Card(Modifier.padding(horizontal=20.dp).fillMaxWidth().clickable { edit=true }) {
             Column(Modifier.padding(18.dp)) {
                 Text(if(athlete.name.isBlank()) "Configura profilo atleta" else athlete.name, fontSize=20.sp, fontWeight=FontWeight.Bold)
-                Text(athlete.goal + " • " + athlete.level + " • " + athlete.daysPerWeek + " giorni/settimana", color=Color.Gray)
+                Text(athlete.goal + " • " + athlete.level + " • " + athlete.daysPerWeek + " giorni/settimana", color=Color.Gray);if(athlete.heightCm>0&&athlete.weightKg>0){val bmi=athlete.weightKg/((athlete.heightCm/100f)*(athlete.heightCm/100f));Text(String.format(java.util.Locale.ITALY,"%.1f kg • %.0f cm • BMI %.1f",athlete.weightKg,athlete.heightCm,bmi),color=Accent,fontSize=13.sp)}
                 Text("TOCCA PER MODIFICARE", color=Accent, fontSize=12.sp, modifier=Modifier.padding(top=8.dp))
             }
         }
@@ -518,20 +518,20 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
     if(edit) AthleteDialog(athlete,{edit=false}) { onAthleteSave(it); edit=false }
     selectedSession?.let { s ->
         AlertDialog(onDismissRequest={selectedSession=null},title={Text("Dettaglio allenamento")},text={LazyColumn(Modifier.heightIn(max=500.dp)){
-            item{Text(s.profileName,fontWeight=FontWeight.Bold);Text(java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray);Text(s.completedSets.toString()+"/"+s.totalSets+" serie completate",color=Accent,modifier=Modifier.padding(vertical=8.dp));Text("Esercizi",fontWeight=FontWeight.Bold)}
-            items(s.exerciseNames){name->val ex=exercises.firstOrNull{it.name==name};Card(Modifier.fillMaxWidth().padding(vertical=3.dp)){Column(Modifier.padding(10.dp)){Text(name,fontWeight=FontWeight.Bold);if(ex!=null){Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);val target=if(timed)if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10;Text("Prescrizione: 3 × "+target+(if(timed)" sec" else " rip"),color=Accent,fontSize=12.sp)}}}}
+            item{Text(s.profileName,fontWeight=FontWeight.Bold);Text(java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray);Text(s.completedSets.toString()+"/"+s.totalSets+" serie completate",color=Accent,modifier=Modifier.padding(vertical=8.dp));if(s.workoutRpe>0)Text("Fatica workout: "+s.workoutRpe+"/10",fontWeight=FontWeight.Bold);Text("Esercizi",fontWeight=FontWeight.Bold)}
+            items(s.exerciseNames){name->val ex=exercises.firstOrNull{it.name==name};Card(Modifier.fillMaxWidth().padding(vertical=3.dp)){Column(Modifier.padding(10.dp)){Text(name,fontWeight=FontWeight.Bold);if(ex!=null){Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);val target=if(timed)if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10;Text("Prescrizione: 3 × "+target+(if(timed)" sec" else " rip"),color=Accent,fontSize=12.sp);s.exerciseRpe[name]?.let{Text("Fatica percepita: "+it+"/10",fontWeight=FontWeight.Bold,fontSize=12.sp)}}}}}
         }},confirmButton={TextButton(onClick={selectedSession=null}){Text("CHIUDI")}},dismissButton={TextButton(onClick={onDeleteSession(s.timestamp);selectedSession=null}){Text("ELIMINA SESSIONE")}})
     }
 }
 
 @Composable
 private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(AthleteProfile)->Unit){
-    var name by remember{mutableStateOf(current.name)}; var goal by remember{mutableStateOf(current.goal)}; var level by remember{mutableStateOf(current.level)}; var days by remember{mutableIntStateOf(current.daysPerWeek)}
+    var name by remember{mutableStateOf(current.name)}; var goal by remember{mutableStateOf(current.goal)}; var level by remember{mutableStateOf(current.level)}; var days by remember{mutableIntStateOf(current.daysPerWeek)};var age by remember{mutableStateOf(if(current.age>0)current.age.toString() else "")};var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")};var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")};var sex by remember{mutableStateOf(current.sex)}
     AlertDialog(onDismissRequest=onDismiss,title={Text("Profilo atleta")},text={LazyColumn(Modifier.heightIn(max=520.dp)){
-        item{OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth()); Text("Obiettivo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))}
+        item{OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(age,{age=it.filter{ch->ch.isDigit()}},label={Text("Età")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(height,{height=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Altezza (cm)")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(weight,{weight=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Peso (kg)")},singleLine=true,modifier=Modifier.fillMaxWidth());Text("Sesso (opzionale)",fontWeight=FontWeight.Bold);Row{listOf("Non specificato","Uomo","Donna").forEach{x->FilterChip(sex==x,{sex=x},{Text(x)},Modifier.padding(end=4.dp))}};if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}; Text("Obiettivo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))}
         items(listOf("Forza + skill","Ipertrofia","Calisthenics","Fitness generale")){x->Row(Modifier.fillMaxWidth().clickable{goal=x},verticalAlignment=Alignment.CenterVertically){RadioButton(goal==x,{goal=x});Text(x)}}
         item{Text("Livello",fontWeight=FontWeight.Bold); listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}; Text("Allenamenti a settimana: "+days,fontWeight=FontWeight.Bold); Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(days>1)days--}){Text("−")};Spacer(Modifier.width(12.dp));Text(days.toString(),fontSize=20.sp);Spacer(Modifier.width(12.dp));Button(onClick={if(days<7)days++}){Text("+")}}}
-    }},confirmButton={Button(onClick={onSave(AthleteProfile(name.trim(),goal,level,days))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
+    }},confirmButton={Button(onClick={onSave(AthleteProfile(name.trim(),goal,level,days,age.toIntOrNull()?:0,height.toFloatOrNull()?:0f,weight.toFloatOrNull()?:0f,sex))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
 }
 
 @Composable
@@ -554,6 +554,8 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val completed = remember { mutableStateMapOf<String, Int>() }
     val reps = remember { mutableStateMapOf<String, Int>() }
     val restSeconds = remember { mutableStateMapOf<String, Int>() }
+    val exerciseRpe = remember { mutableStateMapOf<String,Int>() }
+    var workoutRpe by remember { mutableIntStateOf(5) }
     LaunchedEffect(running,paused,restRemaining){ while(running && !paused){ delay(1000); elapsedSeconds++; if(restRemaining>0) restRemaining-- } }
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
     val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Bilanciere","Manubri","Cavi","Macchine","Elastici","Panca","Kettlebell","Leg press","Anelli","TRX")
@@ -606,7 +608,7 @@ Row{OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAU
 if(running){
  Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
 }
-if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3&&restRemaining==0){
+if(running){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)};if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold);OutlinedButton({if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp));Button({if(n<3&&restRemaining==0){
  val previousExercise=lastCompletedExercise
  completed[ex.name]=n+1;currentExercise=ex.name
  val finishedExercise=(n+1)>=3
@@ -614,7 +616,7 @@ if(running)Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertica
  restRemaining=if(finishedExercise && previousExercise!=ex.name) exerciseRestSeconds else if(finishedExercise) exerciseRestSeconds else (restSeconds[ex.name]?:60)
  if(finishedExercise) lastCompletedExercise=ex.name
 }},enabled=restRemaining==0&&!paused){Text("+ SERIE")}}}}}
-    }},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(skill!="Nessuna")" • "+skill else "",completed.values.sum(),total,generated.map{it.name}));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
+    };if(running)item{Text("Fatica complessiva workout: "+workoutRpe+"/10",fontWeight=FontWeight.Bold);Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8)}},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(skill!="Nessuna")" • "+skill else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
 }
 
 @Composable
@@ -627,6 +629,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     var paused by remember { mutableStateOf(false) }
     var elapsedSeconds by remember { mutableIntStateOf(0) }
     var restRemaining by remember { mutableIntStateOf(0) }
+    val exerciseRpe=remember{mutableStateMapOf<String,Int>()};var workoutRpe by remember{mutableIntStateOf(5)}
     LaunchedEffect(started,paused,restRemaining){while(started&&!paused){delay(1000);elapsedSeconds++;if(restRemaining>0)restRemaining--}}
 
     AlertDialog(
@@ -653,8 +656,8 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                             Text(ex.name, fontWeight = FontWeight.Bold)
                             val timed = ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)
                             val target = if(timed) if(ex.level=="Principiante")20 else if(ex.level=="Intermedio")30 else 40 else if(ex.role=="Forza")6 else if(ex.role=="Progressione")5 else 10
-                            val rest = if(ex.role=="Forza"||ex.role=="Progressione")120 else if(ex.role=="Prerequisito")90 else 60
-                            Text("3 serie × "+target+(if(timed)" sec" else " rip")+" • recupero "+rest+" sec", color = Accent, fontSize = 12.sp)
+                            val rest = ex.setRestSec
+                            Text("3 serie × "+target+(if(timed)" sec" else " rip")+" • recupero consigliato "+rest+" sec", color = Accent, fontSize = 12.sp);if(started){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                             Text(ex.equipment + " • " + ex.role, color = Color.Gray, fontSize = 12.sp)
                             Row(
                                 Modifier.fillMaxWidth().padding(top = 8.dp),
@@ -668,9 +671,10 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                         }
                     }
                 }
+                if(started)item{Text("Fatica complessiva workout: "+workoutRpe+"/10",fontWeight=FontWeight.Bold);Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8)}
             }
         },
-        confirmButton = { Button(onClick = { if(!started) started=true else {onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets, compatible.map { it.name })); onDismiss()} }) { Text(if(!started)"AVVIA WORKOUT" else if (totalSets > 0 && doneSets == totalSets) "TERMINA E SALVA" else "SALVA E CHIUDI") } },
+        confirmButton = { Button(onClick = { if(!started) started=true else {onSave(SessionRecord(System.currentTimeMillis(), profile.name, doneSets, totalSets, compatible.map { it.name },exerciseRpe.toMap(),workoutRpe)); onDismiss()} }) { Text(if(!started)"AVVIA WORKOUT" else if (totalSets > 0 && doneSets == totalSets) "TERMINA E SALVA" else "SALVA E CHIUDI") } },
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }
