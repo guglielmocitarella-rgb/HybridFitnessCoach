@@ -339,7 +339,7 @@ private val exercises = listOf(
     Exercise("Band triceps extension", "Tricipiti", "Elastici", "Principiante", emptyList(), "Accessorio")
 )
 
-private data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
+internal data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
 internal fun prescriptionFor(ex:Exercise):ExercisePrescription {
     val defaultValue = when(ex.measure) {
         ExerciseMeasure.REPS -> when(ex.role){"Forza"->6.0;"Progressione"->5.0;else->10.0}
