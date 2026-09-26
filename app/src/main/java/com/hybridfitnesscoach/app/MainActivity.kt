@@ -779,7 +779,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                         Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else currentExercise=ex.name}}){
                             Column(Modifier.padding(10.dp)){
                                 Text((if(done)"✓ " else if(running&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
-                                if(done) Text("COMPLETATO • 3/3 serie",color=Accent,fontSize=12.sp)
+                                if(done) Text("COMPLETATO • "+targetSets+"/"+targetSets+" serie",color=Accent,fontSize=12.sp)
                                 if(expanded){
                                     val p=prescriptionFor(ex)
                                     Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
@@ -793,7 +793,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                             Button(onClick={
                                                 if(n<3&&restRemaining==0&&!paused){
                                                     val next=n+1;completed[ex.name]=next
-                                                    if(next>=3){restKind="Esercizio";restRemaining=exerciseRestSeconds;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<3}?.name?:generated.firstOrNull{(completed[it.name]?:0)<3}?.name}
+                                                    if(next>=targetSets){restKind="Esercizio";restRemaining=exerciseRestSeconds;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<3}?.name?:generated.firstOrNull{(completed[it.name]?:0)<3}?.name}
                                                     else {restKind="Serie";restRemaining=restSeconds[ex.name]?:60;currentExercise=ex.name}
                                                 }
                                             },enabled=restRemaining==0&&!paused){Text("+ SERIE")}
@@ -827,7 +827,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     val compatible = remember(profile, athlete, sessions, restored) { restored?.exercises?.mapNotNull { s -> exercises.firstOrNull { it.name==s.exerciseName } }?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions) }
     val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
-    val totalSets = compatible.size * 3
+    val totalSets = compatible.sumOf{prescriptionFor(it).sets}
     val doneSets = completedSets.values.sum()
     var started by remember { mutableStateOf(restored != null) }
     var paused by remember { mutableStateOf(restored?.pausedAtEpochMs != null) }
@@ -850,7 +850,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
             store.saveActiveWorkout(WorkoutSessionState(restored?.id?:"auto-"+now,restored?.startedAtEpochMs?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,if(restRemaining>0)now+restRemaining*1000L else null,workoutRpe))
         }
     }
-    LaunchedEffect(started){if(started){currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<3}?.name;listState.scrollToItem(0)}}
+    LaunchedEffect(started){if(started){currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;listState.scrollToItem(0)}}
     LaunchedEffect(currentExercise){if(started){val i=compatible.indexOfFirst{it.name==currentExercise};if(i>=0)listState.animateScrollToItem(i)}}
 
     AlertDialog(
@@ -880,7 +880,8 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                     if(compatible.isEmpty())item{Text("Nessun esercizio compatibile con questo profilo.")}
                     items(compatible){ex->
                         val count=completedSets[ex.name]?:0
-                        val done=count>=3
+                        val targetSets=prescriptionFor(ex).sets
+                        val done=count>=targetSets
                         val expanded=!done||(expandedCompleted[ex.name]?:false)
                         Card(Modifier.fillMaxWidth().padding(vertical=5.dp).clickable{
                             if(started){
@@ -890,23 +891,23 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                         }){
                             Column(Modifier.padding(12.dp)){
                                 Text((if(done)"✓ " else if(started&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
-                                if(done)Text("COMPLETATO • 3/3 serie",color=Accent,fontSize=12.sp)
+                                if(done)Text("COMPLETATO • "+targetSets+"/"+targetSets+" serie",color=Accent,fontSize=12.sp)
                                 if(expanded){
                                     val p=prescriptionFor(ex)
                                     Text(p.sets.toString()+" serie × "+p.value.toInt()+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
                                     if(started&&count>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     if(started&&!done)Row(Modifier.fillMaxWidth().padding(top=8.dp),verticalAlignment=Alignment.CenterVertically){
-                                        Text("$count/3",color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f))
+                                        Text("$count/$targetSets",color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f))
                                         OutlinedButton(onClick={if(count>0)completedSets[ex.name]=count-1}){Text("−")}
                                         Spacer(Modifier.width(8.dp))
                                         Button(onClick={
-                                            if(!paused&&restRemaining==0&&count<3){
+                                            if(!paused&&restRemaining==0&&count<targetSets){
                                                 val next=count+1
                                                 completedSets[ex.name]=next
-                                                if(next>=3){
+                                                if(next>=targetSets){
                                                     restKind="Esercizio";restRemaining=ex.exerciseRestSec
-                                                    currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<3}?.name?:compatible.firstOrNull{(completedSets[it.name]?:0)<3}?.name
+                                                    currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name?:compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name
                                                 }else{
                                                     restKind="Serie";restRemaining=ex.setRestSec;currentExercise=ex.name
                                                 }
@@ -922,8 +923,8 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
             }
         },
         confirmButton = { Button(onClick={
-            if(!started){started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<3}?.name}
-            else{onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds));store.clearActiveWorkout();onDismiss()}
+            if(!started){started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}
+            else{val structured=compatible.mapIndexed { index,ex->completedExerciseState(index,ex,completedSets[ex.name]?:0,exerciseRpe[ex.name]) };onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName}));store.clearActiveWorkout();onDismiss()}
         }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "SALVA E CHIUDI")} },
         dismissButton = { TextButton(onClick=onDismiss){Text("ANNULLA")} }
     )
