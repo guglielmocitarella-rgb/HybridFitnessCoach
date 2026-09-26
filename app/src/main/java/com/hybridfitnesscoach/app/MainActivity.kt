@@ -702,7 +702,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val listState = rememberLazyListState()
 
     LaunchedEffect(running,paused,restRemaining){ while(running && !paused){ delay(1000); elapsedSeconds++; if(restRemaining>0) restRemaining-- } }
-    LaunchedEffect(running) { if(running){ currentExercise=generated.firstOrNull{(completed[it.name]?:0)<3}?.name; listState.scrollToItem(0) } }
+    LaunchedEffect(running) { if(running){ currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name; listState.scrollToItem(0) } }
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
@@ -775,7 +775,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                         }
                     }
                     items(generated){ex->
-                        val n=completed[ex.name]?:0;val done=n>=3;val expanded=!done||(expandedCompleted[ex.name]?:false)
+                        val n=completed[ex.name]?:0;val targetSets=prescriptionFor(ex).sets;val done=n>=targetSets;val expanded=!done||(expandedCompleted[ex.name]?:false)
                         Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else currentExercise=ex.name}}){
                             Column(Modifier.padding(10.dp)){
                                 Text((if(done)"✓ " else if(running&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
@@ -788,12 +788,12 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                         Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
                                         if(n>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                         Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){
-                                            Text("$n/3",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold)
+                                            Text("$n/$targetSets",modifier=Modifier.weight(1f),fontWeight=FontWeight.Bold)
                                             OutlinedButton(onClick={if(n>0)completed[ex.name]=n-1}){Text("−")};Spacer(Modifier.width(6.dp))
                                             Button(onClick={
-                                                if(n<3&&restRemaining==0&&!paused){
+                                                if(n<targetSets&&restRemaining==0&&!paused){
                                                     val next=n+1;completed[ex.name]=next
-                                                    if(next>=targetSets){restKind="Esercizio";restRemaining=exerciseRestSeconds;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<3}?.name?:generated.firstOrNull{(completed[it.name]?:0)<3}?.name}
+                                                    if(next>=targetSets){restKind="Esercizio";restRemaining=exerciseRestSeconds;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name?:generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
                                                     else {restKind="Serie";restRemaining=restSeconds[ex.name]?:60;currentExercise=ex.name}
                                                 }
                                             },enabled=restRemaining==0&&!paused){Text("+ SERIE")}
@@ -810,7 +810,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
         confirmButton={
             if(generated.isNotEmpty()){
                 Button(onClick={
-                    if(!running){running=true;paused=false;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<3}?.name}
+                    if(!running){running=true;paused=false;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
                     else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds));onDismiss()}
                 }){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}
             }
