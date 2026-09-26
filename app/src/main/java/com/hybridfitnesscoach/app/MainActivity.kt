@@ -707,6 +707,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     var currentExercise by remember { mutableStateOf<String?>(null) }
     var generationMessage by remember { mutableStateOf<String?>(null) }
     val completed = remember { mutableStateMapOf<String, Int>() }
+    val skipped = remember { mutableStateMapOf<String, Boolean>() }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
     val reps = remember { mutableStateMapOf<String, Int>() }
     val restSeconds = remember { mutableStateMapOf<String, Int>() }
@@ -718,7 +719,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     LaunchedEffect(running,currentExercise,restRemaining,completed.toMap(),exerciseRpe.toMap(),workoutRpe) {
         if(running&&store!=null){
             val now=System.currentTimeMillis()
-            val states=generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name])}
+            val states=generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).let{s->if(skipped[ex.name]==true)s.copy(status=WorkoutExerciseStatus.SKIPPED)else s}}
             store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe))
         }
     }
@@ -800,7 +801,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                     }
                     items(generated){ex->
                         val n=completed[ex.name]?:0;val targetSets=prescriptionFor(ex).sets;val done=n>=targetSets;val expanded=!done||(expandedCompleted[ex.name]?:false)
-                        Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else currentExercise=ex.name}}){
+                        Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else {skipped[ex.name]=false;currentExercise=ex.name}}){
                             Column(Modifier.padding(10.dp)){
                                 Text((if(done)"✓ " else if(running&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
                                 if(done) Text("COMPLETATO • "+targetSets+"/"+targetSets+" serie",color=Accent,fontSize=12.sp)
@@ -808,7 +809,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                     val p=prescriptionFor(ex)
                                     Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     Text(p.sets.toString()+" serie × "+(reps[ex.name]?:p.value.toInt())+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
-                                    if(running && !done){
+                                    if(running && !done && !isSkipped){
                                         Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
                                         if(n>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                         Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){
@@ -835,7 +836,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             if(generated.isNotEmpty()){
                 Button(onClick={
                     if(!running){sessionStartedAt=System.currentTimeMillis();running=true;paused=false;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
-                    else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name])}));store?.clearActiveWorkout();onDismiss()}
+                    else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).let{s->if(skipped[ex.name]==true)s.copy(status=WorkoutExerciseStatus.SKIPPED)else s}},skipped.filterValues{it}.keys.toList()));store?.clearActiveWorkout();onDismiss()}
                 }){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}
             }
         },
@@ -851,6 +852,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     val compatible = remember(profile, athlete, sessions, restored) { restored?.exercises?.mapNotNull { s -> exercises.firstOrNull { it.name==s.exerciseName } }?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions) }
     val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
+    val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
     val totalSets = compatible.sumOf{prescriptionFor(it).sets}
     val doneSets = completedSets.values.sum()
     var started by remember { mutableStateOf(restored != null) }
@@ -872,7 +874,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
             val now=System.currentTimeMillis()
             val states=compatible.mapIndexed { index, ex ->
                 val p=prescriptionFor(ex); val done=completedSets[ex.name]?:0
-                WorkoutExerciseState(ex.name,ex.measure,(0 until p.sets).map { s -> WorkoutSetState(s,targetReps=if(ex.measure==ExerciseMeasure.REPS)p.value.toInt() else null,targetSeconds=if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION)p.value.toInt() else null,targetDistanceMeters=if(ex.measure==ExerciseMeasure.DISTANCE)p.value else null,completed=s<done) },when{done>=p.sets->WorkoutExerciseStatus.COMPLETED;done>0->WorkoutExerciseStatus.PARTIAL;else->WorkoutExerciseStatus.PENDING},exerciseRpe[ex.name],false,ex.setRestSec,ex.exerciseRestSec,index,index)
+                WorkoutExerciseState(ex.name,ex.measure,(0 until p.sets).map { s -> WorkoutSetState(s,targetReps=if(ex.measure==ExerciseMeasure.REPS)p.value.toInt() else null,targetSeconds=if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION)p.value.toInt() else null,targetDistanceMeters=if(ex.measure==ExerciseMeasure.DISTANCE)p.value else null,completed=s<done) },when{skipped[ex.name]==true->WorkoutExerciseStatus.SKIPPED;done>=p.sets->WorkoutExerciseStatus.COMPLETED;done>0->WorkoutExerciseStatus.PARTIAL;else->WorkoutExerciseStatus.PENDING},exerciseRpe[ex.name],false,ex.setRestSec,ex.exerciseRestSec,index,index)
             }
             store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe))
         }
@@ -913,7 +915,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                         Card(Modifier.fillMaxWidth().padding(vertical=5.dp).clickable{
                             if(started){
                                 if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false)
-                                else currentExercise=ex.name
+                                else {skipped[ex.name]=false;currentExercise=ex.name}
                             }
                         }){
                             Column(Modifier.padding(12.dp)){
@@ -924,7 +926,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     Text(p.sets.toString()+" serie × "+p.value.toInt()+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
                                     if(started&&count>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
-                                    if(started&&!done)Row(Modifier.fillMaxWidth().padding(top=8.dp),verticalAlignment=Alignment.CenterVertically){
+                                    if(started&&!done&&!isSkipped)Row(Modifier.fillMaxWidth().padding(top=8.dp),verticalAlignment=Alignment.CenterVertically){
                                         Text("$count/$targetSets",color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f))
                                         OutlinedButton(onClick={if(count>0)completedSets[ex.name]=count-1}){Text("−")}
                                         Spacer(Modifier.width(8.dp))
