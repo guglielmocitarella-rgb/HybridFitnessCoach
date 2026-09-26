@@ -616,7 +616,8 @@ if(running){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",font
  restRemaining=if(finishedExercise && previousExercise!=ex.name) exerciseRestSeconds else if(finishedExercise) exerciseRestSeconds else (restSeconds[ex.name]?:60)
  if(finishedExercise) lastCompletedExercise=ex.name
 }},enabled=restRemaining==0&&!paused){Text("+ SERIE")}}}}}
-    };if(running)item{Text("Fatica complessiva workout: "+workoutRpe+"/10",fontWeight=FontWeight.Bold);Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8)}},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(skill!="Nessuna")" • "+skill else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
+        if(running) item { Text("Fatica complessiva workout: "+workoutRpe+"/10",fontWeight=FontWeight.Bold); Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8) }
+    }},confirmButton={if(generated.isNotEmpty())Button(onClick={if(!running)running=true else {val total=generated.size*3;onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(skill!="Nessuna")" • "+skill else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe));onDismiss()}}){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}},dismissButton={TextButton(onClick={if(running)paused=!paused else onDismiss()}){Text(if(running)if(paused)"RIPRENDI" else "PAUSA" else "ANNULLA")}})
 }
 
 @Composable
