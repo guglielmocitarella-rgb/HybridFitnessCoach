@@ -27,7 +27,27 @@ private val Accent = Color(0xFF3568E8)
 private val Bg = Color(0xFFF7F8FA)
 
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
-data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skills: List<String> = emptyList(), val role: String = "Base")
+private fun recommendedSetRest(role:String,name:String,equipment:String):Int {
+    val n=name.lowercase(); val e=equipment.lowercase()
+    val isSkill=n.contains("lever")||n.contains("planche")||n.contains("handstand")||n.contains("muscle-up")||n.contains("flag")||n.contains("one arm")
+    val isHeavyCompound=n.contains("squat")||n.contains("deadlift")||n.contains("stacco")||n.contains("panca")||n.contains("bench")||n.contains("press")||n.contains("row")||n.contains("rematore")||n.contains("trazioni")||n.contains("pull-up")||n.contains("dip")
+    val isIsolation=n.contains("curl")||n.contains("extension")||n.contains("alzate")||n.contains("raise")||n.contains("fly")||n.contains("croci")||n.contains("calf")||n.contains("pushdown")
+    return when {
+        isSkill && (role=="Progressione"||role=="Forza") -> 180
+        role=="Forza" && isHeavyCompound -> 180
+        role=="Forza" -> 150
+        role=="Progressione" -> 150
+        role=="Prerequisito" && isHeavyCompound -> 120
+        isIsolation -> 75
+        e.contains("macchina")||e.contains("cavi") -> 90
+        else -> 90
+    }
+}
+private fun recommendedExerciseRest(role:String,name:String,equipment:String):Int {
+    val set=recommendedSetRest(role,name,equipment)
+    return when { set>=180->240; set>=150->180; set>=120->150; else->120 }
+}
+data class Exercise(val name: String, val group: String, val equipment: String, val level: String, val skills: List<String> = emptyList(), val role: String = "Base", val setRestSec: Int = recommendedSetRest(role, name, equipment), val exerciseRestSec: Int = recommendedExerciseRest(role, name, equipment))
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3)
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList())
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
@@ -540,14 +560,14 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     fun prescription(ex:Exercise):Pair<Int,Int> {
         val timed = ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true)
         val target = if(timed) when(ex.level){"Principiante"->20;"Intermedio"->30;else->40} else when(ex.role){"Forza"->6;"Progressione"->5;else->10}
-        val rest = when(ex.role){"Forza"->120;"Progressione"->120;"Prerequisito"->90;else->60}
+        val rest = ex.setRestSec
         return target to rest
     }
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
         generated=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(mode!="Skill"||skill=="Nessuna"||skill in ex.skills)}
             .sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(skill!="Nessuna"&&skill in it.skills)0 else 1}).take(count)
-        completed.clear();reps.clear();restSeconds.clear();generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second};running=false;paused=false;elapsedSeconds=0;restRemaining=0;currentExercise=generated.firstOrNull()?.name;generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova ad ampliare attrezzatura, muscoli o livello/skill." else "Workout pronto: "+generated.size+" esercizi. Scorri il piano e premi AVVIA WORKOUT."
+        completed.clear();reps.clear();restSeconds.clear();generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second};exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0;currentExercise=generated.firstOrNull()?.name;generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova ad ampliare attrezzatura, muscoli o livello/skill." else "Workout pronto: "+generated.size+" esercizi. Scorri il piano e premi AVVIA WORKOUT."
     }
     AlertDialog(onDismissRequest=onDismiss,title={Text(if(running)"Workout in corso" else "Crea workout personalizzato")},text={LazyColumn(Modifier.heightIn(max=590.dp)){
         if(!running){
@@ -579,10 +599,10 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             }
         }
         if(running) item { val mm=elapsedSeconds/60; val ss=elapsedSeconds%60; Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){Column(Modifier.padding(12.dp)){Text("Tempo allenamento: "+String.format("%02d:%02d",mm,ss),fontWeight=FontWeight.Bold); if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold); if(restRemaining>0) Text("Recupero "+restKind.lowercase()+": "+restRemaining+" sec",color=Accent,fontSize=20.sp,fontWeight=FontWeight.Bold)
-Text("Recupero tra esercizi: "+exerciseRestSeconds+" sec",color=Color.Gray,fontSize=12.sp)
+Text("Recupero tra esercizi: "+exerciseRestSeconds+" sec • consigliato dal workout",color=Color.Gray,fontSize=12.sp)
 Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){listOf(60,90,120,180,240).forEach{v->FilterChip(exerciseRestSeconds==v,{exerciseRestSeconds=v},{Text(v.toString()+"s")})}}
 Row{OutlinedButton(onClick={paused=!paused}){Text(if(paused)"RIPRENDI" else "PAUSA")}; if(restRemaining>0){Spacer(Modifier.width(6.dp));TextButton(onClick={restRemaining=0}){Text("SALTA RECUPERO")}}}}} }
-        items(generated){ex->val n=completed[ex.name]?:0;val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){Column(Modifier.padding(10.dp)){Text(ex.name,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);Text("3 serie × "+(reps[ex.name]?:0)+(if(timed)" sec" else " rip"),color=Accent,fontSize=12.sp)
+        items(generated){ex->val n=completed[ex.name]?:0;val timed=ex.name.contains("hold",true)||ex.name.contains("plank",true)||ex.name.contains("hang",true)||ex.name.contains("support",true)||ex.name.contains("walk",true);Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){Column(Modifier.padding(10.dp)){Text(ex.name,fontWeight=FontWeight.Bold);Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);Text("3 serie × "+(reps[ex.name]?:0)+(if(timed)" sec" else " rip")+" • consigliato: "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
 if(running){
  Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
 }
