@@ -395,7 +395,7 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
             val recoveryFactor = kotlin.math.exp(-ageHours / 38.0)
             val setsPerExercise = session.totalSets.toDouble() / session.exerciseNames.size.coerceAtLeast(1)
             session.exerciseNames.mapNotNull { n -> exercises.firstOrNull { it.name == n } }.forEach { ex ->
-                val actualSets=if(session.completedByExercise.isNotEmpty()) (session.completedByExercise[ex.name]?:0).toDouble() else setsPerExercise
+                val actualSets=session.structuredExercises.firstOrNull{it.exerciseName==ex.name}?.sets?.count{it.completed}?.toDouble() ?: if(session.completedByExercise.isNotEmpty()) (session.completedByExercise[ex.name]?:0).toDouble() else setsPerExercise
                 if(actualSets<=0) return@forEach
                 val matched = recoveryGroups.filter { ex.group.contains(it, ignoreCase = true) }
                 matched.forEachIndexed { index, group ->
@@ -746,7 +746,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val listState = rememberLazyListState()
 
     LaunchedEffect(running,paused,restEndsAt,sessionStartedAt){ while(running&&!paused){ val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);sessionStartedAt?.let{elapsedSeconds=((now-it)/1000L).toInt()};delay(500) } }
-    LaunchedEffect(running,currentExercise,restRemaining,completed.toMap(),exerciseRpe.toMap(),workoutRpe) {
+    LaunchedEffect(running,currentExercise,restRemaining,completed.toMap(),executedSets.toMap(),exerciseRpe.toMap(),workoutRpe) {
         if(running&&store!=null){
             val now=System.currentTimeMillis()
             val states=generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).let{s->val actual=executedSets[ex.name];val withActual=if(actual!=null)s.copy(sets=actual)else s;if(skipped[ex.name]==true)withActual.copy(status=WorkoutExerciseStatus.SKIPPED)else withActual}}
@@ -853,7 +853,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                                     if(next>=targetSets){restKind="Esercizio";restRemaining=exerciseRestSeconds;restEndsAt=System.currentTimeMillis()+exerciseRestSeconds*1000L;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name?:generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
                                                     else {restKind="Serie";restRemaining=restSeconds[ex.name]?:60;restEndsAt=System.currentTimeMillis()+restRemaining*1000L;currentExercise=ex.name}
                                                 }
-                                            },enabled=restRemaining==0&&!paused){Text("+ SERIE")}
+                                            },enabled=restRemaining==0&&!paused){Text("SEGNA TARGET")}
                                         }
                                     }
                                 }
@@ -902,7 +902,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     val listState = rememberLazyListState()
 
     LaunchedEffect(started,paused,restEndsAt,sessionStartedAt){while(started&&!paused){val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);sessionStartedAt?.let{elapsedSeconds=((now-it)/1000L).toInt()};delay(500)}}
-    LaunchedEffect(started, paused, currentExercise, restRemaining, doneSets, workoutRpe) {
+    LaunchedEffect(started, paused, currentExercise, restRemaining, doneSets, executedSets.toMap(), workoutRpe) {
         if(started) {
             val now=System.currentTimeMillis()
             val states=compatible.mapIndexed { index, ex ->
