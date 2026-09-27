@@ -58,4 +58,6 @@ class WorkoutInfrastructureTest {
     @Test fun loadRecommendationProgressesConservatively(){val r=recommendLoad(100.0,null,1.0,7.0,85);assertEquals(105.0,r.loadKg!!,0.0);assertEquals(5,r.changePercent)}
     @Test fun loadRecommendationDeloadsWhenRecoveryIsPoor(){val r=recommendLoad(100.0,null,1.0,7.0,30);assertEquals(90.0,r.loadKg!!,0.0)}
     @Test fun adaptiveCoachDeloadReducesVolumeAndIntensity(){val p=adaptiveWorkoutPlan(0.95,7.0,30,80);assertEquals(ProgressionDecision.DELOAD,p.decision);assertTrue(p.volumeFactor<1.0);assertTrue(p.intensityFactor<1.0)}
+    @Test fun sequencingPrioritizesSkillThenStrength(){val a=Exercise("Accessory","A","Corpo libero","Principiante",role="Accessorio");val s=Exercise("Skill","A","Corpo libero","Principiante",role="Progressione");val f=Exercise("Strength","A","Corpo libero","Principiante",role="Forza");assertEquals(listOf("Skill","Strength","Accessory"),sequenceWorkout(listOf(a,f,s)).map{it.name})}
+    @Test fun regenerationKeepsPinnedExerciseAtOriginalPosition(){val a=Exercise("A","A","Corpo libero","Principiante");val b=Exercise("B","A","Corpo libero","Principiante");val c=Exercise("C","A","Corpo libero","Principiante");val x=Exercise("X","A","Corpo libero","Principiante");val out=regenerateUnpinned(listOf(a,b,c),listOf(x),setOf("B"));assertEquals("B",out[1].name)}
 }
