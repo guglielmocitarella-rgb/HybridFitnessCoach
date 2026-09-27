@@ -4,15 +4,15 @@ package com.hybridfitnesscoach.app
 object SkillCatalog {
     val nodes: List<SkillNode> = listOf(
         // Pull-up -> Muscle-up
-        SkillNode("pullup_strict", "Pull-up", "Muscle-up", criterion = MasteryCriterion(minSets = 3, minReps = 8)),
+        SkillNode("pullup_strict", "Pull-up", "Muscle-up", criterion = MasteryCriterion(minSets = 3, minReps = 8), exerciseAliases = setOf("Trazioni prone")),
         SkillNode("pullup_chest", "Chest-to-bar Pull-up", "Muscle-up", setOf("pullup_strict"), MasteryCriterion(minSets = 3, minReps = 6)),
-        SkillNode("muscleup_negative", "Muscle-up Negative", "Muscle-up", setOf("pullup_chest"), MasteryCriterion(minSets = 3, minReps = 3)),
+        SkillNode("muscleup_negative", "Muscle-up Negative", "Muscle-up", setOf("pullup_chest"), MasteryCriterion(minSets = 3, minReps = 3), setOf("Muscle-up negativo")),
         SkillNode("muscleup_band", "Band-assisted Muscle-up", "Muscle-up", setOf("muscleup_negative"), MasteryCriterion(minSets = 3, minReps = 5)),
         SkillNode("muscleup_strict", "Muscle-up", "Muscle-up", setOf("muscleup_band"), MasteryCriterion(minSets = 3, minReps = 3)),
 
         // Handstand
         SkillNode("handstand_wall", "Wall Handstand", "Handstand", criterion = MasteryCriterion(minSets = 3, minSeconds = 30)),
-        SkillNode("handstand_wall_shoulder_tap", "Wall Handstand Shoulder Tap", "Handstand", setOf("handstand_wall"), MasteryCriterion(minSets = 3, minReps = 8)),
+        SkillNode("handstand_wall_shoulder_tap", "Wall Handstand Shoulder Tap", "Handstand", setOf("handstand_wall"), MasteryCriterion(minSets = 3, minReps = 8), setOf("Handstand shoulder taps")),
         SkillNode("handstand_freestanding", "Freestanding Handstand", "Handstand", setOf("handstand_wall_shoulder_tap"), MasteryCriterion(minSets = 3, minSeconds = 20)),
 
         // Back Lever
@@ -28,14 +28,14 @@ object SkillCatalog {
         SkillNode("flag_full", "Human Flag", "Human Flag", setOf("flag_straddle"), MasteryCriterion(minSets = 3, minSeconds = 6)),
 
         // L-sit -> V-sit
-        SkillNode("lsit_tuck", "Tuck L-sit", "L-sit / V-sit", criterion = MasteryCriterion(minSets = 3, minSeconds = 20)),
+        SkillNode("lsit_tuck", "Tuck L-sit", "L-sit / V-sit", criterion = MasteryCriterion(minSets = 3, minSeconds = 20), exerciseAliases = setOf("L-sit tuck")),
         SkillNode("lsit_full", "L-sit", "L-sit / V-sit", setOf("lsit_tuck"), MasteryCriterion(minSets = 3, minSeconds = 20)),
         SkillNode("vsit_compression", "V-sit Compression", "L-sit / V-sit", setOf("lsit_full"), MasteryCriterion(minSets = 3, minReps = 8)),
         SkillNode("vsit_hold", "V-sit", "L-sit / V-sit", setOf("vsit_compression"), MasteryCriterion(minSets = 3, minSeconds = 8)),
 
         // Pistol squat
         SkillNode("pistol_box", "Box Pistol Squat", "Pistol Squat", criterion = MasteryCriterion(minSets = 3, minReps = 8)),
-        SkillNode("pistol_assisted", "Assisted Pistol Squat", "Pistol Squat", setOf("pistol_box"), MasteryCriterion(minSets = 3, minReps = 8)),
+        SkillNode("pistol_assisted", "Assisted Pistol Squat", "Pistol Squat", setOf("pistol_box"), MasteryCriterion(minSets = 3, minReps = 8), setOf("Pistol squat assistito")),
         SkillNode("pistol_full", "Pistol Squat", "Pistol Squat", setOf("pistol_assisted"), MasteryCriterion(minSets = 3, minReps = 6))
     )
 

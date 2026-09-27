@@ -109,7 +109,8 @@ data class SkillNode(
     val exerciseName:String,
     val skill:String,
     val prerequisites:Set<String> = emptySet(),
-    val criterion:MasteryCriterion = MasteryCriterion()
+    val criterion:MasteryCriterion = MasteryCriterion(),
+    val exerciseAliases:Set<String> = emptySet()
 )
 data class SkillNodeProgress(val node:SkillNode,val status:ProgressionStatus,val completion:Double)
 data class LoadSuggestion(val loadKg:Double?,val calibrationRequired:Boolean,val reason:String)
@@ -117,7 +118,10 @@ data class LoadSuggestion(val loadKg:Double?,val calibrationRequired:Boolean,val
 object ProgressionEngine {
     fun evaluate(node:SkillNode, mastered:Set<String>, sessions:List<SessionRecord>):SkillNodeProgress {
         if(!mastered.containsAll(node.prerequisites)) return SkillNodeProgress(node,ProgressionStatus.LOCKED,0.0)
-        val attempts=sessions.flatMap{it.structuredExercises}.filter{it.exerciseName==node.exerciseName}
+        val names=node.exerciseAliases+node.exerciseName
+        val attempts=sessions.flatMap{it.structuredExercises}.filter{attempt ->
+            names.any { it.equals(attempt.exerciseName, ignoreCase=true) }
+        }
         if(attempts.isEmpty()) return SkillNodeProgress(node,ProgressionStatus.AVAILABLE,0.0)
         val qualified=attempts.count { e ->
             val done=e.sets.filter{it.completed}

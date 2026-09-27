@@ -4,6 +4,21 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class WorkoutInfrastructureTest {
+    @Test fun progressionRecognizesRealExerciseNameAndCase() {
+        val wall = WorkoutExerciseState("Wall handstand", sets = (0..2).map {
+            WorkoutSetState(it, actualSeconds = 30, completed = true)
+        }, rpe = 7)
+        val session = SessionRecord(1,"P",3,3,listOf("Wall handstand"),structuredExercises=listOf(wall))
+        assertEquals(ProgressionStatus.IN_PROGRESS, SkillCatalog.progress("Handstand", listOf(session)).first().status)
+        val taps = WorkoutExerciseState("Handstand shoulder taps", sets = (0..2).map {
+            WorkoutSetState(it, actualReps = 8, completed = true)
+        }, rpe = 7)
+        val second = session.copy(timestamp=2)
+        val tapSession = session.copy(timestamp=3, exerciseNames=listOf("Handstand shoulder taps"), structuredExercises=listOf(taps))
+        val progress = SkillCatalog.progress("Handstand", listOf(session, second, tapSession))
+        assertEquals(ProgressionStatus.MASTERED, progress[0].status)
+        assertEquals(ProgressionStatus.IN_PROGRESS, progress[1].status)
+    }
     @Test fun expandedSkillGraphLocksNodesUntilActualPrerequisiteMastery() {
         val initial = SkillCatalog.progress("Handstand", emptyList())
         assertEquals(ProgressionStatus.AVAILABLE, initial.first().status)
