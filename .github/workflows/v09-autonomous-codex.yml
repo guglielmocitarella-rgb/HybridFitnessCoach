@@ -72,8 +72,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           codex exec \
-            --full-auto \
             --skip-git-repo-check \
+            --sandbox workspace-write \
             "$(cat V0_9_AUTONOMOUS_GOAL.md)"
 
       - name: Run tests and build
