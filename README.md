@@ -2,9 +2,9 @@
 
 Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
 
-## Stato del progetto — V0.8 Evoluta
+## Stato del progetto — V0.9 in sviluppo
 
-La **V0.8 stabile** ha consolidato il flusso completo di allenamento. È ora iniziata la **V0.8 Evoluta**, dedicata alla robustezza dell'infrastruttura che diventerà la base dell'Adaptive Coach della V0.9.
+La base V0.8 Evoluta è stata preservata e il branch `feature/v0.9-adaptive-progression` integra ora Progression Engine, Skill Tree, Load Recommendation nel Runner, Adaptive Coach, sequencing e Health Connect opzionale con fallback locale. La V0.9 NON è ancora dichiarata completa: i gate residui devono essere verificati end-to-end.
 
 Build stabile di riferimento prima dell'evoluzione: **Build #69**.
 
@@ -117,3 +117,24 @@ Health Connect resta volutamente un boundary architetturale nella V0.8: dati raw
 ## Confine V0.9
 
 Progression Engine, grafi skill, advance/maintain/regress, deload, Sequencing Engine, rigenerazione intelligente e Adaptive Coach restano funzionalità V0.9. La V0.8 fornisce modello universale, stato strutturato, pinned/locked readiness, storico eseguito e boundary readiness su cui costruirle.
+
+
+## V0.9 — checklist persistente DoD
+
+Baseline CI verificata: Android Build #166 verde (`7b108819`).
+
+| Gate | Implementato | Testato | E2E | UX | CI |
+|---|---|---|---|---|---|
+| Progression Engine + skill graph/prerequisiti | sì | sì | sì | sì | verde |
+| Skill Tree / progress / next unlock | sì | sì | sì | sì | verde |
+| Load Recommendation + calibrazione | sì | sì | sì | Runner | verde |
+| Adaptive Coach + recovery/readiness/RPE | sì | sì | sì | sì | verde |
+| Sequencing + pinned/locked regeneration | parziale | parziale | parziale | parziale | verde |
+| Health Connect opzionale + fallback | sì | sì | sì | sì | verde |
+| Catalogo ampio/deduplicato/metadati | parziale | parziale | parziale | sì | verde |
+| Ab Wheel + Foam Roller generator-ready | sì | sì | sì | sì | verde |
+| Salto UX complessivo v0.9 | parziale | n/a | parziale | parziale | verde |
+| Persistenza / retrocompatibilità / offline-first | sì | sì | sì | sì | verde |
+| Audit finale + APK 0.9 firmato + firma verificata | no | no | no | n/a | no |
+
+I gate marcati `parziale` impediscono esplicitamente di dichiarare V0.9 COMPLETATA. La checklist va aggiornata solo sulla base di codice, wiring, test e CI verificati.
