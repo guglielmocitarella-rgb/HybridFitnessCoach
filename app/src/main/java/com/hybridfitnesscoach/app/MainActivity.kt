@@ -196,6 +196,46 @@ internal val profiles = listOf(
     EquipmentProfile("Parco", "🌳", listOf("Sbarra", "Parallele", "Corpo libero"))
 )
 
+enum class ProgressionDecision { ADVANCE, MAINTAIN, REGRESS, DELOAD }
+data class SkillProgressionNode(val id:String,val skill:String,val label:String,val level:Int,val prerequisites:List<String> = emptyList())
+data class SkillProgressSnapshot(val skill:String,val currentNodeId:String,val progressPercent:Int,val nextNodeId:String?,val decision:ProgressionDecision,val reason:String)
+
+internal val skillProgressionNodes = listOf(
+    SkillProgressionNode("front_tuck","Front lever","Tuck front lever",1),
+    SkillProgressionNode("front_adv_tuck","Front lever","Advanced tuck front lever",2,listOf("front_tuck")),
+    SkillProgressionNode("front_one_leg","Front lever","One-leg front lever",3,listOf("front_adv_tuck")),
+    SkillProgressionNode("front_straddle","Front lever","Straddle front lever",4,listOf("front_one_leg")),
+    SkillProgressionNode("front_full","Front lever","Full front lever",5,listOf("front_straddle")),
+    SkillProgressionNode("planche_frog","Planche","Frog stand",1),
+    SkillProgressionNode("planche_tuck","Planche","Tuck planche",2,listOf("planche_frog")),
+    SkillProgressionNode("planche_adv_tuck","Planche","Advanced tuck planche",3,listOf("planche_tuck")),
+    SkillProgressionNode("planche_straddle","Planche","Straddle planche",4,listOf("planche_adv_tuck")),
+    SkillProgressionNode("planche_full","Planche","Full planche",5,listOf("planche_straddle"))
+)
+
+internal fun progressionDecision(successRate:Double, averageRpe:Double, recovery:Int, consecutiveSuccessfulSessions:Int):ProgressionDecision = when {
+    recovery < 35 || averageRpe >= 9.5 -> ProgressionDecision.DELOAD
+    successRate < 0.60 -> ProgressionDecision.REGRESS
+    successRate >= 0.90 && averageRpe <= 8.0 && recovery >= 70 && consecutiveSuccessfulSessions >= 2 -> ProgressionDecision.ADVANCE
+    else -> ProgressionDecision.MAINTAIN
+}
+
+internal fun skillProgressSnapshot(skill:String,currentNodeId:String,successRate:Double,averageRpe:Double,recovery:Int,consecutiveSuccessfulSessions:Int):SkillProgressSnapshot {
+    val chain=skillProgressionNodes.filter{it.skill==skill}.sortedBy{it.level}
+    val current=chain.firstOrNull{it.id==currentNodeId} ?: chain.firstOrNull()
+        ?: return SkillProgressSnapshot(skill,currentNodeId,0,null,ProgressionDecision.MAINTAIN,"Skill senza grafo configurato")
+    val decision=progressionDecision(successRate,averageRpe,recovery,consecutiveSuccessfulSessions)
+    val next=chain.firstOrNull{it.level==current.level+1}?.id
+    val progress=((current.level.toDouble()/chain.maxOf{it.level})*100.0).toInt().coerceIn(0,100)
+    val reason=when(decision){
+        ProgressionDecision.ADVANCE -> "Prestazione stabile: progressione disponibile"
+        ProgressionDecision.MAINTAIN -> "Consolida il livello corrente"
+        ProgressionDecision.REGRESS -> "Riduci temporaneamente la difficoltà"
+        ProgressionDecision.DELOAD -> "Recupero o RPE richiedono deload"
+    }
+    return SkillProgressSnapshot(skill,current.id,progress,next,decision,reason)
+}
+
 private val calisthenicsSkills = listOf(
  CalisthenicsSkill("Trazioni","Pull","Principiante"),CalisthenicsSkill("Dip","Push","Principiante"),CalisthenicsSkill("L-sit","Core","Intermedio"),CalisthenicsSkill("Pistol squat","Gambe","Intermedio"),CalisthenicsSkill("Handstand","Verticale","Intermedio"),CalisthenicsSkill("Muscle-up","Pull/Push","Avanzato"),CalisthenicsSkill("Front lever","Pull/Core","Avanzato"),CalisthenicsSkill("Back lever","Pull/Core","Avanzato"),CalisthenicsSkill("Planche","Push/Core","Avanzato"),CalisthenicsSkill("Handstand push-up","Verticale/Push","Avanzato"),CalisthenicsSkill("Human flag","Pull/Push/Core","Avanzato"),CalisthenicsSkill("Dragon flag","Core","Avanzato"),CalisthenicsSkill("V-sit","Core","Avanzato"),CalisthenicsSkill("One arm pull-up","Pull","Avanzato"),CalisthenicsSkill("One arm push-up","Push","Avanzato"),CalisthenicsSkill("Shrimp squat","Gambe","Intermedio")
 )
