@@ -91,3 +91,88 @@ data class AthleteReadinessInput(
 interface HealthDataNormalizer { fun normalize(raw:RawHealthSnapshot):NormalizedHealthState }
 /** Boundary only: v0.8 does not fabricate Health Connect readings or make adaptive decisions from them. */
 interface ReadinessProvider { fun readiness(input:AthleteReadinessInput):Double? }
+
+
+// --- v0.9 adaptive domain ---
+enum class ProgressionStatus { LOCKED, AVAILABLE, IN_PROGRESS, MASTERED }
+enum class AdaptiveDecision { PROGRESS, MAINTAIN, REGRESS, DELOAD }
+
+data class MasteryCriterion(
+    val minSets:Int=3,
+    val minReps:Int?=null,
+    val minSeconds:Int?=null,
+    val maxRpe:Int?=8,
+    val requiredSessions:Int=2
+)
+data class SkillNode(
+    val id:String,
+    val exerciseName:String,
+    val skill:String,
+    val prerequisites:Set<String> = emptySet(),
+    val criterion:MasteryCriterion = MasteryCriterion()
+)
+data class SkillNodeProgress(val node:SkillNode,val status:ProgressionStatus,val completion:Double)
+data class LoadSuggestion(val loadKg:Double?,val calibrationRequired:Boolean,val reason:String)
+
+object ProgressionEngine {
+    fun evaluate(node:SkillNode, mastered:Set<String>, sessions:List<SessionRecord>):SkillNodeProgress {
+        if(!mastered.containsAll(node.prerequisites)) return SkillNodeProgress(node,ProgressionStatus.LOCKED,0.0)
+        val attempts=sessions.flatMap{it.structuredExercises}.filter{it.exerciseName==node.exerciseName}
+        if(attempts.isEmpty()) return SkillNodeProgress(node,ProgressionStatus.AVAILABLE,0.0)
+        val qualified=attempts.count { e ->
+            val done=e.sets.filter{it.completed}
+            done.size>=node.criterion.minSets &&
+            (node.criterion.minReps==null || done.all{(it.actualReps?:0)>=node.criterion.minReps}) &&
+            (node.criterion.minSeconds==null || done.all{(it.actualSeconds?:0)>=node.criterion.minSeconds}) &&
+            (node.criterion.maxRpe==null || (e.rpe?:10)<=node.criterion.maxRpe)
+        }
+        val completion=(qualified.toDouble()/node.criterion.requiredSessions.coerceAtLeast(1)).coerceIn(0.0,1.0)
+        val status=if(completion>=1.0)ProgressionStatus.MASTERED else ProgressionStatus.IN_PROGRESS
+        return SkillNodeProgress(node,status,completion)
+    }
+    fun skillProgress(nodes:List<SkillNodeProgress>):Int {
+        if(nodes.isEmpty()) return 0
+        val achieved=nodes.sumOf{when(it.status){ProgressionStatus.MASTERED->1.0;ProgressionStatus.IN_PROGRESS->0.5*it.completion;else->0.0}}
+        return (100.0*achieved/nodes.size).toInt().coerceIn(0,100)
+    }
+}
+
+object LoadRecommendationEngine {
+    fun suggest(exerciseName:String,sessions:List<SessionRecord>,incrementKg:Double=2.5,targetRpe:Int=8):LoadSuggestion {
+        val observations=sessions.asSequence().flatMap{it.structuredExercises.asSequence()}
+            .filter{it.exerciseName==exerciseName}.flatMap{it.sets.asSequence()}
+            .filter{it.completed&&it.actualLoadKg!=null}.toList()
+        if(observations.isEmpty()) return LoadSuggestion(null,true,"Carico da calibrare")
+        val last=observations.last();val load=last.actualLoadKg!!
+        val repsOk=(last.targetReps==null)||(last.actualReps?:0)>=last.targetReps
+        val exerciseRpe=sessions.asSequence().flatMap{it.structuredExercises.asSequence()}.lastOrNull{it.exerciseName==exerciseName}?.rpe
+        val raw=when { !repsOk || (exerciseRpe?:targetRpe)>targetRpe+1 -> load-incrementKg
+            (exerciseRpe?:targetRpe)<=targetRpe-1 -> load+incrementKg
+            else -> load }
+        val rounded=(kotlin.math.round(raw.coerceAtLeast(incrementKg)/incrementKg)*incrementKg)
+        return LoadSuggestion(rounded,false,when{rounded>load->"Progressione da storico e margine";rounded<load->"Riduzione per performance/fatica";else->"Mantieni il carico"})
+    }
+}
+
+object AdaptiveCoach {
+    fun decide(readiness:Double?,recentRpe:Int?,completedRatio:Double):AdaptiveDecision = when {
+        readiness!=null && readiness<45.0 -> AdaptiveDecision.DELOAD
+        completedRatio<0.70 || (recentRpe?:0)>=10 -> AdaptiveDecision.REGRESS
+        completedRatio>=0.98 && (recentRpe?:8)<=7 && (readiness?:70.0)>=60.0 -> AdaptiveDecision.PROGRESS
+        else -> AdaptiveDecision.MAINTAIN
+    }
+}
+
+fun calibratedSetRestSeconds(ex:Exercise, goal:String, level:String):Int {
+    val base=when {
+        ex.role=="Skill" || ex.technicalComplexity>=3 -> 120
+        ex.category==ExerciseCategory.COMPOUND && goal=="Forza" -> 150
+        ex.category==ExerciseCategory.COMPOUND -> 105
+        ex.category==ExerciseCategory.ISOLATION -> 60
+        else -> 75
+    }
+    val levelDelta=when(level){"Principiante"->-15;"Avanzato"->15;else->0}
+    return (base+levelDelta).coerceIn(45,180)
+}
+fun calibratedTransitionRestSeconds(ex:Exercise,goal:String,level:String):Int =
+    (calibratedSetRestSeconds(ex,goal,level)+30).coerceIn(60,210)
