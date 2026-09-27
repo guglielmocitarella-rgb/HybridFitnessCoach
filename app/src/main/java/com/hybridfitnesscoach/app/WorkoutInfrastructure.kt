@@ -52,6 +52,22 @@ object WorkoutRunnerEngine {
     }
 }
 
+internal fun elapsedWorkoutSeconds(state:WorkoutSessionState, now:Long):Int {
+    val end=state.pausedAtEpochMs?:now
+    return ((end-state.startedAtEpochMs).coerceAtLeast(0L)/1000L).toInt()
+}
+internal fun actualCompletedSets(session:SessionRecord):Int =
+    if(session.structuredExercises.isNotEmpty()) session.structuredExercises.sumOf{e->e.sets.count{it.completed}}
+    else session.completedSets
+internal fun executedVolume(session:SessionRecord):Double =
+    session.structuredExercises.sumOf { e -> e.sets.filter{it.completed}.sumOf { s ->
+        when(e.measure){
+            ExerciseMeasure.REPS -> (s.actualReps?:0).toDouble()
+            ExerciseMeasure.SECONDS,ExerciseMeasure.DURATION,ExerciseMeasure.INTERVALS -> (s.actualSeconds?:0).toDouble()
+            ExerciseMeasure.DISTANCE -> s.actualDistanceMeters?:0.0
+        }
+    }}
+
 data class RawHealthSnapshot(
     val capturedAtEpochMs:Long,
     val sleepMinutes:Int?=null,
