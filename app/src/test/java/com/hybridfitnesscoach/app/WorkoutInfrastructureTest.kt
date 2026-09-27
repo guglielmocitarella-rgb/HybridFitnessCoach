@@ -55,4 +55,7 @@ class WorkoutInfrastructureTest {
     @Test fun progressionDeloadOverridesGoodPerformanceWhenRecoveryIsLow(){assertEquals(ProgressionDecision.DELOAD,progressionDecision(0.95,7.0,30,3))}
     @Test fun progressionRegressesOnLowSuccessRate(){assertEquals(ProgressionDecision.REGRESS,progressionDecision(0.50,7.0,80,0))}
     @Test fun frontLeverSnapshotExposesProgressAndNextUnlock(){val s=skillProgressSnapshot("Front lever","front_adv_tuck",0.8,7.0,80,1);assertEquals(40,s.progressPercent);assertEquals("front_one_leg",s.nextNodeId);assertEquals(ProgressionDecision.MAINTAIN,s.decision)}
+    @Test fun loadRecommendationProgressesConservatively(){val r=recommendLoad(100.0,null,1.0,7.0,85);assertEquals(105.0,r.loadKg!!,0.0);assertEquals(5,r.changePercent)}
+    @Test fun loadRecommendationDeloadsWhenRecoveryIsPoor(){val r=recommendLoad(100.0,null,1.0,7.0,30);assertEquals(90.0,r.loadKg!!,0.0)}
+    @Test fun adaptiveCoachDeloadReducesVolumeAndIntensity(){val p=adaptiveWorkoutPlan(0.95,7.0,30,80);assertEquals(ProgressionDecision.DELOAD,p.decision);assertTrue(p.volumeFactor<1.0);assertTrue(p.intensityFactor<1.0)}
 }
