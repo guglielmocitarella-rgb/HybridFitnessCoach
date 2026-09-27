@@ -253,8 +253,8 @@ internal fun recommendLoad(previousLoadKg:Double?,previousAssistanceKg:Double?,c
 internal fun adaptiveWorkoutPlan(successRate:Double,averageRpe:Double,recovery:Int,readinessScore:Int?):AdaptiveWorkoutPlan {
     val readiness=readinessScore?:recovery
     val decision=progressionDecision(successRate,averageRpe,minOf(recovery,readiness),if(successRate>=0.9)2 else 0)
-    val intensity=when{decision){ProgressionDecision.ADVANCE->1.03;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.92;ProgressionDecision.DELOAD->0.85}
-    val volume=when{decision){ProgressionDecision.ADVANCE->1.0;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.90;ProgressionDecision.DELOAD->0.70}
+    val intensity=when(decision){ProgressionDecision.ADVANCE->1.03;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.92;ProgressionDecision.DELOAD->0.85}
+    val volume=when(decision){ProgressionDecision.ADVANCE->1.0;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.90;ProgressionDecision.DELOAD->0.70}
     val notes=buildList{add("Decisione: "+decision.name);if(readinessScore!=null)add("Readiness: $readinessScore/100");if(recovery<50)add("Recupero muscolare basso");if(averageRpe>=9.0)add("RPE recente elevato")}
     return AdaptiveWorkoutPlan(intensity,volume,decision,notes)
 }
