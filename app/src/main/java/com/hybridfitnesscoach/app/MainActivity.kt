@@ -606,6 +606,28 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 }
             }
         }
+        if (athlete.prioritySkills.isNotEmpty()) {
+            item { SectionTitle("Skill progression") }
+            items(athlete.prioritySkills.take(3)) { skill ->
+                val chain = skillProgressionNodes.filter { it.skill.equals(skill, ignoreCase = true) }.sortedBy { it.level }
+                if (chain.isNotEmpty()) {
+                    val current = chain.first()
+                    val snapshot = skillProgressSnapshot(chain.first().skill, current.id, 0.75, 7.5, 100, 0)
+                    Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth(), shape = RoundedCornerShape(18.dp)) {
+                        Column(Modifier.padding(18.dp)) {
+                            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                                Text(snapshot.skill, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                                Text(snapshot.progressPercent.toString()+"%", fontWeight = FontWeight.Bold, color = Accent)
+                            }
+                            LinearProgressIndicator(progress = { snapshot.progressPercent / 100f }, modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp))
+                            Text("Livello attuale: "+(chain.firstOrNull{it.id==snapshot.currentNodeId}?.label ?: snapshot.currentNodeId), fontSize = 13.sp)
+                            snapshot.nextNodeId?.let { id -> Text("Prossimo sblocco: "+(chain.firstOrNull{it.id==id}?.label ?: id), color = Color.Gray, fontSize = 13.sp) }
+                            Text(snapshot.reason, color = Color.Gray, fontSize = 12.sp, modifier = Modifier.padding(top = 5.dp))
+                        }
+                    }
+                }
+            }
+        }
         item { SectionTitle("Recupero") }
         item { RecoveryChart(sessions) }
     }
