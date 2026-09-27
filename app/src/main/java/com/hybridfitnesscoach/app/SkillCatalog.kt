@@ -2,7 +2,7 @@ package com.hybridfitnesscoach.app
 
 /** Canonical v0.9 calisthenics progression graphs beyond the initial Front Lever / Planche coverage. */
 object SkillCatalog {
-    val nodes: List<SkillNode> = listOf(
+    private val initialNodes: List<SkillNode> = listOf(
         // Pull-up -> Muscle-up
         SkillNode("pullup_strict", "Pull-up", "Muscle-up", criterion = MasteryCriterion(minSets = 3, minReps = 8), exerciseAliases = setOf("Trazioni prone")),
         SkillNode("pullup_chest", "Chest-to-bar Pull-up", "Muscle-up", setOf("pullup_strict"), MasteryCriterion(minSets = 3, minReps = 6)),
@@ -39,7 +39,29 @@ object SkillCatalog {
         SkillNode("pistol_full", "Pistol Squat", "Pistol Squat", setOf("pistol_assisted"), MasteryCriterion(minSets = 3, minReps = 6))
     )
 
-    fun forSkill(skill: String): List<SkillNode> = nodes.filter { it.skill.equals(skill, ignoreCase = true) }
+    private val aliases=mapOf(
+        "Chest-to-bar Pull-up" to setOf("Chest to bar pull-up"),
+        "Band-assisted Muscle-up" to setOf("Band assisted muscle-up"),
+        "Freestanding Handstand" to setOf("Freestanding handstand hold"),
+        "Tuck Back Lever" to setOf("Back lever tuck"),
+        "Advanced Tuck Back Lever" to setOf("Back lever advanced tuck"),
+        "Tuck Human Flag" to setOf("Human flag tuck"),
+        "V-sit Compression" to setOf("Compression lift"),
+        "Dip parallele" to setOf("Dip alle parallele"),
+        "Trazioni chest-to-bar" to setOf("Chest to bar pull-up"),
+        "Wall HSPU" to setOf("Wall handstand push-up"),
+        "Dragon flag negative" to setOf("Dragon flag negativa"),
+        "Assisted shrimp squat" to setOf("Shrimp squat assistito")
+    )
+    val nodes:List<SkillNode> = (initialNodes + skillProgressionNodes.filter { legacy ->
+        initialNodes.none{it.skill.equals(legacy.skill,true)} && legacy.skill !in listOf("L-sit","V-sit")
+    }.map { legacy ->
+        val timed=legacy.skill in setOf("Front lever","Planche")
+        SkillNode(legacy.id,legacy.label,legacy.skill,legacy.prerequisites.toSet(),
+            MasteryCriterion(minReps=if(timed)null else 6,minSeconds=if(timed)15 else null))
+    }).map{it.copy(exerciseAliases=it.exerciseAliases+aliases[it.exerciseName].orEmpty())}
+
+    fun forSkill(skill: String): List<SkillNode> = nodes.filter { it.skill.equals(skill, ignoreCase = true) || (skill in listOf("L-sit","V-sit") && it.skill=="L-sit / V-sit") }
     fun skills(): List<String> = nodes.map { it.skill }.distinct()
 
     /** Evaluate prerequisites from completed sessions, never from a manually advanced level. */
@@ -51,4 +73,13 @@ object SkillCatalog {
             }
         }
     }
+}
+
+
+/** Locked nodes are unavailable regardless of the self-reported athlete level. */
+internal fun skillEligibleExercises(sessions:List<SessionRecord>):Set<String> {
+    val states=SkillCatalog.skills().flatMap{SkillCatalog.progress(it,sessions)}
+    val unlocked=states.filter{it.status!=ProgressionStatus.LOCKED}.flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
+    val locked=states.filter{it.status==ProgressionStatus.LOCKED}.flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
+    return exercises.filter{it.name.lowercase() !in locked || it.name.lowercase() in unlocked}.map{it.name}.toSet()
 }

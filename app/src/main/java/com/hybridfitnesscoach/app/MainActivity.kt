@@ -191,21 +191,8 @@ private class AppStore(context: Context) {
     fun addSession(s:SessionRecord){
         val all=listOf(s)+loadSessions()
         saveSessions(all)
-        loadAthlete().prioritySkills.forEach { skill ->
-            val chain=skillProgressionNodes.filter{it.skill.equals(skill,true)}.sortedBy{it.level}
-            if(chain.isEmpty()) return@forEach
-            val currentId=loadSkillNode(skill) ?: chain.first().id
-            val perf=skillPerformance(skill,all)
-            val snapshot=skillProgressSnapshot(chain.first().skill,currentId,perf.successRate,perf.averageRpe,perf.recovery,perf.consecutiveSuccessfulSessions)
-            val currentIndex=chain.indexOfFirst{it.id==snapshot.currentNodeId}.coerceAtLeast(0)
-            val targetIndex=when(snapshot.decision){
-                ProgressionDecision.ADVANCE -> (currentIndex+1).coerceAtMost(chain.lastIndex)
-                ProgressionDecision.REGRESS -> (currentIndex-1).coerceAtLeast(0)
-                ProgressionDecision.MAINTAIN,ProgressionDecision.DELOAD -> currentIndex
-            }
-            saveSkillNode(skill,chain[targetIndex].id)
-        }
     }
+
     fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
 }
 
@@ -461,7 +448,7 @@ internal val exercises = listOf(
     Exercise("Reverse fly", "Dorso / Spalle", "Manubri", "Principiante", emptyList(), "Accessorio"),
     Exercise("Arnold press", "Spalle", "Manubri", "Intermedio", emptyList(), "Forza"),
     Exercise("Farmer walk", "Core / Spalle", "Manubri", "Principiante", emptyList(), "Accessorio", measure=ExerciseMeasure.DISTANCE, targetValue=30.0),
-    Exercise("Ab wheel rollout", "Core", "Corpo libero", "Intermedio", listOf("Front lever"), "Accessorio"),
+    Exercise("Ab wheel rollout", "Core", "Ab Wheel", "Intermedio", listOf("Front lever"), "Accessorio", category=ExerciseCategory.CORE, movementPattern="anti-extension", resistanceMode=ResistanceMode.BODYWEIGHT),
     Exercise("Dragon flag negativa", "Core", "Panca", "Avanzato", listOf("Dragon flag"), "Progressione"),
     Exercise("Toes to bar", "Core", "Sbarra", "Avanzato", listOf("Front lever"), "Progressione"),
     Exercise("Muscle-up negativo", "Dorso / Petto / Tricipiti", "Sbarra", "Avanzato", listOf("Muscle-up"), "Progressione"),
@@ -548,14 +535,48 @@ internal val exercises = listOf(
     Exercise("Band lateral raise", "Spalle", "Elastici", "Principiante", emptyList(), "Accessorio"),
     Exercise("Band curl", "Bicipiti", "Elastici", "Principiante", emptyList(), "Accessorio"),
     Exercise("Band triceps extension", "Tricipiti", "Elastici", "Principiante", emptyList(), "Accessorio"),
-    Exercise("Ab wheel rollout in ginocchio", "Core", "Ab Wheel", "Intermedio", role="Accessorio", category=ExerciseCategory.CORE, movementPattern="anti-extension", resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=8.0),
     Exercise("Foam roller quadricipiti", "Gambe", "Foam Roller", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="recovery", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=60.0),
     Exercise("Foam roller dorsale", "Dorso", "Foam Roller", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="recovery", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=60.0),
+    Exercise("Muscle-up", "Dorso / Core", "Sbarra", "Avanzato", listOf("Muscle-up"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Straddle Back Lever", "Dorso / Core", "Sbarra", "Avanzato", listOf("Back lever"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Back Lever", "Dorso / Core", "Sbarra", "Avanzato", listOf("Back lever"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Vertical Flag Hold", "Dorso / Core", "Sbarra", "Intermedio", listOf("Human flag"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Straddle Human Flag", "Dorso / Core", "Sbarra", "Avanzato", listOf("Human flag"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Human Flag", "Dorso / Core", "Sbarra", "Avanzato", listOf("Human flag"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("V-sit", "Core", "Parallele", "Avanzato", listOf("L-sit", "V-sit"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Box Pistol Squat", "Gambe / Core", "Panca", "Intermedio", listOf("Pistol squat"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Pistol Squat", "Gambe / Core", "Corpo libero", "Avanzato", listOf("Pistol squat"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("One-leg front lever", "Dorso / Core", "Sbarra", "Avanzato", listOf("Front lever"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Straddle front lever", "Dorso / Core", "Sbarra", "Avanzato", listOf("Front lever"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Full front lever", "Dorso / Core", "Sbarra", "Avanzato", listOf("Front lever"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Advanced tuck planche", "Spalle / Core", "Corpo libero", "Avanzato", listOf("Planche"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Straddle planche", "Spalle / Core", "Corpo libero", "Avanzato", listOf("Planche"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Full planche", "Spalle / Core", "Corpo libero", "Avanzato", listOf("Planche"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.SECONDS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=15.0),
+    Exercise("Trazioni zavorrate", "Dorso / Core", "Sbarra", "Avanzato", listOf("Trazioni"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Dip assistite", "Spalle / Core", "Parallele / Elastici", "Intermedio", listOf("Dip"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Dip profondi", "Spalle / Core", "Parallele", "Avanzato", listOf("Dip"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Dip zavorrate", "Spalle / Core", "Parallele", "Avanzato", listOf("Dip"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Handstand push-up", "Spalle / Core", "Corpo libero", "Avanzato", listOf("Handstand push-up"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Tuck dragon flag", "Core", "Panca", "Avanzato", listOf("Dragon flag"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Dragon flag", "Core", "Panca", "Avanzato", listOf("Dragon flag"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Split squat", "Gambe / Core", "Corpo libero", "Intermedio", listOf("Shrimp squat"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("One-arm eccentric", "Dorso / Core", "Sbarra", "Avanzato", listOf("One arm pull-up"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("One arm pull-up", "Dorso / Core", "Sbarra", "Avanzato", listOf("One arm pull-up"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Incline one-arm push-up", "Spalle / Core", "Corpo libero", "Intermedio", listOf("One arm push-up"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("One-arm negative", "Spalle / Core", "Corpo libero", "Avanzato", listOf("One arm push-up"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("One arm push-up", "Spalle / Core", "Corpo libero", "Avanzato", listOf("One arm push-up"), "Progressione", category=ExerciseCategory.SKILL, measure=ExerciseMeasure.REPS, resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=6.0),
+    Exercise("Mobilità caviglia al muro", "Gambe", "Corpo libero", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="ankle-mobility", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=45.0),
+    Exercise("Rotazioni toraciche quadrupedia", "Dorso", "Corpo libero", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="thoracic-mobility", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=45.0),
+    Exercise("Stretch flessori anca", "Gambe", "Corpo libero", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="hip-mobility", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=40.0),
+    Exercise("Stretch dorsali in quadrupedia", "Dorso", "Corpo libero", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="shoulder-mobility", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=40.0),
+    Exercise("Mobilità polsi", "Avambracci", "Corpo libero", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="wrist-mobility", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=45.0),
+    Exercise("Respirazione diaframmatica", "Core", "Corpo libero", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="recovery", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=120.0),
+    Exercise("Stretch pettorale al muro", "Petto", "Corpo libero", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="shoulder-mobility", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=40.0),
     Exercise("Corsa continua", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DURATION, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=600.0),
     Exercise("Corsa distanza", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DISTANCE, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=1000.0),
     Exercise("Corsa intervallata 60/60", "Cardio", "Corpo libero", "Intermedio", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.INTERVALS, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=5, targetValue=60.0, intervalRestSec=60)
 
-)
+).map(::withExerciseMetadata)
 
 internal data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
 internal fun prescriptionFor(ex:Exercise):ExercisePrescription {
@@ -622,7 +643,8 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
 internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null): List<Exercise> {
     val context=coachingContext(sessions,readinessScore)
     val maxLevel = levelScore(athlete.level)
-    val available = exercises.filter { equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
+    val eligible=skillEligibleExercises(sessions)
+    val available = exercises.filter { it.name in eligible && equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
     val preferredRoles = when (athlete.goal) {
         "Calisthenics" -> listOf("Progressione", "Prerequisito", "Forza", "Accessorio")
         "Ipertrofia" -> listOf("Forza", "Accessorio", "Prerequisito", "Progressione")
@@ -727,6 +749,9 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
     var customWorkoutOpen by remember { mutableStateOf(false) }
+    var treeSkill by remember { mutableStateOf<String?>(null) }
+    var treePicker by remember { mutableStateOf(false) }
+    var customSkill by remember { mutableStateOf("Nessuna") }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item { Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", athlete.goal + " • " + athlete.daysPerWeek + " giorni/settimana") }
         item {
@@ -748,34 +773,28 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
             }
         }
         item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions)) } }
-        if (athlete.prioritySkills.isNotEmpty()) {
-            item { SectionTitle("Skill progression") }
-            items(athlete.prioritySkills.take(3)) { skill ->
-                val chain = skillProgressionNodes.filter { it.skill.equals(skill, ignoreCase = true) }.sortedBy { it.level }
-                if (chain.isNotEmpty()) {
-                    val currentId = store.loadSkillNode(skill) ?: chain.first().id
-                    val performance = skillPerformance(skill, sessions)
-                    val snapshot = skillProgressSnapshot(chain.first().skill, currentId, performance.successRate, performance.averageRpe, performance.recovery, performance.consecutiveSuccessfulSessions)
-                    Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth(), shape = RoundedCornerShape(18.dp)) {
-                        Column(Modifier.padding(18.dp)) {
-                            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                                Text(snapshot.skill, fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                                Text(snapshot.progressPercent.toString()+"%", fontWeight = FontWeight.Bold, color = Accent)
-                            }
-                            LinearProgressIndicator(progress = { snapshot.progressPercent / 100f }, modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp))
-                            Text("Livello attuale: "+(chain.firstOrNull{it.id==snapshot.currentNodeId}?.label ?: snapshot.currentNodeId), fontSize = 13.sp)
-                            snapshot.nextNodeId?.let { id -> Text("Prossimo sblocco: "+(chain.firstOrNull{it.id==id}?.label ?: id), color = Color.Gray, fontSize = 13.sp) }
-                            Text(snapshot.reason, color = Color.Gray, fontSize = 12.sp, modifier = Modifier.padding(top = 5.dp))
-                        }
-                    }
+        item { SectionTitle("Il tuo Skill Tree") }
+        items(athlete.prioritySkills.ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
+            val states=SkillCatalog.progress(skill,sessions)
+            val percent=ProgressionEngine.skillProgress(states)
+            val current=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE}
+            Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth().clickable{treeSkill=skill},shape=RoundedCornerShape(18.dp)) {
+                Column(Modifier.padding(18.dp)) {
+                    Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween){Text(skill,fontWeight=FontWeight.Bold,fontSize=18.sp);Text("$percent%",color=Accent,fontWeight=FontWeight.Bold)}
+                    LinearProgressIndicator(progress={percent/100f},modifier=Modifier.fillMaxWidth().padding(vertical=10.dp))
+                    Text(current?.let{"Da consolidare: ${it.node.exerciseName}"}?:"Percorso completato",fontSize=13.sp)
+                    Text("${states.count{it.status==ProgressionStatus.MASTERED}} / ${states.size} step consolidati • tocca per i requisiti",fontSize=12.sp,color=Color.Gray)
                 }
             }
         }
+        item{TextButton(onClick={treePicker=true},modifier=Modifier.padding(horizontal=20.dp)){Text("ESPLORA TUTTE LE SKILL")}}
         item { SectionTitle("Recupero") }
         item { RecoveryChart(sessions) }
     }
+    if(treePicker) AlertDialog(onDismissRequest={treePicker=false},title={Text("Skill Tree")},text={LazyColumn{items(calisthenicsSkills){skill->TextButton(onClick={treeSkill=skill.name;treePicker=false}){Text(skill.name)}}}},confirmButton={TextButton(onClick={treePicker=false}){Text("CHIUDI")}})
+    treeSkill?.let{skill->SkillDetailDialog(skill,athlete,{treeSkill=null},{customSkill=skill;treeSkill=null;customWorkoutOpen=true},sessions)}
     if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
-    if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
+    if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, initialSkill=customSkill, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
 }
 
 @Composable
@@ -849,43 +868,36 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
         AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column(Modifier.clickable(enabled=type=="skills"){if(type=="skills"){selectedSkill=o;filterDialog=null}}){Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
     }
     selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
-    selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }) }
+    selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }, sessions) }
     skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> onSessionSaved(record); skillWorkout=null }, initialSkill=skill) }
     if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->onSessionSaved(record);filteredWorkout=false},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna",filtersLocked=true)
 }
 @Composable
-private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDismiss: () -> Unit, onGenerate: () -> Unit) {
-    val skill = calisthenicsSkills.firstOrNull { it.name == skillName }
-    val linked = exercises.filter { skillName in it.skills }
-    val roleOrder = mapOf("Prerequisito" to 0, "Progressione" to 1, "Forza" to 2, "Accessorio" to 3)
-    val ordered = linked.sortedWith(compareBy<Exercise> { roleOrder[it.role] ?: 9 }.thenBy { levelScore(it.level) })
-    val accessible = ordered.filter { levelScore(it.level) <= levelScore(athlete.level) }
-    val current = accessible.lastOrNull()
-    AlertDialog(
-        onDismissRequest=onDismiss,
-        title={Text(skillName)},
-        text={LazyColumn(Modifier.heightIn(max=560.dp)){
-            item {
-                Text((skill?.category ?: "Calisthenics")+" • "+(skill?.level ?: ""),color=Color.Gray)
-                Text("Livello atleta: "+athlete.level,modifier=Modifier.padding(top=6.dp))
-                if(current!=null) Text("Livello attuale suggerito: "+current.name,color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=8.dp))
-                Text("Percorso",fontWeight=FontWeight.Bold,fontSize=18.sp,modifier=Modifier.padding(top=6.dp,bottom=6.dp))
-            }
-            items(ordered){ex->
-                val unlocked=levelScore(ex.level)<=levelScore(athlete.level)
-                Card(Modifier.fillMaxWidth().padding(vertical=4.dp)){
-                    Column(Modifier.padding(12.dp)){
-                        Text(ex.name,fontWeight=FontWeight.Bold)
-                        Text(ex.role+" • "+ex.level+" • "+ex.equipment,color=if(unlocked) Accent else Color.Gray,fontSize=12.sp)
-                        Text(if(unlocked)"Adatto al tuo livello" else "Da sbloccare con il livello successivo",fontSize=11.sp,color=Color.Gray)
-                    }
+private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDismiss: () -> Unit, onGenerate: () -> Unit, sessions:List<SessionRecord>) {
+    val states=SkillCatalog.progress(skillName,sessions)
+    val percent=ProgressionEngine.skillProgress(states)
+    AlertDialog(onDismissRequest=onDismiss,title={Text(skillName)},text={LazyColumn(Modifier.heightIn(max=560.dp)){
+        item{
+            Text("$percent% del percorso consolidato",fontWeight=FontWeight.Bold,color=Accent)
+            LinearProgressIndicator(progress={percent/100f},modifier=Modifier.fillMaxWidth().padding(vertical=12.dp))
+            Text("Gli sblocchi richiedono prestazioni registrate, non solo il livello del profilo.",fontSize=12.sp,color=Color.Gray)
+        }
+        items(states){state->
+            val node=state.node
+            val criterion=node.criterion
+            Card(Modifier.fillMaxWidth().padding(vertical=5.dp)){
+                Column(Modifier.padding(14.dp)){
+                    Text(node.exerciseName,fontWeight=FontWeight.Bold)
+                    Text(when(state.status){ProgressionStatus.LOCKED->"BLOCCATA";ProgressionStatus.AVAILABLE->"DISPONIBILE";ProgressionStatus.IN_PROGRESS->"IN CORSO";ProgressionStatus.MASTERED->"CONSOLIDATA"},color=if(state.status==ProgressionStatus.LOCKED)Color.Gray else Accent,fontSize=11.sp)
+                    if(node.prerequisites.isNotEmpty())Text("Prerequisiti: "+node.prerequisites.map{key->states.firstOrNull{it.node.id==key}?.node?.exerciseName?:key}.joinToString(),fontSize=12.sp)
+                    val target=criterion.minSeconds?.let{"$it secondi"}?:criterion.minReps?.let{"$it ripetizioni"}?:"target registrato"
+                    Text("${criterion.minSets} serie × $target • RPE ≤ ${criterion.maxRpe?:10}",fontSize=12.sp)
+                    Text("${(state.completion*criterion.requiredSessions).toInt()} / ${criterion.requiredSessions} sessioni valide",fontSize=12.sp,color=Color.Gray)
+                    LinearProgressIndicator(progress={state.completion.toFloat()},modifier=Modifier.fillMaxWidth().padding(top=6.dp))
                 }
             }
-            if(ordered.isEmpty()) item{Text("Progressione in preparazione.",color=Color.Gray)}
-        }},
-        confirmButton={Button(onClick=onGenerate,enabled=linked.isNotEmpty()){Text("GENERA WORKOUT")}},
-        dismissButton={TextButton(onClick=onDismiss){Text("CHIUDI")}}
-    )
+        }
+    }},confirmButton={Button(onClick=onGenerate){Text("ALLENA QUESTA SKILL")}},dismissButton={TextButton(onClick=onDismiss){Text("CHIUDI")}})
 }
 
 @Composable
@@ -1013,7 +1025,8 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     fun prescription(ex:Exercise):Pair<Int,Int> { val p=prescriptionFor(ex); return p.value.toInt() to ex.setRestSec }
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
-        val base=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})}
+        val eligible=skillEligibleExercises(sessions)
+        val base=exercises.filter{ex->ex.name in eligible && levelScore(ex.level)<=levelScore(athlete.level)&&equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})}
         val ranked=base.sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(selectedSkills.any{s->s in it.skills})0 else 1}.thenBy{if(it.role=="Forza")0 else 1})
         generated=if(mode=="Skill"){
             val skillWork=ranked.filter{ex->selectedSkills.any{it in ex.skills}}
