@@ -351,6 +351,16 @@ internal fun recommendLoad(previousLoadKg:Double?,previousAssistanceKg:Double?,c
     return LoadRecommendation(suggested,null,pct,when{pct>0->"Prestazione solida: incremento conservativo";pct<0->"Riduzione per qualità e recupero";else->"Mantieni il carico"})
 }
 
+internal fun loadRecommendationForExercise(ex:Exercise,sessions:List<SessionRecord>,recovery:Int):LoadRecommendation {
+    val recent=sessions.asSequence().flatMap{it.structuredExercises.asSequence()}.firstOrNull{it.exerciseName==ex.name}
+    val completed=recent?.sets?.filter{it.completed}.orEmpty()
+    val previousLoad=completed.mapNotNull{it.actualLoadKg}.lastOrNull()
+    val previousAssistance=completed.mapNotNull{it.actualAssistanceKg}.lastOrNull()
+    val completionRate=if(recent==null||recent.sets.isEmpty())0.0 else completed.size.toDouble()/recent.sets.size
+    val rpe=recent?.rpe?.toDouble()?:7.0
+    return recommendLoad(previousLoad,previousAssistance,completionRate,rpe,recovery)
+}
+
 internal fun adaptiveWorkoutPlan(successRate:Double,averageRpe:Double,recovery:Int,readinessScore:Int?):AdaptiveWorkoutPlan {
     val readiness=readinessScore?:recovery
     val decision=progressionDecision(successRate,averageRpe,minOf(recovery,readiness),if(successRate>=0.9)2 else 0)
@@ -907,12 +917,13 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
 }
 
 @Composable
-private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
+private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation:LoadRecommendation?=null, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
     val p=prescriptionFor(ex)
     var value by remember(ex.name){mutableStateOf(p.value.toString())}
-    var load by remember(ex.name){mutableStateOf("")}
-    var assistance by remember(ex.name){mutableStateOf("")}
+    var load by remember(ex.name,recommendation?.loadKg){mutableStateOf(recommendation?.loadKg?.toString()?:"")}
+    var assistance by remember(ex.name,recommendation?.assistanceKg){mutableStateOf(recommendation?.assistanceKg?.toString()?:"")}
     Column {
+        recommendation?.let { rec -> if(ex.resistanceMode==ResistanceMode.EXTERNAL_LOAD||ex.resistanceMode==ResistanceMode.ASSISTED) Text((if(rec.loadKg!=null)"Carico consigliato: ${rec.loadKg} kg" else if(rec.assistanceKg!=null)"Assistenza consigliata: ${rec.assistanceKg} kg" else "Calibrazione iniziale")+ " • "+rec.reason,color=Accent,fontSize=12.sp,fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(bottom=4.dp)) }
         val label=when(ex.measure){ExerciseMeasure.REPS->if(ex.laterality==Laterality.UNILATERAL)"Ripetizioni per lato" else "Ripetizioni";ExerciseMeasure.SECONDS->"Secondi mantenuti";ExerciseMeasure.DURATION->"Secondi eseguiti";ExerciseMeasure.DISTANCE->"Distanza (m)";ExerciseMeasure.INTERVALS->"Secondi lavoro"}
         OutlinedTextField(value,{value=it.filter{ch->ch.isDigit()||ch=='.'}},label={Text(label)},singleLine=true,enabled=enabled,modifier=Modifier.fillMaxWidth())
         if(ex.laterality==Laterality.UNILATERAL||ex.laterality==Laterality.ALTERNATING) Text(if(ex.laterality==Laterality.UNILATERAL)"Valore riferito a ciascun lato" else "Alternare i lati",color=Color.Gray,fontSize=11.sp)
@@ -1172,7 +1183,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA ESERCIZIO")}}}
                                     if(started&&!done&&!isSkipped){
-                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0){ar,asec,dist,load,assist->
+                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,(recoveryScores(sessions)[ex.group]?:100))){ar,asec,dist,load,assist->
                                             val p=prescriptionFor(ex)
                                             val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets
                                             if(count<old.size){
