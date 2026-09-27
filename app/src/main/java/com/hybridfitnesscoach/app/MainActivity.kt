@@ -963,9 +963,27 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     Text(p.sets.toString()+" serie × "+p.value.toInt()+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
                                     if(started&&count>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
-                                    if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA")};TextButton(onClick={val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;executedSets[ex.name]=old+old.lastOrNull()?.copy(index=old.size,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null).orEmptySet()} ){Text("REGISTRA SERIE")}}}
-                                    if(started&&!done&&!isSkipped){ ExerciseExecutionInputs(ex,!paused&&restRemaining==0){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(count<old.size){val xs=old.toMutableList();xs[count]=xs[count].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completedSets[ex.name]=count+1;if(count+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
-                                }
+                                    if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA ESERCIZIO")}}}
+                                    if(started&&!done&&!isSkipped){
+                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0){ar,asec,dist,load,assist->
+                                            val p=prescriptionFor(ex)
+                                            val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets
+                                            if(count<old.size){
+                                                val xs=old.toMutableList()
+                                                xs[count]=xs[count].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true)
+                                                executedSets[ex.name]=xs
+                                                completedSets[ex.name]=count+1
+                                                if(count+1>=p.sets){
+                                                    restKind="Esercizio";restRemaining=ex.exerciseRestSec
+                                                    currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets&&skipped[it.name]!=true}?.name
+                                                        ?:compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets&&skipped[it.name]!=true}?.name
+                                                } else {
+                                                    restKind="Serie";restRemaining=ex.intervalRestSec?:ex.setRestSec;currentExercise=ex.name
+                                                }
+                                                restEndsAt=System.currentTimeMillis()+restRemaining*1000L
+                                            }
+                                        }
+                                    }
                             }
                         }
                     }
