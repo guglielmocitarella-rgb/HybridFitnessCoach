@@ -259,6 +259,26 @@ internal fun adaptiveWorkoutPlan(successRate:Double,averageRpe:Double,recovery:I
     return AdaptiveWorkoutPlan(intensity,volume,decision,notes)
 }
 
+internal fun sequenceWorkout(items:List<Exercise>,pinnedNames:Set<String> = emptySet()):List<Exercise> {
+    if(items.size<2) return items
+    val ranked=items.sortedWith(compareBy<Exercise>({when(it.role){"Progressione"->0;"Forza"->1;"Prerequisito"->2;else->3}},{it.technicalComplexity},{it.name}))
+    val result=mutableListOf<Exercise>()
+    ranked.forEach { candidate ->
+        val samePattern=result.lastOrNull()?.movementPattern?.takeIf{it.isNotBlank()}==candidate.movementPattern.takeIf{it.isNotBlank()}
+        if(samePattern && candidate.name !in pinnedNames){val idx=result.indexOfLast{it.movementPattern!=candidate.movementPattern};if(idx>=0)result.add(idx+1,candidate)else result.add(candidate)}else result.add(candidate)
+    }
+    if(pinnedNames.isEmpty()) return result
+    val out=result.toMutableList()
+    items.forEachIndexed{i,original->if(original.name in pinnedNames){out.removeAll{it.name==original.name};out.add(i.coerceAtMost(out.size),original)}}
+    return out
+}
+
+internal fun regenerateUnpinned(original:List<Exercise>,replacementPool:List<Exercise>,pinnedNames:Set<String>):List<Exercise> {
+    val used=original.filter{it.name in pinnedNames}.map{it.name}.toMutableSet()
+    val replacements=replacementPool.filter{it.name !in used}.iterator()
+    return original.map{ex->if(ex.name in pinnedNames)ex else generateSequence{if(replacements.hasNext())replacements.next() else null}.firstOrNull{used.add(it.name)}?:ex}
+}
+
 private val calisthenicsSkills = listOf(
  CalisthenicsSkill("Trazioni","Pull","Principiante"),CalisthenicsSkill("Dip","Push","Principiante"),CalisthenicsSkill("L-sit","Core","Intermedio"),CalisthenicsSkill("Pistol squat","Gambe","Intermedio"),CalisthenicsSkill("Handstand","Verticale","Intermedio"),CalisthenicsSkill("Muscle-up","Pull/Push","Avanzato"),CalisthenicsSkill("Front lever","Pull/Core","Avanzato"),CalisthenicsSkill("Back lever","Pull/Core","Avanzato"),CalisthenicsSkill("Planche","Push/Core","Avanzato"),CalisthenicsSkill("Handstand push-up","Verticale/Push","Avanzato"),CalisthenicsSkill("Human flag","Pull/Push/Core","Avanzato"),CalisthenicsSkill("Dragon flag","Core","Avanzato"),CalisthenicsSkill("V-sit","Core","Avanzato"),CalisthenicsSkill("One arm pull-up","Pull","Avanzato"),CalisthenicsSkill("One arm push-up","Push","Avanzato"),CalisthenicsSkill("Shrimp squat","Gambe","Intermedio")
 )
