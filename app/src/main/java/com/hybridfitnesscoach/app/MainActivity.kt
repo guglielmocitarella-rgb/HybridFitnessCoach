@@ -191,8 +191,8 @@ private class AppStore(context: Context) {
 }
 
 internal val profiles = listOf(
-    EquipmentProfile("Palestra", "🏋️", listOf("Bilanciere", "Manubri", "Cavi", "Macchine", "Sbarra", "Parallele", "Panca", "Kettlebell", "Leg press")),
-    EquipmentProfile("Casa", "🏠", listOf("Corpo libero", "Sbarra", "Elastici")),
+    EquipmentProfile("Palestra", "🏋️", listOf("Bilanciere", "Manubri", "Cavi", "Macchine", "Sbarra", "Parallele", "Panca", "Kettlebell", "Leg press", "Ab Wheel", "Foam Roller")),
+    EquipmentProfile("Casa", "🏠", listOf("Corpo libero", "Sbarra", "Elastici", "Ab Wheel", "Foam Roller")),
     EquipmentProfile("Parco", "🌳", listOf("Sbarra", "Parallele", "Corpo libero"))
 )
 
@@ -1128,7 +1128,7 @@ private fun ExerciseDetailDialog(ex: Exercise, onDismiss: () -> Unit) {
 @Composable
 private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss: () -> Unit, onCreate: (EquipmentProfile) -> Unit) {
     var name by remember(current) { mutableStateOf(current?.name ?: "") }
-    val options = listOf("Corpo libero", "Sbarra", "Parallele", "Bilanciere", "Manubri", "Cavi", "Macchine", "Elastici", "Panca", "Kettlebell", "Leg press", "Anelli", "TRX")
+    val options = listOf("Corpo libero", "Sbarra", "Parallele", "Bilanciere", "Manubri", "Cavi", "Macchine", "Elastici", "Panca", "Kettlebell", "Leg press", "Anelli", "TRX", "Ab Wheel", "Foam Roller")
     val selected = remember(current) { mutableStateListOf<String>().apply { addAll(current?.equipment ?: emptyList()) } }
 
     AlertDialog(
