@@ -32,6 +32,24 @@ object WorkoutRunnerEngine {
         val currentName=state.exercises.getOrNull(state.currentExerciseIndex)?.exerciseName
         return state.copy(exercises=reordered,currentExerciseIndex=reordered.indexOfFirst{it.exerciseName==currentName}.coerceAtLeast(0))
     }
+
+    fun completeSet(state:WorkoutSessionState, exerciseIndex:Int, setIndex:Int, actualReps:Int?=null, actualSeconds:Int?=null, actualDistanceMeters:Double?=null, actualLoadKg:Double?=null, actualAssistanceKg:Double?=null, restUsedSec:Int?=null):WorkoutSessionState {
+        if(exerciseIndex !in state.exercises.indices)return state
+        val xs=state.exercises.toMutableList();val e=xs[exerciseIndex];if(setIndex !in e.sets.indices)return state
+        val sets=e.sets.toMutableList();val s=sets[setIndex]
+        sets[setIndex]=s.copy(actualReps=actualReps?:s.targetReps,actualSeconds=actualSeconds?:s.targetSeconds,actualDistanceMeters=actualDistanceMeters?:s.targetDistanceMeters,actualLoadKg=actualLoadKg?:s.targetLoadKg,actualAssistanceKg=actualAssistanceKg?:s.targetAssistanceKg,completed=true,restUsedSec=restUsedSec)
+        val completed=sets.count{it.completed};val status=if(completed==sets.size)WorkoutExerciseStatus.COMPLETED else WorkoutExerciseStatus.PARTIAL
+        xs[exerciseIndex]=e.copy(sets=sets,status=status)
+        val next=if(status==WorkoutExerciseStatus.COMPLETED) xs.indices.firstOrNull{it>exerciseIndex&&xs[it].status!=WorkoutExerciseStatus.COMPLETED&&xs[it].status!=WorkoutExerciseStatus.SKIPPED}?:exerciseIndex else exerciseIndex
+        return state.copy(exercises=xs,currentExerciseIndex=next)
+    }
+    fun reopenSet(state:WorkoutSessionState,exerciseIndex:Int,setIndex:Int):WorkoutSessionState {
+        if(exerciseIndex !in state.exercises.indices)return state
+        val xs=state.exercises.toMutableList();val e=xs[exerciseIndex];if(setIndex !in e.sets.indices)return state
+        val sets=e.sets.toMutableList();sets[setIndex]=sets[setIndex].copy(completed=false)
+        xs[exerciseIndex]=e.copy(sets=sets,status=if(sets.any{it.completed})WorkoutExerciseStatus.PARTIAL else WorkoutExerciseStatus.PENDING)
+        return state.copy(exercises=xs,currentExerciseIndex=exerciseIndex)
+    }
 }
 
 data class RawHealthSnapshot(
