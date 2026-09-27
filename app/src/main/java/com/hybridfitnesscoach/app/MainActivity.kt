@@ -1009,6 +1009,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val completed = remember { mutableStateMapOf<String, Int>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets.count{s->s.completed})}} }
     val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
+    val pinnedNames = remember { mutableStateListOf<String>().apply{restored?.exercises?.filter{it.pinned}?.forEach{add(it.exerciseName)}} }
     val reps = remember { mutableStateMapOf<String, Int>() }
     val restSeconds = remember { mutableStateMapOf<String, Int>() }
     val executedSets = remember { mutableStateMapOf<String,List<WorkoutSetState>>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets)} } }
@@ -1020,7 +1021,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     LaunchedEffect(running,currentExercise,restRemaining,completed.toMap(),executedSets.toMap(),exerciseRpe.toMap(),workoutRpe) {
         if(running&&store!=null){
             val now=System.currentTimeMillis()
-            val states=generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).let{s->val actual=executedSets[ex.name];val withActual=if(actual!=null)s.copy(sets=actual)else s;if(skipped[ex.name]==true)withActual.copy(status=WorkoutExerciseStatus.SKIPPED)else withActual}}
+            val states=generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).copy(pinned=ex.name in pinnedNames).let{s->val actual=executedSets[ex.name];val withActual=if(actual!=null)s.copy(sets=actual)else s;if(skipped[ex.name]==true)withActual.copy(status=WorkoutExerciseStatus.SKIPPED)else withActual}}
             store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="custom",restKind=restKind))
         }
     }
@@ -1102,12 +1103,23 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             Text("ESERCIZI",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
                         }
                     }
-                    if(!running && generated.isNotEmpty())item{CoachSummary(coachingContext(sessions,readinessScore))}
+                    if(!running && generated.isNotEmpty())item{
+                        CoachSummary(coachingContext(sessions,readinessScore))
+                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically){
+                            Text("Blocca gli esercizi che vuoi mantenere",fontSize=12.sp,color=Color.Gray,modifier=Modifier.weight(1f))
+                            TextButton(onClick={
+                                val eligible=skillEligibleExercises(sessions)
+                                val pool=exercises.filter{ex->ex.name in eligible&&levelScore(ex.level)<=levelScore(athlete.level)&&equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(mode!="Skill"||selectedSkills.any{it in ex.skills})}
+                                generated=applyCoaching(sequenceWorkout(regenerateUnpinned(generated,pool,pinnedNames.toSet()),pinnedNames.toSet()),coachingContext(sessions,readinessScore))
+                                generationMessage="Rigenerati solo gli esercizi non bloccati."
+                            }){Text("RIGENERA NON BLOCCATI")}
+                        }
+                    }
                     items(generated){ex->
                         val n=completed[ex.name]?:0;val targetSets=prescriptionFor(ex).sets;val done=n>=targetSets;val isSkipped=skipped[ex.name]==true;val expanded=!done||(expandedCompleted[ex.name]?:false)
                         Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else {skipped[ex.name]=false;currentExercise=ex.name}}}){
                             Column(Modifier.padding(10.dp)){
-                                Text((if(done)"✓ " else if(running&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
+                                Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text((if(done)"✓ " else if(running&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f));if(!running)TextButton(onClick={if(ex.name in pinnedNames)pinnedNames.remove(ex.name)else pinnedNames.add(ex.name)}){Text(if(ex.name in pinnedNames)"🔒 BLOCCATO" else "🔓 BLOCCA")}}
                                 if(done) Text("COMPLETATO • "+targetSets+"/"+targetSets+" serie",color=Accent,fontSize=12.sp)
                                 if(expanded){
                                     val p=prescriptionFor(ex)
@@ -1142,7 +1154,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             if(generated.isNotEmpty()){
                 Button(onClick={
                     if(!running){sessionStartedAt=System.currentTimeMillis();running=true;paused=false;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
-                    else {val total=generated.sumOf{prescriptionFor(it).sets};onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).let{s->val actual=executedSets[ex.name];val withActual=if(actual!=null)s.copy(sets=actual)else s;if(skipped[ex.name]==true)withActual.copy(status=WorkoutExerciseStatus.SKIPPED)else withActual}},skipped.filterValues{it}.keys.toList()));store?.clearActiveWorkout();onDismiss()}
+                    else {val total=generated.sumOf{prescriptionFor(it).sets};onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).copy(pinned=ex.name in pinnedNames).let{s->val actual=executedSets[ex.name];val withActual=if(actual!=null)s.copy(sets=actual)else s;if(skipped[ex.name]==true)withActual.copy(status=WorkoutExerciseStatus.SKIPPED)else withActual}},skipped.filterValues{it}.keys.toList()));store?.clearActiveWorkout();onDismiss()}
                 }){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}
             }
         },
