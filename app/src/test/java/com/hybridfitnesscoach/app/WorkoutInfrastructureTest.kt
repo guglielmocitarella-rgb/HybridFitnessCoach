@@ -50,4 +50,9 @@ class WorkoutInfrastructureTest {
     @Test fun calisthenicsFrontLeverGuaranteesSkillWork(){val gym=profiles.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",prioritySkills=listOf("Front lever"));val w=generateWorkout(gym,athlete,emptyList());assertTrue(w.take(3).all{"Front lever" in it.skills});assertTrue(w.any{it.name=="Tuck front lever"})}
     @Test fun strengthGoalRemainsSupported(){val gym=profiles.first{it.name=="Palestra"};val w=generateWorkout(gym,AthleteProfile(goal="Forza",level="Intermedio"),emptyList());assertEquals(6,w.size);assertTrue(w.all{equipmentCompatible(it,gym)})}
     @Test fun intervalCatalogueIsExplicitActivity(){val ex=exercises.first{it.measure==ExerciseMeasure.INTERVALS};assertTrue(ex.name.contains("Corsa",ignoreCase=true));assertEquals(60,ex.intervalRestSec)}
+
+    @Test fun progressionAdvancesOnlyAfterStableSuccess(){assertEquals(ProgressionDecision.ADVANCE,progressionDecision(0.95,7.5,85,2));assertEquals(ProgressionDecision.MAINTAIN,progressionDecision(0.95,7.5,85,1))}
+    @Test fun progressionDeloadOverridesGoodPerformanceWhenRecoveryIsLow(){assertEquals(ProgressionDecision.DELOAD,progressionDecision(0.95,7.0,30,3))}
+    @Test fun progressionRegressesOnLowSuccessRate(){assertEquals(ProgressionDecision.REGRESS,progressionDecision(0.50,7.0,80,0))}
+    @Test fun frontLeverSnapshotExposesProgressAndNextUnlock(){val s=skillProgressSnapshot("Front lever","front_adv_tuck",0.8,7.0,80,1);assertEquals(40,s.progressPercent);assertEquals("front_one_leg",s.nextNodeId);assertEquals(ProgressionDecision.MAINTAIN,s.decision)}
 }
