@@ -33,4 +33,10 @@ class WorkoutInfrastructureTest {
         val s=WorkoutExerciseState("Pull-up",ExerciseMeasure.REPS,listOf(WorkoutSetState(0,targetReps=8,actualReps=7,completed=true)),WorkoutExerciseStatus.PARTIAL,rpe=8,pinned=true)
         assertTrue(s.pinned); assertEquals(WorkoutExerciseStatus.PARTIAL,s.status); assertEquals(7,s.sets.first().actualReps)
     }
+    @Test fun healthNormalizationIsSeparatedFromWorkoutDecision() {
+        val n=normalizeHealth(RawHealthSnapshot(1000L,sleepMinutes=480,restingHeartRateBpm=50.0,activeMinutes=60))
+        assertEquals(100.0,n.sleepScore!!,0.0)
+        assertEquals(100.0,n.cardiovascularScore!!,0.0)
+        assertEquals(100.0,n.activityLoadScore!!,0.0)
+    }
 }
