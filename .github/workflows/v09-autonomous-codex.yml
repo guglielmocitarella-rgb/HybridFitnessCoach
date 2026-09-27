@@ -1,0 +1,98 @@
+name: Hybrid v0.9 Autonomous Codex
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub limita la frequenza minima dei workflow schedulati a 5 minuti.
+    # Il workflow precedente non viene sovrapposto grazie a concurrency.
+    - cron: "*/5 * * * *"
+
+concurrency:
+  group: hybrid-v09-autonomous-codex
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  autonomous-development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+
+    steps:
+      - name: Checkout v0.9 branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/v0.9-adaptive-progression
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Configure Git
+        run: |
+          git config user.name "Hybrid v0.9 Codex Agent"
+          git config user.email "actions@users.noreply.github.com"
+
+      - name: Verify OpenAI API key
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "OPENAI_API_KEY is missing."
+            exit 1
+          fi
+
+          echo "OPENAI_API_KEY is configured."
+
+      - name: Install Codex CLI
+        run: |
+          npm install -g @openai/codex
+          codex --version
+
+      - name: Check autonomous goal
+        run: |
+          if [ ! -f "V0_9_AUTONOMOUS_GOAL.md" ]; then
+            echo "V0_9_AUTONOMOUS_GOAL.md not found."
+            exit 1
+          fi
+
+      - name: Run autonomous Codex iteration
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          codex exec \
+            --full-auto \
+            --skip-git-repo-check \
+            "$(cat V0_9_AUTONOMOUS_GOAL.md)"
+
+      - name: Run tests and build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew test assembleDebug --stacktrace
+
+      - name: Update branch if needed
+        run: |
+          git status --short
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Codex produced no repository changes."
+            exit 0
+          fi
+
+          git add -A
+
+          git commit \
+            -m "agent(v0.9): autonomous development iteration"
+
+          git push origin HEAD:feature/v0.9-adaptive-progression
