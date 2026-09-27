@@ -236,6 +236,29 @@ internal fun skillProgressSnapshot(skill:String,currentNodeId:String,successRate
     return SkillProgressSnapshot(skill,current.id,progress,next,decision,reason)
 }
 
+data class LoadRecommendation(val loadKg:Double?,val assistanceKg:Double?,val changePercent:Int,val reason:String)
+data class AdaptiveWorkoutPlan(val intensityFactor:Double,val volumeFactor:Double,val decision:ProgressionDecision,val notes:List<String>)
+
+internal fun recommendLoad(previousLoadKg:Double?,previousAssistanceKg:Double?,completionRate:Double,averageRpe:Double,recovery:Int):LoadRecommendation {
+    if(previousAssistanceKg!=null){
+        val delta=when{recovery<40||averageRpe>=9.5->5.0;completionRate>=0.95&&averageRpe<=8.0&&recovery>=70->-2.5;else->0.0}
+        return LoadRecommendation(null,(previousAssistanceKg+delta).coerceAtLeast(0.0),if(delta<0)-5 else if(delta>0)10 else 0,if(delta<0)"Riduci assistenza" else if(delta>0)"Aumenta assistenza per recupero/tecnica" else "Mantieni assistenza")
+    }
+    if(previousLoadKg==null) return LoadRecommendation(null,null,0,"Calibrazione carico necessaria")
+    val pct=when{recovery<40||averageRpe>=9.5->-10;completionRate>=0.95&&averageRpe<=8.0&&recovery>=70->5;completionRate<0.70->-5;else->0}
+    val suggested=(previousLoadKg*(1.0+pct/100.0)*2.0).toInt()/2.0
+    return LoadRecommendation(suggested,null,pct,when{pct>0->"Prestazione solida: incremento conservativo";pct<0->"Riduzione per qualità e recupero";else->"Mantieni il carico"})
+}
+
+internal fun adaptiveWorkoutPlan(successRate:Double,averageRpe:Double,recovery:Int,readinessScore:Int?):AdaptiveWorkoutPlan {
+    val readiness=readinessScore?:recovery
+    val decision=progressionDecision(successRate,averageRpe,minOf(recovery,readiness),if(successRate>=0.9)2 else 0)
+    val intensity=when{decision){ProgressionDecision.ADVANCE->1.03;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.92;ProgressionDecision.DELOAD->0.85}
+    val volume=when{decision){ProgressionDecision.ADVANCE->1.0;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.90;ProgressionDecision.DELOAD->0.70}
+    val notes=buildList{add("Decisione: "+decision.name);if(readinessScore!=null)add("Readiness: $readinessScore/100");if(recovery<50)add("Recupero muscolare basso");if(averageRpe>=9.0)add("RPE recente elevato")}
+    return AdaptiveWorkoutPlan(intensity,volume,decision,notes)
+}
+
 private val calisthenicsSkills = listOf(
  CalisthenicsSkill("Trazioni","Pull","Principiante"),CalisthenicsSkill("Dip","Push","Principiante"),CalisthenicsSkill("L-sit","Core","Intermedio"),CalisthenicsSkill("Pistol squat","Gambe","Intermedio"),CalisthenicsSkill("Handstand","Verticale","Intermedio"),CalisthenicsSkill("Muscle-up","Pull/Push","Avanzato"),CalisthenicsSkill("Front lever","Pull/Core","Avanzato"),CalisthenicsSkill("Back lever","Pull/Core","Avanzato"),CalisthenicsSkill("Planche","Push/Core","Avanzato"),CalisthenicsSkill("Handstand push-up","Verticale/Push","Avanzato"),CalisthenicsSkill("Human flag","Pull/Push/Core","Avanzato"),CalisthenicsSkill("Dragon flag","Core","Avanzato"),CalisthenicsSkill("V-sit","Core","Avanzato"),CalisthenicsSkill("One arm pull-up","Pull","Avanzato"),CalisthenicsSkill("One arm push-up","Push","Avanzato"),CalisthenicsSkill("Shrimp squat","Gambe","Intermedio")
 )
