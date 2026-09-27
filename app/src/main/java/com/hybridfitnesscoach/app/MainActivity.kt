@@ -548,6 +548,9 @@ internal val exercises = listOf(
     Exercise("Band lateral raise", "Spalle", "Elastici", "Principiante", emptyList(), "Accessorio"),
     Exercise("Band curl", "Bicipiti", "Elastici", "Principiante", emptyList(), "Accessorio"),
     Exercise("Band triceps extension", "Tricipiti", "Elastici", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Ab wheel rollout in ginocchio", "Core", "Ab Wheel", "Intermedio", role="Accessorio", category=ExerciseCategory.CORE, movementPattern="anti-extension", resistanceMode=ResistanceMode.BODYWEIGHT, targetValue=8.0),
+    Exercise("Foam roller quadricipiti", "Gambe", "Foam Roller", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="recovery", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=60.0),
+    Exercise("Foam roller dorsale", "Dorso", "Foam Roller", "Principiante", role="Recupero", category=ExerciseCategory.MOBILITY, movementPattern="recovery", measure=ExerciseMeasure.DURATION, targetSets=1, targetValue=60.0),
     Exercise("Corsa continua", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DURATION, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=600.0),
     Exercise("Corsa distanza", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DISTANCE, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=1000.0),
     Exercise("Corsa intervallata 60/60", "Cardio", "Corpo libero", "Intermedio", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.INTERVALS, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=5, targetValue=60.0, intervalRestSec=60)
@@ -581,12 +584,13 @@ private fun WorkoutSetState?.orEmptySet():List<WorkoutSetState> = this?.let{list
 internal fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMillis()):Int =
     if(endEpochMs==null) 0 else kotlin.math.ceil((endEpochMs-now).coerceAtLeast(0L)/1000.0).toInt()
 
-internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean =
-    profile.equipment.any { eq ->
-        ex.equipment.contains(eq, ignoreCase = true) ||
-        (eq == "Corpo libero" && ex.equipment.contains("corpo libero", ignoreCase = true)) ||
-        (eq == "Macchine" && ex.equipment.contains("Macchina", ignoreCase = true))
-    }
+internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean {
+    fun normalize(value:String)=value.trim().lowercase().let{if(it=="macchina")"macchine" else it}
+    val available=profile.equipment.map(::normalize).toSet()+"corpo libero"
+    val required=ex.equipment.split("/").map(::normalize)
+    // Explicit bodyweight variants are alternatives; other compound labels require every resource.
+    return if("corpo libero" in required)true else required.all{it in available}
+}
 
 private fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 
@@ -615,7 +619,8 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
     return fatigue.mapValues { (_, load) -> (100.0 - load.coerceAtMost(80.0)).toInt().coerceIn(20, 100) }
 }
 
-internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>): List<Exercise> {
+internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null): List<Exercise> {
+    val context=coachingContext(sessions,readinessScore)
     val maxLevel = levelScore(athlete.level)
     val available = exercises.filter { equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
     val preferredRoles = when (athlete.goal) {
@@ -643,7 +648,7 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
     }
     preferredRoles.forEach { role -> freshnessSorted.filter { it.role == role }.forEach { if (it !in result && result.size < 6) result.add(it) } }
     freshnessSorted.forEach { if (it !in result && result.size < 6) result.add(it) }
-    return result
+    return applyCoaching(sequenceWorkout(result).sortedBy{ex->if(athlete.prioritySkills.any{it in ex.skills})0 else 1},context)
 }
 
 class MainActivity : ComponentActivity() {
@@ -705,6 +710,19 @@ fun HybridFitnessApp() {
 }
 
 @Composable
+private fun CoachSummary(context:CoachingContext) {
+    Card(Modifier.fillMaxWidth().padding(vertical=8.dp),shape=RoundedCornerShape(18.dp),colors=CardDefaults.cardColors(containerColor=MaterialTheme.colorScheme.primaryContainer)) {
+        Column(Modifier.padding(16.dp)) {
+            Text("HYBRID • ADAPTIVE COACH",fontSize=11.sp,fontWeight=FontWeight.Bold)
+            Text(coachingLabel(context.plan.decision),fontSize=20.sp,fontWeight=FontWeight.Bold,modifier=Modifier.padding(vertical=6.dp))
+            Text(if(context.readiness!=null)"Readiness ${context.readiness}/100" else "Recupero stimato dallo storico",fontSize=13.sp)
+            Text("Volume ${((context.plan.volumeFactor-1)*100).toInt()}% • intensità ${((context.plan.intensityFactor-1)*100).toInt()}%",fontSize=13.sp)
+            context.plan.notes.filterNot{it.startsWith("Decisione:")}.forEach{Text(it,fontSize=12.sp)}
+        }
+    }
+}
+
+@Composable
 private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, onSessionSaved: (SessionRecord) -> Unit) {
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
@@ -729,6 +747,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 }
             }
         }
+        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions)) } }
         if (athlete.prioritySkills.isNotEmpty()) {
             item { SectionTitle("Skill progression") }
             items(athlete.prioritySkills.take(3)) { skill ->
@@ -792,7 +811,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     val skillFilters = remember { mutableStateListOf<String>() }
     val measureFilters = remember { mutableStateListOf<ExerciseMeasure>() }
     var filterDialog by remember { mutableStateOf<String?>(null) }
-    val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Anelli","TRX","Bilanciere","Manubri","Panca","Cavi","Macchine","Elastici","Kettlebell","Leg press")
+    val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Anelli","TRX","Bilanciere","Manubri","Panca","Cavi","Macchine","Elastici","Kettlebell","Leg press","Ab Wheel","Foam Roller")
     val matchingSkills = calisthenicsSkills.filter { s -> query.isNotBlank() && s.name.contains(query.trim(),true) }
     val shown = exercises.filter { ex ->
         (query.isBlank() || query.trim().split(Regex("\\s+")).all { token -> ex.name.contains(token,true) || ex.group.contains(token,true) || ex.equipment.contains(token,true) || ex.skills.any{it.contains(token,true)} }) &&
@@ -956,7 +975,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
     var mode by remember(initialSkill,initialGroups) { mutableStateOf(if(initialSkill!="Nessuna") "Skill" else "Parti del corpo") }
     val selectedSkills = remember(initialSkill) { mutableStateListOf<String>().apply { if(initialSkill!="Nessuna") add(initialSkill) } }
-    var generated by remember { mutableStateOf(restored?.exercises?.mapNotNull{s->exercises.firstOrNull{it.name==s.exerciseName}} ?: emptyList()) }
+    var generated by remember { mutableStateOf(restored?.let{restoreExercises(it)} ?: emptyList()) }
     var running by remember { mutableStateOf(restored!=null) }
     var sessionStartedAt by remember { mutableStateOf<Long?>(restored?.startedAtEpochMs) }
     val sessionId = remember { restored?.id ?: "custom-"+System.currentTimeMillis() }
@@ -990,16 +1009,17 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
-    val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Bilanciere","Manubri","Cavi","Macchine","Elastici","Panca","Kettlebell","Leg press","Anelli","TRX")
+    val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Bilanciere","Manubri","Cavi","Macchine","Elastici","Panca","Kettlebell","Leg press","Anelli","TRX","Ab Wheel","Foam Roller")
     fun prescription(ex:Exercise):Pair<Int,Int> { val p=prescriptionFor(ex); return p.value.toInt() to ex.setRestSec }
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
-        val base=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})}
+        val base=exercises.filter{ex->levelScore(ex.level)<=levelScore(athlete.level)&&equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})}
         val ranked=base.sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(selectedSkills.any{s->s in it.skills})0 else 1}.thenBy{if(it.role=="Forza")0 else 1})
         generated=if(mode=="Skill"){
             val skillWork=ranked.filter{ex->selectedSkills.any{it in ex.skills}}
             (skillWork+ranked.filter{it !in skillWork && (it.role=="Forza"||it.role=="Prerequisito"||it.role=="Accessorio")}).distinct().take(count)
         } else ranked.take(count)
+        generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions))
         completed.clear();expandedCompleted.clear();reps.clear();restSeconds.clear();exerciseRpe.clear()
         generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second}
         exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0
@@ -1041,7 +1061,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             item{Text("1. Attrezzatura disponibile",fontWeight=FontWeight.Bold);Text("Profilo attivo: "+profile.name+" • modifica valida solo per questo workout",color=Color.Gray,fontSize=12.sp)}
                             items(equipmentOptions){e->Row(Modifier.fillMaxWidth().clickable{if(e in selectedEquipment)selectedEquipment.remove(e)else selectedEquipment.add(e)},verticalAlignment=Alignment.CenterVertically){Checkbox(e in selectedEquipment,{if(it){if(e !in selectedEquipment)selectedEquipment.add(e)}else selectedEquipment.remove(e)});Text(e)}}
                             item{
-                                val available=exercises.count{ex->selectedEquipment.any{eq->ex.equipment.contains(eq,true)||(eq=="Macchine"&&ex.equipment.contains("Macchina",true))}}
+                                val available=exercises.count{ex->equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))}
                                 Text("$available esercizi compatibili con l'attrezzatura",color=Accent,fontSize=12.sp)
                                 Text("2. Durata",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
                                 Row{listOf(20,30,45,60,75).forEach{m->FilterChip(minutes==m,{minutes=m},{Text("$m")},Modifier.padding(end=4.dp))}}
@@ -1062,6 +1082,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             Text("ESERCIZI",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
                         }
                     }
+                    if(!running && generated.isNotEmpty())item{CoachSummary(coachingContext(sessions))}
                     items(generated){ex->
                         val n=completed[ex.name]?:0;val targetSets=prescriptionFor(ex).sets;val done=n>=targetSets;val isSkipped=skipped[ex.name]==true;val expanded=!done||(expandedCompleted[ex.name]?:false)
                         Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else {skipped[ex.name]=false;currentExercise=ex.name}}}){
@@ -1073,7 +1094,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                     Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     Text(p.sets.toString()+" serie × "+(reps[ex.name]?:p.value.toInt())+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
                                     if(running && !done && !isSkipped){
-                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
+                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,exerciseRecovery(ex,recoveryScores(sessions)))){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
 
                                         Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
                                         if(n>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
@@ -1114,7 +1135,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 
 @Composable
 private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
-    val compatible = remember(profile, athlete, sessions, restored) { restored?.exercises?.mapNotNull { s -> exercises.firstOrNull { it.name==s.exerciseName } }?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions) }
+    val compatible = remember(profile, athlete, sessions, restored) { restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions) }
     val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
     val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
@@ -1168,6 +1189,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                 }
                 LazyColumn(state=listState,modifier=Modifier.weight(1f)){
                     if(!started)item{
+                        CoachSummary(coachingContext(sessions))
                         Text("Generato per "+athlete.goal+" • "+athlete.level+" • "+profile.name,color=Color.Gray)
                         if(sessions.any{it.exerciseNames.isNotEmpty()})Text("Adattato anche agli allenamenti recenti",color=Accent,fontSize=12.sp)
                     }
@@ -1195,7 +1217,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA ESERCIZIO")}}}
                                     if(started&&!done&&!isSkipped){
-                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,(recoveryScores(sessions)[ex.group]?:100))){ar,asec,dist,load,assist->
+                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,exerciseRecovery(ex,recoveryScores(sessions)))){ar,asec,dist,load,assist->
                                             val p=prescriptionFor(ex)
                                             val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets
                                             if(count<old.size){

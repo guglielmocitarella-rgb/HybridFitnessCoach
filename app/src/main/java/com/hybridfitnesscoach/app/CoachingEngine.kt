@@ -1,0 +1,53 @@
+package com.hybridfitnesscoach.app
+
+import kotlin.math.floor
+
+/** Snapshot shared by preview and runner. Missing history never implies failure. */
+data class CoachingContext(val plan:AdaptiveWorkoutPlan, val recovery:Map<String,Int>, val readiness:Int?, val evidenceSessions:Int)
+
+internal fun coachingContext(sessions:List<SessionRecord>, readiness:Int?=null, now:Long=System.currentTimeMillis()):CoachingContext {
+    val recent=sessions.filter{it.timestamp<=now && now-it.timestamp<=28L*86_400_000}.sortedByDescending{it.timestamp}.take(5)
+    val recovery=recoveryScores(sessions,now)
+    val planned=recent.sumOf{if(it.structuredExercises.isNotEmpty())it.structuredExercises.sumOf{e->e.sets.size} else it.totalSets}
+    val done=recent.sumOf{actualCompletedSets(it)}
+    val rpes=recent.flatMap{session ->
+        val exerciseRpes=session.structuredExercises.mapNotNull{it.rpe}.filter{it in 1..10}
+        if(exerciseRpes.isNotEmpty())exerciseRpes else listOf(session.workoutRpe).filter{it in 1..10}
+    }
+    val recoveryScore=recovery.values.minOrNull()?:100
+    val base=adaptiveWorkoutPlan(if(planned>0)done.toDouble()/planned else 0.8,if(rpes.isNotEmpty())rpes.average() else 8.5,recoveryScore,readiness)
+    // A single successful workout is not a stable trend.
+    val plan=if(base.decision==ProgressionDecision.ADVANCE && (recent.size<2 || rpes.isEmpty()))
+        adaptiveWorkoutPlan(0.8,8.5,recoveryScore,readiness) else base
+    val evidence=if(recent.isEmpty())"Calibrazione iniziale: nessuno storico recente" else "Basato su ${recent.size} workout recenti e serie effettive"
+    return CoachingContext(plan.copy(notes=plan.notes+evidence),recovery,readiness,recent.size)
+}
+
+internal fun exerciseRecovery(ex:Exercise,recovery:Map<String,Int>):Int =
+    recovery.filterKeys{ex.group.contains(it,true)||it in ex.secondaryGroups}.values.minOrNull()?:100
+
+internal fun applyCoaching(items:List<Exercise>,context:CoachingContext):List<Exercise> = items.map { ex ->
+    val p=prescriptionFor(ex)
+    val reduced=context.plan.volumeFactor<1.0
+    val sets=if(reduced)floor(p.sets*context.plan.volumeFactor).toInt().coerceAtLeast(1) else p.sets
+    ex.copy(targetSets=sets,
+        targetValue=if(context.plan.intensityFactor<1.0)floor(p.value*context.plan.intensityFactor).coerceAtLeast(1.0) else p.value,
+        setRestSec=if(reduced)(ex.setRestSec*1.15).toInt() else ex.setRestSec)
+}
+
+internal fun coachingLabel(decision:ProgressionDecision)=when(decision){
+    ProgressionDecision.ADVANCE->"Progressione controllata"
+    ProgressionDecision.MAINTAIN->"Consolida la prestazione"
+    ProgressionDecision.REGRESS->"Riparti con più margine"
+    ProgressionDecision.DELOAD->"Oggi recupero attivo"
+}
+
+/** Resume persisted prescriptions, never regenerate targets from today's readiness. */
+internal fun restoreExercises(state:WorkoutSessionState):List<Exercise> = state.exercises.mapNotNull { saved ->
+    exercises.firstOrNull{it.name==saved.exerciseName}?.let { ex ->
+        val first=saved.sets.firstOrNull()
+        ex.copy(targetSets=saved.sets.size,measure=saved.measure,
+            targetValue=first?.targetReps?.toDouble()?:first?.targetSeconds?.toDouble()?:first?.targetDistanceMeters?:ex.targetValue,
+            setRestSec=saved.setRestSec,exerciseRestSec=saved.exerciseRestSec)
+    }
+}
