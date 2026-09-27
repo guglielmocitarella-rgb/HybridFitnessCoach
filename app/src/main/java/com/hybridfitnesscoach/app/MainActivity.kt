@@ -365,11 +365,21 @@ internal fun adaptiveWorkoutPlan(successRate:Double,averageRpe:Double,recovery:I
 
 internal fun sequenceWorkout(items:List<Exercise>,pinnedNames:Set<String> = emptySet()):List<Exercise> {
     if(items.size<2) return items
-    val ranked=items.sortedWith(compareBy<Exercise>({when(it.role){"Progressione"->0;"Forza"->1;"Prerequisito"->2;else->3}},{it.technicalComplexity},{it.name}))
-    val result=mutableListOf<Exercise>()
-    ranked.forEach { candidate ->
-        val samePattern=result.lastOrNull()?.movementPattern?.takeIf{it.isNotBlank()}==candidate.movementPattern.takeIf{it.isNotBlank()}
-        if(samePattern && candidate.name !in pinnedNames){val idx=result.indexOfLast{it.movementPattern!=candidate.movementPattern};if(idx>=0)result.add(idx+1,candidate)else result.add(candidate)}else result.add(candidate)
+    fun rolePriority(ex:Exercise)=when(ex.role){"Progressione"->0;"Prerequisito"->1;"Forza"->2;"Accessorio"->3;"Recupero"->6;else->4}
+    fun setupCost(previous:Exercise?,candidate:Exercise):Int {
+        if(previous==null) return 0
+        var cost=0
+        if(previous.equipment!=candidate.equipment) cost+=2
+        if(previous.movementPattern==candidate.movementPattern && candidate.movementPattern.isNotBlank()) cost+=3
+        if(previous.group==candidate.group) cost+=1
+        return cost
+    }
+    val remaining=items.toMutableList(); val result=mutableListOf<Exercise>()
+    while(remaining.isNotEmpty()){
+        val originalIndex=items.indexOfFirst{it.name in pinnedNames && it.name !in result.map{r->r.name}}
+        if(originalIndex==result.size){val pinned=items[originalIndex];remaining.removeAll{it.name==pinned.name};result.add(pinned);continue}
+        val next=remaining.minWithOrNull(compareBy<Exercise>({rolePriority(it)},{setupCost(result.lastOrNull(),it)},{it.technicalComplexity},{items.indexOf(it)}))!!
+        remaining.remove(next);result.add(next)
     }
     if(pinnedNames.isEmpty()) return result
     val out=result.toMutableList()
