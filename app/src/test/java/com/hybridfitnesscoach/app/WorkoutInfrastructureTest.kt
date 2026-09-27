@@ -33,4 +33,10 @@ class WorkoutInfrastructureTest {
         val s=WorkoutExerciseState("Pull-up",ExerciseMeasure.REPS,listOf(WorkoutSetState(0,targetReps=8,actualReps=7,completed=true)),WorkoutExerciseStatus.PARTIAL,rpe=8,pinned=true)
         assertTrue(s.pinned); assertEquals(WorkoutExerciseStatus.PARTIAL,s.status); assertEquals(7,s.sets.first().actualReps)
     }
+    @Test fun durationPrescriptionIsTimed(){val ex=Exercise("Run","Cardio","Corpo libero","Principiante",measure=ExerciseMeasure.DURATION,targetSets=1,targetValue=600.0);val p=prescriptionFor(ex);assertEquals(600.0,p.value,0.0);assertEquals("sec",p.unit)}
+    @Test fun intervalPrescriptionUsesWorkSeconds(){val ex=Exercise("Intervals","Cardio","Corpo libero","Intermedio",measure=ExerciseMeasure.INTERVALS,targetSets=5,targetValue=60.0,intervalRestSec=60);val p=prescriptionFor(ex);assertEquals(5,p.sets);assertEquals("sec lavoro",p.unit)}
+    @Test fun unilateralMetadataIsPreserved(){val ex=Exercise("Split","Gambe","Corpo libero","Intermedio",laterality=Laterality.UNILATERAL,targetValue=8.0);assertEquals(Laterality.UNILATERAL,ex.laterality)}
+    @Test fun pausedElapsedTimeDoesNotAdvance(){val s=WorkoutSessionState("x",1000,"P",emptyList(),pausedAtEpochMs=11000);assertEquals(10,elapsedWorkoutSeconds(s,50000))}
+    @Test fun structuredHistoryCountsOnlyExecutedSets(){val e=WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,targetReps=8,actualReps=8,completed=true),WorkoutSetState(1,targetReps=8,actualReps=7,completed=true),WorkoutSetState(2,targetReps=8)));val h=SessionRecord(1,"P",3,3,listOf("A"),structuredExercises=listOf(e));assertEquals(2,actualCompletedSets(h));assertEquals(15.0,executedVolume(h),0.0)}
+    @Test fun healthReadinessBoundaryCarriesNormalizedInput(){val normalized=NormalizedHealthState(1,sleepScore=90.0);val input=AthleteReadinessInput(mapOf("Dorso" to 80),normalized,listOf(7));assertEquals(90.0,input.health!!.sleepScore!!,0.0);assertEquals(80,input.recoveryByMuscle["Dorso"])}
 }
