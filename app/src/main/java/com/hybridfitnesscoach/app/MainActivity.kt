@@ -984,6 +984,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                             }
                                         }
                                     }
+                                }
                             }
                         }
                     }
