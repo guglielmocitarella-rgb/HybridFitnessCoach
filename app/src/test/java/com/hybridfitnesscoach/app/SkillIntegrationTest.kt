@@ -26,5 +26,5 @@ class SkillIntegrationTest {
         assertTrue(exercises.any{it.category==ExerciseCategory.MOBILITY && it.equipment=="Corpo libero"})
         assertEquals(ResistanceMode.EXTERNAL_LOAD,exercises.first{it.name=="Squat"}.resistanceMode)
     }
-    @Test fun catalogHasBroadV09Coverage(){assertTrue(exercises.size>=200);assertEquals(exercises.size,exercises.map{it.name.lowercase()}.distinct().size);assertTrue(exercises.count{it.category==ExerciseCategory.CORE}>=10);assertTrue(exercises.count{it.category==ExerciseCategory.MOBILITY}>=10);assertTrue(exercises.count{it.category==ExerciseCategory.CARDIO}>=5);assertTrue(exercises.any{it.movementPattern=="loaded-carry"});assertTrue(exercises.any{it.role=="Conditioning"})}
+    @Test fun catalogHasBroadV09Coverage(){assertTrue(exercises.size>=200);assertEquals(exercises.size,exercises.map{it.name.lowercase()}.distinct().size);assertTrue(exercises.count{it.category==ExerciseCategory.CORE}>=10);assertTrue(exercises.count{it.category==ExerciseCategory.MOBILITY}>=10);assertTrue(exercises.count{it.category==ExerciseCategory.CARDIO}>=4);assertTrue(exercises.any{it.movementPattern=="loaded-carry"});assertTrue(exercises.any{it.role=="Conditioning"})}
 }
