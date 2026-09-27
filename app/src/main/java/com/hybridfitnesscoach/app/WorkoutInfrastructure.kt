@@ -119,17 +119,18 @@ object ProgressionEngine {
     fun evaluate(node:SkillNode, mastered:Set<String>, sessions:List<SessionRecord>):SkillNodeProgress {
         if(!mastered.containsAll(node.prerequisites)) return SkillNodeProgress(node,ProgressionStatus.LOCKED,0.0)
         val names=node.exerciseAliases+node.exerciseName
-        val attempts=sessions.flatMap{it.structuredExercises}.filter{attempt ->
-            names.any { it.equals(attempt.exerciseName, ignoreCase=true) }
-        }
+        val attempts=sessions.distinctBy{it.timestamp}.map { session ->
+            session.structuredExercises.filter { attempt -> names.any { it.equals(attempt.exerciseName, ignoreCase=true) } }
+        }.filter{it.isNotEmpty()}
         if(attempts.isEmpty()) return SkillNodeProgress(node,ProgressionStatus.AVAILABLE,0.0)
-        val qualified=attempts.count { e ->
+        // At most one qualifying observation per session, even with repeated exercise entries.
+        val qualified=attempts.count { entries -> entries.any { e ->
             val done=e.sets.filter{it.completed}
             done.size>=node.criterion.minSets &&
             (node.criterion.minReps==null || done.all{(it.actualReps?:0)>=node.criterion.minReps}) &&
             (node.criterion.minSeconds==null || done.all{(it.actualSeconds?:0)>=node.criterion.minSeconds}) &&
             (node.criterion.maxRpe==null || (e.rpe?:10)<=node.criterion.maxRpe)
-        }
+        }}
         val completion=(qualified.toDouble()/node.criterion.requiredSessions.coerceAtLeast(1)).coerceIn(0.0,1.0)
         val status=if(completion>=1.0)ProgressionStatus.MASTERED else ProgressionStatus.IN_PROGRESS
         return SkillNodeProgress(node,status,completion)
@@ -180,3 +181,4 @@ fun calibratedSetRestSeconds(ex:Exercise, goal:String, level:String):Int {
 }
 fun calibratedTransitionRestSeconds(ex:Exercise,goal:String,level:String):Int =
     (calibratedSetRestSeconds(ex,goal,level)+30).coerceIn(60,210)
+

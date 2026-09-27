@@ -352,12 +352,18 @@ internal fun recommendLoad(previousLoadKg:Double?,previousAssistanceKg:Double?,c
 }
 
 internal fun loadRecommendationForExercise(ex:Exercise,sessions:List<SessionRecord>,recovery:Int):LoadRecommendation {
-    val recent=sessions.asSequence().flatMap{it.structuredExercises.asSequence()}.firstOrNull{it.exerciseName==ex.name}
+    val recent=sessions.sortedByDescending{it.timestamp}.asSequence().flatMap{it.structuredExercises.asSequence()}.firstOrNull{it.exerciseName==ex.name}
     val completed=recent?.sets?.filter{it.completed}.orEmpty()
     val previousLoad=completed.mapNotNull{it.actualLoadKg}.lastOrNull()
     val previousAssistance=completed.mapNotNull{it.actualAssistanceKg}.lastOrNull()
-    val completionRate=if(recent==null||recent.sets.isEmpty())0.0 else completed.size.toDouble()/recent.sets.size
-    val rpe=recent?.rpe?.toDouble()?:7.0
+    val successful=completed.count { set ->
+        (set.targetReps==null || (set.actualReps?:0)>=set.targetReps) &&
+        (set.targetSeconds==null || (set.actualSeconds?:0)>=set.targetSeconds) &&
+        (set.targetDistanceMeters==null || (set.actualDistanceMeters?:0.0)>=set.targetDistanceMeters)
+    }
+    val completionRate=if(recent==null||recent.sets.isEmpty())0.0 else successful.toDouble()/recent.sets.size
+    // Missing effort is not evidence that the athlete has margin to progress.
+    val rpe=recent?.rpe?.takeIf{it in 1..10}?.toDouble()?:8.5
     return recommendLoad(previousLoad,previousAssistance,completionRate,rpe,recovery)
 }
 
@@ -386,8 +392,14 @@ internal fun sequenceWorkout(items:List<Exercise>,pinnedNames:Set<String> = empt
 
 internal fun regenerateUnpinned(original:List<Exercise>,replacementPool:List<Exercise>,pinnedNames:Set<String>):List<Exercise> {
     val used=original.filter{it.name in pinnedNames}.map{it.name}.toMutableSet()
-    val replacements=replacementPool.filter{it.name !in used}.iterator()
-    return original.map{ex->if(ex.name in pinnedNames)ex else generateSequence{if(replacements.hasNext())replacements.next() else null}.firstOrNull{used.add(it.name)}?:ex}
+    val pool=(replacementPool+original).distinctBy{it.name}
+    return original.map { ex ->
+        if(ex.name in pinnedNames) ex else {
+            val replacement=pool.firstOrNull{it.name !in used} ?: ex
+            used.add(replacement.name)
+            replacement
+        }
+    }
 }
 
 private val calisthenicsSkills = listOf(
@@ -1310,3 +1322,4 @@ private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss:
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }
+
