@@ -344,7 +344,7 @@ internal val exercises = listOf(
     Exercise("Band triceps extension", "Tricipiti", "Elastici", "Principiante", emptyList(), "Accessorio"),
     Exercise("Corsa continua", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DURATION, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=600.0),
     Exercise("Corsa distanza", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DISTANCE, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=1000.0),
-    Exercise("Intervalli 60/60", "Cardio", "Corpo libero", "Intermedio", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.INTERVALS, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=5, targetValue=60.0, intervalRestSec=60)
+    Exercise("Corsa intervallata 60/60", "Cardio", "Corpo libero", "Intermedio", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.INTERVALS, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=5, targetValue=60.0, intervalRestSec=60)
 
 )
 
@@ -431,6 +431,10 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
         }.thenBy { preferredRoles.indexOf(it.role).let { i -> if(i < 0) 99 else i } }
     )
     val result = mutableListOf<Exercise>()
+    if(athlete.goal=="Calisthenics" && athlete.prioritySkills.isNotEmpty()){
+        val skillPool=freshnessSorted.filter { ex -> athlete.prioritySkills.any { it in ex.skills } }
+        skillPool.take(3).forEach { if(it !in result) result.add(it) }
+    }
     preferredRoles.forEach { role -> freshnessSorted.filter { it.role == role }.forEach { if (it !in result && result.size < 6) result.add(it) } }
     freshnessSorted.forEach { if (it !in result && result.size < 6) result.add(it) }
     return result
@@ -511,8 +515,9 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     }
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
-                    Text("Upper body ibrido", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
-                    Text("55 min  •  6 esercizi  •  Forza + skill", color = Color.Gray)
+                    val suggested = generateWorkout(profile,athlete,sessions)
+                    Text(when(athlete.goal){"Calisthenics"->"Calisthenics"+athlete.prioritySkills.firstOrNull()?.let{" • "+it}.orEmpty();"Ipertrofia"->"Ipertrofia";"Forza"->"Forza";else->"Fitness generale"}, fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+                    Text(suggested.size.toString()+" esercizi  •  "+athlete.goal, color = Color.Gray)
                     Button(onClick = { workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
                 }
@@ -556,7 +561,6 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     val equipmentFilters = remember { mutableStateListOf<String>() }
     val groupFilters = remember { mutableStateListOf<String>() }
     val skillFilters = remember { mutableStateListOf<String>() }
-    val typeFilters = remember { mutableStateListOf<String>() }
     val measureFilters = remember { mutableStateListOf<ExerciseMeasure>() }
     var filterDialog by remember { mutableStateOf<String?>(null) }
     val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Anelli","TRX","Bilanciere","Manubri","Panca","Cavi","Macchine","Elastici","Kettlebell","Leg press")
@@ -566,7 +570,6 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
         (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
         (groupFilters.isEmpty() || groupFilters.any { ex.group.contains(it,true) }) &&
         (skillFilters.isEmpty() || skillFilters.any { it in ex.skills }) &&
-        (typeFilters.isEmpty() || typeFilters.any { t -> ex.measure.name.equals(t,true) || ex.category.name.equals(t,true) }) &&
         (measureFilters.isEmpty() || ex.measure in measureFilters)
     }
     Column {
@@ -576,11 +579,10 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
             FilterChip(selected=equipmentFilters.isNotEmpty(),onClick={filterDialog="equipment"},label={Text("Attrezzi"+if(equipmentFilters.isEmpty())"" else " ("+equipmentFilters.size+")")})
             FilterChip(selected=groupFilters.isNotEmpty(),onClick={filterDialog="groups"},label={Text("Muscoli"+if(groupFilters.isEmpty())"" else " ("+groupFilters.size+")")})
             FilterChip(selected=skillFilters.isNotEmpty(),onClick={filterDialog="skills"},label={Text("Skill"+if(skillFilters.isEmpty())"" else " ("+skillFilters.size+")")})
-            FilterChip(selected=typeFilters.isNotEmpty(),onClick={filterDialog="types"},label={Text("Tipo"+if(typeFilters.isEmpty())"" else " ("+typeFilters.size+")")})
-            FilterChip(selected=measureFilters.isNotEmpty(),onClick={filterDialog="measure"},label={Text("Tipo"+if(measureFilters.isEmpty())"" else " ("+measureFilters.size+")")})
+            FilterChip(selected=measureFilters.isNotEmpty(),onClick={filterDialog="measure"},label={Text("Misurazione"+if(measureFilters.isEmpty())"" else " ("+measureFilters.size+")")})
         }
-        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()||typeFilters.isNotEmpty()||measureFilters.isNotEmpty()) {
- Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear();typeFilters.clear();measureFilters.clear()}){Text("AZZERA")}}
+        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()||measureFilters.isNotEmpty()) {
+ Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear();measureFilters.clear()}){Text("AZZERA")}}
  Button(onClick={filteredWorkout=true},enabled=shown.isNotEmpty(),modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth()){Text("GENERA WORKOUT DAI FILTRI")}
 }
         LazyColumn(contentPadding=PaddingValues(horizontal=20.dp,vertical=6.dp)){
@@ -590,12 +592,12 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
         }
     }
     if(filterDialog=="measure") {
-        AlertDialog(onDismissRequest={filterDialog=null},title={Text("Filtra per tipo esercizio")},text={Column{ExerciseMeasure.entries.forEach{m->Row(Modifier.fillMaxWidth().clickable{if(m in measureFilters)measureFilters.remove(m)else measureFilters.add(m)},verticalAlignment=Alignment.CenterVertically){Checkbox(m in measureFilters,{checked->if(checked){if(m !in measureFilters)measureFilters.add(m)}else measureFilters.remove(m)});Text(m.name)}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={measureFilters.clear()}){Text("AZZERA")}})
+        AlertDialog(onDismissRequest={filterDialog=null},title={Text("Filtra per misurazione")},text={Column{ExerciseMeasure.entries.forEach{m->Row(Modifier.fillMaxWidth().clickable{if(m in measureFilters)measureFilters.remove(m)else measureFilters.add(m)},verticalAlignment=Alignment.CenterVertically){Checkbox(m in measureFilters,{checked->if(checked){if(m !in measureFilters)measureFilters.add(m)}else measureFilters.remove(m)});Text(m.name)}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={measureFilters.clear()}){Text("AZZERA")}})
     }
-    filterDialog?.takeIf{it!="measure"}?.let { type ->
-        val title=when(type){"equipment"->"Filtra per attrezzatura";"groups"->"Filtra per gruppi muscolari";"types"->"Filtra per tipologia";else->"Filtra per skill"}
-        val opts=when(type){"equipment"->equipmentOptions;"groups"->recoveryGroups;"types"->ExerciseMeasure.entries.map{it.name}+ExerciseCategory.entries.filter{it!=ExerciseCategory.OTHER}.map{it.name};else->calisthenicsSkills.map{it.name}}
-        val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;"types"->typeFilters;else->skillFilters}
+    filterDialog?.takeIf{it!="measure" && it!="types"}?.let { type ->
+        val title=when(type){"equipment"->"Filtra per attrezzatura";"groups"->"Filtra per gruppi muscolari";else->"Filtra per skill"}
+        val opts=when(type){"equipment"->equipmentOptions;"groups"->recoveryGroups;else->calisthenicsSkills.map{it.name}}
+        val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;else->skillFilters}
         AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column(Modifier.clickable(enabled=type=="skills"){if(type=="skills"){selectedSkill=o;filterDialog=null}}){Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
     }
     selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
@@ -692,8 +694,8 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
     var name by remember{mutableStateOf(current.name)}; var goal by remember{mutableStateOf(current.goal)}; var level by remember{mutableStateOf(current.level)}; var days by remember{mutableIntStateOf(current.daysPerWeek)};var age by remember{mutableStateOf(if(current.age>0)current.age.toString() else "")};var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")};var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")};var sex by remember{mutableStateOf(current.sex)};val prioritySkills=remember{mutableStateListOf<String>().apply{addAll(current.prioritySkills)}}
     AlertDialog(onDismissRequest=onDismiss,title={Text("Profilo atleta")},text={LazyColumn(Modifier.heightIn(max=520.dp)){
         item{OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(age,{age=it.filter{ch->ch.isDigit()}},label={Text("Età")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(height,{height=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Altezza (cm)")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(weight,{weight=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Peso (kg)")},singleLine=true,modifier=Modifier.fillMaxWidth());Text("Sesso (opzionale)",fontWeight=FontWeight.Bold);Row{listOf("Non specificato","Uomo","Donna").forEach{x->FilterChip(sex==x,{sex=x},{Text(x)},Modifier.padding(end=4.dp))}};if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}; Text("Obiettivo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))}
-        items(listOf("Forza + Skill Calisthenics","Ipertrofia","Calisthenics","Fitness generale")){x->Row(Modifier.fillMaxWidth().clickable{goal=x},verticalAlignment=Alignment.CenterVertically){RadioButton(goal==x,{goal=x});Text(x)}}
-        item{if(goal=="Forza + Skill Calisthenics"){Text("Skill prioritarie (opzionali)",fontWeight=FontWeight.Bold);Text("Se non ne selezioni nessuna, il profilo viene trattato come Forza.",color=Color.Gray,fontSize=11.sp);calisthenicsSkills.forEach{s->Row(Modifier.fillMaxWidth().clickable{if(s.name in prioritySkills)prioritySkills.remove(s.name)else prioritySkills.add(s.name)},verticalAlignment=Alignment.CenterVertically){Checkbox(s.name in prioritySkills,{if(it){if(s.name !in prioritySkills)prioritySkills.add(s.name)}else prioritySkills.remove(s.name)});Text(s.name)}}};Text("Livello",fontWeight=FontWeight.Bold); listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}; Text("Allenamenti a settimana: "+days,fontWeight=FontWeight.Bold); Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(days>1)days--}){Text("−")};Spacer(Modifier.width(12.dp));Text(days.toString(),fontSize=20.sp);Spacer(Modifier.width(12.dp));Button(onClick={if(days<7)days++}){Text("+")}}}
+        items(listOf("Forza","Ipertrofia","Calisthenics","Fitness generale")){x->Row(Modifier.fillMaxWidth().clickable{goal=x},verticalAlignment=Alignment.CenterVertically){RadioButton(goal==x,{goal=x});Text(x)}}
+        item{if(goal=="Calisthenics"){Text("Skill da sviluppare (opzionali)",fontWeight=FontWeight.Bold);Text("Le skill selezionate hanno priorità nella generazione del workout.",color=Color.Gray,fontSize=11.sp);calisthenicsSkills.forEach{s->Row(Modifier.fillMaxWidth().clickable{if(s.name in prioritySkills)prioritySkills.remove(s.name)else prioritySkills.add(s.name)},verticalAlignment=Alignment.CenterVertically){Checkbox(s.name in prioritySkills,{if(it){if(s.name !in prioritySkills)prioritySkills.add(s.name)}else prioritySkills.remove(s.name)});Text(s.name)}}};Text("Livello",fontWeight=FontWeight.Bold); listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}; Text("Allenamenti a settimana: "+days,fontWeight=FontWeight.Bold); Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(days>1)days--}){Text("−")};Spacer(Modifier.width(12.dp));Text(days.toString(),fontSize=20.sp);Spacer(Modifier.width(12.dp));Button(onClick={if(days<7)days++}){Text("+")}}}
     }},confirmButton={Button(onClick={onSave(AthleteProfile(name.trim(),goal,level,days,age.toIntOrNull()?:0,height.toFloatOrNull()?:0f,weight.toFloatOrNull()?:0f,sex,prioritySkills.toList()))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
 }
 
@@ -961,7 +963,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     Text(p.sets.toString()+" serie × "+p.value.toInt()+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
                                     if(started&&count>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
-                                    if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA")};TextButton(onClick={val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;executedSets[ex.name]=old+old.lastOrNull()?.copy(index=old.size,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null).orEmptySet()}){Text("+ SERIE")}}}
+                                    if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA")};TextButton(onClick={val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;executedSets[ex.name]=old+old.lastOrNull()?.copy(index=old.size,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null).orEmptySet()} ){Text("REGISTRA SERIE")}}}
                                     if(started&&!done&&!isSkipped){ ExerciseExecutionInputs(ex,!paused&&restRemaining==0){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(count<old.size){val xs=old.toMutableList();xs[count]=xs[count].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completedSets[ex.name]=count+1;if(count+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}; Row(Modifier.fillMaxWidth().padding(top=8.dp),verticalAlignment=Alignment.CenterVertically){
                                         Text("$count/$targetSets",color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f))
                                         OutlinedButton(onClick={if(count>0)completedSets[ex.name]=count-1}){Text("−")}
@@ -990,7 +992,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
         confirmButton = { Button(onClick={
             if(!started){sessionStartedAt=System.currentTimeMillis();started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}
             else{val structured=compatible.mapIndexed { index,ex->completedExerciseState(index,ex,completedSets[ex.name]?:0,exerciseRpe[ex.name]).let{s->executedSets[ex.name]?.let{s.copy(sets=it)}?:s} };onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName}));store.clearActiveWorkout();onDismiss()}
-        }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "SALVA E CHIUDI")} },
+        }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "TERMINA E SALVA")} },
         dismissButton = { TextButton(onClick=onDismiss){Text("ANNULLA")} }
     )
 }
