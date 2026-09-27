@@ -157,33 +157,6 @@ private fun workoutSessionFromJson(o:JSONObject):WorkoutSessionState { val a=o.o
     o.optLong("elapsedBeforePauseMs",0L),o.optNullableLong("pausedAtEpochMs"),o.optNullableLong("restEndsAtEpochMs"),
     o.optNullableInt("workoutRpe"),o.optNullableLong("finishedAtEpochMs")) }
 
-data class RawHealthSnapshot(
-    val capturedAtEpochMs: Long,
-    val sleepMinutes: Int? = null,
-    val restingHeartRateBpm: Double? = null,
-    val hrvMs: Double? = null,
-    val steps: Int? = null,
-    val activeMinutes: Int? = null
-)
-data class NormalizedHealthState(
-    val capturedAtEpochMs: Long,
-    val sleepScore: Double? = null,
-    val cardiovascularScore: Double? = null,
-    val activityLoadScore: Double? = null
-)
-data class AthleteReadinessState(
-    val calculatedAtEpochMs: Long,
-    val recoveryByGroup: Map<String,Int>,
-    val normalizedHealth: NormalizedHealthState? = null
-)
-interface HealthDataSource { suspend fun latest(): RawHealthSnapshot? }
-internal fun normalizeHealth(raw:RawHealthSnapshot):NormalizedHealthState = NormalizedHealthState(
-    raw.capturedAtEpochMs,
-    raw.sleepMinutes?.let{(it/480.0*100.0).coerceIn(0.0,100.0)},
-    raw.restingHeartRateBpm?.let{((90.0-it)/40.0*100.0).coerceIn(0.0,100.0)},
-    raw.activeMinutes?.let{(it/60.0*100.0).coerceIn(0.0,100.0)}
-)
-
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList())
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
