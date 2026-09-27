@@ -168,7 +168,7 @@ data class CalisthenicsSkill(val name:String, val category:String, val level:Str
 
 private class AppStore(context: Context) {
     private val prefs = context.getSharedPreferences("hybrid_fitness_store", Context.MODE_PRIVATE)
-    fun loadAthlete() = AthleteProfile(prefs.getString("athlete_name","") ?: "", prefs.getString("athlete_goal","Forza + skill") ?: "Forza + skill", prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3),prefs.getInt("athlete_age",0),prefs.getFloat("athlete_height",0f),prefs.getFloat("athlete_weight",0f),prefs.getString("athlete_sex","Non specificato")?:"Non specificato",(prefs.getString("athlete_priority_skills","")?:"").split("|").filter{it.isNotBlank()})
+    fun loadAthlete():AthleteProfile { val storedGoal=prefs.getString("athlete_goal","Forza") ?: "Forza"; val goal=if(storedGoal=="Forza + skill"||storedGoal=="Forza + Skill Calisthenics") "Calisthenics" else storedGoal; return AthleteProfile(prefs.getString("athlete_name","") ?: "", goal, prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3),prefs.getInt("athlete_age",0),prefs.getFloat("athlete_height",0f),prefs.getFloat("athlete_weight",0f),prefs.getString("athlete_sex","Non specificato")?:"Non specificato",(prefs.getString("athlete_priority_skills","")?:"").split("|").filter{it.isNotBlank()}) }
     fun saveAthlete(p: AthleteProfile) { prefs.edit().putString("athlete_name",p.name).putString("athlete_goal",p.goal).putString("athlete_level",p.level).putInt("athlete_days",p.daysPerWeek).putInt("athlete_age",p.age).putFloat("athlete_height",p.heightCm).putFloat("athlete_weight",p.weightKg).putString("athlete_sex",p.sex).putString("athlete_priority_skills",p.prioritySkills.joinToString("|")).apply(); if(p.weightKg>0){val h=prefs.getString("weight_history","")?:"";prefs.edit().putString("weight_history",(System.currentTimeMillis().toString()+":"+p.weightKg+";"+h).take(4000)).apply()} }
     fun loadActiveProfileName() = prefs.getString("active_equipment","Palestra") ?: "Palestra"
     fun saveActiveProfileName(name:String) { prefs.edit().putString("active_equipment",name).apply() }
@@ -856,7 +856,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                                     if(next>=targetSets){restKind="Esercizio";restRemaining=exerciseRestSeconds;restEndsAt=System.currentTimeMillis()+exerciseRestSeconds*1000L;currentExercise=generated.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name?:generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name}
                                                     else {restKind="Serie";restRemaining=restSeconds[ex.name]?:60;restEndsAt=System.currentTimeMillis()+restRemaining*1000L;currentExercise=ex.name}
                                                 }
-                                            },enabled=restRemaining==0&&!paused){Text("SEGNA TARGET")}
+                                            },enabled=restRemaining==0&&!paused){Text("REGISTRA SERIE")}
                                         }
                                     }
                                 }
@@ -956,7 +956,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                             }
                         }){
                             Column(Modifier.padding(12.dp)){
-                                Text((if(done)"✓ " else if(started&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold)
+                                Text((if(done)"✓ " else if(isSkipped)"↷ " else if(started&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold);if(started&&currentExercise==ex.name&&!done&&!isSkipped)Text("ESERCIZIO ATTIVO • serie "+(count+1).coerceAtMost(targetSets)+"/"+targetSets,color=Accent,fontSize=12.sp,fontWeight=FontWeight.Bold);if(isSkipped)Text("SALTATO • tocca RIPRENDI per continuare",color=Color.Gray,fontSize=12.sp)
                                 if(done)Text("COMPLETATO • "+targetSets+"/"+targetSets+" serie",color=Accent,fontSize=12.sp)
                                 if(expanded){
                                     val p=prescriptionFor(ex)
@@ -964,23 +964,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     if(started&&count>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA")};TextButton(onClick={val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;executedSets[ex.name]=old+old.lastOrNull()?.copy(index=old.size,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null).orEmptySet()} ){Text("REGISTRA SERIE")}}}
-                                    if(started&&!done&&!isSkipped){ ExerciseExecutionInputs(ex,!paused&&restRemaining==0){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(count<old.size){val xs=old.toMutableList();xs[count]=xs[count].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completedSets[ex.name]=count+1;if(count+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}; Row(Modifier.fillMaxWidth().padding(top=8.dp),verticalAlignment=Alignment.CenterVertically){
-                                        Text("$count/$targetSets",color=Accent,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f))
-                                        OutlinedButton(onClick={if(count>0)completedSets[ex.name]=count-1}){Text("−")}
-                                        Spacer(Modifier.width(8.dp))
-                                        Button(onClick={
-                                            if(!paused&&restRemaining==0&&count<targetSets){
-                                                val next=count+1
-                                                completedSets[ex.name]=next
-                                                if(next>=targetSets){
-                                                    restKind="Esercizio";restRemaining=ex.exerciseRestSec;restEndsAt=System.currentTimeMillis()+ex.exerciseRestSec*1000L
-                                                    currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name?:compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name
-                                                }else{
-                                                    restKind="Serie";restRemaining=ex.setRestSec;restEndsAt=System.currentTimeMillis()+ex.setRestSec*1000L;currentExercise=ex.name
-                                                }
-                                            }
-                                        },enabled=!paused&&restRemaining==0){Text("+ SERIE")}
-                                    }}
+                                    if(started&&!done&&!isSkipped){ ExerciseExecutionInputs(ex,!paused&&restRemaining==0){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(count<old.size){val xs=old.toMutableList();xs[count]=xs[count].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completedSets[ex.name]=count+1;if(count+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
                                 }
                             }
                         }
@@ -1000,6 +984,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
 @Composable
 private fun ExerciseDetailDialog(ex: Exercise, onDismiss: () -> Unit) {
     val instructions = when (ex.name) {
+        "Corsa intervallata 60/60" -> "Alterna 60 secondi di corsa sostenuta e 60 secondi di recupero. Ripeti per il numero di intervalli previsto, mantenendo un ritmo controllabile e costante."
         "Trazioni prone" -> "Parti in sospensione completa, mantieni il tronco stabile e porta il petto verso la sbarra senza slancio. Torna in basso in controllo."
         "Lat machine" -> "Mantieni il torace alto e tira la barra verso la parte alta del petto. Evita di trasformare il movimento in uno slancio del busto."
         "Panca piana" -> "Mantieni scapole addotte e piedi stabili. Scendi in controllo verso il petto e spingi mantenendo polsi e gomiti stabili."
