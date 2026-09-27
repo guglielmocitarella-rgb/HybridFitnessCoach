@@ -25,22 +25,22 @@ Build stabile di riferimento prima dell'evoluzione: **Build #69**.
 - Persistenza locale di profilo, attrezzatura, storico e recovery
 - Build Android firmata tramite GitHub Actions
 
-### V0.8 Evoluta — infrastruttura implementata e in validazione finale
+### V0.8 Evoluta — implementata
 
-L'evoluzione corrente introduce progressivamente:
+La V0.8 Evoluta include:
 
 - modello esercizio universale: reps, secondi, durata, distanza e intervalli;
 - supporto strutturale per corpo libero, sovraccarico e assistenza;
 - esercizi bilaterali, unilaterali e alternati;
 - metadati per pattern motorio, categoria, intensità, fatica sistemica e complessità tecnica;
-- Workout Runner generalizzato e indipendente dal tipo di esercizio;
-- sessione attiva persistente e recuperabile;
+- Workout Runner multimodale data-driven per reps, secondi/isometrie, durata, distanza e intervalli, con lateralità, carico e assistenza;
+- sessione attiva persistente e recuperabile sia per workout automatici sia personalizzati;
 - timer robusti basati su timestamp reali;
 - storico strutturato e interrogabile;
 - architettura offline-first;
 - predisposizione Health Connect;
 - esercizi pinned/locked per futura rigenerazione parziale;
-- test automatici per state machine, timer, persistenza e migrazioni.
+- test JVM per state machine, prescrizioni multimodali, timer/deadline, sessioni parziali, storico eseguito, Recovery, generatore, Front Lever e boundary Health readiness.
 
 Il modello dati è già predisposto con un collegamento opaco alle future progressioni, evitando una nuova migrazione strutturale quando verrà introdotta la V0.9.
 
@@ -105,3 +105,15 @@ L'obiettivo della V0.8 Evoluta non è anticipare l'Adaptive Coach, ma assicurare
 ## Previsto per la V0.9
 
 La V0.9 utilizzerà queste fondamenta per Progression Engine, grafi di progressione/regressione, deload, Workout Sequencing Engine, rigenerazione parziale con esercizi pinned e Adaptive Coach. Queste funzioni **non sono dichiarate implementate nella V0.8**.
+
+## Affidabilità V0.8 Evoluta
+
+Le funzioni fondamentali sono locali/offline-first: profilo, attrezzatura, libreria, generazione, Runner, sessione attiva, storico e Recovery non dipendono dalla rete. Lo storage SharedPreferences mantiene lettura retrocompatibile dei record V0.8 precedenti tramite campi opzionali/default, senza destructive migration.
+
+Il timer di recupero usa deadline assolute e viene ricostruito al restore. Le sessioni attive conservano runner di origine, esercizio corrente, set eseguiti, valori effettivi, RPE, skip e contesto del recupero.
+
+Health Connect resta volutamente un boundary architetturale nella V0.8: dati raw → normalizzazione → readiness input. La V0.8 non simula letture sanitarie e non implementa ancora decisioni adattive basate su Health Connect.
+
+## Confine V0.9
+
+Progression Engine, grafi skill, advance/maintain/regress, deload, Sequencing Engine, rigenerazione intelligente e Adaptive Coach restano funzionalità V0.9. La V0.8 fornisce modello universale, stato strutturato, pinned/locked readiness, storico eseguito e boundary readiness su cui costruirle.
