@@ -166,9 +166,9 @@ object AdaptiveCoach {
 fun calibratedSetRestSeconds(ex:Exercise, goal:String, level:String):Int {
     val base=when {
         ex.role=="Skill" || ex.technicalComplexity>=3 -> 120
-        ex.category==ExerciseCategory.COMPOUND && goal=="Forza" -> 150
-        ex.category==ExerciseCategory.COMPOUND -> 105
-        ex.category==ExerciseCategory.ISOLATION -> 60
+        ex.category==ExerciseCategory.OTHER && goal=="Forza" -> 150
+        ex.category==ExerciseCategory.OTHER -> 105
+        ex.category==ExerciseCategory.OTHER -> 60
         else -> 75
     }
     val levelDelta=when(level){"Principiante"->-15;"Avanzato"->15;else->0}
