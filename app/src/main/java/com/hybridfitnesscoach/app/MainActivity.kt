@@ -121,7 +121,10 @@ data class WorkoutSessionState(
     val pausedAtEpochMs: Long? = null,
     val restEndsAtEpochMs: Long? = null,
     val workoutRpe: Int? = null,
-    val finishedAtEpochMs: Long? = null
+    val finishedAtEpochMs: Long? = null,
+    val runnerKind: String = "automatic",
+    val restKind: String? = null,
+    val modifications: List<String> = emptyList()
 )
 private fun WorkoutSetState.toJson() = JSONObject()
     .put("index", index).put("targetReps", targetReps).put("targetSeconds", targetSeconds)
@@ -150,12 +153,14 @@ private fun workoutExerciseFromJson(o:JSONObject):WorkoutExerciseState { val a=o
 private fun WorkoutSessionState.toJson():JSONObject { val a=JSONArray();exercises.forEach{a.put(it.toJson())};return JSONObject()
     .put("schemaVersion",1).put("id",id).put("startedAtEpochMs",startedAtEpochMs).put("profileName",profileName)
     .put("exercises",a).put("currentExerciseIndex",currentExerciseIndex).put("elapsedBeforePauseMs",elapsedBeforePauseMs)
-    .put("pausedAtEpochMs",pausedAtEpochMs).put("restEndsAtEpochMs",restEndsAtEpochMs).put("workoutRpe",workoutRpe).put("finishedAtEpochMs",finishedAtEpochMs) }
+    .put("pausedAtEpochMs",pausedAtEpochMs).put("restEndsAtEpochMs",restEndsAtEpochMs).put("workoutRpe",workoutRpe).put("finishedAtEpochMs",finishedAtEpochMs)
+    .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}) }
 private fun workoutSessionFromJson(o:JSONObject):WorkoutSessionState { val a=o.optJSONArray("exercises")?:JSONArray();return WorkoutSessionState(
     o.getString("id"),o.getLong("startedAtEpochMs"),o.optString("profileName",""),
     (0 until a.length()).map{workoutExerciseFromJson(a.getJSONObject(it))},o.optInt("currentExerciseIndex"),
     o.optLong("elapsedBeforePauseMs",0L),o.optNullableLong("pausedAtEpochMs"),o.optNullableLong("restEndsAtEpochMs"),
-    o.optNullableInt("workoutRpe"),o.optNullableLong("finishedAtEpochMs")) }
+    o.optNullableInt("workoutRpe"),o.optNullableLong("finishedAtEpochMs"),o.optString("runnerKind","automatic"),o.optString("restKind",null),
+    (o.optJSONArray("modifications")?:JSONArray()).let{a->(0 until a.length()).map{a.getString(it)}}) }
 
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList())
@@ -511,8 +516,8 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         item { SectionTitle("Recupero") }
         item { RecoveryChart(sessions) }
     }
-    if (workoutOpen) { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
-    if (customWorkoutOpen) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen = false }, onSessionSaved, store=store) }
+    if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
+    if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
 }
 
 @Composable
@@ -688,31 +693,31 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
 }
 
 @Composable
-private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null) {
+private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null, restored:WorkoutSessionState?=null) {
     var minutes by remember { mutableIntStateOf(45) }
     val selectedEquipment = remember { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment) } }
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
     var mode by remember(initialSkill,initialGroups) { mutableStateOf(if(initialSkill!="Nessuna") "Skill" else "Parti del corpo") }
     val selectedSkills = remember(initialSkill) { mutableStateListOf<String>().apply { if(initialSkill!="Nessuna") add(initialSkill) } }
-    var generated by remember { mutableStateOf<List<Exercise>>(emptyList()) }
-    var running by remember { mutableStateOf(false) }
-    var sessionStartedAt by remember { mutableStateOf<Long?>(null) }
-    val sessionId = remember { "custom-"+System.currentTimeMillis() }
-    var paused by remember { mutableStateOf(false) }
-    var elapsedSeconds by remember { mutableIntStateOf(0) }
-    var restRemaining by remember { mutableIntStateOf(0) }
-    var restEndsAt by remember { mutableStateOf<Long?>(null) }
+    var generated by remember { mutableStateOf(restored?.exercises?.mapNotNull{s->exercises.firstOrNull{it.name==s.exerciseName}} ?: emptyList()) }
+    var running by remember { mutableStateOf(restored!=null) }
+    var sessionStartedAt by remember { mutableStateOf<Long?>(restored?.startedAtEpochMs) }
+    val sessionId = remember { restored?.id ?: "custom-"+System.currentTimeMillis() }
+    var paused by remember { mutableStateOf(restored?.pausedAtEpochMs!=null) }
+    var elapsedSeconds by remember { mutableIntStateOf(restored?.let{((System.currentTimeMillis()-it.startedAtEpochMs)/1000L).toInt()}?:0) }
+    var restRemaining by remember { mutableIntStateOf(remainingSeconds(restored?.restEndsAtEpochMs)) }
+    var restEndsAt by remember { mutableStateOf<Long?>(restored?.restEndsAtEpochMs) }
     var exerciseRestSeconds by remember { mutableIntStateOf(180) }
-    var restKind by remember { mutableStateOf("Serie") }
-    var currentExercise by remember { mutableStateOf<String?>(null) }
+    var restKind by remember { mutableStateOf(restored?.restKind?:"Serie") }
+    var currentExercise by remember { mutableStateOf<String?>(restored?.exercises?.getOrNull(restored.currentExerciseIndex)?.exerciseName) }
     var generationMessage by remember { mutableStateOf<String?>(null) }
-    val completed = remember { mutableStateMapOf<String, Int>() }
-    val skipped = remember { mutableStateMapOf<String, Boolean>() }
+    val completed = remember { mutableStateMapOf<String, Int>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets.count{s->s.completed})}} }
+    val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
     val reps = remember { mutableStateMapOf<String, Int>() }
     val restSeconds = remember { mutableStateMapOf<String, Int>() }
-    val exerciseRpe = remember { mutableStateMapOf<String,Int>() }
-    var workoutRpe by remember { mutableIntStateOf(5) }
+    val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply{restored?.exercises?.forEach{e->e.rpe?.let{put(e.exerciseName,it)}}} }
+    var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
     val listState = rememberLazyListState()
 
     LaunchedEffect(running,paused,restEndsAt,sessionStartedAt){ while(running&&!paused){ val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);sessionStartedAt?.let{elapsedSeconds=((now-it)/1000L).toInt()};delay(500) } }
@@ -720,10 +725,10 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
         if(running&&store!=null){
             val now=System.currentTimeMillis()
             val states=generated.mapIndexed{i,ex->completedExerciseState(i,ex,completed[ex.name]?:0,exerciseRpe[ex.name]).let{s->if(skipped[ex.name]==true)s.copy(status=WorkoutExerciseStatus.SKIPPED)else s}}
-            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe))
+            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="custom",restKind=restKind))
         }
     }
-    LaunchedEffect(running) { if(running){ currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name; listState.scrollToItem(0) } }
+    LaunchedEffect(running) { if(running){ if(currentExercise==null)currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name; val i=generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i) } }
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
@@ -862,7 +867,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     var elapsedSeconds by remember { mutableIntStateOf(restored?.let{((System.currentTimeMillis()-it.startedAtEpochMs)/1000).toInt().coerceAtLeast(0)}?:0) }
     var restRemaining by remember { mutableIntStateOf(remainingSeconds(restored?.restEndsAtEpochMs)) }
     var restEndsAt by remember { mutableStateOf(restored?.restEndsAtEpochMs) }
-    var restKind by remember { mutableStateOf("Serie") }
+    var restKind by remember { mutableStateOf(restored?.restKind?:"Serie") }
     var currentExercise by remember { mutableStateOf<String?>(restored?.exercises?.getOrNull(restored.currentExerciseIndex)?.exerciseName) }
     val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply { restored?.exercises?.forEach{e->e.rpe?.let{put(e.exerciseName,it)}} } }
     var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
@@ -876,10 +881,10 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                 val p=prescriptionFor(ex); val done=completedSets[ex.name]?:0
                 WorkoutExerciseState(ex.name,ex.measure,(0 until p.sets).map { s -> WorkoutSetState(s,targetReps=if(ex.measure==ExerciseMeasure.REPS)p.value.toInt() else null,targetSeconds=if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION)p.value.toInt() else null,targetDistanceMeters=if(ex.measure==ExerciseMeasure.DISTANCE)p.value else null,completed=s<done) },when{skipped[ex.name]==true->WorkoutExerciseStatus.SKIPPED;done>=p.sets->WorkoutExerciseStatus.COMPLETED;done>0->WorkoutExerciseStatus.PARTIAL;else->WorkoutExerciseStatus.PENDING},exerciseRpe[ex.name],false,ex.setRestSec,ex.exerciseRestSec,index,index)
             }
-            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe))
+            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="automatic",restKind=restKind))
         }
     }
-    LaunchedEffect(started){if(started){currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;listState.scrollToItem(0)}}
+    LaunchedEffect(started){if(started){if(currentExercise==null)currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;val i=compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i)}}
     LaunchedEffect(currentExercise){if(started){val i=compatible.indexOfFirst{it.name==currentExercise};if(i>=0)listState.animateScrollToItem(i)}}
 
     AlertDialog(
