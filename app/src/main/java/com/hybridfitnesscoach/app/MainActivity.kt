@@ -190,7 +190,7 @@ private class AppStore(context: Context) {
     fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
 }
 
-private val profiles = listOf(
+internal val profiles = listOf(
     EquipmentProfile("Palestra", "🏋️", listOf("Bilanciere", "Manubri", "Cavi", "Macchine", "Sbarra", "Parallele", "Panca", "Kettlebell", "Leg press")),
     EquipmentProfile("Casa", "🏠", listOf("Corpo libero", "Sbarra", "Elastici")),
     EquipmentProfile("Parco", "🌳", listOf("Sbarra", "Parallele", "Corpo libero"))
@@ -199,12 +199,12 @@ private val profiles = listOf(
 private val calisthenicsSkills = listOf(
  CalisthenicsSkill("Trazioni","Pull","Principiante"),CalisthenicsSkill("Dip","Push","Principiante"),CalisthenicsSkill("L-sit","Core","Intermedio"),CalisthenicsSkill("Pistol squat","Gambe","Intermedio"),CalisthenicsSkill("Handstand","Verticale","Intermedio"),CalisthenicsSkill("Muscle-up","Pull/Push","Avanzato"),CalisthenicsSkill("Front lever","Pull/Core","Avanzato"),CalisthenicsSkill("Back lever","Pull/Core","Avanzato"),CalisthenicsSkill("Planche","Push/Core","Avanzato"),CalisthenicsSkill("Handstand push-up","Verticale/Push","Avanzato"),CalisthenicsSkill("Human flag","Pull/Push/Core","Avanzato"),CalisthenicsSkill("Dragon flag","Core","Avanzato"),CalisthenicsSkill("V-sit","Core","Avanzato"),CalisthenicsSkill("One arm pull-up","Pull","Avanzato"),CalisthenicsSkill("One arm push-up","Push","Avanzato"),CalisthenicsSkill("Shrimp squat","Gambe","Intermedio")
 )
-private val exercises = listOf(
-    Exercise("Trazioni prone", "Dorso", "Sbarra", "Intermedio", listOf("Muscle-up", "Front lever"), "Prerequisito"),
+internal val exercises = listOf(
+    Exercise("Trazioni prone", "Dorso", "Sbarra", "Intermedio", listOf("Muscle-up", "Front lever"), "Prerequisito", category=ExerciseCategory.PULL, resistanceMode=ResistanceMode.BODYWEIGHT),
     Exercise("Trazioni esplosive", "Dorso", "Sbarra", "Avanzato", listOf("Muscle-up"), "Progressione"),
     Exercise("Australian pull-up", "Dorso", "Sbarra", "Principiante", listOf("Trazioni", "Front lever"), "Prerequisito"),
     Exercise("Lat machine", "Dorso", "Macchina", "Principiante", listOf("Trazioni"), "Accessorio"),
-    Exercise("Panca piana", "Petto", "Bilanciere", "Intermedio", emptyList(), "Forza"),
+    Exercise("Panca piana", "Petto", "Bilanciere", "Intermedio", emptyList(), "Forza", resistanceMode=ResistanceMode.EXTERNAL_LOAD),
     Exercise("Push-up", "Petto", "Corpo libero", "Principiante", listOf("Planche"), "Prerequisito"),
     Exercise("Pseudo planche push-up", "Petto / Spalle", "Corpo libero", "Avanzato", listOf("Planche"), "Progressione"),
     Exercise("Dip alle parallele", "Petto / Tricipiti", "Parallele", "Intermedio", listOf("Muscle-up"), "Prerequisito"),
@@ -341,7 +341,11 @@ private val exercises = listOf(
     Exercise("Band chest press", "Petto", "Elastici", "Principiante", emptyList(), "Accessorio"),
     Exercise("Band lateral raise", "Spalle", "Elastici", "Principiante", emptyList(), "Accessorio"),
     Exercise("Band curl", "Bicipiti", "Elastici", "Principiante", emptyList(), "Accessorio"),
-    Exercise("Band triceps extension", "Tricipiti", "Elastici", "Principiante", emptyList(), "Accessorio")
+    Exercise("Band triceps extension", "Tricipiti", "Elastici", "Principiante", emptyList(), "Accessorio"),
+    Exercise("Corsa continua", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DURATION, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=600.0),
+    Exercise("Corsa distanza", "Cardio", "Corpo libero", "Principiante", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.DISTANCE, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=1, targetValue=1000.0),
+    Exercise("Intervalli 60/60", "Cardio", "Corpo libero", "Intermedio", role="Base", category=ExerciseCategory.CARDIO, measure=ExerciseMeasure.INTERVALS, resistanceMode=ResistanceMode.BODYWEIGHT, targetSets=5, targetValue=60.0, intervalRestSec=60)
+
 )
 
 internal data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
@@ -370,7 +374,7 @@ private fun completedExerciseState(index:Int,ex:Exercise,completed:Int,rpe:Int?)
 internal fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMillis()):Int =
     if(endEpochMs==null) 0 else kotlin.math.ceil((endEpochMs-now).coerceAtLeast(0L)/1000.0).toInt()
 
-private fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean =
+internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean =
     profile.equipment.any { eq ->
         ex.equipment.contains(eq, ignoreCase = true) ||
         (eq == "Corpo libero" && ex.equipment.contains("corpo libero", ignoreCase = true)) ||
@@ -386,7 +390,7 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
     sessions.take(16).forEach { session ->
         val ageHours = (now - session.timestamp).coerceAtLeast(0L) / 3_600_000.0
         if (ageHours < 96.0 && session.totalSets > 0) {
-            val completion = (session.completedSets.toDouble() / session.totalSets).coerceIn(0.0, 1.0)
+            val completion = if(session.completedByExercise.isEmpty()) (session.completedSets.toDouble() / session.totalSets).coerceIn(0.0, 1.0) else 1.0
             // Recovery model V0.8: exponential fatigue decay, time constant 38h. A single fatigue contribution falls to ~28% after 48h and ~15% after 72h; UI returns toward 100 progressively.
             val recoveryFactor = kotlin.math.exp(-ageHours / 38.0)
             val setsPerExercise = session.totalSets.toDouble() / session.exerciseNames.size.coerceAtLeast(1)
@@ -404,7 +408,7 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
     return fatigue.mapValues { (_, load) -> (100.0 - load.coerceAtMost(80.0)).toInt().coerceIn(20, 100) }
 }
 
-private fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>): List<Exercise> {
+internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>): List<Exercise> {
     val maxLevel = levelScore(athlete.level)
     val available = exercises.filter { equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
     val preferredRoles = when (athlete.goal) {
