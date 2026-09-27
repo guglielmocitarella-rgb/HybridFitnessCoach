@@ -2,10 +2,13 @@ name: Hybrid v0.9 Autonomous Codex
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Android APK"]
+    types: [completed]
+    branches: [feature/v0.9-adaptive-progression]
   schedule:
-    # GitHub limita la frequenza minima dei workflow schedulati a 5 minuti.
-    # Il workflow precedente non viene sovrapposto grazie a concurrency.
-    - cron: "*/5 * * * *"
+    # Fallback watchdog: normal work continues event-driven after Android APK completes.
+    - cron: "*/15 * * * *"
 
 concurrency:
   group: hybrid-v09-autonomous-codex
@@ -17,6 +20,12 @@ permissions:
 
 jobs:
   autonomous-development:
+    # workflow_run continues only after a successful v0.9 Android build.
+    # Manual/scheduled runs remain available as bootstrap/watchdog.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'feature/v0.9-adaptive-progression')
     runs-on: ubuntu-latest
     timeout-minutes: 50
 
