@@ -1,0 +1,46 @@
+name: Post CI Gate
+
+on:
+  workflow_run:
+    workflows:
+      - Android APK
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: post-ci-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    if: ${{ github.event.workflow_run.event == 'push' && startsWith(github.event.workflow_run.head_branch, 'feature/') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report completed build
+        env:
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          echo "Branch: $BRANCH"
+          echo "Commit: $SHA"
+          echo "Conclusion: $CONCLUSION"
+          echo "Run: $RUN_URL"
+
+      - name: Fail gate when Android CI failed
+        if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        run: |
+          echo "::error::Android APK workflow did not complete successfully."
+          exit 1
+
+      - name: Mark CI handoff ready
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: |
+          echo "CI completed successfully."
+          echo "The repository is ready for the next development iteration."
+          echo "No paid API or polling is used by this handoff."
