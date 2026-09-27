@@ -356,7 +356,7 @@ internal fun loadRecommendationForExercise(ex:Exercise,sessions:List<SessionReco
 
 internal fun adaptiveWorkoutPlan(successRate:Double,averageRpe:Double,recovery:Int,readinessScore:Int?):AdaptiveWorkoutPlan {
     val readiness=readinessScore?:recovery
-    val decision=progressionDecision(successRate,averageRpe,minOf(recovery,readiness),if(successRate>=0.9)2 else 0)
+    val decision=if(readinessScore!=null && readinessScore<45)ProgressionDecision.DELOAD else progressionDecision(successRate,averageRpe,minOf(recovery,readiness),if(successRate>=0.9)2 else 0)
     val intensity=when(decision){ProgressionDecision.ADVANCE->1.03;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.92;ProgressionDecision.DELOAD->0.85}
     val volume=when(decision){ProgressionDecision.ADVANCE->1.0;ProgressionDecision.MAINTAIN->1.0;ProgressionDecision.REGRESS->0.90;ProgressionDecision.DELOAD->0.70}
     val notes=buildList{add("Decisione: "+decision.name);if(readinessScore!=null)add("Readiness: $readinessScore/100");if(recovery<50)add("Recupero muscolare basso");if(averageRpe>=9.0)add("RPE recente elevato")}
@@ -691,6 +691,8 @@ fun HybridFitnessApp() {
     var activeProfile by remember { mutableStateOf(customProfiles.firstOrNull { it.name == store.loadActiveProfileName() } ?: customProfiles.firstOrNull() ?: EquipmentProfile("Nessun profilo","📍",emptyList())) }
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
+    val health=rememberHealthConnectState()
+    CompositionLocalProvider(LocalHealthConnect provides health) {
     MaterialTheme(colorScheme = lightColorScheme(primary = Accent, background = Bg, surface = Color.White)) {
         Scaffold(
             containerColor = Bg,
@@ -723,6 +725,7 @@ fun HybridFitnessApp() {
         }
     }
 }
+}
 
 @Composable private fun Header(title: String, subtitle: String? = null) {
     Column(Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
@@ -746,6 +749,7 @@ private fun CoachSummary(context:CoachingContext) {
 
 @Composable
 private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, onSessionSaved: (SessionRecord) -> Unit) {
+    val readinessScore=LocalHealthConnect.current.readiness
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
     var customWorkoutOpen by remember { mutableStateOf(false) }
@@ -764,7 +768,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     }
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
-                    val suggested = generateWorkout(profile,athlete,sessions)
+                    val suggested = generateWorkout(profile,athlete,sessions,readinessScore)
                     Text(when(athlete.goal){"Calisthenics"->"Calisthenics"+athlete.prioritySkills.firstOrNull()?.let{" • "+it}.orEmpty();"Ipertrofia"->"Ipertrofia";"Forza"->"Forza";else->"Fitness generale"}, fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi  •  "+athlete.goal, color = Color.Gray)
                     Button(onClick = { workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
@@ -772,7 +776,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 }
             }
         }
-        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions)) } }
+        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore)) } }
         item { SectionTitle("Il tuo Skill Tree") }
         items(athlete.prioritySkills.ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
             val states=SkillCatalog.progress(skill,sessions)
@@ -788,6 +792,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
             }
         }
         item{TextButton(onClick={treePicker=true},modifier=Modifier.padding(horizontal=20.dp)){Text("ESPLORA TUTTE LE SKILL")}}
+        item{Box(Modifier.padding(horizontal=20.dp)){HealthConnectCard()}}
         item { SectionTitle("Recupero") }
         item { RecoveryChart(sessions) }
     }
@@ -982,6 +987,8 @@ private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation
 
 @Composable
 private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null, restored:WorkoutSessionState?=null) {
+    val liveReadiness=LocalHealthConnect.current.readiness
+    val readinessScore=remember{liveReadiness}
     var minutes by remember { mutableIntStateOf(45) }
     val selectedEquipment = remember { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment) } }
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
@@ -1032,7 +1039,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             val skillWork=ranked.filter{ex->selectedSkills.any{it in ex.skills}}
             (skillWork+ranked.filter{it !in skillWork && (it.role=="Forza"||it.role=="Prerequisito"||it.role=="Accessorio")}).distinct().take(count)
         } else ranked.take(count)
-        generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions))
+        generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions,readinessScore))
         completed.clear();expandedCompleted.clear();reps.clear();restSeconds.clear();exerciseRpe.clear()
         generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second}
         exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0
@@ -1095,7 +1102,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             Text("ESERCIZI",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
                         }
                     }
-                    if(!running && generated.isNotEmpty())item{CoachSummary(coachingContext(sessions))}
+                    if(!running && generated.isNotEmpty())item{CoachSummary(coachingContext(sessions,readinessScore))}
                     items(generated){ex->
                         val n=completed[ex.name]?:0;val targetSets=prescriptionFor(ex).sets;val done=n>=targetSets;val isSkipped=skipped[ex.name]==true;val expanded=!done||(expandedCompleted[ex.name]?:false)
                         Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{if(running){if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false) else {skipped[ex.name]=false;currentExercise=ex.name}}}){
@@ -1107,7 +1114,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                     Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     Text(p.sets.toString()+" serie × "+(reps[ex.name]?:p.value.toInt())+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
                                     if(running && !done && !isSkipped){
-                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,exerciseRecovery(ex,recoveryScores(sessions)))){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
+                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100))){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
 
                                         Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
                                         if(n>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
@@ -1148,7 +1155,9 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 
 @Composable
 private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
-    val compatible = remember(profile, athlete, sessions, restored) { restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions) }
+    val liveReadiness=LocalHealthConnect.current.readiness
+    val readinessScore=remember{liveReadiness}
+    val compatible = remember(profile, athlete, sessions, restored) { restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions,readinessScore) }
     val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
     val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
@@ -1202,7 +1211,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                 }
                 LazyColumn(state=listState,modifier=Modifier.weight(1f)){
                     if(!started)item{
-                        CoachSummary(coachingContext(sessions))
+                        CoachSummary(coachingContext(sessions,readinessScore))
                         Text("Generato per "+athlete.goal+" • "+athlete.level+" • "+profile.name,color=Color.Gray)
                         if(sessions.any{it.exerciseNames.isNotEmpty()})Text("Adattato anche agli allenamenti recenti",color=Accent,fontSize=12.sp)
                     }
@@ -1230,7 +1239,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA ESERCIZIO")}}}
                                     if(started&&!done&&!isSkipped){
-                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,exerciseRecovery(ex,recoveryScores(sessions)))){ar,asec,dist,load,assist->
+                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100))){ar,asec,dist,load,assist->
                                             val p=prescriptionFor(ex)
                                             val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets
                                             if(count<old.size){

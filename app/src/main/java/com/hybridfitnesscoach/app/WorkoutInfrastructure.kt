@@ -75,7 +75,9 @@ data class RawHealthSnapshot(
     val hrvMs:Double?=null,
     val activeMinutes:Int?=null,
     val steps:Long?=null,
-    val source:String="health-connect"
+    val source:String="health-connect",
+    val baselineRestingHeartRateBpm:Double?=null,
+    val baselineHrvMs:Double?=null
 )
 data class NormalizedHealthState(
     val capturedAtEpochMs:Long,
@@ -181,4 +183,3 @@ fun calibratedSetRestSeconds(ex:Exercise, goal:String, level:String):Int {
 }
 fun calibratedTransitionRestSeconds(ex:Exercise,goal:String,level:String):Int =
     (calibratedSetRestSeconds(ex,goal,level)+30).coerceIn(60,210)
-
