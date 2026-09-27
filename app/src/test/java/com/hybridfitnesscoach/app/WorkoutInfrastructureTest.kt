@@ -4,6 +4,21 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class WorkoutInfrastructureTest {
+    @Test fun expandedSkillGraphLocksNodesUntilActualPrerequisiteMastery() {
+        val initial = SkillCatalog.progress("Handstand", emptyList())
+        assertEquals(ProgressionStatus.AVAILABLE, initial.first().status)
+        assertTrue(initial.drop(1).all { it.status == ProgressionStatus.LOCKED })
+        val wall = WorkoutExerciseState("Wall Handstand", sets = (0..2).map {
+            WorkoutSetState(it, targetSeconds = 30, actualSeconds = 30, completed = true)
+        }, rpe = 7)
+        val once = SessionRecord(1,"P",3,3,listOf("Wall Handstand"),structuredExercises=listOf(wall))
+        val twice = once.copy(timestamp = 2)
+        assertEquals(ProgressionStatus.IN_PROGRESS, SkillCatalog.progress("Handstand", listOf(once)).first().status)
+        val progress = SkillCatalog.progress("Handstand", listOf(once, twice))
+        assertEquals(ProgressionStatus.MASTERED, progress.first().status)
+        assertEquals(ProgressionStatus.AVAILABLE, progress[1].status)
+        assertEquals(ProgressionStatus.LOCKED, progress[2].status)
+    }
     @Test fun repsPrescriptionIsDataDriven() {
         val ex=Exercise("Pull-up","Dorso","Sbarra","Intermedio",role="Forza",measure=ExerciseMeasure.REPS,targetSets=3,targetValue=8.0)
         val p=prescriptionFor(ex)

@@ -41,4 +41,14 @@ object SkillCatalog {
 
     fun forSkill(skill: String): List<SkillNode> = nodes.filter { it.skill.equals(skill, ignoreCase = true) }
     fun skills(): List<String> = nodes.map { it.skill }.distinct()
+
+    /** Evaluate prerequisites from completed sessions, never from a manually advanced level. */
+    fun progress(skill: String, sessions: List<SessionRecord>): List<SkillNodeProgress> {
+        val mastered = mutableSetOf<String>()
+        return forSkill(skill).map { node ->
+            ProgressionEngine.evaluate(node, mastered, sessions).also {
+                if (it.status == ProgressionStatus.MASTERED) mastered += node.id
+            }
+        }
+    }
 }
