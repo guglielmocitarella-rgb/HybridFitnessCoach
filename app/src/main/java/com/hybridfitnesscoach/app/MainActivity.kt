@@ -186,7 +186,26 @@ private class AppStore(context: Context) {
     fun clearActiveWorkout() { prefs.edit().remove("active_workout_v1").commit() }
     fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); val sx=o.optJSONArray("structuredExercises")?:JSONArray(); val sk=o.optJSONArray("skippedExercises")?:JSONArray(); val mo=o.optJSONArray("modifications")?:JSONArray(); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList(), if(o.has("exerciseRpe")){val r=o.getJSONObject("exerciseRpe");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("workoutRpe",0),if(o.has("completedByExercise")){val r=o.getJSONObject("completedByExercise");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("durationSec",0),(0 until sx.length()).map{workoutExerciseFromJson(sx.getJSONObject(it))},(0 until sk.length()).map{sk.getString(it)},(0 until mo.length()).map{mo.getString(it)}) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
     fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.take(50).forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)};val sx=JSONArray();x.structuredExercises.forEach{sx.put(it.toJson())};val sk=JSONArray();x.skippedExercises.forEach{sk.put(it)};val mo=JSONArray();x.modifications.forEach{mo.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e).put("exerciseRpe",JSONObject(x.exerciseRpe.mapValues{it.value})).put("workoutRpe",x.workoutRpe).put("completedByExercise",JSONObject(x.completedByExercise.mapValues{it.value})).put("durationSec",x.durationSec).put("structuredExercises",sx).put("skippedExercises",sk).put("modifications",mo))}; prefs.edit().putString("sessions",a.toString()).apply() }
-    fun addSession(s:SessionRecord){ saveSessions(listOf(s)+loadSessions()) }
+    fun loadSkillNode(skill:String):String? = prefs.getString("skill_node_"+skill.lowercase().replace(" ","_"),null)
+    fun saveSkillNode(skill:String,nodeId:String) { prefs.edit().putString("skill_node_"+skill.lowercase().replace(" ","_"),nodeId).apply() }
+    fun addSession(s:SessionRecord){
+        val all=listOf(s)+loadSessions()
+        saveSessions(all)
+        loadAthlete().prioritySkills.forEach { skill ->
+            val chain=skillProgressionNodes.filter{it.skill.equals(skill,true)}.sortedBy{it.level}
+            if(chain.isEmpty()) return@forEach
+            val currentId=loadSkillNode(skill) ?: chain.first().id
+            val perf=skillPerformance(skill,all)
+            val snapshot=skillProgressSnapshot(chain.first().skill,currentId,perf.successRate,perf.averageRpe,perf.recovery,perf.consecutiveSuccessfulSessions)
+            val currentIndex=chain.indexOfFirst{it.id==snapshot.currentNodeId}.coerceAtLeast(0)
+            val targetIndex=when(snapshot.decision){
+                ProgressionDecision.ADVANCE -> (currentIndex+1).coerceAtMost(chain.lastIndex)
+                ProgressionDecision.REGRESS -> (currentIndex-1).coerceAtLeast(0)
+                ProgressionDecision.MAINTAIN,ProgressionDecision.DELOAD -> currentIndex
+            }
+            saveSkillNode(skill,chain[targetIndex].id)
+        }
+    }
     fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
 }
 
@@ -212,6 +231,33 @@ internal val skillProgressionNodes = listOf(
     SkillProgressionNode("planche_straddle","Planche","Straddle planche",4,listOf("planche_adv_tuck")),
     SkillProgressionNode("planche_full","Planche","Full planche",5,listOf("planche_straddle"))
 )
+
+data class SkillPerformance(val successRate:Double,val averageRpe:Double,val recovery:Int,val consecutiveSuccessfulSessions:Int)
+
+internal fun skillPerformance(skill:String,sessions:List<SessionRecord>):SkillPerformance {
+    val relevantNames=exercises.filter{ex->ex.skills.any{it.equals(skill,true)}}.map{it.name}.toSet()
+    val relevant=sessions.filter { session ->
+        session.structuredExercises.any{it.exerciseName in relevantNames} || session.exerciseNames.any{it in relevantNames}
+    }
+    if(relevant.isEmpty()) return SkillPerformance(0.0,7.0,100,0)
+    val recent=relevant.take(5)
+    val planned=recent.sumOf { session -> session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{it.sets.size}.takeIf{it>0} ?: relevantNames.sumOf{name->session.completedByExercise[name]?:0} }
+    val completed=recent.sumOf { session -> session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{ex->ex.sets.count{it.completed}}.takeIf{it>0} ?: relevantNames.sumOf{name->session.completedByExercise[name]?:0} }
+    val success=if(planned>0) completed.toDouble()/planned else 0.0
+    val rpes=recent.flatMap{session->session.exerciseRpe.filterKeys{it in relevantNames}.values}.filter{it>0}
+    val avgRpe=if(rpes.isEmpty()) 7.0 else rpes.average()
+    val recoveryMap=recoveryScores(sessions)
+    val groups=exercises.filter{it.name in relevantNames}.flatMap{listOf(it.group)+it.secondaryGroups}.filter{it in recoveryGroups}
+    val recovery=groups.mapNotNull{recoveryMap[it]}.minOrNull() ?: 100
+    var streak=0
+    for(session in relevant){
+        val plannedSession=session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{it.sets.size}
+        val doneSession=session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{ex->ex.sets.count{it.completed}}
+        val rate=if(plannedSession>0) doneSession.toDouble()/plannedSession else 0.0
+        if(rate>=0.90) streak++ else break
+    }
+    return SkillPerformance(success.coerceIn(0.0,1.0),avgRpe,recovery,streak)
+}
 
 internal fun progressionDecision(successRate:Double, averageRpe:Double, recovery:Int, consecutiveSuccessfulSessions:Int):ProgressionDecision = when {
     recovery < 35 || averageRpe >= 9.5 -> ProgressionDecision.DELOAD
@@ -611,8 +657,9 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
             items(athlete.prioritySkills.take(3)) { skill ->
                 val chain = skillProgressionNodes.filter { it.skill.equals(skill, ignoreCase = true) }.sortedBy { it.level }
                 if (chain.isNotEmpty()) {
-                    val current = chain.first()
-                    val snapshot = skillProgressSnapshot(chain.first().skill, current.id, 0.75, 7.5, 100, 0)
+                    val currentId = store.loadSkillNode(skill) ?: chain.first().id
+                    val performance = skillPerformance(skill, sessions)
+                    val snapshot = skillProgressSnapshot(chain.first().skill, currentId, performance.successRate, performance.averageRpe, performance.recovery, performance.consecutiveSuccessfulSessions)
                     Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth(), shape = RoundedCornerShape(18.dp)) {
                         Column(Modifier.padding(18.dp)) {
                             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
