@@ -219,7 +219,7 @@ private class AppStore(context: Context) {
         val all=listOf(s)+loadSessions()
         saveSessions(all)
     }
-    fun completePlannedWorkoutForSession(s:SessionRecord, minimumGapDays:Int=2):ScheduleUpdate? {
+    fun completePlannedWorkoutForSession(s:SessionRecord, minimumGapDays:Int=0):ScheduleUpdate? {
         val plan=loadTrainingPlan() ?: return null
         val executionDay=java.time.Instant.ofEpochMilli(s.timestamp).atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
         val update=PlannedWorkoutReconciler.complete(plan,s,executionDay,minimumGapDays)
