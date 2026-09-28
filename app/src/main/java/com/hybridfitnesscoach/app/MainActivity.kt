@@ -1053,7 +1053,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             }){Text("RIPROGRAMMA")}
         },dismissButton={
             if(!historical)Row {
-                TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=workout.exercises.isNotEmpty()){Text("INIZIA")}
+                TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=workout.exercises.isNotEmpty() && workout.state!=PlannedWorkoutState.SKIPPED){Text("INIZIA")}
                 TextButton(onClick={
                     plan=TrainingPlanEngine.skip(plan!!,workout.id)
                     store.saveTrainingPlan(plan!!);selected=null
