@@ -21,8 +21,8 @@ class WorkoutRunnerEngineTest {
         assertEquals(4,elapsedWorkoutSeconds(state,20_000L))
     }
 
-    @Test fun elapsedTimeResumesFromPersistedPauseBaseline() {
+    @Test fun legacyActiveSnapshotDoesNotDoubleCountPersistedElapsedTime() {
         val state=WorkoutSessionState("w",10_000L,"P",emptyList(),elapsedBeforePauseMs=4_000L)
-        assertEquals(7,elapsedWorkoutSeconds(state,13_000L))
+        assertEquals(4,elapsedWorkoutSeconds(state,13_000L))
     }
 }
