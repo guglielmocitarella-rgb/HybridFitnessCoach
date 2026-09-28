@@ -9,6 +9,10 @@ data class EvidenceAudit(val totalExercises:Int,val exercisesWithAnyEvidence:Int
  val prescriptionCoveragePercent:Int get()=if(totalExercises==0)100 else exercisesWithPrescriptionEvidence*100/totalExercises
  val completeCoveragePercent:Int get()=if(totalExercises==0)100 else completeExercises*100/totalExercises
 }
+private fun isEligibleResistanceExercise(exercise:Exercise):Boolean =
+ exercise.measure==ExerciseMeasure.REPS &&
+ exercise.category in setOf(ExerciseCategory.PUSH,ExerciseCategory.PULL,ExerciseCategory.LEGS,ExerciseCategory.CORE) &&
+ exercise.resistanceMode!=ResistanceMode.NONE
 object ExerciseEvidenceRegistry {
  private val entries:Map<String,ExerciseEvidence> = emptyMap()
  private val acsmResistancePrescription=EvidenceRef(
@@ -18,9 +22,7 @@ object ExerciseEvidenceRegistry {
   pageOrLocation="physical PDF pages 353 and 360",
   evidenceType=EvidenceType.GUIDELINE
  )
- private fun isResistanceExercise(exercise:Exercise):Boolean =
-  exercise.category in setOf(ExerciseCategory.PUSH,ExerciseCategory.PULL,ExerciseCategory.LEGS,ExerciseCategory.CORE,ExerciseCategory.SKILL) ||
-  exercise.resistanceMode!=ResistanceMode.NONE
+ private fun isResistanceExercise(exercise:Exercise):Boolean = isEligibleResistanceExercise(exercise)
  fun evidenceFor(exerciseName:String):ExerciseEvidence?=entries[exerciseName]
  fun evidenceFor(exercise:Exercise):ExerciseEvidence? {
   entries[exercise.name]?.let{return it}
@@ -64,7 +66,7 @@ object SourcePrescriptionBaselineRegistry {
   * Table 5.7 supports 90-180 s for hypertrophy/strength-endurance and 120-300 s for strength.
   */
  fun baselineFor(exercise:Exercise,context:PrescriptionContext):SourcePrescriptionBaseline? {
-  if(exercise.measure!=ExerciseMeasure.REPS || exercise.resistanceMode==ResistanceMode.NONE) return null
+  if(!isEligibleResistanceExercise(exercise)) return null
   val level=context.athleteLevel.lowercase()
   val goal=context.goal.lowercase()
   return when {
