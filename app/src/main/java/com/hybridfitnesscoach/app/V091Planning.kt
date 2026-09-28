@@ -15,7 +15,7 @@ object ContextualPrescriptionEngine {
  }
 }
 enum class PlannedWorkoutState { PLANNED, COMPLETED, SKIPPED, RESCHEDULED, ADAPTED }
-data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null)
+data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null)
 data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>)
 object TrainingPlanEngine {
  fun schedule(planId:String,startEpochDay:Long,weeks:Int,trainingDays:Set<Int>,workoutFactory:(week:Int,session:Int)->List<Exercise>):TrainingPlan{
@@ -39,4 +39,22 @@ object TrainingPlanEngine {
  }
  fun reschedule(plan:TrainingPlan,workoutId:String,newEpochDay:Long,minimumGapDays:Int=1):TrainingPlan{val target=plan.workouts.firstOrNull{it.id==workoutId}?:return plan;val others=plan.workouts.filterNot{it.id==workoutId};val nearest=others.minOfOrNull{kotlin.math.abs(it.epochDay-newEpochDay)}?:Long.MAX_VALUE;val reason=if(nearest<minimumGapDays)"Sessione vicina: richiede rivalutazione Adaptive Coach" else null;val changed=target.copy(epochDay=newEpochDay,state=PlannedWorkoutState.RESCHEDULED,adaptationReason=reason);return plan.copy(workouts=(others+changed).sortedBy{it.epochDay})}
  fun skip(plan:TrainingPlan,workoutId:String):TrainingPlan=plan.copy(workouts=plan.workouts.map{if(it.id==workoutId)it.copy(state=PlannedWorkoutState.SKIPPED)else it})
+}
+
+enum class ScheduleAction { KEEP_DATE, MOVE_EARLIER, MOVE_LATER, SKIP, RESCHEDULE, ADAPT_SESSION }
+data class ScheduleDecision(val workoutId:String,val originalDate:Long,val currentDate:Long,val suggestedDate:Long,val action:ScheduleAction,val reason:String)
+data class ScheduleUpdate(val plan:TrainingPlan,val decisions:List<ScheduleDecision>)
+object AdaptiveScheduler {
+ /** minimumGapDays must come from the caller's validated recovery prescription. */
+ fun complete(plan:TrainingPlan,workoutId:String,actualEpochDay:Long,minimumGapDays:Int):ScheduleUpdate {
+  require(minimumGapDays>=0)
+  val target=plan.workouts.firstOrNull{it.id==workoutId}?:return ScheduleUpdate(plan,emptyList())
+  if(target.state==PlannedWorkoutState.COMPLETED)return ScheduleUpdate(plan,emptyList())
+  val future=plan.workouts.filter{it.id!=workoutId && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.SKIPPED && it.epochDay>=target.epochDay}.sortedBy{it.epochDay}
+  val next=future.firstOrNull()
+  val newDate=next?.let{maxOf(it.epochDay,actualEpochDay+minimumGapDays)}
+  val decision=if(next!=null && newDate!=null && newDate>next.epochDay)ScheduleDecision(next.id,next.originalEpochDay,next.epochDay,newDate,ScheduleAction.MOVE_LATER,"Recupero dopo la sessione eseguita")else null
+  val changed=plan.workouts.map{item->when(item.id){workoutId->item.copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=actualEpochDay);decision?.workoutId->item.copy(epochDay=decision.suggestedDate,state=PlannedWorkoutState.RESCHEDULED,adaptationReason=decision.reason);else->item}}
+  return ScheduleUpdate(plan.copy(workouts=changed),listOfNotNull(decision))
+ }
 }
