@@ -29,7 +29,7 @@ class V09RegressionAuditTest {
         assertNotEquals(fresh.decision,tired.decision); assertTrue(tired.volumeFactor<fresh.volumeFactor)
     }
     @Test fun catalogReleaseGateIsBroadAndUnique() {
-        assertTrue(exercises.size>=200)
+        assertTrue("v0.9 catalog must stay near the original ~500 target", exercises.size>=500)
         assertEquals(exercises.size,exercises.map{it.name.lowercase()}.distinct().size)
         assertTrue(exercises.any{it.equipment=="Ab Wheel"}); assertTrue(exercises.any{it.equipment=="Foam Roller"})
     }
