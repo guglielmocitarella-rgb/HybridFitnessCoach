@@ -132,6 +132,6 @@ class V091PlanningTest {
   val c=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,null,85,null)
   val p=SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,c)!!
   assertEquals(3,p.sets);assertEquals(6.0,p.repsOrDuration,0.001);assertEquals(180,p.restSeconds)
-  assertTrue(p.sources.any{it.sourceTitle.contains("ACSM")})
+  assertTrue(p.evidence.any{it.sourceTitle.contains("ACSM")})
  }
 }
