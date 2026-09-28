@@ -83,8 +83,9 @@ internal fun applyCoaching(items:List<Exercise>,context:CoachingContext):List<Ex
             context.plan.intensityFactor<1.0->floor(p.value*context.plan.intensityFactor).coerceAtLeast(1.0)
             context.plan.intensityFactor>1.0 && ex.resistanceMode!=ResistanceMode.EXTERNAL_LOAD && ex.resistanceMode!=ResistanceMode.ASSISTED->ceil(p.value*context.plan.intensityFactor)
             else->p.value
-        },
-        setRestSec=if(reduced)(ex.setRestSec*1.15).toInt() else ex.setRestSec)
+        })
+    // APP_RULE: reduced workload retains the baseline rest. Volume reduction is not
+    // evidence for a proportional rest increase; never compound rest on adapted copies.
 }
 
 /** The pool contains base catalogue prescriptions; existing/pinned copies are already adapted. */
