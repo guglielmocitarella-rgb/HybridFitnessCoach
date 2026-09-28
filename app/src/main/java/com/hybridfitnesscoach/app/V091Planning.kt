@@ -45,6 +45,12 @@ enum class ScheduleAction { KEEP_DATE, MOVE_EARLIER, MOVE_LATER, SKIP, RESCHEDUL
 data class ScheduleDecision(val workoutId:String,val originalDate:Long,val currentDate:Long,val suggestedDate:Long,val action:ScheduleAction,val reason:String)
 data class ScheduleUpdate(val plan:TrainingPlan,val decisions:List<ScheduleDecision>)
 object AdaptiveScheduler {
+ fun skip(plan:TrainingPlan,workoutId:String):ScheduleUpdate {
+  val item=plan.workouts.firstOrNull{it.id==workoutId}?:return ScheduleUpdate(plan,emptyList())
+  if(item.state==PlannedWorkoutState.SKIPPED || item.state==PlannedWorkoutState.COMPLETED)return ScheduleUpdate(plan,emptyList())
+  val updated=plan.copy(workouts=plan.workouts.map{if(it.id==workoutId)it.copy(state=PlannedWorkoutState.SKIPPED)else it})
+  return ScheduleUpdate(updated,listOf(ScheduleDecision(item.id,item.originalEpochDay,item.epochDay,item.epochDay,ScheduleAction.SKIP,"Sessione saltata; piano successivo mantenuto")))
+ }
  /** minimumGapDays must come from the caller's validated recovery prescription. */
  fun complete(plan:TrainingPlan,workoutId:String,actualEpochDay:Long,minimumGapDays:Int):ScheduleUpdate {
   require(minimumGapDays>=0)
