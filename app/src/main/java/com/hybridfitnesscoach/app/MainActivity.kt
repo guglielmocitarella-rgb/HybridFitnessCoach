@@ -853,11 +853,12 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var treePicker by remember { mutableStateOf(false) }
     var customSkill by remember { mutableStateOf("Nessuna") }
     var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
+    var requestedWeeks by remember { mutableIntStateOf(8) }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     fun ensurePlan():TrainingPlan {
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
-        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,8,athlete.daysPerWeek.coerceIn(1,7)) { _,_ ->
+        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,requestedWeeks,athlete.daysPerWeek.coerceIn(1,7)) { _,_ ->
             generateWorkout(profile,athlete,sessions,readinessScore)
         }
         store.saveTrainingPlan(created); trainingPlan=created; return created
@@ -888,7 +889,8 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 Column(Modifier.padding(18.dp)) {
                     Text("Programma multi-settimana",fontWeight=FontWeight.Bold,fontSize=18.sp)
                     if(plan==null) {
-                        Text("Crea un piano di 8 settimane dal profilo atleta e dal generatore adattivo corrente.",fontSize=13.sp,color=Color.Gray)
+                        Text("Durata del piano: $requestedWeeks settimane",fontSize=13.sp,color=Color.Gray)
+                        Slider(value=requestedWeeks.toFloat(),onValueChange={requestedWeeks=it.toInt().coerceIn(1,52)},valueRange=1f..52f,steps=50)
                         Button(onClick={ensurePlan()},modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
                     } else {
                         val today=java.time.LocalDate.now().toEpochDay()
