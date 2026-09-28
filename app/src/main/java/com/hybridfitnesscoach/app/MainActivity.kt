@@ -712,7 +712,7 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
     return fatigue.mapValues { (_, load) -> (100.0 - load.coerceAtMost(80.0)).toInt().coerceIn(20, 100) }
 }
 
-internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null): List<Exercise> {
+internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> {
     val context=coachingContext(sessions,readinessScore)
     val maxLevel = levelScore(athlete.level)
     val eligible=skillEligibleExercises(sessions)
@@ -732,7 +732,7 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
                 when { score < 40 -> 140; score < 60 -> 85; score < 80 -> 40; else -> 0 }
             } ?: 0
             val skillBonus = if(athlete.prioritySkills.any { it in ex.skills }) -70 else 0
-            repeatPenalty + musclePenalty + skillBonus
+            repeatPenalty + musclePenalty + skillBonus + if(ex.name in avoidPlannedNames) 100 else 0
         }.thenBy { preferredRoles.indexOf(it.role).let { i -> if(i < 0) 99 else i } }
     )
     val result = mutableListOf<Exercise>()
@@ -858,8 +858,12 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     fun ensurePlan():TrainingPlan {
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
+        val recentPlanned=mutableListOf<List<String>>()
         val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,requestedWeeks,athlete.daysPerWeek.coerceIn(1,7)) { _,_ ->
-            generateWorkout(profile,athlete,sessions,readinessScore)
+            val selected=generateWorkout(profile,athlete,sessions,readinessScore,recentPlanned.flatten().toSet())
+            recentPlanned.add(selected.map{it.name})
+            if(recentPlanned.size>3)recentPlanned.removeAt(0)
+            selected
         }
         store.saveTrainingPlan(created); trainingPlan=created; return created
     }
