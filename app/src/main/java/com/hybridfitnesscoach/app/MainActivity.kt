@@ -1572,6 +1572,8 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
 @Composable
 private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSkillClick:(String)->Unit) {
     val stats = remember(ex.name,sessions) { ExerciseStatistics.fromHistory(ex.name,sessions) }
+    val verifiedVideo=ExerciseVideoCatalog.findVerified(ex.name,ExerciseVideoCatalog.verifiedEntries)
+    val context=androidx.compose.ui.platform.LocalContext.current
     val instructions = when (ex.name) {
         "Corsa intervallata 60/60" -> "Alterna 60 secondi di corsa sostenuta e 60 secondi di recupero. Ripeti per il numero di intervalli previsto, mantenendo un ritmo controllabile e costante."
         "Trazioni prone" -> "Parti in sospensione completa, mantieni il tronco stabile e porta il petto verso la sbarra senza slancio. Torna in basso in controllo."
@@ -1599,6 +1601,18 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                 Spacer(Modifier.height(14.dp))
                 Text("Come eseguirlo", fontWeight = FontWeight.Bold)
                 Text(instructions, modifier = Modifier.padding(top = 6.dp))
+                Spacer(Modifier.height(12.dp))
+                Text("Video dimostrativo",fontWeight=FontWeight.Bold)
+                if(verifiedVideo==null) {
+                    Text("Video verificato non ancora disponibile per questo esercizio.",fontSize=12.sp,color=Color.Gray)
+                } else {
+                    Text("Fonte: "+verifiedVideo.videoProvider,fontSize=12.sp,color=Color.Gray)
+                    TextButton(onClick={
+                        runCatching {
+                            context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW,android.net.Uri.parse(verifiedVideo.videoUrl)))
+                        }
+                    }){Text("GUARDA VIDEO")}
+                }
                 Spacer(Modifier.height(12.dp))
                 if(stats.sessions>0){
                     Spacer(Modifier.height(12.dp))
