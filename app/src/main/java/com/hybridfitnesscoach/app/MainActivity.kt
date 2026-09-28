@@ -795,6 +795,14 @@ private fun CoachSummary(context:CoachingContext) {
     }
 }
 
+internal fun nextUnlockLabel(states:List<ProgressionNodeState>):String {
+    val next=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE || it.status==ProgressionStatus.LOCKED}
+        ?: return "Percorso completato"
+    val criterion=next.node.criterion
+    val target=criterion.minSeconds?.let{"$it s"}?:criterion.minReps?.let{"$it rep"}?:"target"
+    return "Prossimo sblocco: ${next.node.exerciseName} • ${criterion.minSets}×$target • ${criterion.requiredSessions} sessioni"
+}
+
 @Composable
 private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, onSessionSaved: (SessionRecord) -> Unit) {
     val readinessScore=LocalHealthConnect.current.readiness
@@ -835,7 +843,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 Column(Modifier.padding(18.dp)) {
                     Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween){Text(skill,fontWeight=FontWeight.Bold,fontSize=18.sp);Text("$percent%",color=Accent,fontWeight=FontWeight.Bold)}
                     LinearProgressIndicator(progress={percent/100f},modifier=Modifier.fillMaxWidth().padding(vertical=10.dp))
-                    Text(current?.let{"Da consolidare: ${it.node.exerciseName}"}?:"Percorso completato",fontSize=13.sp)
+                    Text(nextUnlockLabel(states),fontSize=13.sp,fontWeight=FontWeight.SemiBold)
                     Text("${states.count{it.status==ProgressionStatus.MASTERED}} / ${states.size} step consolidati • tocca per i requisiti",fontSize=12.sp,color=Color.Gray)
                 }
             }
