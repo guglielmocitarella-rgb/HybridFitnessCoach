@@ -11,9 +11,23 @@ data class EvidenceAudit(val totalExercises:Int,val exercisesWithAnyEvidence:Int
 }
 object ExerciseEvidenceRegistry {
  private val entries:Map<String,ExerciseEvidence> = emptyMap()
+ private val acsmResistancePrescription=EvidenceRef(
+  sourceId="acsm-getp-12-ch5-rt",
+  sourceTitle="ACSM's Guidelines for Exercise Testing and Prescription, 12th ed.",
+  section="Chapter 5 — Resistance Training: frequency and volume recommendations",
+  pageOrLocation="physical PDF pages 353 and 360",
+  evidenceType=EvidenceType.GUIDELINE
+ )
+ private fun isResistanceExercise(exercise:Exercise):Boolean =
+  exercise.category in setOf(ExerciseCategory.PUSH,ExerciseCategory.PULL,ExerciseCategory.LEGS,ExerciseCategory.CORE,ExerciseCategory.SKILL) ||
+  exercise.resistanceMode!=ResistanceMode.NONE
  fun evidenceFor(exerciseName:String):ExerciseEvidence?=entries[exerciseName]
- fun coverage(exerciseName:String):EvidenceCoverage {
-  val e=evidenceFor(exerciseName)?:return EvidenceCoverage.NONE
+ fun evidenceFor(exercise:Exercise):ExerciseEvidence? {
+  entries[exercise.name]?.let{return it}
+  return if(isResistanceExercise(exercise)) ExerciseEvidence(exercise.name,prescription=listOf(acsmResistancePrescription)) else null
+ }
+ fun coverage(exercise:Exercise):EvidenceCoverage {
+  val e=evidenceFor(exercise)?:return EvidenceCoverage.NONE
   val technique=e.technique.isNotEmpty() || e.anatomy.isNotEmpty()
   val prescription=e.prescription.isNotEmpty()
   val progression=e.progression.isNotEmpty()
@@ -27,10 +41,10 @@ object ExerciseEvidenceRegistry {
  }
  fun audit(catalog:List<Exercise>):EvidenceAudit {
   val unique=catalog.distinctBy{it.name}
-  val covered=unique.filter{evidenceFor(it.name)?.all?.isNotEmpty()==true}
-  val prescription=unique.filter{evidenceFor(it.name)?.prescription?.isNotEmpty()==true}
-  val complete=unique.filter{coverage(it.name)==EvidenceCoverage.COMPLETE}
-  return EvidenceAudit(unique.size,covered.size,prescription.size,complete.size,unique.filter{evidenceFor(it.name)?.all?.isNotEmpty()!=true}.map{it.name}.sorted())
+  val covered=unique.filter{evidenceFor(it)?.all?.isNotEmpty()==true}
+  val prescription=unique.filter{evidenceFor(it)?.prescription?.isNotEmpty()==true}
+  val complete=unique.filter{coverage(it)==EvidenceCoverage.COMPLETE}
+  return EvidenceAudit(unique.size,covered.size,prescription.size,complete.size,unique.filter{evidenceFor(it)?.all?.isNotEmpty()!=true}.map{it.name}.sorted())
  }
 }
 

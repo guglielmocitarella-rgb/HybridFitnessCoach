@@ -69,13 +69,20 @@ class V091PlanningTest {
   assertEquals(1,combined.upcomingSessions)
  }
 
- @Test fun evidenceAuditDoesNotClaimCoverageForUnverifiedCatalog(){
+ @Test fun evidenceAuditClaimsOnlyVerifiedGeneralResistancePrescriptionCoverage(){
   val audit=ExerciseEvidenceRegistry.audit(exercises)
   assertEquals(exercises.distinctBy{it.name}.size,audit.totalExercises)
-  assertEquals(0,audit.exercisesWithAnyEvidence)
-  assertEquals(0,audit.exercisesWithPrescriptionEvidence)
+  assertTrue(audit.exercisesWithAnyEvidence>0)
+  assertEquals(audit.exercisesWithAnyEvidence,audit.exercisesWithPrescriptionEvidence)
   assertEquals(0,audit.completeExercises)
-  assertEquals(audit.totalExercises,audit.missingExerciseNames.size)
+  assertTrue(audit.missingExerciseNames.isNotEmpty())
+ }
+ @Test fun acsmGeneralEvidenceIsPrescriptionOnlyAndNotTechniqueEvidence(){
+  val resistance=Exercise("Synthetic squat","Gambe","Bilanciere","Base",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val evidence=ExerciseEvidenceRegistry.evidenceFor(resistance)!!
+  assertEquals(1,evidence.prescription.size)
+  assertTrue(evidence.technique.isEmpty())
+  assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
  }
  @Test fun evidenceRegistryDefaultsToNoneInsteadOfInventingProvenance(){
   assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage("__unknown__"))

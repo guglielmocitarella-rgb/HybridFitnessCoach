@@ -6,7 +6,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Gate | Status | Tests | E2E | UX | CI |
 |---|---|---|---|---|---|
 | app version 0.9.1 | [x] | n/a | [x] | n/a | pending |
-| Evidence/provenance model | [~] registry + measurable coverage audit; verified catalog migration pending | added | partial | pending | pending |
+| Evidence/provenance model | [~] registry + measurable coverage audit; ACSM general resistance-prescription evidence started; exercise-specific migration pending | added | partial | pending | pending |
 | Contextual Prescription Engine | [~] sourced baseline + bounded adaptation | added | pending | pending | pending |
 | Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; progression still pending | added | partial | visible | pending |
 | Calendar past/future | [~] past/future list, actions and actual set detail for linked historical sessions | added | partial | visible | pending |
@@ -38,3 +38,4 @@ Audit notes:
 - Deleting the only linked historical session reopens its planned workout while retaining the other scheduled dates; duplicate linked records keep the workout completed. The deletion operation and plan write are not transactional.
 
 - Provenance coverage is fail-closed: the registry starts empty because no verified technical source catalog is currently committed. CI tests require unverified exercises to remain explicitly uncovered rather than receiving fabricated citations.
+- Verified source migration started with ACSM GETP 12th ed., Chapter 5 resistance-training frequency/volume material (physical PDF pp. 353, 360). This is intentionally classified as prescription-only general evidence; it is not used as exercise-specific technique evidence.\n
