@@ -190,7 +190,7 @@ private fun exerciseFromPlanSnapshot(o:JSONObject):Exercise = Exercise(
     o.getInt("systemicFatigue"),o.getInt("technicalComplexity"),
     ExerciseMeasure.valueOf(o.getString("measure")),Laterality.valueOf(o.getString("laterality")),
     ResistanceMode.valueOf(o.getString("resistanceMode")),
-    o.optString("progressionKey").takeIf{it.isNotBlank()},
+    if(o.has("progressionKey") && !o.isNull("progressionKey")) o.getString("progressionKey") else null,
     o.getInt("targetSets"),o.optNullableDouble("targetValue"),o.optNullableInt("intervalRestSec"))
 
 class AppStore(context: Context) {
