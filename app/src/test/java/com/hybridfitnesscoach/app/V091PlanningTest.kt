@@ -1,0 +1,11 @@
+package com.hybridfitnesscoach.app
+import org.junit.Assert.*
+import org.junit.Test
+class V091PlanningTest {
+ private val source=EvidenceRef("test-source","Synthetic test source","section","p.1",EvidenceType.GUIDELINE)
+ @Test fun prescriptionCannotExistWithoutEvidence(){assertThrows(IllegalArgumentException::class.java){SourcePrescriptionBaseline(3,8.0,restSeconds=120,evidence=emptyList())}}
+ @Test fun contextualPrescriptionKeepsProvenanceAndDeloadsDeterministically(){val base=SourcePrescriptionBaseline(4,8.0,100.0,8.0,180,evidence=listOf(source));val out=ContextualPrescriptionEngine.prescribe(base,PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,8,32,8,0.8,30,null));assertEquals(AdaptiveDecision.DELOAD,out.progressionSuggestion);assertTrue(out.sets<base.sets);assertTrue(out.loadKg!!<base.loadKg!!);assertEquals(source,out.evidence.single())}
+ @Test fun multiWeekPlanCreatesDatedNonAliasedSessions(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1000,4,setOf(1,3,5)){week,session->listOf(ex.copy(name="Test w"+week+" s"+session))};assertEquals(12,plan.workouts.size);assertEquals(4,plan.weeks);assertEquals(12,plan.workouts.map{it.id}.distinct().size);assertEquals(12,plan.workouts.map{it.exercises.first().name}.distinct().size);assertEquals(listOf(1000L,1002L,1004L),plan.workouts.take(3).map{it.epochDay})}
+ @Test fun reschedulePreservesOriginalDateAndFlagsRecoveryConflict(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1000,1,setOf(1,3)){_,_->listOf(ex)};val moved=TrainingPlanEngine.reschedule(plan,"p-w1-s1",1002,minimumGapDays=2);val item=moved.workouts.first{it.id=="p-w1-s1"};assertEquals(1000,item.originalEpochDay);assertEquals(1002,item.epochDay);assertEquals(PlannedWorkoutState.RESCHEDULED,item.state);assertNotNull(item.adaptationReason)}
+ @Test fun skippedWorkoutRemainsInCalendar(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1000,1,setOf(1)){_,_->listOf(ex)};val skipped=TrainingPlanEngine.skip(plan,"p-w1-s1");assertEquals(PlannedWorkoutState.SKIPPED,skipped.workouts.single().state)}
+}
