@@ -167,7 +167,7 @@ data class AthleteProfile(val name: String = "", val goal: String = "Forza + ski
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
-private private fun Exercise.toPlanSnapshotJson():JSONObject = JSONObject()
+private fun Exercise.toPlanSnapshotJson():JSONObject = JSONObject()
     .put("name",name).put("group",group).put("equipment",equipment).put("level",level)
     .put("skills",JSONArray().apply{skills.forEach{put(it)}}).put("role",role)
     .put("setRestSec",setRestSec).put("exerciseRestSec",exerciseRestSec)
