@@ -27,4 +27,16 @@ class V091PlanningTest {
  @Test fun reconcilerRecordsPartiallyExecutedWorkoutAsPartial(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val first=plan.workouts.first();val session=SessionRecord(0,"Palestra",1,3,exerciseNames=listOf("A"),plannedWorkoutId=first.id);val update=PlannedWorkoutReconciler.complete(plan,session,1000,0);assertEquals(PlannedWorkoutState.PARTIAL,update.plan.workouts.first().state);assertEquals(1000L,update.plan.workouts.first().actualExecutionEpochDay)}
  @Test fun plannedExerciseHistoryIntroducesControlledVariety(){val profile=profiles.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza",level="Intermedio");val first=generateWorkout(profile,athlete,emptyList());assertTrue(first.isNotEmpty());val second=generateWorkout(profile,athlete,emptyList(),avoidPlannedNames=first.map{it.name}.toSet());assertTrue(second.isNotEmpty());assertNotEquals(first.map{it.name},second.map{it.name});assertTrue(second.all{equipmentCompatible(it,profile)})}
  @Test fun completedOrPartialWorkoutCannotBeRescheduled(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};for(state in listOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL)){val locked=plan.copy(workouts=plan.workouts.mapIndexed{index,w->if(index==0)w.copy(state=state,actualExecutionEpochDay=1001L)else w});assertEquals(locked,TrainingPlanEngine.reschedule(locked,locked.workouts.first().id,1010));assertEquals(locked,TrainingPlanEngine.skip(locked,locked.workouts.first().id))}}
+ @Test fun deletingOnlyLinkedSessionReopensPlanEntryWithoutChangingOtherDates(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(ex)}
+  val first=plan.workouts.first()
+  val completed=plan.copy(workouts=plan.workouts.map{if(it.id==first.id)it.copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=1001L)else it})
+  val deleted=SessionRecord(1,"Palestra",1,1,plannedWorkoutId=first.id)
+  val restored=PlannedWorkoutReconciler.afterDeletion(completed,deleted,emptyList())
+  assertEquals(PlannedWorkoutState.PLANNED,restored.workouts.first().state)
+  assertNull(restored.workouts.first().actualExecutionEpochDay)
+  assertEquals(completed.workouts.drop(1),restored.workouts.drop(1))
+  assertEquals(completed,PlannedWorkoutReconciler.afterDeletion(completed,deleted,listOf(deleted.copy(timestamp=2))))
+ }
 }
