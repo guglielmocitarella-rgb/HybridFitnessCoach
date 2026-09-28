@@ -39,4 +39,33 @@ class V091PlanningTest {
   assertEquals(completed.workouts.drop(1),restored.workouts.drop(1))
   assertEquals(completed,PlannedWorkoutReconciler.afterDeletion(completed,deleted,listOf(deleted.copy(timestamp=2))))
  }
+
+ @Test fun adaptiveCoachReadsPlanAndSuppressesAdvanceAfterDisruption(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val now=1_800_000_000_000L
+  val sessions=listOf(
+   SessionRecord(now-86_400_000,"Palestra",10,10,workoutRpe=7,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=10,completed=true))))),
+   SessionRecord(now-2*86_400_000,"Palestra",10,10,workoutRpe=7,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=10,completed=true)))))
+  )
+  val today=java.time.Instant.ofEpochMilli(now).atZone(java.time.ZoneOffset.UTC).toLocalDate().toEpochDay()
+  val disrupted=TrainingPlan("p",today-7,2,2,listOf(
+   PlannedWorkout("done",today-2,0,0,listOf(ex),state=PlannedWorkoutState.COMPLETED),
+   PlannedWorkout("skip",today-1,0,1,listOf(ex),state=PlannedWorkoutState.SKIPPED),
+   PlannedWorkout("next",today+2,1,0,listOf(ex))
+  ))
+  val historyOnly=coachingContext(sessions,readiness=90,now=now)
+  assertEquals(ProgressionDecision.ADVANCE,historyOnly.plan.decision)
+  val combined=coachingContext(sessions,90,disrupted,today)
+  assertEquals(ProgressionDecision.MAINTAIN,combined.plan.decision)
+  assertEquals(1,combined.planDisruptions)
+  assertEquals(1,combined.upcomingSessions)
+  assertTrue(combined.plan.notes.any{it.startsWith("Piano:")})
+ }
+ @Test fun adaptiveCoachNeverCreatesProgressionFromPlanAlone(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val plan=TrainingPlan("p",1000,1,1,listOf(PlannedWorkout("next",1001,0,0,listOf(ex))))
+  val combined=coachingContext(emptyList(),90,plan,1000)
+  assertNotEquals(ProgressionDecision.ADVANCE,combined.plan.decision)
+  assertEquals(1,combined.upcomingSessions)
+ }
 }

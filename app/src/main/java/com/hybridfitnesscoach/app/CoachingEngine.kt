@@ -4,7 +4,15 @@ import kotlin.math.floor
 import kotlin.math.ceil
 
 /** Snapshot shared by preview and runner. Missing history never implies failure. */
-data class CoachingContext(val plan:AdaptiveWorkoutPlan, val recovery:Map<String,Int>, val readiness:Int?, val evidenceSessions:Int)
+data class CoachingContext(
+    val plan:AdaptiveWorkoutPlan,
+    val recovery:Map<String,Int>,
+    val readiness:Int?,
+    val evidenceSessions:Int,
+    val plannedEvidence:Int=0,
+    val planDisruptions:Int=0,
+    val upcomingSessions:Int=0
+)
 
 internal fun coachingContext(sessions:List<SessionRecord>, readiness:Int?=null, now:Long=System.currentTimeMillis()):CoachingContext {
     val recent=sessions.filter{it.timestamp<=now && now-it.timestamp<=28L*86_400_000}.sortedByDescending{it.timestamp}.take(5)
@@ -22,6 +30,45 @@ internal fun coachingContext(sessions:List<SessionRecord>, readiness:Int?=null, 
         adaptiveWorkoutPlan(0.8,8.5,recoveryScore,readiness) else base
     val evidence=if(recent.isEmpty())"Calibrazione iniziale: nessuno storico recente" else "Basato su ${recent.size} workout recenti e serie effettive"
     return CoachingContext(plan.copy(notes=plan.notes+evidence),recovery,readiness,recent.size)
+}
+
+/**
+ * Combines execution history with the persisted calendar without inventing physiological
+ * recovery rules. Plan state can conservatively suppress ADVANCE after a recent
+ * partial/skipped planned session; it never manufactures a progression signal.
+ */
+internal fun coachingContext(
+    sessions:List<SessionRecord>,
+    readiness:Int?,
+    trainingPlan:TrainingPlan?,
+    todayEpochDay:Long
+):CoachingContext {
+    val history=coachingContext(sessions,readiness)
+    val plan=trainingPlan ?: return history
+    val recentStart=todayEpochDay-28
+    val recent=plan.workouts.filter{it.epochDay in recentStart..todayEpochDay}
+    val disruptions=recent.count{it.state==PlannedWorkoutState.PARTIAL || it.state==PlannedWorkoutState.SKIPPED}
+    val completed=recent.count{it.state==PlannedWorkoutState.COMPLETED}
+    val upcoming=plan.workouts.count{it.epochDay>todayEpochDay && it.state in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED)}
+    val base=history.plan
+    val adjusted=if(base.decision==ProgressionDecision.ADVANCE && disruptions>0)
+        base.copy(
+            intensityFactor=1.0,
+            volumeFactor=1.0,
+            decision=ProgressionDecision.MAINTAIN,
+            notes=base.notes+listOf("Progressione sospesa: piano recente con sessioni parziali o saltate")
+        )
+    else base
+    val planNote=when {
+        recent.isEmpty()->"Piano attivo: nessuna sessione pianificata conclusa nelle ultime 4 settimane"
+        else->"Piano: $completed completate, $disruptions parziali/saltate, $upcoming future"
+    }
+    return history.copy(
+        plan=adjusted.copy(notes=adjusted.notes+planNote),
+        plannedEvidence=recent.size,
+        planDisruptions=disruptions,
+        upcomingSessions=upcoming
+    )
 }
 
 internal fun exerciseRecovery(ex:Exercise,recovery:Map<String,Int>):Int =
