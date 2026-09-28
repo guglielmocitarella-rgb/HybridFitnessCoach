@@ -795,7 +795,7 @@ private fun CoachSummary(context:CoachingContext) {
     }
 }
 
-internal fun nextUnlockLabel(states:List<ProgressionNodeState>):String {
+internal fun nextUnlockLabel(states:List<SkillNodeProgress>):String {
     val next=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE || it.status==ProgressionStatus.LOCKED}
         ?: return "Percorso completato"
     val criterion=next.node.criterion
