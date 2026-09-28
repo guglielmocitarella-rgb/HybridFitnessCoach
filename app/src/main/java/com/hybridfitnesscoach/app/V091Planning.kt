@@ -77,3 +77,10 @@ object ExerciseStatistics {
   return ExerciseStats(entries.map{it.first}.distinct().size,sets.size,sets.sumOf{it.actualReps?:0},sets.sumOf{it.actualSeconds?:0},sets.sumOf{(it.actualReps?:0)*(it.actualLoadKg?:0.0)},loads.maxOrNull())
  }
 }
+
+enum class VideoVerificationState { PENDING, VERIFIED, REJECTED }
+data class ExerciseVideo(val exerciseName:String,val videoUrl:String,val videoProvider:String,val videoId:String,val thumbnailUrl:String?=null,val verificationState:VideoVerificationState=VideoVerificationState.PENDING)
+object ExerciseVideoCatalog {
+ fun findVerified(name:String,entries:List<ExerciseVideo>):ExerciseVideo? =
+  entries.firstOrNull{it.exerciseName.equals(name,ignoreCase=true) && it.verificationState==VideoVerificationState.VERIFIED && it.videoUrl.startsWith("https://") && it.videoProvider.isNotBlank() && it.videoId.isNotBlank()}
+}
