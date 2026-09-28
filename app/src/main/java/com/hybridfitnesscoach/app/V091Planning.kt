@@ -46,6 +46,15 @@ data class ScheduleDecision(val workoutId:String,val originalDate:Long,val curre
 data class ScheduleUpdate(val plan:TrainingPlan,val decisions:List<ScheduleDecision>)
 
 object PlannedWorkoutReconciler {
+ fun afterDeletion(plan:TrainingPlan,deleted:SessionRecord,remaining:List<SessionRecord>):TrainingPlan {
+  val id=deleted.plannedWorkoutId ?: return plan
+  if(remaining.any{it.plannedWorkoutId==id})return plan
+  return plan.copy(workouts=plan.workouts.map{workout->
+   if(workout.id==id && (workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL))
+    workout.copy(state=if(workout.epochDay!=workout.originalEpochDay) PlannedWorkoutState.RESCHEDULED else PlannedWorkoutState.PLANNED,actualExecutionEpochDay=null)
+   else workout
+  })
+ }
  fun findCandidate(plan:TrainingPlan,session:SessionRecord,executionEpochDay:Long):PlannedWorkout? {
   if(session.completedSets<=0 || session.profileName.startsWith("Personalizzato",ignoreCase=true))return null
   val eligible=plan.workouts.filter{it.state==PlannedWorkoutState.PLANNED || it.state==PlannedWorkoutState.RESCHEDULED}
