@@ -216,6 +216,22 @@ class AppStoreRecoveryTest {
         assertEquals(raw, prefs.getString("training_plan_v091", null))
     }
 
+    @Test fun activeWorkoutReloadPreservesRecoveryOverridesAndRunningRest() {
+        val exercise = WorkoutExerciseState("A", setRestSec = 75, exerciseRestSec = 150,
+            sets = listOf(WorkoutSetState(0, targetReps = 8, completed = true, restUsedSec = 70)))
+        val active = WorkoutSessionState("w", 1000, "P", listOf(exercise),
+            restEndsAtEpochMs = 20_000, restKind = "Serie")
+        val store = AppStore(context)
+        store.saveActiveWorkout(active)
+
+        val restored = AppStore(context).loadActiveWorkout()!!
+        assertEquals(75, restored.exercises.single().setRestSec)
+        assertEquals(150, restored.exercises.single().exerciseRestSec)
+        assertEquals(70, restored.exercises.single().sets.single().restUsedSec)
+        assertEquals(20_000L, restored.restEndsAtEpochMs)
+        assertEquals("Serie", restored.restKind)
+    }
+
     @Test fun currentPlanAndActiveWorkoutRoundTripPreserveEveryField() {
         val workout = PlannedWorkout("w1", 15, 1, 2, listOf(exercises.first().copy(targetValue = 7.0)),
             PlannedWorkoutState.PARTIAL, 10, "Adapted", 16)
