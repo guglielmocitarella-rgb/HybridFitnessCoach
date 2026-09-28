@@ -221,15 +221,8 @@ private class AppStore(context: Context) {
     fun completePlannedWorkoutForSession(s:SessionRecord, minimumGapDays:Int=2):ScheduleUpdate? {
         val plan=loadTrainingPlan() ?: return null
         val executionDay=java.time.Instant.ofEpochMilli(s.timestamp).atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
-        val candidates=plan.workouts.filter { it.state==PlannedWorkoutState.PLANNED || it.state==PlannedWorkoutState.RESCHEDULED }
-        val target=candidates.minWithOrNull(compareBy<PlannedWorkout> {
-            val plannedNames=it.exercises.map{e->e.name}.toSet()
-            val actualNames=s.exerciseNames.toSet()
-            -(plannedNames.intersect(actualNames).size)
-        }.thenBy { kotlin.math.abs(it.epochDay-executionDay) }) ?: return null
-        val overlap=target.exercises.map{it.name}.toSet().intersect(s.exerciseNames.toSet()).size
-        if(overlap==0) return null
-        val update=AdaptiveScheduler.complete(plan,target.id,executionDay,minimumGapDays)
+        val update=PlannedWorkoutReconciler.complete(plan,s,executionDay,minimumGapDays)
+        if(update.plan==plan) return null
         saveTrainingPlan(update.plan)
         return update
     }

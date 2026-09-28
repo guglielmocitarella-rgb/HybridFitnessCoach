@@ -44,6 +44,23 @@ object TrainingPlanEngine {
 enum class ScheduleAction { KEEP_DATE, MOVE_EARLIER, MOVE_LATER, SKIP, RESCHEDULE, ADAPT_SESSION }
 data class ScheduleDecision(val workoutId:String,val originalDate:Long,val currentDate:Long,val suggestedDate:Long,val action:ScheduleAction,val reason:String)
 data class ScheduleUpdate(val plan:TrainingPlan,val decisions:List<ScheduleDecision>)
+
+object PlannedWorkoutReconciler {
+ fun findCandidate(plan:TrainingPlan,session:SessionRecord,executionEpochDay:Long):PlannedWorkout? {
+  val actual=session.exerciseNames.toSet()
+  if(actual.isEmpty())return null
+  return plan.workouts
+   .filter{it.state==PlannedWorkoutState.PLANNED || it.state==PlannedWorkoutState.RESCHEDULED}
+   .map{item->item to item.exercises.map{e->e.name}.toSet().intersect(actual).size}
+   .filter{(_,overlap)->overlap>0}
+   .sortedWith(compareByDescending<Pair<PlannedWorkout,Int>>{it.second}.thenBy{kotlin.math.abs(it.first.epochDay-executionEpochDay)})
+   .firstOrNull()?.first
+ }
+ fun complete(plan:TrainingPlan,session:SessionRecord,executionEpochDay:Long,minimumGapDays:Int):ScheduleUpdate {
+  val target=findCandidate(plan,session,executionEpochDay) ?: return ScheduleUpdate(plan,emptyList())
+  return AdaptiveScheduler.complete(plan,target.id,executionEpochDay,minimumGapDays)
+ }
+}
 object AdaptiveScheduler {
  fun skip(plan:TrainingPlan,workoutId:String):ScheduleUpdate {
   val item=plan.workouts.firstOrNull{it.id==workoutId}?:return ScheduleUpdate(plan,emptyList())
