@@ -67,3 +67,13 @@ object AdaptiveScheduler {
   return ScheduleUpdate(plan.copy(workouts=changed),decisions)
  }
 }
+
+data class ExerciseStats(val sessions:Int,val completedSets:Int,val totalReps:Int,val totalSeconds:Int,val totalLoadVolumeKg:Double,val maxLoadKg:Double?)
+object ExerciseStatistics {
+ fun fromHistory(exerciseName:String,history:List<SessionRecord>):ExerciseStats {
+  val entries=history.flatMap{session->session.structuredExercises.filter{it.exerciseName.equals(exerciseName,ignoreCase=true)}.map{session.timestamp to it}}
+  val sets=entries.flatMap{(_,exercise)->exercise.sets.filter{it.completed}}
+  val loads=sets.mapNotNull{it.actualLoadKg}
+  return ExerciseStats(entries.map{it.first}.distinct().size,sets.size,sets.sumOf{it.actualReps?:0},sets.sumOf{it.actualSeconds?:0},sets.sumOf{(it.actualReps?:0)*(it.actualLoadKg?:0.0)},loads.maxOrNull())
+ }
+}
