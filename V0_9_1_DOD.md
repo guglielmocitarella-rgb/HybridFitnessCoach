@@ -10,7 +10,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Contextual Prescription Engine | [~] bounded adaptation + fail-closed verified numeric-baseline registry; verified exercise baselines pending | added | applied in custom Runner when verified baseline exists | legacy status visible | pending |
 | Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; progression still pending | added | partial | visible | pending |
 | Calendar past/future | [~] past/future list, actions and actual set detail for linked historical sessions | added | partial | visible | pending |
-| Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plan snapshots depend on catalog until migrated | existing | partial | partial | pending |
+| Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plans auto-migrate on load when every exercise resolves; missing catalog entries remain unresolved | existing | partial | partial | pending |
 | Skip/reschedule/recover semantics | [~] skip, manual move, and completion reconciliation; sourced recovery gap pending | added | partial | partial | pending |
 | Exercise Detail 2.0 + stats + video | [~] real stats and video UI; one verified ACE Plank video; catalog-wide video coverage pending | added | partial | partial | pending |
 | Runner integration | [~] today's and calendar-selected planned sessions launch with persistent identity; on-device flow pending | added | partial | partial | pending |
@@ -32,7 +32,7 @@ Audit notes:
 - Automatic completion currently uses no assumed physiological recovery gap; contextual, sourced scheduling remains pending.
 - The source catalog and exercise videos still require verified primary references. A green CI build is not a v0.9.1 release gate by itself.
 
-- Plan schema v2 stores complete exercise definitions per planned workout; schema v1 loads by catalog name and is upgraded on the next save. Old sessions with no planned workout ID cannot be linked unambiguously to a historical plan.
+- Plan schema v2 stores complete exercise definitions per planned workout; schema v1 loads by catalog name and auto-upgrades on load only if all exercise names resolve; otherwise the original stored plan is preserved. Old sessions with no planned workout ID cannot be linked unambiguously to a historical plan.
 
 - Calendar launch routes the selected planned workout ID through Home to the existing runner. An already active workout resumes instead of being replaced. Device-level interaction remains to be checked.
 - Deleting the only linked historical session reopens its planned workout while retaining the other scheduled dates; duplicate linked records keep the workout completed. The deletion operation and plan write are not transactional.
@@ -48,3 +48,5 @@ Audit notes:
 - Custom Runner consumes eligible contextual resistance prescriptions for set count, rep target and inter-set rest; unsupported exercises retain the legacy fallback.\n
 - Exercise Detail presents a verified ACE Plank video linked from ACE's exercise video library, with an explicit unavailable state for other exercises; coverage of every exercise remains open.
 - CI run 36446247422 passed at code HEAD `3de13bb98c00a49193ee46589026e86350c1868d`; signed artifact `HybridFitnessCoach-v0.9.1-signed` was present and unexpired at verification.
+
+- Latest code run 36447095691 passed at `af9cf8dbfdbb141aa36e70dfbf92b575007d2f72`; signed APK artifact was extracted and verified present. The testable build is not a v0.9.1 release designation.
