@@ -7,7 +7,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 |---|---|---|---|---|---|
 | app version 0.9.1 | [x] | n/a | [x] | n/a | green #263 |
 | Evidence/provenance model | [~] registry + measurable coverage audit; ACSM general resistance-prescription evidence + Exercise Detail source visibility; exercise-specific migration pending | added | partial | visible | green #263 |
-| Contextual Prescription Engine | [~] sourced baseline + bounded adaptation | added | pending | pending | pending |
+| Contextual Prescription Engine | [~] bounded adaptation + fail-closed verified numeric-baseline registry; verified exercise baselines pending | added | guarded, not yet applied | legacy status visible | pending |
 | Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; progression still pending | added | partial | visible | pending |
 | Calendar past/future | [~] past/future list, actions and actual set detail for linked historical sessions | added | partial | visible | pending |
 | Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plan snapshots depend on catalog until migrated | existing | partial | partial | pending |
@@ -41,3 +41,5 @@ Audit notes:
 - Verified source migration started with ACSM GETP 12th ed., Chapter 5 resistance-training frequency/volume material (physical PDF pp. 353, 360). This is intentionally classified as prescription-only general evidence; it is not used as exercise-specific technique evidence.
 - Exercise Detail now renders provenance coverage and verified source title/section/location; missing exercise-specific technique evidence is explicitly shown rather than inferred from generic instructions.\n
 - CI #263 is green at HEAD `1b0f13a256dfd49d6eff36432110260f3115807e`; checklist statuses were reconciled against current code after that run.
+
+- Numeric Prescription Engine wiring is fail-closed: general ACSM prescription provenance does not authorize exercise-specific sets/reps/rest values. Until a verified numeric baseline is registered, Runner/Exercise Detail label those targets as legacy rather than source-based.

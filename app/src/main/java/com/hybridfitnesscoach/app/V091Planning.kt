@@ -50,6 +50,14 @@ object ExerciseEvidenceRegistry {
 
 data class PrescriptionContext(val goal:String,val athleteLevel:String,val exerciseType:ExerciseCategory,val intensity:Int,val volume:Int,val fatigue:Int,val recentPerformance:Double?,val recoveryStatus:Int?,val skillLevel:Int?)
 data class SourcePrescriptionBaseline(val sets:Int,val repsOrDuration:Double,val loadKg:Double?=null,val rirOrRpe:Double?=null,val restSeconds:Int,val tempo:String?=null,val evidence:List<EvidenceRef>){init{require(sets>0);require(repsOrDuration>0);require(restSeconds>0);require(evidence.isNotEmpty()){"A source-based baseline requires provenance"}}}
+object SourcePrescriptionBaselineRegistry {
+ private val entries:Map<String,SourcePrescriptionBaseline> = emptyMap()
+ fun baselineFor(exercise:Exercise):SourcePrescriptionBaseline?=entries[exercise.name]
+ fun prescribeIfVerified(exercise:Exercise,context:PrescriptionContext):ContextualPrescription? =
+  baselineFor(exercise)?.let{ContextualPrescriptionEngine.prescribe(it,context)}
+ fun verifiedExerciseNames():Set<String> = entries.keys
+}
+
 data class ContextualPrescription(val sets:Int,val repsOrDuration:Double,val loadKg:Double?,val rirOrRpe:Double?,val restSeconds:Int,val tempo:String?,val progressionSuggestion:AdaptiveDecision,val evidence:List<EvidenceRef>,val explanation:String)
 object ContextualPrescriptionEngine {
  fun prescribe(base:SourcePrescriptionBaseline,context:PrescriptionContext):ContextualPrescription{

@@ -97,4 +97,16 @@ class V091PlanningTest {
   assertTrue(source.pageOrLocation!!.contains("353"))
   assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
  }
+
+ @Test fun contextualPrescriptionIsFailClosedWithoutVerifiedNumericBaseline(){
+  val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val context=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,0.95,90,null)
+  assertNull(SourcePrescriptionBaselineRegistry.baselineFor(ex))
+  assertNull(SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,context))
+ }
+ @Test fun generalPrescriptionEvidenceDoesNotBecomeNumericBaseline(){
+  val ex=Exercise("Synthetic squat","Gambe","Bilanciere","Base",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(ex))
+  assertFalse(ex.name in SourcePrescriptionBaselineRegistry.verifiedExerciseNames())
+ }
 }
