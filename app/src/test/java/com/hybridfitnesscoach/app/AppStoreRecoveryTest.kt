@@ -105,6 +105,18 @@ class AppStoreRecoveryTest {
         assertEquals("not json", prefs.getString("sessions", null))
     }
 
+    @Test fun legacyActiveWorkoutWithoutNewFieldsUsesSafeDefaults() {
+        val raw = """{"id":"legacy","startedAtEpochMs":1000,"profileName":"Casa","exercises":[{"exerciseName":"Push-up","sets":[]}]}"""
+        prefs.edit().putString("active_workout_v1", raw).commit()
+        val active = AppStore(context).loadActiveWorkout()!!
+        assertEquals(0L, active.elapsedBeforePauseMs)
+        assertNull(active.pausedAtEpochMs)
+        assertNull(active.restEndsAtEpochMs)
+        assertEquals("automatic", active.runnerKind)
+        assertEquals(90, active.exercises.single().setRestSec)
+        assertEquals(120, active.exercises.single().exerciseRestSec)
+    }
+
     @Test fun legacyPlanMigrationPreservesCompletedStateAndDatesAcrossLoads() {
         val name = exercises.first().name
         val workout = JSONObject().put("id", "w1").put("epochDay", 15).put("originalEpochDay", 10)
