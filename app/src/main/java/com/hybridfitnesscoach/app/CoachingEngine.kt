@@ -49,7 +49,7 @@ internal fun coachingContext(
     val recent=plan.workouts.filter{it.epochDay in recentStart..todayEpochDay}
     val disruptions=recent.count{it.state==PlannedWorkoutState.PARTIAL || it.state==PlannedWorkoutState.SKIPPED}
     val completed=recent.count{it.state==PlannedWorkoutState.COMPLETED}
-    val upcoming=plan.workouts.count{it.epochDay>todayEpochDay && it.state in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED)}
+    val upcoming=plan.workouts.count{it.state in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED)}
     val base=history.plan
     val adjusted=if(base.decision==ProgressionDecision.ADVANCE && disruptions>0)
         base.copy(
@@ -61,7 +61,7 @@ internal fun coachingContext(
     else base
     val planNote=when {
         recent.isEmpty()->"Piano attivo: nessuna sessione pianificata conclusa nelle ultime 4 settimane"
-        else->"Piano: $completed completate, $disruptions parziali/saltate, $upcoming future"
+        else->"Piano: $completed completate, $disruptions parziali/saltate, $upcoming da eseguire"
     }
     return history.copy(
         plan=adjusted.copy(notes=adjusted.notes+planNote),

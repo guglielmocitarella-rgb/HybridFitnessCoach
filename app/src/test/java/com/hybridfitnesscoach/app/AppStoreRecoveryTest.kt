@@ -20,6 +20,25 @@ class AppStoreRecoveryTest {
 
     @Before fun clearStore() { prefs.edit().clear().commit() }
 
+    @Test fun rc2RescheduleAndPartialDeletionKeepSummaryConsistentAfterReload() {
+        val store = AppStore(context)
+        val original = TrainingPlanEngine.scheduleImmediately("rc2", 1000, 2, 3) { _, _ -> listOf(exercises.first()) }
+        val moved = TrainingPlanEngine.reschedule(original, original.workouts.first().id, 1008)
+        store.saveTrainingPlan(moved)
+        assertEquals(moved, AppStore(context).loadTrainingPlan())
+        val record = session(1).copy(plannedWorkoutId = moved.workouts.first().id)
+        store.saveSessions(listOf(record))
+        store.saveTrainingPlan(PlannedWorkoutReconciler.complete(moved, record, 1008, 0).plan)
+        store.deleteSession(1)
+        val reloaded = AppStore(context).loadTrainingPlan()!!
+        assertEquals(6, coachingContext(AppStore(context).loadSessions(), null, reloaded, 1009).upcomingSessions)
+        assertEquals(moved.workouts.map { it.originalEpochDay }, reloaded.workouts.map { it.originalEpochDay })
+        val restored = TrainingPlanEngine.reschedule(reloaded, reloaded.workouts.first().id, 1000)
+        store.saveTrainingPlan(restored)
+        assertEquals(1000L, AppStore(context).loadTrainingPlan()!!.workouts.first().epochDay)
+        assertTrue(restored.workouts.zipWithNext().all { (a,b) -> a.epochDay < b.epochDay })
+    }
+
     private fun session(timestamp: Long) = SessionRecord(
         timestamp, "Casa", 1, 2, listOf("Push-up"),
         structuredExercises = listOf(WorkoutExerciseState("Push-up", sets = listOf(

@@ -113,7 +113,31 @@ object TrainingPlanEngine {
   }
   return TrainingPlan(planId,startEpochDay,weeks,sessionsPerWeek,workouts)
  }
- fun reschedule(plan:TrainingPlan,workoutId:String,newEpochDay:Long,minimumGapDays:Int=1):TrainingPlan{val target=plan.workouts.firstOrNull{it.id==workoutId}?:return plan;if(target.state==PlannedWorkoutState.COMPLETED || target.state==PlannedWorkoutState.PARTIAL)return plan;val others=plan.workouts.filterNot{it.id==workoutId};val nearest=others.minOfOrNull{kotlin.math.abs(it.epochDay-newEpochDay)}?:Long.MAX_VALUE;val reason=if(nearest<minimumGapDays)"Sessione vicina: richiede rivalutazione Adaptive Coach" else null;val changed=target.copy(epochDay=newEpochDay,state=PlannedWorkoutState.RESCHEDULED,adaptationReason=reason);return plan.copy(workouts=(others+changed).sortedBy{it.epochDay})}
+ fun reschedule(plan:TrainingPlan,workoutId:String,newEpochDay:Long,minimumGapDays:Int=1):TrainingPlan {
+  require(minimumGapDays>=0)
+  val ordered=plan.workouts.sortedWith(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek})
+  val pending=ordered.filter{it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL && (it.state!=PlannedWorkoutState.SKIPPED || it.id==workoutId)}
+  val index=pending.indexOfFirst{it.id==workoutId}
+  if(index<0)return plan
+  val occupied=ordered.filter{it !in pending}.map{it.epochDay}.toSet()
+  fun gap(a:PlannedWorkout,b:PlannedWorkout)=maxOf(1L,minimumGapDays.toLong(),b.originalEpochDay-a.originalEpochDay)
+  fun freeDate(date:Long):Long {var day=date;while(day in occupied)day++;return day}
+  val changes=mutableMapOf<String,PlannedWorkout>()
+  var preceding=pending.getOrNull(index-1)
+  pending.drop(index).forEachIndexed { offset,item ->
+   val requested=if(offset==0)newEpochDay else item.epochDay
+   val earliest=preceding?.let{it.epochDay+gap(it,item)}?:requested
+   val date=freeDate(maxOf(requested,earliest))
+   val updated=if(date==item.epochDay)item else item.copy(
+    epochDay=date,
+    state=if(date==item.originalEpochDay)PlannedWorkoutState.PLANNED else PlannedWorkoutState.RESCHEDULED,
+    adaptationReason="Sequenza e intervalli del programma preservati"
+   )
+   changes[item.id]=updated
+   preceding=updated
+  }
+  return plan.copy(workouts=ordered.map{changes[it.id]?:it})
+ }
  fun skip(plan:TrainingPlan,workoutId:String):TrainingPlan=plan.copy(workouts=plan.workouts.map{if(it.id==workoutId && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL)it.copy(state=PlannedWorkoutState.SKIPPED)else it})
 }
 
