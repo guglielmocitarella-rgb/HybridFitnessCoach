@@ -138,6 +138,11 @@ object TrainingPlanEngine {
   }
   return plan.copy(workouts=ordered.map{changes[it.id]?:it})
  }
+ fun restoreOriginalDate(plan:TrainingPlan,workoutId:String,minimumGapDays:Int=0):TrainingPlan {
+  val target=plan.workouts.firstOrNull{it.id==workoutId}?:return plan
+  if(target.state==PlannedWorkoutState.COMPLETED || target.state==PlannedWorkoutState.PARTIAL)return plan
+  return reschedule(plan,workoutId,target.originalEpochDay,minimumGapDays)
+ }
  fun skip(plan:TrainingPlan,workoutId:String):TrainingPlan=plan.copy(workouts=plan.workouts.map{if(it.id==workoutId && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL)it.copy(state=PlannedWorkoutState.SKIPPED)else it})
 }
 
