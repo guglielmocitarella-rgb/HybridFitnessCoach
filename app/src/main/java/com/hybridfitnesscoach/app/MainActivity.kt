@@ -851,7 +851,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
     var plan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var showPast by remember { mutableStateOf(false) }
     var selected by remember { mutableStateOf<PlannedWorkout?>(null) }
-    var rescheduleOffset by remember { mutableStateOf(1) }
+    var rescheduleOffset by remember { mutableStateOf(0) }
     Column(Modifier.fillMaxSize()) {
         Header("Programma","Calendario allenamenti • passato e futuro")
         if(plan==null) {
