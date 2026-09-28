@@ -101,12 +101,29 @@ class V091PlanningTest {
  @Test fun contextualPrescriptionIsFailClosedWithoutVerifiedNumericBaseline(){
   val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
   val context=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,0.95,90,null)
-  assertNull(SourcePrescriptionBaselineRegistry.baselineFor(ex))
-  assertNull(SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,context))
+  val baseline=SourcePrescriptionBaselineRegistry.baselineFor(ex,context)
+  assertNotNull(baseline)
+  assertEquals(3,baseline!!.sets)
+  assertEquals(6.0,baseline.repsOrDuration,0.001)
+  assertEquals(180,baseline.restSeconds)
+  assertNotNull(SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,context))
  }
  @Test fun generalPrescriptionEvidenceDoesNotBecomeNumericBaseline(){
   val ex=Exercise("Synthetic squat","Gambe","Bilanciere","Base",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
   assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(ex))
-  assertFalse(ex.name in SourcePrescriptionBaselineRegistry.verifiedExerciseNames())
+  val context=PrescriptionContext("Ipertrofia","Intermedio",ExerciseCategory.LEGS,5,5,4,0.8,70,null)
+  assertNotNull(SourcePrescriptionBaselineRegistry.baselineFor(ex,context))
+ }
+
+ @Test fun acsmBeginnerBaselineUsesSupportedGeneralPublicRange(){
+  val ex=Exercise("Synthetic row","Dorso","Cavi","Principiante",category=ExerciseCategory.PULL,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val c=PrescriptionContext("Benessere","Principiante",ExerciseCategory.PULL,4,4,4,null,70,null)
+  val b=SourcePrescriptionBaselineRegistry.baselineFor(ex,c)!!
+  assertEquals(2,b.sets);assertEquals(10.0,b.repsOrDuration,0.001);assertEquals(120,b.restSeconds)
+ }
+ @Test fun nonResistanceAndNonRepExercisesRemainOutsideRtBaseline(){
+  val cardio=Exercise("Run","Cardio","Corpo libero","Principiante",category=ExerciseCategory.CARDIO,measure=ExerciseMeasure.DURATION,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val c=PrescriptionContext("Benessere","Principiante",ExerciseCategory.CARDIO,4,4,4,null,70,null)
+  assertNull(SourcePrescriptionBaselineRegistry.baselineFor(cardio,c))
  }
 }

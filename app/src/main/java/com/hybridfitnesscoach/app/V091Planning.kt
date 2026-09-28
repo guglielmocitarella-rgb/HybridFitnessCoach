@@ -51,12 +51,33 @@ object ExerciseEvidenceRegistry {
 data class PrescriptionContext(val goal:String,val athleteLevel:String,val exerciseType:ExerciseCategory,val intensity:Int,val volume:Int,val fatigue:Int,val recentPerformance:Double?,val recoveryStatus:Int?,val skillLevel:Int?)
 data class SourcePrescriptionBaseline(val sets:Int,val repsOrDuration:Double,val loadKg:Double?=null,val rirOrRpe:Double?=null,val restSeconds:Int,val tempo:String?=null,val evidence:List<EvidenceRef>){init{require(sets>0);require(repsOrDuration>0);require(restSeconds>0);require(evidence.isNotEmpty()){"A source-based baseline requires provenance"}}}
 object SourcePrescriptionBaselineRegistry {
- private val entries:Map<String,SourcePrescriptionBaseline> = emptyMap()
- fun baselineFor(exercise:Exercise):SourcePrescriptionBaseline?=entries[exercise.name]
+ private val acsmGeneralRt=EvidenceRef(
+  sourceId="acsm-getp-12-ch5-rt-prescription",
+  sourceTitle="ACSM's Guidelines for Exercise Testing and Prescription, 12th ed.",
+  section="Chapter 5 — Resistance Training: intensity, rest periods and volume",
+  pageOrLocation="physical PDF pages 355-360; Tables 5.7 and 5.10",
+  evidenceType=EvidenceType.GUIDELINE
+ )
+ /**
+  * Goal/experience baselines intentionally apply to general resistance exercise, not to a
+  * named exercise. ACSM Table 5.10 supports 1-2 sets x 8-12 reps for untrained adults;
+  * Table 5.7 supports 90-180 s for hypertrophy/strength-endurance and 120-300 s for strength.
+  */
+ fun baselineFor(exercise:Exercise,context:PrescriptionContext):SourcePrescriptionBaseline? {
+  if(exercise.measure!=ExerciseMeasure.REPS || exercise.resistanceMode==ResistanceMode.NONE) return null
+  val level=context.athleteLevel.lowercase()
+  val goal=context.goal.lowercase()
+  return when {
+   level.contains("princip") -> SourcePrescriptionBaseline(2,10.0,null,null,120,null,listOf(acsmGeneralRt))
+   goal.contains("ipertrof") -> SourcePrescriptionBaseline(3,10.0,null,null,120,null,listOf(acsmGeneralRt))
+   goal.contains("forza") -> SourcePrescriptionBaseline(3,6.0,null,null,180,null,listOf(acsmGeneralRt))
+   else -> null
+  }
+ }
  fun prescribeIfVerified(exercise:Exercise,context:PrescriptionContext):ContextualPrescription? =
-  baselineFor(exercise)?.let{ContextualPrescriptionEngine.prescribe(it,context)}
- fun verifiedExerciseNames():Set<String> = entries.keys
+  baselineFor(exercise,context)?.let{ContextualPrescriptionEngine.prescribe(it,context)}
 }
+
 
 data class ContextualPrescription(val sets:Int,val repsOrDuration:Double,val loadKg:Double?,val rirOrRpe:Double?,val restSeconds:Int,val tempo:String?,val progressionSuggestion:AdaptiveDecision,val evidence:List<EvidenceRef>,val explanation:String)
 object ContextualPrescriptionEngine {
