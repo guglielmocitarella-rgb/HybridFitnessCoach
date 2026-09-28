@@ -28,6 +28,21 @@ class AppStoreRecoveryTest {
         ), status = WorkoutExerciseStatus.PARTIAL)), plannedWorkoutId = "planned-1"
     )
 
+    @Test fun deletingLinkedSessionPersistsHistoryAndPlanTogether() {
+        val store = AppStore(context)
+        val completed = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()),
+            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10)
+        store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(completed)))
+        store.saveSessions(listOf(session(1)))
+
+        store.deleteSession(1)
+
+        assertTrue(AppStore(context).loadSessions().isEmpty())
+        val restored = AppStore(context).loadTrainingPlan()!!.workouts.single()
+        assertEquals(PlannedWorkoutState.PLANNED, restored.state)
+        assertNull(restored.actualExecutionEpochDay)
+    }
+
     @Test fun oneBadHistoryRecordDoesNotHideValidCompletedSets() {
         val store = AppStore(context)
         store.saveSessions(listOf(session(1), session(2)))
