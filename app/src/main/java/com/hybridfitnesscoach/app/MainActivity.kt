@@ -776,7 +776,7 @@ fun HybridFitnessApp() {
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
-                    Tab.PLAN -> TrainingPlanScreen(store.loadTrainingPlan())
+                    Tab.PLAN -> TrainingPlanScreen(store)
                     Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
@@ -917,9 +917,12 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
 }
 
 @Composable
-private fun TrainingPlanScreen(plan:TrainingPlan?) {
+private fun TrainingPlanScreen(store:AppStore) {
     val today=java.time.LocalDate.now().toEpochDay()
+    var plan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var showPast by remember { mutableStateOf(false) }
+    var selected by remember { mutableStateOf<PlannedWorkout?>(null) }
+    var rescheduleOffset by remember { mutableStateOf(1) }
     Column(Modifier.fillMaxSize()) {
         Header("Programma","Calendario allenamenti • passato e futuro")
         if(plan==null) {
@@ -930,10 +933,10 @@ private fun TrainingPlanScreen(plan:TrainingPlan?) {
                 Spacer(Modifier.width(8.dp))
                 FilterChip(selected=showPast,onClick={showPast=true},label={Text("Passati")})
             }
-            val visible=plan.workouts.filter{if(showPast) it.epochDay<today || it.state==PlannedWorkoutState.COMPLETED || it.state==PlannedWorkoutState.SKIPPED else it.epochDay>=today && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.SKIPPED}.sortedBy{it.epochDay}
+            val visible=plan!!.workouts.filter{if(showPast) it.epochDay<today || it.state==PlannedWorkoutState.COMPLETED || it.state==PlannedWorkoutState.SKIPPED else it.epochDay>=today && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.SKIPPED}.sortedBy{it.epochDay}
             LazyColumn(contentPadding=PaddingValues(bottom=24.dp)) {
                 items(visible,key={it.id}) { workout ->
-                    Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth(),shape=RoundedCornerShape(16.dp)) {
+                    Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth().clickable{selected=workout},shape=RoundedCornerShape(16.dp)) {
                         Column(Modifier.padding(16.dp)) {
                             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
                                 Text(java.time.LocalDate.ofEpochDay(workout.epochDay).toString(),fontWeight=FontWeight.Bold)
@@ -943,12 +946,40 @@ private fun TrainingPlanScreen(plan:TrainingPlan?) {
                             Text(workout.exercises.joinToString(" • "){it.name},fontSize=12.sp,modifier=Modifier.padding(top=5.dp))
                             if(workout.epochDay!=workout.originalEpochDay) Text("Data originale: "+java.time.LocalDate.ofEpochDay(workout.originalEpochDay),fontSize=11.sp,color=Color.Gray)
                             workout.adaptationReason?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
+                            if(workout.state==PlannedWorkoutState.PLANNED || workout.state==PlannedWorkoutState.RESCHEDULED) Text("Tocca per saltare o riprogrammare",fontSize=11.sp,color=Accent,modifier=Modifier.padding(top=6.dp))
                         }
                     }
                 }
                 if(visible.isEmpty()) item{Text("Nessuna sessione in questa vista.",modifier=Modifier.padding(20.dp),color=Color.Gray)}
             }
         }
+    }
+    selected?.let { workout ->
+        AlertDialog(onDismissRequest={selected=null},title={Text("Gestisci sessione")},text={
+            Column {
+                Text(java.time.LocalDate.ofEpochDay(workout.epochDay).toString()+" • "+workout.exercises.size+" esercizi")
+                Spacer(Modifier.height(12.dp))
+                Text("Riprogramma di:",fontWeight=FontWeight.SemiBold)
+                Row(verticalAlignment=Alignment.CenterVertically) {
+                    IconButton(onClick={rescheduleOffset=(rescheduleOffset-1).coerceAtLeast(1)}){Icon(Icons.Default.Remove,"Riduci")}
+                    Text("+$rescheduleOffset giorni",fontWeight=FontWeight.Bold)
+                    IconButton(onClick={rescheduleOffset=(rescheduleOffset+1).coerceAtMost(14)}){Icon(Icons.Default.Add,"Aumenta")}
+                }
+            }
+        },confirmButton={
+            TextButton(onClick={
+                plan=TrainingPlanEngine.reschedule(plan!!,workout.id,workout.epochDay+rescheduleOffset,minimumGapDays=2)
+                store.saveTrainingPlan(plan!!); selected=null;rescheduleOffset=1
+            }){Text("RIPROGRAMMA")}
+        },dismissButton={
+            Row {
+                TextButton(onClick={
+                    plan=TrainingPlanEngine.skip(plan!!,workout.id)
+                    store.saveTrainingPlan(plan!!);selected=null
+                }){Text("SALTA")}
+                TextButton(onClick={selected=null}){Text("ANNULLA")}
+            }
+        })
     }
 }
 
