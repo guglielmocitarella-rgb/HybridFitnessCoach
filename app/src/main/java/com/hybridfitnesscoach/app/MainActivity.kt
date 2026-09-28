@@ -167,7 +167,33 @@ data class AthleteProfile(val name: String = "", val goal: String = "Forza + ski
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
-private class AppStore(context: Context) {
+private private fun Exercise.toPlanSnapshotJson():JSONObject = JSONObject()
+    .put("name",name).put("group",group).put("equipment",equipment).put("level",level)
+    .put("skills",JSONArray().apply{skills.forEach{put(it)}}).put("role",role)
+    .put("setRestSec",setRestSec).put("exerciseRestSec",exerciseRestSec)
+    .put("secondaryGroups",JSONArray().apply{secondaryGroups.forEach{put(it)}})
+    .put("movementPattern",movementPattern).put("category",category.name)
+    .put("intensity",intensity).put("systemicFatigue",systemicFatigue)
+    .put("technicalComplexity",technicalComplexity).put("measure",measure.name)
+    .put("laterality",laterality.name).put("resistanceMode",resistanceMode.name)
+    .put("progressionKey",progressionKey).put("targetSets",targetSets)
+    .put("targetValue",targetValue).put("intervalRestSec",intervalRestSec)
+private fun JSONObject.planStringList(key:String):List<String> {
+    val a=optJSONArray(key) ?: JSONArray()
+    return (0 until a.length()).map{a.getString(it)}
+}
+private fun exerciseFromPlanSnapshot(o:JSONObject):Exercise = Exercise(
+    o.getString("name"),o.getString("group"),o.getString("equipment"),o.getString("level"),
+    o.planStringList("skills"),o.optString("role","Base"),o.getInt("setRestSec"),
+    o.getInt("exerciseRestSec"),o.planStringList("secondaryGroups"),o.optString("movementPattern",""),
+    ExerciseCategory.valueOf(o.getString("category")),o.getInt("intensity"),
+    o.getInt("systemicFatigue"),o.getInt("technicalComplexity"),
+    ExerciseMeasure.valueOf(o.getString("measure")),Laterality.valueOf(o.getString("laterality")),
+    ResistanceMode.valueOf(o.getString("resistanceMode")),
+    o.optString("progressionKey").takeIf{it.isNotBlank()},
+    o.getInt("targetSets"),o.optNullableDouble("targetValue"),o.optNullableInt("intervalRestSec"))
+
+class AppStore(context: Context) {
     private val prefs = context.getSharedPreferences("hybrid_fitness_store", Context.MODE_PRIVATE)
     fun loadAthlete():AthleteProfile { val storedGoal=prefs.getString("athlete_goal","Forza") ?: "Forza"; val goal=if(storedGoal=="Forza + skill"||storedGoal=="Forza + Skill Calisthenics") "Calisthenics" else storedGoal; return AthleteProfile(prefs.getString("athlete_name","") ?: "", goal, prefs.getString("athlete_level","Intermedio") ?: "Intermedio", prefs.getInt("athlete_days",3),prefs.getInt("athlete_age",0),prefs.getFloat("athlete_height",0f),prefs.getFloat("athlete_weight",0f),prefs.getString("athlete_sex","Non specificato")?:"Non specificato",(prefs.getString("athlete_priority_skills","")?:"").split("|").filter{it.isNotBlank()}) }
     fun saveAthlete(p: AthleteProfile) { prefs.edit().putString("athlete_name",p.name).putString("athlete_goal",p.goal).putString("athlete_level",p.level).putInt("athlete_days",p.daysPerWeek).putInt("athlete_age",p.age).putFloat("athlete_height",p.heightCm).putFloat("athlete_weight",p.weightKg).putString("athlete_sex",p.sex).putString("athlete_priority_skills",p.prioritySkills.joinToString("|")).apply(); if(p.weightKg>0){val h=prefs.getString("weight_history","")?:"";prefs.edit().putString("weight_history",(System.currentTimeMillis().toString()+":"+p.weightKg+";"+h).take(4000)).apply()} }
@@ -188,13 +214,13 @@ private class AppStore(context: Context) {
     fun saveTrainingPlan(plan:TrainingPlan) {
         val workouts=JSONArray()
         plan.workouts.forEach { w ->
-            val names=JSONArray(); w.exercises.forEach { names.put(it.name) }
+            val names=JSONArray(); val snapshots=JSONArray(); w.exercises.forEach { names.put(it.name); snapshots.put(it.toPlanSnapshotJson()) }
             workouts.put(JSONObject().put("id",w.id).put("epochDay",w.epochDay).put("weekIndex",w.weekIndex)
-                .put("sequenceInWeek",w.sequenceInWeek).put("exerciseNames",names).put("state",w.state.name)
+                .put("sequenceInWeek",w.sequenceInWeek).put("exerciseNames",names).put("exerciseSnapshots",snapshots).put("state",w.state.name)
                 .put("originalEpochDay",w.originalEpochDay).put("adaptationReason",w.adaptationReason)
                 .put("actualExecutionEpochDay",w.actualExecutionEpochDay))
         }
-        val root=JSONObject().put("schemaVersion",1).put("id",plan.id).put("startEpochDay",plan.startEpochDay)
+        val root=JSONObject().put("schemaVersion",2).put("id",plan.id).put("startEpochDay",plan.startEpochDay)
             .put("weeks",plan.weeks).put("daysPerWeek",plan.daysPerWeek).put("workouts",workouts)
         prefs.edit().putString("training_plan_v091",root.toString()).commit()
     }
@@ -204,7 +230,9 @@ private class AppStore(context: Context) {
         TrainingPlan(root.getString("id"),root.getLong("startEpochDay"),root.getInt("weeks"),root.getInt("daysPerWeek"),
             (0 until workouts.length()).map { i ->
                 val o=workouts.getJSONObject(i); val names=o.optJSONArray("exerciseNames") ?: JSONArray()
-                val planned=(0 until names.length()).mapNotNull { n -> exercises.firstOrNull { it.name==names.getString(n) } }
+                val snapshots=o.optJSONArray("exerciseSnapshots")
+                val planned=if(snapshots!=null) (0 until snapshots.length()).map { n -> exerciseFromPlanSnapshot(snapshots.getJSONObject(n)) }
+                    else (0 until names.length()).mapNotNull { n -> exercises.firstOrNull { it.name==names.getString(n) } }
                 PlannedWorkout(o.getString("id"),o.getLong("epochDay"),o.getInt("weekIndex"),o.getInt("sequenceInWeek"),planned,
                     runCatching{PlannedWorkoutState.valueOf(o.optString("state","PLANNED"))}.getOrDefault(PlannedWorkoutState.PLANNED),
                     o.optLong("originalEpochDay",o.getLong("epochDay")),o.optString("adaptationReason").takeIf{it.isNotBlank()},
