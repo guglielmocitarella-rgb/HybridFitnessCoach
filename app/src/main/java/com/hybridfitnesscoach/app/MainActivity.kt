@@ -824,7 +824,8 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 }
             }
         }
-        item { Box(Modifier.padding(horizontal=20.dp)) { ReadinessOverview(readinessScore,sessions) } }\n        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore)) } }
+        item { Box(Modifier.padding(horizontal=20.dp)) { ReadinessOverview(readinessScore,sessions) } }
+        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore)) } }
         item { SectionTitle("Il tuo Skill Tree") }
         items(athlete.prioritySkills.ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
             val states=SkillCatalog.progress(skill,sessions)
@@ -1426,4 +1427,5 @@ private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss:
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }
+
 

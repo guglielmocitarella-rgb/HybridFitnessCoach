@@ -33,4 +33,6 @@ class V09RegressionAuditTest {
         assertEquals(exercises.size,exercises.map{it.name.lowercase()}.distinct().size)
         assertTrue(exercises.any{it.equipment=="Ab Wheel"}); assertTrue(exercises.any{it.equipment=="Foam Roller"})
     }
-    @Test fun readinessBandsAreStableAtUxBoundaries(){assertEquals("RECUPERO",readinessBand(44));assertEquals("CAUTELA",readinessBand(45));assertEquals("BUONO",readinessBand(60));assertEquals("PRONTO",readinessBand(80))}\n}
+    @Test fun readinessBandsAreStableAtUxBoundaries(){assertEquals("RECUPERO",readinessBand(44));assertEquals("CAUTELA",readinessBand(45));assertEquals("BUONO",readinessBand(60));assertEquals("PRONTO",readinessBand(80))}
+}
+
