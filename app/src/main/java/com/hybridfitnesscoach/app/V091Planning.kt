@@ -51,10 +51,19 @@ object AdaptiveScheduler {
   val target=plan.workouts.firstOrNull{it.id==workoutId}?:return ScheduleUpdate(plan,emptyList())
   if(target.state==PlannedWorkoutState.COMPLETED)return ScheduleUpdate(plan,emptyList())
   val future=plan.workouts.filter{it.id!=workoutId && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.SKIPPED && it.epochDay>=target.epochDay}.sortedBy{it.epochDay}
-  val next=future.firstOrNull()
-  val newDate=next?.let{maxOf(it.epochDay,actualEpochDay+minimumGapDays)}
-  val decision=if(next!=null && newDate!=null && newDate>next.epochDay)ScheduleDecision(next.id,next.originalEpochDay,next.epochDay,newDate,ScheduleAction.MOVE_LATER,"Recupero dopo la sessione eseguita")else null
-  val changed=plan.workouts.map{item->when(item.id){workoutId->item.copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=actualEpochDay);decision?.workoutId->item.copy(epochDay=decision.suggestedDate,state=PlannedWorkoutState.RESCHEDULED,adaptationReason=decision.reason);else->item}}
-  return ScheduleUpdate(plan.copy(workouts=changed),listOfNotNull(decision))
+  val decisions=mutableListOf<ScheduleDecision>()
+  var precedingDate=actualEpochDay
+  for(next in future){
+   val suggested=maxOf(next.epochDay,precedingDate+minimumGapDays)
+   if(suggested>next.epochDay)decisions.add(ScheduleDecision(next.id,next.originalEpochDay,next.epochDay,suggested,ScheduleAction.MOVE_LATER,"Recupero dopo la sessione eseguita"))
+   precedingDate=suggested
+  }
+  val moves=decisions.associateBy{it.workoutId}
+  val changed=plan.workouts.map{item->val decision=moves[item.id];when{
+   item.id==workoutId->item.copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=actualEpochDay)
+   decision!=null->item.copy(epochDay=decision.suggestedDate,state=PlannedWorkoutState.RESCHEDULED,adaptationReason=decision.reason)
+   else->item
+  }}
+  return ScheduleUpdate(plan.copy(workouts=changed),decisions)
  }
 }
