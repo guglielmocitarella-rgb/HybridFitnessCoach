@@ -133,14 +133,10 @@ object PlannedWorkoutReconciler {
  }
  fun findCandidate(plan:TrainingPlan,session:SessionRecord,executionEpochDay:Long):PlannedWorkout? {
   if(session.completedSets<=0 || session.profileName.startsWith("Personalizzato",ignoreCase=true))return null
-  val eligible=plan.workouts.filter{it.state==PlannedWorkoutState.PLANNED || it.state==PlannedWorkoutState.RESCHEDULED}
-  session.plannedWorkoutId?.let{id->return eligible.firstOrNull{it.id==id}}
-  val actual=session.exerciseNames.toSet()
-  if(actual.isEmpty())return null
-  val matches=eligible.map{item->item to item.exercises.map{e->e.name}.toSet().intersect(actual).size}.filter{it.second>0}
-  val highest=matches.maxOfOrNull{it.second}?:return null
-  val best=matches.filter{it.second==highest}
-  return best.singleOrNull()?.first
+  val id=session.plannedWorkoutId ?: return null
+  return plan.workouts.firstOrNull{
+   it.id==id && (it.state==PlannedWorkoutState.PLANNED || it.state==PlannedWorkoutState.RESCHEDULED)
+  }
  }
  fun complete(plan:TrainingPlan,session:SessionRecord,executionEpochDay:Long,minimumGapDays:Int):ScheduleUpdate {
   val target=findCandidate(plan,session,executionEpochDay) ?: return ScheduleUpdate(plan,emptyList())
