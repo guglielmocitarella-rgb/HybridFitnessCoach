@@ -877,7 +877,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     val suggested = generateWorkout(profile,athlete,sessions,readinessScore)
                     Text(when(athlete.goal){"Calisthenics"->"Calisthenics"+athlete.prioritySkills.firstOrNull()?.let{" • "+it}.orEmpty();"Ipertrofia"->"Ipertrofia";"Forza"->"Forza";else->"Fitness generale"}, fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi  •  "+athlete.goal, color = Color.Gray)
-                    Button(onClick = { plannedWorkoutToRun=trainingPlan?.workouts?.firstOrNull{it.epochDay==java.time.LocalDate.now().toEpochDay() && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.SKIPPED}; workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
+                    Button(onClick = { plannedWorkoutToRun=trainingPlan?.workouts?.firstOrNull{it.epochDay==java.time.LocalDate.now().toEpochDay() && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL && it.state!=PlannedWorkoutState.SKIPPED}; workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
                 }
             }
@@ -892,7 +892,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                         Button(onClick={ensurePlan()},modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
                     } else {
                         val today=java.time.LocalDate.now().toEpochDay()
-                        val next=plan.workouts.filter{it.epochDay>=today && it.state!=PlannedWorkoutState.SKIPPED && it.state!=PlannedWorkoutState.COMPLETED}.minByOrNull{it.epochDay}
+                        val next=plan.workouts.filter{it.epochDay>=today && it.state!=PlannedWorkoutState.SKIPPED && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL}.minByOrNull{it.epochDay}
                         Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
                         Text(next?.let{"Prossima sessione: "+java.time.LocalDate.ofEpochDay(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
                     }
@@ -943,7 +943,7 @@ private fun TrainingPlanScreen(store:AppStore) {
                 Spacer(Modifier.width(8.dp))
                 FilterChip(selected=showPast,onClick={showPast=true},label={Text("Passati")})
             }
-            val visible=plan!!.workouts.filter{if(showPast) it.epochDay<today || it.state==PlannedWorkoutState.COMPLETED || it.state==PlannedWorkoutState.SKIPPED else it.epochDay>=today && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.SKIPPED}.sortedBy{it.epochDay}
+            val visible=plan!!.workouts.filter{if(showPast) it.epochDay<today || it.state==PlannedWorkoutState.COMPLETED || it.state==PlannedWorkoutState.PARTIAL || it.state==PlannedWorkoutState.SKIPPED else it.epochDay>=today && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL && it.state!=PlannedWorkoutState.SKIPPED}.sortedBy{it.epochDay}
             LazyColumn(contentPadding=PaddingValues(bottom=24.dp)) {
                 items(visible,key={it.id}) { workout ->
                     Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth().clickable{selected=workout},shape=RoundedCornerShape(16.dp)) {
