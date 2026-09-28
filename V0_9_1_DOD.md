@@ -13,7 +13,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plan snapshots depend on catalog until migrated | existing | partial | partial | pending |
 | Skip/reschedule/recover semantics | [~] skip, manual move, and completion reconciliation; sourced recovery gap pending | added | partial | partial | pending |
 | Exercise Detail 2.0 + stats + video | [~] real exercise stats; verified video metadata only | added | partial | partial | pending |
-| Runner integration | [~] today's planned session launches with persistent identity; full calendar launch pending | added | partial | partial | pending |
+| Runner integration | [~] today's and calendar-selected planned sessions launch with persistent identity; on-device flow pending | added | partial | partial | pending |
 | Progression / Skill Tree integration | [~] Exercise Detail opens linked Skill Tree nodes | existing v0.9 | partial | visible | pending |
 | Adaptive Coach uses history + plan | [ ] | [ ] | [ ] | [ ] | [ ] |
 | Source-based rest/prescriptions | [~] unsourced baseline rejected; catalog migration pending | added | pending | pending | pending |
@@ -21,7 +21,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Equipment/generator + sequencing/locking | [~] v0.9 baseline preserved | existing | existing | existing | pending |
 | Data migration/backward compatibility | [~] optional session and plan fields; upgrade regression pending | partial | partial | n/a | pending |
 | UX/dashboard/calendar polish | [~] plan preview, duration choice, past/future actions | n/a | partial | partial | pending |
-| Full regression + signed release APK | [~] latest green run before exercise snapshot persistence: 36424787394 | green at prior HEAD | partial | n/a | pending |
+| Full regression + signed release APK | [~] latest green run with calendar launch: 36427235930 | green at prior HEAD | partial | n/a | pending |
 
 Audit notes:
 - Repository/code/CI are authoritative; stale README status is not evidence.
@@ -33,3 +33,6 @@ Audit notes:
 - The source catalog and exercise videos still require verified primary references. A green CI build is not a v0.9.1 release gate by itself.
 
 - Plan schema v2 stores complete exercise definitions per planned workout; schema v1 loads by catalog name and is upgraded on the next save. Old sessions with no planned workout ID cannot be linked unambiguously to a historical plan.
+
+- Calendar launch routes the selected planned workout ID through Home to the existing runner. An already active workout resumes instead of being replaced. Device-level interaction remains to be checked.
+- Deleting a historical session currently removes its actual-set record but leaves the corresponding plan state completed/partial; a safe history correction model is still pending.
