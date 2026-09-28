@@ -55,8 +55,9 @@ object WorkoutRunnerEngine {
 internal fun elapsedWorkoutSeconds(state:WorkoutSessionState, now:Long):Int {
     val accumulated=state.elapsedBeforePauseMs.coerceAtLeast(0L)
     if(state.pausedAtEpochMs!=null){
+        if(accumulated>0L)return (accumulated/1000L).toInt()
         val legacyPausedElapsed=(state.pausedAtEpochMs-state.startedAtEpochMs.coerceAtMost(state.pausedAtEpochMs)).coerceAtLeast(0L)
-        return (maxOf(accumulated,legacyPausedElapsed)/1000L).toInt()
+        return (legacyPausedElapsed/1000L).toInt()
     }
     val wallClock=(now-state.startedAtEpochMs.coerceAtMost(now)).coerceAtLeast(0L)
     return (maxOf(accumulated,wallClock)/1000L).toInt()
