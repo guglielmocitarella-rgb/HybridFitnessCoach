@@ -932,7 +932,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
         val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;else->skillFilters}
         AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column(Modifier.clickable(enabled=type=="skills"){if(type=="skills"){selectedSkill=o;filterDialog=null}}){Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
     }
-    selected?.let{ex->ExerciseDetailDialog(ex=ex,onDismiss={selected=null})}
+    selected?.let{ex->ExerciseDetailDialog(ex=ex,sessions=sessions,onDismiss={selected=null})}
     selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }, sessions) }
     skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> onSessionSaved(record); skillWorkout=null }, initialSkill=skill,store=store) }
     if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->onSessionSaved(record);filteredWorkout=false},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna",filtersLocked=true,store=store)
@@ -1343,7 +1343,8 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
 }
 
 @Composable
-private fun ExerciseDetailDialog(ex: Exercise, onDismiss: () -> Unit) {
+private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, onDismiss: () -> Unit) {
+    val stats = remember(ex.name,sessions) { ExerciseStatistics.fromHistory(ex.name,sessions) }
     val instructions = when (ex.name) {
         "Corsa intervallata 60/60" -> "Alterna 60 secondi di corsa sostenuta e 60 secondi di recupero. Ripeti per il numero di intervalli previsto, mantenendo un ritmo controllabile e costante."
         "Trazioni prone" -> "Parti in sospensione completa, mantieni il tronco stabile e porta il petto verso la sbarra senza slancio. Torna in basso in controllo."
@@ -1372,6 +1373,15 @@ private fun ExerciseDetailDialog(ex: Exercise, onDismiss: () -> Unit) {
                 Text("Come eseguirlo", fontWeight = FontWeight.Bold)
                 Text(instructions, modifier = Modifier.padding(top = 6.dp))
                 Spacer(Modifier.height(12.dp))
+                if(stats.sessions>0){
+                    Spacer(Modifier.height(12.dp))
+                    Text("I tuoi progressi",fontWeight=FontWeight.Bold)
+                    Text("${stats.sessions} sessioni • ${stats.completedSets} serie completate")
+                    if(stats.totalReps>0)Text("${stats.totalReps} ripetizioni totali")
+                    if(stats.totalSeconds>0)Text("${stats.totalSeconds} secondi totali")
+                    stats.maxLoadKg?.let{Text("Carico massimo: ${it} kg")}
+                    if(stats.totalLoadVolumeKg>0)Text("Volume con carico: ${stats.totalLoadVolumeKg.toInt()} kg")
+                }
                 Text("Ruolo: " + ex.role, fontWeight = FontWeight.SemiBold)
                 if (ex.skills.isNotEmpty()) {
                     Text("Collegamenti: " + ex.skills.joinToString(" • "), color = Accent, modifier = Modifier.padding(top = 6.dp))
