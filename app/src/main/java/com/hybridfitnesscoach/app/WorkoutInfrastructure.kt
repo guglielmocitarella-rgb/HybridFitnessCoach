@@ -176,16 +176,3 @@ object AdaptiveCoach {
     }
 }
 
-fun calibratedSetRestSeconds(ex:Exercise, goal:String, level:String):Int {
-    val base=when {
-        ex.role=="Skill" || ex.technicalComplexity>=3 -> 120
-        ex.category==ExerciseCategory.OTHER && goal=="Forza" -> 150
-        ex.category==ExerciseCategory.OTHER -> 105
-        ex.category==ExerciseCategory.OTHER -> 60
-        else -> 75
-    }
-    val levelDelta=when(level){"Principiante"->-15;"Avanzato"->15;else->0}
-    return (base+levelDelta).coerceIn(45,180)
-}
-fun calibratedTransitionRestSeconds(ex:Exercise,goal:String,level:String):Int =
-    (calibratedSetRestSeconds(ex,goal,level)+30).coerceIn(60,210)
