@@ -218,6 +218,21 @@ private class AppStore(context: Context) {
         val all=listOf(s)+loadSessions()
         saveSessions(all)
     }
+    fun completePlannedWorkoutForSession(s:SessionRecord, minimumGapDays:Int=2):ScheduleUpdate? {
+        val plan=loadTrainingPlan() ?: return null
+        val executionDay=java.time.Instant.ofEpochMilli(s.timestamp).atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
+        val candidates=plan.workouts.filter { it.state==PlannedWorkoutState.PLANNED || it.state==PlannedWorkoutState.RESCHEDULED }
+        val target=candidates.minWithOrNull(compareBy<PlannedWorkout> {
+            val plannedNames=it.exercises.map{e->e.name}.toSet()
+            val actualNames=s.exerciseNames.toSet()
+            -(plannedNames.intersect(actualNames).size)
+        }.thenBy { kotlin.math.abs(it.epochDay-executionDay) }) ?: return null
+        val overlap=target.exercises.map{it.name}.toSet().intersect(s.exerciseNames.toSet()).size
+        if(overlap==0) return null
+        val update=AdaptiveScheduler.complete(plan,target.id,executionDay,minimumGapDays)
+        saveTrainingPlan(update.plan)
+        return update
+    }
 
     fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
 }
@@ -775,9 +790,9 @@ fun HybridFitnessApp() {
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
-                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
+                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
                     Tab.PLAN -> TrainingPlanScreen(store)
-                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> store.addSession(record); sessions = store.loadSessions() }
+                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
  { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile=created; store.saveActiveProfileName(created.name) },
