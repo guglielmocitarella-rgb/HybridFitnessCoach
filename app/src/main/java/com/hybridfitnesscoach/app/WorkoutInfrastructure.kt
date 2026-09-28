@@ -1,5 +1,12 @@
 package com.hybridfitnesscoach.app
 
+/** The persisted set is authoritative, including after process recreation. */
+internal fun runnerInputTarget(exercise:Exercise,set:WorkoutSetState?):Double = when(exercise.measure) {
+    ExerciseMeasure.REPS -> set?.targetReps?.toDouble()
+    ExerciseMeasure.SECONDS, ExerciseMeasure.DURATION, ExerciseMeasure.INTERVALS -> set?.targetSeconds?.toDouble()
+    ExerciseMeasure.DISTANCE -> set?.targetDistanceMeters
+} ?: prescriptionFor(exercise).value
+
 /**
  * Pure state transitions for the v0.8 runner. UI layers can dispatch these operations
  * without owning workout semantics. v0.9 sequencing can reuse the same state.

@@ -1104,9 +1104,10 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
 }
 
 @Composable
-private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation:LoadRecommendation?=null, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
+private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation:LoadRecommendation?=null, targetSet:WorkoutSetState?=null, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
     val p=prescriptionFor(ex)
-    var value by remember(ex.name){mutableStateOf(p.value.toString())}
+    val inputTarget=runnerInputTarget(ex,targetSet)
+    var value by remember(ex.name,inputTarget){mutableStateOf(inputTarget.toString())}
     var load by remember(ex.name,recommendation?.loadKg){mutableStateOf(recommendation?.loadKg?.toString()?:"")}
     var assistance by remember(ex.name,recommendation?.assistanceKg){mutableStateOf(recommendation?.assistanceKg?.toString()?:"")}
     Column {
@@ -1118,7 +1119,7 @@ private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation
         if(ex.resistanceMode==ResistanceMode.ASSISTED) OutlinedTextField(assistance,{assistance=it.filter{ch->ch.isDigit()||ch=='.'}},label={Text("Assistenza kg")},singleLine=true,enabled=enabled,modifier=Modifier.fillMaxWidth())
         if(ex.measure==ExerciseMeasure.INTERVALS) Text("Recupero intervallo: "+(ex.intervalRestSec?:ex.setRestSec)+" sec",color=Accent,fontSize=12.sp)
         Button(onClick={
-            val v=value.toDoubleOrNull()?:p.value
+            val v=value.toDoubleOrNull()?:inputTarget
             onComplete(if(ex.measure==ExerciseMeasure.REPS)v.toInt() else null,if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION||ex.measure==ExerciseMeasure.INTERVALS)v.toInt() else null,if(ex.measure==ExerciseMeasure.DISTANCE)v else null,load.toDoubleOrNull(),assistance.toDoubleOrNull())
         },enabled=enabled,modifier=Modifier.fillMaxWidth().padding(top=4.dp)){Text("COMPLETA SERIE")}
     }
@@ -1169,20 +1170,8 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
     val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Bilanciere","Manubri","Cavi","Macchine","Elastici","Panca","Kettlebell","Leg press","Anelli","TRX","Ab Wheel","Foam Roller")
-    fun contextualPrescription(ex:Exercise):ContextualPrescription? {
-        val readiness=readinessScore
-        val context=PrescriptionContext(
-            athlete.goal,athlete.level,ex.category,ex.intensity,ex.systemicFatigue,ex.technicalComplexity,
-            null,readiness,null
-        )
-        return SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,context)
-    }
-    fun prescription(ex:Exercise):Pair<Int,Int> {
-        val verified=contextualPrescription(ex)
-        val legacy=prescriptionFor(ex)
-        return (verified?.repsOrDuration?.toInt()?:legacy.value.toInt()) to (verified?.restSeconds?:ex.setRestSec)
-    }
-    fun targetSetCount(ex:Exercise):Int = contextualPrescription(ex)?.sets ?: prescriptionFor(ex).sets
+    fun prescription(ex:Exercise):Pair<Int,Int> = prescriptionFor(ex).value.toInt() to ex.setRestSec
+    fun targetSetCount(ex:Exercise):Int = prescriptionFor(ex).sets
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
         val eligible=skillEligibleExercises(sessions)
@@ -1277,13 +1266,11 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                 if(running&&n>0){Text("RPE: "+(exerciseRpe[ex.name]?.toString()?:"da indicare"),fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                 if(expanded){
                                     val p=prescriptionFor(ex)
-                                    val verifiedPrescription=contextualPrescription(ex)
                                     Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     Text(targetSetCount(ex).toString()+" serie × "+(reps[ex.name]?:p.value.toInt())+" "+p.unit+" • "+(restSeconds[ex.name]?:ex.setRestSec)+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
-                                    if(verifiedPrescription!=null) Text("Prescrizione verificata • "+verifiedPrescription.explanation,fontSize=10.sp,color=Accent)
-                                    if(SourcePrescriptionBaselineRegistry.baselineFor(ex,PrescriptionContext(athlete.goal,athlete.level,ex.category,ex.intensity,ex.systemicFatigue,ex.technicalComplexity,null,readinessScore,null))==null) Text("Target legacy: non ancora validato come prescrizione source-based",fontSize=10.sp,color=Color.Gray)
+                                    Text("APP_RULE / FALLBACK: target del catalogo adattato dal coach",fontSize=10.sp,color=Color.Gray)
                                     if(running && !done && !isSkipped){
-                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100))){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val planned=plannedExerciseState(0,ex).sets;val requiredSets=targetSetCount(ex);val old=executedSets[ex.name]?:List(requiredSets){idx->planned.getOrNull(idx)?.copy(index=idx)?:planned.last().copy(index=idx,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null,restUsedSec=null)};if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=targetSetCount(ex)){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
+                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100)),executedSets[ex.name]?.firstOrNull{!it.completed}){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val planned=plannedExerciseState(0,ex).sets;val requiredSets=targetSetCount(ex);val old=executedSets[ex.name]?:List(requiredSets){idx->planned.getOrNull(idx)?.copy(index=idx)?:planned.last().copy(index=idx,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null,restUsedSec=null)};if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=targetSetCount(ex)){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
 
                                         Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
 
@@ -1402,7 +1389,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                     Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
                                     if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA ESERCIZIO")}}}
                                     if(started&&!done&&!isSkipped){
-                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100))){ar,asec,dist,load,assist->
+                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100)),executedSets[ex.name]?.firstOrNull{!it.completed}){ar,asec,dist,load,assist->
                                             val p=prescriptionFor(ex)
                                             val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets
                                             if(count<old.size){
