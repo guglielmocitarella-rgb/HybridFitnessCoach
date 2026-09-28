@@ -20,7 +20,7 @@ data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val d
 object TrainingPlanEngine {
  fun schedule(planId:String,startEpochDay:Long,weeks:Int,trainingDays:Set<Int>,workoutFactory:(week:Int,session:Int)->List<Exercise>):TrainingPlan{
   require(weeks in 1..52);require(trainingDays.isNotEmpty());require(trainingDays.all{it in 1..7});val sorted=trainingDays.sorted()
-  val workouts=buildList{for(week in 0 until weeks)sorted.forEachIndexed{session,dayOfWeek->val offset=(dayOfWeek-1)+week*7L;add(PlannedWorkout(planId+"-w"+(week+1)+"-s"+(session+1),startEpochDay+offset,week,session,workoutFactory(week,session)))}}
+  val workouts=buildList{for(week in 0 until weeks)sorted.forEachIndexed{session,dayOfWeek->val startDayOfWeek=java.time.LocalDate.ofEpochDay(startEpochDay).dayOfWeek.value;val offset=((dayOfWeek-startDayOfWeek+7)%7)+week*7L;add(PlannedWorkout(planId+"-w"+(week+1)+"-s"+(session+1),startEpochDay+offset,week,session,workoutFactory(week,session)))}}
   return TrainingPlan(planId,startEpochDay,weeks,sorted.size,workouts)
  }
  fun reschedule(plan:TrainingPlan,workoutId:String,newEpochDay:Long,minimumGapDays:Int=1):TrainingPlan{val target=plan.workouts.firstOrNull{it.id==workoutId}?:return plan;val others=plan.workouts.filterNot{it.id==workoutId};val nearest=others.minOfOrNull{kotlin.math.abs(it.epochDay-newEpochDay)}?:Long.MAX_VALUE;val reason=if(nearest<minimumGapDays)"Sessione vicina: richiede rivalutazione Adaptive Coach" else null;val changed=target.copy(epochDay=newEpochDay,state=PlannedWorkoutState.RESCHEDULED,adaptationReason=reason);return plan.copy(workouts=(others+changed).sortedBy{it.epochDay})}
