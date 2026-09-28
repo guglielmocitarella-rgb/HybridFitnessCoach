@@ -256,7 +256,16 @@ class AppStore(context: Context) {
         return update
     }
 
-    fun deleteSession(timestamp:Long){ saveSessions(loadSessions().filterNot{it.timestamp==timestamp}) }
+    fun deleteSession(timestamp:Long){
+        val sessions=loadSessions()
+        val removed=sessions.firstOrNull{it.timestamp==timestamp} ?: return
+        val remaining=sessions.filterNot{it.timestamp==timestamp}
+        saveSessions(remaining)
+        loadTrainingPlan()?.let{plan->
+            val restored=PlannedWorkoutReconciler.afterDeletion(plan,removed,remaining)
+            if(restored!=plan)saveTrainingPlan(restored)
+        }
+    }
 }
 
 internal val profiles = listOf(
