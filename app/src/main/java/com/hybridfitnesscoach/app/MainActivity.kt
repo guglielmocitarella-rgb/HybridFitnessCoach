@@ -1069,6 +1069,7 @@ private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentPr
 }
 @Composable
 private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit, onDeleteSession: (Long) -> Unit) {
+    var pendingDeletion by remember { mutableStateOf<SessionRecord?>(null) }
     var edit by remember { mutableStateOf(false) }
     var selectedSession by remember { mutableStateOf<SessionRecord?>(null) }
     Column {
@@ -1082,14 +1083,27 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
         }
         SectionTitle("Storico allenamenti")
         if(sessions.isEmpty()) Text("Completa un allenamento per iniziare lo storico.", color=Color.Gray, modifier=Modifier.padding(horizontal=20.dp))
-        else LazyColumn(Modifier.padding(horizontal=20.dp).weight(1f,false)){items(sessions){s->Card(Modifier.fillMaxWidth().padding(bottom=8.dp).clickable{selectedSession=s}){Column(Modifier.padding(12.dp)){Row(verticalAlignment=Alignment.CenterVertically){Column(Modifier.weight(1f)){Text(s.profileName,fontWeight=FontWeight.Bold);Text(s.completedSets.toString()+"/"+s.totalSets+" serie • "+java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray,fontSize=12.sp);Text("TOCCA PER DETTAGLI",color=Accent,fontSize=11.sp)};TextButton(onClick={onDeleteSession(s.timestamp)}){Text("ELIMINA")}}}}}}
+        else LazyColumn(Modifier.padding(horizontal=20.dp).weight(1f,false)){items(sessions){s->Card(Modifier.fillMaxWidth().padding(bottom=8.dp).clickable{selectedSession=s}){Column(Modifier.padding(12.dp)){Row(verticalAlignment=Alignment.CenterVertically){Column(Modifier.weight(1f)){Text(s.profileName,fontWeight=FontWeight.Bold);Text(s.completedSets.toString()+"/"+s.totalSets+" serie • "+java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray,fontSize=12.sp);Text("TOCCA PER DETTAGLI",color=Accent,fontSize=11.sp)};TextButton(onClick={pendingDeletion=s}){Text("ELIMINA")}}}}}}
+    }
+    pendingDeletion?.let { doomed ->
+        AlertDialog(onDismissRequest={pendingDeletion=null},title={Text("Eliminare questo allenamento?")},
+            text={Text("La rimozione aggiorna progressi, Skill Tree e Adaptive Coach. L'eventuale sessione collegata torna disponibile nel programma.")},
+            confirmButton={TextButton(onClick={onDeleteSession(doomed.timestamp);pendingDeletion=null;selectedSession=null}){Text("ELIMINA")}},
+            dismissButton={TextButton(onClick={pendingDeletion=null}){Text("ANNULLA")}})
     }
     if(edit) AthleteDialog(athlete,{edit=false}) { onAthleteSave(it); edit=false }
     selectedSession?.let { s ->
         AlertDialog(onDismissRequest={selectedSession=null},title={Text("Dettaglio allenamento")},text={LazyColumn(Modifier.heightIn(max=500.dp)){
             item{Text(s.profileName,fontWeight=FontWeight.Bold);Text(java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",java.util.Locale.ITALY).format(java.util.Date(s.timestamp)),color=Color.Gray);Text(s.completedSets.toString()+"/"+s.totalSets+" serie completate",color=Accent,modifier=Modifier.padding(vertical=8.dp));if(s.workoutRpe>0)Text("Fatica workout: "+s.workoutRpe+"/10",fontWeight=FontWeight.Bold);if(s.durationSec>0)Text("Durata effettiva: "+String.format("%02d:%02d",s.durationSec/60,s.durationSec%60));Text("Workout programmato / eseguito",fontWeight=FontWeight.Bold)}
-            items(s.exerciseNames){name->val ex=exercises.firstOrNull{it.name==name};val done=s.completedByExercise[name]?:if(s.completedByExercise.isEmpty())0 else 0;Card(Modifier.fillMaxWidth().padding(vertical=3.dp)){Column(Modifier.padding(10.dp)){Text((if(done>=3)"✓ " else if(done>0)"◐ " else "○ ")+name+"  "+done+"/3",fontWeight=FontWeight.Bold);if(ex!=null){Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp);val p=prescriptionFor(ex);Text("Prescrizione: "+p.sets+" × "+p.value.toInt()+" "+p.unit,color=Accent,fontSize=12.sp);s.exerciseRpe[name]?.let{Text("Fatica percepita: "+it+"/10",fontWeight=FontWeight.Bold,fontSize=12.sp)}}}}}
-        }},confirmButton={TextButton(onClick={selectedSession=null}){Text("CHIUDI")}},dismissButton={TextButton(onClick={onDeleteSession(s.timestamp);selectedSession=null}){Text("ELIMINA SESSIONE")}})
+            items(historyExerciseDetails(s)){detail->
+                Card(Modifier.fillMaxWidth().padding(vertical=3.dp)) {
+                    Column(Modifier.padding(10.dp)) {
+                        Text(detail.name+(detail.completedSets?.let{" • $it"+(detail.totalSets?.let{"/$it"}?:"")+" serie completate"}?:""),fontWeight=FontWeight.Bold)
+                        detail.lines.forEach { Text(it,fontSize=13.sp) }
+                    }
+                }
+            }
+        }},confirmButton={TextButton(onClick={selectedSession=null}){Text("CHIUDI")}},dismissButton={TextButton(onClick={pendingDeletion=s}){Text("ELIMINA SESSIONE")}})
     }
 }
 

@@ -1,0 +1,38 @@
+package com.hybridfitnesscoach.app
+
+import java.util.Locale
+
+internal data class HistoryExerciseDetail(
+    val name:String, val completedSets:Int?, val totalSets:Int?, val lines:List<String>
+)
+
+private fun displayNumber(value:Double):String =
+    if(value % 1.0 == 0.0)value.toLong().toString() else String.format(Locale.ITALY,"%.1f",value)
+
+/** Display persisted performance only. Legacy counters cannot reconstruct actual sets. */
+internal fun historyExerciseDetails(session:SessionRecord):List<HistoryExerciseDetail> =
+    (session.exerciseNames + session.structuredExercises.map{it.exerciseName}).distinct().map { name ->
+        val saved=session.structuredExercises.firstOrNull{it.exerciseName==name}
+        if(saved==null) HistoryExerciseDetail(name,session.completedByExercise[name],null,
+            listOfNotNull("Dati effettivi per serie non disponibili per questo allenamento storico.",
+                session.exerciseRpe[name]?.let{"RPE esercizio: $it"}))
+        else HistoryExerciseDetail(name,saved.sets.count{it.completed},saved.sets.size,buildList {
+            if(saved.status==WorkoutExerciseStatus.SKIPPED)add("Esercizio saltato; le serie eseguite sono conservate.")
+            saved.sets.forEach { set ->
+                add("Serie ${set.index+1}" + if(set.completed) "" else " — non completata")
+                set.targetReps?.let{add("Target: $it reps")}
+                set.targetSeconds?.let{add("Target: $it sec")}
+                set.targetDistanceMeters?.let{add("Target: ${displayNumber(it)} m")}
+                if(set.completed) {
+                    set.actualReps?.let{add("Effettive: $it reps")}
+                    set.actualSeconds?.let{add("Effettivo: $it sec")}
+                    set.actualDistanceMeters?.let{add("Effettivo: ${displayNumber(it)} m")}
+                    set.actualLoadKg?.let{add("Carico: ${displayNumber(it)} kg")}
+                    set.actualAssistanceKg?.let{add("Assistenza: ${displayNumber(it)} kg")}
+                }
+            }
+            val rpe=saved.rpe ?: session.exerciseRpe[name]
+            if(rpe!=null)add("RPE esercizio: $rpe")
+            else add("RPE mancante: la prestazione non può validare una progressione che richiede RPE.")
+        })
+    }
