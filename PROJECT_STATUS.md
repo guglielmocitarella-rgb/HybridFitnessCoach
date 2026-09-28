@@ -2,9 +2,9 @@
 
 VERSION: v0.9.1
 BRANCH: feature/v0.9.1-training-plan
-HEAD: 886dbd8bac35ecac74f275b0cf0c5e46001e6664
-CI: pending for current HEAD
-LAST VERIFIED: CI #295 GREEN; CI #296 unit tests PASSED. Later audit commits require final CI gate.
+HEAD: 9a13540e278a9c0c37815db91da7a38d4bc4873a
+CI: GREEN — Android APK #302 on 9a13540e278a9c0c37815db91da7a38d4bc4873a
+LAST VERIFIED: 9a13540e278a9c0c37815db91da7a38d4bc4873a — CI #302 GREEN; unit tests, signed release APK, signature verification and artifact upload PASSED.
 
 OPEN P0:
 - NONE KNOWN.
@@ -13,7 +13,6 @@ OPEN P1:
 - NONE KNOWN after remediation of paused timer compatibility, atomic linked history/plan deletion, and duplicate skill-performance counting.
 
 OPEN P2:
-- Final CI verification of backward-compatibility regression coverage.
 - Device-level interaction/regression is not executable through repository CI and remains an explicit external verification boundary.
 
 VERIFIED AUDIT AREAS:
@@ -28,9 +27,8 @@ VERIFIED AUDIT AREAS:
 
 TEST STATUS:
 - Repository unit-test gate has passed on preceding audit checkpoints.
-- Current HEAD requires final Android APK workflow: unit tests, signed release build, signature verification, artifact upload.
+- CI #302 on audited HEAD: Run unit tests PASSED; Build signed release APK PASSED; Verify APK signature PASSED; Upload signed APK PASSED.
 
 NEXT:
-- Require current HEAD CI GREEN.
-- If red, diagnose/fix/repeat.
-- If green, v0.9.1 repository audit closes with no known P0/P1 and critical P2 repository paths verified; retain device-level interaction testing as documented external verification.
+- Repository audit CLOSED for v0.9.1.
+- Retain device-level interaction/regression as the documented external verification boundary before distribution/release acceptance.
