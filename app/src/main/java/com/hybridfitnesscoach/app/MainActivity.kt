@@ -217,8 +217,9 @@ internal fun skillPerformance(skill:String,sessions:List<SessionRecord>):SkillPe
     }
     if(relevant.isEmpty()) return SkillPerformance(0.0,7.0,100,0)
     val recent=relevant.take(5)
-    val planned=recent.sumOf { session -> session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{it.sets.size}.takeIf{it>0} ?: relevantNames.sumOf{name->session.completedByExercise[name]?:0} }
-    val completed=recent.sumOf { session -> session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{ex->ex.sets.count{it.completed}}.takeIf{it>0} ?: relevantNames.sumOf{name->session.completedByExercise[name]?:0} }
+    fun relevantAttempts(session:SessionRecord)=session.structuredExercises.filter{it.exerciseName in relevantNames}.distinctBy{it.exerciseName}
+    val planned=recent.sumOf { session -> relevantAttempts(session).sumOf{it.sets.size}.takeIf{it>0} ?: relevantNames.sumOf{name->session.completedByExercise[name]?:0} }
+    val completed=recent.sumOf { session -> relevantAttempts(session).sumOf{ex->ex.sets.count{it.completed}}.takeIf{it>0} ?: relevantNames.sumOf{name->session.completedByExercise[name]?:0} }
     val success=if(planned>0) completed.toDouble()/planned else 0.0
     val rpes=recent.flatMap{session->session.exerciseRpe.filterKeys{it in relevantNames}.values}.filter{it>0}
     val avgRpe=if(rpes.isEmpty()) 7.0 else rpes.average()
@@ -227,8 +228,9 @@ internal fun skillPerformance(skill:String,sessions:List<SessionRecord>):SkillPe
     val recovery=groups.mapNotNull{recoveryMap[it]}.minOrNull() ?: 100
     var streak=0
     for(session in relevant){
-        val plannedSession=session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{it.sets.size}
-        val doneSession=session.structuredExercises.filter{it.exerciseName in relevantNames}.sumOf{ex->ex.sets.count{it.completed}}
+        val attempts=relevantAttempts(session)
+        val plannedSession=attempts.sumOf{it.sets.size}
+        val doneSession=attempts.sumOf{ex->ex.sets.count{it.completed}}
         val rate=if(plannedSession>0) doneSession.toDouble()/plannedSession else 0.0
         if(rate>=0.90) streak++ else break
     }
