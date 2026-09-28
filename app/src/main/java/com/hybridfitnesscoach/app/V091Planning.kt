@@ -65,7 +65,7 @@ object PlannedWorkoutReconciler {
 object AdaptiveScheduler {
  fun skip(plan:TrainingPlan,workoutId:String):ScheduleUpdate {
   val item=plan.workouts.firstOrNull{it.id==workoutId}?:return ScheduleUpdate(plan,emptyList())
-  if(item.state==PlannedWorkoutState.SKIPPED || item.state==PlannedWorkoutState.COMPLETED)return ScheduleUpdate(plan,emptyList())
+  if(item.state==PlannedWorkoutState.SKIPPED || item.state==PlannedWorkoutState.COMPLETED || item.state==PlannedWorkoutState.PARTIAL)return ScheduleUpdate(plan,emptyList())
   val updated=plan.copy(workouts=plan.workouts.map{if(it.id==workoutId)it.copy(state=PlannedWorkoutState.SKIPPED)else it})
   return ScheduleUpdate(updated,listOf(ScheduleDecision(item.id,item.originalEpochDay,item.epochDay,item.epochDay,ScheduleAction.SKIP,"Sessione saltata; piano successivo mantenuto")))
  }
