@@ -971,24 +971,52 @@ private fun TrainingPlanScreen(store:AppStore) {
         }
     }
     selected?.let { workout ->
-        AlertDialog(onDismissRequest={selected=null},title={Text("Gestisci sessione")},text={
-            Column {
-                Text(java.time.LocalDate.ofEpochDay(workout.epochDay).toString()+" • "+workout.exercises.size+" esercizi")
-                Spacer(Modifier.height(12.dp))
-                Text("Riprogramma di:",fontWeight=FontWeight.SemiBold)
-                Row(verticalAlignment=Alignment.CenterVertically) {
-                    IconButton(onClick={rescheduleOffset=(rescheduleOffset-1).coerceAtLeast(1)}){Icon(Icons.Default.Remove,"Riduci")}
-                    Text("+$rescheduleOffset giorni",fontWeight=FontWeight.Bold)
-                    IconButton(onClick={rescheduleOffset=(rescheduleOffset+1).coerceAtMost(14)}){Icon(Icons.Default.Add,"Aumenta")}
+        val historical=workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL
+        val actual=if(historical)store.loadSessions().firstOrNull{it.plannedWorkoutId==workout.id}else null
+        AlertDialog(onDismissRequest={selected=null},title={Text(if(historical)"Allenamento eseguito" else "Gestisci sessione")},text={
+            LazyColumn(Modifier.heightIn(max=480.dp)) {
+                item {
+                    Text("Pianificato: "+java.time.LocalDate.ofEpochDay(workout.originalEpochDay))
+                    if(workout.epochDay!=workout.originalEpochDay)Text("Riprogrammato: "+java.time.LocalDate.ofEpochDay(workout.epochDay))
+                    workout.actualExecutionEpochDay?.let{Text("Eseguito: "+java.time.LocalDate.ofEpochDay(it))}
+                    Spacer(Modifier.height(12.dp))
+                }
+                if(historical){
+                    if(actual==null)item{Text("Dettagli della sessione non disponibili nello storico.",color=Color.Gray)}
+                    else {
+                        item{Text("Durata: "+(actual.durationSec/60)+" min • "+actual.completedSets+"/"+actual.totalSets+" serie",fontWeight=FontWeight.SemiBold)}
+                        items(actual.structuredExercises){exercise->
+                            Column(Modifier.padding(vertical=6.dp)){
+                                Text(exercise.exerciseName,fontWeight=FontWeight.SemiBold)
+                                exercise.sets.filter{it.completed}.forEach{set->
+                                    val result=listOfNotNull(set.actualReps?.let{"$it rip."},set.actualSeconds?.let{"$it s"},set.actualLoadKg?.let{"$it kg"},set.restUsedSec?.let{"recupero $it s"}).joinToString(" • ")
+                                    Text("Serie "+(set.index+1)+": "+result,fontSize=12.sp)
+                                }
+                            }
+                        }
+                        if(actual.skippedExercises.isNotEmpty())item{Text("Saltati: "+actual.skippedExercises.joinToString(),fontSize=12.sp)}
+                    }
+                } else {
+                    item {
+                        Text(workout.exercises.joinToString(" • "){it.name})
+                        Spacer(Modifier.height(12.dp))
+                        Text("Riprogramma di:",fontWeight=FontWeight.SemiBold)
+                        Row(verticalAlignment=Alignment.CenterVertically) {
+                            IconButton(onClick={rescheduleOffset=(rescheduleOffset-1).coerceAtLeast(1)}){Icon(Icons.Default.Remove,"Riduci")}
+                            Text("+$rescheduleOffset giorni",fontWeight=FontWeight.Bold)
+                            IconButton(onClick={rescheduleOffset=(rescheduleOffset+1).coerceAtMost(14)}){Icon(Icons.Default.Add,"Aumenta")}
+                        }
+                    }
                 }
             }
         },confirmButton={
-            TextButton(onClick={
-                plan=TrainingPlanEngine.reschedule(plan!!,workout.id,workout.epochDay+rescheduleOffset,minimumGapDays=2)
+            if(historical)TextButton(onClick={selected=null}){Text("CHIUDI")}
+            else TextButton(onClick={
+                plan=TrainingPlanEngine.reschedule(plan!!,workout.id,workout.epochDay+rescheduleOffset,minimumGapDays=0)
                 store.saveTrainingPlan(plan!!); selected=null;rescheduleOffset=1
             }){Text("RIPROGRAMMA")}
         },dismissButton={
-            Row {
+            if(!historical)Row {
                 TextButton(onClick={
                     plan=TrainingPlanEngine.skip(plan!!,workout.id)
                     store.saveTrainingPlan(plan!!);selected=null
