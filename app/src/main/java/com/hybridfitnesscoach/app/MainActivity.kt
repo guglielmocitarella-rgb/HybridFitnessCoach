@@ -5,6 +5,8 @@ import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -1596,7 +1598,7 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
         onDismissRequest = onDismiss,
         title = { Text(ex.name) },
         text = {
-            Column {
+            Column(Modifier.heightIn(max=480.dp).verticalScroll(rememberScrollState())) {
                 Text(ex.group + " • " + ex.equipment + " • " + ex.level, color = Color.Gray)
                 Spacer(Modifier.height(14.dp))
                 Text("Come eseguirlo", fontWeight = FontWeight.Bold)
