@@ -69,6 +69,25 @@ class V091PlanningTest {
   assertEquals(1,combined.upcomingSessions)
  }
 
+ @Test fun schedulingRejectsZeroWeeksAndZeroTrainingDays(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,0,setOf(1)){_,_->listOf(ex)}}
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,emptySet()){_,_->listOf(ex)}}
+ }
+ @Test fun oneWeekOneDayCreatesExactlyOneStableWorkout(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val plan=TrainingPlanEngine.schedule("p",1000,1,setOf(java.time.LocalDate.ofEpochDay(1000).dayOfWeek.value)){_,_->listOf(ex)}
+  assertEquals(1,plan.workouts.size);assertEquals(1000L,plan.workouts.single().epochDay);assertEquals("p-w1-s1",plan.workouts.single().id)
+ }
+ @Test fun completionPreservesWorkoutIdentityAcrossAdaptiveMoves(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val plan=TrainingPlanEngine.scheduleImmediately("p",1000,2,2){_,_->listOf(ex)}
+  val ids=plan.workouts.map{it.id}
+  val update=AdaptiveScheduler.complete(plan,ids.first(),1004,2)
+  assertEquals(ids,update.plan.workouts.map{it.id})
+  assertEquals(ids.size,update.plan.workouts.map{it.id}.distinct().size)
+ }
+
  @Test fun evidenceAuditClaimsOnlyVerifiedGeneralResistancePrescriptionCoverage(){
   val audit=ExerciseEvidenceRegistry.audit(exercises)
   assertEquals(exercises.distinctBy{it.name}.size,audit.totalExercises)
