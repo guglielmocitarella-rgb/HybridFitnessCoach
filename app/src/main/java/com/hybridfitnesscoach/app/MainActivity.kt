@@ -791,6 +791,7 @@ fun HybridFitnessApp() {
     var activeProfile by remember { mutableStateOf(customProfiles.firstOrNull { it.name == store.loadActiveProfileName() } ?: customProfiles.firstOrNull() ?: EquipmentProfile("Nessun profilo","📍",emptyList())) }
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
+    var calendarWorkout by remember { mutableStateOf<PlannedWorkout?>(null) }
     val health=rememberHealthConnectState()
     CompositionLocalProvider(LocalHealthConnect provides health) {
     MaterialTheme(colorScheme = lightColorScheme(primary = Accent, background = Bg, surface = Color.White)) {
@@ -812,8 +813,8 @@ fun HybridFitnessApp() {
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
-                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
-                    Tab.PLAN -> TrainingPlanScreen(store)
+                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, calendarWorkout, { calendarWorkout=null }) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
+                    Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
                     Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
@@ -872,7 +873,7 @@ internal fun nextUnlockLabel(states:List<SkillNodeProgress>):String {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, onSessionSaved: (SessionRecord) -> Unit) {
+private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Unit) {
     val readinessScore=LocalHealthConnect.current.readiness
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
@@ -883,6 +884,13 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var requestedWeeks by remember { mutableIntStateOf(8) }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
+    LaunchedEffect(calendarWorkout?.id) {
+        calendarWorkout?.let { requested ->
+            if(restoredWorkout==null) plannedWorkoutToRun=requested
+            workoutOpen=true
+            onCalendarWorkoutConsumed()
+        }
+    }
     fun ensurePlan():TrainingPlan {
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
@@ -961,7 +969,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
 }
 
 @Composable
-private fun TrainingPlanScreen(store:AppStore) {
+private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->Unit) {
     val today=java.time.LocalDate.now().toEpochDay()
     var plan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var showPast by remember { mutableStateOf(false) }
@@ -990,7 +998,7 @@ private fun TrainingPlanScreen(store:AppStore) {
                             Text(workout.exercises.joinToString(" • "){it.name},fontSize=12.sp,modifier=Modifier.padding(top=5.dp))
                             if(workout.epochDay!=workout.originalEpochDay) Text("Data originale: "+java.time.LocalDate.ofEpochDay(workout.originalEpochDay),fontSize=11.sp,color=Color.Gray)
                             workout.adaptationReason?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
-                            if(workout.state==PlannedWorkoutState.PLANNED || workout.state==PlannedWorkoutState.RESCHEDULED) Text("Tocca per saltare o riprogrammare",fontSize=11.sp,color=Accent,modifier=Modifier.padding(top=6.dp))
+                            if(workout.state==PlannedWorkoutState.PLANNED || workout.state==PlannedWorkoutState.RESCHEDULED) Text("Tocca per avviare, saltare o riprogrammare",fontSize=11.sp,color=Accent,modifier=Modifier.padding(top=6.dp))
                         }
                     }
                 }
@@ -1045,6 +1053,7 @@ private fun TrainingPlanScreen(store:AppStore) {
             }){Text("RIPROGRAMMA")}
         },dismissButton={
             if(!historical)Row {
+                TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=workout.exercises.isNotEmpty()){Text("INIZIA")}
                 TextButton(onClick={
                     plan=TrainingPlanEngine.skip(plan!!,workout.id)
                     store.saveTrainingPlan(plan!!);selected=null
