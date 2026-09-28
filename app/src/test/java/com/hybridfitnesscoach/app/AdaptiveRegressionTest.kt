@@ -25,6 +25,17 @@ class AdaptiveRegressionTest {
         val one=session(1,attempt()).copy(structuredExercises=listOf(attempt(),attempt()))
         assertEquals(ProgressionStatus.IN_PROGRESS,ProgressionEngine.evaluate(node,emptySet(),listOf(one)).status)
     }
+    @Test fun duplicateExerciseEntriesDoNotDoubleCountSkillPerformance() {
+        val skillExercise = exercises.first { it.skills.isNotEmpty() }
+        val skill = skillExercise.skills.first()
+        val attempt = plannedExerciseState(0, skillExercise).let { state ->
+            state.copy(sets = state.sets.map { it.copy(completed = true) }, status = WorkoutExerciseStatus.COMPLETED)
+        }
+        val single = SessionRecord(2, "P", attempt.sets.size, attempt.sets.size,
+            structuredExercises = listOf(attempt))
+        val duplicate = single.copy(structuredExercises = listOf(attempt, attempt))
+        assertEquals(skillPerformance(skill, listOf(single)), skillPerformance(skill, listOf(duplicate)))
+    }
     @Test fun regenerationCannotDuplicateFallbackExercise() {
         val a=bench.copy(name="A");val b=bench.copy(name="B")
         val result=regenerateUnpinned(listOf(a,b),listOf(b),emptySet())
