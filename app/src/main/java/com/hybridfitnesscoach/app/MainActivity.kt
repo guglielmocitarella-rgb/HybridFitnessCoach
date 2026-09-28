@@ -743,7 +743,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Tab { HOME, LIBRARY, EQUIPMENT, PROGRESS }
+enum class Tab { HOME, PLAN, LIBRARY, EQUIPMENT, PROGRESS }
 
 @Composable
 fun HybridFitnessApp() {
@@ -763,6 +763,7 @@ fun HybridFitnessApp() {
                 NavigationBar(containerColor = Color.White) {
                     listOf(
                         Triple(Tab.HOME, Icons.Default.Home, "Oggi"),
+                        Triple(Tab.PLAN, Icons.Default.DateRange, "Piano"),
                         Triple(Tab.LIBRARY, Icons.Default.Search, "Esercizi"),
                         Triple(Tab.EQUIPMENT, Icons.Default.FitnessCenter, "Attrezzatura"),
                         Triple(Tab.PROGRESS, Icons.Default.TrendingUp, "Progressi")
@@ -775,6 +776,7 @@ fun HybridFitnessApp() {
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }) { record -> store.addSession(record); sessions = store.loadSessions() }
+                    Tab.PLAN -> TrainingPlanScreen(store.loadTrainingPlan())
                     Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> store.addSession(record); sessions = store.loadSessions() }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
@@ -912,6 +914,42 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     treeSkill?.let{skill->SkillDetailDialog(skill,athlete,{treeSkill=null},{customSkill=skill;treeSkill=null;customWorkoutOpen=true},sessions)}
     if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, onDismiss = { workoutOpen = false }, onSave = onSessionSaved) }
     if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, initialSkill=customSkill, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
+}
+
+@Composable
+private fun TrainingPlanScreen(plan:TrainingPlan?) {
+    val today=java.time.LocalDate.now().toEpochDay()
+    var showPast by remember { mutableStateOf(false) }
+    Column(Modifier.fillMaxSize()) {
+        Header("Programma","Calendario allenamenti • passato e futuro")
+        if(plan==null) {
+            Card(Modifier.padding(20.dp).fillMaxWidth()){Text("Crea il programma dalla schermata Oggi.",modifier=Modifier.padding(20.dp))}
+        } else {
+            Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically) {
+                FilterChip(selected=!showPast,onClick={showPast=false},label={Text("Futuri")})
+                Spacer(Modifier.width(8.dp))
+                FilterChip(selected=showPast,onClick={showPast=true},label={Text("Passati")})
+            }
+            val visible=plan.workouts.filter{if(showPast) it.epochDay<today || it.state==PlannedWorkoutState.COMPLETED || it.state==PlannedWorkoutState.SKIPPED else it.epochDay>=today && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.SKIPPED}.sortedBy{it.epochDay}
+            LazyColumn(contentPadding=PaddingValues(bottom=24.dp)) {
+                items(visible,key={it.id}) { workout ->
+                    Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth(),shape=RoundedCornerShape(16.dp)) {
+                        Column(Modifier.padding(16.dp)) {
+                            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
+                                Text(java.time.LocalDate.ofEpochDay(workout.epochDay).toString(),fontWeight=FontWeight.Bold)
+                                Text(workout.state.name,fontSize=12.sp,color=Accent,fontWeight=FontWeight.SemiBold)
+                            }
+                            Text("Settimana "+(workout.weekIndex+1)+" • Sessione "+(workout.sequenceInWeek+1),fontSize=13.sp,color=Color.Gray)
+                            Text(workout.exercises.joinToString(" • "){it.name},fontSize=12.sp,modifier=Modifier.padding(top=5.dp))
+                            if(workout.epochDay!=workout.originalEpochDay) Text("Data originale: "+java.time.LocalDate.ofEpochDay(workout.originalEpochDay),fontSize=11.sp,color=Color.Gray)
+                            workout.adaptationReason?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
+                        }
+                    }
+                }
+                if(visible.isEmpty()) item{Text("Nessuna sessione in questa vista.",modifier=Modifier.padding(20.dp),color=Color.Gray)}
+            }
+        }
+    }
 }
 
 @Composable
