@@ -3,6 +3,37 @@ import kotlin.math.roundToInt
 enum class EvidenceType { GUIDELINE, TEXTBOOK, TECHNIQUE_MANUAL, PROGRESSION_REFERENCE, INTERNAL_OBSERVATION }
 data class EvidenceRef(val sourceId:String,val sourceTitle:String,val section:String?=null,val pageOrLocation:String?=null,val evidenceType:EvidenceType)
 data class ExerciseEvidence(val exerciseName:String,val technique:List<EvidenceRef> = emptyList(),val anatomy:List<EvidenceRef> = emptyList(),val prescription:List<EvidenceRef> = emptyList(),val progression:List<EvidenceRef> = emptyList()){val all:List<EvidenceRef> get()=(technique+anatomy+prescription+progression).distinct()}
+enum class EvidenceCoverage { NONE, TECHNIQUE_ONLY, PRESCRIPTION_ONLY, PARTIAL, COMPLETE }
+data class EvidenceAudit(val totalExercises:Int,val exercisesWithAnyEvidence:Int,val exercisesWithPrescriptionEvidence:Int,val completeExercises:Int,val missingExerciseNames:List<String>) {
+ val anyCoveragePercent:Int get()=if(totalExercises==0)100 else exercisesWithAnyEvidence*100/totalExercises
+ val prescriptionCoveragePercent:Int get()=if(totalExercises==0)100 else exercisesWithPrescriptionEvidence*100/totalExercises
+ val completeCoveragePercent:Int get()=if(totalExercises==0)100 else completeExercises*100/totalExercises
+}
+object ExerciseEvidenceRegistry {
+ private val entries:Map<String,ExerciseEvidence> = emptyMap()
+ fun evidenceFor(exerciseName:String):ExerciseEvidence?=entries[exerciseName]
+ fun coverage(exerciseName:String):EvidenceCoverage {
+  val e=evidenceFor(exerciseName)?:return EvidenceCoverage.NONE
+  val technique=e.technique.isNotEmpty() || e.anatomy.isNotEmpty()
+  val prescription=e.prescription.isNotEmpty()
+  val progression=e.progression.isNotEmpty()
+  return when {
+   technique && prescription && progression->EvidenceCoverage.COMPLETE
+   technique && prescription->EvidenceCoverage.PARTIAL
+   technique->EvidenceCoverage.TECHNIQUE_ONLY
+   prescription->EvidenceCoverage.PRESCRIPTION_ONLY
+   else->EvidenceCoverage.NONE
+  }
+ }
+ fun audit(catalog:List<Exercise>):EvidenceAudit {
+  val unique=catalog.distinctBy{it.name}
+  val covered=unique.filter{evidenceFor(it.name)?.all?.isNotEmpty()==true}
+  val prescription=unique.filter{evidenceFor(it.name)?.prescription?.isNotEmpty()==true}
+  val complete=unique.filter{coverage(it.name)==EvidenceCoverage.COMPLETE}
+  return EvidenceAudit(unique.size,covered.size,prescription.size,complete.size,unique.filter{evidenceFor(it.name)?.all?.isNotEmpty()!=true}.map{it.name}.sorted())
+ }
+}
+
 data class PrescriptionContext(val goal:String,val athleteLevel:String,val exerciseType:ExerciseCategory,val intensity:Int,val volume:Int,val fatigue:Int,val recentPerformance:Double?,val recoveryStatus:Int?,val skillLevel:Int?)
 data class SourcePrescriptionBaseline(val sets:Int,val repsOrDuration:Double,val loadKg:Double?=null,val rirOrRpe:Double?=null,val restSeconds:Int,val tempo:String?=null,val evidence:List<EvidenceRef>){init{require(sets>0);require(repsOrDuration>0);require(restSeconds>0);require(evidence.isNotEmpty()){"A source-based baseline requires provenance"}}}
 data class ContextualPrescription(val sets:Int,val repsOrDuration:Double,val loadKg:Double?,val rirOrRpe:Double?,val restSeconds:Int,val tempo:String?,val progressionSuggestion:AdaptiveDecision,val evidence:List<EvidenceRef>,val explanation:String)

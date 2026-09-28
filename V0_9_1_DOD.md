@@ -6,7 +6,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Gate | Status | Tests | E2E | UX | CI |
 |---|---|---|---|---|---|
 | app version 0.9.1 | [x] | n/a | [x] | n/a | pending |
-| Evidence/provenance model | [~] architecture; catalog migration pending | added | pending | pending | pending |
+| Evidence/provenance model | [~] registry + measurable coverage audit; verified catalog migration pending | added | partial | pending | pending |
 | Contextual Prescription Engine | [~] sourced baseline + bounded adaptation | added | pending | pending | pending |
 | Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; progression still pending | added | partial | visible | pending |
 | Calendar past/future | [~] past/future list, actions and actual set detail for linked historical sessions | added | partial | visible | pending |
@@ -17,7 +17,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Progression / Skill Tree integration | [~] Exercise Detail opens linked Skill Tree nodes | existing v0.9 | partial | visible | pending |
 | Adaptive Coach uses history + plan | [ ] | [ ] | [ ] | [ ] | [ ] |
 | Source-based rest/prescriptions | [~] unsourced baseline rejected; catalog migration pending | added | pending | pending | pending |
-| Exercise database source audit | [ ] | existing validators | pending | [ ] | [ ] |
+| Exercise database source audit | [~] deterministic coverage audit added; verified source entries pending | added | partial | n/a | pending |
 | Equipment/generator + sequencing/locking | [~] v0.9 baseline preserved | existing | existing | existing | pending |
 | Data migration/backward compatibility | [~] optional session and plan fields; upgrade regression pending | partial | partial | n/a | pending |
 | UX/dashboard/calendar polish | [~] plan preview, duration choice, past/future actions | n/a | partial | partial | pending |
@@ -36,3 +36,5 @@ Audit notes:
 
 - Calendar launch routes the selected planned workout ID through Home to the existing runner. An already active workout resumes instead of being replaced. Device-level interaction remains to be checked.
 - Deleting the only linked historical session reopens its planned workout while retaining the other scheduled dates; duplicate linked records keep the workout completed. The deletion operation and plan write are not transactional.
+
+- Provenance coverage is fail-closed: the registry starts empty because no verified technical source catalog is currently committed. CI tests require unverified exercises to remain explicitly uncovered rather than receiving fabricated citations.

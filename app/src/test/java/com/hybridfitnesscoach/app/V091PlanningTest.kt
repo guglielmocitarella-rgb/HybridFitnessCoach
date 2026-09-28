@@ -68,4 +68,17 @@ class V091PlanningTest {
   assertNotEquals(ProgressionDecision.ADVANCE,combined.plan.decision)
   assertEquals(1,combined.upcomingSessions)
  }
+
+ @Test fun evidenceAuditDoesNotClaimCoverageForUnverifiedCatalog(){
+  val audit=ExerciseEvidenceRegistry.audit(exercises)
+  assertEquals(exercises.distinctBy{it.name}.size,audit.totalExercises)
+  assertEquals(0,audit.exercisesWithAnyEvidence)
+  assertEquals(0,audit.exercisesWithPrescriptionEvidence)
+  assertEquals(0,audit.completeExercises)
+  assertEquals(audit.totalExercises,audit.missingExerciseNames.size)
+ }
+ @Test fun evidenceRegistryDefaultsToNoneInsteadOfInventingProvenance(){
+  assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage("__unknown__"))
+  assertNull(ExerciseEvidenceRegistry.evidenceFor("__unknown__"))
+ }
 }
