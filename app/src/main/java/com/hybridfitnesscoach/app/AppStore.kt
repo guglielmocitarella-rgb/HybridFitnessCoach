@@ -214,7 +214,7 @@ class AppStore(context: Context) {
     }
     fun clearActiveWorkout() = write { remove("active_workout_v1") }
 
-    fun saveTrainingPlan(plan: TrainingPlan) {
+    private fun trainingPlanJson(plan: TrainingPlan): String {
         val workouts = JSONArray()
         plan.workouts.forEach { w ->
             val snapshots = JSONArray(); w.exercises.forEach { snapshots.put(it.toPlanSnapshotJson()) }
@@ -223,10 +223,11 @@ class AppStore(context: Context) {
                 .put("exerciseSnapshots", snapshots).put("state", w.state.name).put("originalEpochDay", w.originalEpochDay)
                 .put("adaptationReason", w.adaptationReason).put("actualExecutionEpochDay", w.actualExecutionEpochDay))
         }
-        val root = JSONObject().put("schemaVersion", 2).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
-            .put("weeks", plan.weeks).put("daysPerWeek", plan.daysPerWeek).put("workouts", workouts)
-        write { putString("training_plan_v091", root.toString()) }
+        return JSONObject().put("schemaVersion", 2).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
+            .put("weeks", plan.weeks).put("daysPerWeek", plan.daysPerWeek).put("workouts", workouts).toString()
     }
+
+    fun saveTrainingPlan(plan: TrainingPlan) = write { putString("training_plan_v091", trainingPlanJson(plan)) }
 
     private fun readTrainingPlan(): TrainingPlan? {
         val raw = string("training_plan_v091") ?: return null
@@ -284,7 +285,7 @@ class AppStore(context: Context) {
         }
     }
 
-    fun saveSessions(all: List<SessionRecord>) {
+    private fun sessionsJson(all: List<SessionRecord>): String {
         val array = JSONArray()
         all.distinctBy { it.timestamp }.sortedByDescending { it.timestamp }.forEach { s ->
             val structured = JSONArray(); s.structuredExercises.forEach { structured.put(it.toJson()) }
@@ -294,8 +295,10 @@ class AppStore(context: Context) {
                 .put("durationSec", s.durationSec).put("structuredExercises", structured).put("skippedExercises", JSONArray(s.skippedExercises))
                 .put("modifications", JSONArray(s.modifications)).put("plannedWorkoutId", s.plannedWorkoutId))
         }
-        write { putString("sessions", array.toString()) }
+        return array.toString()
     }
+
+    fun saveSessions(all: List<SessionRecord>) = write { putString("sessions", sessionsJson(all)) }
 
     private fun skillKey(skill: String) = "skill_node_" + skill.lowercase().replace(" ", "_")
     fun loadSkillNode(skill: String): String? = string(skillKey(skill))
@@ -321,10 +324,11 @@ class AppStore(context: Context) {
         val sessions = loadSessions()
         val removed = sessions.firstOrNull { it.timestamp == timestamp } ?: return
         val remaining = sessions.filterNot { it.timestamp == timestamp }
-        saveSessions(remaining)
-        loadTrainingPlan()?.let { plan ->
-            val restored = PlannedWorkoutReconciler.afterDeletion(plan, removed, remaining)
-            if (restored != plan) saveTrainingPlan(restored)
+        val plan = loadTrainingPlan()
+        val restored = plan?.let { PlannedWorkoutReconciler.afterDeletion(it, removed, remaining) }
+        write {
+            putString("sessions", sessionsJson(remaining))
+            if (restored != null && restored != plan) putString("training_plan_v091", trainingPlanJson(restored))
         }
     }
 }
