@@ -85,7 +85,7 @@ class V091PlanningTest {
   assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
  }
  @Test fun evidenceRegistryDefaultsToNoneInsteadOfInventingProvenance(){
-  assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage("__unknown__"))
+  assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage(Exercise("__unknown__","Altro","Nessuna","Base",category=ExerciseCategory.OTHER,resistanceMode=ResistanceMode.NONE)))
   assertNull(ExerciseEvidenceRegistry.evidenceFor("__unknown__"))
  }
 }
