@@ -768,6 +768,20 @@ fun HybridFitnessApp() {
     }
 }
 
+internal fun readinessBand(score:Int):String = when { score>=80->"PRONTO";score>=60->"BUONO";score>=45->"CAUTELA";else->"RECUPERO" }
+
+@Composable private fun ReadinessOverview(readiness:Int?, sessions:List<SessionRecord>) {
+    val recovery=remember(sessions){recoveryScores(sessions)}
+    val avg=if(recovery.isEmpty())100 else recovery.values.average().toInt()
+    val score=readiness?:avg
+    Card(Modifier.fillMaxWidth().padding(vertical=8.dp),shape=RoundedCornerShape(18.dp)) { Column(Modifier.padding(16.dp)) {
+        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween){Text("Stato di forma • "+readinessBand(score),fontWeight=FontWeight.Bold);Text("$score/100",fontWeight=FontWeight.Bold,color=Accent)}
+        LinearProgressIndicator(progress={score.coerceIn(0,100)/100f},modifier=Modifier.fillMaxWidth().padding(vertical=10.dp))
+        Text(if(readiness!=null)"Health Connect • recupero medio $avg%" else "Stima locale • recupero medio $avg%",fontSize=12.sp,color=Color.Gray)
+        recovery.minByOrNull{it.value}?.let{Text("Da proteggere: "+it.key+" "+it.value+"%",fontSize=12.sp)}
+    }}
+}
+
 @Composable
 private fun CoachSummary(context:CoachingContext) {
     Card(Modifier.fillMaxWidth().padding(vertical=8.dp),shape=RoundedCornerShape(18.dp),colors=CardDefaults.cardColors(containerColor=MaterialTheme.colorScheme.primaryContainer)) {
@@ -810,7 +824,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 }
             }
         }
-        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore)) } }
+        item { Box(Modifier.padding(horizontal=20.dp)) { ReadinessOverview(readinessScore,sessions) } }\n        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore)) } }
         item { SectionTitle("Il tuo Skill Tree") }
         items(athlete.prioritySkills.ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
             val states=SkillCatalog.progress(skill,sessions)
