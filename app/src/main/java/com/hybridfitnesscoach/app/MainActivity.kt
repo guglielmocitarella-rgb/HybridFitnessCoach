@@ -184,6 +184,32 @@ private class AppStore(context: Context) {
     fun saveActiveWorkout(state:WorkoutSessionState) { prefs.edit().putString("active_workout_v1",state.toJson().toString()).commit() }
     fun loadActiveWorkout():WorkoutSessionState? = try { prefs.getString("active_workout_v1",null)?.let{workoutSessionFromJson(JSONObject(it))} } catch(_:Exception){ null }
     fun clearActiveWorkout() { prefs.edit().remove("active_workout_v1").commit() }
+    fun saveTrainingPlan(plan:TrainingPlan) {
+        val workouts=JSONArray()
+        plan.workouts.forEach { w ->
+            val names=JSONArray(); w.exercises.forEach { names.put(it.name) }
+            workouts.put(JSONObject().put("id",w.id).put("epochDay",w.epochDay).put("weekIndex",w.weekIndex)
+                .put("sequenceInWeek",w.sequenceInWeek).put("exerciseNames",names).put("state",w.state.name)
+                .put("originalEpochDay",w.originalEpochDay).put("adaptationReason",w.adaptationReason)
+                .put("actualExecutionEpochDay",w.actualExecutionEpochDay))
+        }
+        val root=JSONObject().put("schemaVersion",1).put("id",plan.id).put("startEpochDay",plan.startEpochDay)
+            .put("weeks",plan.weeks).put("daysPerWeek",plan.daysPerWeek).put("workouts",workouts)
+        prefs.edit().putString("training_plan_v091",root.toString()).commit()
+    }
+    fun loadTrainingPlan():TrainingPlan? = try {
+        val root=JSONObject(prefs.getString("training_plan_v091",null) ?: return null)
+        val workouts=root.optJSONArray("workouts") ?: JSONArray()
+        TrainingPlan(root.getString("id"),root.getLong("startEpochDay"),root.getInt("weeks"),root.getInt("daysPerWeek"),
+            (0 until workouts.length()).map { i ->
+                val o=workouts.getJSONObject(i); val names=o.optJSONArray("exerciseNames") ?: JSONArray()
+                val planned=(0 until names.length()).mapNotNull { n -> exercises.firstOrNull { it.name==names.getString(n) } }
+                PlannedWorkout(o.getString("id"),o.getLong("epochDay"),o.getInt("weekIndex"),o.getInt("sequenceInWeek"),planned,
+                    runCatching{PlannedWorkoutState.valueOf(o.optString("state","PLANNED"))}.getOrDefault(PlannedWorkoutState.PLANNED),
+                    o.optLong("originalEpochDay",o.getLong("epochDay")),o.optString("adaptationReason").takeIf{it.isNotBlank()},
+                    o.optNullableLong("actualExecutionEpochDay"))
+            })
+    } catch(_:Exception) { null }
     fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); val sx=o.optJSONArray("structuredExercises")?:JSONArray(); val sk=o.optJSONArray("skippedExercises")?:JSONArray(); val mo=o.optJSONArray("modifications")?:JSONArray(); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList(), if(o.has("exerciseRpe")){val r=o.getJSONObject("exerciseRpe");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("workoutRpe",0),if(o.has("completedByExercise")){val r=o.getJSONObject("completedByExercise");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("durationSec",0),(0 until sx.length()).map{workoutExerciseFromJson(sx.getJSONObject(it))},(0 until sk.length()).map{sk.getString(it)},(0 until mo.length()).map{mo.getString(it)}) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
     fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.distinctBy{it.timestamp}.sortedByDescending{it.timestamp}.forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)};val sx=JSONArray();x.structuredExercises.forEach{sx.put(it.toJson())};val sk=JSONArray();x.skippedExercises.forEach{sk.put(it)};val mo=JSONArray();x.modifications.forEach{mo.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e).put("exerciseRpe",JSONObject(x.exerciseRpe.mapValues{it.value})).put("workoutRpe",x.workoutRpe).put("completedByExercise",JSONObject(x.completedByExercise.mapValues{it.value})).put("durationSec",x.durationSec).put("structuredExercises",sx).put("skippedExercises",sk).put("modifications",mo))}; prefs.edit().putString("sessions",a.toString()).apply() }
     fun loadSkillNode(skill:String):String? = prefs.getString("skill_node_"+skill.lowercase().replace(" ","_"),null)
@@ -815,6 +841,15 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var treeSkill by remember { mutableStateOf<String?>(null) }
     var treePicker by remember { mutableStateOf(false) }
     var customSkill by remember { mutableStateOf("Nessuna") }
+    var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
+    fun ensurePlan():TrainingPlan {
+        trainingPlan?.let { return it }
+        val today=java.time.LocalDate.now().toEpochDay()
+        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,8,athlete.daysPerWeek.coerceIn(1,7)) { _,_ ->
+            generateWorkout(profile,athlete,sessions,readinessScore)
+        }
+        store.saveTrainingPlan(created); trainingPlan=created; return created
+    }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item { Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", athlete.goal + " • " + athlete.daysPerWeek + " giorni/settimana") }
         item {
@@ -832,6 +867,23 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     Text(suggested.size.toString()+" esercizi  •  "+athlete.goal, color = Color.Gray)
                     Button(onClick = { workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
+                }
+            }
+        }
+        item {
+            val plan=trainingPlan
+            Card(Modifier.padding(horizontal=20.dp,vertical=10.dp).fillMaxWidth(),shape=RoundedCornerShape(18.dp)) {
+                Column(Modifier.padding(18.dp)) {
+                    Text("Programma multi-settimana",fontWeight=FontWeight.Bold,fontSize=18.sp)
+                    if(plan==null) {
+                        Text("Crea un piano di 8 settimane dal profilo atleta e dal generatore adattivo corrente.",fontSize=13.sp,color=Color.Gray)
+                        Button(onClick={ensurePlan()},modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
+                    } else {
+                        val today=java.time.LocalDate.now().toEpochDay()
+                        val next=plan.workouts.filter{it.epochDay>=today && it.state!=PlannedWorkoutState.SKIPPED && it.state!=PlannedWorkoutState.COMPLETED}.minByOrNull{it.epochDay}
+                        Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
+                        Text(next?.let{"Prossima sessione: "+java.time.LocalDate.ofEpochDay(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
+                    }
                 }
             }
         }
