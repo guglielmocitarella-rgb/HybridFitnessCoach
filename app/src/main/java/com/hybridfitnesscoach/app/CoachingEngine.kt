@@ -1,6 +1,7 @@
 package com.hybridfitnesscoach.app
 
 import kotlin.math.floor
+import kotlin.math.ceil
 
 /** Snapshot shared by preview and runner. Missing history never implies failure. */
 data class CoachingContext(val plan:AdaptiveWorkoutPlan, val recovery:Map<String,Int>, val readiness:Int?, val evidenceSessions:Int)
@@ -31,8 +32,33 @@ internal fun applyCoaching(items:List<Exercise>,context:CoachingContext):List<Ex
     val reduced=context.plan.volumeFactor<1.0
     val sets=if(reduced)floor(p.sets*context.plan.volumeFactor).toInt().coerceAtLeast(1) else p.sets
     ex.copy(targetSets=sets,
-        targetValue=if(context.plan.intensityFactor<1.0)floor(p.value*context.plan.intensityFactor).coerceAtLeast(1.0) else p.value,
+        targetValue=when {
+            context.plan.intensityFactor<1.0->floor(p.value*context.plan.intensityFactor).coerceAtLeast(1.0)
+            context.plan.intensityFactor>1.0 && ex.resistanceMode!=ResistanceMode.EXTERNAL_LOAD && ex.resistanceMode!=ResistanceMode.ASSISTED->ceil(p.value*context.plan.intensityFactor)
+            else->p.value
+        },
         setRestSec=if(reduced)(ex.setRestSec*1.15).toInt() else ex.setRestSec)
+}
+
+/** The pool contains base catalogue prescriptions; existing/pinned copies are already adapted. */
+internal fun regenerateCoachedWorkout(original:List<Exercise>,pool:List<Exercise>,pinned:Set<String>,context:CoachingContext):List<Exercise> {
+    val ranked=pool.distinctBy{it.name}.sortedBy{candidate->if(original.any{it.name==candidate.name})1 else 0}
+    val adapted=applyCoaching(ranked,context)
+    return sequenceWorkout(regenerateUnpinned(original,adapted,pinned),pinned)
+}
+
+/** Persist execution from actual sets; counters and planned targets cannot manufacture performance. */
+internal fun recordedExerciseState(index:Int,ex:Exercise,actual:List<WorkoutSetState>?,rpe:Int?,skipped:Boolean,pinned:Boolean):WorkoutExerciseState {
+    val planned=plannedExerciseState(index,ex)
+    val sets=actual?:planned.sets
+    val done=sets.count{it.completed}
+    val status=when {
+        skipped->WorkoutExerciseStatus.SKIPPED
+        sets.isNotEmpty()&&done==sets.size->WorkoutExerciseStatus.COMPLETED
+        done>0->WorkoutExerciseStatus.PARTIAL
+        else->WorkoutExerciseStatus.PENDING
+    }
+    return planned.copy(sets=sets,status=status,rpe=rpe,pinned=pinned)
 }
 
 internal fun coachingLabel(decision:ProgressionDecision)=when(decision){
