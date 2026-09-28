@@ -88,4 +88,13 @@ class V091PlanningTest {
   assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage(Exercise("__unknown__","Altro","Nessuna","Base",category=ExerciseCategory.OTHER,resistanceMode=ResistanceMode.NONE)))
   assertNull(ExerciseEvidenceRegistry.evidenceFor("__unknown__"))
  }
+
+ @Test fun resistanceEvidenceExposesSourceLocationForExerciseDetail(){
+  val resistance=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val source=ExerciseEvidenceRegistry.evidenceFor(resistance)!!.prescription.single()
+  assertTrue(source.sourceTitle.contains("ACSM"))
+  assertTrue(source.section!!.contains("Resistance Training"))
+  assertTrue(source.pageOrLocation!!.contains("353"))
+  assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
+ }
 }

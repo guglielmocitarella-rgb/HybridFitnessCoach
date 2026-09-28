@@ -1594,6 +1594,29 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                     if(stats.totalLoadVolumeKg>0)Text("Volume con carico: ${stats.totalLoadVolumeKg.toInt()} kg")
                 }
                 Text("Ruolo: " + ex.role, fontWeight = FontWeight.SemiBold)
+                val evidence = ExerciseEvidenceRegistry.evidenceFor(ex)
+                val coverage = ExerciseEvidenceRegistry.coverage(ex)
+                Spacer(Modifier.height(12.dp))
+                Text("Fonti e copertura",fontWeight=FontWeight.Bold)
+                Text(
+                    when(coverage){
+                        EvidenceCoverage.NONE -> "Nessuna fonte verificata collegata a questo esercizio"
+                        EvidenceCoverage.PRESCRIPTION_ONLY -> "Copertura: prescrizione generale"
+                        EvidenceCoverage.TECHNIQUE_ONLY -> "Copertura: tecnica/anatomia"
+                        EvidenceCoverage.PARTIAL -> "Copertura parziale: tecnica + prescrizione"
+                        EvidenceCoverage.COMPLETE -> "Copertura completa: tecnica, prescrizione e progressione"
+                    },
+                    fontSize=12.sp,
+                    color=if(coverage==EvidenceCoverage.NONE) Color.Gray else Accent
+                )
+                evidence?.all?.distinctBy{it.sourceId}?.forEach { source ->
+                    Text("• "+source.sourceTitle,fontSize=12.sp,fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=5.dp))
+                    source.section?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
+                    source.pageOrLocation?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
+                }
+                if(evidence?.technique.isNullOrEmpty()) {
+                    Text("Tecnica specifica: non ancora verificata da una fonte collegata.",fontSize=11.sp,color=Color.Gray,modifier=Modifier.padding(top=5.dp))
+                }
                 if (ex.skills.isNotEmpty()) {
                     Text("Skill collegate",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
                     ex.skills.forEach { skill ->
