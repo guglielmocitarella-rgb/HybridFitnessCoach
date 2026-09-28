@@ -189,6 +189,9 @@ object ExerciseStatistics {
 enum class VideoVerificationState { PENDING, VERIFIED, REJECTED }
 data class ExerciseVideo(val exerciseName:String,val videoUrl:String,val videoProvider:String,val videoId:String,val thumbnailUrl:String?=null,val verificationState:VideoVerificationState=VideoVerificationState.PENDING)
 object ExerciseVideoCatalog {
+ val verifiedEntries:List<ExerciseVideo> = listOf(
+  ExerciseVideo("Plank","https://www.youtube.com/watch?v=Vdcy7VrRluA","ACE Fitness","Vdcy7VrRluA",verificationState=VideoVerificationState.VERIFIED)
+ )
  fun findVerified(name:String,entries:List<ExerciseVideo>):ExerciseVideo? =
   entries.firstOrNull{it.exerciseName.equals(name,ignoreCase=true) && it.verificationState==VideoVerificationState.VERIFIED && it.videoUrl.startsWith("https://") && it.videoProvider.isNotBlank() && it.videoId.isNotBlank()}
 }
