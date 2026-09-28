@@ -134,4 +134,10 @@ class V091PlanningTest {
   assertEquals(3,p.sets);assertEquals(6.0,p.repsOrDuration,0.001);assertEquals(180,p.restSeconds)
   assertTrue(p.evidence.any{it.sourceTitle.contains("ACSM")})
  }
+ @Test fun bodyweightMobilityDoesNotInheritResistanceEvidenceOrNumericTargets(){
+  val mobility=Exercise("Synthetic mobility","Mobilità","Corpo libero","Principiante",category=ExerciseCategory.MOBILITY,measure=ExerciseMeasure.REPS,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val context=PrescriptionContext("Forza","Principiante",ExerciseCategory.MOBILITY,3,3,3,null,80,null)
+  assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage(mobility))
+  assertNull(SourcePrescriptionBaselineRegistry.baselineFor(mobility,context))
+ }
 }
