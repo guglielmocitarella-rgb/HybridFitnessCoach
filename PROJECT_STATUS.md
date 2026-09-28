@@ -2,26 +2,35 @@
 
 VERSION: v0.9.1
 BRANCH: feature/v0.9.1-training-plan
-HEAD: 5cdb7b89517a57f1fd42506ca548a59af0c6dfc5
+HEAD: 886dbd8bac35ecac74f275b0cf0c5e46001e6664
 CI: pending for current HEAD
-LAST VERIFIED: 02c30ae1606cde18228a8e4bd4e0bc0e49d79ad0 — unit tests passed in CI #296 before release build stage
+LAST VERIFIED: CI #295 GREEN; CI #296 unit tests PASSED. Later audit commits require final CI gate.
 
 OPEN P0:
-- NONE KNOWN. Linked history deletion + plan restoration now use one SharedPreferences commit and have regression coverage.
+- NONE KNOWN.
 
 OPEN P1:
-- Progression/history duplicate-count audit in progress; regression test added at current HEAD.
+- NONE KNOWN after remediation of paused timer compatibility, atomic linked history/plan deletion, and duplicate skill-performance counting.
 
 OPEN P2:
-- Backward-compatibility audit of persisted training-plan snapshots and legacy runner/history formats.
-- Device-level interaction/regression remains outside repository-only verification.
+- Final CI verification of backward-compatibility regression coverage.
+- Device-level interaction/regression is not executable through repository CI and remains an explicit external verification boundary.
+
+VERIFIED AUDIT AREAS:
+- Training-plan 0/1/N boundary invariants and stable workout IDs.
+- Calendar/runner/history reconciliation and linked-session deletion recovery.
+- Paused timer restore for current and legacy persisted state.
+- Custom target-set source semantics.
+- Recovery values and active-rest persistence/reload.
+- Progression/history duplicate counting protection.
+- Legacy sessions, v1 training-plan migration, unsupported/corrupt persistence fail-closed behavior, and legacy active-workout defaults.
+- Dead unused recovery-calibration path removed; runtime uses persisted Exercise recovery values.
 
 TEST STATUS:
-- CI #295 GREEN at 5a8e8550f9f4946c64c409fa394d5be82debd154.
-- CI #296: Run unit tests PASSED at 02c30ae1606cde18228a8e4bd4e0bc0e49d79ad0; full workflow result pending/being superseded during audit.
-- Current HEAD 5cdb7b89517a57f1fd42506ca548a59af0c6dfc5: CI pending.
+- Repository unit-test gate has passed on preceding audit checkpoints.
+- Current HEAD requires final Android APK workflow: unit tests, signed release build, signature verification, artifact upload.
 
 NEXT:
-- Gate current progression/history regression test through CI.
-- Fix only if the test proves duplicate counting.
-- Continue backward compatibility and remaining P1/P2 audit.
+- Require current HEAD CI GREEN.
+- If red, diagnose/fix/repeat.
+- If green, v0.9.1 repository audit closes with no known P0/P1 and critical P2 repository paths verified; retain device-level interaction testing as documented external verification.
