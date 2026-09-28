@@ -126,4 +126,12 @@ class V091PlanningTest {
   val c=PrescriptionContext("Benessere","Principiante",ExerciseCategory.CARDIO,4,4,4,null,70,null)
   assertNull(SourcePrescriptionBaselineRegistry.baselineFor(cardio,c))
  }
+
+ @Test fun verifiedPrescriptionProducesRunnerTargetsWithinSourceBaseline(){
+  val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val c=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,null,85,null)
+  val p=SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,c)!!
+  assertEquals(3,p.sets);assertEquals(6.0,p.repsOrDuration,0.001);assertEquals(180,p.restSeconds)
+  assertTrue(p.sources.any{it.sourceTitle.contains("ACSM")})
+ }
 }

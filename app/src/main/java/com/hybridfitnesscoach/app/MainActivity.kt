@@ -1296,12 +1296,25 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),elapsedSeconds*1000L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="custom",restKind=restKind))
         }
     }
-    LaunchedEffect(running) { if(running){ if(currentExercise==null)currentExercise=generated.firstOrNull{(completed[it.name]?:0)<prescriptionFor(it).sets}?.name; val i=generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i) } }
+    LaunchedEffect(running) { if(running){ if(currentExercise==null)currentExercise=generated.firstOrNull{(completed[it.name]?:0)<targetSetCount(it)}?.name; val i=generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i) } }
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
     val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Bilanciere","Manubri","Cavi","Macchine","Elastici","Panca","Kettlebell","Leg press","Anelli","TRX","Ab Wheel","Foam Roller")
-    fun prescription(ex:Exercise):Pair<Int,Int> { val p=prescriptionFor(ex); return p.value.toInt() to ex.setRestSec }
+    fun contextualPrescription(ex:Exercise):ContextualPrescription? {
+        val readiness=readinessScore
+        val context=PrescriptionContext(
+            athlete.goal,athlete.level,ex.category,ex.intensity,ex.systemicFatigue,ex.technicalComplexity,
+            null,readiness,null
+        )
+        return SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,context)
+    }
+    fun prescription(ex:Exercise):Pair<Int,Int> {
+        val verified=contextualPrescription(ex)
+        val legacy=prescriptionFor(ex)
+        return (verified?.repsOrDuration?.toInt()?:legacy.value.toInt()) to (verified?.restSeconds?:ex.setRestSec)
+    }
+    fun targetSetCount(ex:Exercise):Int = contextualPrescription(ex)?.sets ?: prescriptionFor(ex).sets
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
         val eligible=skillEligibleExercises(sessions)
@@ -1396,11 +1409,13 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                 if(running&&n>0){Text("RPE: "+(exerciseRpe[ex.name]?.toString()?:"da indicare"),fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                 if(expanded){
                                     val p=prescriptionFor(ex)
+                                    val verifiedPrescription=contextualPrescription(ex)
                                     Text(ex.group+" • "+ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
-                                    Text(p.sets.toString()+" serie × "+(reps[ex.name]?:p.value.toInt())+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
+                                    Text(targetSetCount(ex).toString()+" serie × "+(reps[ex.name]?:p.value.toInt())+" "+p.unit+" • "+(restSeconds[ex.name]?:ex.setRestSec)+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
+                                    if(verifiedPrescription!=null) Text("Prescrizione verificata • "+verifiedPrescription.reasons.joinToString(" • "),fontSize=10.sp,color=Accent)
                                     if(SourcePrescriptionBaselineRegistry.baselineFor(ex,PrescriptionContext(athlete.goal,athlete.level,ex.category,ex.intensity,ex.systemicFatigue,ex.technicalComplexity,null,readinessScore,null))==null) Text("Target legacy: non ancora validato come prescrizione source-based",fontSize=10.sp,color=Color.Gray)
                                     if(running && !done && !isSkipped){
-                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100))){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=p.sets){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
+                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100))){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets;if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=targetSetCount(ex)){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
 
                                         Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
 

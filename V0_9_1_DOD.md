@@ -7,7 +7,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 |---|---|---|---|---|---|
 | app version 0.9.1 | [x] | n/a | [x] | n/a | green #263 |
 | Evidence/provenance model | [~] registry + measurable coverage audit; ACSM general resistance-prescription evidence + Exercise Detail source visibility; exercise-specific migration pending | added | partial | visible | green #263 |
-| Contextual Prescription Engine | [~] bounded adaptation + fail-closed verified numeric-baseline registry; verified exercise baselines pending | added | guarded, not yet applied | legacy status visible | pending |
+| Contextual Prescription Engine | [~] bounded adaptation + fail-closed verified numeric-baseline registry; verified exercise baselines pending | added | applied in custom Runner when verified baseline exists | legacy status visible | pending |
 | Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; progression still pending | added | partial | visible | pending |
 | Calendar past/future | [~] past/future list, actions and actual set detail for linked historical sessions | added | partial | visible | pending |
 | Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plan snapshots depend on catalog until migrated | existing | partial | partial | pending |
@@ -43,3 +43,5 @@ Audit notes:
 - CI #263 is green at HEAD `1b0f13a256dfd49d6eff36432110260f3115807e`; checklist statuses were reconciled against current code after that run.
 
 - Numeric Prescription Engine wiring is fail-closed: general ACSM prescription provenance does not authorize exercise-specific sets/reps/rest values. Until a verified numeric baseline is registered, Runner/Exercise Detail label those targets as legacy rather than source-based.
+
+- Custom Runner now consumes verified contextual resistance prescriptions for set count, rep target and inter-set rest; unsupported exercises retain the legacy fallback and are labelled accordingly.\n
