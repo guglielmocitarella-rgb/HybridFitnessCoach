@@ -55,8 +55,8 @@ object WorkoutRunnerEngine {
 internal fun elapsedWorkoutSeconds(state:WorkoutSessionState, now:Long):Int {
     val accumulated=state.elapsedBeforePauseMs.coerceAtLeast(0L)
     if(state.pausedAtEpochMs!=null)return (accumulated/1000L).toInt()
-    val activeSince=state.startedAtEpochMs.coerceAtMost(now)
-    return ((accumulated+(now-activeSince).coerceAtLeast(0L))/1000L).toInt()
+    val wallClock=(now-state.startedAtEpochMs.coerceAtMost(now)).coerceAtLeast(0L)
+    return (maxOf(accumulated,wallClock)/1000L).toInt()
 }
 internal fun actualCompletedSets(session:SessionRecord):Int =
     if(session.structuredExercises.isNotEmpty()) session.structuredExercises.sumOf{e->e.sets.count{it.completed}}
