@@ -57,3 +57,21 @@ class Rc2PlanningRegressionTest {
         assertEquals(0, coachingContext(emptyList(), null, recovered, 1001).planDisruptions)
     }
 }
+    @Test fun firstPendingSessionCanMoveEarlierWithoutLosingIdentity() {
+        val original = plan()
+        val moved = TrainingPlanEngine.reschedule(original, original.workouts.first().id, 998, 0)
+        assertEquals(998L, moved.workouts.first().epochDay)
+        assertEquals(original.workouts.map { it.id }, moved.workouts.map { it.id })
+        assertEquals(original.workouts.map { it.originalEpochDay }, moved.workouts.map { it.originalEpochDay })
+    }
+
+    @Test fun rescheduledSessionCanRestoreItsOriginalDate() {
+        val original = plan()
+        val first = original.workouts.first()
+        val moved = TrainingPlanEngine.reschedule(original, first.id, 1001, 0)
+        assertEquals(1001L, moved.workouts.first().epochDay)
+        val restored = TrainingPlanEngine.restoreOriginalDate(moved, first.id, 0)
+        assertEquals(first.originalEpochDay, restored.workouts.first().epochDay)
+        assertEquals(PlannedWorkoutState.PLANNED, restored.workouts.first().state)
+    }
+
