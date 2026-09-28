@@ -229,7 +229,7 @@ class AppStore(context: Context) {
     fun loadTrainingPlan():TrainingPlan? = try {
         val root=JSONObject(prefs.getString("training_plan_v091",null) ?: return null)
         val workouts=root.optJSONArray("workouts") ?: JSONArray()
-        TrainingPlan(root.getString("id"),root.getLong("startEpochDay"),root.getInt("weeks"),root.getInt("daysPerWeek"),
+        val plan=TrainingPlan(root.getString("id"),root.getLong("startEpochDay"),root.getInt("weeks"),root.getInt("daysPerWeek"),
             (0 until workouts.length()).map { i ->
                 val o=workouts.getJSONObject(i); val names=o.optJSONArray("exerciseNames") ?: JSONArray()
                 val snapshots=o.optJSONArray("exerciseSnapshots")
@@ -240,6 +240,11 @@ class AppStore(context: Context) {
                     o.optLong("originalEpochDay",o.getLong("epochDay")),o.optString("adaptationReason").takeIf{it.isNotBlank()},
                     o.optNullableLong("actualExecutionEpochDay"))
             })
+        if(root.optInt("schemaVersion",1)<2 && (0 until workouts.length()).all { i ->
+            val o=workouts.getJSONObject(i)
+            (o.optJSONArray("exerciseNames")?.length() ?: 0)==plan.workouts[i].exercises.size
+        }) saveTrainingPlan(plan)
+        plan
     } catch(_:Exception) { null }
     fun loadSessions():List<SessionRecord> = try { val a=JSONArray(prefs.getString("sessions","[]") ?: "[]"); (0 until a.length()).map { i -> val o=a.getJSONObject(i); val sx=o.optJSONArray("structuredExercises")?:JSONArray(); val sk=o.optJSONArray("skippedExercises")?:JSONArray(); val mo=o.optJSONArray("modifications")?:JSONArray(); SessionRecord(o.getLong("timestamp"),o.getString("profile"),o.getInt("done"),o.getInt("total"), if(o.has("exercises")) { val e=o.getJSONArray("exercises"); (0 until e.length()).map { e.getString(it) } } else emptyList(), if(o.has("exerciseRpe")){val r=o.getJSONObject("exerciseRpe");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("workoutRpe",0),if(o.has("completedByExercise")){val r=o.getJSONObject("completedByExercise");r.keys().asSequence().associateWith{r.getInt(it)}}else emptyMap(),o.optInt("durationSec",0),(0 until sx.length()).map{workoutExerciseFromJson(sx.getJSONObject(it))},(0 until sk.length()).map{sk.getString(it)},(0 until mo.length()).map{mo.getString(it)},o.optString("plannedWorkoutId").takeIf{it.isNotBlank()}) }.sortedByDescending{it.timestamp} } catch(_:Exception){ emptyList() }
     fun saveSessions(all:List<SessionRecord>){ val a=JSONArray(); all.distinctBy{it.timestamp}.sortedByDescending{it.timestamp}.forEach{x-> val e=JSONArray(); x.exerciseNames.forEach{e.put(it)};val sx=JSONArray();x.structuredExercises.forEach{sx.put(it.toJson())};val sk=JSONArray();x.skippedExercises.forEach{sk.put(it)};val mo=JSONArray();x.modifications.forEach{mo.put(it)}; a.put(JSONObject().put("timestamp",x.timestamp).put("profile",x.profileName).put("done",x.completedSets).put("total",x.totalSets).put("exercises",e).put("exerciseRpe",JSONObject(x.exerciseRpe.mapValues{it.value})).put("workoutRpe",x.workoutRpe).put("completedByExercise",JSONObject(x.completedByExercise.mapValues{it.value})).put("durationSec",x.durationSec).put("structuredExercises",sx).put("skippedExercises",sk).put("modifications",mo).put("plannedWorkoutId",x.plannedWorkoutId))}; prefs.edit().putString("sessions",a.toString()).apply() }
