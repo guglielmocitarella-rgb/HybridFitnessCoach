@@ -1,25 +1,25 @@
 {
   "schema_version": 2,
   "status": "AUDITED_DRAFT",
-  "canonical_movements": 560,
+  "canonical_movements": 587,
   "progression_edges": 113,
   "sources_registered": 14,
   "movement_types": {
     "AEROBIC": 2,
-    "CALISTHENICS": 78,
+    "CALISTHENICS": 92,
     "CONDITIONING": 17,
-    "CORE": 66,
+    "CORE": 71,
     "FLEXIBILITY": 26,
     "MOBILITY": 26,
-    "PLYOMETRIC": 3,
+    "PLYOMETRIC": 4,
     "POWER": 17,
-    "SKILL": 150,
+    "SKILL": 157,
     "SMR": 6,
     "STRENGTH": 169
   },
   "confidence": {
     "HIGH": 167,
-    "MEDIUM": 393
+    "MEDIUM": 420
   },
   "validation_status": "PENDING_CI",
   "build_output": "exercise-db-v2/exercises.json",
@@ -31,8 +31,8 @@
     "Unsupported cues/errors/contraindications remain empty rather than invented.",
     "Rest guidance remains source/context scoped and is not copied generically onto exercise records."
   ],
-  "programming_guidelines": 11,
+  "programming_guidelines": 17,
   "source_evidence_coverage": 14,
   "progression_output": "exercise-db-v2/progressions.json",
-  "programming_output": "exercise-db-v2/programming_guidelines.json"
+  "programming_output": "exercise-db-v2/programming_guidance.json"
 }
