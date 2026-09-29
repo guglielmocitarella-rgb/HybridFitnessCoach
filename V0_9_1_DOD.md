@@ -31,8 +31,8 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Skip/reschedule/recover semantics | [~] skip/manual move/restore/completion reconciliation are deterministic and calendar mutations update UI only after successful persistence; sourced physiological recovery gap remains pending | added | wired | visible + save failure feedback | green #422 |
 | Exercise Detail 2.0 + stats + video | [~] real stats and video UI; one verified ACE Plank video; catalog-wide video coverage pending | added | partial | partial | pending |
 | Runner integration | [~] today's and calendar-selected planned sessions launch with persistent identity; effective prescriptions persist and resume without recalculation; on-device flow pending | added | wired | partial | green #398 |
-| Progression / Skill Tree integration | [~] Exercise Detail opens linked Skill Tree nodes | existing v0.9 | partial | visible | pending |
-| Adaptive Coach uses history + plan | [~] history/readiness + persisted plan disruptions/upcoming sessions | added | wired Home | visible rationale | green #263 |
+| Progression / Skill Tree integration | [x] Exercise Detail exposes testable linked-skill progress/current-node/next-unlock data and opens the linked Skill Tree; real history mastery unlocks generator eligibility | added/existing | wired | visible | green #448 |
+| Adaptive Coach uses history + plan | [x] history/readiness + persisted plan disruptions/upcoming sessions; plan disruption suppresses otherwise valid ADVANCE while a clean plan preserves it | added | wired Home | visible rationale | green #448 |
 | Source-based rest/prescriptions | [~] ACSM general resistance baselines wired into both runners; exercise-specific audit remains pending | added | automatic/custom runner + persisted target/rest snapshot | visible in runner targets/rest | green #398 |
 | Exercise database source audit | [~] deterministic coverage audit + ACSM general prescription source; exercise-specific entries pending | added | partial | n/a | green #263 |
 | Equipment/generator + sequencing/locking | [~] equipment/level filtering, skill locked-node exclusion, pinned regeneration and sequencing regressions; device interaction pending | added/existing | wired | existing | green #406 |
@@ -83,3 +83,5 @@ Audit notes:
 
 - PR CI #426 passed at `72f39502460f59b82760f839a2f89c9c4e653957`; two distinct qualifying structured sessions drive Muscle-up progression from AVAILABLE→IN_PROGRESS→MASTERED, unlock the next node, and expose its exercise to the generator; duplicate observations inside one session cannot fake the required session count.
 - PR CI #436 passed at `4060d41d5450326dc6869ba09c366dd69d3f0a9d`; Home plan generation now consumes `weekIndex` and applies deterministic 3+1 progression while preserving exercise identity and distance targets, with consolidation every fourth week.
+
+- PR CI #448 passed at `333ea01734958e1e3ef900fbabd5a2524b0cb7db`; Exercise Detail skill navigation is backed by a testable exercise→skill progress/current-node/next-unlock resolver, and Adaptive Coach regressions prove that persisted plan disruption suppresses history-based ADVANCE while a clean plan preserves it.
