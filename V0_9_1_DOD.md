@@ -2,7 +2,7 @@
 
 ## RC2 checkpoint — 29 settembre 2026
 
-This checkpoint supersedes older CI labels below; those notes document earlier commits. RC2 remains **not ready**.
+This checkpoint supersedes older CI labels below; those notes document earlier commits. RC2 remains **not ready**. PR CI #354 is green at `0f5309d30fac5d14a195a3db291406e2bf387173`: unit tests, Android lint and PR debug APK build passed. Signed-release steps are intentionally skipped on the PR workflow, so this run is not signed-artifact evidence.
 
 | Area | Current evidence | Remaining gate |
 |---|---|---|
@@ -52,7 +52,7 @@ Audit notes:
 - Plan schema v2 stores complete exercise definitions per planned workout; schema v1 loads by catalog name and auto-upgrades on load only if all exercise names resolve; otherwise the original stored plan is preserved. Old sessions with no planned workout ID cannot be linked unambiguously to a historical plan.
 
 - Calendar launch routes the selected planned workout ID through Home to the existing runner. An already active workout resumes instead of being replaced. Device-level interaction remains to be checked.
-- Deleting the only linked historical session reopens its planned workout while retaining the other scheduled dates; duplicate linked records keep the workout completed. The deletion operation and plan write are not transactional.
+- Deleting the only linked historical session reopens its planned workout while retaining the other scheduled dates; duplicate linked records keep the workout completed. History deletion and linked-plan reconciliation are committed together by `AppStore.deleteSession`; reload regressions cover sole-linked, duplicate-linked and unlinked deletion cases.
 
 - Provenance coverage is fail-closed: only verified registry/general source mappings count. Exercises without applicable verified evidence remain explicitly uncovered rather than receiving fabricated citations.
 - Verified source migration started with ACSM GETP 12th ed., Chapter 5 resistance-training frequency/volume material (physical PDF pp. 353, 360). This is intentionally classified as prescription-only general evidence; it is not used as exercise-specific technique evidence.
@@ -67,3 +67,5 @@ Audit notes:
 - CI run 36446247422 passed at code HEAD `3de13bb98c00a49193ee46589026e86350c1868d`; signed artifact `HybridFitnessCoach-v0.9.1-signed` was present and unexpired at verification.
 
 - Latest code run 36447095691 passed at `af9cf8dbfdbb141aa36e70dfbf92b575007d2f72`; signed APK artifact was extracted and verified present. The testable build is not a v0.9.1 release designation.
+
+- PR CI #354 passed at HEAD `0f5309d30fac5d14a195a3db291406e2bf387173`; unit tests, Android lint and PR debug APK build are green. The paused runner now persists remaining rest seconds separately, with process-recreation and legacy compatibility regression coverage. Signed-release steps were skipped in this PR run and remain a separate final artifact gate.
