@@ -53,4 +53,23 @@ class SkillIntegrationTest {
         )
     }
 
+    @Test fun skillWorkoutCandidatePoolKeepsSkillPriorityAndCompatibleSupportExercises() {
+        val gym=profiles.first{it.name=="Palestra"}
+        val athlete=AthleteProfile(level="Avanzato")
+        val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Front lever"),emptyList())
+        assertTrue(pool.isNotEmpty())
+        assertTrue(pool.any{"Front lever" in it.skills})
+        assertTrue(pool.all{equipmentCompatible(it,gym)})
+        assertTrue(pool.all{it.name in skillEligibleExercises(emptyList())})
+        assertTrue(pool.filterNot{"Front lever" in it.skills}.all{it.role in setOf("Forza","Prerequisito","Accessorio")})
+    }
+    @Test fun lockedSkillNodesNeverEnterCustomCandidatePoolForNewAthlete() {
+        val gym=profiles.first{it.name=="Palestra"}
+        val athlete=AthleteProfile(level="Avanzato")
+        val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Front lever"),emptyList())
+        val locked=SkillCatalog.progress("Front lever",emptyList()).filter{it.status==ProgressionStatus.LOCKED}
+            .flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
+        assertTrue(pool.none{it.name.lowercase() in locked})
+    }
+
 }
