@@ -771,6 +771,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var treePicker by remember { mutableStateOf(false) }
     var customSkill by remember { mutableStateOf("Nessuna") }
     var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
+    var planSaveError by remember { mutableStateOf(false) }
     var requestedWeeks by remember { mutableIntStateOf(8) }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
@@ -791,7 +792,13 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
             if(recentPlanned.size>3)recentPlanned.removeAt(0)
             selected
         }
-        store.saveTrainingPlan(created); trainingPlan=created; return created
+        if (!store.saveTrainingPlan(created)) {
+            planSaveError = true
+            return created
+        }
+        planSaveError = false
+        trainingPlan = created
+        return created
     }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item { Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", athlete.goal + " • " + athlete.daysPerWeek + " giorni/settimana") }
@@ -822,6 +829,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                         Text("Durata del piano: $requestedWeeks settimane",fontSize=13.sp,color=Color.Gray)
                         Slider(value=requestedWeeks.toFloat(),onValueChange={requestedWeeks=it.toInt().coerceIn(1,52)},valueRange=1f..52f,steps=50)
                         Button(onClick={ensurePlan()},modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
+                        if (planSaveError) Text("Impossibile salvare il programma. Controlla i dati e riprova.", color=MaterialTheme.colorScheme.error, fontSize=13.sp)
                     } else {
                         val today=java.time.LocalDate.now().toEpochDay()
                         val next=plan.workouts.filter{it.epochDay>=today && it.state!=PlannedWorkoutState.SKIPPED && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL}.minByOrNull{it.epochDay}
