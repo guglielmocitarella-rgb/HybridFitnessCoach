@@ -5,7 +5,7 @@ This branch intentionally does **not** replace the RC2 production catalogues.
 ## Canonical artifacts
 - `exercise-db-v2/exercises.json`: canonical movement records.
 - `exercise-db-v2/progressions.json`: source-backed relationships between canonical IDs.
-- `exercise-db-v2/sources.json`: normalized source registry generated from `sources.tsv`.
+- `exercise-db-v2/sources.json`: normalized source registry generated from `sources.tsv`.\n- `exercise-db-v2/programming_guidelines.json`: goal/context-scoped general prescription/rest evidence; never treat these rows as exercise-specific defaults.
 - `exercise-db-v2/BUILD_MANIFEST.json`: counts, validation state and artifact hash.
 
 Run `python tools/build_exercise_db.py`; it normalizes ordering/serialization, regenerates the source registry and manifest counts, then runs the validator. It does not infer missing exercise evidence.
@@ -17,7 +17,7 @@ Equipment filters should compare normalized tokens from `equipment[]` with the a
 
 Progression relationships are queried from `progressions.json` by `from`, `to`, and `relationship`. `MAIN_PROGRESSION` and `PREREQUISITE` are validated for referential integrity and cycles.
 
-Prescription and rest evidence remain source/context scoped. The consumer must select entries by goal/context; absence means “no source-backed v2 guidance”, not permission to synthesize an exercise-specific value.
+Prescription and rest evidence remain source/context scoped. General rules are read from `programming_guidelines.json`; exercise-specific arrays are used only when evidence is attached to that movement. The consumer must select entries by goal/context; absence means “no source-backed v2 guidance”, not permission to synthesize an exercise-specific value.
 
 Provenance is exposed through each movement's `sources[]` and edge `sources[]`. Field-specific evidence, when present, must remain attached to that field rather than being promoted to whole-record evidence.
 
