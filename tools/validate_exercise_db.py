@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import argparse, hashlib, json, pathlib, sys
+import argparse, csv, hashlib, json, pathlib, sys
 from collections import Counter, defaultdict
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
@@ -63,6 +63,31 @@ def main():
         else: used_sources.add(gs)
     unused=sorted(sid-used_sources)
     if unused: warnings.append(f"registered sources without materialized evidence: {unused}")
+
+    # Completion gate: every row in a versioned raw repertoire inventory must
+    # be represented by exercise-specific provenance in the canonical DB.
+    # Match the source's own name, not a fuzzy exercise-name heuristic.
+    provenance={(ref.get("source_id"),norm(ref.get("source_name"))) for x in exercises for ref in (x.get("sources") or []) if ref.get("source_id") and ref.get("source_name")}
+    raw_dir=DB/"raw"
+    raw_rows=0
+    for raw_path in sorted(raw_dir.glob("*.tsv")):
+        with raw_path.open(encoding="utf-8",newline="") as handle:
+            reader=csv.DictReader(handle,delimiter="\t")
+            required={"source_name","source_id"}
+            if not required.issubset(set(reader.fieldnames or [])):
+                errors.append(f"{raw_path.relative_to(ROOT)}: raw inventory missing source_name/source_id")
+                continue
+            for line_no,row in enumerate(reader,start=2):
+                source_id=(row.get("source_id") or "").strip()
+                source_name=(row.get("source_name") or "").strip()
+                if not source_id or not source_name:
+                    errors.append(f"{raw_path.relative_to(ROOT)}:{line_no}: incomplete raw inventory row")
+                    continue
+                raw_rows+=1
+                if source_id not in sid:
+                    errors.append(f"{raw_path.relative_to(ROOT)}:{line_no}: unknown source_id {source_id}")
+                if (source_id,norm(source_name)) not in provenance:
+                    errors.append(f"{raw_path.relative_to(ROOT)}:{line_no}: inventory row not materialized in canonical provenance: {source_id} / {source_name}")
     idset=set(ids); edgekeys=set(); graph=defaultdict(list)
     for e in edges:
         f,t,r=e.get("from"),e.get("to"),e.get("relationship")
@@ -94,7 +119,7 @@ def main():
     if len(sources)!=manifest.get("sources_registered"): errors.append(f"manifest sources_registered={manifest.get('sources_registered')} actual={len(sources)}")
     conf=Counter(x.get("confidence") for x in exercises); types=Counter(x.get("movementType") for x in exercises)
     artifact_hash=hashlib.sha256(ex_path.read_bytes()).hexdigest()
-    report={"ok":not errors,"counts":{"canonical_movements":len(exercises),"progression_edges":len(edges),"sources":len(sources)},"confidence":dict(sorted(conf.items())),"movement_types":dict(sorted(types.items())),"artifact_sha256":artifact_hash,"source_coverage":sorted(used_sources),"errors":errors,"warnings":warnings}
+    report={"ok":not errors,"counts":{"canonical_movements":len(exercises),"progression_edges":len(edges),"sources":len(sources)},"confidence":dict(sorted(conf.items())),"movement_types":dict(sorted(types.items())),"artifact_sha256":artifact_hash,"source_coverage":sorted(used_sources),"raw_inventory_rows":raw_rows,"errors":errors,"warnings":warnings}
     pathlib.Path(a.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(report,ensure_ascii=False,indent=2)); return 0 if not errors else 1
 if __name__=="__main__": raise SystemExit(main())
