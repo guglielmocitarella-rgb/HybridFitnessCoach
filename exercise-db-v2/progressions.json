@@ -1,5 +1,96 @@
 [
   {
+    "from": "ex-45-degree-forward-lean-dips",
+    "to": "ex-one-arm-dip",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "45-Degree Forward-Lean Dips -> One-Arm Dip",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-ab-wheel-eccentrics",
+    "to": "ex-full-ab-wheel",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Ab Wheel Eccentrics -> Full Ab Wheel",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-advanced-tuck-back-lever",
+    "to": "ex-straddle-back-lever",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Advanced Tuck Back Lever -> Straddle Back Lever",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-advanced-tuck-front-lever-rows",
+    "to": "ex-straddle-front-lever-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Advanced Tuck Front Lever Rows -> Straddle Front Lever Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-advanced-tuck-front-lever",
+    "to": "ex-straddle-front-lever",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Advanced Tuck Front Lever -> Straddle Front Lever",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-advanced-tuck-planche-pushups",
+    "to": "ex-straddle-planche-pushups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Advanced Tuck Planche Pushups -> Straddle Planche Pushups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-advanced-tuck-planche",
+    "to": "ex-straddle-planche",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Advanced Tuck Planche -> Straddle Planche",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-angled-half-lever",
     "to": "ex-half-lever",
     "relationship": "MAIN_PROGRESSION",
@@ -8,6 +99,45 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Angled Half Lever -> Half Lever"
+      }
+    ]
+  },
+  {
+    "from": "ex-archer-arm-in-ring-rows",
+    "to": "ex-straddle-one-arm-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Archer-Arm-In Ring Rows -> Straddle One-Arm Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-archer-ring-rows",
+    "to": "ex-archer-arm-in-ring-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Archer Ring Rows -> Archer-Arm-In Ring Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-asian-squat",
+    "to": "ex-parallel-squat",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Asian Squat -> Parallel Squat",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -36,6 +166,32 @@
     ]
   },
   {
+    "from": "ex-bar-pull-up-eccentrics",
+    "to": "ex-pull-up",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Bar Pull-Up Eccentrics -> Pull-Up",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-box-headstand-pushup",
+    "to": "ex-wall-headstand-pushup-eccentric",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Box Headstand Pushup -> Wall Headstand Pushup Eccentric",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-burpees",
     "to": "ex-bastards",
     "relationship": "MAIN_PROGRESSION",
@@ -56,6 +212,19 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Candlestick -> Tucked Dragon Flag"
+      }
+    ]
+  },
+  {
+    "from": "ex-dip",
+    "to": "ex-l-sit-dips",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Dip -> L-Sit Dips",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -120,6 +289,58 @@
     ]
   },
   {
+    "from": "ex-freestanding-handstand-with-one-arm-support",
+    "to": "ex-one-arm-handstand",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Freestanding Handstand with One-Arm Support -> One-Arm Handstand",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-freestanding-handstand",
+    "to": "ex-freestanding-handstand-with-one-arm-support",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Freestanding Handstand -> Freestanding Handstand with One-Arm Support",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-freestanding-headstand-pushup",
+    "to": "ex-freestanding-handstand-pushup",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Freestanding Headstand Pushup -> Freestanding Handstand Pushup",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-frog-stand",
+    "to": "ex-straight-arm-frog-stand",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Frog Stand -> Straight-Arm Frog Stand",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-frog-stand",
     "to": "ex-tuck-planche",
     "relationship": "MAIN_PROGRESSION",
@@ -128,6 +349,45 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Frog Stand -> Tuck Planche"
+      }
+    ]
+  },
+  {
+    "from": "ex-full-ab-wheel",
+    "to": "ex-one-arm-ab-wheel",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Full Ab Wheel -> One-Arm Ab Wheel",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-full-back-lever",
+    "to": "ex-back-lever-pullout",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Full Back Lever -> Back Lever Pullout",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-full-front-lever",
+    "to": "ex-front-lever-pull-to-inverted-hang",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Full Front Lever -> Front Lever Pull to Inverted Hang",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -156,6 +416,32 @@
     ]
   },
   {
+    "from": "ex-full-squat",
+    "to": "ex-side-to-side-squat",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Full Squat -> Side-to-Side Squat",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-german-hang",
+    "to": "ex-skin-the-cat",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "German Hang -> Skin the Cat",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-german-hang",
     "to": "ex-tuck-back-lever",
     "relationship": "MAIN_PROGRESSION",
@@ -176,6 +462,19 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Half Lever -> Floor Half Lever"
+      }
+    ]
+  },
+  {
+    "from": "ex-hands-elevated-one-arm-pushup",
+    "to": "ex-straddle-one-arm-pushup",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Hands-Elevated One-Arm Pushup -> Straddle One-Arm Pushup",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -204,6 +503,123 @@
     ]
   },
   {
+    "from": "ex-jumping-pull-ups",
+    "to": "ex-bar-pull-up-eccentrics",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Jumping Pull-Ups -> Bar Pull-Up Eccentrics",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-kipping-clapping-pull-ups",
+    "to": "ex-non-kipping-clapping-pull-ups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Kipping Clapping Pull-Ups -> Non-Kipping Clapping Pull-Ups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-kipping-muscle-ups",
+    "to": "ex-normal-muscle-up",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Kipping Muscle-Ups -> Normal Muscle-Up",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-kipping-pull-ups",
+    "to": "ex-kipping-clapping-pull-ups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Kipping Pull-Ups -> Kipping Clapping Pull-Ups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-knees-ab-wheel",
+    "to": "ex-ramp-ab-wheel",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Knees Ab Wheel -> Ramp Ab Wheel",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-l-sit-dips",
+    "to": "ex-45-degree-forward-lean-dips",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "L-Sit Dips -> 45-Degree Forward-Lean Dips",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-l-sit-muscle-up",
+    "to": "ex-one-arm-straight-muscle-up",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "L-Sit Muscle-Up -> One-Arm-Straight Muscle-Up",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-l-sit",
+    "to": "ex-straddle-l-sit",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "L-Sit -> Straddle L-Sit",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-muscle-up-negatives",
+    "to": "ex-kipping-muscle-ups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Muscle-Up Negatives -> Kipping Muscle-Ups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-negative-dragon-flag",
     "to": "ex-dragon-flag",
     "relationship": "MAIN_PROGRESSION",
@@ -228,6 +644,97 @@
     ]
   },
   {
+    "from": "ex-non-kipping-clapping-pull-ups",
+    "to": "ex-l-sit-clapping-pull-ups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Non-Kipping Clapping Pull-Ups -> L-Sit Clapping Pull-Ups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-normal-muscle-up",
+    "to": "ex-strict-bar-muscle-ups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Normal Muscle-Up -> Strict Bar Muscle-Ups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-one-leg-bent-l-sit",
+    "to": "ex-l-sit",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "One-Leg-Bent L-Sit -> L-Sit",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-parallel-bar-dip-eccentrics",
+    "to": "ex-dip",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Parallel Bar Dip Eccentrics -> Dip",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-parallel-bar-jumping-dips",
+    "to": "ex-parallel-bar-dip-eccentrics",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Parallel Bar Jumping Dips -> Parallel Bar Dip Eccentrics",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-parallel-squat",
+    "to": "ex-full-squat",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Parallel Squat -> Full Squat",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-pike-headstand-pushup",
+    "to": "ex-box-headstand-pushup",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Pike Headstand Pushup -> Box Headstand Pushup",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-piked-hamstring-curl",
     "to": "ex-assisted-hamstring-curl",
     "relationship": "MAIN_PROGRESSION",
@@ -240,6 +747,19 @@
     ]
   },
   {
+    "from": "ex-pistols",
+    "to": "ex-weighted-pistols",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Pistols -> Weighted Pistols",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-planche-lean",
     "to": "ex-frog-stand",
     "relationship": "MAIN_PROGRESSION",
@@ -248,6 +768,175 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Planche Lean -> Frog Stand"
+      }
+    ]
+  },
+  {
+    "from": "ex-pull-up",
+    "to": "ex-l-sit-pull-up",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Pull-Up -> L-Sit Pull-Up",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-ramp-ab-wheel",
+    "to": "ex-ab-wheel-eccentrics",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Ramp Ab Wheel -> Ab Wheel Eccentrics",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-ring-row-eccentrics",
+    "to": "ex-ring-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Ring Row Eccentrics -> Ring Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-ring-rows",
+    "to": "ex-wide-ring-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Ring Rows -> Wide Ring Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-advanced-tuck-planche",
+    "to": "ex-rings-straddle-planche",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings Advanced Tuck Planche -> Rings Straddle Planche",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-dip-eccentrics",
+    "to": "ex-rings-dips",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings Dip Eccentrics -> Rings Dips",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-dips",
+    "to": "ex-rings-l-sit-dips",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings Dips -> Rings L-Sit Dips",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-frog-stand",
+    "to": "ex-rings-tuck-planche",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings Frog Stand -> Rings Tuck Planche",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-l-sit-dips",
+    "to": "ex-rings-wide-dips",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings L-Sit Dips -> Rings Wide Dips",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-straddle-planche",
+    "to": "ex-rings-full-planche",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings Straddle Planche -> Rings Full Planche",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-tuck-planche",
+    "to": "ex-rings-advanced-tuck-planche",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings Tuck Planche -> Rings Advanced Tuck Planche",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-rings-turned-out-support-hold",
+    "to": "ex-rings-dip-eccentrics",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Rings-Turned-Out Support Hold -> Rings Dip Eccentrics",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-side-to-side-squat",
+    "to": "ex-pistols",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Side-to-Side Squat -> Pistols",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -324,6 +1013,19 @@
     ]
   },
   {
+    "from": "ex-skin-the-cat",
+    "to": "ex-tuck-back-lever",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Skin the Cat -> Tuck Back Lever",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-squat-thrust",
     "to": "ex-burpees",
     "relationship": "MAIN_PROGRESSION",
@@ -360,6 +1062,19 @@
     ]
   },
   {
+    "from": "ex-straddle-front-lever-rows",
+    "to": "ex-full-front-lever-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Straddle Front Lever Rows -> Full Front Lever Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-straddle-front-lever",
     "to": "ex-full-front-lever",
     "relationship": "MAIN_PROGRESSION",
@@ -368,6 +1083,58 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Straddle Front Lever -> Full Front Lever"
+      }
+    ]
+  },
+  {
+    "from": "ex-straddle-l-sit",
+    "to": "ex-rings-turned-out-l-sit",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Straddle L-Sit -> Rings-Turned-Out L-Sit",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-straddle-one-arm-pushup",
+    "to": "ex-straight-body-one-arm-pushup",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Straddle One-Arm Pushup -> Straight-Body One-Arm Pushup",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-straddle-one-arm-rows",
+    "to": "ex-one-arm-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Straddle One-Arm Rows -> One-Arm Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-straddle-planche-pushups",
+    "to": "ex-full-planche-pushups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Straddle Planche Pushups -> Full Planche Pushups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -384,6 +1151,45 @@
     ]
   },
   {
+    "from": "ex-straight-arm-frog-stand",
+    "to": "ex-tuck-planche",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Straight-Arm Frog Stand -> Tuck Planche",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-strict-bar-muscle-ups",
+    "to": "ex-l-sit-muscle-up",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Strict Bar Muscle-Ups -> L-Sit Muscle-Up",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-tuck-back-lever",
+    "to": "ex-advanced-tuck-back-lever",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Tuck Back Lever -> Advanced Tuck Back Lever",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-tuck-back-lever",
     "to": "ex-flat-back-back-lever",
     "relationship": "MAIN_PROGRESSION",
@@ -392,6 +1198,32 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Tuck Back Lever -> Flat-Back Back Lever"
+      }
+    ]
+  },
+  {
+    "from": "ex-tuck-front-lever-rows",
+    "to": "ex-advanced-tuck-front-lever-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Tuck Front Lever Rows -> Advanced Tuck Front Lever Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-tuck-front-lever",
+    "to": "ex-advanced-tuck-front-lever",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Tuck Front Lever -> Advanced Tuck Front Lever",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -416,6 +1248,45 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Tuck Half Lever -> Angled Half Lever"
+      }
+    ]
+  },
+  {
+    "from": "ex-tuck-l-sit",
+    "to": "ex-one-leg-bent-l-sit",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Tuck L-Sit -> One-Leg-Bent L-Sit",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-tuck-planche-pushups",
+    "to": "ex-advanced-tuck-planche-pushups",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Tuck Planche Pushups -> Advanced Tuck Planche Pushups",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-tuck-planche",
+    "to": "ex-advanced-tuck-planche",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Tuck Planche -> Advanced Tuck Planche",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   },
@@ -468,6 +1339,58 @@
     ]
   },
   {
+    "from": "ex-wall-handstand-pushup",
+    "to": "ex-freestanding-headstand-pushup",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Wall Handstand Pushup -> Freestanding Headstand Pushup",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-wall-handstand",
+    "to": "ex-freestanding-handstand",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Wall Handstand -> Freestanding Handstand",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-wall-headstand-pushup-eccentric",
+    "to": "ex-wall-headstand-pushup",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Wall Headstand Pushup Eccentric -> Wall Headstand Pushup",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
+    "from": "ex-wall-headstand-pushup",
+    "to": "ex-wall-handstand-pushup",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Wall Headstand Pushup -> Wall Handstand Pushup",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
+      }
+    ]
+  },
+  {
     "from": "ex-wall-supported-handstand",
     "to": "ex-floor-handstand",
     "relationship": "MAIN_PROGRESSION",
@@ -488,6 +1411,19 @@
         "source_id": "COMPLETE_CAL2",
         "evidence_type": "CHAPTER_SEQUENCE",
         "source_name": "Wall Walk -> Wall-Supported Handstand"
+      }
+    ]
+  },
+  {
+    "from": "ex-wide-ring-rows",
+    "to": "ex-archer-ring-rows",
+    "relationship": "MAIN_PROGRESSION",
+    "sources": [
+      {
+        "source_id": "OVERCOMING_GRAVITY",
+        "source_name": "Wide Ring Rows -> Archer Ring Rows",
+        "evidence_type": "PROGRESSION_CHART",
+        "locator": "Chapters 24-27 progression charts"
       }
     ]
   }
