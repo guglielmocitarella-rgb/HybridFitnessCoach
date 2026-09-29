@@ -1580,11 +1580,10 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                 Text("Le baseline prescrittive dipendono da obiettivo, livello e stato atleta; la scheda mostra qui solo la provenance generale.",fontSize=11.sp,color=Color.Gray,modifier=Modifier.padding(top=5.dp))
                 if (ex.skills.isNotEmpty()) {
                     Text("Skill collegate",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
-                    ex.skills.forEach { skill ->
-                        val states=remember(skill,sessions){SkillCatalog.progress(skill,sessions)}
-                        val current=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE}
-                        TextButton(onClick={onSkillClick(skill)}){Text(skill+" • "+ProgressionEngine.skillProgress(states)+"%")}
-                        current?.let{Text("Livello: "+it.node.exerciseName+" • prossimo sblocco: "+nextUnlockLabel(states),fontSize=12.sp,color=Color.Gray)}
+                    val links=remember(ex.name,ex.skills,sessions){exerciseSkillLinks(ex,sessions)}
+                    links.forEach { link ->
+                        TextButton(onClick={onSkillClick(link.skill)}){Text(link.skill+" • "+link.progressPercent+"%")}
+                        link.currentNode?.let{Text("Livello: "+it+" • prossimo sblocco: "+link.nextUnlock,fontSize=12.sp,color=Color.Gray)}
                     }
                 } else {
                     Text("Esercizio base/accessorio senza skill obbligatoria", color = Color.Gray, modifier = Modifier.padding(top = 6.dp))
