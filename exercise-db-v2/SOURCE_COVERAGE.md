@@ -9,8 +9,8 @@ This report is a completion gate. A registered source is **INGESTED** only when 
 | SCIENCE_STRENGTH | INGESTED | raw/science_strength.tsv |
 | VELLA_ANATOMY | INGESTED | raw/vella_anatomy.tsv |
 | NSCA_TECH | INGESTED | raw/nsca_technique.tsv |
-| ACSM12 | GUIDANCE_ONLY_PENDING | — |
-| NSCA_ESS5 | PARTIAL_GUIDANCE_INGESTED | programming_guidance.json |
+| ACSM12 | GUIDANCE_INGESTED | programming_guidance.json |
+| NSCA_ESS5 | GUIDANCE_INGESTED | programming_guidance.json |
 | SCHOENFELD_HYP2 | GUIDANCE_INGESTED | programming_guidance.json |
 | DELAVIER3 | INGESTED | raw/delavier3.tsv |
 | OVERCOMING_GRAVITY | INGESTED | raw/overcoming_gravity.tsv |
