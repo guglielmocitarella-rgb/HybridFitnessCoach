@@ -81,16 +81,30 @@ internal object ExerciseDbV2 {
 
     fun toLegacyExercise(record:ExerciseV2Record,legacy:Exercise?=null):Exercise {
         val measure=runCatching{ExerciseMeasure.valueOf(record.measure)}.getOrDefault(legacy?.measure?:ExerciseMeasure.REPS)
-        val category=when(record.movementType){
-            "CORE"->ExerciseCategory.CORE
-            "AEROBIC","CONDITIONING"->ExerciseCategory.CARDIO
-            "MOBILITY","FLEXIBILITY","SMR"->ExerciseCategory.MOBILITY
-            "SKILL"->ExerciseCategory.SKILL
-            else->legacy?.category?:ExerciseCategory.OTHER
+        val family=record.family.uppercase()
+        val category=when {
+            record.movementType=="CORE" || "CORE" in family || "L_SIT" in family -> ExerciseCategory.CORE
+            record.movementType in setOf("AEROBIC","CONDITIONING") || family=="CARDIO" -> ExerciseCategory.CARDIO
+            record.movementType in setOf("MOBILITY","FLEXIBILITY","SMR") || "MOBILITY" in family || family=="STRETCH" -> ExerciseCategory.MOBILITY
+            record.movementType=="SKILL" || family in setOf("PLANCHE","FRONT_LEVER","BACK_LEVER","HANDSTAND","HUMAN_FLAG","MUSCLE_UP","SKILL") -> ExerciseCategory.SKILL
+            family.contains("PULL") || family in setOf("BACK","BICEPS","UPRIGHT_ROW","SHRUG","PULLOVER","REAR_DELTOID") -> ExerciseCategory.PULL
+            family.contains("PUSH") || family in setOf("CHEST","CHEST_FLY","DIP","TRICEPS","SHOULDER","HANDSTAND_PUSH_UP") -> ExerciseCategory.PUSH
+            family in setOf("LEG","SQUAT","HINGE","LOWER_BODY","SINGLE_LEG_SQUAT","NORDIC_HAMSTRING","LUNGE","STEP_UP","CALF","POSTERIOR_CHAIN") -> ExerciseCategory.LEGS
+            else -> legacy?.category?:ExerciseCategory.OTHER
+        }
+        val group=legacy?.group?:when(category){
+            ExerciseCategory.PULL->"Dorso"
+            ExerciseCategory.PUSH->"Petto"
+            ExerciseCategory.LEGS->"Gambe"
+            ExerciseCategory.CORE->"Core"
+            ExerciseCategory.CARDIO->"Cardio"
+            ExerciseCategory.MOBILITY->"Mobilità"
+            ExerciseCategory.SKILL->"Skill"
+            else->record.family.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()}
         }
         return withExerciseMetadata(Exercise(
             name=record.nameIt,
-            group=legacy?.group?:record.family.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()},
+            group=group,
             equipment=record.equipment.firstOrNull()?.let(::equipmentDisplay)?:legacy?.equipment?:"Corpo libero",
             level=record.level?:legacy?.level?:"Intermedio",
             skills=legacy?.skills?:emptyList(),
