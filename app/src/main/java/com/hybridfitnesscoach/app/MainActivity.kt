@@ -549,8 +549,20 @@ private val coreExerciseCatalog = listOf(
 
 ).map(::withExerciseMetadata)
 
-internal val exercises: List<Exercise> = (coreExerciseCatalog + extendedExerciseCatalog)
+private val legacyExercises: List<Exercise> = (coreExerciseCatalog + extendedExerciseCatalog)
     .distinctBy { it.name.trim().lowercase() }
+internal var exercises: List<Exercise> = legacyExercises
+internal fun installExerciseDbV2(records:List<ExerciseV2Record>) {
+    if (records.isEmpty()) return
+    val lookup=ExerciseDbV2.uniqueLookup(records)
+    exercises=records.map { record ->
+        val legacy=record.lookupNames().asSequence().mapNotNull { name ->
+            legacyExercises.firstOrNull { it.name.trim().lowercase()==name }
+        }.firstOrNull()
+        ExerciseDbV2.toLegacyExercise(record,legacy)
+    }.distinctBy { it.progressionKey ?: it.name.trim().lowercase() }
+    if (exercises.isEmpty()) exercises=legacyExercises
+}
 
 internal data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
 internal fun prescriptionFor(ex:Exercise):ExercisePrescription {
@@ -652,6 +664,7 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        runCatching { installExerciseDbV2(ExerciseDbV2.load(this)) }
         setContent { HybridFitnessApp() }
     }
 }
