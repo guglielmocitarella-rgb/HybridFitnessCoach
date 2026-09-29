@@ -44,6 +44,37 @@ class ExerciseDbV2IntegrationTest {
         assertEquals(7,snapshot.targetSets)
         assertEquals(13.0,snapshot.targetValue!!,0.001)
     }
+    @Test fun runtimeCatalogPreservesLegacySkillAndPrescriptionMetadataWhenNamesResolve() {
+        val db=records()
+        val legacy=exercises.first { it.skills.isNotEmpty() || it.role!="Base" || it.targetValue!=null }
+        val resolved=ExerciseDbV2.resolveLegacy(legacy.name,db)
+        assertNotNull("DB v2 must resolve legacy exercise: ${legacy.name}",resolved)
+        val mapped=ExerciseDbV2.toLegacyExercise(resolved!!,legacy)
+        assertEquals(legacy.skills,mapped.skills)
+        assertEquals(legacy.role,mapped.role)
+        assertEquals(legacy.setRestSec,mapped.setRestSec)
+        assertEquals(legacy.exerciseRestSec,mapped.exerciseRestSec)
+        assertEquals(legacy.targetSets,mapped.targetSets)
+        assertEquals(legacy.targetValue,mapped.targetValue)
+        assertEquals(resolved.id,mapped.progressionKey)
+    }
+
+    @Test fun runtimeInstallKeepsSkillTreeExecutableAgainstCanonicalCatalog() {
+        val previous=exercises
+        try {
+            installExerciseDbV2(records())
+            assertEquals(587,exercises.size)
+            SkillCatalog.nodes.forEach { node ->
+                assertTrue(
+                    "Missing runtime skill exercise: ${node.exerciseName}",
+                    exercises.any { ex -> (node.exerciseAliases+node.exerciseName).any { it.equals(ex.name,true) } }
+                )
+            }
+        } finally {
+            exercises=previous
+        }
+    }
+
     @Test fun canonicalEquipmentMapsIntoProfileTaxonomyAndGeneratorModel() {
         val db=records()
         val barbell=db.first{ "barbell" in it.equipment }
