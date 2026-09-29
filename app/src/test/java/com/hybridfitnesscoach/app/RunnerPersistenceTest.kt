@@ -49,4 +49,26 @@ class RunnerPersistenceTest {
         assertNotEquals(source,fresh)
     }
 
+    @Test fun undoLastSetClearsOnlyNewestCompletedExecutionAndAllowsRetry() {
+        val sets=listOf(
+            WorkoutSetState(0,targetReps=8,actualReps=8,actualLoadKg=80.0,completed=true,restUsedSec=90),
+            WorkoutSetState(1,targetReps=8,actualReps=7,actualLoadKg=80.0,completed=true,restUsedSec=90),
+            WorkoutSetState(2,targetReps=8)
+        )
+        val undone=undoLastCompletedSet(sets)
+        assertTrue(undone[0].completed)
+        assertEquals(8,undone[0].actualReps)
+        assertFalse(undone[1].completed)
+        assertNull(undone[1].actualReps)
+        assertNull(undone[1].actualLoadKg)
+        assertNull(undone[1].restUsedSec)
+        assertEquals(1,undone.count{it.completed})
+        assertEquals(sets[2],undone[2])
+    }
+
+    @Test fun undoWithNoCompletedSetIsNoOp() {
+        val sets=listOf(WorkoutSetState(0,targetReps=8),WorkoutSetState(1,targetReps=8))
+        assertEquals(sets,undoLastCompletedSet(sets))
+    }
+
 }
