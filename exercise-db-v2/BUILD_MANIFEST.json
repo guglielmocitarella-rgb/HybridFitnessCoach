@@ -1,25 +1,25 @@
 {
   "schema_version": 2,
   "status": "AUDITED_DRAFT",
-  "canonical_movements": 571,
+  "canonical_movements": 560,
   "progression_edges": 113,
   "sources_registered": 14,
   "movement_types": {
     "AEROBIC": 2,
-    "CALISTHENICS": 81,
+    "CALISTHENICS": 78,
     "CONDITIONING": 17,
     "CORE": 66,
     "FLEXIBILITY": 26,
     "MOBILITY": 26,
     "PLYOMETRIC": 3,
     "POWER": 17,
-    "SKILL": 151,
+    "SKILL": 150,
     "SMR": 6,
-    "STRENGTH": 176
+    "STRENGTH": 169
   },
   "confidence": {
     "HIGH": 167,
-    "MEDIUM": 404
+    "MEDIUM": 393
   },
   "validation_status": "PENDING_CI",
   "build_output": "exercise-db-v2/exercises.json",
