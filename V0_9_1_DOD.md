@@ -27,8 +27,8 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Contextual Prescription Engine | [~] bounded adaptation + fail-closed verified numeric-baseline registry; exercise-specific baselines still pending | added | applied in custom and automatic runners when a verified baseline exists; resume preserves persisted targets | legacy status visible | green #398 |
 | Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; full-range profile constraint regression added; progression still pending | added | wired | visible | green #410 |
 | Calendar past/future | [~] past/future list, actions, linked historical detail and launch identity; active workout cannot be replaced by calendar launch | added | wired | visible | green #406 |
-| Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plans auto-migrate on load when every exercise resolves; missing catalog entries remain unresolved | existing | partial | partial | pending |
-| Skip/reschedule/recover semantics | [~] skip, manual move, and completion reconciliation; sourced recovery gap pending | added | partial | partial | pending |
+| Immutable workout history snapshots | [x] actual structured sets and full exercise definitions persist independently of later catalog definitions; legacy plans auto-migrate only when every exercise resolves | added/existing | persisted/reloaded | visible historical detail | green #414 |
+| Skip/reschedule/recover semantics | [~] skip/manual move/restore/completion reconciliation are deterministic and calendar mutations update UI only after successful persistence; sourced physiological recovery gap remains pending | added | wired | visible + save failure feedback | green #422 |
 | Exercise Detail 2.0 + stats + video | [~] real stats and video UI; one verified ACE Plank video; catalog-wide video coverage pending | added | partial | partial | pending |
 | Runner integration | [~] today's and calendar-selected planned sessions launch with persistent identity; effective prescriptions persist and resume without recalculation; on-device flow pending | added | wired | partial | green #398 |
 | Progression / Skill Tree integration | [~] Exercise Detail opens linked Skill Tree nodes | existing v0.9 | partial | visible | pending |
@@ -37,7 +37,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Exercise database source audit | [~] deterministic coverage audit + ACSM general prescription source; exercise-specific entries pending | added | partial | n/a | green #263 |
 | Equipment/generator + sequencing/locking | [~] equipment/level filtering, skill locked-node exclusion, pinned regeneration and sequencing regressions; device interaction pending | added/existing | wired | existing | green #406 |
 | Data migration/backward compatibility | [x] v0.9 session defaults, legacy active-runner defaults, plan schema v1→v2 migration, unresolved legacy exercises, malformed records and future schema versions covered fail-closed | added | persisted/reloaded | n/a | green #380 |
-| UX/dashboard/calendar polish | [~] plan preview, duration choice, past/future actions | n/a | partial | partial | pending |
+| UX/dashboard/calendar polish | [~] plan preview, duration choice, past/future actions and calendar save-failure feedback | regression coverage for state semantics | wired | partial; device acceptance pending | green #422 |
 | Full regression + signed release APK | [~] push #409 and PR #410 green at `852df86`; signed APK uploaded and signature-verified; on-device regression pending | green at current code HEAD | partial | n/a | device acceptance pending |
 
 Audit notes:
@@ -77,3 +77,6 @@ Audit notes:
 - PR CI #406 passed at `25ada06e8b948e01c654f54db346aa6e1222589f`; calendar launch precedence is deterministic: an active workout resumes instead of being replaced, requested planned-workout identity is preserved when no active workout exists, and completed/partial plans cannot be completed twice through reconciliation.
 
 - Push CI #409 and PR CI #410 passed at `852df86d35758e178e186c6f9e21c0fb475908f9`. The push artifact `HybridFitnessCoach-v0.9.1-signed` is unexpired and bound to that exact SHA; GitHub reports digest `sha256:825050263601a1e63a1726ce2469681efaf2d6f9db96afd5f0fc32e5f5a59b2e`. This is build/signature evidence, not device-install acceptance.
+
+- PR CI #414 passed at `f81ee15ce94430c500791487cfc488fb48e4c2a4`; schema-v2 plan exercise snapshots were regression-tested as independent from later catalog definitions.
+- PR CI #422 passed at `15d713e8081594013542621a2dcde5bd973eee5e`; calendar reschedule/skip/restore now commit persistence before exposing the candidate plan in Compose state, preserve the current plan on save failure, and keep the management dialog open with explicit retry feedback.
