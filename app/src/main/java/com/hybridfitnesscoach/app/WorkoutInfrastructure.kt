@@ -299,3 +299,17 @@ internal fun plannedWeekExercises(
         )
     }
 }
+
+
+internal data class ExerciseSkillLink(
+    val skill:String,
+    val progressPercent:Int,
+    val currentNode:String?,
+    val nextUnlock:String
+)
+internal fun exerciseSkillLinks(exercise:Exercise,sessions:List<SessionRecord>):List<ExerciseSkillLink> =
+    exercise.skills.map { skill ->
+        val states=SkillCatalog.progress(skill,sessions)
+        val current=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE}
+        ExerciseSkillLink(skill,ProgressionEngine.skillProgress(states),current?.node?.exerciseName,nextUnlockLabel(states))
+    }
