@@ -12,12 +12,12 @@ This report is a completion gate. A registered source is **INGESTED** only when 
 | ACSM12 | GUIDANCE_ONLY_PENDING | — |
 | NSCA_ESS5 | PARTIAL_GUIDANCE_INGESTED | programming_guidance.json |
 | SCHOENFELD_HYP2 | GUIDANCE_INGESTED | programming_guidance.json |
-| DELAVIER3 | PARTIAL_INGESTED | raw/delavier3.tsv |
+| DELAVIER3 | INGESTED | raw/delavier3.tsv |
 | OVERCOMING_GRAVITY | INGESTED | raw/overcoming_gravity.tsv |
-| COMPLETE_CAL1 | PARTIAL_INGESTED | raw/complete_calisthenics_1e.tsv |
+| COMPLETE_CAL1 | INGESTED | raw/complete_calisthenics_1e.tsv |
 | CAL_BEGINNER_50 | INGESTED | raw/calisthenics_beginner_50.tsv |
-| CAL_BEGINNER_150 | PARTIAL_INGESTED | raw/calisthenics_beginner_150.tsv |
-| ULTIMATE_CAL_COLLECTION | PARTIAL_INGESTED | raw/ultimate_cal_collection.tsv |
+| CAL_BEGINNER_150 | INGESTED | raw/calisthenics_beginner_150.tsv |
+| ULTIMATE_CAL_COLLECTION | INGESTED | raw/ultimate_cal_collection.tsv |
 
 INTEGRATION_READY is forbidden while any exercise-repertoire source is PENDING, CROSSCHECK_PENDING, PARTIAL_INGESTED, or PARTIAL_GUIDANCE_INGESTED. Guidance-only sources may finish without adding canonical movements, but their programming evidence must be materialized separately if used.
 
