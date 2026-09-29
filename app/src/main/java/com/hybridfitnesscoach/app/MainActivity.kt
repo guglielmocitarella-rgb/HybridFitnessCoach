@@ -1370,7 +1370,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean) {
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=remember{liveReadiness}
-    val compatible = remember(profile, athlete, sessions, restored, plannedWorkout, readinessScore) { val source=restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: plannedWorkout?.exercises?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions,readinessScore); effectiveAutomaticExercises(source,athlete,sessions,readinessScore,restored!=null) }
+    val compatible = remember(profile, athlete, sessions, restored, plannedWorkout, readinessScore) { val source=restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: plannedWorkout?.exercises?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions,readinessScore); effectiveAutomaticExercises(source,athlete,sessions,readinessScore,restored!=null || plannedWorkout!=null) }
     val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
     val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
