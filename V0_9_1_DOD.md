@@ -25,8 +25,8 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | app version 0.9.1 | [x] | n/a | [x] | n/a | green #263 |
 | Evidence/provenance model | [~] registry + measurable coverage audit; ACSM general resistance-prescription evidence + Exercise Detail source visibility; exercise-specific migration pending | added | partial | visible | green #263 |
 | Contextual Prescription Engine | [~] bounded adaptation + fail-closed verified numeric-baseline registry; exercise-specific baselines still pending | added | applied in custom and automatic runners when a verified baseline exists; resume preserves persisted targets | legacy status visible | green #398 |
-| Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; progression still pending | added | partial | visible | pending |
-| Calendar past/future | [~] past/future list, actions and actual set detail for linked historical sessions | added | partial | visible | pending |
+| Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; full-range profile constraint regression added; progression still pending | added | wired | visible | pending current HEAD |
+| Calendar past/future | [~] past/future list, actions, linked historical detail and launch identity; active workout cannot be replaced by calendar launch | added | wired | visible | green #406 |
 | Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plans auto-migrate on load when every exercise resolves; missing catalog entries remain unresolved | existing | partial | partial | pending |
 | Skip/reschedule/recover semantics | [~] skip, manual move, and completion reconciliation; sourced recovery gap pending | added | partial | partial | pending |
 | Exercise Detail 2.0 + stats + video | [~] real stats and video UI; one verified ACE Plank video; catalog-wide video coverage pending | added | partial | partial | pending |
@@ -35,7 +35,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Adaptive Coach uses history + plan | [~] history/readiness + persisted plan disruptions/upcoming sessions | added | wired Home | visible rationale | green #263 |
 | Source-based rest/prescriptions | [~] ACSM general resistance baselines wired into both runners; exercise-specific audit remains pending | added | automatic/custom runner + persisted target/rest snapshot | visible in runner targets/rest | green #398 |
 | Exercise database source audit | [~] deterministic coverage audit + ACSM general prescription source; exercise-specific entries pending | added | partial | n/a | green #263 |
-| Equipment/generator + sequencing/locking | [~] v0.9 baseline preserved | existing | existing | existing | pending |
+| Equipment/generator + sequencing/locking | [~] equipment/level filtering, skill locked-node exclusion, pinned regeneration and sequencing regressions; device interaction pending | added/existing | wired | existing | green #406 |
 | Data migration/backward compatibility | [x] v0.9 session defaults, legacy active-runner defaults, plan schema v1→v2 migration, unresolved legacy exercises, malformed records and future schema versions covered fail-closed | added | persisted/reloaded | n/a | green #380 |
 | UX/dashboard/calendar polish | [~] plan preview, duration choice, past/future actions | n/a | partial | partial | pending |
 | Full regression + signed release APK | [~] latest green run: 36446247422 at 3de13bb; on-device regression pending | green at prior HEAD | partial | n/a | pending |
@@ -73,3 +73,5 @@ Audit notes:
 - PR CI #380 passed at `2899e6e0e82afb883ff70b1723056c492d4aadab`; skill generation/regeneration now share the same eligibility pool, with locked-node, equipment and graph-integrity regressions. Backward-compatibility audit confirms deterministic coverage for legacy session/runner/plan data and future-schema fail-closed behavior.
 
 - PR CI #398 passed at `f5fa6bae3dc114f6c894096c4907a1792af15be6`; automatic runner now materializes the same fail-closed effective prescription used by the prescription layer, and restored workouts explicitly retain their persisted set/target/rest snapshot rather than recalculating against new readiness/history.
+
+- PR CI #406 passed at `25ada06e8b948e01c654f54db346aa6e1222589f`; calendar launch precedence is deterministic: an active workout resumes instead of being replaced, requested planned-workout identity is preserved when no active workout exists, and completed/partial plans cannot be completed twice through reconciliation.
