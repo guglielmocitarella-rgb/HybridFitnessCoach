@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "schoenfeld-hyp2-rest-multijoint",
+      "source_id": "SCHOENFELD_HYP2",
+      "scope": "HYPERTROPHY_MULTI_JOINT_FREE_WEIGHT",
+      "guidance": {
+        "rest_seconds_min": 120
+      },
+      "evidence_type": "PRACTICAL_APPLICATION",
+      "locator": "Science and Development of Muscle Hypertrophy 2e, p.114, Practical Applications — Rest Interval Length",
+      "notes": "Source states protocols should generally provide at least 2 minutes for multi-joint free-weight exercises to help maintain volume load."
+    },
+    {
+      "id": "schoenfeld-hyp2-rest-singlejoint",
+      "source_id": "SCHOENFELD_HYP2",
+      "scope": "HYPERTROPHY_SINGLE_JOINT_OR_MACHINE",
+      "guidance": {
+        "rest_seconds_range": [
+          60,
+          90
+        ]
+      },
+      "evidence_type": "PRACTICAL_APPLICATION",
+      "locator": "Science and Development of Muscle Hypertrophy 2e, p.114, Practical Applications — Rest Interval Length",
+      "notes": "Source describes approximately 60–90 seconds as potentially useful for single-joint and certain machine-based exercises."
+    },
+    {
+      "id": "nsca-ess5-frequency-beginner",
+      "source_id": "NSCA_ESS5",
+      "scope": "RESISTANCE_TRAINING_BEGINNER",
+      "guidance": {
+        "sessions_per_week": [
+          2,
+          3
+        ]
+      },
+      "evidence_type": "TABLE",
+      "locator": "Essentials of Strength Training and Conditioning 5e, Table 18.4",
+      "notes": "Resistance training frequency based on training status."
+    },
+    {
+      "id": "nsca-ess5-frequency-intermediate",
+      "source_id": "NSCA_ESS5",
+      "scope": "RESISTANCE_TRAINING_INTERMEDIATE",
+      "guidance": {
+        "sessions_per_week": [
+          3,
+          4
+        ]
+      },
+      "evidence_type": "TABLE",
+      "locator": "Essentials of Strength Training and Conditioning 5e, Table 18.4",
+      "notes": "Resistance training frequency based on training status."
+    },
+    {
+      "id": "nsca-ess5-frequency-advanced",
+      "source_id": "NSCA_ESS5",
+      "scope": "RESISTANCE_TRAINING_ADVANCED",
+      "guidance": {
+        "sessions_per_week": [
+          4,
+          7
+        ]
+      },
+      "evidence_type": "TABLE",
+      "locator": "Essentials of Strength Training and Conditioning 5e, Table 18.4",
+      "notes": "Table notes advanced schedules may include multiple sessions per day."
+    },
+    {
+      "id": "nsca-ess5-strength-volume",
+      "source_id": "NSCA_ESS5",
+      "scope": "STRENGTH",
+      "guidance": {
+        "goal_repetitions_max": 6,
+        "novice_sets": [
+          1,
+          3
+        ],
+        "intermediate_sets_min": 3,
+        "advanced_sets_min": 3
+      },
+      "evidence_type": "TABLE",
+      "locator": "Essentials of Strength Training and Conditioning 5e, Table 18.13",
+      "notes": "Volume assignments based on training goal; warm-up sets excluded and set guidance typically applies to core exercises."
+    }
+  ]
+}
