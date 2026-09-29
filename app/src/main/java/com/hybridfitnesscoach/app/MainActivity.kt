@@ -775,8 +775,9 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
-            if(restoredWorkout==null) plannedWorkoutToRun=requested
-            workoutOpen=true
+            val launch=resolveWorkoutLaunch(restoredWorkout,requested)
+            plannedWorkoutToRun=launch.plannedWorkout
+            workoutOpen=launch.resumeActive || launch.plannedWorkout!=null
             onCalendarWorkoutConsumed()
         }
     }
