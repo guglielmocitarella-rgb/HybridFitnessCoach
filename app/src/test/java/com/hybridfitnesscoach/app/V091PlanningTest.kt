@@ -99,7 +99,7 @@ class V091PlanningTest {
  @Test fun acsmGeneralEvidenceIsPrescriptionOnlyAndNotTechniqueEvidence(){
   val resistance=Exercise("Synthetic squat","Gambe","Bilanciere","Base",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
   val evidence=ExerciseEvidenceRegistry.evidenceFor(resistance)!!
-  assertEquals(1,evidence.prescription.size)
+  assertEquals(2,evidence.prescription.size);assertTrue(evidence.prescription.any{it.sourceId=="acsm-2026-resistance-training-position-stand"})
   assertTrue(evidence.technique.isEmpty())
   assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
  }
@@ -110,10 +110,10 @@ class V091PlanningTest {
 
  @Test fun resistanceEvidenceExposesSourceLocationForExerciseDetail(){
   val resistance=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
-  val source=ExerciseEvidenceRegistry.evidenceFor(resistance)!!.prescription.single()
-  assertTrue(source.sourceTitle.contains("ACSM"))
-  assertTrue(source.section!!.contains("Resistance Training"))
-  assertTrue(source.pageOrLocation!!.contains("353"))
+  val sources=ExerciseEvidenceRegistry.evidenceFor(resistance)!!.prescription
+  assertTrue(sources.all{it.sourceTitle.contains("ACSM",ignoreCase=true) || it.sourceId.startsWith("acsm-")})
+  assertTrue(sources.any{it.section!!.contains("Resistance Training") && it.pageOrLocation!!.contains("353")})
+  assertTrue(sources.any{it.sourceId=="acsm-2026-resistance-training-position-stand"})
   assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
  }
 
