@@ -60,4 +60,23 @@ class Rc2PrescriptionRegressionTest {
         assertEquals(45,out.restSeconds)
     }
 
+    @Test fun automaticRunnerMaterializesVerifiedTargetsIntoPersistableExerciseState() {
+        val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,setRestSec=75)
+        val athlete=AthleteProfile(goal="Forza",level="Intermedio")
+        val materialized=effectiveAutomaticExercises(listOf(ex),athlete,emptyList(),85).single()
+        val state=plannedExerciseState(0,materialized)
+        assertEquals(3,state.sets.size)
+        assertTrue(state.sets.all{it.targetReps==6})
+        assertEquals(180,state.setRestSec)
+    }
+
+    @Test fun automaticRunnerResumeNeverRecalculatesPersistedPrescription() {
+        val persisted=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,targetSets=2,targetValue=4.0,setRestSec=111)
+        val athlete=AthleteProfile(goal="Forza",level="Intermedio")
+        val resumed=effectiveAutomaticExercises(listOf(persisted),athlete,emptyList(),20,restored=true).single()
+        assertEquals(2,resumed.targetSets)
+        assertEquals(4.0,resumed.targetValue!!,0.001)
+        assertEquals(111,resumed.setRestSec)
+    }
+
 }
