@@ -246,7 +246,11 @@ class AppStore(context: Context) {
                     val names = o.getJSONArray("exerciseNames")
                     (0 until names.length()).mapNotNull { index ->
                         recovery.read<Exercise?>("$path.exerciseNames[$index]", null) {
-                            exercises.firstOrNull { it.name == names.getString(index) } ?: error("Unresolved legacy exercise")
+                            exercises.firstOrNull { it.name.equals(names.getString(index), ignoreCase = true) }
+                                ?: ExerciseDbV2.resolveLegacy(names.getString(index), ExerciseDbV2.installedRecords())?.let { record ->
+                                    exercises.firstOrNull { it.progressionKey == record.id } ?: ExerciseDbV2.toLegacyExercise(record)
+                                }
+                                ?: error("Unresolved legacy exercise")
                         }
                     }
                 }
