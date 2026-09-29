@@ -655,6 +655,9 @@ class MainActivity : ComponentActivity() {
 
 enum class Tab { HOME, PLAN, LIBRARY, EQUIPMENT, PROGRESS }
 
+private val italianCalendarDate = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy", java.util.Locale.ITALY)
+private fun calendarDate(epochDay:Long):String = java.time.LocalDate.ofEpochDay(epochDay).format(italianCalendarDate)
+
 @Composable
 fun HybridFitnessApp() {
     val context = androidx.compose.ui.platform.LocalContext.current
@@ -819,7 +822,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                         val today=java.time.LocalDate.now().toEpochDay()
                         val next=plan.workouts.filter{it.epochDay>=today && it.state!=PlannedWorkoutState.SKIPPED && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL}.minByOrNull{it.epochDay}
                         Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
-                        Text(next?.let{"Prossima sessione: "+java.time.LocalDate.ofEpochDay(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
+                        Text(next?.let{"Prossima sessione: "+calendarDate(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
                         OutlinedButton(onClick=managePlan,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("GESTISCI PROGRAMMA")}
                     }
                 }
@@ -875,12 +878,12 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                     Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth().clickable{selected=workout},shape=RoundedCornerShape(16.dp)) {
                         Column(Modifier.padding(16.dp)) {
                             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
-                                Text(java.time.LocalDate.ofEpochDay(workout.epochDay).toString(),fontWeight=FontWeight.Bold)
+                                Text(calendarDate(workout.epochDay),fontWeight=FontWeight.Bold)
                                 Text(workout.state.name,fontSize=12.sp,color=Accent,fontWeight=FontWeight.SemiBold)
                             }
                             Text("Settimana "+(workout.weekIndex+1)+" • Sessione "+(workout.sequenceInWeek+1),fontSize=13.sp,color=Color.Gray)
                             Text(workout.exercises.joinToString(" • "){it.name},fontSize=12.sp,modifier=Modifier.padding(top=5.dp))
-                            if(workout.epochDay!=workout.originalEpochDay) Text("Data originale: "+java.time.LocalDate.ofEpochDay(workout.originalEpochDay),fontSize=11.sp,color=Color.Gray)
+                            if(workout.epochDay!=workout.originalEpochDay) Text("Data originale: "+calendarDate(workout.originalEpochDay),fontSize=11.sp,color=Color.Gray)
                             workout.adaptationReason?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
                             if(workout.state==PlannedWorkoutState.PLANNED || workout.state==PlannedWorkoutState.RESCHEDULED) Text("Tocca per avviare, saltare o riprogrammare",fontSize=11.sp,color=Accent,modifier=Modifier.padding(top=6.dp))
                         }
@@ -896,9 +899,9 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
         AlertDialog(onDismissRequest={selected=null},title={Text(if(historical)"Allenamento eseguito" else "Gestisci sessione")},text={
             LazyColumn(Modifier.heightIn(max=480.dp)) {
                 item {
-                    Text("Pianificato: "+java.time.LocalDate.ofEpochDay(workout.originalEpochDay))
-                    if(workout.epochDay!=workout.originalEpochDay)Text("Riprogrammato: "+java.time.LocalDate.ofEpochDay(workout.epochDay))
-                    workout.actualExecutionEpochDay?.let{Text("Eseguito: "+java.time.LocalDate.ofEpochDay(it))}
+                    Text("Pianificato: "+calendarDate(workout.originalEpochDay))
+                    if(workout.epochDay!=workout.originalEpochDay)Text("Riprogrammato: "+calendarDate(workout.epochDay))
+                    workout.actualExecutionEpochDay?.let{Text("Eseguito: "+calendarDate(it))}
                     Spacer(Modifier.height(12.dp))
                 }
                 if(historical){
