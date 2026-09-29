@@ -156,14 +156,13 @@ class AppStore(context: Context) {
         string("weight_history")
     }
 
-    private fun write(edit: SharedPreferences.Editor.() -> Unit) {
+    private fun write(edit: SharedPreferences.Editor.() -> Unit): Boolean {
         // Recheck even when the caller never loaded the area it is about to replace.
         validateStore()
-        if (issues.isNotEmpty() || prefs == null) return
+        if (issues.isNotEmpty() || prefs == null) return false
         val committed = recovery.read("storage_write", false) { prefs.edit().apply(edit).commit() }
-        if (!committed) {
-            recovery.problem("storage_write")
-        }
+        if (!committed) recovery.problem("storage_write")
+        return committed
     }
 
     fun loadAthlete(): AthleteProfile {
@@ -307,6 +306,24 @@ class AppStore(context: Context) {
         prefs?.all.orEmpty().keys.filter { it.startsWith("skill_node_") }.mapNotNull { key ->
             string(key)?.let { key to it }
         }.toMap()
+    }
+
+    /** Commit history, linked plan and active-runner removal in one preferences transaction. */
+    fun finishWorkout(s: SessionRecord): Boolean {
+        val history = loadSessions()
+        val plan = loadTrainingPlan()
+        val updatedPlan = plan?.let {
+            val executionDay = java.time.Instant.ofEpochMilli(s.timestamp)
+                .atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
+            PlannedWorkoutReconciler.complete(it, s, executionDay, 0).plan
+        }
+        return write {
+            putString("sessions", sessionsJson(listOf(s) + history))
+            if (updatedPlan != null && updatedPlan != plan) {
+                putString("training_plan_v091", trainingPlanJson(updatedPlan))
+            }
+            remove("active_workout_v1")
+        }
     }
 
     fun addSession(s: SessionRecord) = saveSessions(listOf(s) + loadSessions())

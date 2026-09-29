@@ -665,6 +665,12 @@ fun HybridFitnessApp() {
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     var calendarWorkout by remember { mutableStateOf<PlannedWorkout?>(null) }
+    fun saveFinishedWorkout(record: SessionRecord): Boolean {
+        val saved = store.finishWorkout(record)
+        if (saved) sessions = store.loadSessions()
+        else android.widget.Toast.makeText(context, "Salvataggio non riuscito: allenamento conservato per il recupero.", android.widget.Toast.LENGTH_LONG).show()
+        return saved
+    }
     if (store.issues.isNotEmpty()) {
         StoreRecoveryScreen(store)
         return
@@ -690,9 +696,9 @@ fun HybridFitnessApp() {
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
-                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
+                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> saveFinishedWorkout(record) }
                     Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
-                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
+                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> saveFinishedWorkout(record) }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
  { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile=created; store.saveActiveProfileName(created.name) },
@@ -750,7 +756,7 @@ internal fun nextUnlockLabel(states:List<SkillNodeProgress>):String {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Unit) {
+private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
     val readinessScore=LocalHealthConnect.current.readiness
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
@@ -842,7 +848,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     }
     if(treePicker) AlertDialog(onDismissRequest={treePicker=false},title={Text("Skill Tree")},text={LazyColumn{items(calisthenicsSkills){skill->TextButton(onClick={treeSkill=skill.name;treePicker=false}){Text(skill.name)}}}},confirmButton={TextButton(onClick={treePicker=false}){Text("CHIUDI")}})
     treeSkill?.let{skill->SkillDetailDialog(skill,athlete,{treeSkill=null},{customSkill=skill;treeSkill=null;customWorkoutOpen=true},sessions)}
-    if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, plannedWorkout=plannedWorkoutToRun ?: restoredWorkout?.plannedWorkoutId?.let{id->trainingPlan?.workouts?.firstOrNull{it.id==id}}, onDismiss = { workoutOpen = false;plannedWorkoutToRun=null }, onSave = {record->onSessionSaved(record);trainingPlan=store.loadTrainingPlan()}) }
+    if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, plannedWorkout=plannedWorkoutToRun ?: restoredWorkout?.plannedWorkoutId?.let{id->trainingPlan?.workouts?.firstOrNull{it.id==id}}, onDismiss = { workoutOpen = false;plannedWorkoutToRun=null }, onSave = {record->val saved=onSessionSaved(record);if(saved)trainingPlan=store.loadTrainingPlan();saved}) }
     if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, initialSkill=customSkill, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
 }
 
@@ -968,7 +974,7 @@ private fun RecoveryChart(sessions: List<SessionRecord>) {
 @Composable private fun ExerciseRow(a: String, b: String) { Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth()) { Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.FitnessCenter, null, tint = Accent); Spacer(Modifier.width(14.dp)); Column { Text(a, fontWeight = FontWeight.SemiBold); Text(b, color = Color.Gray, fontSize = 13.sp) } } } }
 
 @Composable
-private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, onSessionSaved: (SessionRecord) -> Unit) {
+private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, onSessionSaved: (SessionRecord) -> Boolean) {
     var selectedSkill by remember { mutableStateOf<String?>(null) }
     var skillWorkout by remember { mutableStateOf<String?>(null) }
     var filteredWorkout by remember { mutableStateOf(false) }
@@ -1018,8 +1024,8 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     }
     selected?.let{ex->ExerciseDetailDialog(ex=ex,sessions=sessions,onDismiss={selected=null},onSkillClick={skill->selected=null;selectedSkill=skill})}
     selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }, sessions) }
-    skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> onSessionSaved(record); skillWorkout=null }, initialSkill=skill,store=store) }
-    if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->onSessionSaved(record);filteredWorkout=false},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna",filtersLocked=true,store=store)
+    skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> val saved=onSessionSaved(record);if(saved)skillWorkout=null;saved }, initialSkill=skill,store=store) }
+    if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->val saved=onSessionSaved(record);if(saved)filteredWorkout=false;saved},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna",filtersLocked=true,store=store)
 }
 @Composable
 private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDismiss: () -> Unit, onGenerate: () -> Unit, sessions:List<SessionRecord>) {
@@ -1145,7 +1151,7 @@ private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation
 }
 
 @Composable
-private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null, restored:WorkoutSessionState?=null) {
+private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null, restored:WorkoutSessionState?=null) {
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=remember{liveReadiness}
     var minutes by remember { mutableIntStateOf(45) }
@@ -1312,7 +1318,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             if(generated.isNotEmpty()){
                 Button(onClick={
                     if(!running){sessionStartedAt=System.currentTimeMillis();running=true;paused=false;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<targetSetCount(it)}?.name}
-                    else {val total=generated.sumOf{targetSetCount(it)};onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->recordedExerciseState(i,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,ex.name in pinnedNames)},skipped.filterValues{it}.keys.toList()));store?.clearActiveWorkout();onDismiss()}
+                    else {val total=generated.sumOf{targetSetCount(it)};if(onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->recordedExerciseState(i,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,ex.name in pinnedNames)},skipped.filterValues{it}.keys.toList())))onDismiss()}
                 }){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}
             }
         },
@@ -1324,7 +1330,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 }
 
 @Composable
-private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Unit) {
+private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean) {
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=remember{liveReadiness}
     val compatible = remember(profile, athlete, sessions, restored, plannedWorkout) { restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: plannedWorkout?.exercises?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions,readinessScore) }
@@ -1437,7 +1443,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
         },
         confirmButton = { Button(onClick={
             if(!started){sessionStartedAt=System.currentTimeMillis();started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}
-            else{val structured=compatible.mapIndexed { index,ex->recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false) };onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id));store.clearActiveWorkout();onDismiss()}
+            else{val structured=compatible.mapIndexed { index,ex->recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false) };if(onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id)))onDismiss()}
         }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "SALVA WORKOUT PARZIALE")} },
         dismissButton = { TextButton(onClick=onDismiss){Text("ANNULLA")} }
     )
