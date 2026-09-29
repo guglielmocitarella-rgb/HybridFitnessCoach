@@ -41,6 +41,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Full regression + signed release APK | [~] push #409 and PR #410 green at `852df86`; signed APK uploaded and signature-verified; on-device regression pending | green at current code HEAD | partial | n/a | device acceptance pending |
 
 Audit notes:
+- RC2 coordination: the exercise database is being rebuilt separately. Until that database is integrated, catalog-wide exercise-specific evidence/rest, metadata/video coverage, and source-audit completion remain intentionally open; RC2 work continues on database-independent persistence, runner, calendar, history, navigation, regression, CI, and device-acceptance gates. Do not duplicate those catalog changes in the legacy database.
 - Repository/code/CI are authoritative; stale README status is not evidence.
 - Existing v0.9 runner, progression, sequencing, Health Connect, equipment and catalog are preserved incrementally.
 - No technical exercise facts are added without a real project source. Evidence architecture permits missing metadata while preventing an unsourced baseline from being represented as source-based.
