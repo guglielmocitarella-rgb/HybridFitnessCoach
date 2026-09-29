@@ -10,7 +10,7 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest = Config.NONE, sdk = [28])
 class ExerciseDbV2IntegrationTest {
-    private fun records():List<ExerciseV2Record> {
+    private fun asset(name:String):java.io.File = listOf(java.io.File("src/main/assets/exercise-db-v2/$name"),java.io.File("app/src/main/assets/exercise-db-v2/$name")).first{it.exists()}\n    private fun records():List<ExerciseV2Record> {
         val f=listOf(java.io.File("src/main/assets/exercise-db-v2/exercises.json"),java.io.File("app/src/main/assets/exercise-db-v2/exercises.json")).first{it.exists()}
         return ExerciseDbV2.parseExercises(f.readText())
     }
