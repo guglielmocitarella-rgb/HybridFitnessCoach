@@ -181,4 +181,21 @@ class V091PlanningTest {
   assertNull(ExerciseVideoCatalog.findVerified("Push-up",duplicate))
  }
 
+ @Test fun calendarSupportsFullFiftyTwoWeekBoundaryWithoutDuplicateIdsOrDates(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val start=java.time.LocalDate.of(2026,9,30).toEpochDay()
+  val plan=TrainingPlanEngine.scheduleImmediately("year",start,52,7){_,_->listOf(ex)}
+  assertEquals(364,plan.workouts.size)
+  assertEquals(364,plan.workouts.map{it.id}.distinct().size)
+  assertEquals(364,plan.workouts.map{it.epochDay}.distinct().size)
+  assertEquals(start,plan.workouts.first().epochDay)
+  assertEquals(start+363,plan.workouts.last().epochDay)
+ }
+ @Test fun calendarRejectsMoreThanFiftyTwoWeeksAndInvalidWeekdays(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.scheduleImmediately("p",1000,53,3){_,_->listOf(ex)}}
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,setOf(0,1)){_,_->listOf(ex)}}
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,setOf(1,8)){_,_->listOf(ex)}}
+ }
+
 }
