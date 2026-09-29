@@ -554,6 +554,7 @@ private val legacyExercises: List<Exercise> = (coreExerciseCatalog + extendedExe
 internal var exercises: List<Exercise> = legacyExercises
 internal fun installExerciseDbV2(records:List<ExerciseV2Record>) {
     if (records.isEmpty()) return
+    ExerciseDbV2.install(records)
     val lookup=ExerciseDbV2.uniqueLookup(records)
     exercises=records.map { record ->
         val legacy=record.lookupNames().asSequence().mapNotNull { name ->
@@ -1524,7 +1525,10 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
     val stats = remember(ex.name,sessions) { ExerciseStatistics.fromHistory(ex.name,sessions) }
     val verifiedVideo=ExerciseVideoCatalog.findVerified(ex.name,ExerciseVideoCatalog.verifiedEntries)
     val context=androidx.compose.ui.platform.LocalContext.current
-    val instructions = when (ex.name) {
+    val v2Record=ExerciseDbV2.recordFor(ex)
+    val sourceDrivenInstructions = v2Record?.executionStepsIt?.takeIf { it.isNotEmpty() }?.joinToString("\n• ","• ")
+        ?: v2Record?.descriptionIt?.takeIf { it.isNotBlank() }
+    val instructions = sourceDrivenInstructions ?: when (ex.name) {
         "Corsa intervallata 60/60" -> "Alterna 60 secondi di corsa sostenuta e 60 secondi di recupero. Ripeti per il numero di intervalli previsto, mantenendo un ritmo controllabile e costante."
         "Trazioni prone" -> "Parti in sospensione completa, mantieni il tronco stabile e porta il petto verso la sbarra senza slancio. Torna in basso in controllo."
         "Lat machine" -> "Mantieni il torace alto e tira la barra verso la parte alta del petto. Evita di trasformare il movimento in uno slancio del busto."
@@ -1576,6 +1580,7 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                 Text("Ruolo: " + ex.role, fontWeight = FontWeight.SemiBold)
                 val evidence = ExerciseEvidenceRegistry.evidenceFor(ex)
                 val coverage = ExerciseEvidenceRegistry.coverage(ex)
+                val v2Sources = v2Record?.sources.orEmpty()
                 Spacer(Modifier.height(12.dp))
                 Text("Fonti e copertura",fontWeight=FontWeight.Bold)
                 Text(
@@ -1589,6 +1594,9 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                     fontSize=12.sp,
                     color=if(coverage==EvidenceCoverage.NONE) Color.Gray else Accent
                 )
+                if(v2Sources.isNotEmpty()) {
+                    Text("DB v2: "+v2Sources.distinct().joinToString(),fontSize=12.sp,color=Accent,modifier=Modifier.padding(top=5.dp))
+                }
                 evidence?.all?.distinctBy{it.sourceId}?.forEach { source ->
                     Text("• "+source.sourceTitle,fontSize=12.sp,fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=5.dp))
                     source.section?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
