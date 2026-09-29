@@ -4,7 +4,6 @@ import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
@@ -57,8 +56,7 @@ class ExerciseDbV2IntegrationTest {
     @Test fun sourceBackedProgressionGraphHasReferentialIntegrityForRuntimeIds() {
         val ids=records().map{it.id}.toSet()
         val f=listOf(java.io.File("src/main/assets/exercise-db-v2/progressions.json"),java.io.File("app/src/main/assets/exercise-db-v2/progressions.json")).first{it.exists()}
-        val context=RuntimeEnvironment.getApplication()
-        val edges=ExerciseDbV2.loadProgressions(context)
+        val edges=ExerciseDbV2.parseProgressions(asset("progressions.json").readText())
         assertEquals(113,edges.size)
         assertTrue(edges.all{it.from in ids && it.to in ids && it.sources.isNotEmpty()})
         assertTrue(edges.any{it.relationship=="MAIN_PROGRESSION"})
@@ -87,9 +85,8 @@ class ExerciseDbV2IntegrationTest {
         assertFalse(equipmentCompatible(mapped,EquipmentProfile("Partial","",listOf(mapped.equipment.substringBefore(" / ")))))
     }
     @Test fun sourceRegistryAndProgrammingGuidanceAreConsumableWithoutInventingExerciseSpecificRules() {
-        val context=RuntimeEnvironment.getApplication()
-        val sources=ExerciseDbV2.loadSources(context)
-        val guidance=ExerciseDbV2.loadProgrammingGuidance(context)
+        val sources=ExerciseDbV2.parseSources(asset("sources.json").readText())
+        val guidance=ExerciseDbV2.parseProgrammingGuidance(asset("programming_guidance.json").readText())
         assertEquals(14,sources.size)
         assertEquals(17,guidance.size)
         assertTrue(guidance.all{it.sourceId in sources})

@@ -67,37 +67,43 @@ internal object ExerciseDbV2 {
     fun load(context:Context):List<ExerciseV2Record> =
         context.assets.open("exercise-db-v2/exercises.json").bufferedReader().use{parseExercises(it.readText())}
 
-    fun loadSources(context:Context):Map<String,ExerciseV2Source> =
-        context.assets.open("exercise-db-v2/sources.json").bufferedReader().use { reader ->
-            val a=JSONArray(reader.readText())
-            (0 until a.length()).map{i->a.getJSONObject(i)}.associate { o ->
-                val id=o.getString("source_id")
-                id to ExerciseV2Source(id,o.optString("title").ifBlank{o.optString("name").ifBlank{id}},
-                    o.optString("evidence_type").takeIf{it.isNotBlank()},o.optString("locator").takeIf{it.isNotBlank()})
-            }
+    fun parseSources(json:String):Map<String,ExerciseV2Source> {
+        val a=JSONArray(json)
+        return (0 until a.length()).map{i->a.getJSONObject(i)}.associate { o ->
+            val id=o.getString("source_id")
+            id to ExerciseV2Source(id,o.optString("title").ifBlank{o.optString("name").ifBlank{id}},
+                o.optString("evidence_type").takeIf{it.isNotBlank()},o.optString("locator").takeIf{it.isNotBlank()})
         }
+    }
+
+    fun loadSources(context:Context):Map<String,ExerciseV2Source> =
+        context.assets.open("exercise-db-v2/sources.json").bufferedReader().use { parseSources(it.readText()) }
+
+    fun parseProgrammingGuidance(json:String):List<ExerciseV2Guidance> {
+        val root=JSONObject(json); val a=root.optJSONArray("rules")?:JSONArray()
+        return (0 until a.length()).map{i->a.getJSONObject(i)}.map { o ->
+            val g=o.getJSONObject("guidance"); val values=mutableMapOf<String,IntRange>()
+            g.keys().forEach { key ->
+                val v=g.get(key)
+                when(v){ is JSONArray -> if(v.length()>=2) values[key]=v.getInt(0)..v.getInt(1); is Number -> values[key]=v.toInt()..v.toInt() }
+            }
+            ExerciseV2Guidance(o.getString("id"),o.getString("source_id"),o.getString("scope"),values)
+        }
+    }
 
     fun loadProgrammingGuidance(context:Context):List<ExerciseV2Guidance> =
-        context.assets.open("exercise-db-v2/programming_guidance.json").bufferedReader().use { reader ->
-            val root=JSONObject(reader.readText()); val a=root.optJSONArray("rules")?:JSONArray()
-            (0 until a.length()).map{i->a.getJSONObject(i)}.map { o ->
-                val g=o.getJSONObject("guidance"); val values=mutableMapOf<String,IntRange>()
-                g.keys().forEach { key ->
-                    val v=g.get(key)
-                    when(v){ is JSONArray -> if(v.length()>=2) values[key]=v.getInt(0)..v.getInt(1); is Number -> values[key]=v.toInt()..v.toInt() }
-                }
-                ExerciseV2Guidance(o.getString("id"),o.getString("source_id"),o.getString("scope"),values)
-            }
+        context.assets.open("exercise-db-v2/programming_guidance.json").bufferedReader().use { parseProgrammingGuidance(it.readText()) }
+
+    fun parseProgressions(json:String):List<ExerciseV2Edge> {
+        val a=JSONArray(json)
+        return (0 until a.length()).map { i -> a.getJSONObject(i) }.map { o ->
+            ExerciseV2Edge(o.getString("from"),o.getString("to"),o.getString("relationship"),
+                o.optJSONArray("sources").objects().mapNotNull{it.optString("source_id").takeIf(String::isNotBlank)})
         }
+    }
 
     fun loadProgressions(context:Context):List<ExerciseV2Edge> =
-        context.assets.open("exercise-db-v2/progressions.json").bufferedReader().use { reader ->
-            val a=JSONArray(reader.readText())
-            (0 until a.length()).map { i -> a.getJSONObject(i) }.map { o ->
-                ExerciseV2Edge(o.getString("from"),o.getString("to"),o.getString("relationship"),
-                    o.optJSONArray("sources").objects().mapNotNull{it.optString("source_id").takeIf(String::isNotBlank)})
-            }
-        }
+        context.assets.open("exercise-db-v2/progressions.json").bufferedReader().use { parseProgressions(it.readText()) }
 
     fun uniqueLookup(records:List<ExerciseV2Record>):Map<String,ExerciseV2Record> {
         val candidates=linkedMapOf<String,MutableList<ExerciseV2Record>>()
