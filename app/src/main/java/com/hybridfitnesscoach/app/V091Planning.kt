@@ -225,10 +225,21 @@ object ExerciseStatistics {
 
 enum class VideoVerificationState { PENDING, VERIFIED, REJECTED }
 data class ExerciseVideo(val exerciseName:String,val videoUrl:String,val videoProvider:String,val videoId:String,val thumbnailUrl:String?=null,val verificationState:VideoVerificationState=VideoVerificationState.PENDING)
+data class ExerciseVideoAudit(val totalExercises:Int,val verifiedExercises:Int,val missingExerciseNames:List<String>,val duplicateVerifiedExerciseNames:List<String>,val invalidVerifiedExerciseNames:List<String>)
 object ExerciseVideoCatalog {
  val verifiedEntries:List<ExerciseVideo> = listOf(
   ExerciseVideo("Plank","https://www.youtube.com/watch?v=Vdcy7VrRluA","ACE Fitness","Vdcy7VrRluA",verificationState=VideoVerificationState.VERIFIED)
  )
+ private fun isStructurallyVerified(entry:ExerciseVideo):Boolean =
+  entry.verificationState==VideoVerificationState.VERIFIED && entry.videoUrl.startsWith("https://") && entry.videoProvider.isNotBlank() && entry.videoId.isNotBlank()
  fun findVerified(name:String,entries:List<ExerciseVideo>):ExerciseVideo? =
-  entries.firstOrNull{it.exerciseName.equals(name,ignoreCase=true) && it.verificationState==VideoVerificationState.VERIFIED && it.videoUrl.startsWith("https://") && it.videoProvider.isNotBlank() && it.videoId.isNotBlank()}
+  entries.firstOrNull{it.exerciseName.equals(name,ignoreCase=true) && isStructurallyVerified(it)}
+ fun audit(exercises:List<Exercise>,entries:List<ExerciseVideo> = verifiedEntries):ExerciseVideoAudit {
+  val names=exercises.map{it.name}.distinct()
+  val verified=entries.filter(::isStructurallyVerified)
+  val duplicate=verified.groupBy{it.exerciseName.lowercase()}.filterValues{it.size>1}.keys.sorted()
+  val invalid=entries.filter{it.verificationState==VideoVerificationState.VERIFIED && !isStructurallyVerified(it)}.map{it.exerciseName}.distinct().sorted()
+  val covered=names.filter{name->verified.any{it.exerciseName.equals(name,ignoreCase=true)}}.toSet()
+  return ExerciseVideoAudit(names.size,covered.size,names.filterNot{it in covered}.sorted(),duplicate,invalid)
+ }
 }
