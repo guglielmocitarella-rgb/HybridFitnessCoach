@@ -19,6 +19,6 @@ This report is a completion gate. A registered source is **INGESTED** only when 
 | CAL_BEGINNER_150 | INGESTED | raw/calisthenics_beginner_150.tsv |
 | ULTIMATE_CAL_COLLECTION | INGESTED | raw/ultimate_cal_collection.tsv |
 
-Completion gate satisfied: every registered exercise-repertoire source has a versioned inventory merged with provenance, and guidance-only sources have materialized source-scoped programming evidence. Videos remain deferred by design.
+Completion gate satisfied: every registered exercise-repertoire source has a versioned inventory merged with exercise-specific provenance, and `tools/validate_exercise_db.py` now fails CI if any raw inventory row is not materialized in canonical provenance. The generic `Static Stretch` section heading was removed from the raw exercise inventory because it is not an exercise record. Guidance-only sources have materialized source-scoped programming evidence. Videos remain deferred by design.
 
 Current canonical count is derived from exercises.json, never from a target number.
