@@ -54,7 +54,7 @@ object SkillCatalog {
         "Assisted shrimp squat" to setOf("Shrimp squat assistito")
     )
     val nodes:List<SkillNode> = (initialNodes + skillProgressionNodes.filter { legacy ->
-        initialNodes.none{it.skill.equals(legacy.skill,true)} && legacy.skill !in listOf("L-sit","V-sit")
+        initialNodes.none{it.skill.equals(legacy.skill,true)} && listOf("L-sit","V-sit").none{it.equals(legacy.skill,true)}
     }.map { legacy ->
         val timed=legacy.skill in setOf("Front lever","Planche")
         SkillNode(legacy.id,legacy.label,legacy.skill,legacy.prerequisites.toSet(),
@@ -62,7 +62,7 @@ object SkillCatalog {
     }).map{it.copy(exerciseAliases=it.exerciseAliases+aliases[it.exerciseName].orEmpty())}
 
     fun forSkill(skill: String): List<SkillNode> = nodes.filter { it.skill.equals(skill, ignoreCase = true) || (skill in listOf("L-sit","V-sit") && it.skill=="L-sit / V-sit") }
-    fun skills(): List<String> = nodes.map { it.skill }.distinct()
+    fun skills(): List<String> = nodes.map { it.skill }.distinctBy { it.lowercase() }
 
     /** Evaluate prerequisites from completed sessions, never from a manually advanced level. */
     fun progress(skill: String, sessions: List<SessionRecord>): List<SkillNodeProgress> {
