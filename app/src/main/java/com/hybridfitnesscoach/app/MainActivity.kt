@@ -794,6 +794,10 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var planSaveError by remember { mutableStateOf(false) }
     var requestedWeeks by remember { mutableIntStateOf(8) }
+    var planGoal by remember { mutableStateOf("Fitness generale") }
+    var planDaysPerWeek by remember { mutableIntStateOf(3) }
+    val planWeekdays = remember { mutableStateListOf(1,3,5) }
+    val planSkills = remember { mutableStateListOf<String>() }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
@@ -807,8 +811,9 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
         val recentPlanned=mutableListOf<List<String>>()
-        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,requestedWeeks,athlete.daysPerWeek.coerceIn(1,7)) { week,_ ->
-            val selected=plannedWeekExercises(generateWorkout(profile,athlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
+        val configuredAthlete=athlete.copy(goal=planGoal,daysPerWeek=planDaysPerWeek,prioritySkills=planSkills.toList())
+        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,requestedWeeks,planDaysPerWeek,planWeekdays.toSet()) { week,_ ->
+            val selected=plannedWeekExercises(generateWorkout(profile,configuredAthlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
             recentPlanned.add(selected.map{it.name})
             if(recentPlanned.size>3)recentPlanned.removeAt(0)
             selected
@@ -833,10 +838,10 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     }
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
-                    val suggested = generateWorkout(profile,athlete,sessions,readinessScore)
-                    Text(when(athlete.goal){"Calisthenics"->"Calisthenics"+athlete.prioritySkills.firstOrNull()?.let{" • "+it}.orEmpty();"Ipertrofia"->"Ipertrofia";"Forza"->"Forza";else->"Fitness generale"}, fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
-                    Text(suggested.size.toString()+" esercizi  •  "+athlete.goal, color = Color.Gray)
                     val todayPlan=todayPlannedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay())
+                    val suggested = todayPlan?.exercises ?: generateWorkout(profile,athlete,sessions,readinessScore)
+                    Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+                    Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
                     Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
                 }
@@ -848,9 +853,16 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                 Column(Modifier.padding(18.dp)) {
                     Text("Programma multi-settimana",fontWeight=FontWeight.Bold,fontSize=18.sp)
                     if(plan==null) {
+                        Text("Obiettivo",fontWeight=FontWeight.SemiBold)
+                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(6.dp)){listOf("Forza","Ipertrofia","Calisthenics","Fitness generale").forEach{g->FilterChip(selected=planGoal==g,onClick={planGoal=g},label={Text(g,fontSize=11.sp)})}}
                         Text("Durata del piano: $requestedWeeks settimane",fontSize=13.sp,color=Color.Gray)
-                        Slider(value=requestedWeeks.toFloat(),onValueChange={requestedWeeks=it.toInt().coerceIn(1,52)},valueRange=1f..52f,steps=50)
-                        Button(onClick={ensurePlan()},modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
+                        Slider(value=requestedWeeks.toFloat(),onValueChange={requestedWeeks=it.toInt().coerceIn(2,52)},valueRange=2f..52f,steps=49)
+                        Text("Allenamenti a settimana: $planDaysPerWeek",fontWeight=FontWeight.SemiBold)
+                        Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(planDaysPerWeek>1){planDaysPerWeek--;while(planWeekdays.size>planDaysPerWeek)planWeekdays.removeLast()}}){Text("−")};Spacer(Modifier.width(12.dp));Button(onClick={if(planDaysPerWeek<7)planDaysPerWeek++}){Text("+")}}
+                        Text("Giorni",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp))
+                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(4.dp)){listOf("L","M","M","G","V","S","D").forEachIndexed{idx,label->val day=idx+1;FilterChip(selected=day in planWeekdays,onClick={if(day in planWeekdays)planWeekdays.remove(day) else if(planWeekdays.size<planDaysPerWeek)planWeekdays.add(day)},label={Text(label)})}}
+                        if(planGoal=="Calisthenics"){Text("Skill prioritarie",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp));calisthenicsSkills.take(12).forEach{s->FilterChip(selected=s.name in planSkills,onClick={if(s.name in planSkills)planSkills.remove(s.name)else planSkills.add(s.name)},label={Text(s.name)})}}
+                        Button(onClick={ensurePlan()},enabled=planWeekdays.size==planDaysPerWeek,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
                         if (planSaveError) Text("Impossibile salvare il programma. Controlla i dati e riprova.", color=MaterialTheme.colorScheme.error, fontSize=13.sp)
                     } else {
                         val today=java.time.LocalDate.now().toEpochDay()
@@ -1131,7 +1143,7 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
         Card(Modifier.padding(horizontal=20.dp).fillMaxWidth().clickable { edit=true }) {
             Column(Modifier.padding(18.dp)) {
                 Text(if(athlete.name.isBlank()) "Configura profilo atleta" else athlete.name, fontSize=20.sp, fontWeight=FontWeight.Bold)
-                Text(athlete.goal + " • " + athlete.level + " • " + athlete.daysPerWeek + " giorni/settimana", color=Color.Gray);if(athlete.heightCm>0&&athlete.weightKg>0){val bmi=athlete.weightKg/((athlete.heightCm/100f)*(athlete.heightCm/100f));Text(String.format(java.util.Locale.ITALY,"%.1f kg • %.0f cm • BMI %.1f",athlete.weightKg,athlete.heightCm,bmi),color=Accent,fontSize=13.sp)}
+                Text("Livello: " + athlete.level, color=Color.Gray);if(athlete.heightCm>0&&athlete.weightKg>0){val bmi=athlete.weightKg/((athlete.heightCm/100f)*(athlete.heightCm/100f));Text(String.format(java.util.Locale.ITALY,"%.1f kg • %.0f cm • BMI %.1f",athlete.weightKg,athlete.heightCm,bmi),color=Accent,fontSize=13.sp)}
                 Text("TOCCA PER MODIFICARE", color=Accent, fontSize=12.sp, modifier=Modifier.padding(top=8.dp))
             }
         }
@@ -1163,14 +1175,27 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
 
 @Composable
 private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(AthleteProfile)->Unit){
-    var name by remember{mutableStateOf(current.name)}; var goal by remember{mutableStateOf(current.goal)}; var level by remember{mutableStateOf(current.level)}; var days by remember{mutableIntStateOf(current.daysPerWeek)};var age by remember{mutableStateOf(if(current.age>0)current.age.toString() else "")};var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")};var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")};var sex by remember{mutableStateOf(current.sex)};val prioritySkills=remember{mutableStateListOf<String>().apply{addAll(current.prioritySkills)}}
+    var name by remember{mutableStateOf(current.name)}
+    var level by remember{mutableStateOf(current.level)}
+    var age by remember{mutableStateOf(if(current.age>0)current.age.toString() else "")}
+    var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")}
+    var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")}
+    var sex by remember{mutableStateOf(current.sex)}
     AlertDialog(onDismissRequest=onDismiss,title={Text("Profilo atleta")},text={LazyColumn(Modifier.heightIn(max=520.dp)){
-        item{OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(age,{age=it.filter{ch->ch.isDigit()}},label={Text("Età")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(height,{height=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Altezza (cm)")},singleLine=true,modifier=Modifier.fillMaxWidth());OutlinedTextField(weight,{weight=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Peso (kg)")},singleLine=true,modifier=Modifier.fillMaxWidth());Text("Sesso (opzionale)",fontWeight=FontWeight.Bold);Row{listOf("Non specificato","Uomo","Donna").forEach{x->FilterChip(sex==x,{sex=x},{Text(x)},Modifier.padding(end=4.dp))}};if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}; Text("Obiettivo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))}
-        items(listOf("Forza","Ipertrofia","Calisthenics","Fitness generale")){x->Row(Modifier.fillMaxWidth().clickable{goal=x},verticalAlignment=Alignment.CenterVertically){RadioButton(goal==x,{goal=x});Text(x)}}
-        item{if(goal=="Calisthenics"){Text("Skill da sviluppare (opzionali)",fontWeight=FontWeight.Bold);Text("Le skill selezionate hanno priorità nella generazione del workout.",color=Color.Gray,fontSize=11.sp);calisthenicsSkills.forEach{s->Row(Modifier.fillMaxWidth().clickable{if(s.name in prioritySkills)prioritySkills.remove(s.name)else prioritySkills.add(s.name)},verticalAlignment=Alignment.CenterVertically){Checkbox(s.name in prioritySkills,{if(it){if(s.name !in prioritySkills)prioritySkills.add(s.name)}else prioritySkills.remove(s.name)});Text(s.name)}}};Text("Livello",fontWeight=FontWeight.Bold); listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}; Text("Allenamenti a settimana: "+days,fontWeight=FontWeight.Bold); Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(days>1)days--}){Text("−")};Spacer(Modifier.width(12.dp));Text(days.toString(),fontSize=20.sp);Spacer(Modifier.width(12.dp));Button(onClick={if(days<7)days++}){Text("+")}}}
-    }},confirmButton={Button(onClick={onSave(AthleteProfile(name.trim(),goal,level,days,age.toIntOrNull()?:0,height.toFloatOrNull()?:0f,weight.toFloatOrNull()?:0f,sex,prioritySkills.toList()))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
+        item{
+            OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth())
+            OutlinedTextField(age,{age=it.filter{ch->ch.isDigit()}},label={Text("Età")},singleLine=true,modifier=Modifier.fillMaxWidth())
+            OutlinedTextField(height,{height=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Altezza (cm)")},singleLine=true,modifier=Modifier.fillMaxWidth())
+            OutlinedTextField(weight,{weight=it.replace(",",".").filter{ch->ch.isDigit()||ch=='.'}},label={Text("Peso (kg)")},singleLine=true,modifier=Modifier.fillMaxWidth())
+            Text("Sesso (opzionale)",fontWeight=FontWeight.Bold)
+            Row{listOf("Non specificato","Uomo","Donna").forEach{x->FilterChip(sex==x,{sex=x},{Text(x)},Modifier.padding(end=4.dp))}}
+            if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}
+            Text("Livello",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
+            listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}
+            Text("Obiettivo, skill e giorni di allenamento si configurano nel programma multi-settimana.",color=Color.Gray,fontSize=12.sp,modifier=Modifier.padding(top=10.dp))
+        }
+    }},confirmButton={Button(onClick={onSave(current.copy(name=name.trim(),level=level,age=age.toIntOrNull()?:0,heightCm=height.toFloatOrNull()?:0f,weightKg=weight.toFloatOrNull()?:0f,sex=sex))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
 }
-
 @Composable
 private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation:LoadRecommendation?=null, targetSet:WorkoutSetState?=null, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
     val p=prescriptionFor(ex)
