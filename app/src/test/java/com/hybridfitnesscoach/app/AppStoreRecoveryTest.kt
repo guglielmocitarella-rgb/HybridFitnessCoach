@@ -422,4 +422,22 @@ class AppStoreRecoveryTest {
             assertEquals(raw, file.readText())
         } finally { file.delete() }
     }
+    @Test fun planV2ExerciseSnapshotIsIndependentFromCurrentCatalogDefinition() {
+        val original=exercises.first().copy(setRestSec=137,exerciseRestSec=241,targetSets=4,targetValue=11.0,role="Snapshot role")
+        val plan=TrainingPlan("snapshot",10,1,1,listOf(PlannedWorkout("w",10,0,0,listOf(original))))
+        val store=AppStore(context)
+        store.saveTrainingPlan(plan)
+        val raw=prefs.getString("training_plan_v091",null)!!
+        assertTrue(raw.contains("\"exerciseSnapshots\""))
+        val loaded=AppStore(context).loadTrainingPlan()!!.workouts.single().exercises.single()
+        assertEquals(original,loaded)
+        val catalogSameName=exercises.first{it.name==original.name}
+        assertEquals(137,loaded.setRestSec)
+        assertEquals(241,loaded.exerciseRestSec)
+        assertEquals(4,loaded.targetSets)
+        assertEquals(11.0,loaded.targetValue!!,0.001)
+        assertEquals("Snapshot role",loaded.role)
+        assertNotEquals(catalogSameName.copy(setRestSec=137,exerciseRestSec=241,targetSets=4,targetValue=11.0,role="Snapshot role"),catalogSameName)
+    }
+
 }
