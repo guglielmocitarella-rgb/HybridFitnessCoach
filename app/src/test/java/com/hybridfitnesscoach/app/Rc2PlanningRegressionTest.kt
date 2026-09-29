@@ -109,4 +109,20 @@ class Rc2PlanningRegressionTest {
         assertTrue(twice.decisions.isEmpty())
     }
 
+    @Test fun fullFiftyTwoWeekPlanAlwaysRespectsProfileEquipmentAndAthleteLevel() {
+        val profile=profiles.first{it.name=="Palestra"}
+        val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",daysPerWeek=7,prioritySkills=listOf("Front lever"))
+        val recent=mutableListOf<List<String>>()
+        val plan=TrainingPlanEngine.scheduleImmediately("year-profile",20_000,52,7){_,_->
+            val selected=generateWorkout(profile,athlete,emptyList(),80,recent.flatten().toSet())
+            recent.add(selected.map{it.name})
+            if(recent.size>3)recent.removeAt(0)
+            selected
+        }
+        assertEquals(364,plan.workouts.size)
+        assertTrue(plan.workouts.all{it.exercises.isNotEmpty()})
+        assertTrue(plan.workouts.flatMap{it.exercises}.all{equipmentCompatible(it,profile)})
+        assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(athlete.level)})
+    }
+
 }
