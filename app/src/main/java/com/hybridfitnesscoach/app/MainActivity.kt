@@ -1097,6 +1097,7 @@ private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDism
                     if(node.prerequisites.isNotEmpty())Text("Prerequisiti: "+node.prerequisites.map{key->states.firstOrNull{it.node.id==key}?.node?.exerciseName?:key}.joinToString(),fontSize=12.sp)
                     val target=criterion.minSeconds?.let{"$it secondi"}?:criterion.minReps?.let{"$it ripetizioni"}?:"target registrato"
                     Text("${criterion.minSets} serie × $target • RPE ≤ ${criterion.maxRpe?:10}",fontSize=12.sp)
+                    Text("${criterion.evidenceClass}: ${criterion.evidenceNote}",fontSize=11.sp,color=Color.Gray)
                     Text("${(state.completion*criterion.requiredSessions).toInt()} / ${criterion.requiredSessions} sessioni valide",fontSize=12.sp,color=Color.Gray)
                     LinearProgressIndicator(progress={state.completion.toFloat()},modifier=Modifier.fillMaxWidth().padding(top=6.dp))
                 }
