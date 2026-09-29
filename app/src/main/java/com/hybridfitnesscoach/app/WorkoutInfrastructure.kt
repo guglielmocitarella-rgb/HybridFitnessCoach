@@ -183,3 +183,25 @@ object AdaptiveCoach {
     }
 }
 
+
+
+internal fun customWorkoutCandidatePool(
+    profile:EquipmentProfile,
+    athlete:AthleteProfile,
+    sessions:List<SessionRecord>,
+    mode:String,
+    selectedSkills:Collection<String>,
+    selectedGroups:Collection<String>
+):List<Exercise> {
+    val eligible=skillEligibleExercises(sessions)
+    val base=exercises.filter { ex ->
+        ex.name in eligible &&
+        levelScore(ex.level)<=levelScore(athlete.level) &&
+        equipmentCompatible(ex,profile) &&
+        (mode!="Parti del corpo" || selectedGroups.isEmpty() || selectedGroups.any{ex.group.contains(it,true)})
+    }
+    if(mode!="Skill") return base
+    val skillWork=base.filter{ex->selectedSkills.any{s->s in ex.skills}}
+    val support=base.filter{it !in skillWork && (it.role=="Forza"||it.role=="Prerequisito"||it.role=="Accessorio")}
+    return (skillWork+support).distinct()
+}
