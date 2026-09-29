@@ -111,4 +111,18 @@ class SkillIntegrationTest {
         assertEquals(0.5,state.completion,0.001)
     }
 
+    @Test fun exerciseDetailLinksExposeRealSkillProgressAndNextUnlock() {
+        val ex=exercises.first{it.skills.contains("Muscle-up")}
+        val empty=exerciseSkillLinks(ex,emptyList()).first{it.skill=="Muscle-up"}
+        assertEquals(0,empty.progressPercent)
+        assertNotNull(empty.currentNode)
+        assertTrue(empty.nextUnlock.isNotBlank())
+        assertEquals(ex.skills.toSet(),exerciseSkillLinks(ex,emptyList()).map{it.skill}.toSet())
+    }
+
+    @Test fun baseExerciseWithoutSkillsHasNoSkillTreeNavigationLinks() {
+        val ex=exercises.first{it.skills.isEmpty()}
+        assertTrue(exerciseSkillLinks(ex,emptyList()).isEmpty())
+    }
+
 }
