@@ -293,12 +293,9 @@ internal fun plannedWeekExercises(
     return base.map { ex ->
         val sets=ex.targetSets
         val value=ex.targetValue
-        when {
-            phase==3 -> ex // consolidation: return to the catalog/source baseline
-            sets!=null -> ex.copy(targetSets=(sets + if(phase>=2)1 else 0).coerceAtMost(sets+1))
-            value!=null && ex.measure!=ExerciseMeasure.DISTANCE ->
-                ex.copy(targetValue=value*(1.0+0.025*phase))
-            else -> ex
-        }
+        if(phase==3) ex else ex.copy(
+            targetSets=sets?.let{(it + if(phase>=2)1 else 0).coerceAtMost(it+1)},
+            targetValue=if(value!=null && ex.measure!=ExerciseMeasure.DISTANCE) value*(1.0+0.025*phase) else value
+        )
     }
 }
