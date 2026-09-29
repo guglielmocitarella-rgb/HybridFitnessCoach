@@ -22,11 +22,18 @@ object ExerciseEvidenceRegistry {
   pageOrLocation="physical PDF pages 353 and 360",
   evidenceType=EvidenceType.GUIDELINE
  )
+ private val acsm2026ResistancePositionStand=EvidenceRef(
+  sourceId="acsm-2026-resistance-training-position-stand",
+  sourceTitle="Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews",
+  section="ACSM Position Stand — general resistance-training prescription",
+  pageOrLocation="ACSM official Position Stand, published 2026",
+  evidenceType=EvidenceType.GUIDELINE
+ )
  private fun isResistanceExercise(exercise:Exercise):Boolean = isEligibleResistanceExercise(exercise)
  fun evidenceFor(exerciseName:String):ExerciseEvidence?=entries[exerciseName]
  fun evidenceFor(exercise:Exercise):ExerciseEvidence? {
   entries[exercise.name]?.let{return it}
-  return if(isResistanceExercise(exercise)) ExerciseEvidence(exercise.name,prescription=listOf(acsmResistancePrescription)) else null
+  return if(isResistanceExercise(exercise)) ExerciseEvidence(exercise.name,prescription=listOf(acsmResistancePrescription,acsm2026ResistancePositionStand)) else null
  }
  fun coverage(exercise:Exercise):EvidenceCoverage {
   val e=evidenceFor(exercise)?:return EvidenceCoverage.NONE
