@@ -125,4 +125,19 @@ class Rc2PlanningRegressionTest {
         assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(athlete.level)})
     }
 
+    @Test fun failedCalendarPersistenceCannotExposeCandidatePlan() {
+        val current=plan()
+        val candidate=TrainingPlanEngine.skip(current,current.workouts.first().id)
+        assertEquals(current,committedPlanOrCurrent(current,candidate,false))
+        assertEquals(PlannedWorkoutState.PLANNED,committedPlanOrCurrent(current,candidate,false).workouts.first().state)
+    }
+
+    @Test fun successfulCalendarPersistenceExposesCandidatePlan() {
+        val current=plan()
+        val candidate=TrainingPlanEngine.skip(current,current.workouts.first().id)
+        val visible=committedPlanOrCurrent(current,candidate,true)
+        assertEquals(candidate,visible)
+        assertEquals(PlannedWorkoutState.SKIPPED,visible.workouts.first().state)
+    }
+
 }
