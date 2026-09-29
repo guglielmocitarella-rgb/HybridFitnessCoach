@@ -140,4 +140,33 @@ class Rc2PlanningRegressionTest {
         assertEquals(PlannedWorkoutState.SKIPPED,visible.workouts.first().state)
     }
 
+    @Test fun multiWeekPlanUsesConservativeThreePlusOneProgressionWithoutChangingExercises() {
+        val reps=Exercise("Progress reps","Core","Corpo libero","Principiante",targetValue=10.0)
+        val sets=Exercise("Progress sets","Core","Corpo libero","Principiante",targetSets=3,targetValue=8.0)
+        val distance=Exercise("Progress distance","Cardio","Corpo libero","Principiante",measure=ExerciseMeasure.DISTANCE,targetValue=1000.0)
+        val base=listOf(reps,sets,distance)
+        val w0=plannedWeekExercises(base,0)
+        val w1=plannedWeekExercises(base,1)
+        val w2=plannedWeekExercises(base,2)
+        val w3=plannedWeekExercises(base,3)
+        assertEquals(base.map{it.name},w2.map{it.name})
+        assertEquals(10.0,w0[0].targetValue!!,0.001)
+        assertEquals(10.25,w1[0].targetValue!!,0.001)
+        assertEquals(10.5,w2[0].targetValue!!,0.001)
+        assertEquals(10.0,w3[0].targetValue!!,0.001)
+        assertEquals(3,w0[1].targetSets)
+        assertEquals(3,w1[1].targetSets)
+        assertEquals(4,w2[1].targetSets)
+        assertEquals(3,w3[1].targetSets)
+        assertEquals(1000.0,w2[2].targetValue!!,0.001)
+    }
+
+    @Test fun weekProgressionRepeatsDeterministicallyAcrossLongPlans() {
+        val ex=Exercise("Progress","Core","Corpo libero","Principiante",targetValue=20.0)
+        assertEquals(plannedWeekExercises(listOf(ex),0),plannedWeekExercises(listOf(ex),4))
+        assertEquals(plannedWeekExercises(listOf(ex),1),plannedWeekExercises(listOf(ex),5))
+        assertEquals(plannedWeekExercises(listOf(ex),2),plannedWeekExercises(listOf(ex),50))
+        assertEquals(plannedWeekExercises(listOf(ex),3),plannedWeekExercises(listOf(ex),51))
+    }
+
 }
