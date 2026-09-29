@@ -1388,8 +1388,8 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
             store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),if(paused)elapsedSeconds*1000L else 0L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="automatic",restKind=restKind,plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id))
         }
     }
-    LaunchedEffect(started){if(started){if(currentExercise==null)currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;val i=compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i)}}
-    LaunchedEffect(currentExercise){if(started){val i=compatible.indexOfFirst{it.name==currentExercise};if(i>=0)listState.animateScrollToItem(i)}}
+    LaunchedEffect(started){if(started){if(currentExercise==null)currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;val i=compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i+1)}}
+    LaunchedEffect(currentExercise){if(started){val i=compatible.indexOfFirst{it.name==currentExercise};if(i>=0)listState.animateScrollToItem(i+1)}}
 
     AlertDialog(
         onDismissRequest = onDismiss,
