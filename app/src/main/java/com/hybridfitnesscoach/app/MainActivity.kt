@@ -1174,6 +1174,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     var restKind by remember { mutableStateOf(restored?.restKind?:"Serie") }
     var currentExercise by remember { mutableStateOf<String?>(restored?.exercises?.getOrNull(restored.currentExerciseIndex)?.exerciseName) }
     var generationMessage by remember { mutableStateOf<String?>(null) }
+    var confirmFinish by remember { mutableStateOf(false) }
     val completed = remember { mutableStateMapOf<String, Int>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets.count{s->s.completed})}} }
     val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
@@ -1329,7 +1330,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             if(generated.isNotEmpty()){
                 Button(onClick={
                     if(!running){sessionStartedAt=System.currentTimeMillis();running=true;paused=false;currentExercise=generated.firstOrNull{(completed[it.name]?:0)<targetSetCount(it)}?.name}
-                    else {val total=generated.sumOf{targetSetCount(it)};if(onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->recordedExerciseState(i,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,ex.name in pinnedNames)},skipped.filterValues{it}.keys.toList())))onDismiss()}
+                    else confirmFinish=true
                 }){Text(if(running)"TERMINA E SALVA" else "AVVIA WORKOUT")}
             }
         },
@@ -1337,6 +1338,18 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
             if(!running && generated.isNotEmpty()) TextButton(onClick={resetPreview()}){Text("MODIFICA PARAMETRI")}
             else TextButton(onClick=onDismiss){Text("ANNULLA")}
         }
+    )
+    if(confirmFinish) AlertDialog(
+        onDismissRequest={confirmFinish=false},
+        title={Text("Terminare e salvare il workout?")},
+        text={Text("Serie completate: ${completed.values.sum()}/${generated.sumOf{targetSetCount(it)}}. Potrai consultare il dettaglio nella cronologia.")},
+        confirmButton={Button(onClick={
+            val total=generated.sumOf{targetSetCount(it)}
+            val saved=onSave(SessionRecord(System.currentTimeMillis(),"Personalizzato"+if(selectedSkills.isNotEmpty())" • "+selectedSkills.joinToString(", ") else "",completed.values.sum(),total,generated.map{it.name},exerciseRpe.toMap(),workoutRpe,completed.toMap(),elapsedSeconds,generated.mapIndexed{i,ex->recordedExerciseState(i,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,ex.name in pinnedNames)},skipped.filterValues{it}.keys.toList()))
+            confirmFinish=false
+            if(saved)onDismiss()
+        }){Text("SALVA WORKOUT")}},
+        dismissButton={TextButton(onClick={confirmFinish=false}){Text("CONTINUA ALLENAMENTO")}}
     )
 }
 
@@ -1351,6 +1364,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     val totalSets = compatible.sumOf{prescriptionFor(it).sets}
     val doneSets = completedSets.values.sum()
     var started by remember { mutableStateOf(restored != null) }
+    var confirmFinish by remember { mutableStateOf(false) }
     var sessionStartedAt by remember { mutableStateOf(restored?.startedAtEpochMs) }
     val sessionId = remember { restored?.id ?: "auto-"+System.currentTimeMillis() }
     var paused by remember { mutableStateOf(restored?.pausedAtEpochMs != null) }
@@ -1454,9 +1468,21 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
         },
         confirmButton = { Button(onClick={
             if(!started){sessionStartedAt=System.currentTimeMillis();started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}
-            else{val structured=compatible.mapIndexed { index,ex->recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false) };if(onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id)))onDismiss()}
+            else confirmFinish=true
         }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "SALVA WORKOUT PARZIALE")} },
         dismissButton = { TextButton(onClick=onDismiss){Text("ANNULLA")} }
+    )
+    if(confirmFinish) AlertDialog(
+        onDismissRequest={confirmFinish=false},
+        title={Text("Terminare e salvare il workout?")},
+        text={Text("Serie completate: $doneSets/$totalSets. Il programma sarà aggiornato dopo il salvataggio.")},
+        confirmButton={Button(onClick={
+            val structured=compatible.mapIndexed { index,ex->recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false) }
+            val saved=onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id))
+            confirmFinish=false
+            if(saved)onDismiss()
+        }){Text("SALVA WORKOUT")}},
+        dismissButton={TextButton(onClick={confirmFinish=false}){Text("CONTINUA ALLENAMENTO")}}
     )
 }
 
