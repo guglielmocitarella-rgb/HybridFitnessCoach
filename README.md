@@ -2,9 +2,11 @@
 
 Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
 
-## Stato del progetto — V0.9 release candidate
+## Stato del progetto — v0.9.1 RC2
 
-La base V0.8 Evoluta è preservata. Il branch `feature/v0.9-adaptive-progression` integra Progression Engine, Skill Tree, Load Recommendation, Adaptive Coach, sequencing, Health Connect opzionale con fallback locale e rigenerazione pinned/locked. Dopo l'audit finale il gate catalogo è stato riaperto per rispettare il requisito originale di circa 500 esercizi reali e utili; la release resta candidata finché il nuovo catalogo e l'intera regression suite non risultano verdi.\n\nBuild stabile storica di riferimento prima dell'evoluzione: **Build #69**.
+Il branch `feature/v0.9.1-training-plan` è la linea RC2 corrente. Integra Progression/Skill Tree, Adaptive Coach, piano multi-settimana, runner persistente, storico strutturato/recovery e Exercise DB v2 da 587 record canonici, mantenendo una compatibilità legacy fail-closed dove la migrazione v2 non è ancora possibile.
+
+GitHub e la PR #8 sono la fonte di verità per HEAD e CI. Non usare numeri di build riportati in questo README come prova dello stato corrente: ogni release candidate deve essere verificata contro le workflow run dell'esatto SHA finale. La copertura video catalog-wide resta separata dal gate software RC2; device acceptance resta un controllo esterno.
 
 ### Funzioni disponibili
 
