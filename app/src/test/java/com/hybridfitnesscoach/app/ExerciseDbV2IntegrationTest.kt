@@ -85,4 +85,13 @@ class ExerciseDbV2IntegrationTest {
         assertTrue(equipmentCompatible(mapped,all))
         assertFalse(equipmentCompatible(mapped,EquipmentProfile("Partial","",listOf(mapped.equipment.substringBefore(" / ")))))
     }
+    @Test fun sourceRegistryAndProgrammingGuidanceAreConsumableWithoutInventingExerciseSpecificRules() {
+        val context=RuntimeEnvironment.getApplication()
+        val sources=ExerciseDbV2.loadSources(context)
+        val guidance=ExerciseDbV2.loadProgrammingGuidance(context)
+        assertEquals(14,sources.size)
+        assertEquals(17,guidance.size)
+        assertTrue(guidance.all{it.sourceId in sources})
+        assertTrue(guidance.any{it.scope=="STRENGTH"})
+    }
 }
