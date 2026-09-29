@@ -2,7 +2,7 @@
   {
     "id": "ex-4-point-burpee",
     "canonicalNameEn": "4-Point Burpee",
-    "nameIt": null,
+    "nameIt": "4-Point Burpee",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -43,7 +43,7 @@
   {
     "id": "ex-90-degree-push-up",
     "canonicalNameEn": "90-Degree Push-Up",
-    "nameIt": null,
+    "nameIt": "90-Degree Push-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND_PUSH_UP",
@@ -84,7 +84,7 @@
   {
     "id": "ex-abdominal-crunch",
     "canonicalNameEn": "Abdominal Crunch",
-    "nameIt": null,
+    "nameIt": "Abdominal Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -131,7 +131,7 @@
   {
     "id": "ex-adductor-foam-rolling",
     "canonicalNameEn": "Adductor Foam Rolling",
-    "nameIt": null,
+    "nameIt": "Adductor Foam Rolling",
     "aliases": [],
     "movementType": "SMR",
     "family": "SMR",
@@ -172,7 +172,7 @@
   {
     "id": "ex-alternate-arm-and-leg-raises-on-ball",
     "canonicalNameEn": "Alternate Arm and Leg Raises on Ball",
-    "nameIt": null,
+    "nameIt": "Alternate Arm and Leg Raises on Ball",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -213,7 +213,7 @@
   {
     "id": "ex-alternating-v-up-crunch",
     "canonicalNameEn": "Alternating V-Up Crunch",
-    "nameIt": null,
+    "nameIt": "Alternating V-Up Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -254,7 +254,7 @@
   {
     "id": "ex-angled-half-lever",
     "canonicalNameEn": "Angled Half Lever",
-    "nameIt": null,
+    "nameIt": "Angled Half Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HALF_LEVER",
@@ -295,7 +295,7 @@
   {
     "id": "ex-arch",
     "canonicalNameEn": "Arch",
-    "nameIt": null,
+    "nameIt": "Arch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -336,7 +336,7 @@
   {
     "id": "ex-archer-push-up",
     "canonicalNameEn": "Archer Push-Up",
-    "nameIt": null,
+    "nameIt": "Archer Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -377,7 +377,7 @@
   {
     "id": "ex-armpit-foam-rolling",
     "canonicalNameEn": "Armpit Foam Rolling",
-    "nameIt": null,
+    "nameIt": "Armpit Foam Rolling",
     "aliases": [],
     "movementType": "SMR",
     "family": "SMR",
@@ -418,7 +418,7 @@
   {
     "id": "ex-assisted-hamstring-curl",
     "canonicalNameEn": "Assisted Hamstring Curl",
-    "nameIt": null,
+    "nameIt": "Assisted Hamstring Curl",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "NORDIC_HAMSTRING",
@@ -459,7 +459,7 @@
   {
     "id": "ex-assisted-single-leg-squat",
     "canonicalNameEn": "Assisted Single-Leg Squat",
-    "nameIt": null,
+    "nameIt": "Assisted Single-Leg Squat",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "SINGLE_LEG_SQUAT",
@@ -500,7 +500,7 @@
   {
     "id": "ex-back-clap-push-up",
     "canonicalNameEn": "Back-Clap Push-Up",
-    "nameIt": null,
+    "nameIt": "Back-Clap Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -541,7 +541,7 @@
   {
     "id": "ex-back-extension-apparatus",
     "canonicalNameEn": "Back Extension Apparatus",
-    "nameIt": null,
+    "nameIt": "Back Extension Apparatus",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK_EXTENSION",
@@ -582,7 +582,7 @@
   {
     "id": "ex-back-foot-elevated-split-squat",
     "canonicalNameEn": "Back Foot Elevated Split Squat",
-    "nameIt": null,
+    "nameIt": "Back Foot Elevated Split Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -623,14 +623,16 @@
   {
     "id": "ex-back-lever",
     "canonicalNameEn": "Back Lever",
-    "nameIt": null,
+    "nameIt": "Back Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "BACK_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -664,7 +666,7 @@
   {
     "id": "ex-back-squat",
     "canonicalNameEn": "Back Squat",
-    "nameIt": null,
+    "nameIt": "Back Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
@@ -711,7 +713,7 @@
   {
     "id": "ex-ball-bridge",
     "canonicalNameEn": "Ball Bridge",
-    "nameIt": null,
+    "nameIt": "Ball Bridge",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -752,7 +754,7 @@
   {
     "id": "ex-ball-shoulder-stretch",
     "canonicalNameEn": "Ball Shoulder Stretch",
-    "nameIt": null,
+    "nameIt": "Ball Shoulder Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -793,14 +795,16 @@
   {
     "id": "ex-banded-biceps-curl",
     "canonicalNameEn": "Banded Biceps Curl",
-    "nameIt": null,
+    "nameIt": "Banded Biceps Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -834,14 +838,16 @@
   {
     "id": "ex-banded-chest-press",
     "canonicalNameEn": "Banded Chest Press",
-    "nameIt": null,
+    "nameIt": "Banded Chest Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -875,14 +881,16 @@
   {
     "id": "ex-banded-deadlift",
     "canonicalNameEn": "Banded Deadlift",
-    "nameIt": null,
+    "nameIt": "Banded Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -916,14 +924,16 @@
   {
     "id": "ex-banded-deltoid-row",
     "canonicalNameEn": "Banded Deltoid Row",
-    "nameIt": null,
+    "nameIt": "Banded Deltoid Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -957,14 +967,16 @@
   {
     "id": "ex-banded-external-rotation",
     "canonicalNameEn": "Banded External Rotation",
-    "nameIt": null,
+    "nameIt": "Banded External Rotation",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "MOBILITY",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -998,14 +1010,16 @@
   {
     "id": "ex-banded-front-raise",
     "canonicalNameEn": "Banded Front Raise",
-    "nameIt": null,
+    "nameIt": "Banded Front Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1039,14 +1053,16 @@
   {
     "id": "ex-banded-lateral-raise",
     "canonicalNameEn": "Banded Lateral Raise",
-    "nameIt": null,
+    "nameIt": "Banded Lateral Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1080,14 +1096,16 @@
   {
     "id": "ex-banded-lying-leg-extension",
     "canonicalNameEn": "Banded Lying Leg Extension",
-    "nameIt": null,
+    "nameIt": "Banded Lying Leg Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1121,14 +1139,16 @@
   {
     "id": "ex-banded-triceps-extension",
     "canonicalNameEn": "Banded Triceps Extension",
-    "nameIt": null,
+    "nameIt": "Banded Triceps Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1162,14 +1182,16 @@
   {
     "id": "ex-banded-unilateral-triceps-extension",
     "canonicalNameEn": "Banded Unilateral Triceps Extension",
-    "nameIt": null,
+    "nameIt": "Banded Unilateral Triceps Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1203,14 +1225,16 @@
   {
     "id": "ex-banded-upright-row",
     "canonicalNameEn": "Banded Upright Row",
-    "nameIt": null,
+    "nameIt": "Banded Upright Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1244,14 +1268,16 @@
   {
     "id": "ex-barbell-back-squat",
     "canonicalNameEn": "Barbell Back Squat",
-    "nameIt": null,
+    "nameIt": "Barbell Back Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1285,14 +1311,16 @@
   {
     "id": "ex-barbell-bench-press",
     "canonicalNameEn": "Barbell Bench Press",
-    "nameIt": null,
+    "nameIt": "Barbell Bench Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1332,14 +1360,16 @@
   {
     "id": "ex-barbell-bent-leg-dead-lift",
     "canonicalNameEn": "Barbell Bent Leg Dead Lift",
-    "nameIt": null,
+    "nameIt": "Barbell Bent Leg Dead Lift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1373,14 +1403,16 @@
   {
     "id": "ex-barbell-bent-over-row",
     "canonicalNameEn": "Barbell Bent-Over Row",
-    "nameIt": null,
+    "nameIt": "Barbell Bent-Over Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1420,14 +1452,16 @@
   {
     "id": "ex-barbell-biceps-curl",
     "canonicalNameEn": "Barbell Biceps Curl",
-    "nameIt": null,
+    "nameIt": "Barbell Biceps Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BICEPS",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1461,14 +1495,16 @@
   {
     "id": "ex-barbell-front-squat",
     "canonicalNameEn": "Barbell Front Squat",
-    "nameIt": null,
+    "nameIt": "Barbell Front Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1502,14 +1538,16 @@
   {
     "id": "ex-barbell-glute-bridge",
     "canonicalNameEn": "Barbell Glute Bridge",
-    "nameIt": null,
+    "nameIt": "Barbell Glute Bridge",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1543,14 +1581,16 @@
   {
     "id": "ex-barbell-lunge",
     "canonicalNameEn": "Barbell Lunge",
-    "nameIt": null,
+    "nameIt": "Barbell Lunge",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LUNGE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1584,14 +1624,16 @@
   {
     "id": "ex-barbell-overhead-shoulder-press",
     "canonicalNameEn": "Barbell Overhead Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Barbell Overhead Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1625,14 +1667,16 @@
   {
     "id": "ex-barbell-row",
     "canonicalNameEn": "Barbell Row",
-    "nameIt": null,
+    "nameIt": "Barbell Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1666,14 +1710,16 @@
   {
     "id": "ex-barbell-shrug",
     "canonicalNameEn": "Barbell Shrug",
-    "nameIt": null,
+    "nameIt": "Barbell Shrug",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHRUG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1707,14 +1753,16 @@
   {
     "id": "ex-barbell-standing-shoulder-press",
     "canonicalNameEn": "Barbell Standing Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Barbell Standing Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1748,14 +1796,16 @@
   {
     "id": "ex-barbell-triceps-press",
     "canonicalNameEn": "Barbell Triceps Press",
-    "nameIt": null,
+    "nameIt": "Barbell Triceps Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "TRICEPS",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1789,7 +1839,7 @@
   {
     "id": "ex-bastards",
     "canonicalNameEn": "Bastards",
-    "nameIt": null,
+    "nameIt": "Bastards",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -1830,7 +1880,7 @@
   {
     "id": "ex-bear-crawls",
     "canonicalNameEn": "Bear Crawls",
-    "nameIt": null,
+    "nameIt": "Bear Crawls",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -1871,7 +1921,7 @@
   {
     "id": "ex-behind-the-neck-press",
     "canonicalNameEn": "Behind-the-Neck Press",
-    "nameIt": null,
+    "nameIt": "Behind-the-Neck Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
@@ -1912,14 +1962,16 @@
   {
     "id": "ex-behind-the-neck-pull-up",
     "canonicalNameEn": "Behind-the-Neck Pull-Up",
-    "nameIt": null,
+    "nameIt": "Behind-the-Neck Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1953,7 +2005,7 @@
   {
     "id": "ex-bench-press",
     "canonicalNameEn": "Bench Press",
-    "nameIt": null,
+    "nameIt": "Bench Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PUSH",
@@ -2000,7 +2052,7 @@
   {
     "id": "ex-bench-step",
     "canonicalNameEn": "Bench Step",
-    "nameIt": null,
+    "nameIt": "Bench Step",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "STEP_UP",
@@ -2041,7 +2093,7 @@
   {
     "id": "ex-bend-and-reach",
     "canonicalNameEn": "Bend and Reach",
-    "nameIt": null,
+    "nameIt": "Bend and Reach",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "TOTAL_BODY_MOBILITY",
@@ -2082,7 +2134,7 @@
   {
     "id": "ex-bent-knee-sit-up",
     "canonicalNameEn": "Bent-Knee Sit-Up",
-    "nameIt": null,
+    "nameIt": "Bent-Knee Sit-Up",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -2123,7 +2175,7 @@
   {
     "id": "ex-bent-leg-good-morning",
     "canonicalNameEn": "Bent Leg Good Morning",
-    "nameIt": null,
+    "nameIt": "Bent Leg Good Morning",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -2164,7 +2216,7 @@
   {
     "id": "ex-bent-over-lateral-raise",
     "canonicalNameEn": "Bent-Over Lateral Raise",
-    "nameIt": null,
+    "nameIt": "Bent-Over Lateral Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "REAR_DELTOID",
@@ -2205,14 +2257,16 @@
   {
     "id": "ex-bent-over-one-arm-dumbbell-rows",
     "canonicalNameEn": "Bent-Over One-Arm Dumbbell Rows",
-    "nameIt": null,
+    "nameIt": "Bent-Over One-Arm Dumbbell Rows",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2246,7 +2300,7 @@
   {
     "id": "ex-bent-over-row",
     "canonicalNameEn": "Bent-Over Row",
-    "nameIt": null,
+    "nameIt": "Bent-Over Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
@@ -2287,7 +2341,7 @@
   {
     "id": "ex-bicycle-crunch",
     "canonicalNameEn": "Bicycle Crunch",
-    "nameIt": null,
+    "nameIt": "Bicycle Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -2328,14 +2382,16 @@
   {
     "id": "ex-bodyweight-chin-ups",
     "canonicalNameEn": "Bodyweight Chin-Ups",
-    "nameIt": null,
+    "nameIt": "Bodyweight Chin-Ups",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2369,7 +2425,7 @@
   {
     "id": "ex-bodyweight-crunches",
     "canonicalNameEn": "Bodyweight Crunches",
-    "nameIt": null,
+    "nameIt": "Bodyweight Crunches",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -2410,14 +2466,16 @@
   {
     "id": "ex-bodyweight-dips",
     "canonicalNameEn": "Bodyweight Dips",
-    "nameIt": null,
+    "nameIt": "Bodyweight Dips",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "DIP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2451,7 +2509,7 @@
   {
     "id": "ex-bodyweight-leaning-side-abdominal",
     "canonicalNameEn": "Bodyweight Leaning Side Abdominal",
-    "nameIt": null,
+    "nameIt": "Bodyweight Leaning Side Abdominal",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -2492,7 +2550,7 @@
   {
     "id": "ex-bodyweight-modified-push-ups",
     "canonicalNameEn": "Bodyweight Modified Push-Ups",
-    "nameIt": null,
+    "nameIt": "Bodyweight Modified Push-Ups",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -2533,7 +2591,7 @@
   {
     "id": "ex-bodyweight-sit-ups",
     "canonicalNameEn": "Bodyweight Sit-Ups",
-    "nameIt": null,
+    "nameIt": "Bodyweight Sit-Ups",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -2574,7 +2632,7 @@
   {
     "id": "ex-bodyweightair-squat",
     "canonicalNameEn": "Bodyweight/Air Squat",
-    "nameIt": null,
+    "nameIt": "Bodyweight/Air Squat",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "SQUAT",
@@ -2615,14 +2673,17 @@
   {
     "id": "ex-box-dip",
     "canonicalNameEn": "Box Dip",
-    "nameIt": null,
+    "nameIt": "Box Dip",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "DIP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "box",
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2656,14 +2717,16 @@
   {
     "id": "ex-box-jumps",
     "canonicalNameEn": "Box Jumps",
-    "nameIt": null,
+    "nameIt": "Box Jumps",
     "aliases": [],
     "movementType": "PLYOMETRIC",
     "family": "JUMP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "box"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2697,7 +2760,7 @@
   {
     "id": "ex-bridge",
     "canonicalNameEn": "Bridge",
-    "nameIt": null,
+    "nameIt": "Bridge",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "LOWER_BODY",
@@ -2738,7 +2801,7 @@
   {
     "id": "ex-burpees",
     "canonicalNameEn": "Burpees",
-    "nameIt": null,
+    "nameIt": "Burpees",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -2779,14 +2842,17 @@
   {
     "id": "ex-cable-crossover-machine",
     "canonicalNameEn": "Cable Crossover (Machine)",
-    "nameIt": null,
+    "nameIt": "Cable Crossover (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST_FLY",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine",
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2820,14 +2886,16 @@
   {
     "id": "ex-cable-deadlift",
     "canonicalNameEn": "Cable Deadlift",
-    "nameIt": null,
+    "nameIt": "Cable Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2861,14 +2929,16 @@
   {
     "id": "ex-cable-front-raise",
     "canonicalNameEn": "Cable Front Raise",
-    "nameIt": null,
+    "nameIt": "Cable Front Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2902,14 +2972,17 @@
   {
     "id": "ex-cable-rope-crunch",
     "canonicalNameEn": "Cable Rope Crunch",
-    "nameIt": null,
+    "nameIt": "Cable Rope Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine",
+      "rope"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2943,14 +3016,16 @@
   {
     "id": "ex-cable-rotational-oblique-twist",
     "canonicalNameEn": "Cable Rotational Oblique Twist",
-    "nameIt": null,
+    "nameIt": "Cable Rotational Oblique Twist",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2984,14 +3059,16 @@
   {
     "id": "ex-cable-trap-shrug",
     "canonicalNameEn": "Cable Trap Shrug",
-    "nameIt": null,
+    "nameIt": "Cable Trap Shrug",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3025,14 +3102,16 @@
   {
     "id": "ex-cable-unilateral-triceps-pressdown",
     "canonicalNameEn": "Cable Unilateral Triceps Pressdown",
-    "nameIt": null,
+    "nameIt": "Cable Unilateral Triceps Pressdown",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3066,14 +3145,16 @@
   {
     "id": "ex-cable-upright-row",
     "canonicalNameEn": "Cable Upright Row",
-    "nameIt": null,
+    "nameIt": "Cable Upright Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3107,7 +3188,7 @@
   {
     "id": "ex-calf-raise",
     "canonicalNameEn": "Calf Raise",
-    "nameIt": null,
+    "nameIt": "Calf Raise",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "LOWER_BODY",
@@ -3154,7 +3235,7 @@
   {
     "id": "ex-calf-stretch",
     "canonicalNameEn": "Calf Stretch",
-    "nameIt": null,
+    "nameIt": "Calf Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -3195,7 +3276,7 @@
   {
     "id": "ex-candlestick",
     "canonicalNameEn": "Candlestick",
-    "nameIt": null,
+    "nameIt": "Candlestick",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -3236,7 +3317,7 @@
   {
     "id": "ex-cat-cow-kneeling-crunch",
     "canonicalNameEn": "Cat-Cow Kneeling Crunch",
-    "nameIt": null,
+    "nameIt": "Cat-Cow Kneeling Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -3277,7 +3358,7 @@
   {
     "id": "ex-cat-stretch",
     "canonicalNameEn": "Cat Stretch",
-    "nameIt": null,
+    "nameIt": "Cat Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -3318,7 +3399,7 @@
   {
     "id": "ex-chest-and-shoulder-stretch",
     "canonicalNameEn": "Chest and Shoulder Stretch",
-    "nameIt": null,
+    "nameIt": "Chest and Shoulder Stretch",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SHOULDER_MOBILITY",
@@ -3359,7 +3440,7 @@
   {
     "id": "ex-chest-stretch",
     "canonicalNameEn": "Chest Stretch",
-    "nameIt": null,
+    "nameIt": "Chest Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -3400,7 +3481,7 @@
   {
     "id": "ex-child-stretch",
     "canonicalNameEn": "Child Stretch",
-    "nameIt": null,
+    "nameIt": "Child Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -3441,7 +3522,7 @@
   {
     "id": "ex-childs-pose",
     "canonicalNameEn": "Child's Pose",
-    "nameIt": null,
+    "nameIt": "Child's Pose",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "MOBILITY",
@@ -3482,14 +3563,16 @@
   {
     "id": "ex-chin-up",
     "canonicalNameEn": "Chin-Up",
-    "nameIt": null,
+    "nameIt": "Chin-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3535,14 +3618,16 @@
   {
     "id": "ex-clap-pull-up",
     "canonicalNameEn": "Clap Pull-Up",
-    "nameIt": null,
+    "nameIt": "Clap Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3576,7 +3661,7 @@
   {
     "id": "ex-clap-push-up",
     "canonicalNameEn": "Clap Push-Up",
-    "nameIt": null,
+    "nameIt": "Clap Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -3617,14 +3702,16 @@
   {
     "id": "ex-close-grip-barbell-bench-press",
     "canonicalNameEn": "Close-Grip Barbell Bench Press",
-    "nameIt": null,
+    "nameIt": "Close-Grip Barbell Bench Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3658,14 +3745,16 @@
   {
     "id": "ex-close-grip-pull-up",
     "canonicalNameEn": "Close-Grip Pull-Up",
-    "nameIt": null,
+    "nameIt": "Close-Grip Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3699,7 +3788,7 @@
   {
     "id": "ex-close-grip-push-up",
     "canonicalNameEn": "Close-Grip Push-Up",
-    "nameIt": null,
+    "nameIt": "Close-Grip Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -3740,7 +3829,7 @@
   {
     "id": "ex-cobra-stretch",
     "canonicalNameEn": "Cobra Stretch",
-    "nameIt": null,
+    "nameIt": "Cobra Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -3781,14 +3870,16 @@
   {
     "id": "ex-cross-cable-triceps-pressdown",
     "canonicalNameEn": "Cross-Cable Triceps Pressdown",
-    "nameIt": null,
+    "nameIt": "Cross-Cable Triceps Pressdown",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3822,7 +3913,7 @@
   {
     "id": "ex-crunch",
     "canonicalNameEn": "Crunch",
-    "nameIt": null,
+    "nameIt": "Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -3863,7 +3954,7 @@
   {
     "id": "ex-curl",
     "canonicalNameEn": "Curl",
-    "nameIt": null,
+    "nameIt": "Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ELBOW_FLEXION",
@@ -3904,7 +3995,7 @@
   {
     "id": "ex-deadbug",
     "canonicalNameEn": "Deadbug",
-    "nameIt": null,
+    "nameIt": "Deadbug",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -3945,7 +4036,7 @@
   {
     "id": "ex-deadlift",
     "canonicalNameEn": "Deadlift",
-    "nameIt": null,
+    "nameIt": "Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -3992,7 +4083,7 @@
   {
     "id": "ex-deadlift-from-blocks",
     "canonicalNameEn": "Deadlift from Blocks",
-    "nameIt": null,
+    "nameIt": "Deadlift from Blocks",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -4033,7 +4124,7 @@
   {
     "id": "ex-decline-abdominal-crunch",
     "canonicalNameEn": "Decline Abdominal Crunch",
-    "nameIt": null,
+    "nameIt": "Decline Abdominal Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -4074,7 +4165,7 @@
   {
     "id": "ex-deep-push-up",
     "canonicalNameEn": "Deep Push-Up",
-    "nameIt": null,
+    "nameIt": "Deep Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -4115,7 +4206,7 @@
   {
     "id": "ex-deep-squat-position",
     "canonicalNameEn": "Deep-Squat Position",
-    "nameIt": null,
+    "nameIt": "Deep-Squat Position",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "LOWER_BODY_MOBILITY",
@@ -4156,14 +4247,16 @@
   {
     "id": "ex-dip",
     "canonicalNameEn": "Dip",
-    "nameIt": null,
+    "nameIt": "Dip",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "DIP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4197,7 +4290,7 @@
   {
     "id": "ex-dish",
     "canonicalNameEn": "Dish",
-    "nameIt": null,
+    "nameIt": "Dish",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -4238,7 +4331,7 @@
   {
     "id": "ex-double-clap-push-up",
     "canonicalNameEn": "Double-Clap Push-Up",
-    "nameIt": null,
+    "nameIt": "Double-Clap Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -4279,7 +4372,7 @@
   {
     "id": "ex-double-leg-bridge-with-shoulder-flexion",
     "canonicalNameEn": "Double Leg Bridge with Shoulder Flexion",
-    "nameIt": null,
+    "nameIt": "Double Leg Bridge with Shoulder Flexion",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -4320,7 +4413,7 @@
   {
     "id": "ex-dragon-flag",
     "canonicalNameEn": "Dragon Flag",
-    "nameIt": null,
+    "nameIt": "Dragon Flag",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -4361,7 +4454,7 @@
   {
     "id": "ex-dragon-flag-swimmers",
     "canonicalNameEn": "Dragon-Flag Swimmers",
-    "nameIt": null,
+    "nameIt": "Dragon-Flag Swimmers",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -4402,14 +4495,16 @@
   {
     "id": "ex-dumbbell-bench-press",
     "canonicalNameEn": "Dumbbell Bench Press",
-    "nameIt": null,
+    "nameIt": "Dumbbell Bench Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4455,14 +4550,16 @@
   {
     "id": "ex-dumbbell-bent-over-row",
     "canonicalNameEn": "Dumbbell Bent-Over Row",
-    "nameIt": null,
+    "nameIt": "Dumbbell Bent-Over Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4496,14 +4593,16 @@
   {
     "id": "ex-dumbbell-biceps-curl",
     "canonicalNameEn": "Dumbbell Biceps Curl",
-    "nameIt": null,
+    "nameIt": "Dumbbell Biceps Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4537,14 +4636,16 @@
   {
     "id": "ex-dumbbell-chest-fly",
     "canonicalNameEn": "Dumbbell Chest Fly",
-    "nameIt": null,
+    "nameIt": "Dumbbell Chest Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4578,14 +4679,16 @@
   {
     "id": "ex-dumbbell-flat-bench-flyes",
     "canonicalNameEn": "Dumbbell Flat Bench Flyes",
-    "nameIt": null,
+    "nameIt": "Dumbbell Flat Bench Flyes",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST_FLY",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4619,14 +4722,16 @@
   {
     "id": "ex-dumbbell-front-raise",
     "canonicalNameEn": "Dumbbell Front Raise",
-    "nameIt": null,
+    "nameIt": "Dumbbell Front Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4660,14 +4765,16 @@
   {
     "id": "ex-dumbbell-glute-bridge",
     "canonicalNameEn": "Dumbbell Glute Bridge",
-    "nameIt": null,
+    "nameIt": "Dumbbell Glute Bridge",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4701,14 +4808,16 @@
   {
     "id": "ex-dumbbell-goblet-squat",
     "canonicalNameEn": "Dumbbell Goblet Squat",
-    "nameIt": null,
+    "nameIt": "Dumbbell Goblet Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4742,14 +4851,16 @@
   {
     "id": "ex-dumbbell-hang-power-clean",
     "canonicalNameEn": "Dumbbell Hang Power Clean",
-    "nameIt": null,
+    "nameIt": "Dumbbell Hang Power Clean",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4783,14 +4894,16 @@
   {
     "id": "ex-dumbbell-lateral-raise",
     "canonicalNameEn": "Dumbbell Lateral Raise",
-    "nameIt": null,
+    "nameIt": "Dumbbell Lateral Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4824,14 +4937,16 @@
   {
     "id": "ex-dumbbell-rear-deltoid-fly",
     "canonicalNameEn": "Dumbbell Rear Deltoid Fly",
-    "nameIt": null,
+    "nameIt": "Dumbbell Rear Deltoid Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4865,14 +4980,16 @@
   {
     "id": "ex-dumbbell-renegade-row",
     "canonicalNameEn": "Dumbbell Renegade Row",
-    "nameIt": null,
+    "nameIt": "Dumbbell Renegade Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4906,14 +5023,16 @@
   {
     "id": "ex-dumbbell-seated-overhead-tricep-extension-on-a-ball",
     "canonicalNameEn": "Dumbbell Seated Overhead Tricep Extension on a Ball",
-    "nameIt": null,
+    "nameIt": "Dumbbell Seated Overhead Tricep Extension on a Ball",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "TRICEPS",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4947,14 +5066,16 @@
   {
     "id": "ex-dumbbell-seated-shoulder-press",
     "canonicalNameEn": "Dumbbell Seated Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Dumbbell Seated Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -4988,14 +5109,16 @@
   {
     "id": "ex-dumbbell-shoulder-press",
     "canonicalNameEn": "Dumbbell Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Dumbbell Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5029,14 +5152,16 @@
   {
     "id": "ex-dumbbell-squat",
     "canonicalNameEn": "Dumbbell Squat",
-    "nameIt": null,
+    "nameIt": "Dumbbell Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5070,14 +5195,16 @@
   {
     "id": "ex-dumbbell-trap-shrug",
     "canonicalNameEn": "Dumbbell Trap Shrug",
-    "nameIt": null,
+    "nameIt": "Dumbbell Trap Shrug",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5111,14 +5238,16 @@
   {
     "id": "ex-dumbbell-triceps-extension",
     "canonicalNameEn": "Dumbbell Triceps Extension",
-    "nameIt": null,
+    "nameIt": "Dumbbell Triceps Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5152,14 +5281,16 @@
   {
     "id": "ex-dumbbell-windmill",
     "canonicalNameEn": "Dumbbell Windmill",
-    "nameIt": null,
+    "nameIt": "Dumbbell Windmill",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "MOBILITY",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5193,7 +5324,7 @@
   {
     "id": "ex-extended-plank",
     "canonicalNameEn": "Extended Plank",
-    "nameIt": null,
+    "nameIt": "Extended Plank",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -5234,14 +5365,16 @@
   {
     "id": "ex-ez-bar-biceps-curl",
     "canonicalNameEn": "EZ Bar Biceps Curl",
-    "nameIt": null,
+    "nameIt": "EZ Bar Biceps Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5275,14 +5408,16 @@
   {
     "id": "ex-face-pull-machine",
     "canonicalNameEn": "Face Pull (Machine)",
-    "nameIt": null,
+    "nameIt": "Face Pull (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5316,7 +5451,7 @@
   {
     "id": "ex-facing-away-standing-crunch",
     "canonicalNameEn": "Facing-Away Standing Crunch",
-    "nameIt": null,
+    "nameIt": "Facing-Away Standing Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -5357,7 +5492,7 @@
   {
     "id": "ex-false-grip-muscle-up",
     "canonicalNameEn": "False-Grip Muscle-Up",
-    "nameIt": null,
+    "nameIt": "False-Grip Muscle-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "MUSCLE_UP",
@@ -5398,14 +5533,16 @@
   {
     "id": "ex-finger-assisted-one-arm-pull-up",
     "canonicalNameEn": "Finger-Assisted One-Arm Pull-Up",
-    "nameIt": null,
+    "nameIt": "Finger-Assisted One-Arm Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5439,14 +5576,16 @@
   {
     "id": "ex-finger-pull-up",
     "canonicalNameEn": "Finger Pull-Up",
-    "nameIt": null,
+    "nameIt": "Finger Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5480,7 +5619,7 @@
   {
     "id": "ex-fingertip-push-up",
     "canonicalNameEn": "Fingertip Push-Up",
-    "nameIt": null,
+    "nameIt": "Fingertip Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -5521,14 +5660,16 @@
   {
     "id": "ex-flat-back-back-lever",
     "canonicalNameEn": "Flat-Back Back Lever",
-    "nameIt": null,
+    "nameIt": "Flat-Back Back Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "BACK_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -5562,14 +5703,16 @@
   {
     "id": "ex-flat-back-front-lever",
     "canonicalNameEn": "Flat-Back Front Lever",
-    "nameIt": null,
+    "nameIt": "Flat-Back Front Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -5603,7 +5746,7 @@
   {
     "id": "ex-flat-back-planche",
     "canonicalNameEn": "Flat-Back Planche",
-    "nameIt": null,
+    "nameIt": "Flat-Back Planche",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -5644,14 +5787,16 @@
   {
     "id": "ex-flat-dumbbell-fly",
     "canonicalNameEn": "Flat Dumbbell Fly",
-    "nameIt": null,
+    "nameIt": "Flat Dumbbell Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST_FLY",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -5685,7 +5830,7 @@
   {
     "id": "ex-floor-half-lever",
     "canonicalNameEn": "Floor Half Lever",
-    "nameIt": null,
+    "nameIt": "Floor Half Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HALF_LEVER",
@@ -5726,7 +5871,7 @@
   {
     "id": "ex-floor-handstand",
     "canonicalNameEn": "Floor Handstand",
-    "nameIt": null,
+    "nameIt": "Floor Handstand",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND",
@@ -5767,7 +5912,7 @@
   {
     "id": "ex-forearm-and-wrist-stretch-1",
     "canonicalNameEn": "Forearm and Wrist Stretch 1",
-    "nameIt": null,
+    "nameIt": "Forearm and Wrist Stretch 1",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -5808,7 +5953,7 @@
   {
     "id": "ex-forearm-and-wrist-stretch-2",
     "canonicalNameEn": "Forearm and Wrist Stretch 2",
-    "nameIt": null,
+    "nameIt": "Forearm and Wrist Stretch 2",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -5849,7 +5994,7 @@
   {
     "id": "ex-forward-fold",
     "canonicalNameEn": "Forward Fold",
-    "nameIt": null,
+    "nameIt": "Forward Fold",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "MOBILITY",
@@ -5890,7 +6035,7 @@
   {
     "id": "ex-forward-stability-ball-roll",
     "canonicalNameEn": "Forward Stability Ball Roll",
-    "nameIt": null,
+    "nameIt": "Forward Stability Ball Roll",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -5931,7 +6076,7 @@
   {
     "id": "ex-forward-step-lunge",
     "canonicalNameEn": "Forward Step Lunge",
-    "nameIt": null,
+    "nameIt": "Forward Step Lunge",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LUNGE",
@@ -5972,14 +6117,16 @@
   {
     "id": "ex-freestanding-barbell-plie-squats",
     "canonicalNameEn": "Freestanding Barbell Plié Squats",
-    "nameIt": null,
+    "nameIt": "Freestanding Barbell Plié Squats",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -6013,7 +6160,7 @@
   {
     "id": "ex-freestanding-handstand-push-up",
     "canonicalNameEn": "Freestanding Handstand Push-Up",
-    "nameIt": null,
+    "nameIt": "Freestanding Handstand Push-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND_PUSH_UP",
@@ -6054,7 +6201,7 @@
   {
     "id": "ex-freestanding-lateral-lunge",
     "canonicalNameEn": "Freestanding Lateral Lunge",
-    "nameIt": null,
+    "nameIt": "Freestanding Lateral Lunge",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LUNGE",
@@ -6095,14 +6242,16 @@
   {
     "id": "ex-freestanding-parallette-handstand-push-up",
     "canonicalNameEn": "Freestanding Parallette Handstand Push-Up",
-    "nameIt": null,
+    "nameIt": "Freestanding Parallette Handstand Push-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND_PUSH_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "parallettes"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -6136,7 +6285,7 @@
   {
     "id": "ex-frog-hop",
     "canonicalNameEn": "Frog Hop",
-    "nameIt": null,
+    "nameIt": "Frog Hop",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "LOWER_BODY_MOBILITY",
@@ -6177,7 +6326,7 @@
   {
     "id": "ex-frog-stand",
     "canonicalNameEn": "Frog Stand",
-    "nameIt": null,
+    "nameIt": "Frog Stand",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -6218,7 +6367,7 @@
   {
     "id": "ex-front-deltoid-shoulder-press",
     "canonicalNameEn": "Front Deltoid Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Front Deltoid Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
@@ -6259,14 +6408,16 @@
   {
     "id": "ex-front-dip",
     "canonicalNameEn": "Front Dip",
-    "nameIt": null,
+    "nameIt": "Front Dip",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "DIP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -6300,7 +6451,7 @@
   {
     "id": "ex-front-foot-elevated-split-squat",
     "canonicalNameEn": "Front Foot Elevated Split Squat",
-    "nameIt": null,
+    "nameIt": "Front Foot Elevated Split Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -6341,14 +6492,16 @@
   {
     "id": "ex-front-lever",
     "canonicalNameEn": "Front Lever",
-    "nameIt": null,
+    "nameIt": "Front Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -6382,14 +6535,16 @@
   {
     "id": "ex-front-lever-pull-up",
     "canonicalNameEn": "Front-Lever Pull-Up",
-    "nameIt": null,
+    "nameIt": "Front-Lever Pull-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -6423,7 +6578,7 @@
   {
     "id": "ex-front-plank",
     "canonicalNameEn": "Front Plank",
-    "nameIt": null,
+    "nameIt": "Front Plank",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -6464,7 +6619,7 @@
   {
     "id": "ex-front-plank-with-rotation",
     "canonicalNameEn": "Front Plank with Rotation",
-    "nameIt": null,
+    "nameIt": "Front Plank with Rotation",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -6505,7 +6660,7 @@
   {
     "id": "ex-front-squat",
     "canonicalNameEn": "Front Squat",
-    "nameIt": null,
+    "nameIt": "Front Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
@@ -6558,14 +6713,16 @@
   {
     "id": "ex-full-back-lever",
     "canonicalNameEn": "Full Back Lever",
-    "nameIt": null,
+    "nameIt": "Full Back Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "BACK_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -6599,7 +6756,7 @@
   {
     "id": "ex-full-body-stretch",
     "canonicalNameEn": "Full-Body Stretch",
-    "nameIt": null,
+    "nameIt": "Full-Body Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -6640,14 +6797,16 @@
   {
     "id": "ex-full-front-lever",
     "canonicalNameEn": "Full Front Lever",
-    "nameIt": null,
+    "nameIt": "Full Front Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -6681,7 +6840,7 @@
   {
     "id": "ex-full-planche",
     "canonicalNameEn": "Full Planche",
-    "nameIt": null,
+    "nameIt": "Full Planche",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -6722,7 +6881,7 @@
   {
     "id": "ex-german-hang",
     "canonicalNameEn": "German Hang",
-    "nameIt": null,
+    "nameIt": "German Hang",
     "aliases": [],
     "movementType": "SKILL",
     "family": "BACK_LEVER",
@@ -6763,7 +6922,7 @@
   {
     "id": "ex-glute-ham-raise",
     "canonicalNameEn": "Glute Ham Raise",
-    "nameIt": null,
+    "nameIt": "Glute Ham Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "POSTERIOR_CHAIN",
@@ -6804,7 +6963,7 @@
   {
     "id": "ex-glute-stretch",
     "canonicalNameEn": "Glute Stretch",
-    "nameIt": null,
+    "nameIt": "Glute Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -6845,7 +7004,7 @@
   {
     "id": "ex-good-morning",
     "canonicalNameEn": "Good Morning",
-    "nameIt": null,
+    "nameIt": "Good Morning",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -6892,7 +7051,7 @@
   {
     "id": "ex-groin-stretch",
     "canonicalNameEn": "Groin Stretch",
-    "nameIt": null,
+    "nameIt": "Groin Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -6933,7 +7092,7 @@
   {
     "id": "ex-hack-squat",
     "canonicalNameEn": "Hack Squat",
-    "nameIt": null,
+    "nameIt": "Hack Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -6974,7 +7133,7 @@
   {
     "id": "ex-half-lever",
     "canonicalNameEn": "Half Lever",
-    "nameIt": null,
+    "nameIt": "Half Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HALF_LEVER",
@@ -7015,7 +7174,7 @@
   {
     "id": "ex-half-lever-bicycles",
     "canonicalNameEn": "Half-Lever Bicycles",
-    "nameIt": null,
+    "nameIt": "Half-Lever Bicycles",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HALF_LEVER",
@@ -7056,7 +7215,7 @@
   {
     "id": "ex-half-lever-extensions",
     "canonicalNameEn": "Half-Lever Extensions",
-    "nameIt": null,
+    "nameIt": "Half-Lever Extensions",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HALF_LEVER",
@@ -7097,7 +7256,7 @@
   {
     "id": "ex-half-lever-swimmers",
     "canonicalNameEn": "Half-Lever Swimmers",
-    "nameIt": null,
+    "nameIt": "Half-Lever Swimmers",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HALF_LEVER",
@@ -7138,7 +7297,7 @@
   {
     "id": "ex-halting-deadlift",
     "canonicalNameEn": "Halting Deadlift",
-    "nameIt": null,
+    "nameIt": "Halting Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -7179,7 +7338,7 @@
   {
     "id": "ex-hammer-curl",
     "canonicalNameEn": "Hammer Curl",
-    "nameIt": null,
+    "nameIt": "Hammer Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
@@ -7226,14 +7385,16 @@
   {
     "id": "ex-hamstring-ball-curl",
     "canonicalNameEn": "Hamstring Ball Curl",
-    "nameIt": null,
+    "nameIt": "Hamstring Ball Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "stability_ball"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7267,7 +7428,7 @@
   {
     "id": "ex-hamstring-curl",
     "canonicalNameEn": "Hamstring Curl",
-    "nameIt": null,
+    "nameIt": "Hamstring Curl",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "NORDIC_HAMSTRING",
@@ -7308,7 +7469,7 @@
   {
     "id": "ex-hamstring-stretch",
     "canonicalNameEn": "Hamstring Stretch",
-    "nameIt": null,
+    "nameIt": "Hamstring Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -7349,7 +7510,7 @@
   {
     "id": "ex-hang-power-clean",
     "canonicalNameEn": "Hang Power Clean",
-    "nameIt": null,
+    "nameIt": "Hang Power Clean",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -7390,7 +7551,7 @@
   {
     "id": "ex-hang-power-snatch",
     "canonicalNameEn": "Hang Power Snatch",
-    "nameIt": null,
+    "nameIt": "Hang Power Snatch",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -7431,14 +7592,16 @@
   {
     "id": "ex-hanging-knee-raise",
     "canonicalNameEn": "Hanging Knee Raise",
-    "nameIt": null,
+    "nameIt": "Hanging Knee Raise",
     "aliases": [],
     "movementType": "CORE",
     "family": "HANGING_CORE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7478,14 +7641,16 @@
   {
     "id": "ex-hanging-leg-raise",
     "canonicalNameEn": "Hanging Leg Raise",
-    "nameIt": null,
+    "nameIt": "Hanging Leg Raise",
     "aliases": [],
     "movementType": "CORE",
     "family": "HANGING_CORE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7525,7 +7690,7 @@
   {
     "id": "ex-heel-kicks",
     "canonicalNameEn": "Heel Kicks",
-    "nameIt": null,
+    "nameIt": "Heel Kicks",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -7566,14 +7731,16 @@
   {
     "id": "ex-high-low-banded-chest-fly",
     "canonicalNameEn": "High-Low Banded Chest Fly",
-    "nameIt": null,
+    "nameIt": "High-Low Banded Chest Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7607,14 +7774,16 @@
   {
     "id": "ex-high-low-cable-chest-fly",
     "canonicalNameEn": "High-Low Cable Chest Fly",
-    "nameIt": null,
+    "nameIt": "High-Low Cable Chest Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7648,7 +7817,7 @@
   {
     "id": "ex-hip-flexor-stretch",
     "canonicalNameEn": "Hip-Flexor Stretch",
-    "nameIt": null,
+    "nameIt": "Hip-Flexor Stretch",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "LOWER_BODY_MOBILITY",
@@ -7689,14 +7858,16 @@
   {
     "id": "ex-hip-sled-machine",
     "canonicalNameEn": "Hip Sled (Machine)",
-    "nameIt": null,
+    "nameIt": "Hip Sled (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7730,14 +7901,16 @@
   {
     "id": "ex-horizontal-pull-up",
     "canonicalNameEn": "Horizontal Pull-Up",
-    "nameIt": null,
+    "nameIt": "Horizontal Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7771,7 +7944,7 @@
   {
     "id": "ex-human-flag",
     "canonicalNameEn": "Human Flag",
-    "nameIt": null,
+    "nameIt": "Human Flag",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HUMAN_FLAG",
@@ -7812,14 +7985,16 @@
   {
     "id": "ex-in-line-pull-up",
     "canonicalNameEn": "In-Line Pull-Up",
-    "nameIt": null,
+    "nameIt": "In-Line Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7853,14 +8028,16 @@
   {
     "id": "ex-incline-barbell-bench-press",
     "canonicalNameEn": "Incline Barbell Bench Press",
-    "nameIt": null,
+    "nameIt": "Incline Barbell Bench Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7900,14 +8077,16 @@
   {
     "id": "ex-incline-dumbbell-bench-press",
     "canonicalNameEn": "Incline Dumbbell Bench Press",
-    "nameIt": null,
+    "nameIt": "Incline Dumbbell Bench Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7947,14 +8126,16 @@
   {
     "id": "ex-it-band-foam-rolling",
     "canonicalNameEn": "IT-Band Foam Rolling",
-    "nameIt": null,
+    "nameIt": "IT-Band Foam Rolling",
     "aliases": [],
     "movementType": "SMR",
     "family": "SMR",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -7988,7 +8169,7 @@
   {
     "id": "ex-jogging-and-running",
     "canonicalNameEn": "Jogging and Running",
-    "nameIt": null,
+    "nameIt": "Jogging and Running",
     "aliases": [],
     "movementType": "AEROBIC",
     "family": "CARDIO",
@@ -8029,7 +8210,7 @@
   {
     "id": "ex-jumping-lunge",
     "canonicalNameEn": "Jumping Lunge",
-    "nameIt": null,
+    "nameIt": "Jumping Lunge",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -8070,7 +8251,7 @@
   {
     "id": "ex-jumping-squat",
     "canonicalNameEn": "Jumping Squat",
-    "nameIt": null,
+    "nameIt": "Jumping Squat",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -8111,7 +8292,7 @@
   {
     "id": "ex-kettlebell-front-squat",
     "canonicalNameEn": "Kettlebell Front Squat",
-    "nameIt": null,
+    "nameIt": "Kettlebell Front Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
@@ -8152,7 +8333,7 @@
   {
     "id": "ex-kettlebell-swing",
     "canonicalNameEn": "Kettlebell Swing",
-    "nameIt": null,
+    "nameIt": "Kettlebell Swing",
     "aliases": [],
     "movementType": "POWER",
     "family": "HINGE",
@@ -8193,7 +8374,7 @@
   {
     "id": "ex-knee-circles",
     "canonicalNameEn": "Knee Circles",
-    "nameIt": null,
+    "nameIt": "Knee Circles",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "LOWER_BODY_MOBILITY",
@@ -8234,7 +8415,7 @@
   {
     "id": "ex-knee-ups",
     "canonicalNameEn": "Knee-Ups",
-    "nameIt": null,
+    "nameIt": "Knee-Ups",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -8275,7 +8456,7 @@
   {
     "id": "ex-kneeling-iliopsoas-stretch",
     "canonicalNameEn": "Kneeling Iliopsoas Stretch",
-    "nameIt": null,
+    "nameIt": "Kneeling Iliopsoas Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -8316,14 +8497,16 @@
   {
     "id": "ex-l-sit-pull-up",
     "canonicalNameEn": "L-Sit Pull-Up",
-    "nameIt": null,
+    "nameIt": "L-Sit Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8357,7 +8540,7 @@
   {
     "id": "ex-lalanne-push-up",
     "canonicalNameEn": "LaLanne Push-Up",
-    "nameIt": null,
+    "nameIt": "LaLanne Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -8398,14 +8581,16 @@
   {
     "id": "ex-lat-pulldown-machine",
     "canonicalNameEn": "Lat Pulldown (Machine)",
-    "nameIt": null,
+    "nameIt": "Lat Pulldown (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8439,7 +8624,7 @@
   {
     "id": "ex-lateral-shoulder-raise",
     "canonicalNameEn": "Lateral Shoulder Raise",
-    "nameIt": null,
+    "nameIt": "Lateral Shoulder Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LATERAL_RAISE",
@@ -8480,7 +8665,7 @@
   {
     "id": "ex-leg-curl",
     "canonicalNameEn": "Leg Curl",
-    "nameIt": null,
+    "nameIt": "Leg Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -8521,7 +8706,7 @@
   {
     "id": "ex-leg-extension",
     "canonicalNameEn": "Leg Extension",
-    "nameIt": null,
+    "nameIt": "Leg Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -8568,7 +8753,7 @@
   {
     "id": "ex-leg-press",
     "canonicalNameEn": "Leg Press",
-    "nameIt": null,
+    "nameIt": "Leg Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -8609,7 +8794,7 @@
   {
     "id": "ex-leg-press-calf-raise",
     "canonicalNameEn": "Leg Press Calf Raise",
-    "nameIt": null,
+    "nameIt": "Leg Press Calf Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -8650,14 +8835,16 @@
   {
     "id": "ex-low-alternating-wave-with-battle-ropes",
     "canonicalNameEn": "Low Alternating Wave with Battle Ropes",
-    "nameIt": null,
+    "nameIt": "Low Alternating Wave with Battle Ropes",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rope"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8691,14 +8878,16 @@
   {
     "id": "ex-low-high-cable-chest-fly",
     "canonicalNameEn": "Low-High Cable Chest Fly",
-    "nameIt": null,
+    "nameIt": "Low-High Cable Chest Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8732,14 +8921,16 @@
   {
     "id": "ex-low-pulley-seated-row-machine",
     "canonicalNameEn": "Low-Pulley Seated Row (Machine)",
-    "nameIt": null,
+    "nameIt": "Low-Pulley Seated Row (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8773,7 +8964,7 @@
   {
     "id": "ex-lunge",
     "canonicalNameEn": "Lunge",
-    "nameIt": null,
+    "nameIt": "Lunge",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "LOWER_BODY",
@@ -8814,14 +9005,16 @@
   {
     "id": "ex-lying-barbell-triceps-extension",
     "canonicalNameEn": "Lying Barbell Triceps Extension",
-    "nameIt": null,
+    "nameIt": "Lying Barbell Triceps Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "TRICEPS",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8855,7 +9048,7 @@
   {
     "id": "ex-lying-leg-extension",
     "canonicalNameEn": "Lying Leg Extension",
-    "nameIt": null,
+    "nameIt": "Lying Leg Extension",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -8896,14 +9089,16 @@
   {
     "id": "ex-machine-biceps-curl",
     "canonicalNameEn": "Machine Biceps Curl",
-    "nameIt": null,
+    "nameIt": "Machine Biceps Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8937,14 +9132,17 @@
   {
     "id": "ex-machine-cable-front-lat-pulldown",
     "canonicalNameEn": "Machine Cable Front Lat Pulldown",
-    "nameIt": null,
+    "nameIt": "Machine Cable Front Lat Pulldown",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine",
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8978,14 +9176,16 @@
   {
     "id": "ex-machine-chest-fly",
     "canonicalNameEn": "Machine Chest Fly",
-    "nameIt": null,
+    "nameIt": "Machine Chest Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9019,14 +9219,16 @@
   {
     "id": "ex-machine-horizontal-row",
     "canonicalNameEn": "Machine Horizontal Row",
-    "nameIt": null,
+    "nameIt": "Machine Horizontal Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9060,14 +9262,16 @@
   {
     "id": "ex-machine-rear-deltoid-fly",
     "canonicalNameEn": "Machine Rear Deltoid Fly",
-    "nameIt": null,
+    "nameIt": "Machine Rear Deltoid Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9101,14 +9305,16 @@
   {
     "id": "ex-machine-shoulder-press",
     "canonicalNameEn": "Machine Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Machine Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9142,7 +9348,7 @@
   {
     "id": "ex-medicine-ball-clean",
     "canonicalNameEn": "Medicine Ball Clean",
-    "nameIt": null,
+    "nameIt": "Medicine Ball Clean",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -9183,14 +9389,16 @@
   {
     "id": "ex-mid-cable-chest-fly",
     "canonicalNameEn": "Mid-Cable Chest Fly",
-    "nameIt": null,
+    "nameIt": "Mid-Cable Chest Fly",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9224,7 +9432,7 @@
   {
     "id": "ex-mountain-climbers",
     "canonicalNameEn": "Mountain Climbers",
-    "nameIt": null,
+    "nameIt": "Mountain Climbers",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -9265,7 +9473,7 @@
   {
     "id": "ex-multidirectional-lunges",
     "canonicalNameEn": "Multidirectional Lunges",
-    "nameIt": null,
+    "nameIt": "Multidirectional Lunges",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "LOWER_BODY_MOBILITY",
@@ -9306,7 +9514,7 @@
   {
     "id": "ex-muscle-snatch",
     "canonicalNameEn": "Muscle Snatch",
-    "nameIt": null,
+    "nameIt": "Muscle Snatch",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -9347,7 +9555,7 @@
   {
     "id": "ex-neck-and-shoulder-stretch",
     "canonicalNameEn": "Neck and Shoulder Stretch",
-    "nameIt": null,
+    "nameIt": "Neck and Shoulder Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -9388,14 +9596,16 @@
   {
     "id": "ex-negative-chin-up",
     "canonicalNameEn": "Negative Chin-Up",
-    "nameIt": null,
+    "nameIt": "Negative Chin-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9429,7 +9639,7 @@
   {
     "id": "ex-negative-dragon-flag",
     "canonicalNameEn": "Negative Dragon Flag",
-    "nameIt": null,
+    "nameIt": "Negative Dragon Flag",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -9470,7 +9680,7 @@
   {
     "id": "ex-negative-hamstring-curl",
     "canonicalNameEn": "Negative Hamstring Curl",
-    "nameIt": null,
+    "nameIt": "Negative Hamstring Curl",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "NORDIC_HAMSTRING",
@@ -9511,14 +9721,16 @@
   {
     "id": "ex-negative-one-arm-pull-up",
     "canonicalNameEn": "Negative One-Arm Pull-Up",
-    "nameIt": null,
+    "nameIt": "Negative One-Arm Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9552,7 +9764,7 @@
   {
     "id": "ex-neutral-grip-horizontal-row",
     "canonicalNameEn": "Neutral-Grip Horizontal Row",
-    "nameIt": null,
+    "nameIt": "Neutral-Grip Horizontal Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
@@ -9593,7 +9805,7 @@
   {
     "id": "ex-neutral-grip-vertical-pulldown",
     "canonicalNameEn": "Neutral-Grip Vertical Pulldown",
-    "nameIt": null,
+    "nameIt": "Neutral-Grip Vertical Pulldown",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
@@ -9634,7 +9846,7 @@
   {
     "id": "ex-normal-muscle-up",
     "canonicalNameEn": "Normal Muscle-Up",
-    "nameIt": null,
+    "nameIt": "Normal Muscle-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "MUSCLE_UP",
@@ -9675,7 +9887,7 @@
   {
     "id": "ex-oblique-twist-with-plate-weight",
     "canonicalNameEn": "Oblique Twist with Plate Weight",
-    "nameIt": null,
+    "nameIt": "Oblique Twist with Plate Weight",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -9716,7 +9928,7 @@
   {
     "id": "ex-olympic-squat",
     "canonicalNameEn": "Olympic Squat",
-    "nameIt": null,
+    "nameIt": "Olympic Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
@@ -9757,14 +9969,16 @@
   {
     "id": "ex-one-arm-dumbbell-row",
     "canonicalNameEn": "One-Arm Dumbbell Row",
-    "nameIt": null,
+    "nameIt": "One-Arm Dumbbell Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9798,14 +10012,16 @@
   {
     "id": "ex-one-arm-dumbbell-snatch",
     "canonicalNameEn": "One-Arm Dumbbell Snatch",
-    "nameIt": null,
+    "nameIt": "One-Arm Dumbbell Snatch",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -9839,7 +10055,7 @@
   {
     "id": "ex-one-arm-kettlebell-clean",
     "canonicalNameEn": "One-Arm Kettlebell Clean",
-    "nameIt": null,
+    "nameIt": "One-Arm Kettlebell Clean",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -9880,7 +10096,7 @@
   {
     "id": "ex-one-arm-kettlebell-press",
     "canonicalNameEn": "One-Arm Kettlebell Press",
-    "nameIt": null,
+    "nameIt": "One-Arm Kettlebell Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
@@ -9921,7 +10137,7 @@
   {
     "id": "ex-one-arm-one-leg-push-up",
     "canonicalNameEn": "One-Arm One-Leg Push-Up",
-    "nameIt": null,
+    "nameIt": "One-Arm One-Leg Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -9962,14 +10178,16 @@
   {
     "id": "ex-one-arm-pull-up",
     "canonicalNameEn": "One-Arm Pull-Up",
-    "nameIt": null,
+    "nameIt": "One-Arm Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -10003,7 +10221,7 @@
   {
     "id": "ex-one-arm-push-up",
     "canonicalNameEn": "One-Arm Push-Up",
-    "nameIt": null,
+    "nameIt": "One-Arm Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -10044,7 +10262,7 @@
   {
     "id": "ex-overhead-squat",
     "canonicalNameEn": "Overhead Squat",
-    "nameIt": null,
+    "nameIt": "Overhead Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
@@ -10085,14 +10303,16 @@
   {
     "id": "ex-parallette-handstand",
     "canonicalNameEn": "Parallette Handstand",
-    "nameIt": null,
+    "nameIt": "Parallette Handstand",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "parallettes"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -10126,7 +10346,7 @@
   {
     "id": "ex-partial-press",
     "canonicalNameEn": "Partial Press",
-    "nameIt": null,
+    "nameIt": "Partial Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
@@ -10167,7 +10387,7 @@
   {
     "id": "ex-partial-squat",
     "canonicalNameEn": "Partial Squat",
-    "nameIt": null,
+    "nameIt": "Partial Squat",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
@@ -10208,14 +10428,16 @@
   {
     "id": "ex-pec-deck-machine",
     "canonicalNameEn": "Pec Deck (Machine)",
-    "nameIt": null,
+    "nameIt": "Pec Deck (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST_FLY",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -10249,7 +10471,7 @@
   {
     "id": "ex-piked-hamstring-curl",
     "canonicalNameEn": "Piked Hamstring Curl",
-    "nameIt": null,
+    "nameIt": "Piked Hamstring Curl",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "NORDIC_HAMSTRING",
@@ -10290,7 +10512,7 @@
   {
     "id": "ex-piriformis-foam-rolling",
     "canonicalNameEn": "Piriformis Foam Rolling",
-    "nameIt": null,
+    "nameIt": "Piriformis Foam Rolling",
     "aliases": [],
     "movementType": "SMR",
     "family": "SMR",
@@ -10331,7 +10553,7 @@
   {
     "id": "ex-planche",
     "canonicalNameEn": "Planche",
-    "nameIt": null,
+    "nameIt": "Planche",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -10372,7 +10594,7 @@
   {
     "id": "ex-planche-lean",
     "canonicalNameEn": "Planche Lean",
-    "nameIt": null,
+    "nameIt": "Planche Lean",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -10413,7 +10635,7 @@
   {
     "id": "ex-planche-push-up",
     "canonicalNameEn": "Planche Push-Up",
-    "nameIt": null,
+    "nameIt": "Planche Push-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -10454,7 +10676,7 @@
   {
     "id": "ex-plank",
     "canonicalNameEn": "Plank",
-    "nameIt": null,
+    "nameIt": "Plank",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -10495,7 +10717,7 @@
   {
     "id": "ex-plank-pose-stabilization",
     "canonicalNameEn": "Plank Pose Stabilization",
-    "nameIt": null,
+    "nameIt": "Plank Pose Stabilization",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -10536,7 +10758,7 @@
   {
     "id": "ex-plank-to-downward-facing-dog",
     "canonicalNameEn": "Plank to Downward-Facing Dog",
-    "nameIt": null,
+    "nameIt": "Plank to Downward-Facing Dog",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "TOTAL_BODY_MOBILITY",
@@ -10577,7 +10799,7 @@
   {
     "id": "ex-power-clean",
     "canonicalNameEn": "Power Clean",
-    "nameIt": null,
+    "nameIt": "Power Clean",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -10630,7 +10852,7 @@
   {
     "id": "ex-power-snatch",
     "canonicalNameEn": "Power Snatch",
-    "nameIt": null,
+    "nameIt": "Power Snatch",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -10677,7 +10899,7 @@
   {
     "id": "ex-press",
     "canonicalNameEn": "Press",
-    "nameIt": null,
+    "nameIt": "Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
@@ -10718,7 +10940,7 @@
   {
     "id": "ex-prone-back-extension-on-ball",
     "canonicalNameEn": "Prone Back Extension on Ball",
-    "nameIt": null,
+    "nameIt": "Prone Back Extension on Ball",
     "aliases": [],
     "movementType": "CORE",
     "family": "BACK_EXTENSION",
@@ -10759,7 +10981,7 @@
   {
     "id": "ex-prone-bench-rear-deltoid-raise",
     "canonicalNameEn": "Prone Bench Rear Deltoid Raise",
-    "nameIt": null,
+    "nameIt": "Prone Bench Rear Deltoid Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
@@ -10800,7 +11022,7 @@
   {
     "id": "ex-pseudo-planche-push-up",
     "canonicalNameEn": "Pseudo-Planche Push-Up",
-    "nameIt": null,
+    "nameIt": "Pseudo-Planche Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -10841,14 +11063,16 @@
   {
     "id": "ex-pull-up",
     "canonicalNameEn": "Pull-Up",
-    "nameIt": null,
+    "nameIt": "Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -10888,7 +11112,7 @@
   {
     "id": "ex-push-jerk",
     "canonicalNameEn": "Push Jerk",
-    "nameIt": null,
+    "nameIt": "Push Jerk",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -10929,7 +11153,7 @@
   {
     "id": "ex-push-press",
     "canonicalNameEn": "Push Press",
-    "nameIt": null,
+    "nameIt": "Push Press",
     "aliases": [],
     "movementType": "POWER",
     "family": "VERTICAL_PUSH",
@@ -10976,7 +11200,7 @@
   {
     "id": "ex-push-presspush-jerk",
     "canonicalNameEn": "Push Press/Push Jerk",
-    "nameIt": null,
+    "nameIt": "Push Press/Push Jerk",
     "aliases": [],
     "movementType": "POWER",
     "family": "VERTICAL_PUSH",
@@ -11017,7 +11241,7 @@
   {
     "id": "ex-push-up",
     "canonicalNameEn": "Push-Up",
-    "nameIt": null,
+    "nameIt": "Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -11070,7 +11294,7 @@
   {
     "id": "ex-quad-stretch",
     "canonicalNameEn": "Quad Stretch",
-    "nameIt": null,
+    "nameIt": "Quad Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -11117,7 +11341,7 @@
   {
     "id": "ex-rack-pull",
     "canonicalNameEn": "Rack Pull",
-    "nameIt": null,
+    "nameIt": "Rack Pull",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -11158,7 +11382,7 @@
   {
     "id": "ex-rear-support",
     "canonicalNameEn": "Rear Support",
-    "nameIt": null,
+    "nameIt": "Rear Support",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -11199,14 +11423,16 @@
   {
     "id": "ex-rock-climber-pull-up",
     "canonicalNameEn": "Rock-Climber Pull-Up",
-    "nameIt": null,
+    "nameIt": "Rock-Climber Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11240,7 +11466,7 @@
   {
     "id": "ex-rollovers-into-straddle-sit",
     "canonicalNameEn": "Rollovers into Straddle Sit",
-    "nameIt": null,
+    "nameIt": "Rollovers into Straddle Sit",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "LOWER_BODY_MOBILITY",
@@ -11281,7 +11507,7 @@
   {
     "id": "ex-romanian-deadlift",
     "canonicalNameEn": "Romanian Deadlift",
-    "nameIt": null,
+    "nameIt": "Romanian Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -11334,14 +11560,16 @@
   {
     "id": "ex-rope-triceps-pushdown",
     "canonicalNameEn": "Rope Triceps Pushdown",
-    "nameIt": null,
+    "nameIt": "Rope Triceps Pushdown",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rope"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11375,14 +11603,18 @@
   {
     "id": "ex-ropetowel-assisted-one-arm-pull-up",
     "canonicalNameEn": "Rope/Towel-Assisted One-Arm Pull-Up",
-    "nameIt": null,
+    "nameIt": "Rope/Towel-Assisted One-Arm Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar",
+      "rope",
+      "towel"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11416,14 +11648,18 @@
   {
     "id": "ex-ropetowel-pull-up",
     "canonicalNameEn": "Rope/Towel Pull-Up",
-    "nameIt": null,
+    "nameIt": "Rope/Towel Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar",
+      "rope",
+      "towel"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11457,7 +11693,7 @@
   {
     "id": "ex-rotator-cuff-stabilization-with-theraband",
     "canonicalNameEn": "Rotator Cuff Stabilization with TheraBand",
-    "nameIt": null,
+    "nameIt": "Rotator Cuff Stabilization with TheraBand",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ROTATOR_CUFF",
@@ -11498,7 +11734,7 @@
   {
     "id": "ex-rotator-cuff-stretch",
     "canonicalNameEn": "Rotator-Cuff Stretch",
-    "nameIt": null,
+    "nameIt": "Rotator-Cuff Stretch",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SHOULDER_MOBILITY",
@@ -11539,7 +11775,7 @@
   {
     "id": "ex-rows",
     "canonicalNameEn": "Rows",
-    "nameIt": null,
+    "nameIt": "Rows",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
@@ -11580,7 +11816,7 @@
   {
     "id": "ex-scalene-stretch",
     "canonicalNameEn": "Scalene Stretch",
-    "nameIt": null,
+    "nameIt": "Scalene Stretch",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "MOBILITY",
@@ -11621,14 +11857,16 @@
   {
     "id": "ex-scapula-dip",
     "canonicalNameEn": "Scapula Dip",
-    "nameIt": null,
+    "nameIt": "Scapula Dip",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SCAPULAR_CONTROL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11662,7 +11900,7 @@
   {
     "id": "ex-scapula-foam-rolling",
     "canonicalNameEn": "Scapula Foam Rolling",
-    "nameIt": null,
+    "nameIt": "Scapula Foam Rolling",
     "aliases": [],
     "movementType": "SMR",
     "family": "SMR",
@@ -11703,14 +11941,16 @@
   {
     "id": "ex-scapula-one-arm-pull-up",
     "canonicalNameEn": "Scapula One-Arm Pull-Up",
-    "nameIt": null,
+    "nameIt": "Scapula One-Arm Pull-Up",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SCAPULAR_CONTROL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11744,14 +11984,16 @@
   {
     "id": "ex-scapula-pull-up",
     "canonicalNameEn": "Scapula Pull-Up",
-    "nameIt": null,
+    "nameIt": "Scapula Pull-Up",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SCAPULAR_CONTROL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11785,7 +12027,7 @@
   {
     "id": "ex-scapula-push-up",
     "canonicalNameEn": "Scapula Push-Up",
-    "nameIt": null,
+    "nameIt": "Scapula Push-Up",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SCAPULAR_CONTROL",
@@ -11826,14 +12068,16 @@
   {
     "id": "ex-seated-barbell-shoulder-press",
     "canonicalNameEn": "Seated Barbell Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Seated Barbell Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11867,14 +12111,16 @@
   {
     "id": "ex-seated-bent-over-dumbbell-raises-on-ball",
     "canonicalNameEn": "Seated Bent-Over Dumbbell Raises on Ball",
-    "nameIt": null,
+    "nameIt": "Seated Bent-Over Dumbbell Raises on Ball",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "REAR_DELTOID",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11908,7 +12154,7 @@
   {
     "id": "ex-seated-calf-raise",
     "canonicalNameEn": "Seated Calf Raise",
-    "nameIt": null,
+    "nameIt": "Seated Calf Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -11955,14 +12201,16 @@
   {
     "id": "ex-seated-dumbbell-shoulder-press",
     "canonicalNameEn": "Seated Dumbbell Shoulder Press",
-    "nameIt": null,
+    "nameIt": "Seated Dumbbell Shoulder Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -11996,7 +12244,7 @@
   {
     "id": "ex-seated-leg-curl",
     "canonicalNameEn": "Seated Leg Curl",
-    "nameIt": null,
+    "nameIt": "Seated Leg Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -12043,14 +12291,16 @@
   {
     "id": "ex-seated-leg-press-machine",
     "canonicalNameEn": "Seated Leg Press (Machine)",
-    "nameIt": null,
+    "nameIt": "Seated Leg Press (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -12084,14 +12334,16 @@
   {
     "id": "ex-seated-low-cable-pulley-rows",
     "canonicalNameEn": "Seated Low Cable Pulley Rows",
-    "nameIt": null,
+    "nameIt": "Seated Low Cable Pulley Rows",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -12125,7 +12377,7 @@
   {
     "id": "ex-seated-rotation",
     "canonicalNameEn": "Seated Rotation",
-    "nameIt": null,
+    "nameIt": "Seated Rotation",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "TRUNK_MOBILITY",
@@ -12166,14 +12418,16 @@
   {
     "id": "ex-seated-row-machine",
     "canonicalNameEn": "Seated Row (Machine)",
-    "nameIt": null,
+    "nameIt": "Seated Row (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -12207,7 +12461,7 @@
   {
     "id": "ex-seated-side-stretch-on-ball",
     "canonicalNameEn": "Seated Side Stretch on Ball",
-    "nameIt": null,
+    "nameIt": "Seated Side Stretch on Ball",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -12248,7 +12502,7 @@
   {
     "id": "ex-seated-stride-into-saw-stretch",
     "canonicalNameEn": "Seated Stride into Saw Stretch",
-    "nameIt": null,
+    "nameIt": "Seated Stride into Saw Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -12289,14 +12543,16 @@
   {
     "id": "ex-seated-unilateral-banded-leg-curl",
     "canonicalNameEn": "Seated Unilateral Banded Leg Curl",
-    "nameIt": null,
+    "nameIt": "Seated Unilateral Banded Leg Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -12330,7 +12586,7 @@
   {
     "id": "ex-seesaw-with-ball",
     "canonicalNameEn": "Seesaw with Ball",
-    "nameIt": null,
+    "nameIt": "Seesaw with Ball",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LOWER_BODY",
@@ -12371,7 +12627,7 @@
   {
     "id": "ex-shoulder-dislocates",
     "canonicalNameEn": "Shoulder Dislocates",
-    "nameIt": null,
+    "nameIt": "Shoulder Dislocates",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SHOULDER_MOBILITY",
@@ -12412,14 +12668,16 @@
   {
     "id": "ex-shoulder-press-machine",
     "canonicalNameEn": "Shoulder Press (Machine)",
-    "nameIt": null,
+    "nameIt": "Shoulder Press (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "VERTICAL_PUSH",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -12453,7 +12711,7 @@
   {
     "id": "ex-side-leans",
     "canonicalNameEn": "Side Leans",
-    "nameIt": null,
+    "nameIt": "Side Leans",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "TRUNK_MOBILITY",
@@ -12494,7 +12752,7 @@
   {
     "id": "ex-side-plank",
     "canonicalNameEn": "Side Plank",
-    "nameIt": null,
+    "nameIt": "Side Plank",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -12541,7 +12799,7 @@
   {
     "id": "ex-side-plank-with-rotation",
     "canonicalNameEn": "Side Plank with Rotation",
-    "nameIt": null,
+    "nameIt": "Side Plank with Rotation",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -12582,7 +12840,7 @@
   {
     "id": "ex-side-to-side-hip-rolls",
     "canonicalNameEn": "Side-to-Side Hip Rolls",
-    "nameIt": null,
+    "nameIt": "Side-to-Side Hip Rolls",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "TRUNK_MOBILITY",
@@ -12623,14 +12881,16 @@
   {
     "id": "ex-single-leg-back-lever",
     "canonicalNameEn": "Single-Leg Back Lever",
-    "nameIt": null,
+    "nameIt": "Single-Leg Back Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "BACK_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -12664,14 +12924,16 @@
   {
     "id": "ex-single-leg-box-squat",
     "canonicalNameEn": "Single-Leg Box Squat",
-    "nameIt": null,
+    "nameIt": "Single-Leg Box Squat",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "SINGLE_LEG_SQUAT",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "box"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -12705,7 +12967,7 @@
   {
     "id": "ex-single-leg-calf-raise",
     "canonicalNameEn": "Single-Leg Calf Raise",
-    "nameIt": null,
+    "nameIt": "Single-Leg Calf Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -12746,7 +13008,7 @@
   {
     "id": "ex-single-leg-dragon-flag",
     "canonicalNameEn": "Single-Leg Dragon Flag",
-    "nameIt": null,
+    "nameIt": "Single-Leg Dragon Flag",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -12787,14 +13049,16 @@
   {
     "id": "ex-single-leg-front-lever",
     "canonicalNameEn": "Single-Leg Front Lever",
-    "nameIt": null,
+    "nameIt": "Single-Leg Front Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -12828,7 +13092,7 @@
   {
     "id": "ex-single-leg-glute-bridge",
     "canonicalNameEn": "Single-Leg Glute Bridge",
-    "nameIt": null,
+    "nameIt": "Single-Leg Glute Bridge",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -12869,7 +13133,7 @@
   {
     "id": "ex-single-leg-kettlebell-romanian-deadlift",
     "canonicalNameEn": "Single-Leg Kettlebell Romanian Deadlift",
-    "nameIt": null,
+    "nameIt": "Single-Leg Kettlebell Romanian Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -12910,7 +13174,7 @@
   {
     "id": "ex-single-leg-planche",
     "canonicalNameEn": "Single-Leg Planche",
-    "nameIt": null,
+    "nameIt": "Single-Leg Planche",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -12951,7 +13215,7 @@
   {
     "id": "ex-single-leg-squat",
     "canonicalNameEn": "Single-Leg Squat",
-    "nameIt": null,
+    "nameIt": "Single-Leg Squat",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "SINGLE_LEG_SQUAT",
@@ -12998,7 +13262,7 @@
   {
     "id": "ex-sit-up",
     "canonicalNameEn": "Sit-Up",
-    "nameIt": null,
+    "nameIt": "Sit-Up",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -13039,14 +13303,16 @@
   {
     "id": "ex-skippingjump-rope",
     "canonicalNameEn": "Skipping/Jump Rope",
-    "nameIt": null,
+    "nameIt": "Skipping/Jump Rope",
     "aliases": [],
     "movementType": "AEROBIC",
     "family": "CARDIO",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rope"
+    ],
     "level": null,
     "measure": "DURATION",
     "descriptionIt": null,
@@ -13080,7 +13346,7 @@
   {
     "id": "ex-spider-push-up",
     "canonicalNameEn": "Spider Push-Up",
-    "nameIt": null,
+    "nameIt": "Spider Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -13121,7 +13387,7 @@
   {
     "id": "ex-spine-foam-rolling",
     "canonicalNameEn": "Spine Foam Rolling",
-    "nameIt": null,
+    "nameIt": "Spine Foam Rolling",
     "aliases": [],
     "movementType": "SMR",
     "family": "SMR",
@@ -13162,7 +13428,7 @@
   {
     "id": "ex-spine-roll",
     "canonicalNameEn": "Spine Roll",
-    "nameIt": null,
+    "nameIt": "Spine Roll",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "TRUNK_MOBILITY",
@@ -13203,7 +13469,7 @@
   {
     "id": "ex-split-jerk",
     "canonicalNameEn": "Split Jerk",
-    "nameIt": null,
+    "nameIt": "Split Jerk",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -13244,7 +13510,7 @@
   {
     "id": "ex-sprints",
     "canonicalNameEn": "Sprints",
-    "nameIt": null,
+    "nameIt": "Sprints",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -13285,7 +13551,7 @@
   {
     "id": "ex-squat",
     "canonicalNameEn": "Squat",
-    "nameIt": null,
+    "nameIt": "Squat",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "LOWER_BODY",
@@ -13332,7 +13598,7 @@
   {
     "id": "ex-squat-push-press",
     "canonicalNameEn": "Squat Push Press",
-    "nameIt": null,
+    "nameIt": "Squat Push Press",
     "aliases": [],
     "movementType": "POWER",
     "family": "TOTAL_BODY",
@@ -13373,7 +13639,7 @@
   {
     "id": "ex-squat-thrust",
     "canonicalNameEn": "Squat Thrust",
-    "nameIt": null,
+    "nameIt": "Squat Thrust",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -13414,7 +13680,7 @@
   {
     "id": "ex-stability-ball-abdominal-crunch",
     "canonicalNameEn": "Stability Ball Abdominal Crunch",
-    "nameIt": null,
+    "nameIt": "Stability Ball Abdominal Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -13455,7 +13721,7 @@
   {
     "id": "ex-stability-ball-bridge-to-curl",
     "canonicalNameEn": "Stability Ball Bridge to Curl",
-    "nameIt": null,
+    "nameIt": "Stability Ball Bridge to Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "POSTERIOR_CHAIN",
@@ -13496,7 +13762,7 @@
   {
     "id": "ex-stability-ball-jackknife",
     "canonicalNameEn": "Stability Ball Jackknife",
-    "nameIt": null,
+    "nameIt": "Stability Ball Jackknife",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -13537,7 +13803,7 @@
   {
     "id": "ex-stability-ball-pike",
     "canonicalNameEn": "Stability Ball Pike",
-    "nameIt": null,
+    "nameIt": "Stability Ball Pike",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -13578,7 +13844,7 @@
   {
     "id": "ex-stability-ball-reverse-back-extension",
     "canonicalNameEn": "Stability Ball Reverse Back Extension",
-    "nameIt": null,
+    "nameIt": "Stability Ball Reverse Back Extension",
     "aliases": [],
     "movementType": "CORE",
     "family": "BACK_EXTENSION",
@@ -13619,7 +13885,7 @@
   {
     "id": "ex-stability-ball-rollout",
     "canonicalNameEn": "Stability Ball Rollout",
-    "nameIt": null,
+    "nameIt": "Stability Ball Rollout",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -13660,14 +13926,16 @@
   {
     "id": "ex-standing-barbell-curl",
     "canonicalNameEn": "Standing Barbell Curl",
-    "nameIt": null,
+    "nameIt": "Standing Barbell Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BICEPS",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -13701,14 +13969,16 @@
   {
     "id": "ex-standing-cable-glute-kickback",
     "canonicalNameEn": "Standing Cable Glute Kickback",
-    "nameIt": null,
+    "nameIt": "Standing Cable Glute Kickback",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -13742,14 +14012,16 @@
   {
     "id": "ex-standing-cable-pullover",
     "canonicalNameEn": "Standing Cable Pullover",
-    "nameIt": null,
+    "nameIt": "Standing Cable Pullover",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "PULLOVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -13783,14 +14055,16 @@
   {
     "id": "ex-standing-calf-heel-raise-machine",
     "canonicalNameEn": "Standing Calf (Heel) Raise (Machine)",
-    "nameIt": null,
+    "nameIt": "Standing Calf (Heel) Raise (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CALF",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -13824,7 +14098,7 @@
   {
     "id": "ex-standing-chest-and-anterior-shoulder-stretch",
     "canonicalNameEn": "Standing Chest and Anterior Shoulder Stretch",
-    "nameIt": null,
+    "nameIt": "Standing Chest and Anterior Shoulder Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -13865,7 +14139,7 @@
   {
     "id": "ex-standing-jump-and-reach",
     "canonicalNameEn": "Standing Jump and Reach",
-    "nameIt": null,
+    "nameIt": "Standing Jump and Reach",
     "aliases": [],
     "movementType": "PLYOMETRIC",
     "family": "JUMP",
@@ -13906,7 +14180,7 @@
   {
     "id": "ex-standing-side-stretch",
     "canonicalNameEn": "Standing Side Stretch",
-    "nameIt": null,
+    "nameIt": "Standing Side Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -13947,7 +14221,7 @@
   {
     "id": "ex-standing-squat-bosu-balance-trainer",
     "canonicalNameEn": "Standing Squat (BOSU Balance Trainer)",
-    "nameIt": null,
+    "nameIt": "Standing Squat (BOSU Balance Trainer)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SQUAT",
@@ -13988,7 +14262,7 @@
   {
     "id": "ex-standing-torso-rotations",
     "canonicalNameEn": "Standing Torso Rotations",
-    "nameIt": null,
+    "nameIt": "Standing Torso Rotations",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "TRUNK_MOBILITY",
@@ -14029,7 +14303,7 @@
   {
     "id": "ex-standing-triceps-stretch",
     "canonicalNameEn": "Standing Triceps Stretch",
-    "nameIt": null,
+    "nameIt": "Standing Triceps Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -14070,7 +14344,7 @@
   {
     "id": "ex-standing-unilateral-leg-curl",
     "canonicalNameEn": "Standing Unilateral Leg Curl",
-    "nameIt": null,
+    "nameIt": "Standing Unilateral Leg Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -14111,7 +14385,7 @@
   {
     "id": "ex-star-jumps",
     "canonicalNameEn": "Star Jumps",
-    "nameIt": null,
+    "nameIt": "Star Jumps",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "CONDITIONING",
@@ -14152,14 +14426,16 @@
   {
     "id": "ex-stationary-lunge-with-dumbbells",
     "canonicalNameEn": "Stationary Lunge with Dumbbells",
-    "nameIt": null,
+    "nameIt": "Stationary Lunge with Dumbbells",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -14193,7 +14469,7 @@
   {
     "id": "ex-step-up",
     "canonicalNameEn": "Step-Up",
-    "nameIt": null,
+    "nameIt": "Step-Up",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "STEP_UP",
@@ -14234,14 +14510,16 @@
   {
     "id": "ex-step-up-with-dumbbells",
     "canonicalNameEn": "Step Up with Dumbbells",
-    "nameIt": null,
+    "nameIt": "Step Up with Dumbbells",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -14275,7 +14553,7 @@
   {
     "id": "ex-stiff-leg-deadlift",
     "canonicalNameEn": "Stiff-Leg Deadlift",
-    "nameIt": null,
+    "nameIt": "Stiff-Leg Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -14316,7 +14594,7 @@
   {
     "id": "ex-stiff-legged-deadlift",
     "canonicalNameEn": "Stiff-Legged Deadlift",
-    "nameIt": null,
+    "nameIt": "Stiff-Legged Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HINGE",
@@ -14357,14 +14635,16 @@
   {
     "id": "ex-stir-the-pot-swiss-ball",
     "canonicalNameEn": "Stir-the-Pot Swiss Ball",
-    "nameIt": null,
+    "nameIt": "Stir-the-Pot Swiss Ball",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "stability_ball"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -14398,14 +14678,16 @@
   {
     "id": "ex-straddle-back-lever",
     "canonicalNameEn": "Straddle Back Lever",
-    "nameIt": null,
+    "nameIt": "Straddle Back Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "BACK_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -14439,7 +14721,7 @@
   {
     "id": "ex-straddle-flag",
     "canonicalNameEn": "Straddle Flag",
-    "nameIt": null,
+    "nameIt": "Straddle Flag",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HUMAN_FLAG",
@@ -14480,14 +14762,16 @@
   {
     "id": "ex-straddle-front-lever",
     "canonicalNameEn": "Straddle Front Lever",
-    "nameIt": null,
+    "nameIt": "Straddle Front Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -14521,7 +14805,7 @@
   {
     "id": "ex-straddle-planche",
     "canonicalNameEn": "Straddle Planche",
-    "nameIt": null,
+    "nameIt": "Straddle Planche",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -14562,7 +14846,7 @@
   {
     "id": "ex-straddle-stretch",
     "canonicalNameEn": "Straddle Stretch",
-    "nameIt": null,
+    "nameIt": "Straddle Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -14603,7 +14887,7 @@
   {
     "id": "ex-sumo-dead-lift-high-pull",
     "canonicalNameEn": "Sumo Dead Lift High Pull",
-    "nameIt": null,
+    "nameIt": "Sumo Dead Lift High Pull",
     "aliases": [],
     "movementType": "POWER",
     "family": "OLYMPIC",
@@ -14644,7 +14928,7 @@
   {
     "id": "ex-superman-push-up",
     "canonicalNameEn": "Superman Push-Up",
-    "nameIt": null,
+    "nameIt": "Superman Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -14685,14 +14969,16 @@
   {
     "id": "ex-supine-barbell-french-curl",
     "canonicalNameEn": "Supine Barbell French Curl",
-    "nameIt": null,
+    "nameIt": "Supine Barbell French Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "TRICEPS",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -14726,7 +15012,7 @@
   {
     "id": "ex-supine-gluteal-stretch",
     "canonicalNameEn": "Supine Gluteal Stretch",
-    "nameIt": null,
+    "nameIt": "Supine Gluteal Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -14767,7 +15053,7 @@
   {
     "id": "ex-supine-legs-to-chest",
     "canonicalNameEn": "Supine Legs to Chest",
-    "nameIt": null,
+    "nameIt": "Supine Legs to Chest",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -14808,7 +15094,7 @@
   {
     "id": "ex-supine-lying-deep-external-rotators-stretch",
     "canonicalNameEn": "Supine Lying Deep External Rotators Stretch",
-    "nameIt": null,
+    "nameIt": "Supine Lying Deep External Rotators Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -14849,7 +15135,7 @@
   {
     "id": "ex-supine-lying-single-leg-hamstring-stretch",
     "canonicalNameEn": "Supine Lying Single-Leg Hamstring Stretch",
-    "nameIt": null,
+    "nameIt": "Supine Lying Single-Leg Hamstring Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -14890,7 +15176,7 @@
   {
     "id": "ex-traditional-deadlift",
     "canonicalNameEn": "Traditional Deadlift",
-    "nameIt": null,
+    "nameIt": "Traditional Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -14931,14 +15217,16 @@
   {
     "id": "ex-transverse-abdominal-ball-crunch",
     "canonicalNameEn": "Transverse Abdominal Ball Crunch",
-    "nameIt": null,
+    "nameIt": "Transverse Abdominal Ball Crunch",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "stability_ball"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -14972,7 +15260,7 @@
   {
     "id": "ex-transverse-activation-in-4-point-kneeling",
     "canonicalNameEn": "Transverse Activation in 4-Point Kneeling",
-    "nameIt": null,
+    "nameIt": "Transverse Activation in 4-Point Kneeling",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -15013,7 +15301,7 @@
   {
     "id": "ex-trap-bar-deadlift",
     "canonicalNameEn": "Trap Bar Deadlift",
-    "nameIt": null,
+    "nameIt": "Trap Bar Deadlift",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -15054,14 +15342,16 @@
   {
     "id": "ex-triceps-dip",
     "canonicalNameEn": "Triceps Dip",
-    "nameIt": null,
+    "nameIt": "Triceps Dip",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "DIP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -15095,7 +15385,7 @@
   {
     "id": "ex-triceps-push-up",
     "canonicalNameEn": "Triceps Push-Up",
-    "nameIt": null,
+    "nameIt": "Triceps Push-Up",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
@@ -15136,14 +15426,16 @@
   {
     "id": "ex-triceps-pushdown-machine",
     "canonicalNameEn": "Triceps Pushdown (Machine)",
-    "nameIt": null,
+    "nameIt": "Triceps Pushdown (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "TRICEPS",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -15177,7 +15469,7 @@
   {
     "id": "ex-triple-clap-push-up",
     "canonicalNameEn": "Triple-Clap Push-Up",
-    "nameIt": null,
+    "nameIt": "Triple-Clap Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -15218,14 +15510,16 @@
   {
     "id": "ex-tuck-back-lever",
     "canonicalNameEn": "Tuck Back Lever",
-    "nameIt": null,
+    "nameIt": "Tuck Back Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "BACK_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -15259,14 +15553,16 @@
   {
     "id": "ex-tuck-front-lever",
     "canonicalNameEn": "Tuck Front Lever",
-    "nameIt": null,
+    "nameIt": "Tuck Front Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": null,
@@ -15300,7 +15596,7 @@
   {
     "id": "ex-tuck-half-lever",
     "canonicalNameEn": "Tuck Half Lever",
-    "nameIt": null,
+    "nameIt": "Tuck Half Lever",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HALF_LEVER",
@@ -15341,7 +15637,7 @@
   {
     "id": "ex-tuck-planche",
     "canonicalNameEn": "Tuck Planche",
-    "nameIt": null,
+    "nameIt": "Tuck Planche",
     "aliases": [],
     "movementType": "SKILL",
     "family": "PLANCHE",
@@ -15382,7 +15678,7 @@
   {
     "id": "ex-tucked-dragon-flag",
     "canonicalNameEn": "Tucked Dragon Flag",
-    "nameIt": null,
+    "nameIt": "Tucked Dragon Flag",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -15423,7 +15719,7 @@
   {
     "id": "ex-tucked-flag",
     "canonicalNameEn": "Tucked Flag",
-    "nameIt": null,
+    "nameIt": "Tucked Flag",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HUMAN_FLAG",
@@ -15464,7 +15760,7 @@
   {
     "id": "ex-turkish-get-up",
     "canonicalNameEn": "Turkish Get-Up",
-    "nameIt": null,
+    "nameIt": "Turkish Get-Up",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "TOTAL_BODY",
@@ -15505,7 +15801,7 @@
   {
     "id": "ex-two-arm-kettlebell-swing",
     "canonicalNameEn": "Two-Arm Kettlebell Swing",
-    "nameIt": null,
+    "nameIt": "Two-Arm Kettlebell Swing",
     "aliases": [],
     "movementType": "POWER",
     "family": "HINGE",
@@ -15546,14 +15842,16 @@
   {
     "id": "ex-typewriter-pull-up",
     "canonicalNameEn": "Typewriter Pull-Up",
-    "nameIt": null,
+    "nameIt": "Typewriter Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -15587,14 +15885,16 @@
   {
     "id": "ex-unilateral-cable-lateral-raise",
     "canonicalNameEn": "Unilateral Cable Lateral Raise",
-    "nameIt": null,
+    "nameIt": "Unilateral Cable Lateral Raise",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable_machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -15628,7 +15928,7 @@
   {
     "id": "ex-unilateral-cross-body-triceps-extension",
     "canonicalNameEn": "Unilateral Cross-Body Triceps Extension",
-    "nameIt": null,
+    "nameIt": "Unilateral Cross-Body Triceps Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "ARM",
@@ -15669,7 +15969,7 @@
   {
     "id": "ex-unilateral-cuffed-leg-extension",
     "canonicalNameEn": "Unilateral Cuffed Leg Extension",
-    "nameIt": null,
+    "nameIt": "Unilateral Cuffed Leg Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -15710,14 +16010,16 @@
   {
     "id": "ex-unilateral-dumbbell-bench-press",
     "canonicalNameEn": "Unilateral Dumbbell Bench Press",
-    "nameIt": null,
+    "nameIt": "Unilateral Dumbbell Bench Press",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "CHEST",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -15751,7 +16053,7 @@
   {
     "id": "ex-unilateral-leg-extension",
     "canonicalNameEn": "Unilateral Leg Extension",
-    "nameIt": null,
+    "nameIt": "Unilateral Leg Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
@@ -15792,7 +16094,7 @@
   {
     "id": "ex-upper-back-stretch",
     "canonicalNameEn": "Upper-Back Stretch",
-    "nameIt": null,
+    "nameIt": "Upper-Back Stretch",
     "aliases": [],
     "movementType": "FLEXIBILITY",
     "family": "STRETCH",
@@ -15833,7 +16135,7 @@
   {
     "id": "ex-upright-row",
     "canonicalNameEn": "Upright Row",
-    "nameIt": null,
+    "nameIt": "Upright Row",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "UPRIGHT_ROW",
@@ -15874,14 +16176,16 @@
   {
     "id": "ex-upright-rows-with-ez-bar",
     "canonicalNameEn": "Upright Rows with EZ Bar",
-    "nameIt": null,
+    "nameIt": "Upright Rows with EZ Bar",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "UPRIGHT_ROW",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -15915,7 +16219,7 @@
   {
     "id": "ex-v-up",
     "canonicalNameEn": "V-Up",
-    "nameIt": null,
+    "nameIt": "V-Up",
     "aliases": [],
     "movementType": "CORE",
     "family": "CORE",
@@ -15956,14 +16260,16 @@
   {
     "id": "ex-vertical-chest-press-machine",
     "canonicalNameEn": "Vertical Chest Press (Machine)",
-    "nameIt": null,
+    "nameIt": "Vertical Chest Press (Machine)",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PUSH",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -15997,7 +16303,7 @@
   {
     "id": "ex-vertical-flag",
     "canonicalNameEn": "Vertical Flag",
-    "nameIt": null,
+    "nameIt": "Vertical Flag",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HUMAN_FLAG",
@@ -16038,7 +16344,7 @@
   {
     "id": "ex-vertical-pulls",
     "canonicalNameEn": "Vertical Pulls",
-    "nameIt": null,
+    "nameIt": "Vertical Pulls",
     "aliases": [],
     "movementType": "SKILL",
     "family": "FRONT_LEVER",
@@ -16079,7 +16385,7 @@
   {
     "id": "ex-walking-arm-swings",
     "canonicalNameEn": "Walking Arm Swings",
-    "nameIt": null,
+    "nameIt": "Walking Arm Swings",
     "aliases": [],
     "movementType": "MOBILITY",
     "family": "SHOULDER_MOBILITY",
@@ -16120,14 +16426,16 @@
   {
     "id": "ex-walking-lunge-with-dumbbells",
     "canonicalNameEn": "Walking Lunge with Dumbbells",
-    "nameIt": null,
+    "nameIt": "Walking Lunge with Dumbbells",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "dumbbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -16161,7 +16469,7 @@
   {
     "id": "ex-wall-balls",
     "canonicalNameEn": "Wall Balls",
-    "nameIt": null,
+    "nameIt": "Wall Balls",
     "aliases": [],
     "movementType": "CONDITIONING",
     "family": "TOTAL_BODY",
@@ -16202,7 +16510,7 @@
   {
     "id": "ex-wall-handstand-push-up",
     "canonicalNameEn": "Wall Handstand Push-Up",
-    "nameIt": null,
+    "nameIt": "Wall Handstand Push-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND_PUSH_UP",
@@ -16243,14 +16551,16 @@
   {
     "id": "ex-wall-parallette-handstand-push-up",
     "canonicalNameEn": "Wall Parallette Handstand Push-Up",
-    "nameIt": null,
+    "nameIt": "Wall Parallette Handstand Push-Up",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND_PUSH_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "parallettes"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -16284,7 +16594,7 @@
   {
     "id": "ex-wall-push-up",
     "canonicalNameEn": "Wall Push-Up",
-    "nameIt": null,
+    "nameIt": "Wall Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -16325,7 +16635,7 @@
   {
     "id": "ex-wall-supported-handstand",
     "canonicalNameEn": "Wall-Supported Handstand",
-    "nameIt": null,
+    "nameIt": "Wall-Supported Handstand",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND",
@@ -16366,7 +16676,7 @@
   {
     "id": "ex-wall-walk",
     "canonicalNameEn": "Wall Walk",
-    "nameIt": null,
+    "nameIt": "Wall Walk",
     "aliases": [],
     "movementType": "SKILL",
     "family": "HANDSTAND",
@@ -16407,14 +16717,16 @@
   {
     "id": "ex-weighted-pull-up",
     "canonicalNameEn": "Weighted Pull-Up",
-    "nameIt": null,
+    "nameIt": "Weighted Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -16448,7 +16760,7 @@
   {
     "id": "ex-weighted-single-leg-squat",
     "canonicalNameEn": "Weighted Single-Leg Squat",
-    "nameIt": null,
+    "nameIt": "Weighted Single-Leg Squat",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "SINGLE_LEG_SQUAT",
@@ -16489,14 +16801,16 @@
   {
     "id": "ex-wide-grip-pull-up",
     "canonicalNameEn": "Wide-Grip Pull-Up",
-    "nameIt": null,
+    "nameIt": "Wide-Grip Pull-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -16530,7 +16844,7 @@
   {
     "id": "ex-wide-grip-push-up",
     "canonicalNameEn": "Wide-Grip Push-Up",
-    "nameIt": null,
+    "nameIt": "Wide-Grip Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
@@ -16571,7 +16885,7 @@
   {
     "id": "ex-wide-grip-vertical-pulldown",
     "canonicalNameEn": "Wide-Grip Vertical Pulldown",
-    "nameIt": null,
+    "nameIt": "Wide-Grip Vertical Pulldown",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "BACK",
@@ -16612,7 +16926,7 @@
   {
     "id": "ex-window-wipers",
     "canonicalNameEn": "Window Wipers",
-    "nameIt": null,
+    "nameIt": "Window Wipers",
     "aliases": [],
     "movementType": "CORE",
     "family": "HANGING_CORE",
@@ -16653,7 +16967,7 @@
   {
     "id": "ex-wrist-curl",
     "canonicalNameEn": "Wrist Curl",
-    "nameIt": null,
+    "nameIt": "Wrist Curl",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "FOREARM",
@@ -16694,7 +17008,7 @@
   {
     "id": "ex-wrist-extension",
     "canonicalNameEn": "Wrist Extension",
-    "nameIt": null,
+    "nameIt": "Wrist Extension",
     "aliases": [],
     "movementType": "STRENGTH",
     "family": "FOREARM",
@@ -16735,7 +17049,7 @@
   {
     "id": "ex-wrist-push-up",
     "canonicalNameEn": "Wrist Push-Up",
-    "nameIt": null,
+    "nameIt": "Wrist Push-Up",
     "aliases": [],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
