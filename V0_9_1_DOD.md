@@ -2,7 +2,7 @@
 
 ## RC2 checkpoint — 29 settembre 2026
 
-This checkpoint supersedes older CI labels below; those notes document earlier commits. RC2 remains **not ready**. PR CI #354 is green at `0f5309d30fac5d14a195a3db291406e2bf387173`: unit tests, Android lint and PR debug APK build passed. Signed-release steps are intentionally skipped on the PR workflow, so this run is not signed-artifact evidence.
+This checkpoint supersedes older CI labels below; those notes document earlier commits. RC2 remains **not ready**. Push CI [#409](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36558843599) and PR CI [#410](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36558846947) are green at `852df86d35758e178e186c6f9e21c0fb475908f9`: unit tests and Android lint passed; the push also built and signature-verified the release APK, while the PR built the debug APK.
 
 | Area | Current evidence | Remaining gate |
 |---|---|---|
@@ -12,7 +12,7 @@ This checkpoint supersedes older CI labels below; those notes document earlier c
 | Runners and rest | Persisted set state and timers, custom set counter/skip/resume, explicit finish confirmation; runner tests | Device interaction, timer/background behavior and source-specific rest audit |
 | Equipment and progression | Custom options limited to configured equipment plus bodyweight; skill links and progression tests | Device validation of generation, locked exercise behavior and navigation |
 | Exercise evidence and video | General ACSM prescription evidence; verified ACE video for Plank only | Exercise-specific verified evidence registry and video coverage for the rest of the catalog |
-| Release artifact | Push [#341](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36537617414) and PR [#342](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36537621571) green at `6875da4e26c3ca0f3dcdc653c224e454b88bafcd`; signed APK artifact digest `sha256:f7d4979878cba4ec2445438ad358640b12f2c7ec9fcde89336702d08cff8d192` | Recheck both workflows and artifact for the eventual final code commit; install and accept on device |
+| Release artifact | Push [#409](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36558843599) and PR [#410](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36558846947) green at `852df86d35758e178e186c6f9e21c0fb475908f9`; signed APK artifact `HybridFitnessCoach-v0.9.1-signed`, digest `sha256:825050263601a1e63a1726ce2469681efaf2d6f9db96afd5f0fc32e5f5a59b2e` | Recheck both workflows and artifact for the eventual final code commit; install and accept on device |
 
 Confirmed UI defects corrected after the earlier checkpoints: future skipped sessions were shown as past; dates used ISO format; the custom runner hid the current set and exercise skip control; custom equipment showed unconfigured options; both runners saved without confirmation. The reported scroll direction, locking behavior and deletion reappearance remain **hypotheses pending device reproduction**, not verified fixes. General heuristic recovery intervals remain visible in the legacy catalog; do not label them exercise-specific sourced prescriptions.
 
@@ -25,7 +25,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | app version 0.9.1 | [x] | n/a | [x] | n/a | green #263 |
 | Evidence/provenance model | [~] registry + measurable coverage audit; ACSM general resistance-prescription evidence + Exercise Detail source visibility; exercise-specific migration pending | added | partial | visible | green #263 |
 | Contextual Prescription Engine | [~] bounded adaptation + fail-closed verified numeric-baseline registry; exercise-specific baselines still pending | added | applied in custom and automatic runners when a verified baseline exists; resume preserves persisted targets | legacy status visible | green #398 |
-| Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; full-range profile constraint regression added; progression still pending | added | wired | visible | pending current HEAD |
+| Multi-week Training Plan | [~] configurable 1–52 weeks, generated from profile and persisted; full-range profile constraint regression added; progression still pending | added | wired | visible | green #410 |
 | Calendar past/future | [~] past/future list, actions, linked historical detail and launch identity; active workout cannot be replaced by calendar launch | added | wired | visible | green #406 |
 | Immutable workout history snapshots | [~] actual structured sets and full exercise definitions in newly saved plans; legacy plans auto-migrate on load when every exercise resolves; missing catalog entries remain unresolved | existing | partial | partial | pending |
 | Skip/reschedule/recover semantics | [~] skip, manual move, and completion reconciliation; sourced recovery gap pending | added | partial | partial | pending |
@@ -38,7 +38,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Equipment/generator + sequencing/locking | [~] equipment/level filtering, skill locked-node exclusion, pinned regeneration and sequencing regressions; device interaction pending | added/existing | wired | existing | green #406 |
 | Data migration/backward compatibility | [x] v0.9 session defaults, legacy active-runner defaults, plan schema v1→v2 migration, unresolved legacy exercises, malformed records and future schema versions covered fail-closed | added | persisted/reloaded | n/a | green #380 |
 | UX/dashboard/calendar polish | [~] plan preview, duration choice, past/future actions | n/a | partial | partial | pending |
-| Full regression + signed release APK | [~] latest green run: 36446247422 at 3de13bb; on-device regression pending | green at prior HEAD | partial | n/a | pending |
+| Full regression + signed release APK | [~] push #409 and PR #410 green at `852df86`; signed APK uploaded and signature-verified; on-device regression pending | green at current code HEAD | partial | n/a | device acceptance pending |
 
 Audit notes:
 - Repository/code/CI are authoritative; stale README status is not evidence.
@@ -75,3 +75,5 @@ Audit notes:
 - PR CI #398 passed at `f5fa6bae3dc114f6c894096c4907a1792af15be6`; automatic runner now materializes the same fail-closed effective prescription used by the prescription layer, and restored workouts explicitly retain their persisted set/target/rest snapshot rather than recalculating against new readiness/history.
 
 - PR CI #406 passed at `25ada06e8b948e01c654f54db346aa6e1222589f`; calendar launch precedence is deterministic: an active workout resumes instead of being replaced, requested planned-workout identity is preserved when no active workout exists, and completed/partial plans cannot be completed twice through reconciliation.
+
+- Push CI #409 and PR CI #410 passed at `852df86d35758e178e186c6f9e21c0fb475908f9`. The push artifact `HybridFitnessCoach-v0.9.1-signed` is unexpired and bound to that exact SHA; GitHub reports digest `sha256:825050263601a1e63a1726ce2469681efaf2d6f9db96afd5f0fc32e5f5a59b2e`. This is build/signature evidence, not device-install acceptance.
