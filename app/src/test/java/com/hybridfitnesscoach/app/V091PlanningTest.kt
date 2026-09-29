@@ -229,4 +229,31 @@ class V091PlanningTest {
   }
  }
 
+ @Test fun configuredPlanGenerationPreservesConfigurationAcrossCalendar(){
+  val profile=profiles.first{it.name=="Palestra"}
+  val athlete=AthleteProfile(goal="Forza",level="Intermedio",daysPerWeek=3)
+  val config=PlanConfiguration("Forza",2,2,setOf(2,5),emptyList()).validated()
+  val start=java.time.LocalDate.of(2026,10,1).toEpochDay()
+  val plan=generateTrainingPlan("cfg",start,profile,athlete,config,emptyList(),null)
+  assertEquals(2,plan.weeks);assertEquals(2,plan.daysPerWeek);assertEquals(4,plan.workouts.size)
+  assertTrue(plan.workouts.all{java.time.LocalDate.ofEpochDay(it.epochDay).dayOfWeek.value in config.trainingDays})
+  assertTrue(plan.workouts.all{it.exercises.isNotEmpty()})
+ }
+ @Test fun suggestedWorkoutUsesTodaysPlanSnapshotBeforeAdaptiveFallback(){
+  val planned=Exercise("Planned","Core","Corpo libero","Principiante")
+  val fallback=Exercise("Fallback","Core","Corpo libero","Principiante")
+  val today=2000L
+  val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("today",today,0,0,listOf(planned))))
+  val resolved=resolveSuggestedWorkout(plan,today){listOf(fallback)}
+  assertEquals("today",resolved.plannedWorkout?.id)
+  assertEquals(listOf("Planned"),resolved.exercises.map{it.name})
+ }
+ @Test fun suggestedWorkoutFallsBackWhenNoRunnablePlanSessionExistsToday(){
+  val fallback=Exercise("Fallback","Core","Corpo libero","Principiante")
+  val today=2000L
+  val done=PlannedWorkout("done",today,0,0,listOf(fallback),state=PlannedWorkoutState.COMPLETED)
+  val resolved=resolveSuggestedWorkout(TrainingPlan("p",today,1,1,listOf(done)),today){listOf(fallback)}
+  assertNull(resolved.plannedWorkout);assertEquals(listOf("Fallback"),resolved.exercises.map{it.name})
+ }
+
 }
