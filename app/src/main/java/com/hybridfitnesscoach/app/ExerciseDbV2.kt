@@ -28,6 +28,8 @@ internal data class ExerciseV2Record(
 }
 
 internal data class ExerciseV2Edge(val from:String,val to:String,val relationship:String,val sources:List<String>)
+internal data class ExerciseV2Source(val id:String,val title:String,val evidenceType:String?,val locator:String?)
+internal data class ExerciseV2Guidance(val id:String,val sourceId:String,val scope:String,val guidance:Map<String,IntRange>)
 
 internal object ExerciseDbV2 {
     private var installed:List<ExerciseV2Record> = emptyList()
@@ -60,6 +62,29 @@ internal object ExerciseDbV2 {
 
     fun load(context:Context):List<ExerciseV2Record> =
         context.assets.open("exercise-db-v2/exercises.json").bufferedReader().use{parseExercises(it.readText())}
+
+    fun loadSources(context:Context):Map<String,ExerciseV2Source> =
+        context.assets.open("exercise-db-v2/sources.json").bufferedReader().use { reader ->
+            val a=JSONArray(reader.readText())
+            (0 until a.length()).map{i->a.getJSONObject(i)}.associate { o ->
+                val id=o.getString("source_id")
+                id to ExerciseV2Source(id,o.optString("title").ifBlank{o.optString("name").ifBlank{id}},
+                    o.optString("evidence_type").takeIf{it.isNotBlank()},o.optString("locator").takeIf{it.isNotBlank()})
+            }
+        }
+
+    fun loadProgrammingGuidance(context:Context):List<ExerciseV2Guidance> =
+        context.assets.open("exercise-db-v2/programming_guidance.json").bufferedReader().use { reader ->
+            val root=JSONObject(reader.readText()); val a=root.optJSONArray("rules")?:JSONArray()
+            (0 until a.length()).map{i->a.getJSONObject(i)}.map { o ->
+                val g=o.getJSONObject("guidance"); val values=mutableMapOf<String,IntRange>()
+                g.keys().forEach { key ->
+                    val v=g.get(key)
+                    when(v){ is JSONArray -> if(v.length()>=2) values[key]=v.getInt(0)..v.getInt(1); is Number -> values[key]=v.toInt()..v.toInt() }
+                }
+                ExerciseV2Guidance(o.getString("id"),o.getString("source_id"),o.getString("scope"),values)
+            }
+        }
 
     fun loadProgressions(context:Context):List<ExerciseV2Edge> =
         context.assets.open("exercise-db-v2/progressions.json").bufferedReader().use { reader ->
