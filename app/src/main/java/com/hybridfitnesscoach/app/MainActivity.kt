@@ -873,7 +873,12 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
     var plan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var showPast by remember { mutableStateOf(false) }
     var selected by remember { mutableStateOf<PlannedWorkout?>(null) }
-    var rescheduleOffset by remember { mutableStateOf(0) }
+    var rescheduleOffset by remember { mutableStateOf(1) }
+    var planSaveError by remember { mutableStateOf(false) }
+    fun persistCandidate(candidate:TrainingPlan):Boolean {
+        if(!store.saveTrainingPlan(candidate)){ planSaveError=true; return false }
+        plan=candidate; planSaveError=false; return true
+    }
     Column(Modifier.fillMaxSize()) {
         Header("Programma","Calendario allenamenti • passato e futuro")
         if(plan==null) {
@@ -933,6 +938,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                     }
                 } else {
                     item {
+                        if(planSaveError) Text("Impossibile salvare la modifica. Riprova.",color=Color.Red,fontSize=12.sp,modifier=Modifier.padding(bottom=8.dp))
                         Text(workout.exercises.joinToString(" • "){it.name})
                         Spacer(Modifier.height(12.dp))
                         Text("Riprogramma di:",fontWeight=FontWeight.SemiBold)
@@ -947,19 +953,19 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
         },confirmButton={
             if(historical)TextButton(onClick={selected=null}){Text("CHIUDI")}
             else TextButton(onClick={
-                plan=TrainingPlanEngine.reschedule(plan!!,workout.id,workout.epochDay+rescheduleOffset,minimumGapDays=0)
-                store.saveTrainingPlan(plan!!); selected=null;rescheduleOffset=1
+                val candidate=TrainingPlanEngine.reschedule(plan!!,workout.id,workout.epochDay+rescheduleOffset,minimumGapDays=0)
+                if(persistCandidate(candidate)){ selected=null;rescheduleOffset=1 }
             }){Text("RIPROGRAMMA")}
         },dismissButton={
             if(!historical)Row {
                 TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=workout.exercises.isNotEmpty() && workout.state!=PlannedWorkoutState.SKIPPED){Text("INIZIA")}
                 TextButton(onClick={
-                    plan=TrainingPlanEngine.skip(plan!!,workout.id)
-                    store.saveTrainingPlan(plan!!);selected=null
+                    val candidate=TrainingPlanEngine.skip(plan!!,workout.id)
+                    if(persistCandidate(candidate)) selected=null
                 }){Text("SALTA")}
                 if(workout.epochDay!=workout.originalEpochDay) TextButton(onClick={
-                    plan=TrainingPlanEngine.restoreOriginalDate(plan!!,workout.id,minimumGapDays=0)
-                    store.saveTrainingPlan(plan!!);selected=null;rescheduleOffset=1
+                    val candidate=TrainingPlanEngine.restoreOriginalDate(plan!!,workout.id,minimumGapDays=0)
+                    if(persistCandidate(candidate)){selected=null;rescheduleOffset=1}
                 }){Text("RIPRISTINA DATA ORIGINALE")}
                 TextButton(onClick={selected=null}){Text("ANNULLA")}
             }
