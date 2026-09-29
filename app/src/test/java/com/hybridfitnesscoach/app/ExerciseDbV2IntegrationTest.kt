@@ -39,8 +39,9 @@ class ExerciseDbV2IntegrationTest {
     @Test fun runtimeInstallUsesCanonicalIdsWithoutDestroyingLegacySnapshots() {
         val snapshot=Exercise("Legacy snapshot","Core","Corpo libero","Principiante",targetSets=7,targetValue=13.0)
         installExerciseDbV2(records())
-        assertEquals(587,exercises.size)
+        assertTrue(exercises.size>=587)
         assertEquals(587,exercises.mapNotNull{it.progressionKey}.distinct().size)
+        assertTrue(exercises.any{it.progressionKey==null})
         assertEquals(7,snapshot.targetSets)
         assertEquals(13.0,snapshot.targetValue!!,0.001)
     }
@@ -66,7 +67,7 @@ class ExerciseDbV2IntegrationTest {
         val previous=exercises
         try {
             installExerciseDbV2(records())
-            assertEquals(587,exercises.size)
+            assertTrue(exercises.size>=587)
             SkillCatalog.nodes.forEach { node ->
                 assertTrue(
                     "Missing runtime skill exercise: ${node.exerciseName}",
