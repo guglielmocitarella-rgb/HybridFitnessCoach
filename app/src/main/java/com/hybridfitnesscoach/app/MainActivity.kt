@@ -589,7 +589,7 @@ internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boole
     return if("corpo libero" in required)true else required.all{it in available}
 }
 
-private fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
+internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 
 private val recoveryGroups = listOf("Dorso", "Petto", "Spalle", "Gambe", "Core", "Bicipiti", "Tricipiti")
 
