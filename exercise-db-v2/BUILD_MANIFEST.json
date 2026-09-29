@@ -26,7 +26,7 @@
   "videos": "DEFERRED",
   "rc2_isolation": true,
   "notes": [
-    "Canonical artifact is now materialized; current count reflects only source records actually reconstructed and versioned.",
+    "Canonical artifact is materialized and manifest counts are derived from the current reviewed dataset.",
     "The previous 673/215 counts were not retained because their canonical artifacts were unavailable and are not treated as authoritative.",
     "Unsupported cues/errors/contraindications remain empty rather than invented.",
     "Rest guidance remains source/context scoped and is not copied generically onto exercise records."
