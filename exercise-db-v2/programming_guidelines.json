@@ -1,0 +1,112 @@
+[
+  {
+    "id": "rest-strength-nsca5",
+    "kind": "REST",
+    "goal": "strength",
+    "context": "resistance_training",
+    "guidance": {
+      "min_seconds": 120,
+      "max_seconds": 300
+    },
+    "source": {
+      "source_id": "NSCA_ESS5",
+      "evidence_type": "GENERAL_GUIDELINE",
+      "locator": "Chapter 18, Table 18.15"
+    },
+    "notes": "Goal-level guidance; select rest using relative load and muscle mass involved rather than assigning the same interval to every exercise."
+  },
+  {
+    "id": "rest-power-nsca5",
+    "kind": "REST",
+    "goal": "power",
+    "context": "resistance_training",
+    "guidance": {
+      "min_seconds": 120,
+      "max_seconds": 300
+    },
+    "source": {
+      "source_id": "NSCA_ESS5",
+      "evidence_type": "GENERAL_GUIDELINE",
+      "locator": "Chapter 18, Table 18.15"
+    },
+    "notes": "Goal-level guidance, not an exercise-specific property."
+  },
+  {
+    "id": "rest-hypertrophy-multijoint-nsca5",
+    "kind": "REST",
+    "goal": "hypertrophy",
+    "context": "multijoint",
+    "guidance": {
+      "min_seconds": 120,
+      "max_seconds": 180
+    },
+    "source": {
+      "source_id": "NSCA_ESS5",
+      "evidence_type": "GENERAL_GUIDELINE",
+      "locator": "Chapter 18, Table 18.15"
+    },
+    "notes": "Multijoint context."
+  },
+  {
+    "id": "rest-hypertrophy-singlejoint-nsca5",
+    "kind": "REST",
+    "goal": "hypertrophy",
+    "context": "single_joint",
+    "guidance": {
+      "min_seconds": 60,
+      "max_seconds": 90
+    },
+    "source": {
+      "source_id": "NSCA_ESS5",
+      "evidence_type": "GENERAL_GUIDELINE",
+      "locator": "Chapter 18, Table 18.15"
+    },
+    "notes": "Single-joint context."
+  },
+  {
+    "id": "rest-endurance-nsca5",
+    "kind": "REST",
+    "goal": "endurance",
+    "context": "resistance_training",
+    "guidance": {
+      "max_seconds": 30
+    },
+    "source": {
+      "source_id": "NSCA_ESS5",
+      "evidence_type": "GENERAL_GUIDELINE",
+      "locator": "Chapter 18, Table 18.15"
+    },
+    "notes": "Goal-level guidance."
+  },
+  {
+    "id": "rest-hypertrophy-multijoint-schoenfeld2",
+    "kind": "REST",
+    "goal": "hypertrophy",
+    "context": "multijoint_free_weight",
+    "guidance": {
+      "min_seconds": 120
+    },
+    "source": {
+      "source_id": "SCHOENFELD_HYP2",
+      "evidence_type": "PRACTICAL_APPLICATION",
+      "locator": "Chapter 4, Practical Applications: Rest Interval Length"
+    },
+    "notes": "At least 2 minutes generally recommended to preserve volume load."
+  },
+  {
+    "id": "rest-hypertrophy-singlejoint-schoenfeld2",
+    "kind": "REST",
+    "goal": "hypertrophy",
+    "context": "single_joint_or_selected_machine",
+    "guidance": {
+      "min_seconds": 60,
+      "max_seconds": 90
+    },
+    "source": {
+      "source_id": "SCHOENFELD_HYP2",
+      "evidence_type": "PRACTICAL_APPLICATION",
+      "locator": "Chapter 4, Practical Applications: Rest Interval Length"
+    },
+    "notes": "Shorter intervals may be used where volume load is not compromised."
+  }
+]
