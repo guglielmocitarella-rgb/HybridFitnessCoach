@@ -15,7 +15,7 @@ This report is a completion gate. A registered source is **INGESTED** only when 
 | DELAVIER3 | PENDING | — |
 | OVERCOMING_GRAVITY | INGESTED | raw/overcoming_gravity.tsv |
 | COMPLETE_CAL1 | CROSSCHECK_PENDING | — |
-| CAL_BEGINNER_50 | PENDING | — |
+| CAL_BEGINNER_50 | INGESTED | raw/calisthenics_beginner_50.tsv |
 | CAL_BEGINNER_150 | PENDING | — |
 | ULTIMATE_CAL_COLLECTION | PENDING | — |
 
