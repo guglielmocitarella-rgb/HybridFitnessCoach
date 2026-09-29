@@ -597,9 +597,11 @@ internal fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMilli
 internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean {
     fun normalize(value:String)=value.trim().lowercase().let{if(it=="macchina")"macchine" else it}
     val available=profile.equipment.map(::normalize).toSet()+"corpo libero"
-    val required=ex.equipment.split("/").map(::normalize)
-    // Explicit bodyweight variants are alternatives; other compound labels require every resource.
-    return if("corpo libero" in required)true else required.all{it in available}
+    val required=ex.equipment.split("/").map(::normalize).filter{it.isNotBlank()}
+    // Unknown equipment is never silently treated as bodyweight. DB multi-token requirements
+    // are conjunctive because the source schema stores all equipment required by the movement.
+    if(required.isEmpty() || "non specificato" in required) return false
+    return if("corpo libero" in required) true else required.all{it in available}
 }
 
 internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
