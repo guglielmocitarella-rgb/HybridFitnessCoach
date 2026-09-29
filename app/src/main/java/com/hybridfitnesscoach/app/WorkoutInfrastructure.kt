@@ -294,7 +294,7 @@ internal fun plannedWeekExercises(
         val sets=ex.targetSets
         val value=ex.targetValue
         if(phase==3) ex else ex.copy(
-            targetSets=sets?.let{(it + if(phase>=2)1 else 0).coerceAtMost(it+1)},
+            targetSets=(sets + if(phase>=2)1 else 0).coerceAtMost(sets+1),
             targetValue=if(value!=null && ex.measure!=ExerciseMeasure.DISTANCE) value*(1.0+0.025*phase) else value
         )
     }
