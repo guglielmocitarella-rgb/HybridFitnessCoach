@@ -138,7 +138,7 @@ internal object ExerciseDbV2 {
             else->record.family.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()}
         }
         return withExerciseMetadata(Exercise(
-            name=record.nameIt,
+            name=legacy?.name?:record.nameIt,
             group=group,
             equipment=if(record.equipment.isNotEmpty()) record.equipment.joinToString(" / "){equipmentDisplay(it)} else legacy?.equipment?:"Non specificato",
             level=record.level?:legacy?.level?:"Intermedio",
