@@ -15,6 +15,7 @@ internal data class ExerciseV2Record(
     val level:String?,
     val measure:String,
     val sources:List<String>,
+    val sourceRefs:List<ExerciseV2EvidenceRef> = emptyList(),
     val confidence:String,
     val descriptionIt:String="",
     val setupIt:String="",
@@ -27,6 +28,7 @@ internal data class ExerciseV2Record(
             .toSet()
 }
 
+internal data class ExerciseV2EvidenceRef(val sourceId:String,val evidenceType:String?,val locator:String?)
 internal data class ExerciseV2Edge(val from:String,val to:String,val relationship:String,val sources:List<String>)
 internal data class ExerciseV2Source(val id:String,val title:String,val evidenceType:String?,val locator:String?)
 internal data class ExerciseV2Guidance(val id:String,val sourceId:String,val scope:String,val guidance:Map<String,IntRange>)
@@ -37,8 +39,15 @@ internal object ExerciseDbV2 {
     fun install(records:List<ExerciseV2Record>) { installed=records }
     fun installedRecords():List<ExerciseV2Record> = installed
     fun installSources(sources:Map<String,ExerciseV2Source>) { sourceRegistry=sources }
-    fun sourcesFor(exercise:Exercise):List<ExerciseV2Source> =
-        recordFor(exercise)?.sources.orEmpty().mapNotNull(sourceRegistry::get)
+    fun sourcesFor(exercise:Exercise):List<ExerciseV2Source> {
+        val record=recordFor(exercise) ?: return emptyList()
+        val refs=record.sourceRefs.associateBy { it.sourceId }
+        return record.sources.mapNotNull { id ->
+            sourceRegistry[id]?.let { source ->
+                refs[id]?.let { ref -> source.copy(evidenceType=ref.evidenceType?:source.evidenceType, locator=ref.locator?:source.locator) } ?: source
+            }
+        }
+    }
     fun recordFor(exercise:Exercise):ExerciseV2Record? =
         exercise.progressionKey?.let { id -> installed.firstOrNull { it.id==id } }
             ?: resolveLegacy(exercise.name,installed)
@@ -60,6 +69,11 @@ internal object ExerciseDbV2 {
                 setupIt=if(o.isNull("setupIt")) "" else o.optString("setupIt"),
                 executionStepsIt=o.optJSONArray("executionStepsIt").strings(),
                 sources=o.optJSONArray("sources").objects().mapNotNull{it.optString("source_id").takeIf(String::isNotBlank)},
+                sourceRefs=o.optJSONArray("sources").objects().mapNotNull { source ->
+                    source.optString("source_id").takeIf(String::isNotBlank)?.let { id ->
+                        ExerciseV2EvidenceRef(id,source.optString("evidence_type").takeIf(String::isNotBlank),source.optString("locator").takeIf(String::isNotBlank))
+                    }
+                },
                 confidence=o.optString("confidence")
             )
         }
