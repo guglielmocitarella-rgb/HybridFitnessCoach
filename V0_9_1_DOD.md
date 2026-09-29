@@ -1,4 +1,21 @@
 # Hybrid Fitness Coach — V0.9.1 persistent DoD
+
+## RC2 checkpoint — 29 settembre 2026
+
+This checkpoint supersedes older CI labels below; those notes document earlier commits. RC2 remains **not ready**.
+
+| Area | Current evidence | Remaining gate |
+|---|---|---|
+| Persistence and recovery | Atomic session, linked-plan and active-runner finalization; recovery and rollback unit tests; push #341 and PR #342 green at `6875da4` | Install and exercise interrupted save/restart/recovery on device |
+| History and workout detail | Structured actual sets, load and RPE, linked planned-session detail; deletion reconciles history and plan in one write | Device regression, including the previously reported reappearing deletion |
+| Multi-week calendar | Configurable 1–52 weeks, reschedule cascade, restore original date, future skipped workout classification and Italian dates; planning tests | Device navigation and date/action acceptance |
+| Runners and rest | Persisted set state and timers, custom set counter/skip/resume, explicit finish confirmation; runner tests | Device interaction, timer/background behavior and source-specific rest audit |
+| Equipment and progression | Custom options limited to configured equipment plus bodyweight; skill links and progression tests | Device validation of generation, locked exercise behavior and navigation |
+| Exercise evidence and video | General ACSM prescription evidence; verified ACE video for Plank only | Exercise-specific verified evidence registry and video coverage for the rest of the catalog |
+| Release artifact | Push [#341](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36537617414) and PR [#342](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36537621571) green at `6875da4e26c3ca0f3dcdc653c224e454b88bafcd`; signed APK artifact digest `sha256:f7d4979878cba4ec2445438ad358640b12f2c7ec9fcde89336702d08cff8d192` | Recheck both workflows and artifact for the eventual final code commit; install and accept on device |
+
+Confirmed UI defects corrected after the earlier checkpoints: future skipped sessions were shown as past; dates used ISO format; the custom runner hid the current set and exercise skip control; custom equipment showed unconfigured options; both runners saved without confirmation. The reported scroll direction, locking behavior and deletion reappearance remain **hypotheses pending device reproduction**, not verified fixes. General heuristic recovery intervals remain visible in the legacy catalog; do not label them exercise-specific sourced prescriptions.
+
 Baseline: v0.9 final HEAD `933acc5c1d10875f53d366bcec62f40fe9b0509e`.
 Branch: `feature/v0.9.1-training-plan`.
 Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementation, deterministic tests, E2E wiring, visible UX where applicable, and green CI.
