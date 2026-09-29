@@ -33,7 +33,11 @@ internal data class ExerciseV2Guidance(val id:String,val sourceId:String,val sco
 
 internal object ExerciseDbV2 {
     private var installed:List<ExerciseV2Record> = emptyList()
+    private var sourceRegistry:Map<String,ExerciseV2Source> = emptyMap()
     fun install(records:List<ExerciseV2Record>) { installed=records }
+    fun installSources(sources:Map<String,ExerciseV2Source>) { sourceRegistry=sources }
+    fun sourcesFor(exercise:Exercise):List<ExerciseV2Source> =
+        recordFor(exercise)?.sources.orEmpty().mapNotNull(sourceRegistry::get)
     fun recordFor(exercise:Exercise):ExerciseV2Record? =
         exercise.progressionKey?.let { id -> installed.firstOrNull { it.id==id } }
             ?: resolveLegacy(exercise.name,installed)
