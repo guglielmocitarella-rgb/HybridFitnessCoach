@@ -15,7 +15,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--report",default=str(DB/"VALIDATION_REPORT.json")); a=ap.parse_args()
     errors=[]; warnings=[]
     manifest=load(DB/"BUILD_MANIFEST.json")
-    ex_path=DB/"exercises.json"; pr_path=DB/"progressions.json"; src_path=DB/"sources.json"; pg_path=DB/"programming_guidelines.json"
+    ex_path=DB/"exercises.json"; pr_path=DB/"progressions.json"; src_path=DB/"sources.json"; pg_path=DB/"programming_guidance.json"
     for p in (ex_path,pr_path,src_path,pg_path):
         if not p.exists(): errors.append(f"missing required artifact: {p.relative_to(ROOT)}")
     if errors:
@@ -52,8 +52,8 @@ def main():
     used_sources=set()
     for x in exercises:
         for ref in x.get("sources") or []: used_sources.add(ref.get("source_id"))
-    for g in guidelines:
-        ref=g.get("source") or {}; gs=ref.get("source_id")
+    for g in (guidelines.get("rules") or []):
+        gs=g.get("source_id")
         if gs not in sid: errors.append(f"programming guideline {g.get('id')}: unknown source_id {gs}")
         else: used_sources.add(gs)
     unused=sorted(sid-used_sources)
