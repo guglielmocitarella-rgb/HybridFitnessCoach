@@ -786,8 +786,8 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
         val recentPlanned=mutableListOf<List<String>>()
-        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,requestedWeeks,athlete.daysPerWeek.coerceIn(1,7)) { _,_ ->
-            val selected=generateWorkout(profile,athlete,sessions,readinessScore,recentPlanned.flatten().toSet())
+        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,requestedWeeks,athlete.daysPerWeek.coerceIn(1,7)) { week,_ ->
+            val selected=plannedWeekExercises(generateWorkout(profile,athlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
             recentPlanned.add(selected.map{it.name})
             if(recentPlanned.size>3)recentPlanned.removeAt(0)
             selected
