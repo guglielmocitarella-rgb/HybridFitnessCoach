@@ -12,6 +12,14 @@ class ExerciseDbV2Test(unittest.TestCase):
         self.assertEqual(subprocess.call([sys.executable,str(ROOT/"tools/build_exercise_db.py")]),0)
         after={n:(DB/n).read_bytes() for n in tracked}
         self.assertEqual(before,after)
+    def test_validator_rejects_unmaterialized_raw_inventory_row(self):
+        raw=DB/"raw"/"complete_calisthenics_2e.tsv"
+        original=raw.read_text(encoding="utf-8")
+        with raw.open("a",encoding="utf-8") as handle:
+            handle.write("Definitely Not A Canonical Exercise\tSTRENGTH\tTEST\tCOMPLETE_CAL2\tINDEX\tPENDING_DEDUP\n")
+        try: self.assertNotEqual(subprocess.call([sys.executable,str(ROOT/"tools/validate_exercise_db.py")]),0)
+        finally: raw.write_text(original,encoding="utf-8")
+
     def test_validator_rejects_unknown_progression_source(self):
         original=(DB/"progressions.json").read_text(encoding="utf-8")
         data=json.loads(original); data[0]["sources"][0]["source_id"]="NOT_REGISTERED"
