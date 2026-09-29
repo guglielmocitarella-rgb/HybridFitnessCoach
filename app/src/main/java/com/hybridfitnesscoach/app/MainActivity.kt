@@ -690,7 +690,7 @@ fun HybridFitnessApp() {
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
-                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, calendarWorkout, { calendarWorkout=null }) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
+                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
                     Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
                     Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> store.addSession(record); store.completePlannedWorkoutForSession(record); sessions = store.loadSessions() }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
@@ -750,7 +750,7 @@ internal fun nextUnlockLabel(states:List<SkillNodeProgress>):String {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Unit) {
+private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Unit) {
     val readinessScore=LocalHealthConnect.current.readiness
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
@@ -814,6 +814,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                         val next=plan.workouts.filter{it.epochDay>=today && it.state!=PlannedWorkoutState.SKIPPED && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL}.minByOrNull{it.epochDay}
                         Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
                         Text(next?.let{"Prossima sessione: "+java.time.LocalDate.ofEpochDay(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
+                        OutlinedButton(onClick=managePlan,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("GESTISCI PROGRAMMA")}
                     }
                 }
             }
