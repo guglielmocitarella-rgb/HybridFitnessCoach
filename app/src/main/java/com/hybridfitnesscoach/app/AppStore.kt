@@ -87,13 +87,13 @@ private fun WorkoutSessionState.toJson():JSONObject { val a=JSONArray();exercise
     .put("schemaVersion",1).put("id",id).put("startedAtEpochMs",startedAtEpochMs).put("profileName",profileName)
     .put("exercises",a).put("currentExerciseIndex",currentExerciseIndex).put("elapsedBeforePauseMs",elapsedBeforePauseMs)
     .put("pausedAtEpochMs",pausedAtEpochMs).put("restEndsAtEpochMs",restEndsAtEpochMs).put("workoutRpe",workoutRpe).put("finishedAtEpochMs",finishedAtEpochMs)
-    .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId) }
+    .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId).put("pausedRestRemainingSec",pausedRestRemainingSec) }
 private fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(1); val a=o.getJSONArray("exercises");return WorkoutSessionState(
     o.getString("id"),o.getLong("startedAtEpochMs"),o.storedString("profileName",""),
     recovery.records(a,"active_workout_v1.exercises") { exercise, path -> workoutExerciseFromJson(exercise,recovery,path) },o.storedInt("currentExerciseIndex"),
     o.storedLong("elapsedBeforePauseMs",0L),o.optNullableLong("pausedAtEpochMs"),o.optNullableLong("restEndsAtEpochMs"),
     o.optNullableInt("workoutRpe"),o.optNullableLong("finishedAtEpochMs"),o.storedString("runnerKind","automatic"),if(o.has("restKind")&&!o.isNull("restKind"))o.getString("restKind") else null,
-    (o.storedArray("modifications")?:JSONArray()).let{a->(0 until a.length()).map{a.getString(it)}},o.storedString("plannedWorkoutId").takeIf{it.isNotBlank()}) }
+    (o.storedArray("modifications")?:JSONArray()).let{a->(0 until a.length()).map{a.getString(it)}},o.storedString("plannedWorkoutId").takeIf{it.isNotBlank()},o.optNullableInt("pausedRestRemainingSec")) }
 
 private fun Exercise.toPlanSnapshotJson():JSONObject = JSONObject()
     .put("name",name).put("group",group).put("equipment",equipment).put("level",level)
