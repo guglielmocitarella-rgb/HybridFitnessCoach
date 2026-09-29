@@ -15,8 +15,8 @@ internal data class ExerciseV2Record(
     val level:String?,
     val measure:String,
     val sources:List<String>,
-    val sourceRefs:List<ExerciseV2EvidenceRef> = emptyList(),
     val confidence:String,
+    val sourceRefs:List<ExerciseV2EvidenceRef> = emptyList(),
     val descriptionIt:String="",
     val setupIt:String="",
     val executionStepsIt:List<String> = emptyList()
