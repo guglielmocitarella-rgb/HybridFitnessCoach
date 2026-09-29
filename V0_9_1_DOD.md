@@ -36,7 +36,7 @@ Legend: [x] verified; [~] partial; [ ] pending. Completion requires implementati
 | Source-based rest/prescriptions | [~] ACSM general resistance baselines in custom runner; legacy automatic runner and exercise-specific audit pending | added | pending | pending | pending |
 | Exercise database source audit | [~] deterministic coverage audit + ACSM general prescription source; exercise-specific entries pending | added | partial | n/a | green #263 |
 | Equipment/generator + sequencing/locking | [~] v0.9 baseline preserved | existing | existing | existing | pending |
-| Data migration/backward compatibility | [~] optional session and plan fields; upgrade regression pending | partial | partial | n/a | pending |
+| Data migration/backward compatibility | [x] v0.9 session defaults, legacy active-runner defaults, plan schema v1→v2 migration, unresolved legacy exercises, malformed records and future schema versions covered fail-closed | added | persisted/reloaded | n/a | green #380 |
 | UX/dashboard/calendar polish | [~] plan preview, duration choice, past/future actions | n/a | partial | partial | pending |
 | Full regression + signed release APK | [~] latest green run: 36446247422 at 3de13bb; on-device regression pending | green at prior HEAD | partial | n/a | pending |
 
@@ -69,3 +69,5 @@ Audit notes:
 - Latest code run 36447095691 passed at `af9cf8dbfdbb141aa36e70dfbf92b575007d2f72`; signed APK artifact was extracted and verified present. The testable build is not a v0.9.1 release designation.
 
 - PR CI #354 passed at HEAD `0f5309d30fac5d14a195a3db291406e2bf387173`; unit tests, Android lint and PR debug APK build are green. The paused runner now persists remaining rest seconds separately, with process-recreation and legacy compatibility regression coverage. Signed-release steps were skipped in this PR run and remain a separate final artifact gate.
+
+- PR CI #380 passed at `2899e6e0e82afb883ff70b1723056c492d4aadab`; skill generation/regeneration now share the same eligibility pool, with locked-node, equipment and graph-integrity regressions. Backward-compatibility audit confirms deterministic coverage for legacy session/runner/plan data and future-schema fail-closed behavior.
