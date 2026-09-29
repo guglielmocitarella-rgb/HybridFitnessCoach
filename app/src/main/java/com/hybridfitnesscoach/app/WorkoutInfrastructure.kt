@@ -227,7 +227,7 @@ internal fun effectiveRunnerPrescription(
         state?.sets?.takeIf{it.isNotEmpty()}?.let{sets->sets.count{it.completed}.toDouble()/sets.size}
     }
     val fatigue=latest?.workoutRpe ?: 5
-    val legacyIntensity=exercise.targetRpe ?: 7
+    val legacyIntensity=exercise.intensity
     val legacyVolume=(exercise.targetSets ?: legacy.sets).coerceAtLeast(1)
     val context=PrescriptionContext(
         goal=athlete.goal,
