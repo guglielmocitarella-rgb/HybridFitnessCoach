@@ -1,27 +1,29 @@
 {
   "schema_version": 2,
   "status": "AUDITED_DRAFT",
-  "canonical_movements": 673,
-  "progression_edges": 215,
+  "canonical_movements": 159,
+  "progression_edges": 41,
   "sources_registered": 14,
   "movement_types": {
-    "STRENGTH": 208,
-    "CALISTHENICS": 184,
-    "SKILL": 150,
-    "CORE": 44,
-    "POWER": 18,
-    "CONDITIONING": 12,
-    "MOBILITY": 11,
-    "FLEXIBILITY": 40,
+    "CALISTHENICS": 53,
+    "CONDITIONING": 9,
+    "CORE": 19,
+    "FLEXIBILITY": 13,
+    "MOBILITY": 13,
+    "SKILL": 46,
     "SMR": 6
   },
-  "confidence": {"HIGH": 430, "MEDIUM": 243},
+  "confidence": {
+    "MEDIUM": 159
+  },
+  "validation_status": "PENDING_CI",
+  "build_output": "exercise-db-v2/exercises.json",
   "videos": "DEFERRED",
   "rc2_isolation": true,
   "notes": [
-    "The existing 583-record app catalogue is not the authority for v2.",
-    "Load/time milestones are protocols, not canonical exercises.",
+    "Canonical artifact is now materialized; current count reflects only source records actually reconstructed and versioned.",
+    "The previous 673/215 counts were not retained because their canonical artifacts were unavailable and are not treated as authoritative.",
     "Unsupported cues/errors/contraindications remain empty rather than invented.",
-    "Rest guidance is goal-dependent and sourced from ACSM/NSCA guidance."
+    "Rest guidance remains source/context scoped and is not copied generically onto exercise records."
   ]
 }
