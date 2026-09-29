@@ -3,7 +3,12 @@ package com.hybridfitnesscoach.app
 import org.junit.Assert.*
 import org.junit.Test
 import java.io.File
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
+@RunWith(RobolectricTestRunner::class)
+@Config(manifest = Config.NONE, sdk = [28])
 class ExerciseDbV2Test {
     private fun records():List<ExerciseV2Record> {
         val candidates=listOf(
