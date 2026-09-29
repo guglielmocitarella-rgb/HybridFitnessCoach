@@ -74,4 +74,13 @@ class Rc2PlanningRegressionTest {
         assertEquals(first.originalEpochDay, restored.workouts.first().epochDay)
         assertEquals(PlannedWorkoutState.PLANNED, restored.workouts.first().state)
     }
+    @Test fun futureSkippedWorkoutRemainsInFutureCalendar() {
+        val future = plan().workouts.first().copy(epochDay = 1010)
+        val skipped = future.copy(state = PlannedWorkoutState.SKIPPED)
+        assertFalse(isPastCalendarWorkout(skipped, 1000))
+        assertTrue(isPastCalendarWorkout(skipped, 1011))
+        assertTrue(isPastCalendarWorkout(future.copy(state = PlannedWorkoutState.PARTIAL), 1000))
+        assertFalse(isPastCalendarWorkout(future, 1000))
+    }
+
 }
