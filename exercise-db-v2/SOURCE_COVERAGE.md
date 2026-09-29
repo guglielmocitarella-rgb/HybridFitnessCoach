@@ -19,6 +19,6 @@ This report is a completion gate. A registered source is **INGESTED** only when 
 | CAL_BEGINNER_150 | INGESTED | raw/calisthenics_beginner_150.tsv |
 | ULTIMATE_CAL_COLLECTION | INGESTED | raw/ultimate_cal_collection.tsv |
 
-INTEGRATION_READY is forbidden while any exercise-repertoire source is PENDING, CROSSCHECK_PENDING, PARTIAL_INGESTED, or PARTIAL_GUIDANCE_INGESTED. Guidance-only sources may finish without adding canonical movements, but their programming evidence must be materialized separately if used.
+Completion gate satisfied: every registered exercise-repertoire source has a versioned inventory merged with provenance, and guidance-only sources have materialized source-scoped programming evidence. Videos remain deferred by design.
 
 Current canonical count is derived from exercises.json, never from a target number.
