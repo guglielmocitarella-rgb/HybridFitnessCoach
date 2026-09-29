@@ -125,4 +125,11 @@ class SkillIntegrationTest {
         assertTrue(exerciseSkillLinks(ex,emptyList()).isEmpty())
     }
 
+
+    @Test fun masteryThresholdsAreExplicitlyClassifiedAsAppRules() {
+        SkillCatalog.nodes.forEach { node ->
+            assertEquals("APP_RULE", node.criterion.evidenceClass)
+            assertTrue(node.criterion.evidenceNote.isNotBlank())
+        }
+    }
 }
