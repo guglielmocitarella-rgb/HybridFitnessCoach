@@ -568,6 +568,8 @@ internal fun plannedExerciseState(index:Int,ex:Exercise):WorkoutExerciseState {
     val sets=(0 until p.sets).map { n -> WorkoutSetState(index=n,targetReps=if(ex.measure==ExerciseMeasure.REPS)p.value.toInt() else null,targetSeconds=if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION||ex.measure==ExerciseMeasure.INTERVALS)p.value.toInt() else null,targetDistanceMeters=if(ex.measure==ExerciseMeasure.DISTANCE)p.value else null) }
     return WorkoutExerciseState(ex.name,ex.measure,sets,WorkoutExerciseStatus.PENDING,null,false,ex.setRestSec,ex.exerciseRestSec,index,index)
 }
+internal fun runnerSetRestSeconds(exercise:Exercise, prescribedRestSeconds:Int?=null):Int =
+    exercise.intervalRestSec ?: prescribedRestSeconds ?: exercise.setRestSec
 private fun buildActiveWorkout(profileName:String,items:List<Exercise>,now:Long=System.currentTimeMillis())=WorkoutSessionState(now.toString(),now,profileName,items.mapIndexed(::plannedExerciseState))
 private fun completedExerciseState(index:Int,ex:Exercise,completed:Int,rpe:Int?):WorkoutExerciseState {
     val planned=plannedExerciseState(index,ex)
@@ -1308,7 +1310,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                     Text(targetSetCount(ex).toString()+" serie × "+(reps[ex.name]?:p.value.toInt())+" "+p.unit+" • "+(restSeconds[ex.name]?:ex.setRestSec)+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
                                     Text("APP_RULE / FALLBACK: target del catalogo adattato dal coach",fontSize=10.sp,color=Color.Gray)
                                     if(running && !done && !isSkipped){
-                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100)),executedSets[ex.name]?.firstOrNull{!it.completed}){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val planned=plannedExerciseState(0,ex).sets;val requiredSets=targetSetCount(ex);val old=executedSets[ex.name]?:List(requiredSets){idx->planned.getOrNull(idx)?.copy(index=idx)?:planned.last().copy(index=idx,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null,restUsedSec=null)};if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=targetSetCount(ex)){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=ex.intervalRestSec?:restSeconds[ex.name]?:ex.setRestSec};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
+                                        ExerciseExecutionInputs(ex,restRemaining==0&&!paused,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100)),executedSets[ex.name]?.firstOrNull{!it.completed}){ar,asec,dist,load,assist->val p=prescriptionFor(ex);val nNow=completed[ex.name]?:0;val planned=plannedExerciseState(0,ex).sets;val requiredSets=targetSetCount(ex);val old=executedSets[ex.name]?:List(requiredSets){idx->planned.getOrNull(idx)?.copy(index=idx)?:planned.last().copy(index=idx,completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null,restUsedSec=null)};if(nNow<old.size){val xs=old.toMutableList();xs[nNow]=xs[nNow].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true);executedSets[ex.name]=xs;completed[ex.name]=nNow+1;if(nNow+1>=targetSetCount(ex)){restKind="Esercizio";restRemaining=ex.exerciseRestSec}else{restKind="Serie";restRemaining=runnerSetRestSeconds(ex,restSeconds[ex.name])};restEndsAt=System.currentTimeMillis()+restRemaining*1000L}}
 
                                         Row(verticalAlignment=Alignment.CenterVertically){Text("Recupero serie: ",fontSize=12.sp,color=Color.Gray);listOf(30,60,90,120,180).forEach{v->FilterChip((restSeconds[ex.name]?:60)==v,{restSeconds[ex.name]=v},{Text(v.toString()+"s")},Modifier.padding(end=3.dp))}}
 
@@ -1453,7 +1455,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                                     currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets&&skipped[it.name]!=true}?.name
                                                         ?:compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets&&skipped[it.name]!=true}?.name
                                                 } else {
-                                                    restKind="Serie";restRemaining=ex.intervalRestSec?:ex.setRestSec;currentExercise=ex.name
+                                                    restKind="Serie";restRemaining=runnerSetRestSeconds(ex);currentExercise=ex.name
                                                 }
                                                 restEndsAt=System.currentTimeMillis()+restRemaining*1000L
                                             }
