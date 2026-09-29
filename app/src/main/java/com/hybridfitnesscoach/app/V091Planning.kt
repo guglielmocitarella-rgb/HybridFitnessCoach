@@ -100,6 +100,49 @@ object ContextualPrescriptionEngine {
 enum class PlannedWorkoutState { PLANNED, COMPLETED, PARTIAL, SKIPPED, RESCHEDULED, ADAPTED }
 data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null)
 data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>)
+data class PlanConfiguration(
+ val goal:String,
+ val weeks:Int=8,
+ val daysPerWeek:Int,
+ val trainingDays:Set<Int>,
+ val prioritySkills:List<String>
+) {
+ fun validated():PlanConfiguration {
+  require(weeks in 1..52)
+  require(daysPerWeek in 1..7)
+  require(trainingDays.size==daysPerWeek)
+  require(trainingDays.all{it in 1..7})
+  return copy(
+   goal=normalizePlanGoal(goal),
+   prioritySkills=prioritySkills.map{it.trim()}.filter{it.isNotBlank()}.distinct()
+  )
+ }
+ companion object {
+  fun fromAthlete(athlete:AthleteProfile,weeks:Int=8):PlanConfiguration {
+   val frequency=athlete.daysPerWeek.coerceIn(1,7)
+   return PlanConfiguration(
+    goal=normalizePlanGoal(athlete.goal),
+    weeks=weeks.coerceIn(1,52),
+    daysPerWeek=frequency,
+    trainingDays=defaultTrainingDays(frequency),
+    prioritySkills=athlete.prioritySkills
+   ).validated()
+  }
+ }
+}
+internal fun normalizePlanGoal(goal:String):String = when(goal.trim()) {
+ "Forza + skill","Forza + Skill Calisthenics" -> "Calisthenics"
+ "" -> "Fitness generale"
+ else -> goal.trim()
+}
+internal fun defaultTrainingDays(daysPerWeek:Int):Set<Int> {
+ require(daysPerWeek in 1..7)
+ return (0 until daysPerWeek).map{index->1+(index*7/daysPerWeek)}.toSet()
+}
+internal fun AthleteProfile.forPlan(configuration:PlanConfiguration):AthleteProfile {
+ val valid=configuration.validated()
+ return copy(goal=valid.goal,daysPerWeek=valid.daysPerWeek,prioritySkills=valid.prioritySkills)
+}
 /** Calendar tabs follow the date, except sessions already performed. */
 internal fun isPastCalendarWorkout(workout:PlannedWorkout,today:Long):Boolean =
     workout.epochDay < today || workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL
