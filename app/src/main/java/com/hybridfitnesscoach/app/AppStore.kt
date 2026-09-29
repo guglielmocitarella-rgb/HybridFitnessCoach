@@ -77,18 +77,21 @@ private fun workoutSetFromJson(o:JSONObject)=WorkoutSetState(
 private fun WorkoutExerciseState.toJson():JSONObject { val a=JSONArray();sets.forEach{a.put(it.toJson())};return JSONObject()
     .put("exerciseName",exerciseName).put("measure",measure.name).put("sets",a).put("status",status.name)
     .put("rpe",rpe).put("pinned",pinned).put("setRestSec",setRestSec).put("exerciseRestSec",exerciseRestSec)
-    .put("originalOrder",originalOrder).put("currentOrder",currentOrder) }
+    .put("originalOrder",originalOrder).put("currentOrder",currentOrder).put("exerciseId",exerciseId)
+    .put("exerciseSnapshot",exerciseSnapshot?.toPlanSnapshotJson()) }
 private fun workoutExerciseFromJson(o:JSONObject, recovery:StoreRecovery, path:String):WorkoutExerciseState { val a=o.storedArray("sets")?:JSONArray();return WorkoutExerciseState(
     o.getString("exerciseName"),ExerciseMeasure.valueOf(o.storedString("measure","REPS")),
     recovery.records(a,"$path.sets") { set, _ -> workoutSetFromJson(set) },
     WorkoutExerciseStatus.valueOf(o.storedString("status","PENDING")),
-    o.optNullableInt("rpe"),o.storedBoolean("pinned"),o.storedInt("setRestSec",90),o.storedInt("exerciseRestSec",120),o.storedInt("originalOrder"),o.storedInt("currentOrder")) }
+    o.optNullableInt("rpe"),o.storedBoolean("pinned"),o.storedInt("setRestSec",90),o.storedInt("exerciseRestSec",120),o.storedInt("originalOrder"),o.storedInt("currentOrder"),
+    o.storedString("exerciseId").takeIf{it.isNotBlank()},
+    if(o.has("exerciseSnapshot")&&!o.isNull("exerciseSnapshot")) exerciseFromPlanSnapshot(o.getJSONObject("exerciseSnapshot")) else null) }
 private fun WorkoutSessionState.toJson():JSONObject { val a=JSONArray();exercises.forEach{a.put(it.toJson())};return JSONObject()
-    .put("schemaVersion",1).put("id",id).put("startedAtEpochMs",startedAtEpochMs).put("profileName",profileName)
+    .put("schemaVersion",2).put("id",id).put("startedAtEpochMs",startedAtEpochMs).put("profileName",profileName)
     .put("exercises",a).put("currentExerciseIndex",currentExerciseIndex).put("elapsedBeforePauseMs",elapsedBeforePauseMs)
     .put("pausedAtEpochMs",pausedAtEpochMs).put("restEndsAtEpochMs",restEndsAtEpochMs).put("workoutRpe",workoutRpe).put("finishedAtEpochMs",finishedAtEpochMs)
     .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId).put("pausedRestRemainingSec",pausedRestRemainingSec) }
-private fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(1); val a=o.getJSONArray("exercises");return WorkoutSessionState(
+private fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(1,2); val a=o.getJSONArray("exercises");return WorkoutSessionState(
     o.getString("id"),o.getLong("startedAtEpochMs"),o.storedString("profileName",""),
     recovery.records(a,"active_workout_v1.exercises") { exercise, path -> workoutExerciseFromJson(exercise,recovery,path) },o.storedInt("currentExerciseIndex"),
     o.storedLong("elapsedBeforePauseMs",0L),o.optNullableLong("pausedAtEpochMs"),o.optNullableLong("restEndsAtEpochMs"),
