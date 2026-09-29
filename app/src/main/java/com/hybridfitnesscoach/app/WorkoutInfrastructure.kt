@@ -267,3 +267,11 @@ internal fun effectiveAutomaticExercises(
     readinessScore:Int?=null,
     restored:Boolean=false
 ):List<Exercise> = if(restored) source else source.map{exerciseWithEffectivePrescription(it,athlete,sessions,readinessScore)}
+
+
+internal data class WorkoutLaunchResolution(
+    val plannedWorkout:PlannedWorkout?,
+    val resumeActive:Boolean
+)
+internal fun resolveWorkoutLaunch(active:WorkoutSessionState?, requested:PlannedWorkout?):WorkoutLaunchResolution =
+    if(active!=null) WorkoutLaunchResolution(null,true) else WorkoutLaunchResolution(requested,false)
