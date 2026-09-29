@@ -1158,7 +1158,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=remember{liveReadiness}
     var minutes by remember { mutableIntStateOf(45) }
-    val selectedEquipment = remember { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment) } }
+    val selectedEquipment = remember(profile,initialEquipment) { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment.ifEmpty { listOf("Corpo libero") }) } }
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
     var mode by remember(initialSkill,initialGroups) { mutableStateOf(if(initialSkill!="Nessuna") "Skill" else "Parti del corpo") }
     val selectedSkills = remember(initialSkill) { mutableStateListOf<String>().apply { if(initialSkill!="Nessuna") add(initialSkill) } }
@@ -1197,7 +1197,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
-    val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Bilanciere","Manubri","Cavi","Macchine","Elastici","Panca","Kettlebell","Leg press","Anelli","TRX","Ab Wheel","Foam Roller")
+    val equipmentOptions = (listOf("Corpo libero") + profile.equipment + initialEquipment).distinct()
     fun prescription(ex:Exercise):Pair<Int,Int> = prescriptionFor(ex).value.toInt() to ex.setRestSec
     fun targetSetCount(ex:Exercise):Int = prescriptionFor(ex).sets
     fun build() {
