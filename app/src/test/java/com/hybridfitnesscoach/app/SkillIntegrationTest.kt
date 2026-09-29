@@ -27,4 +27,30 @@ class SkillIntegrationTest {
         assertEquals(ResistanceMode.EXTERNAL_LOAD,exercises.first{it.name=="Squat"}.resistanceMode)
     }
     @Test fun catalogHasBroadV09Coverage(){assertTrue(exercises.size>=200);assertEquals(exercises.size,exercises.map{it.name.lowercase()}.distinct().size);assertTrue(exercises.any{it.category==ExerciseCategory.CORE});assertTrue(exercises.any{it.category==ExerciseCategory.MOBILITY});assertTrue(exercises.any{it.category==ExerciseCategory.CARDIO});assertTrue(exercises.any{it.movementPattern=="loaded-carry"});assertTrue(exercises.any{it.role=="Conditioning"})}
+    @Test fun canonicalSkillGraphsHaveUniqueIdsAndClosedPrerequisites() {
+        assertEquals(SkillCatalog.nodes.size, SkillCatalog.nodes.map{it.id}.distinct().size)
+        SkillCatalog.skills().forEach { skill ->
+            val graph=SkillCatalog.forSkill(skill)
+            val ids=graph.map{it.id}.toSet()
+            assertTrue("Empty graph: $skill",graph.isNotEmpty())
+            graph.forEach { node ->
+                assertTrue("Foreign prerequisite in $skill / ${node.id}: ${node.prerequisites-ids}", ids.containsAll(node.prerequisites))
+            }
+        }
+    }
+    @Test fun canonicalSkillNamesDoNotDuplicateLegacyGraphsByCase() {
+        assertEquals(
+            SkillCatalog.skills().map{it.lowercase()}.distinct().size,
+            SkillCatalog.skills().size
+        )
+        assertEquals(
+            SkillCatalog.forSkill("Back Lever").map{it.id},
+            SkillCatalog.forSkill("Back lever").map{it.id}
+        )
+        assertEquals(
+            SkillCatalog.forSkill("Pistol Squat").map{it.id},
+            SkillCatalog.forSkill("Pistol squat").map{it.id}
+        )
+    }
+
 }
