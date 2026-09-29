@@ -66,7 +66,7 @@ internal object ExerciseDbV2 {
             "SKILL"->ExerciseCategory.SKILL
             else->legacy?.category?:ExerciseCategory.OTHER
         }
-        return Exercise(
+        return withExerciseMetadata(Exercise(
             name=record.nameIt,
             group=legacy?.group?:record.family.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()},
             equipment=record.equipment.firstOrNull()?.let(::equipmentDisplay)?:legacy?.equipment?:"Corpo libero",
@@ -88,7 +88,7 @@ internal object ExerciseDbV2 {
             targetSets=legacy?.targetSets?:3,
             targetValue=legacy?.targetValue,
             intervalRestSec=legacy?.intervalRestSec
-        )
+        ))
     }
 
     private fun equipmentDisplay(token:String)=when(token.lowercase()) {
