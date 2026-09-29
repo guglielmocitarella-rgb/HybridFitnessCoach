@@ -221,15 +221,24 @@ internal fun effectiveRunnerPrescription(
     readinessScore:Int?=null
 ):EffectiveRunnerPrescription {
     val legacy=prescriptionFor(exercise)
-    val recent=exercisePerformance(exercise.name,sessions)
-    val fatigue=sessions.firstOrNull()?.workoutRpe ?: 5
+    val latest=sessions.firstOrNull()
+    val recent=latest?.let { session ->
+        val state=session.structuredExercises.firstOrNull{it.exerciseName.equals(exercise.name,true)}
+        state?.sets?.takeIf{it.isNotEmpty()}?.let{sets->sets.count{it.completed}.toDouble()/sets.size}
+    }
+    val fatigue=latest?.workoutRpe ?: 5
+    val legacyIntensity=exercise.targetRpe ?: 7
+    val legacyVolume=(exercise.targetSets ?: legacy.sets).coerceAtLeast(1)
     val context=PrescriptionContext(
         goal=athlete.goal,
         athleteLevel=athlete.level,
-        category=exercise.category,
-        recentPerformance=recent,
+        exerciseType=exercise.category,
+        intensity=legacyIntensity,
+        volume=legacyVolume,
         fatigue=fatigue,
-        recoveryStatus=readinessScore
+        recentPerformance=recent,
+        recoveryStatus=readinessScore,
+        skillLevel=levelScore(athlete.level)
     )
     val sourced=SourcePrescriptionBaselineRegistry.prescribeIfVerified(exercise,context)
     return if(sourced!=null) EffectiveRunnerPrescription(
