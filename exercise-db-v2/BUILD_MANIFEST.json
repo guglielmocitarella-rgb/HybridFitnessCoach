@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "status": "AUDITED_DRAFT",
-  "canonical_movements": 550,
+  "canonical_movements": 571,
   "progression_edges": 113,
   "sources_registered": 14,
   "movement_types": {
@@ -13,13 +13,13 @@
     "MOBILITY": 26,
     "PLYOMETRIC": 3,
     "POWER": 17,
-    "SKILL": 148,
+    "SKILL": 151,
     "SMR": 6,
-    "STRENGTH": 158
+    "STRENGTH": 176
   },
   "confidence": {
     "HIGH": 167,
-    "MEDIUM": 383
+    "MEDIUM": 404
   },
   "validation_status": "PENDING_CI",
   "build_output": "exercise-db-v2/exercises.json",
