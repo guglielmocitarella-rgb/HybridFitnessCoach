@@ -1291,6 +1291,14 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             Column(Modifier.padding(10.dp)){
                                 Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically){Text((if(done)"✓ " else if(running&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f));if(!running)TextButton(onClick={if(ex.name in pinnedNames)pinnedNames.remove(ex.name)else pinnedNames.add(ex.name)}){Text(if(ex.name in pinnedNames)"🔒 BLOCCATO" else "🔓 BLOCCA")}}
                                 if(done) Text("COMPLETATO • "+targetSets+"/"+targetSets+" serie",color=Accent,fontSize=12.sp)
+                                if(running && !done) {
+                                    if(isSkipped) Text("SALTATO • tocca RIPRENDI per continuare",color=Color.Gray,fontSize=12.sp)
+                                    else if(currentExercise==ex.name) Text("ESERCIZIO ATTIVO • serie "+(n+1).coerceAtMost(targetSets)+"/"+targetSets,color=Accent,fontSize=12.sp,fontWeight=FontWeight.Bold)
+                                    TextButton(onClick={
+                                        skipped[ex.name]=!isSkipped
+                                        currentExercise=if(isSkipped) ex.name else generated.firstOrNull{it.name!=ex.name && skipped[it.name]!=true && (completed[it.name]?:0)<targetSetCount(it)}?.name
+                                    }){Text(if(isSkipped)"RIPRENDI" else "SALTA ESERCIZIO")}
+                                }
                                 if(running&&n>0){Text("RPE: "+(exerciseRpe[ex.name]?.toString()?:"da indicare"),fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
                                 if(expanded){
                                     val p=prescriptionFor(ex)
