@@ -23,4 +23,20 @@ class Rc2PrescriptionRegressionTest {
         assertEquals(pinned, workout.first { it.name == pinned.name })
         workout.forEach { ex -> assertEquals(pool.first { it.name == ex.name }.setRestSec, ex.setRestSec) }
     }
+    @Test fun runnerRestPrecedenceIsIntervalThenPrescriptionThenCatalogFallback() {
+        val base = exercises.first { it.name.equals("Australian Pull-up", ignoreCase = true) }.copy(setRestSec = 90)
+        assertEquals(150, runnerSetRestSeconds(base.copy(intervalRestSec = 150), prescribedRestSeconds = 120))
+        assertEquals(120, runnerSetRestSeconds(base, prescribedRestSeconds = 120))
+        assertEquals(90, runnerSetRestSeconds(base))
+    }
+
+    @Test fun sourceBasedRestIsNeverSilentlyReplacedByLegacyHeuristic() {
+        val ex = Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,setRestSec=75)
+        val context = PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,null,85,null)
+        val sourced = SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex, context)!!
+        assertEquals(180, sourced.restSeconds)
+        assertEquals(180, runnerSetRestSeconds(ex, sourced.restSeconds))
+        assertNotEquals(ex.setRestSec, runnerSetRestSeconds(ex, sourced.restSeconds))
+    }
+
 }
