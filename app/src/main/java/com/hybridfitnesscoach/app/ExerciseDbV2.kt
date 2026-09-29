@@ -14,11 +14,11 @@ internal data class ExerciseV2Record(
     val equipment:List<String>,
     val level:String?,
     val measure:String,
-    val descriptionIt:String,
-    val setupIt:String,
-    val executionStepsIt:List<String>,
     val sources:List<String>,
-    val confidence:String
+    val confidence:String,
+    val descriptionIt:String="",
+    val setupIt:String="",
+    val executionStepsIt:List<String> = emptyList()
 ) {
     fun lookupNames():Set<String> =
         (listOf(canonicalNameEn,nameIt)+aliases)
