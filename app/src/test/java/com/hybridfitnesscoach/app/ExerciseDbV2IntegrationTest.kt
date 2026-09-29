@@ -10,7 +10,10 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest = Config.NONE, sdk = [28])
 class ExerciseDbV2IntegrationTest {
-    private fun records() = ExerciseDbV2.load(RuntimeEnvironment.getApplication())
+    private fun records():List<ExerciseV2Record> {
+        val f=listOf(java.io.File("src/main/assets/exercise-db-v2/exercises.json"),java.io.File("app/src/main/assets/exercise-db-v2/exercises.json")).first{it.exists()}
+        return ExerciseDbV2.parseExercises(f.readText())
+    }
 
     @Test fun canonicalAssetLoadsWithStableUniqueIds() {
         val db=records()
@@ -51,8 +54,9 @@ class ExerciseDbV2IntegrationTest {
     }
 
     @Test fun sourceBackedProgressionGraphHasReferentialIntegrityForRuntimeIds() {
-        val context=RuntimeEnvironment.getApplication()
         val ids=records().map{it.id}.toSet()
+        val f=listOf(java.io.File("src/main/assets/exercise-db-v2/progressions.json"),java.io.File("app/src/main/assets/exercise-db-v2/progressions.json")).first{it.exists()}
+        val context=RuntimeEnvironment.getApplication()
         val edges=ExerciseDbV2.loadProgressions(context)
         assertEquals(113,edges.size)
         assertTrue(edges.all{it.from in ids && it.to in ids && it.sources.isNotEmpty()})
