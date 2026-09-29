@@ -117,7 +117,9 @@ data class MasteryCriterion(
     val minReps:Int?=null,
     val minSeconds:Int?=null,
     val maxRpe:Int?=8,
-    val requiredSessions:Int=2
+    val requiredSessions:Int=2,
+    val evidenceClass:String="APP_RULE",
+    val evidenceNote:String="Soglia operativa dell'app; non è una soglia clinica o scientifica."
 )
 data class SkillNode(
     val id:String,
