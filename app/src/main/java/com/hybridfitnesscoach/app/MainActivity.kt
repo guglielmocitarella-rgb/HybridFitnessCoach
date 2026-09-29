@@ -935,6 +935,10 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                     plan=TrainingPlanEngine.skip(plan!!,workout.id)
                     store.saveTrainingPlan(plan!!);selected=null
                 }){Text("SALTA")}
+                if(workout.epochDay!=workout.originalEpochDay) TextButton(onClick={
+                    plan=TrainingPlanEngine.restoreOriginalDate(plan!!,workout.id,minimumGapDays=0)
+                    store.saveTrainingPlan(plan!!);selected=null;rescheduleOffset=1
+                }){Text("RIPRISTINA DATA ORIGINALE")}
                 TextButton(onClick={selected=null}){Text("ANNULLA")}
             }
         })
