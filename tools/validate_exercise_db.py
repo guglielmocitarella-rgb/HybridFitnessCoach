@@ -47,6 +47,11 @@ def main():
             if n in canon and canon[n]!=x.get("id"): warnings.append(f"alias/canonical collision: {al}")
             if n in alias_owner and alias_owner[n]!=x.get("id"): warnings.append(f"alias collision: {al}")
             alias_owner[n]=x.get("id")
+        variant=x.get("variantOf")
+        if variant is not None and variant not in set(ids): errors.append(f"{x.get('id')}: unknown variantOf {variant}")
+        for prereq in x.get("prerequisites") or []:
+            ref=prereq if isinstance(prereq,str) else prereq.get("id") or prereq.get("exercise_id")
+            if not ref or ref not in set(ids): errors.append(f"{x.get('id')}: unknown prerequisite {ref}")
         for field in ("descriptionIt","primaryMuscles","equipment","prescription","restGuidance"):
             if not x.get(field): warnings.append(f"{x.get('id')}: missing {field}")
     used_sources=set()
@@ -67,7 +72,12 @@ def main():
         k=(f,t,r)
         if k in edgekeys: errors.append(f"duplicate edge: {k}")
         edgekeys.add(k)
-        if not e.get("sources"): errors.append(f"edge without provenance: {f}->{t}")
+        refs=e.get("sources") or []
+        if not refs: errors.append(f"edge without provenance: {f}->{t}")
+        for source in refs:
+            source_id=source.get("source_id") if isinstance(source,dict) else source
+            if source_id not in sid: errors.append(f"edge {f}->{t}: unknown source_id {source_id}")
+            else: used_sources.add(source_id)
         if r in {"MAIN_PROGRESSION","PREREQUISITE"}: graph[f].append(t)
     seen=set(); active=set()
     def dfs(n):
