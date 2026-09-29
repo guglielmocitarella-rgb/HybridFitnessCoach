@@ -869,7 +869,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 Spacer(Modifier.width(8.dp))
                 FilterChip(selected=showPast,onClick={showPast=true},label={Text("Passati")})
             }
-            val visible=plan!!.workouts.filter{if(showPast) it.epochDay<today || it.state==PlannedWorkoutState.COMPLETED || it.state==PlannedWorkoutState.PARTIAL || it.state==PlannedWorkoutState.SKIPPED else it.epochDay>=today && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL && it.state!=PlannedWorkoutState.SKIPPED}.sortedBy{it.epochDay}
+            val visible=plan!!.workouts.filter{isPastCalendarWorkout(it,today)==showPast}.sortedBy{it.epochDay}
             LazyColumn(contentPadding=PaddingValues(bottom=24.dp)) {
                 items(visible,key={it.id}) { workout ->
                     Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth().clickable{selected=workout},shape=RoundedCornerShape(16.dp)) {
