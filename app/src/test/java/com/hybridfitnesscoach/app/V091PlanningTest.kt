@@ -198,4 +198,35 @@ class V091PlanningTest {
   assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,setOf(1,8)){_,_->listOf(ex)}}
  }
 
+ @Test fun planConfigurationDefaultsComeFromAthleteProfile(){
+  val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",daysPerWeek=4,prioritySkills=listOf("Front lever","Planche"))
+  val config=PlanConfiguration.fromAthlete(athlete)
+  assertEquals("Calisthenics",config.goal)
+  assertEquals(4,config.daysPerWeek)
+  assertEquals(listOf("Front lever","Planche"),config.prioritySkills)
+  assertEquals(8,config.weeks)
+  assertEquals(4,config.trainingDays.size)
+ }
+ @Test fun planConfigurationNormalizesLegacyGoalAndInvalidFrequency(){
+  val athlete=AthleteProfile(goal="Forza + skill",level="Principiante",daysPerWeek=0)
+  val config=PlanConfiguration.fromAthlete(athlete)
+  assertEquals("Calisthenics",config.goal)
+  assertEquals(1,config.daysPerWeek)
+  assertEquals(1,config.trainingDays.size)
+ }
+ @Test fun explicitPlanConfigurationOverridesDoNotMutateAthleteProfile(){
+  val athlete=AthleteProfile(goal="Forza",level="Intermedio",daysPerWeek=3,prioritySkills=listOf("Front lever"))
+  val config=PlanConfiguration.fromAthlete(athlete).copy(goal="Ipertrofia",weeks=12,daysPerWeek=2,trainingDays=setOf(2,5),prioritySkills=emptyList()).validated()
+  assertEquals("Forza",athlete.goal)
+  assertEquals(3,athlete.daysPerWeek)
+  assertEquals("Ipertrofia",config.goal)
+  assertEquals(12,config.weeks)
+  assertEquals(setOf(2,5),config.trainingDays)
+ }
+ @Test fun planConfigurationRejectsMismatchedCalendarDays(){
+  assertThrows(IllegalArgumentException::class.java){
+   PlanConfiguration(goal="Forza",weeks=8,daysPerWeek=3,trainingDays=setOf(1,3),prioritySkills=emptyList()).validated()
+  }
+ }
+
 }
