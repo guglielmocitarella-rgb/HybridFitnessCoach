@@ -91,7 +91,26 @@ internal object ExerciseDbV2 {
         )
     }
 
-    private fun equipmentDisplay(token:String)=token.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()}
+    private fun equipmentDisplay(token:String)=when(token.lowercase()) {
+        "barbell" -> "Bilanciere"
+        "dumbbell" -> "Manubri"
+        "kettlebell" -> "Kettlebell"
+        "cable","cable_machine" -> "Cavi"
+        "machine" -> "Macchine"
+        "pull_up_bar" -> "Sbarra"
+        "dip_bars","parallettes" -> "Parallele"
+        "rings" -> "Anelli"
+        "resistance_band" -> "Elastici"
+        "ab_wheel" -> "Ab Wheel"
+        "stability_ball" -> "Fitball"
+        "medicine_ball" -> "Palla medica"
+        "battle_ropes","rope","rope_or_towel" -> "Corda"
+        "box" -> "Box"
+        "bosu" -> "Bosu"
+        "ez_bar" -> "Bilanciere EZ"
+        "towel" -> "Asciugamano"
+        else -> token.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()}
+    }
 }
 
 private fun JSONArray?.strings():List<String> =
