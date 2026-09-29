@@ -74,6 +74,22 @@ class Rc2PlanningRegressionTest {
         assertEquals(first.originalEpochDay, restored.workouts.first().epochDay)
         assertEquals(PlannedWorkoutState.PLANNED, restored.workouts.first().state)
     }
+    @Test fun restoringRescheduledSessionRestoresFollowingPendingSuffix() {
+        val original = plan()
+        val moved = TrainingPlanEngine.reschedule(original, original.workouts[0].id, 1008, 0)
+        val restored = TrainingPlanEngine.restoreOriginalDate(moved, original.workouts[0].id, 0)
+        assertEquals(original.workouts.map { it.epochDay }, restored.workouts.map { it.epochDay })
+        assertEquals(original.workouts.map { PlannedWorkoutState.PLANNED }, restored.workouts.map { it.state })
+    }
+
+    @Test fun restoringThirdSessionLeavesEarlierSessionsAndRestoresLaterSuffix() {
+        val original = plan()
+        val moved = TrainingPlanEngine.reschedule(original, original.workouts[2].id, 1012, 0)
+        val restored = TrainingPlanEngine.restoreOriginalDate(moved, original.workouts[2].id, 0)
+        assertEquals(original.workouts.take(2), restored.workouts.take(2))
+        assertEquals(original.workouts.drop(2).map { it.epochDay }, restored.workouts.drop(2).map { it.epochDay })
+    }
+
     @Test fun futureSkippedWorkoutRemainsInFutureCalendar() {
         val future = plan().workouts.first().copy(epochDay = 1010)
         val skipped = future.copy(state = PlannedWorkoutState.SKIPPED)
