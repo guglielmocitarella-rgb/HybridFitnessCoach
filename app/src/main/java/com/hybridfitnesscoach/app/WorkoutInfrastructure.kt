@@ -313,3 +313,12 @@ internal fun exerciseSkillLinks(exercise:Exercise,sessions:List<SessionRecord>):
         val current=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE}
         ExerciseSkillLink(skill,ProgressionEngine.skillProgress(states),current?.node?.exerciseName,nextUnlockLabel(states))
     }
+
+
+internal fun todayPlannedWorkout(plan:TrainingPlan?,today:Long):PlannedWorkout? =
+    plan?.workouts?.firstOrNull{
+        it.epochDay==today &&
+        it.state!=PlannedWorkoutState.COMPLETED &&
+        it.state!=PlannedWorkoutState.PARTIAL &&
+        it.state!=PlannedWorkoutState.SKIPPED
+    }
