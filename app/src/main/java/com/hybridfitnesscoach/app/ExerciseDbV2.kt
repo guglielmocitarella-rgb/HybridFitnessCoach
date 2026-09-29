@@ -47,10 +47,10 @@ internal object ExerciseDbV2 {
                 movementType=o.optString("movementType"),
                 family=o.optString("family"),
                 equipment=o.optJSONArray("equipment").strings(),
-                level=o.optString("level").takeIf{it.isNotBlank()&&it!="null"},
+                level=if(o.isNull("level")) null else o.optString("level").takeIf{it.isNotBlank()},
                 measure=o.optString("measure","REPS"),
-                descriptionIt=o.optString("descriptionIt"),
-                setupIt=o.optString("setupIt"),
+                descriptionIt=if(o.isNull("descriptionIt")) "" else o.optString("descriptionIt"),
+                setupIt=if(o.isNull("setupIt")) "" else o.optString("setupIt"),
                 executionStepsIt=o.optJSONArray("executionStepsIt").strings(),
                 sources=o.optJSONArray("sources").objects().mapNotNull{it.optString("source_id").takeIf(String::isNotBlank)},
                 confidence=o.optString("confidence")
