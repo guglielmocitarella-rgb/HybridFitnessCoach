@@ -55,4 +55,32 @@ class CoachingIntegrationTest {
         val ex=Exercise("Dip","Petto / Tricipiti","Parallele","Intermedio")
         assertEquals(25,exerciseRecovery(ex,mapOf("Petto" to 90,"Tricipiti" to 25)))
     }
+    @Test fun activePlanDisruptionSuppressesHistoryBasedAdvance() {
+        val now=System.currentTimeMillis()
+        fun good(ts:Long)=SessionRecord(ts,"P",10,10,workoutRpe=7)
+        val history=listOf(good(now-1_000),good(now-2_000))
+        assertEquals(ProgressionDecision.ADVANCE,coachingContext(history,90,now).plan.decision)
+        val today=20_000L
+        val planned=PlannedWorkout("w",today,0,0,listOf(exercises.first()),state=PlannedWorkoutState.SKIPPED)
+        val plan=TrainingPlan("p",today,1,1,listOf(planned))
+        val withPlan=coachingContext(history,90,plan,today)
+        assertEquals(ProgressionDecision.MAINTAIN,withPlan.plan.decision)
+        assertEquals(1,withPlan.planDisruptions)
+        assertTrue(withPlan.plan.notes.any{it.contains("Progressione sospesa")})
+    }
+
+    @Test fun cleanPlanDoesNotEraseHistoryBasedAdvance() {
+        val now=System.currentTimeMillis()
+        val history=listOf(
+            SessionRecord(now-1_000,"P",10,10,workoutRpe=7),
+            SessionRecord(now-2_000,"P",10,10,workoutRpe=7)
+        )
+        val today=20_000L
+        val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("w",today+1,0,0,listOf(exercises.first()))))
+        val context=coachingContext(history,90,plan,today)
+        assertEquals(ProgressionDecision.ADVANCE,context.plan.decision)
+        assertEquals(0,context.planDisruptions)
+        assertEquals(1,context.upcomingSessions)
+    }
+
 }
