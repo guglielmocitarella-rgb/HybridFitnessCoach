@@ -27,6 +27,8 @@ internal data class ExerciseV2Record(
             .toSet()
 }
 
+internal data class ExerciseV2Edge(val from:String,val to:String,val relationship:String,val sources:List<String>)
+
 internal object ExerciseDbV2 {
     private var installed:List<ExerciseV2Record> = emptyList()
     fun install(records:List<ExerciseV2Record>) { installed=records }
@@ -58,6 +60,15 @@ internal object ExerciseDbV2 {
 
     fun load(context:Context):List<ExerciseV2Record> =
         context.assets.open("exercise-db-v2/exercises.json").bufferedReader().use{parseExercises(it.readText())}
+
+    fun loadProgressions(context:Context):List<ExerciseV2Edge> =
+        context.assets.open("exercise-db-v2/progressions.json").bufferedReader().use { reader ->
+            val a=JSONArray(reader.readText())
+            (0 until a.length()).map { i -> a.getJSONObject(i) }.map { o ->
+                ExerciseV2Edge(o.getString("from"),o.getString("to"),o.getString("relationship"),
+                    o.optJSONArray("sources").objects().mapNotNull{it.optString("source_id").takeIf(String::isNotBlank)})
+            }
+        }
 
     fun uniqueLookup(records:List<ExerciseV2Record>):Map<String,ExerciseV2Record> {
         val candidates=linkedMapOf<String,MutableList<ExerciseV2Record>>()
