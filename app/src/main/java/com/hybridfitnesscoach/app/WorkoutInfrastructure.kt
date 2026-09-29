@@ -275,3 +275,7 @@ internal data class WorkoutLaunchResolution(
 )
 internal fun resolveWorkoutLaunch(active:WorkoutSessionState?, requested:PlannedWorkout?):WorkoutLaunchResolution =
     if(active!=null) WorkoutLaunchResolution(null,true) else WorkoutLaunchResolution(requested,false)
+
+
+internal fun committedPlanOrCurrent(current:TrainingPlan,candidate:TrainingPlan,persisted:Boolean):TrainingPlan =
+    if(persisted) candidate else current
