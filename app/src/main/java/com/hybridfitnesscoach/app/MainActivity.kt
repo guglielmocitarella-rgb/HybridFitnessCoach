@@ -96,7 +96,7 @@ data class WorkoutExerciseState(
     val measure: ExerciseMeasure = ExerciseMeasure.REPS,
     val sets: List<WorkoutSetState> = emptyList(),
     val status: WorkoutExerciseStatus = WorkoutExerciseStatus.PENDING,
-    val rpe: Int? = 5,
+    val rpe: Int? = null,
     val pinned: Boolean = false,
     val setRestSec: Int = 90,
     val exerciseRestSec: Int = 120,
@@ -1273,7 +1273,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
         generated=ranked.take(count)
         generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions,readinessScore))
         completed.clear();expandedCompleted.clear();reps.clear();restSeconds.clear();exerciseRpe.clear()
-        generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second}
+        generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second;exerciseRpe[ex.name]=5}
         exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0
         currentExercise=generated.firstOrNull()?.name
         generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova ad ampliare attrezzatura, muscoli o livello/skill." else "Workout pronto: "+generated.size+" esercizi."
@@ -1434,7 +1434,9 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     var restKind by remember { mutableStateOf(restored?.restKind?:"Serie") }
     var currentExercise by remember { mutableStateOf<String?>(restored?.exercises?.getOrNull(restored.currentExerciseIndex)?.exerciseName) }
     val executedSets = remember { mutableStateMapOf<String,List<WorkoutSetState>>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets)} } }
-    val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply { restored?.exercises?.forEach{e->e.rpe?.let{put(e.exerciseName,it)}} } }
+    val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply {
+        compatible.forEach { put(it.name, restored?.exercises?.firstOrNull { saved -> saved.exerciseName==it.name }?.rpe ?: 5) }
+    } }
     var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
     val listState = rememberLazyListState()
 
