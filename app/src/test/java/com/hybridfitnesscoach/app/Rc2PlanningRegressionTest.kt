@@ -83,4 +83,30 @@ class Rc2PlanningRegressionTest {
         assertFalse(isPastCalendarWorkout(future, 1000))
     }
 
+    @Test fun calendarLaunchNeverReplacesAnActiveWorkout() {
+        val requested=plan().workouts.first()
+        val active=WorkoutSessionState("active-1",1234,"Palestra",listOf(WorkoutExerciseState("Push-up")),plannedWorkoutId="other-plan")
+        val resolved=resolveWorkoutLaunch(active,requested)
+        assertTrue(resolved.resumeActive)
+        assertNull(resolved.plannedWorkout)
+    }
+
+    @Test fun calendarLaunchPreservesRequestedWorkoutIdentityWhenNoActiveWorkoutExists() {
+        val requested=plan().workouts[1]
+        val resolved=resolveWorkoutLaunch(null,requested)
+        assertFalse(resolved.resumeActive)
+        assertEquals(requested.id,resolved.plannedWorkout?.id)
+        assertEquals(requested.exercises,resolved.plannedWorkout?.exercises)
+    }
+
+    @Test fun completedOrPartialWorkoutCannotBeCompletedAgainThroughReconciler() {
+        val original=plan()
+        val target=original.workouts.first()
+        val session=SessionRecord(1,"Palestra",3,3,plannedWorkoutId=target.id)
+        val once=PlannedWorkoutReconciler.complete(original,session,target.epochDay,0).plan
+        val twice=PlannedWorkoutReconciler.complete(once,session.copy(timestamp=2),target.epochDay+1,0)
+        assertEquals(once,twice.plan)
+        assertTrue(twice.decisions.isEmpty())
+    }
+
 }
