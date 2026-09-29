@@ -27,6 +27,7 @@ private val Accent = Color(0xFF3568E8)
 private val Bg = Color(0xFFF7F8FA)
 
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
+internal fun runnerEffort(value:Int?):Int = value?.takeIf { it in 1..10 } ?: 5
 private fun recommendedSetRest(role:String,name:String,equipment:String):Int {
     // RC2: rest must not be inferred from exercise-name substrings. Keep the
     // fallback inside the sourced programming ranges; richer goal/load-aware
@@ -1267,7 +1268,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val reps = remember { mutableStateMapOf<String, Int>() }
     val restSeconds = remember { mutableStateMapOf<String, Int>() }
     val executedSets = remember { mutableStateMapOf<String,List<WorkoutSetState>>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets)} } }
-    val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply{restored?.exercises?.forEach{e->e.rpe?.let{put(e.exerciseName,it)}}} }
+    val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply{restored?.exercises?.forEach{e->put(e.exerciseName,runnerEffort(e.rpe))}} }
     var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
     val listState = rememberLazyListState()
 
@@ -1455,7 +1456,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     var currentExercise by remember { mutableStateOf<String?>(restored?.exercises?.getOrNull(restored.currentExerciseIndex)?.exerciseName) }
     val executedSets = remember { mutableStateMapOf<String,List<WorkoutSetState>>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets)} } }
     val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply {
-        compatible.forEach { put(it.name, restored?.exercises?.firstOrNull { saved -> saved.exerciseName==it.name }?.rpe ?: 5) }
+        compatible.forEach { put(it.name, runnerEffort(restored?.exercises?.firstOrNull { saved -> saved.exerciseName==it.name }?.rpe)) }
     } }
     var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
     val listState = rememberLazyListState()
