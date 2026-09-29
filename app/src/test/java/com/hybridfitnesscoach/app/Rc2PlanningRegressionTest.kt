@@ -169,4 +169,17 @@ class Rc2PlanningRegressionTest {
         assertEquals(plannedWeekExercises(listOf(ex),3),plannedWeekExercises(listOf(ex),51))
     }
 
+    @Test fun homeLaunchSelectsOnlyRunnableWorkoutScheduledForToday() {
+        val original=plan()
+        val today=original.workouts.first().epochDay
+        assertEquals(original.workouts.first().id,todayPlannedWorkout(original,today)?.id)
+        val completed=original.copy(workouts=original.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.COMPLETED) else w})
+        assertNull(todayPlannedWorkout(completed,today))
+        val skipped=original.copy(workouts=original.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.SKIPPED) else w})
+        assertNull(todayPlannedWorkout(skipped,today))
+        val partial=original.copy(workouts=original.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.PARTIAL) else w})
+        assertNull(todayPlannedWorkout(partial,today))
+        assertNull(todayPlannedWorkout(original,today+1))
+    }
+
 }
