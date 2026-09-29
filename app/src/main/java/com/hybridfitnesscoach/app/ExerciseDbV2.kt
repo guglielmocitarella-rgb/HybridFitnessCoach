@@ -17,7 +17,11 @@ internal data class ExerciseV2Record(
     val sources:List<String>,
     val confidence:String
 ) {
-    fun lookupNames():Set<String>=(listOf(canonicalNameEn,nameIt)+aliases).map{it.trim().lowercase()}.filter{it.isNotBlank()}.toSet()
+    fun lookupNames():Set<String> =
+        (listOf(canonicalNameEn,nameIt)+aliases)
+            .map { it.trim().lowercase() }
+            .filter { it.isNotBlank() }
+            .toSet()
 }
 
 internal object ExerciseDbV2 {
@@ -69,8 +73,8 @@ internal object ExerciseDbV2 {
             level=record.level?:legacy?.level?:"Intermedio",
             skills=legacy?.skills?:emptyList(),
             role=legacy?.role?:"Base",
-            setRestSec=legacy?.setRestSec?:recommendedSetRest("Base",record.nameIt,record.equipment.firstOrNull()?:"Corpo libero"),
-            exerciseRestSec=legacy?.exerciseRestSec?:recommendedExerciseRest("Base",record.nameIt,record.equipment.firstOrNull()?:"Corpo libero"),
+            setRestSec=legacy?.setRestSec?:90,
+            exerciseRestSec=legacy?.exerciseRestSec?:120,
             secondaryGroups=legacy?.secondaryGroups?:emptyList(),
             movementPattern=legacy?.movementPattern?:"",
             category=category,
