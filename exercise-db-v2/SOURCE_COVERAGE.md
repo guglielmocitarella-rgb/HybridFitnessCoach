@@ -13,7 +13,7 @@ This report is a completion gate. A registered source is **INGESTED** only when 
 | NSCA_ESS5 | PENDING | — |
 | SCHOENFELD_HYP2 | GUIDANCE_ONLY_PENDING | — |
 | DELAVIER3 | PENDING | — |
-| OVERCOMING_GRAVITY | PENDING | — |
+| OVERCOMING_GRAVITY | INGESTED | raw/overcoming_gravity.tsv |
 | COMPLETE_CAL1 | CROSSCHECK_PENDING | — |
 | CAL_BEGINNER_50 | PENDING | — |
 | CAL_BEGINNER_150 | PENDING | — |
