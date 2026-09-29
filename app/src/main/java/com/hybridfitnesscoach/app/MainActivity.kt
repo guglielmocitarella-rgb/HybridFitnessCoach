@@ -793,11 +793,12 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var customSkill by remember { mutableStateOf("Nessuna") }
     var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var planSaveError by remember { mutableStateOf(false) }
-    var requestedWeeks by remember { mutableIntStateOf(8) }
-    var planGoal by remember { mutableStateOf("Fitness generale") }
-    var planDaysPerWeek by remember { mutableIntStateOf(3) }
-    val planWeekdays = remember { mutableStateListOf(1,3,5) }
-    val planSkills = remember { mutableStateListOf<String>() }
+    val initialPlanConfiguration = remember(athlete) { PlanConfiguration.fromAthlete(athlete) }
+    var requestedWeeks by remember(athlete) { mutableIntStateOf(initialPlanConfiguration.weeks) }
+    var planGoal by remember(athlete) { mutableStateOf(initialPlanConfiguration.goal) }
+    var planDaysPerWeek by remember(athlete) { mutableIntStateOf(initialPlanConfiguration.daysPerWeek) }
+    val planWeekdays = remember(athlete) { mutableStateListOf<Int>().apply { addAll(initialPlanConfiguration.trainingDays.sorted()) } }
+    val planSkills = remember(athlete) { mutableStateListOf<String>().apply { addAll(initialPlanConfiguration.prioritySkills) } }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
@@ -811,8 +812,9 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
         val recentPlanned=mutableListOf<List<String>>()
-        val configuredAthlete=athlete.copy(goal=planGoal,daysPerWeek=planDaysPerWeek,prioritySkills=planSkills.toList())
-        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,requestedWeeks,planDaysPerWeek,planWeekdays.toSet()) { week,_ ->
+        val configuration=PlanConfiguration(planGoal,requestedWeeks,planDaysPerWeek,planWeekdays.toSet(),planSkills.toList()).validated()
+        val configuredAthlete=athlete.forPlan(configuration)
+        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,configuration.weeks,configuration.daysPerWeek,configuration.trainingDays) { week,_ ->
             val selected=plannedWeekExercises(generateWorkout(profile,configuredAthlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
             recentPlanned.add(selected.map{it.name})
             if(recentPlanned.size>3)recentPlanned.removeAt(0)
