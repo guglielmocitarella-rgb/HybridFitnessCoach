@@ -1197,13 +1197,17 @@
     "id": "ex-back-squat",
     "canonicalNameEn": "Back Squat",
     "nameIt": "Back Squat",
-    "aliases": [],
+    "aliases": [
+      "Barbell Back Squat"
+    ],
     "movementType": "STRENGTH",
     "family": "SQUAT",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -1233,6 +1237,12 @@
         "source_name": "Back Squat",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 12"
+      },
+      {
+        "source_id": "SCIENCE_STRENGTH",
+        "source_name": "Barbell Back Squat",
+        "evidence_type": "INDEX",
+        "locator": "Science of Strength Training index"
       }
     ],
     "confidence": "MEDIUM",
@@ -1880,98 +1890,6 @@
     }
   },
   {
-    "id": "ex-barbell-back-squat",
-    "canonicalNameEn": "Barbell Back Squat",
-    "nameIt": "Barbell Back Squat",
-    "aliases": [],
-    "movementType": "STRENGTH",
-    "family": "LEG",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [
-      "barbell"
-    ],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "SCIENCE_STRENGTH",
-        "source_name": "Barbell Back Squat",
-        "evidence_type": "INDEX",
-        "locator": "Science of Strength Training index"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
-    "id": "ex-barbell-bench-press",
-    "canonicalNameEn": "Barbell Bench Press",
-    "nameIt": "Barbell Bench Press",
-    "aliases": [],
-    "movementType": "STRENGTH",
-    "family": "CHEST",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [
-      "barbell"
-    ],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "SCIENCE_STRENGTH",
-        "source_name": "Barbell Bench Press",
-        "evidence_type": "INDEX",
-        "locator": "Science of Strength Training index"
-      },
-      {
-        "source_id": "VELLA_ANATOMY",
-        "source_name": "Barbell Bench Press",
-        "evidence_type": "TOC_HEADING",
-        "locator": "Part 2: Exercises; item 45"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
     "id": "ex-barbell-bent-leg-dead-lift",
     "canonicalNameEn": "Barbell Bent Leg Dead Lift",
     "nameIt": "Barbell Bent Leg Dead Lift",
@@ -2007,55 +1925,6 @@
         "source_name": "Barbell Bent Leg Dead Lift",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 26"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
-    "id": "ex-barbell-bent-over-row",
-    "canonicalNameEn": "Barbell Bent-Over Row",
-    "nameIt": "Barbell Bent-Over Row",
-    "aliases": [],
-    "movementType": "STRENGTH",
-    "family": "BACK",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [
-      "barbell"
-    ],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "SCIENCE_STRENGTH",
-        "source_name": "Barbell Bent-Over Row",
-        "evidence_type": "INDEX",
-        "locator": "Science of Strength Training index"
-      },
-      {
-        "source_id": "VELLA_ANATOMY",
-        "source_name": "Barbell Bent-Over Rows",
-        "evidence_type": "TOC_HEADING",
-        "locator": "Part 2: Exercises; item 51"
       }
     ],
     "confidence": "MEDIUM",
@@ -2107,91 +1976,6 @@
     }
   },
   {
-    "id": "ex-barbell-curl",
-    "canonicalNameEn": "Barbell Curl",
-    "nameIt": "Barbell Curl",
-    "localizationStatus": "EN_FALLBACK",
-    "aliases": [],
-    "movementType": "STRENGTH",
-    "family": "BICEPS",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "DELAVIER3",
-        "source_name": "Barbell Curl",
-        "evidence_type": "SOURCE_HEADING",
-        "locator": "Source exercise heading 1"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
-    "id": "ex-barbell-front-squat",
-    "canonicalNameEn": "Barbell Front Squat",
-    "nameIt": "Barbell Front Squat",
-    "aliases": [],
-    "movementType": "STRENGTH",
-    "family": "LEG",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [
-      "barbell"
-    ],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "SCIENCE_STRENGTH",
-        "source_name": "Barbell Front Squat",
-        "evidence_type": "INDEX",
-        "locator": "Science of Strength Training index"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
     "id": "ex-barbell-glute-bridge",
     "canonicalNameEn": "Barbell Glute Bridge",
     "nameIt": "Barbell Glute Bridge",
@@ -2227,49 +2011,6 @@
         "source_name": "Barbell Glute Bridge",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
-    "id": "ex-barbell-lunge",
-    "canonicalNameEn": "Barbell Lunge",
-    "nameIt": "Barbell Lunge",
-    "aliases": [],
-    "movementType": "STRENGTH",
-    "family": "LUNGE",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [
-      "barbell"
-    ],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "VELLA_ANATOMY",
-        "source_name": "Barbell Lunge",
-        "evidence_type": "TOC_HEADING",
-        "locator": "Part 2: Exercises; item 33"
       }
     ],
     "confidence": "MEDIUM",
@@ -2704,13 +2445,17 @@
     "id": "ex-bench-press",
     "canonicalNameEn": "Bench Press",
     "nameIt": "Bench Press",
-    "aliases": [],
+    "aliases": [
+      "Barbell Bench Press"
+    ],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PUSH",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -2740,6 +2485,18 @@
         "source_name": "Flat Barbell Bench Press",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 26"
+      },
+      {
+        "source_id": "SCIENCE_STRENGTH",
+        "source_name": "Barbell Bench Press",
+        "evidence_type": "INDEX",
+        "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "VELLA_ANATOMY",
+        "source_name": "Barbell Bench Press",
+        "evidence_type": "TOC_HEADING",
+        "locator": "Part 2: Exercises; item 45"
       }
     ],
     "confidence": "MEDIUM",
@@ -3125,13 +2882,17 @@
     "id": "ex-bent-over-row",
     "canonicalNameEn": "Bent-Over Row",
     "nameIt": "Bent-Over Row",
-    "aliases": [],
+    "aliases": [
+      "Barbell Bent-Over Row"
+    ],
     "movementType": "STRENGTH",
     "family": "HORIZONTAL_PULL",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -3155,6 +2916,18 @@
         "source_name": "Bent-Over Row",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 35"
+      },
+      {
+        "source_id": "SCIENCE_STRENGTH",
+        "source_name": "Barbell Bent-Over Row",
+        "evidence_type": "INDEX",
+        "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "VELLA_ANATOMY",
+        "source_name": "Barbell Bent-Over Rows",
+        "evidence_type": "TOC_HEADING",
+        "locator": "Part 2: Exercises; item 51"
       }
     ],
     "confidence": "HIGH",
@@ -3246,49 +3019,6 @@
     }
   },
   {
-    "id": "ex-bodyweight-chin-ups",
-    "canonicalNameEn": "Bodyweight Chin-Ups",
-    "nameIt": "Bodyweight Chin-Ups",
-    "aliases": [],
-    "movementType": "CALISTHENICS",
-    "family": "PULL_UP",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [
-      "pull_up_bar"
-    ],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "VELLA_ANATOMY",
-        "source_name": "Bodyweight Chin-Ups",
-        "evidence_type": "TOC_HEADING",
-        "locator": "Part 2: Exercises; item 49"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
     "id": "ex-bodyweight-crunches",
     "canonicalNameEn": "Bodyweight Crunches",
     "nameIt": "Bodyweight Crunches",
@@ -3322,49 +3052,6 @@
         "source_name": "Bodyweight Crunches",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 15"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
-    "id": "ex-bodyweight-dips",
-    "canonicalNameEn": "Bodyweight Dips",
-    "nameIt": "Bodyweight Dips",
-    "aliases": [],
-    "movementType": "CALISTHENICS",
-    "family": "DIP",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [
-      "dip_bars"
-    ],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "VELLA_ANATOMY",
-        "source_name": "Bodyweight Dips",
-        "evidence_type": "TOC_HEADING",
-        "locator": "Part 2: Exercises; item 47"
       }
     ],
     "confidence": "MEDIUM",
@@ -4660,7 +4347,9 @@
     "id": "ex-chin-up",
     "canonicalNameEn": "Chin-Up",
     "nameIt": "Chin-Up",
-    "aliases": [],
+    "aliases": [
+      "Bodyweight Chin-Ups"
+    ],
     "movementType": "CALISTHENICS",
     "family": "PULL_UP",
     "relatedFamilies": [],
@@ -4704,6 +4393,12 @@
         "source_name": "Chin-Up",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "VELLA_ANATOMY",
+        "source_name": "Bodyweight Chin-Ups",
+        "evidence_type": "TOC_HEADING",
+        "locator": "Part 2: Exercises; item 49"
       }
     ],
     "confidence": "MEDIUM",
@@ -5178,7 +4873,9 @@
     "id": "ex-curl",
     "canonicalNameEn": "Curl",
     "nameIt": "Curl",
-    "aliases": [],
+    "aliases": [
+      "Barbell Curl"
+    ],
     "movementType": "STRENGTH",
     "family": "ELBOW_FLEXION",
     "relatedFamilies": [],
@@ -5208,6 +4905,12 @@
         "source_name": "Curl",
         "evidence_type": "CHAPTER_HEADING",
         "locator": "CHAPTER_7"
+      },
+      {
+        "source_id": "DELAVIER3",
+        "source_name": "Barbell Curl",
+        "evidence_type": "SOURCE_HEADING",
+        "locator": "Source exercise heading 1"
       }
     ],
     "confidence": "MEDIUM",
@@ -5260,7 +4963,9 @@
     "id": "ex-deadlift",
     "canonicalNameEn": "Deadlift",
     "nameIt": "Deadlift",
-    "aliases": [],
+    "aliases": [
+      "Traditional Deadlift"
+    ],
     "movementType": "STRENGTH",
     "family": "HINGE",
     "relatedFamilies": [],
@@ -5296,6 +5001,12 @@
         "source_name": "Deadlift",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 14"
+      },
+      {
+        "source_id": "SCIENCE_STRENGTH",
+        "source_name": "Traditional Deadlift",
+        "evidence_type": "INDEX",
+        "locator": "Science of Strength Training index"
       }
     ],
     "confidence": "MEDIUM",
@@ -5513,7 +5224,9 @@
     "id": "ex-dip",
     "canonicalNameEn": "Dip",
     "nameIt": "Dip",
-    "aliases": [],
+    "aliases": [
+      "Bodyweight Dips"
+    ],
     "movementType": "STRENGTH",
     "family": "DIP",
     "relatedFamilies": [],
@@ -5545,6 +5258,12 @@
         "source_name": "Dip",
         "evidence_type": "CHAPTER_HEADING",
         "locator": "CHAPTER_7"
+      },
+      {
+        "source_id": "VELLA_ANATOMY",
+        "source_name": "Bodyweight Dips",
+        "evidence_type": "TOC_HEADING",
+        "locator": "Part 2: Exercises; item 47"
       }
     ],
     "confidence": "MEDIUM",
@@ -8379,13 +8098,17 @@
     "id": "ex-front-squat",
     "canonicalNameEn": "Front Squat",
     "nameIt": "Front Squat",
-    "aliases": [],
+    "aliases": [
+      "Barbell Front Squat"
+    ],
     "movementType": "STRENGTH",
     "family": "SQUAT",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -8421,6 +8144,12 @@
         "source_name": "Front Squat",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 11"
+      },
+      {
+        "source_id": "SCIENCE_STRENGTH",
+        "source_name": "Barbell Front Squat",
+        "evidence_type": "INDEX",
+        "locator": "Science of Strength Training index"
       }
     ],
     "confidence": "MEDIUM",
@@ -12164,13 +11893,17 @@
     "id": "ex-lunge",
     "canonicalNameEn": "Lunge",
     "nameIt": "Lunge",
-    "aliases": [],
+    "aliases": [
+      "Barbell Lunge"
+    ],
     "movementType": "CALISTHENICS",
     "family": "LOWER_BODY",
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": null,
@@ -12194,6 +11927,12 @@
         "source_name": "Lunge",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "VELLA_ANATOMY",
+        "source_name": "Barbell Lunge",
+        "evidence_type": "TOC_HEADING",
+        "locator": "Part 2: Exercises; item 33"
       }
     ],
     "confidence": "MEDIUM",
@@ -12888,48 +12627,6 @@
     }
   },
   {
-    "id": "ex-muscle-up",
-    "canonicalNameEn": "Muscle-Up",
-    "nameIt": "Muscle-Up",
-    "localizationStatus": "EN_FALLBACK",
-    "aliases": [],
-    "movementType": "SKILL",
-    "family": "MUSCLE_UP",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "CAL_BEGINNER_150",
-        "source_name": "Muscle-Up",
-        "evidence_type": "SOURCE_HEADING",
-        "locator": "Source exercise heading 2"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
     "id": "ex-muscle-up-negatives",
     "canonicalNameEn": "Muscle-Up Negatives",
     "nameIt": "Muscle-Up Negatives",
@@ -13316,7 +13013,9 @@
     "id": "ex-normal-muscle-up",
     "canonicalNameEn": "Normal Muscle-Up",
     "nameIt": "Normal Muscle-Up",
-    "aliases": [],
+    "aliases": [
+      "Muscle-Up"
+    ],
     "movementType": "SKILL",
     "family": "MUSCLE_UP",
     "relatedFamilies": [],
@@ -13346,6 +13045,12 @@
         "source_name": "Normal Muscle-Up",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "CAL_BEGINNER_150",
+        "source_name": "Muscle-Up",
+        "evidence_type": "SOURCE_HEADING",
+        "locator": "Source exercise heading 2"
       }
     ],
     "confidence": "MEDIUM",
@@ -15559,7 +15264,9 @@
     "id": "ex-push-up",
     "canonicalNameEn": "Push-Up",
     "nameIt": "Push-Up",
-    "aliases": [],
+    "aliases": [
+      "Standard Push-Up"
+    ],
     "movementType": "CALISTHENICS",
     "family": "PUSH_UP",
     "relatedFamilies": [],
@@ -15607,6 +15314,12 @@
         "source_name": "Push-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 2"
+      },
+      {
+        "source_id": "CAL_BEGINNER_50",
+        "source_name": "Standard Push-Up",
+        "evidence_type": "TOC_EXERCISE",
+        "locator": "Exercise list; item 22"
       }
     ],
     "confidence": "MEDIUM",
@@ -20200,48 +19913,6 @@
     }
   },
   {
-    "id": "ex-standard-push-up",
-    "canonicalNameEn": "Standard Push-Up",
-    "nameIt": "Standard Push-Up",
-    "localizationStatus": "EN_FALLBACK",
-    "aliases": [],
-    "movementType": "CALISTHENICS",
-    "family": "PUSH_UP",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "CAL_BEGINNER_50",
-        "source_name": "Standard Push-Up",
-        "evidence_type": "TOC_EXERCISE",
-        "locator": "Exercise list; item 22"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
     "id": "ex-standing-barbell-curl",
     "canonicalNameEn": "Standing Barbell Curl",
     "nameIt": "Standing Barbell Curl",
@@ -21910,47 +21581,6 @@
         "source_name": "Supine Lying Single-Leg Hamstring Stretch",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 70"
-      }
-    ],
-    "confidence": "MEDIUM",
-    "video": {
-      "status": "DEFERRED"
-    }
-  },
-  {
-    "id": "ex-traditional-deadlift",
-    "canonicalNameEn": "Traditional Deadlift",
-    "nameIt": "Traditional Deadlift",
-    "aliases": [],
-    "movementType": "STRENGTH",
-    "family": "LEG",
-    "relatedFamilies": [],
-    "variantOf": null,
-    "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": null,
-    "setupIt": null,
-    "executionStepsIt": [],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
-    "primaryMuscles": [],
-    "secondaryMuscles": [],
-    "stabilizers": [],
-    "rangeOfMotion": null,
-    "unilateral": null,
-    "isometric": null,
-    "prerequisites": [],
-    "prescription": [],
-    "restGuidance": [],
-    "contraindicationNotes": [],
-    "sources": [
-      {
-        "source_id": "SCIENCE_STRENGTH",
-        "source_name": "Traditional Deadlift",
-        "evidence_type": "INDEX",
-        "locator": "Science of Strength Training index"
       }
     ],
     "confidence": "MEDIUM",
