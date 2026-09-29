@@ -322,3 +322,15 @@ internal fun todayPlannedWorkout(plan:TrainingPlan?,today:Long):PlannedWorkout? 
         it.state!=PlannedWorkoutState.PARTIAL &&
         it.state!=PlannedWorkoutState.SKIPPED
     }
+
+
+internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetState> {
+    val last=sets.indexOfLast{it.completed}
+    if(last<0) return sets
+    return sets.toMutableList().also { xs ->
+        xs[last]=xs[last].copy(
+            actualReps=null,actualSeconds=null,actualDistanceMeters=null,
+            actualLoadKg=null,actualAssistanceKg=null,completed=false,restUsedSec=null
+        )
+    }
+}
