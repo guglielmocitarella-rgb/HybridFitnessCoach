@@ -1,10 +1,11 @@
 name: Android APK
 
 on:
+  # Feature branches are validated by pull_request only, avoiding duplicate CI runs.
+  # Signed release builds remain available on main pushes and manual workflow_dispatch.
   push:
     branches:
       - main
-      - 'feature/**'
   pull_request:
     branches:
       - main
