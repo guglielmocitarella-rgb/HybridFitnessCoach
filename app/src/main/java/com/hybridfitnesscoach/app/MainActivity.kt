@@ -1471,6 +1471,12 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
                                                 restEndsAt=System.currentTimeMillis()+restRemaining*1000L
                                             }
                                         }
+                                        if(count>0) TextButton(onClick={
+                                            val undone=undoLastCompletedSet(executedSets[ex.name].orEmpty())
+                                            executedSets[ex.name]=undone
+                                            completedSets[ex.name]=undone.count{it.completed}
+                                            restEndsAt=null;restRemaining=0;currentExercise=ex.name
+                                        }){Text("ANNULLA ULTIMA SERIE")}
                                     }
                                 }
                             }
