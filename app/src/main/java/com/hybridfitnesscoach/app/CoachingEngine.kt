@@ -118,10 +118,15 @@ internal fun coachingLabel(decision:ProgressionDecision)=when(decision){
 
 /** Resume persisted prescriptions, never regenerate targets from today's readiness. */
 internal fun restoreExercises(state:WorkoutSessionState):List<Exercise> = state.exercises.mapNotNull { saved ->
-    exercises.firstOrNull{it.name==saved.exerciseName}?.let { ex ->
+    // Schema v2 persists the immutable exercise definition specifically so a resumed
+    // workout cannot change or disappear when the installed catalogue changes.
+    val ex = saved.exerciseSnapshot
+        ?: saved.exerciseId?.let { id -> exercises.firstOrNull { it.progressionKey == id } }
+        ?: exercises.firstOrNull { it.name.equals(saved.exerciseName, ignoreCase = true) }
+    ex?.let {
         val first=saved.sets.firstOrNull()
-        ex.copy(targetSets=saved.sets.size,measure=saved.measure,
-            targetValue=first?.targetReps?.toDouble()?:first?.targetSeconds?.toDouble()?:first?.targetDistanceMeters?:ex.targetValue,
+        it.copy(targetSets=saved.sets.size,measure=saved.measure,
+            targetValue=first?.targetReps?.toDouble()?:first?.targetSeconds?.toDouble()?:first?.targetDistanceMeters?:it.targetValue,
             setRestSec=saved.setRestSec,exerciseRestSec=saved.exerciseRestSec)
     }
 }

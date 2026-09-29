@@ -669,11 +669,8 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        runCatching {
-            ExerciseDbV2.installSources(ExerciseDbV2.loadSources(this))
-            installExerciseDbV2(ExerciseDbV2.load(this))
-            ExerciseDbV2.loadProgrammingGuidance(this) // validate/consume source-driven guidance asset at runtime
-        }
+        // RC2 keeps Exercise DB v2 isolated until stable-ID migration and persisted-data
+        // compatibility are complete. The canonical assets remain bundled and CI-validated.
         setContent { HybridFitnessApp() }
     }
 }
@@ -1197,7 +1194,7 @@ private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation
 @Composable
 private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null, restored:WorkoutSessionState?=null) {
     val liveReadiness=LocalHealthConnect.current.readiness
-    val readinessScore=remember{liveReadiness}
+    val readinessScore=liveReadiness
     var minutes by remember { mutableIntStateOf(45) }
     val selectedEquipment = remember(profile,initialEquipment) { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment.ifEmpty { listOf("Corpo libero") }) } }
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
@@ -1392,7 +1389,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 @Composable
 private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean) {
     val liveReadiness=LocalHealthConnect.current.readiness
-    val readinessScore=remember{liveReadiness}
+    val readinessScore=liveReadiness
     val compatible = remember(profile, athlete, sessions, restored, plannedWorkout, readinessScore) { val source=restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: plannedWorkout?.exercises?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions,readinessScore); effectiveAutomaticExercises(source,athlete,sessions,readinessScore,restored!=null || plannedWorkout!=null) }
     val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
