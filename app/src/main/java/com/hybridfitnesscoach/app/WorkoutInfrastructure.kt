@@ -279,3 +279,26 @@ internal fun resolveWorkoutLaunch(active:WorkoutSessionState?, requested:Planned
 
 internal fun committedPlanOrCurrent(current:TrainingPlan,candidate:TrainingPlan,persisted:Boolean):TrainingPlan =
     if(persisted) candidate else current
+
+
+internal fun plannedWeekExercises(
+    base:List<Exercise>,
+    weekIndex:Int
+):List<Exercise> {
+    require(weekIndex>=0)
+    if(base.isEmpty()) return base
+    // Conservative periodization: preserve exercise identity/evidence and progress only existing
+    // catalog targets. Three loading weeks followed by one consolidation week.
+    val phase=weekIndex%4
+    return base.map { ex ->
+        val sets=ex.targetSets
+        val value=ex.targetValue
+        when {
+            phase==3 -> ex // consolidation: return to the catalog/source baseline
+            sets!=null -> ex.copy(targetSets=(sets + if(phase>=2)1 else 0).coerceAtMost(sets+1))
+            value!=null && ex.measure!=ExerciseMeasure.DISTANCE ->
+                ex.copy(targetValue=value*(1.0+0.025*phase))
+            else -> ex
+        }
+    }
+}
