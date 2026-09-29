@@ -62,6 +62,38 @@ class AppStoreRecoveryTest {
         assertNull(restored.actualExecutionEpochDay)
     }
 
+
+    @Test fun deletingOneOfDuplicateLinkedSessionsKeepsPlanCompletedAcrossReload() {
+        val store = AppStore(context)
+        val completed = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()),
+            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10)
+        store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(completed)))
+        store.saveSessions(listOf(session(1), session(2)))
+
+        store.deleteSession(1)
+
+        val reloaded = AppStore(context)
+        assertEquals(listOf(2L), reloaded.loadSessions().map { it.timestamp })
+        val retained = reloaded.loadTrainingPlan()!!.workouts.single()
+        assertEquals(PlannedWorkoutState.COMPLETED, retained.state)
+        assertEquals(10L, retained.actualExecutionEpochDay)
+    }
+
+    @Test fun deletingUnlinkedSessionCannotChangeCompletedPlan() {
+        val store = AppStore(context)
+        val completed = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()),
+            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10)
+        val plan = TrainingPlan("p", 10, 1, 1, listOf(completed))
+        store.saveTrainingPlan(plan)
+        store.saveSessions(listOf(session(1).copy(plannedWorkoutId = null)))
+
+        store.deleteSession(1)
+
+        val reloaded = AppStore(context)
+        assertTrue(reloaded.loadSessions().isEmpty())
+        assertEquals(plan, reloaded.loadTrainingPlan())
+    }
+
     @Test fun finishingWorkoutAtomicallySavesHistoryPlanAndClearsActiveState() {
         val store = AppStore(context)
         val planned = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()))
