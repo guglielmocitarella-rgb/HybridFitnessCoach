@@ -39,4 +39,25 @@ class Rc2PrescriptionRegressionTest {
         assertNotEquals(ex.setRestSec, runnerSetRestSeconds(ex, sourced.restSeconds))
     }
 
+    @Test fun effectiveRunnerPrescriptionUsesVerifiedBaselineForEligibleResistanceExercise() {
+        val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,setRestSec=75)
+        val athlete=AthleteProfile(goal="Forza",level="Intermedio")
+        val out=effectiveRunnerPrescription(ex,athlete,emptyList(),85)
+        assertTrue(out.sourceBased)
+        assertEquals(3,out.sets)
+        assertEquals(6.0,out.value,0.001)
+        assertEquals(180,out.restSeconds)
+    }
+
+    @Test fun effectiveRunnerPrescriptionFallsBackExactlyForUnsupportedExercise() {
+        val ex=Exercise("Synthetic run","Cardio","Corpo libero","Principiante",category=ExerciseCategory.CARDIO,measure=ExerciseMeasure.DISTANCE,resistanceMode=ResistanceMode.BODYWEIGHT,targetSets=1,targetValue=1000.0,setRestSec=45)
+        val athlete=AthleteProfile(goal="Forza",level="Intermedio")
+        val legacy=prescriptionFor(ex)
+        val out=effectiveRunnerPrescription(ex,athlete,emptyList(),85)
+        assertFalse(out.sourceBased)
+        assertEquals(legacy.sets,out.sets)
+        assertEquals(legacy.value,out.value,0.001)
+        assertEquals(45,out.restSeconds)
+    }
+
 }
