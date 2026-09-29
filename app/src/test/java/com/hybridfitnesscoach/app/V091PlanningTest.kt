@@ -159,4 +159,26 @@ class V091PlanningTest {
   assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage(mobility))
   assertNull(SourcePrescriptionBaselineRegistry.baselineFor(mobility,context))
  }
+ @Test fun videoAuditReportsRealCatalogCoverageWithoutInventingMissingVideos(){
+  val audit=ExerciseVideoCatalog.audit(exercises)
+  assertEquals(exercises.distinctBy{it.name}.size,audit.totalExercises)
+  assertEquals(1,audit.verifiedExercises)
+  assertTrue("Plank" !in audit.missingExerciseNames)
+  assertTrue(audit.missingExerciseNames.isNotEmpty())
+  assertTrue(audit.duplicateVerifiedExerciseNames.isEmpty())
+  assertTrue(audit.invalidVerifiedExerciseNames.isEmpty())
+ }
+ @Test fun videoAuditRejectsMalformedVerifiedAndDetectsDuplicateMappings(){
+  val malformed=ExerciseVideo("Push-up","http://invalid","Provider","id",verificationState=VideoVerificationState.VERIFIED)
+  val duplicate=listOf(
+   ExerciseVideo("Plank","https://example.org/a","Provider","a",verificationState=VideoVerificationState.VERIFIED),
+   ExerciseVideo("plank","https://example.org/b","Provider","b",verificationState=VideoVerificationState.VERIFIED),
+   malformed
+  )
+  val audit=ExerciseVideoCatalog.audit(exercises,duplicate)
+  assertTrue("plank" in audit.duplicateVerifiedExerciseNames)
+  assertEquals(listOf("Push-up"),audit.invalidVerifiedExerciseNames)
+  assertNull(ExerciseVideoCatalog.findVerified("Push-up",duplicate))
+ }
+
 }
