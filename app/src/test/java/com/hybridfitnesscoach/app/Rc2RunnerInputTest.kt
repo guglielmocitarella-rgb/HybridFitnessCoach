@@ -19,4 +19,14 @@ class Rc2RunnerInputTest {
         assertEquals(10.0, runnerInputTarget(ex, null), 0.0)
         assertTrue(planned.sets.all { it.targetReps == 10 })
     }
+
+    @Test fun newRunnerEffortDefaultsToFiveButPreservesExplicitValues() {
+        assertEquals(5, runnerEffort(null))
+        assertEquals(7, runnerEffort(7))
+    }
+
+    @Test fun outOfRangeRunnerEffortFallsBackToFive() {
+        assertEquals(5, runnerEffort(0))
+        assertEquals(5, runnerEffort(11))
+    }
 }
