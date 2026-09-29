@@ -669,7 +669,11 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        runCatching { installExerciseDbV2(ExerciseDbV2.load(this)) }
+        runCatching {
+            ExerciseDbV2.installSources(ExerciseDbV2.loadSources(this))
+            installExerciseDbV2(ExerciseDbV2.load(this))
+            ExerciseDbV2.loadProgrammingGuidance(this) // validate/consume source-driven guidance asset at runtime
+        }
         setContent { HybridFitnessApp() }
     }
 }
@@ -1584,7 +1588,7 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                 Text("Ruolo: " + ex.role, fontWeight = FontWeight.SemiBold)
                 val evidence = ExerciseEvidenceRegistry.evidenceFor(ex)
                 val coverage = ExerciseEvidenceRegistry.coverage(ex)
-                val v2Sources = v2Record?.sources.orEmpty()
+                val v2Sources = ExerciseDbV2.sourcesFor(ex)
                 Spacer(Modifier.height(12.dp))
                 Text("Fonti e copertura",fontWeight=FontWeight.Bold)
                 Text(
@@ -1599,7 +1603,11 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                     color=if(coverage==EvidenceCoverage.NONE) Color.Gray else Accent
                 )
                 if(v2Sources.isNotEmpty()) {
-                    Text("DB v2: "+v2Sources.distinct().joinToString(),fontSize=12.sp,color=Accent,modifier=Modifier.padding(top=5.dp))
+                    v2Sources.forEach { source ->
+                        Text("DB v2: "+source.title,fontSize=12.sp,color=Accent,modifier=Modifier.padding(top=5.dp))
+                        source.evidenceType?.let{Text("Tipo evidenza: $it",fontSize=11.sp,color=Color.Gray)}
+                        source.locator?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
+                    }
                 }
                 evidence?.all?.distinctBy{it.sourceId}?.forEach { source ->
                     Text("• "+source.sourceTitle,fontSize=12.sp,fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=5.dp))
