@@ -119,6 +119,14 @@ class ExerciseDbV2IntegrationTest {
         assertTrue(equipmentCompatible(mapped,all))
         assertFalse(equipmentCompatible(mapped,EquipmentProfile("Partial","",listOf(mapped.equipment.substringBefore(" / ")))))
     }
+    @Test fun exerciseSpecificEvidenceLocatorSurvivesParsing() {
+        val row=records().first{it.sourceRefs.any{ref->!ref.locator.isNullOrBlank()}}
+        val ref=row.sourceRefs.first{!it.locator.isNullOrBlank()}
+        assertTrue(ref.sourceId in row.sources)
+        assertFalse(ref.evidenceType.isNullOrBlank())
+        assertFalse(ref.locator.isNullOrBlank())
+    }
+
     @Test fun sourceRegistryAndProgrammingGuidanceAreConsumableWithoutInventingExerciseSpecificRules() {
         val sources=ExerciseDbV2.parseSources(asset("sources.json").readText())
         val guidance=ExerciseDbV2.parseProgrammingGuidance(asset("programming_guidance.json").readText())
