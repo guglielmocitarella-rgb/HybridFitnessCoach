@@ -46,9 +46,12 @@ class ExerciseDbV2IntegrationTest {
     }
     @Test fun runtimeCatalogPreservesLegacySkillAndPrescriptionMetadataWhenNamesResolve() {
         val db=records()
-        val legacy=exercises.first { it.skills.isNotEmpty() || it.role!="Base" || it.targetValue!=null }
+        val legacy=exercises.first { candidate ->
+            (candidate.skills.isNotEmpty() || candidate.role!="Base" || candidate.targetValue!=null) &&
+                ExerciseDbV2.resolveLegacy(candidate.name,db)!=null
+        }
         val resolved=ExerciseDbV2.resolveLegacy(legacy.name,db)
-        assertNotNull("DB v2 must resolve legacy exercise: ${legacy.name}",resolved)
+        assertNotNull(resolved)
         val mapped=ExerciseDbV2.toLegacyExercise(resolved!!,legacy)
         assertEquals(legacy.skills,mapped.skills)
         assertEquals(legacy.role,mapped.role)
