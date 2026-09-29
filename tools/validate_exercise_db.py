@@ -15,12 +15,12 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--report",default=str(DB/"VALIDATION_REPORT.json")); a=ap.parse_args()
     errors=[]; warnings=[]
     manifest=load(DB/"BUILD_MANIFEST.json")
-    ex_path=DB/"exercises.json"; pr_path=DB/"progressions.json"; src_path=DB/"sources.json"
-    for p in (ex_path,pr_path,src_path):
+    ex_path=DB/"exercises.json"; pr_path=DB/"progressions.json"; src_path=DB/"sources.json"; pg_path=DB/"programming_guidelines.json"
+    for p in (ex_path,pr_path,src_path,pg_path):
         if not p.exists(): errors.append(f"missing required artifact: {p.relative_to(ROOT)}")
     if errors:
         report={"ok":False,"errors":errors,"warnings":warnings}; pathlib.Path(a.report).write_text(json.dumps(report,indent=2)+"\n"); print(json.dumps(report,indent=2)); return 1
-    exercises=load(ex_path); edges=load(pr_path); sources=load(src_path)
+    exercises=load(ex_path); edges=load(pr_path); sources=load(src_path); guidelines=load(pg_path)
     if not isinstance(exercises,list): errors.append("exercises.json must be a JSON array"); exercises=[]
     if not isinstance(edges,list): errors.append("progressions.json must be a JSON array"); edges=[]
     if not isinstance(sources,list): errors.append("sources.json must be a JSON array"); sources=[]
@@ -49,6 +49,15 @@ def main():
             alias_owner[n]=x.get("id")
         for field in ("descriptionIt","primaryMuscles","equipment","prescription","restGuidance"):
             if not x.get(field): warnings.append(f"{x.get('id')}: missing {field}")
+    used_sources=set()
+    for x in exercises:
+        for ref in x.get("sources") or []: used_sources.add(ref.get("source_id"))
+    for g in guidelines:
+        ref=g.get("source") or {}; gs=ref.get("source_id")
+        if gs not in sid: errors.append(f"programming guideline {g.get('id')}: unknown source_id {gs}")
+        else: used_sources.add(gs)
+    unused=sorted(sid-used_sources)
+    if unused: warnings.append(f"registered sources without materialized evidence: {unused}")
     idset=set(ids); edgekeys=set(); graph=defaultdict(list)
     for e in edges:
         f,t,r=e.get("from"),e.get("to"),e.get("relationship")
@@ -75,7 +84,7 @@ def main():
     if len(sources)!=manifest.get("sources_registered"): errors.append(f"manifest sources_registered={manifest.get('sources_registered')} actual={len(sources)}")
     conf=Counter(x.get("confidence") for x in exercises); types=Counter(x.get("movementType") for x in exercises)
     artifact_hash=hashlib.sha256(ex_path.read_bytes()).hexdigest()
-    report={"ok":not errors,"counts":{"canonical_movements":len(exercises),"progression_edges":len(edges),"sources":len(sources)},"confidence":dict(sorted(conf.items())),"movement_types":dict(sorted(types.items())),"artifact_sha256":artifact_hash,"errors":errors,"warnings":warnings}
+    report={"ok":not errors,"counts":{"canonical_movements":len(exercises),"progression_edges":len(edges),"sources":len(sources)},"confidence":dict(sorted(conf.items())),"movement_types":dict(sorted(types.items())),"artifact_sha256":artifact_hash,"source_coverage":sorted(used_sources),"errors":errors,"warnings":warnings}
     pathlib.Path(a.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(report,ensure_ascii=False,indent=2)); return 0 if not errors else 1
 if __name__=="__main__": raise SystemExit(main())
