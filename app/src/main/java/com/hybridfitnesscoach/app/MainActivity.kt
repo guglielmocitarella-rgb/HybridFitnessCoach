@@ -1206,13 +1206,9 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     fun targetSetCount(ex:Exercise):Int = prescriptionFor(ex).sets
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
-        val eligible=skillEligibleExercises(sessions)
-        val base=exercises.filter{ex->ex.name in eligible && levelScore(ex.level)<=levelScore(athlete.level)&&equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})}
+        val base=customWorkoutCandidatePool(EquipmentProfile("Custom","",selectedEquipment.toList()),athlete,sessions,mode,selectedSkills,selectedGroups)
         val ranked=base.sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(selectedSkills.any{s->s in it.skills})0 else 1}.thenBy{if(it.role=="Forza")0 else 1})
-        generated=if(mode=="Skill"){
-            val skillWork=ranked.filter{ex->selectedSkills.any{it in ex.skills}}
-            (skillWork+ranked.filter{it !in skillWork && (it.role=="Forza"||it.role=="Prerequisito"||it.role=="Accessorio")}).distinct().take(count)
-        } else ranked.take(count)
+        generated=ranked.take(count)
         generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions,readinessScore))
         completed.clear();expandedCompleted.clear();reps.clear();restSeconds.clear();exerciseRpe.clear()
         generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second}
@@ -1281,8 +1277,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                         Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically){
                             Text("Blocca gli esercizi che vuoi mantenere",fontSize=12.sp,color=Color.Gray,modifier=Modifier.weight(1f))
                             TextButton(onClick={
-                                val eligible=skillEligibleExercises(sessions)
-                                val pool=exercises.filter{ex->ex.name in eligible&&levelScore(ex.level)<=levelScore(athlete.level)&&equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))&&(mode!="Parti del corpo"||selectedGroups.isEmpty()||selectedGroups.any{ex.group.contains(it,true)})&&(mode!="Skill"||selectedSkills.any{it in ex.skills})}
+                                val pool=customWorkoutCandidatePool(EquipmentProfile("Custom","",selectedEquipment.toList()),athlete,sessions,mode,selectedSkills,selectedGroups)
                                 generated=regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
                                 reps.clear();restSeconds.clear();generated.forEach{ex->reps[ex.name]=prescriptionFor(ex).value.toInt();restSeconds[ex.name]=ex.setRestSec}
                                 generationMessage="Rigenerati solo gli esercizi non bloccati."
