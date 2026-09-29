@@ -205,3 +205,38 @@ internal fun customWorkoutCandidatePool(
     val support=base.filter{it !in skillWork && (it.role=="Forza"||it.role=="Prerequisito"||it.role=="Accessorio")}
     return (skillWork+support).distinct()
 }
+
+
+internal data class EffectiveRunnerPrescription(
+    val sets:Int,
+    val value:Double,
+    val unit:String,
+    val restSeconds:Int,
+    val sourceBased:Boolean
+)
+internal fun effectiveRunnerPrescription(
+    exercise:Exercise,
+    athlete:AthleteProfile,
+    sessions:List<SessionRecord>,
+    readinessScore:Int?=null
+):EffectiveRunnerPrescription {
+    val legacy=prescriptionFor(exercise)
+    val recent=exercisePerformance(exercise.name,sessions)
+    val fatigue=sessions.firstOrNull()?.workoutRpe ?: 5
+    val context=PrescriptionContext(
+        goal=athlete.goal,
+        athleteLevel=athlete.level,
+        category=exercise.category,
+        recentPerformance=recent,
+        fatigue=fatigue,
+        recoveryStatus=readinessScore
+    )
+    val sourced=SourcePrescriptionBaselineRegistry.prescribeIfVerified(exercise,context)
+    return if(sourced!=null) EffectiveRunnerPrescription(
+        sourced.sets,sourced.repsOrDuration,legacy.unit,
+        runnerSetRestSeconds(exercise,sourced.restSeconds),true
+    ) else EffectiveRunnerPrescription(
+        legacy.sets,legacy.value,legacy.unit,
+        runnerSetRestSeconds(exercise),false
+    )
+}
