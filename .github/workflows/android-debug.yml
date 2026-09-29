@@ -36,6 +36,9 @@ jobs:
       - name: Run unit tests
         run: gradle :app:testDebugUnitTest
 
+      - name: Run Android lint
+        run: gradle :app:lintDebug
+
       - name: Restore signing keystore
         if: ${{ github.event_name != 'pull_request' }}
         env:
