@@ -75,7 +75,7 @@ class AppStoreRecoveryTest {
         val reloaded = AppStore(context)
         assertEquals(listOf(session(1)), reloaded.loadSessions())
         assertNull(reloaded.loadActiveWorkout())
-        assertEquals(PlannedWorkoutState.COMPLETED, reloaded.loadTrainingPlan()!!.workouts.single().state)
+        assertEquals(PlannedWorkoutState.PARTIAL, reloaded.loadTrainingPlan()!!.workouts.single().state)
     }
 
     @Test fun failedFinishPreservesActiveWorkoutAndOriginalHistory() {
