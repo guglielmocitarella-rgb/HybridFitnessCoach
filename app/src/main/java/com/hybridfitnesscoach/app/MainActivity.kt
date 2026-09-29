@@ -1438,7 +1438,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
         confirmButton = { Button(onClick={
             if(!started){sessionStartedAt=System.currentTimeMillis();started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}
             else{val structured=compatible.mapIndexed { index,ex->recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false) };onSave(SessionRecord(System.currentTimeMillis(),profile.name,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id));store.clearActiveWorkout();onDismiss()}
-        }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "TERMINA E SALVA")} },
+        }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "SALVA WORKOUT PARZIALE")} },
         dismissButton = { TextButton(onClick=onDismiss){Text("ANNULLA")} }
     )
 }
