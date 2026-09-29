@@ -14,6 +14,9 @@ internal data class ExerciseV2Record(
     val equipment:List<String>,
     val level:String?,
     val measure:String,
+    val descriptionIt:String,
+    val setupIt:String,
+    val executionStepsIt:List<String>,
     val sources:List<String>,
     val confidence:String
 ) {
@@ -25,6 +28,11 @@ internal data class ExerciseV2Record(
 }
 
 internal object ExerciseDbV2 {
+    private var installed:List<ExerciseV2Record> = emptyList()
+    fun install(records:List<ExerciseV2Record>) { installed=records }
+    fun recordFor(exercise:Exercise):ExerciseV2Record? =
+        exercise.progressionKey?.let { id -> installed.firstOrNull { it.id==id } }
+            ?: resolveLegacy(exercise.name,installed)
     fun parseExercises(json:String):List<ExerciseV2Record> {
         val a=JSONArray(json)
         return (0 until a.length()).map { i ->
@@ -39,6 +47,9 @@ internal object ExerciseDbV2 {
                 equipment=o.optJSONArray("equipment").strings(),
                 level=o.optString("level").takeIf{it.isNotBlank()&&it!="null"},
                 measure=o.optString("measure","REPS"),
+                descriptionIt=o.optString("descriptionIt"),
+                setupIt=o.optString("setupIt"),
+                executionStepsIt=o.optJSONArray("executionStepsIt").strings(),
                 sources=o.optJSONArray("sources").objects().mapNotNull{it.optString("source_id").takeIf(String::isNotBlank)},
                 confidence=o.optString("confidence")
             )
