@@ -70,4 +70,19 @@ class ExerciseDbV2IntegrationTest {
         val context=PrescriptionContext("Forza","Intermedio",mapped.category,5,5,5,null,80,null)
         assertNotNull(SourcePrescriptionBaselineRegistry.baselineFor(mapped,context))
     }
+    @Test fun emptyEquipmentIsUnknownAndFailsClosedForConstrainedGeneration() {
+        val row=records().first{it.equipment.isEmpty()}
+        val mapped=ExerciseDbV2.toLegacyExercise(row)
+        assertEquals("Non specificato",mapped.equipment)
+        assertFalse(equipmentCompatible(mapped,EquipmentProfile("Home","",emptyList())))
+    }
+
+    @Test fun multiTokenEquipmentPreservesAllRequiredResources() {
+        val row=records().first{it.equipment.size>1}
+        val mapped=ExerciseDbV2.toLegacyExercise(row)
+        assertTrue(mapped.equipment.contains(" / "))
+        val all=EquipmentProfile("All","",mapped.equipment.split(" / "))
+        assertTrue(equipmentCompatible(mapped,all))
+        assertFalse(equipmentCompatible(mapped,EquipmentProfile("Partial","",listOf(mapped.equipment.substringBefore(" / ")))))
+    }
 }
