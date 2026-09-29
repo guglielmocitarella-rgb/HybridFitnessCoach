@@ -72,4 +72,43 @@ class SkillIntegrationTest {
         assertTrue(pool.none{it.name.lowercase() in locked})
     }
 
+    @Test fun realHistoryMastersNodeAndUnlocksNextExerciseForGenerator() {
+        val graph=SkillCatalog.forSkill("Muscle-up")
+        val first=graph.first{it.id=="pullup_strict"}
+        val next=graph.first{it.id=="pullup_chest"}
+        fun qualifyingSession(ts:Long)=SessionRecord(
+            timestamp=ts,profileName="Palestra",completedSets=3,totalSets=3,
+            structuredExercises=listOf(
+                WorkoutExerciseState(
+                    exerciseName=first.exerciseName,rpe=8,
+                    sets=(1..3).map{WorkoutSetState(it,targetReps=8,actualReps=8,completed=true)}
+                )
+            )
+        )
+        val none=SkillCatalog.progress("Muscle-up",emptyList())
+        assertEquals(ProgressionStatus.AVAILABLE,none.first{it.node.id==first.id}.status)
+        assertEquals(ProgressionStatus.LOCKED,none.first{it.node.id==next.id}.status)
+        val one=SkillCatalog.progress("Muscle-up",listOf(qualifyingSession(1)))
+        assertEquals(ProgressionStatus.IN_PROGRESS,one.first{it.node.id==first.id}.status)
+        assertEquals(ProgressionStatus.LOCKED,one.first{it.node.id==next.id}.status)
+        val history=listOf(qualifyingSession(1),qualifyingSession(2))
+        val mastered=SkillCatalog.progress("Muscle-up",history)
+        assertEquals(ProgressionStatus.MASTERED,mastered.first{it.node.id==first.id}.status)
+        assertEquals(ProgressionStatus.AVAILABLE,mastered.first{it.node.id==next.id}.status)
+        val eligible=skillEligibleExercises(history).map{it.lowercase()}.toSet()
+        assertTrue((next.exerciseAliases+next.exerciseName).any{it.lowercase() in eligible})
+    }
+
+    @Test fun duplicateObservationsInsideOneSessionCannotFakeRequiredSessions() {
+        val first=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
+        val entry=WorkoutExerciseState(
+            exerciseName=first.exerciseName,rpe=7,
+            sets=(1..3).map{WorkoutSetState(it,actualReps=10,completed=true)}
+        )
+        val oneSession=SessionRecord(10,"Palestra",6,6,structuredExercises=listOf(entry,entry))
+        val state=SkillCatalog.progress("Muscle-up",listOf(oneSession)).first{it.node.id==first.id}
+        assertEquals(ProgressionStatus.IN_PROGRESS,state.status)
+        assertEquals(0.5,state.completion,0.001)
+    }
+
 }
