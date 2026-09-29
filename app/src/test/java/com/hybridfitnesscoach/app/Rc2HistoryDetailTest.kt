@@ -4,6 +4,9 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class Rc2HistoryDetailTest {
+    @Test fun persistedExerciseModelDoesNotInventRpeDefault() {
+        assertNull(WorkoutExerciseState("Plank").rpe)
+    }
     @Test fun historyShowsActualRepsLoadAndRpeSeparatelyFromTargets() {
         val session = SessionRecord(1, "Palestra", 1, 2, structuredExercises = listOf(
             WorkoutExerciseState("Panca", sets = listOf(
