@@ -108,7 +108,9 @@ data class WorkoutExerciseState(
     val setRestSec: Int = 90,
     val exerciseRestSec: Int = 120,
     val originalOrder: Int = 0,
-    val currentOrder: Int = originalOrder
+    val currentOrder: Int = originalOrder,
+    val exerciseId: String? = null,
+    val exerciseSnapshot: Exercise? = null
 )
 data class WorkoutSessionState(
     val id: String,
@@ -579,7 +581,7 @@ internal fun prescriptionFor(ex:Exercise):ExercisePrescription {
 internal fun plannedExerciseState(index:Int,ex:Exercise):WorkoutExerciseState {
     val p=prescriptionFor(ex)
     val sets=(0 until p.sets).map { n -> WorkoutSetState(index=n,targetReps=if(ex.measure==ExerciseMeasure.REPS)p.value.toInt() else null,targetSeconds=if(ex.measure==ExerciseMeasure.SECONDS||ex.measure==ExerciseMeasure.DURATION||ex.measure==ExerciseMeasure.INTERVALS)p.value.toInt() else null,targetDistanceMeters=if(ex.measure==ExerciseMeasure.DISTANCE)p.value else null) }
-    return WorkoutExerciseState(ex.name,ex.measure,sets,WorkoutExerciseStatus.PENDING,null,false,ex.setRestSec,ex.exerciseRestSec,index,index)
+    return WorkoutExerciseState(ex.name,ex.measure,sets,WorkoutExerciseStatus.PENDING,null,false,ex.setRestSec,ex.exerciseRestSec,index,index,ex.progressionKey,ex)
 }
 internal fun runnerSetRestSeconds(exercise:Exercise, prescribedRestSeconds:Int?=null):Int =
     exercise.intervalRestSec ?: prescribedRestSeconds ?: exercise.setRestSec
