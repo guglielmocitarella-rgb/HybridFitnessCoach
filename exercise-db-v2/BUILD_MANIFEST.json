@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "status": "AUDITED_DRAFT",
+  "canonical_movements": 673,
+  "progression_edges": 215,
+  "sources_registered": 14,
+  "movement_types": {
+    "STRENGTH": 208,
+    "CALISTHENICS": 184,
+    "SKILL": 150,
+    "CORE": 44,
+    "POWER": 18,
+    "CONDITIONING": 12,
+    "MOBILITY": 11,
+    "FLEXIBILITY": 40,
+    "SMR": 6
+  },
+  "confidence": {"HIGH": 430, "MEDIUM": 243},
+  "videos": "DEFERRED",
+  "rc2_isolation": true,
+  "notes": [
+    "The existing 583-record app catalogue is not the authority for v2.",
+    "Load/time milestones are protocols, not canonical exercises.",
+    "Unsupported cues/errors/contraindications remain empty rather than invented.",
+    "Rest guidance is goal-dependent and sourced from ACSM/NSCA guidance."
+  ]
+}
