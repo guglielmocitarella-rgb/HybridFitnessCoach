@@ -32,4 +32,21 @@ class RunnerPersistenceTest {
         val adapted=applyCoaching(listOf(ex),CoachingContext(plan,emptyMap(),100,2)).single()
         assertTrue(prescriptionFor(adapted).value>10.0)
     }
+    @Test fun plannedWorkoutLaunchPreservesMaterializedPlanPrescription() {
+        val planned=Exercise("Planned press","Petto","Bilanciere","Intermedio",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,targetSets=4,targetValue=9.0,setRestSec=137)
+        val athlete=AthleteProfile(goal="Forza",level="Intermedio")
+        val launch=effectiveAutomaticExercises(listOf(planned),athlete,emptyList(),20,restored=true).single()
+        assertEquals(planned,launch)
+        assertEquals(4,launch.targetSets)
+        assertEquals(9.0,launch.targetValue!!,0.001)
+        assertEquals(137,launch.setRestSec)
+    }
+
+    @Test fun freshSuggestedWorkoutStillMaterializesCurrentAdaptivePrescription() {
+        val source=Exercise("Fresh press","Petto","Bilanciere","Intermedio",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,targetSets=4,targetValue=9.0,setRestSec=137)
+        val athlete=AthleteProfile(goal="Forza",level="Intermedio")
+        val fresh=effectiveAutomaticExercises(listOf(source),athlete,emptyList(),20,restored=false).single()
+        assertNotEquals(source,fresh)
+    }
+
 }
