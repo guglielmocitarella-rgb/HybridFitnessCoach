@@ -440,4 +440,25 @@ class AppStoreRecoveryTest {
         assertNotEquals(catalogSameName.copy(setRestSec=137,exerciseRestSec=241,targetSets=4,targetValue=11.0,role="Snapshot role"),catalogSameName)
     }
 
+    @Test fun activeWorkoutV2PersistsStableIdAndImmutableExerciseSnapshot() {
+        val catalog=exercises.first()
+        val state=WorkoutSessionState("upgrade",1000,"Casa",listOf(plannedExerciseState(0,catalog)))
+        val store=AppStore(context); store.saveActiveWorkout(state)
+        val raw=prefs.getString("active_workout_v1",null)!!
+        assertTrue(raw.contains("\"schemaVersion\":2"))
+        val restored=AppStore(context).loadActiveWorkout()!!.exercises.single()
+        assertEquals(catalog.progressionKey,restored.exerciseId)
+        assertEquals(catalog,restored.exerciseSnapshot)
+    }
+
+    @Test fun activeWorkoutV1PreDbStateRestoresWithoutCatalogLookupOrReplacement() {
+        val raw="""{"schemaVersion":1,"id":"legacy","startedAtEpochMs":1000,"profileName":"Casa","exercises":[{"exerciseName":"Legacy exercise no longer in catalog","measure":"REPS","sets":[{"index":0,"targetReps":8,"actualReps":6,"completed":true}],"status":"PARTIAL","setRestSec":77,"exerciseRestSec":155,"originalOrder":0,"currentOrder":0}],"currentExerciseIndex":0}"""
+        prefs.edit().putString("active_workout_v1",raw).commit()
+        val restored=AppStore(context).loadActiveWorkout()!!
+        assertEquals("Legacy exercise no longer in catalog",restored.exercises.single().exerciseName)
+        assertEquals(6,restored.exercises.single().sets.single().actualReps)
+        assertNull(restored.exercises.single().exerciseId)
+        assertNull(restored.exercises.single().exerciseSnapshot)
+        assertTrue(AppStore(context).issues.isEmpty())
+    }
 }
