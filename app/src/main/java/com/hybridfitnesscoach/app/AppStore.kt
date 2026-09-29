@@ -246,7 +246,10 @@ class AppStore(context: Context) {
                     val names = o.getJSONArray("exerciseNames")
                     (0 until names.length()).mapNotNull { index ->
                         recovery.read<Exercise?>("$path.exerciseNames[$index]", null) {
-                            exercises.firstOrNull { it.name == names.getString(index) } ?: error("Unresolved legacy exercise")
+                            val name=names.getString(index)
+                            legacyExerciseSnapshotForName(name)
+                                ?: exercises.firstOrNull { it.name.equals(name,ignoreCase=true) }
+                                ?: error("Unresolved legacy exercise")
                         }
                     }
                 }
@@ -394,4 +397,3 @@ private fun validatePreferenceFile(context: Context) {
         require(closed) { "Truncated preference XML" }
     }
 }
-

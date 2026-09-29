@@ -34,8 +34,13 @@ internal data class ExerciseV2Guidance(val id:String,val sourceId:String,val sco
 internal object ExerciseDbV2 {
     private var installed:List<ExerciseV2Record> = emptyList()
     private var sourceRegistry:Map<String,ExerciseV2Source> = emptyMap()
-    fun install(records:List<ExerciseV2Record>) { installed=records }
-    fun installSources(sources:Map<String,ExerciseV2Source>) { sourceRegistry=sources }
+    fun install(records:List<ExerciseV2Record>) { installed=records.toList() }
+    fun installSources(sources:Map<String,ExerciseV2Source>) {
+        require(sources.isNotEmpty()) { "Exercise DB v2 source registry is empty" }
+        require(sources.all { (id,source) -> id.isNotBlank() && id==source.id }) { "Exercise DB v2 source registry has invalid IDs" }
+        require(installed.flatMap { it.sources }.all { it in sources }) { "Exercise DB v2 source registry is incomplete" }
+        sourceRegistry=sources.toMap()
+    }
     fun sourcesFor(exercise:Exercise):List<ExerciseV2Source> =
         recordFor(exercise)?.sources.orEmpty().mapNotNull(sourceRegistry::get)
     fun recordFor(exercise:Exercise):ExerciseV2Record? =
@@ -175,12 +180,13 @@ internal object ExerciseDbV2 {
         "ab_wheel" -> "Ab Wheel"
         "stability_ball" -> "Fitball"
         "medicine_ball" -> "Palla medica"
-        "battle_ropes","rope","rope_or_towel" -> "Corda"
+        "battle_ropes","rope" -> "Corda"
+        "rope_or_towel" -> "Corda o asciugamano"
         "box" -> "Box"
         "bosu" -> "Bosu"
         "ez_bar" -> "Bilanciere EZ"
         "towel" -> "Asciugamano"
-        else -> token.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()}
+        else -> "Non specificato"
     }
 }
 

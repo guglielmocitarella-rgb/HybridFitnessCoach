@@ -553,18 +553,20 @@ private val coreExerciseCatalog = listOf(
 
 private val legacyExercises: List<Exercise> = (coreExerciseCatalog + extendedExerciseCatalog)
     .distinctBy { it.name.trim().lowercase() }
+internal fun legacyExerciseSnapshotForName(name:String):Exercise? =
+    legacyExercises.firstOrNull { it.name.equals(name,ignoreCase=true) }
 internal var exercises: List<Exercise> = legacyExercises
 internal fun installExerciseDbV2(records:List<ExerciseV2Record>) {
-    if (records.isEmpty()) return
+    require(records.isNotEmpty()) { "Exercise DB v2 catalogue is empty" }
+    require(records.all { it.id.isNotBlank() }) { "Exercise DB v2 contains an empty exercise ID" }
+    require(records.map { it.id }.distinct().size == records.size) { "Exercise DB v2 contains duplicate exercise IDs" }
     ExerciseDbV2.install(records)
-    val lookup=ExerciseDbV2.uniqueLookup(records)
     exercises=records.map { record ->
         val legacy=record.lookupNames().asSequence().mapNotNull { name ->
             legacyExercises.firstOrNull { it.name.trim().lowercase()==name }
         }.firstOrNull()
         ExerciseDbV2.toLegacyExercise(record,legacy)
-    }.distinctBy { it.progressionKey ?: it.name.trim().lowercase() }
-    if (exercises.isEmpty()) exercises=legacyExercises
+    }
 }
 
 internal data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
@@ -597,13 +599,35 @@ internal fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMilli
     if(endEpochMs==null) 0 else kotlin.math.ceil((endEpochMs-now).coerceAtLeast(0L)/1000.0).toInt()
 
 internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean {
-    fun normalize(value:String)=value.trim().lowercase().let{if(it=="macchina")"macchine" else it}
-    val available=profile.equipment.map(::normalize).toSet()+"corpo libero"
+    fun normalize(value:String)=when(value.trim().lowercase()) {
+        "barbell","bilanciere" -> "bilanciere"
+        "dumbbell","manubri" -> "manubri"
+        "kettlebell" -> "kettlebell"
+        "cable","cable_machine","cavi" -> "cavi"
+        "machine","macchina","macchine" -> "macchine"
+        "pull_up_bar","sbarra" -> "sbarra"
+        "dip_bars","parallettes","parallele" -> "parallele"
+        "rings","anelli" -> "anelli"
+        "resistance_band","elastici" -> "elastici"
+        "ab_wheel","ab wheel" -> "ab wheel"
+        "stability_ball","fitball" -> "fitball"
+        "medicine_ball","palla medica" -> "palla medica"
+        "battle_ropes","rope","corda" -> "corda"
+        "rope_or_towel","corda o asciugamano" -> "corda_o_asciugamano"
+        "ez_bar","bilanciere ez" -> "bilanciere ez"
+        "towel","asciugamano" -> "asciugamano"
+        "non specificato" -> "non specificato"
+        else -> value.trim().lowercase()
+    }
+    val available=profile.equipment.map(::normalize).filter{it.isNotBlank()}.toSet()+"corpo libero"
     val required=ex.equipment.split("/").map(::normalize).filter{it.isNotBlank()}
     // Unknown equipment is never silently treated as bodyweight. DB multi-token requirements
     // are conjunctive because the source schema stores all equipment required by the movement.
     if(required.isEmpty() || "non specificato" in required) return false
-    return if("corpo libero" in required) true else required.all{it in available}
+    return required.all { requirement ->
+        if (requirement=="corda_o_asciugamano") available.any { it in setOf("corda","asciugamano") }
+        else requirement in available
+    }
 }
 
 internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
@@ -655,6 +679,8 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
             val skillBonus = if(athlete.prioritySkills.any { it in ex.skills }) -70 else 0
             repeatPenalty + musclePenalty + skillBonus + if(ex.name in avoidPlannedNames) 100 else 0
         }.thenBy { preferredRoles.indexOf(it.role).let { i -> if(i < 0) 99 else i } }
+            .thenBy { it.name }
+            .thenBy { it.progressionKey.orEmpty() }
     )
     val result = mutableListOf<Exercise>()
     if(athlete.goal=="Calisthenics" && athlete.prioritySkills.isNotEmpty()){
@@ -1684,5 +1710,3 @@ private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss:
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }
-
-

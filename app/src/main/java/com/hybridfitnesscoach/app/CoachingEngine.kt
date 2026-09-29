@@ -122,7 +122,10 @@ internal fun restoreExercises(state:WorkoutSessionState):List<Exercise> = state.
     // workout cannot change or disappear when the installed catalogue changes.
     val ex = saved.exerciseSnapshot
         ?: saved.exerciseId?.let { id -> exercises.firstOrNull { it.progressionKey == id } }
-        ?: exercises.firstOrNull { it.name.equals(saved.exerciseName, ignoreCase = true) }
+        ?: if (saved.exerciseId == null) {
+            exercises.firstOrNull { it.name.equals(saved.exerciseName, ignoreCase = true) }
+                ?: legacyExerciseSnapshotForName(saved.exerciseName)
+        } else null
     ex?.let {
         val first=saved.sets.firstOrNull()
         it.copy(targetSets=saved.sets.size,measure=saved.measure,

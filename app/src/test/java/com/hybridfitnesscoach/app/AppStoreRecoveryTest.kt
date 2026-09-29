@@ -218,6 +218,139 @@ class AppStoreRecoveryTest {
         }
     }
 
+    @Test fun legacyPlanMigrationSnapshotsLegacyExerciseBeforeDbV2CanReinterpretIt() {
+        val previous=exercises
+        try {
+            val legacy=legacyExerciseSnapshotForName("Trazioni prone")!!
+            val workout=JSONObject().put("id","legacy-pull").put("epochDay",15).put("weekIndex",0)
+                .put("sequenceInWeek",0).put("state","PLANNED")
+                .put("exerciseNames",JSONArray().put(legacy.name))
+            val root=JSONObject().put("schemaVersion",1).put("id","legacy-plan").put("startEpochDay",10)
+                .put("weeks",1).put("daysPerWeek",1).put("workouts",JSONArray().put(workout))
+            prefs.edit().putString("training_plan_v091",root.toString()).commit()
+
+            installExerciseDbV2(
+                ExerciseDbV2.parseExercises(
+                    listOf(File("src/main/assets/exercise-db-v2/exercises.json"),File("app/src/main/assets/exercise-db-v2/exercises.json"))
+                        .first { it.exists() }.readText()
+                )
+            )
+            val migrated=AppStore(context).loadTrainingPlan()!!
+            assertEquals(listOf(legacy),migrated.workouts.single().exercises)
+            assertEquals(2,JSONObject(prefs.getString("training_plan_v091",null)!!).getInt("schemaVersion"))
+            assertEquals(migrated,AppStore(context).loadTrainingPlan())
+        } finally {
+            exercises=previous
+        }
+    }
+
+    @Test fun persistedWorkoutHistoryAndPlanSnapshotsSurviveDbV2Installation() {
+        val previous=exercises
+        try {
+            val exercise=Exercise(
+                name="Historical skill snapshot",
+                group="Core / Skill",
+                equipment="Corpo libero",
+                level="Avanzato",
+                skills=listOf("Front lever","Planche"),
+                role="Progressione",
+                setRestSec=173,
+                exerciseRestSec=229,
+                secondaryGroups=listOf("Spalle"),
+                movementPattern="anti-extension",
+                category=ExerciseCategory.SKILL,
+                intensity=8,
+                systemicFatigue=6,
+                technicalComplexity=9,
+                measure=ExerciseMeasure.REPS,
+                laterality=Laterality.UNILATERAL,
+                resistanceMode=ResistanceMode.ASSISTED,
+                progressionKey="historical-exercise-id",
+                targetSets=2,
+                targetValue=7.0,
+                intervalRestSec=63
+            )
+            val exerciseState=WorkoutExerciseState(
+                exerciseName=exercise.name,
+                measure=exercise.measure,
+                sets=listOf(
+                    WorkoutSetState(0,targetReps=7,targetLoadKg=20.0,actualReps=6,actualLoadKg=17.5,completed=true,restUsedSec=71),
+                    WorkoutSetState(1,targetReps=7,targetLoadKg=20.0)
+                ),
+                status=WorkoutExerciseStatus.PARTIAL,
+                rpe=9,
+                pinned=true,
+                setRestSec=exercise.setRestSec,
+                exerciseRestSec=exercise.exerciseRestSec,
+                originalOrder=2,
+                currentOrder=1,
+                exerciseId=exercise.progressionKey,
+                exerciseSnapshot=exercise
+            )
+            val active=WorkoutSessionState(
+                id="historical-active",
+                startedAtEpochMs=1_000L,
+                profileName="Home",
+                exercises=listOf(exerciseState),
+                currentExerciseIndex=0,
+                elapsedBeforePauseMs=45_000L,
+                pausedAtEpochMs=46_000L,
+                restEndsAtEpochMs=60_000L,
+                workoutRpe=8,
+                runnerKind="custom",
+                restKind="set",
+                modifications=listOf("Pinned exercise"),
+                plannedWorkoutId="historical-plan",
+                pausedRestRemainingSec=14
+            )
+            val history=SessionRecord(
+                timestamp=2_000L,
+                profileName="Home",
+                completedSets=1,
+                totalSets=2,
+                exerciseNames=listOf(exercise.name),
+                exerciseRpe=mapOf(exercise.name to 9),
+                workoutRpe=8,
+                completedByExercise=mapOf(exercise.name to 1),
+                durationSec=46,
+                structuredExercises=listOf(exerciseState),
+                skippedExercises=listOf("Other exercise"),
+                modifications=listOf("Pinned exercise"),
+                plannedWorkoutId="historical-plan"
+            )
+            val scheduled=PlannedWorkout(
+                id="historical-workout",
+                epochDay=20,
+                weekIndex=1,
+                sequenceInWeek=0,
+                exercises=listOf(exercise),
+                state=PlannedWorkoutState.COMPLETED,
+                originalEpochDay=18,
+                adaptationReason="Recovery adjustment",
+                actualExecutionEpochDay=21
+            )
+            val plan=TrainingPlan("historical-plan",18,4,3,listOf(scheduled))
+            val store=AppStore(context)
+            store.saveActiveWorkout(active)
+            store.saveSessions(listOf(history))
+            store.saveTrainingPlan(plan)
+
+            val db=ExerciseDbV2.parseExercises(
+                listOf(File("src/main/assets/exercise-db-v2/exercises.json"),File("app/src/main/assets/exercise-db-v2/exercises.json"))
+                    .first { it.exists() }.readText()
+            )
+            installExerciseDbV2(db)
+
+            val reloaded=AppStore(context)
+            assertEquals(active,reloaded.loadActiveWorkout())
+            assertEquals(listOf(history),reloaded.loadSessions())
+            assertEquals(plan,reloaded.loadTrainingPlan())
+            assertEquals(exercise.copy(targetSets=2,targetValue=7.0),restoreExercises(active).single())
+        } finally {
+            exercises=previous
+        }
+    }
+
     @Test fun badSetDoesNotHideOtherActualSetsOrOtherSessions() {
         val store = AppStore(context)
         store.saveSessions(listOf(session(1), session(2)))
