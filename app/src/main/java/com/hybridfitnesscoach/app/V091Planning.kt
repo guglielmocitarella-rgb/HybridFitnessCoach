@@ -134,8 +134,13 @@ object TrainingPlanEngine {
   fun freeDate(date:Long):Long {var day=date;while(day in occupied)day++;return day}
   val changes=mutableMapOf<String,PlannedWorkout>()
   var preceding=pending.getOrNull(index-1)
+  val targetOriginal=pending[index].originalEpochDay
+  val cascadeDelta=newEpochDay-targetOriginal
   pending.drop(index).forEachIndexed { offset,item ->
-   val requested=if(offset==0)newEpochDay else item.epochDay
+   // Rebuild the edited suffix from immutable original dates. This makes the
+   // cascade reversible: restoring any session also restores every later
+   // pending session to its original relative position.
+   val requested=if(offset==0)newEpochDay else item.originalEpochDay+cascadeDelta
    val earliest=preceding?.let{it.epochDay+gap(it,item)}?:requested
    val date=freeDate(maxOf(requested,earliest))
    val updated=if(date==item.epochDay)item else item.copy(
