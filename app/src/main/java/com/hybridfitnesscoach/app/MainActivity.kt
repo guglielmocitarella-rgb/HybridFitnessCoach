@@ -669,8 +669,11 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // RC2 keeps Exercise DB v2 isolated until stable-ID migration and persisted-data
-        // compatibility are complete. The canonical assets remain bundled and CI-validated.
+        // Install the canonical exercise catalogue before any store-backed state is read.
+        // Persisted plans/workouts keep their immutable Exercise snapshots, so enabling DB v2
+        // here changes only new catalogue lookups and newly generated workouts.
+        installExerciseDbV2(ExerciseDbV2.load(this))
+        ExerciseDbV2.installSources(ExerciseDbV2.loadSources(this))
         setContent { HybridFitnessApp() }
     }
 }
