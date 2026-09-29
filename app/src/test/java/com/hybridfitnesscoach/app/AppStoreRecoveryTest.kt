@@ -325,6 +325,40 @@ class AppStoreRecoveryTest {
         assertEquals("Serie", restored.restKind)
     }
 
+
+    @Test fun pausedRestRemainingSurvivesProcessRecreationWithoutAdvancing() {
+        val store = AppStore(context)
+        val paused = WorkoutSessionState(
+            id = "paused-rest",
+            startedAtEpochMs = 1_000,
+            profileName = "Casa",
+            exercises = listOf(WorkoutExerciseState("Push-up")),
+            elapsedBeforePauseMs = 42_000,
+            pausedAtEpochMs = 50_000,
+            restEndsAtEpochMs = null,
+            runnerKind = "automatic",
+            restKind = "Serie",
+            pausedRestRemainingSec = 73
+        )
+        store.saveActiveWorkout(paused)
+
+        val restored = AppStore(context).loadActiveWorkout()!!
+
+        assertEquals(42, elapsedWorkoutSeconds(restored, 500_000))
+        assertEquals(73, restored.pausedRestRemainingSec)
+        assertNull(restored.restEndsAtEpochMs)
+    }
+
+    @Test fun legacyPausedWorkoutWithoutRestSnapshotKeepsBackwardCompatibleDefault() {
+        val raw = """{"id":"legacy-pause","startedAtEpochMs":1000,"profileName":"Casa","exercises":[],"elapsedBeforePauseMs":12000,"pausedAtEpochMs":13000}"""
+        prefs.edit().putString("active_workout_v1", raw).commit()
+
+        val restored = AppStore(context).loadActiveWorkout()!!
+
+        assertEquals(12, elapsedWorkoutSeconds(restored, 500_000))
+        assertNull(restored.pausedRestRemainingSec)
+    }
+
     @Test fun currentPlanAndActiveWorkoutRoundTripPreserveEveryField() {
         val workout = PlannedWorkout("w1", 15, 1, 2, listOf(exercises.first().copy(targetValue = 7.0)),
             PlannedWorkoutState.PARTIAL, 10, "Adapted", 16)
