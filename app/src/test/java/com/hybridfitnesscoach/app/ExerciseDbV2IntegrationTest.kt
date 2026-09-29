@@ -41,4 +41,29 @@ class ExerciseDbV2IntegrationTest {
         assertEquals(7,snapshot.targetSets)
         assertEquals(13.0,snapshot.targetValue!!,0.001)
     }
+    @Test fun canonicalEquipmentMapsIntoProfileTaxonomyAndGeneratorModel() {
+        val db=records()
+        val barbell=db.first{ "barbell" in it.equipment }
+        val mapped=ExerciseDbV2.toLegacyExercise(barbell)
+        assertEquals("Bilanciere",mapped.equipment)
+        assertTrue(equipmentCompatible(mapped,EquipmentProfile("Test","",listOf("Bilanciere"))))
+        assertNotEquals(ResistanceMode.NONE,mapped.resistanceMode)
+    }
+
+    @Test fun sourceBackedProgressionGraphHasReferentialIntegrityForRuntimeIds() {
+        val context=RuntimeEnvironment.getApplication()
+        val ids=records().map{it.id}.toSet()
+        val edges=ExerciseDbV2.loadProgressions(context)
+        assertEquals(113,edges.size)
+        assertTrue(edges.all{it.from in ids && it.to in ids && it.sources.isNotEmpty()})
+        assertTrue(edges.any{it.relationship=="MAIN_PROGRESSION"})
+    }
+
+    @Test fun canonicalResistanceRecordRemainsCompatibleWithPrescriptionEngine() {
+        val mapped=records().asSequence().map{ExerciseDbV2.toLegacyExercise(it)}
+            .first{it.measure==ExerciseMeasure.REPS && it.resistanceMode!=ResistanceMode.NONE &&
+                it.category in setOf(ExerciseCategory.PUSH,ExerciseCategory.PULL,ExerciseCategory.LEGS,ExerciseCategory.CORE)}
+        val context=PrescriptionContext("Forza","Intermedio",mapped.category,5,5,5,null,80,null)
+        assertNotNull(SourcePrescriptionBaselineRegistry.baselineFor(mapped,context))
+    }
 }
