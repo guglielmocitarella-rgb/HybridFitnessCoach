@@ -80,3 +80,6 @@ Audit notes:
 
 - PR CI #414 passed at `f81ee15ce94430c500791487cfc488fb48e4c2a4`; schema-v2 plan exercise snapshots were regression-tested as independent from later catalog definitions.
 - PR CI #422 passed at `15d713e8081594013542621a2dcde5bd973eee5e`; calendar reschedule/skip/restore now commit persistence before exposing the candidate plan in Compose state, preserve the current plan on save failure, and keep the management dialog open with explicit retry feedback.
+
+- PR CI #426 passed at `72f39502460f59b82760f839a2f89c9c4e653957`; two distinct qualifying structured sessions drive Muscle-up progression from AVAILABLE→IN_PROGRESS→MASTERED, unlock the next node, and expose its exercise to the generator; duplicate observations inside one session cannot fake the required session count.
+- PR CI #436 passed at `4060d41d5450326dc6869ba09c366dd69d3f0a9d`; Home plan generation now consumes `weekIndex` and applies deterministic 3+1 progression while preserving exercise identity and distance targets, with consolidation every fourth week.
