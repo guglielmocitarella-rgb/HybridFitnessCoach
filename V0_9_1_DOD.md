@@ -1,5 +1,13 @@
 # Hybrid Fitness Coach — V0.9.1 persistent DoD
 
+## RC2 audit checkpoint — 29 settembre 2026, post Exercise DB v2 integration
+
+GitHub/PR #8 remains the live source of truth. Last fully green code checkpoint before the current audit commits: `8c2a5a55d83c8361482f58e5c4a106d539125894`, Android APK PR #700 and Exercise DB v2 #162 both green. Subsequent audit commits classify Skill Tree mastery thresholds explicitly as `APP_RULE`, surface that classification in UI, align the DB integration contract with the production runtime, and remove stale status claims. Exact-SHA Android CI for the current HEAD must be green before RC2 acceptance.
+
+Exercise DB v2 is now part of RC2: 587 canonical records are installed with legacy-only compatibility retained where no sourced v2 record exists; persisted workout snapshots remain immutable; legacy plan names resolve through v2 aliases; exercise-specific evidence locators are preserved; raw inventory reconciliation is enforced by CI. Unknown equipment remains fail-closed rather than being invented. Catalog-wide videos remain deferred.
+
+Repository audit evidence covers persistence/recovery, linked deletion/reappearance, 1–52-week planning, cascade reschedule/restore-original, Italian calendar semantics, runner set/skip/undo/finish confirmation, structured actual history detail, custom generation/equipment/locking, Exercise Detail↔Skill Tree, and Adaptive Coach history/plan behavior. Remaining release acceptance after exact-SHA CI is device interaction testing plus a signed push artifact on the eventual final SHA.
+
 ## RC2 checkpoint — 29 settembre 2026
 
 This checkpoint supersedes older CI labels below; those notes document earlier commits. RC2 remains **not ready**. Push CI [#409](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36558843599) and PR CI [#410](https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/36558846947) are green at `852df86d35758e178e186c6f9e21c0fb475908f9`: unit tests and Android lint passed; the push also built and signature-verified the release APK, while the PR built the debug APK.
