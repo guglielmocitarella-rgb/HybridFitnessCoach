@@ -558,12 +558,18 @@ internal fun installExerciseDbV2(records:List<ExerciseV2Record>) {
     if (records.isEmpty()) return
     ExerciseDbV2.install(records)
     val lookup=ExerciseDbV2.uniqueLookup(records)
-    exercises=records.map { record ->
+    val migrated=records.map { record ->
         val legacy=record.lookupNames().asSequence().mapNotNull { name ->
             legacyExercises.firstOrNull { it.name.trim().lowercase()==name }
         }.firstOrNull()
         ExerciseDbV2.toLegacyExercise(record,legacy)
-    }.distinctBy { it.progressionKey ?: it.name.trim().lowercase() }
+    }
+    val migratedLegacyNames=migrated.map { it.name.trim().lowercase() }.toSet()
+    // Keep legacy-only exercises executable until they receive a sourced v2 record.
+    // This preserves existing plans/skill nodes without pretending unsourced records are v2.
+    val legacyOnly=legacyExercises.filter { it.name.trim().lowercase() !in migratedLegacyNames &&
+        ExerciseDbV2.resolveLegacy(it.name,records)==null }
+    exercises=(migrated+legacyOnly).distinctBy { it.progressionKey ?: it.name.trim().lowercase() }
     if (exercises.isEmpty()) exercises=legacyExercises
 }
 
