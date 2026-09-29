@@ -28,25 +28,18 @@ private val Bg = Color(0xFFF7F8FA)
 
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
 private fun recommendedSetRest(role:String,name:String,equipment:String):Int {
-    val n=name.lowercase(); val e=equipment.lowercase()
-    val isSkill=n.contains("lever")||n.contains("planche")||n.contains("handstand")||n.contains("muscle-up")||n.contains("flag")||n.contains("one arm")
-    val isHeavyCompound=n.contains("squat")||n.contains("deadlift")||n.contains("stacco")||n.contains("panca")||n.contains("bench")||n.contains("press")||n.contains("row")||n.contains("rematore")||n.contains("trazioni")||n.contains("pull-up")||n.contains("dip")
-    val isIsolation=n.contains("curl")||n.contains("extension")||n.contains("alzate")||n.contains("raise")||n.contains("fly")||n.contains("croci")||n.contains("calf")||n.contains("pushdown")
-    return when {
-        isSkill && (role=="Progressione"||role=="Forza") -> 180
-        role=="Forza" && isHeavyCompound -> 180
-        role=="Forza" -> 150
-        role=="Progressione" -> 150
-        role=="Prerequisito" && isHeavyCompound -> 120
-        isIsolation -> 75
-        e.contains("macchina")||e.contains("cavi") -> 90
+    // RC2: rest must not be inferred from exercise-name substrings. Keep the
+    // fallback inside the sourced programming ranges; richer goal/load-aware
+    // prescriptions can override this value downstream.
+    return when (role) {
+        "Forza" -> 150
+        "Progressione" -> 120
+        "Prerequisito" -> 90
         else -> 90
     }
 }
-private fun recommendedExerciseRest(role:String,name:String,equipment:String):Int {
-    val set=recommendedSetRest(role,name,equipment)
-    return when { set>=180->240; set>=150->180; set>=120->150; else->120 }
-}
+private fun recommendedExerciseRest(role:String,name:String,equipment:String):Int =
+    recommendedSetRest(role,name,equipment)
 enum class ExerciseMeasure { REPS, SECONDS, DURATION, DISTANCE, INTERVALS }
 enum class ExerciseCategory { PUSH, PULL, LEGS, CORE, CARDIO, MOBILITY, SKILL, OTHER }
 enum class Laterality { BILATERAL, UNILATERAL, ALTERNATING, NONE }
@@ -103,7 +96,7 @@ data class WorkoutExerciseState(
     val measure: ExerciseMeasure = ExerciseMeasure.REPS,
     val sets: List<WorkoutSetState> = emptyList(),
     val status: WorkoutExerciseStatus = WorkoutExerciseStatus.PENDING,
-    val rpe: Int? = null,
+    val rpe: Int? = 5,
     val pinned: Boolean = false,
     val setRestSec: Int = 90,
     val exerciseRestSec: Int = 120,
@@ -134,9 +127,9 @@ data class SessionRecord(val timestamp: Long, val profileName: String, val compl
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
 internal val profiles = listOf(
-    EquipmentProfile("Palestra", "🏋️", listOf("Bilanciere", "Manubri", "Cavi", "Macchine", "Sbarra", "Parallele", "Panca", "Kettlebell", "Leg press", "Ab Wheel", "Foam Roller")),
-    EquipmentProfile("Casa", "🏠", listOf("Corpo libero", "Sbarra", "Elastici", "Ab Wheel", "Foam Roller")),
-    EquipmentProfile("Parco", "🌳", listOf("Sbarra", "Parallele", "Corpo libero"))
+    EquipmentProfile("Palestra", "🏋️", listOf("Ab Wheel", "Bilanciere", "Cavi", "Foam Roller", "Kettlebell", "Leg press", "Macchine", "Manubri", "Panca", "Parallele", "Sbarra")),
+    EquipmentProfile("Casa", "🏠", listOf("Ab Wheel", "Corpo libero", "Elastici", "Foam Roller", "Sbarra")),
+    EquipmentProfile("Parco", "🌳", listOf("Corpo libero", "Parallele", "Sbarra"))
 )
 
 enum class ProgressionDecision { ADVANCE, MAINTAIN, REGRESS, DELOAD }
@@ -1035,7 +1028,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     val skillFilters = remember { mutableStateListOf<String>() }
     val measureFilters = remember { mutableStateListOf<ExerciseMeasure>() }
     var filterDialog by remember { mutableStateOf<String?>(null) }
-    val equipmentOptions = listOf("Corpo libero","Sbarra","Parallele","Anelli","TRX","Bilanciere","Manubri","Panca","Cavi","Macchine","Elastici","Kettlebell","Leg press","Ab Wheel","Foam Roller")
+    val equipmentOptions = exercises.map { it.equipment }.filter { it.isNotBlank() }.distinct().sortedBy { it.lowercase() }
     val matchingSkills = calisthenicsSkills.filter { s -> query.isNotBlank() && s.name.contains(query.trim(),true) }
     val shown = exercises.filter { ex ->
         (query.isBlank() || query.trim().split(Regex("\\s+")).all { token -> ex.name.contains(token,true) || ex.group.contains(token,true) || ex.equipment.contains(token,true) || ex.skills.any{it.contains(token,true)} }) &&
@@ -1051,7 +1044,6 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
             FilterChip(selected=equipmentFilters.isNotEmpty(),onClick={filterDialog="equipment"},label={Text("Attrezzi"+if(equipmentFilters.isEmpty())"" else " ("+equipmentFilters.size+")")})
             FilterChip(selected=groupFilters.isNotEmpty(),onClick={filterDialog="groups"},label={Text("Muscoli"+if(groupFilters.isEmpty())"" else " ("+groupFilters.size+")")})
             FilterChip(selected=skillFilters.isNotEmpty(),onClick={filterDialog="skills"},label={Text("Skill"+if(skillFilters.isEmpty())"" else " ("+skillFilters.size+")")})
-            FilterChip(selected=measureFilters.isNotEmpty(),onClick={filterDialog="measure"},label={Text("Misurazione"+if(measureFilters.isEmpty())"" else " ("+measureFilters.size+")")})
         }
         if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()||measureFilters.isNotEmpty()) {
  Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear();measureFilters.clear()}){Text("AZZERA")}}
@@ -1246,7 +1238,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
-    val equipmentOptions = (listOf("Corpo libero") + profile.equipment + initialEquipment).distinct()
+    val equipmentOptions = (listOf("Corpo libero") + profile.equipment + initialEquipment).distinct().sortedBy { it.lowercase() }
     fun prescription(ex:Exercise):Pair<Int,Int> = prescriptionFor(ex).value.toInt() to ex.setRestSec
     fun targetSetCount(ex:Exercise):Int = prescriptionFor(ex).sets
     fun build() {
