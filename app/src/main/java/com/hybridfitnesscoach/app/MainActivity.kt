@@ -665,6 +665,30 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
     return applyCoaching(sequenceWorkout(result).sortedBy{ex->if(athlete.prioritySkills.any{it in ex.skills})0 else 1},context)
 }
 
+data class SuggestedWorkout(val exercises:List<Exercise>,val plannedWorkout:PlannedWorkout?)
+internal fun resolveSuggestedWorkout(plan:TrainingPlan?,today:Long,adaptive:()->List<Exercise>):SuggestedWorkout {
+ val planned=todayPlannedWorkout(plan,today)
+ return if(planned!=null) SuggestedWorkout(planned.exercises,planned) else SuggestedWorkout(adaptive(),null)
+}
+internal fun generateTrainingPlan(
+ planId:String,
+ startEpochDay:Long,
+ profile:EquipmentProfile,
+ athlete:AthleteProfile,
+ configuration:PlanConfiguration,
+ sessions:List<SessionRecord>,
+ readinessScore:Int?
+):TrainingPlan {
+ val valid=configuration.validated()
+ val configuredAthlete=athlete.forPlan(valid)
+ val recentPlanned=mutableListOf<List<String>>()
+ return TrainingPlanEngine.scheduleImmediately(planId,startEpochDay,valid.weeks,valid.daysPerWeek,valid.trainingDays){week,_->
+  val selected=plannedWeekExercises(generateWorkout(profile,configuredAthlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
+  recentPlanned.add(selected.map{it.name});if(recentPlanned.size>3)recentPlanned.removeAt(0)
+  selected
+ }
+}
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -811,15 +835,8 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     fun ensurePlan():TrainingPlan {
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
-        val recentPlanned=mutableListOf<List<String>>()
         val configuration=PlanConfiguration(planGoal,requestedWeeks,planDaysPerWeek,planWeekdays.toSet(),planSkills.toList()).validated()
-        val configuredAthlete=athlete.forPlan(configuration)
-        val created=TrainingPlanEngine.scheduleImmediately("plan-"+today,today,configuration.weeks,configuration.daysPerWeek,configuration.trainingDays) { week,_ ->
-            val selected=plannedWeekExercises(generateWorkout(profile,configuredAthlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
-            recentPlanned.add(selected.map{it.name})
-            if(recentPlanned.size>3)recentPlanned.removeAt(0)
-            selected
-        }
+        val created=generateTrainingPlan("plan-"+today,today,profile,athlete,configuration,sessions,readinessScore)
         if (!store.saveTrainingPlan(created)) {
             planSaveError = true
             return created
@@ -840,8 +857,9 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     }
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
-                    val todayPlan=todayPlannedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay())
-                    val suggested = todayPlan?.exercises ?: generateWorkout(profile,athlete,sessions,readinessScore)
+                    val suggestion=resolveSuggestedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay()){generateWorkout(profile,athlete,sessions,readinessScore)}
+                    val todayPlan=suggestion.plannedWorkout
+                    val suggested=suggestion.exercises
                     Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
                     Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
