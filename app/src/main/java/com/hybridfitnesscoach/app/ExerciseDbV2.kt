@@ -105,7 +105,7 @@ internal object ExerciseDbV2 {
         return withExerciseMetadata(Exercise(
             name=record.nameIt,
             group=group,
-            equipment=record.equipment.firstOrNull()?.let(::equipmentDisplay)?:legacy?.equipment?:"Corpo libero",
+            equipment=if(record.equipment.isNotEmpty()) record.equipment.joinToString(" / "){equipmentDisplay(it)} else legacy?.equipment?:"Non specificato",
             level=record.level?:legacy?.level?:"Intermedio",
             skills=legacy?.skills?:emptyList(),
             role=legacy?.role?:"Base",
