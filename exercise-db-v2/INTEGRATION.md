@@ -1,6 +1,6 @@
 # Exercise DB v2 — integration contract
 
-This branch intentionally does **not** replace the RC2 production catalogues.
+RC2 integrates the canonical v2 catalogue at runtime while retaining legacy-only exercises as a compatibility layer for persisted plans and skill nodes that do not yet have a sourced v2 record.
 
 ## Canonical artifacts
 - `exercise-db-v2/exercises.json`: canonical movement records.
@@ -8,7 +8,7 @@ This branch intentionally does **not** replace the RC2 production catalogues.
 - `exercise-db-v2/sources.json`: normalized source registry generated from `sources.tsv`.\n- `exercise-db-v2/programming_guidance.json`: goal/context-scoped general prescription/rest evidence; never treat these rows as exercise-specific defaults.
 - `exercise-db-v2/BUILD_MANIFEST.json`: counts, validation state and artifact hash.
 
-Run `python tools/build_exercise_db.py`; it normalizes ordering/serialization, regenerates the source registry and manifest counts, then runs the validator. It does not infer missing exercise evidence.
+Run `python tools/build_exercise_db.py` to verify deterministic canonical artifacts and manifest hashes, then `python tools/validate_exercise_db.py` for schema, provenance and raw-inventory reconciliation. The build command is a verifier: it does not rewrite stale artifacts or infer missing evidence.
 
 ## RC2 import
 Parse by stable `id`. Display `nameIt` in Italian and retain `canonicalNameEn` for canonical lookup. Resolve legacy names against canonical names and `aliases[]`; persist the v2 stable ID after a successful migration. Ambiguous aliases must not be auto-migrated.
