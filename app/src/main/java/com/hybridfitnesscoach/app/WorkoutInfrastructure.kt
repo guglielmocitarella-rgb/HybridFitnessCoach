@@ -249,3 +249,21 @@ internal fun effectiveRunnerPrescription(
         runnerSetRestSeconds(exercise),false
     )
 }
+
+
+internal fun exerciseWithEffectivePrescription(
+    exercise:Exercise,
+    athlete:AthleteProfile,
+    sessions:List<SessionRecord>,
+    readinessScore:Int?=null
+):Exercise {
+    val p=effectiveRunnerPrescription(exercise,athlete,sessions,readinessScore)
+    return exercise.copy(targetSets=p.sets,targetValue=p.value,setRestSec=p.restSeconds)
+}
+internal fun effectiveAutomaticExercises(
+    source:List<Exercise>,
+    athlete:AthleteProfile,
+    sessions:List<SessionRecord>,
+    readinessScore:Int?=null,
+    restored:Boolean=false
+):List<Exercise> = if(restored) source else source.map{exerciseWithEffectivePrescription(it,athlete,sessions,readinessScore)}
