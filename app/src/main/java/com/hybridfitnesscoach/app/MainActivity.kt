@@ -815,7 +815,8 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     val suggested = generateWorkout(profile,athlete,sessions,readinessScore)
                     Text(when(athlete.goal){"Calisthenics"->"Calisthenics"+athlete.prioritySkills.firstOrNull()?.let{" • "+it}.orEmpty();"Ipertrofia"->"Ipertrofia";"Forza"->"Forza";else->"Fitness generale"}, fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi  •  "+athlete.goal, color = Color.Gray)
-                    Button(onClick = { plannedWorkoutToRun=trainingPlan?.workouts?.firstOrNull{it.epochDay==java.time.LocalDate.now().toEpochDay() && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL && it.state!=PlannedWorkoutState.SKIPPED}; workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text("INIZIA ALLENAMENTO") }
+                    val todayPlan=todayPlannedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay())
+                    Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
                 }
             }
