@@ -62,6 +62,36 @@ class AppStoreRecoveryTest {
         assertNull(restored.actualExecutionEpochDay)
     }
 
+    @Test fun finishingWorkoutAtomicallySavesHistoryPlanAndClearsActiveState() {
+        val store = AppStore(context)
+        val planned = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()))
+        store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(planned)))
+        val active = WorkoutSessionState("active", 1000, "Casa",
+            listOf(WorkoutExerciseState("Push-up")), plannedWorkoutId = planned.id)
+        store.saveActiveWorkout(active)
+
+        assertTrue(store.finishWorkout(session(1)))
+
+        val reloaded = AppStore(context)
+        assertEquals(listOf(session(1)), reloaded.loadSessions())
+        assertNull(reloaded.loadActiveWorkout())
+        assertEquals(PlannedWorkoutState.COMPLETED, reloaded.loadTrainingPlan()!!.workouts.single().state)
+    }
+
+    @Test fun failedFinishPreservesActiveWorkoutAndOriginalHistory() {
+        val store = AppStore(context)
+        val active = WorkoutSessionState("active", 1000, "Casa", listOf(WorkoutExerciseState("Push-up")))
+        store.saveActiveWorkout(active)
+        val brokenHistory = "[{\"timestamp\":1,"
+        prefs.edit().putString("sessions", brokenHistory).commit()
+        val reloaded = AppStore(context)
+
+        assertFalse(reloaded.finishWorkout(session(2)))
+
+        assertEquals(brokenHistory, prefs.getString("sessions", null))
+        assertEquals(active, AppStore(context).loadActiveWorkout())
+    }
+
     @Test fun oneBadHistoryRecordDoesNotHideValidCompletedSets() {
         val store = AppStore(context)
         store.saveSessions(listOf(session(1), session(2)))
