@@ -4,11 +4,11 @@
 
 Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
 
-## Stato del progetto — v0.9.3
+## Stato del progetto — v0.9.3 congelata / v0.9.4 test e sviluppo
 
-`feature/v0.9.3` e la PR #10 sono l'unica linea di sviluppo/release attiva. Le versioni v0.9.0, v0.9.1 e v0.9.2 sono chiuse e storiche; `release/v0.9.2` conserva il riferimento congelato alla release precedente. La DoD attiva è `V0_9_3_DOD.md`.
+La v0.9.3 è la baseline congelata dopo il completamento dei gate repository-level e delle workflow Exercise DB v2 #250 e Android APK #802 sul checkpoint `365c07f643065df9dd68310362edd3ad3ed3236f`. Il riferimento immutabile di linea è `release/v0.9.3`; la PR #10 resta audit trail della fase v0.9.3.
 
-GitHub e la PR #10 sono la fonte di verità per HEAD e CI. I documenti DoD delle versioni precedenti sono audit trail storico, non requisiti correnti. Ogni release candidate deve essere verificata contro le workflow run dell'esatto SHA finale e poi sottoposta a device acceptance.
+Lo sviluppo e il device acceptance successivi appartengono a `feature/v0.9.4`. Qualsiasi problema trovato sul device viene registrato e corretto in v0.9.4, senza modificare la baseline v0.9.3. `V0_9_3_DOD.md` è storico; `V0_9_4_DOD.md` è la DoD attiva.
 
 ### Funzioni disponibili
 
