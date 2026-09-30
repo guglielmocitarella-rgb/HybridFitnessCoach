@@ -9,6 +9,12 @@ internal data class HistoryExerciseDetail(
 private fun displayNumber(value:Double):String =
     if(value % 1.0 == 0.0)value.toLong().toString() else String.format(Locale.ITALY,"%.1f",value)
 
+/** Executed external-load volume: completed reps × actually recorded load. */
+internal fun loadedVolumeKg(exercise:WorkoutExerciseState):Double =
+    exercise.sets.asSequence()
+        .filter{it.completed}
+        .sumOf{set -> (set.actualReps?:0).toDouble() * (set.actualLoadKg?:0.0)}
+
 /** Display persisted performance only. Legacy counters cannot reconstruct actual sets. */
 internal fun historyExerciseDetails(session:SessionRecord):List<HistoryExerciseDetail> =
     (session.exerciseNames + session.structuredExercises.map{it.exerciseName}).distinct().map { name ->
@@ -31,6 +37,8 @@ internal fun historyExerciseDetails(session:SessionRecord):List<HistoryExerciseD
                     set.actualAssistanceKg?.let{add("Assistenza: ${displayNumber(it)} kg")}
                 }
             }
+            val loadedVolume=loadedVolumeKg(saved)
+            if(loadedVolume>0.0)add("Volume con carico: ${displayNumber(loadedVolume)} kg")
             val rpe=saved.rpe ?: session.exerciseRpe[name]
             if(rpe!=null)add("RPE esercizio: $rpe")
             else add("RPE mancante: la prestazione non può validare una progressione che richiede RPE.")
