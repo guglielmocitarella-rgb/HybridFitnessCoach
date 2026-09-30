@@ -256,4 +256,24 @@ class V091PlanningTest {
   assertNull(resolved.plannedWorkout);assertEquals(listOf("Fallback"),resolved.exercises.map{it.name})
  }
 
+ @Test fun fitnessLevelAssessmentHasStableBoundaries(){
+  assertEquals("Principiante",assessedFitnessLevel(FitnessLevelAssessment(0,0,0)))
+  assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(6,10,0)))
+  assertEquals("Avanzato",assessedFitnessLevel(FitnessLevelAssessment(24,30,10)))
+  assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(24,0,0)))
+ }
+ @Test fun assessedLevelConstrainsGeneratedPlanDifficulty(){
+  val profile=profiles.first{it.name=="Palestra"}
+  val level=assessedFitnessLevel(FitnessLevelAssessment(0,5,0))
+  val athlete=AthleteProfile(goal="Forza",level=level,daysPerWeek=2)
+  val config=PlanConfiguration.fromAthlete(athlete).copy(weeks=1).validated()
+  val plan=generateTrainingPlan("assessment",20_000,profile,athlete,config,emptyList(),80)
+  assertEquals("Principiante",level)
+  assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(level)})
+ }
+ @Test fun fitnessLevelAssessmentRejectsNegativeInputs(){
+  assertThrows(IllegalArgumentException::class.java){assessedFitnessLevel(FitnessLevelAssessment(-1,0,0))}
+ }
+
+
 }
