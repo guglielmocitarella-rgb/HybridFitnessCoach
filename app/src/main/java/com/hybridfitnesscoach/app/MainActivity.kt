@@ -139,6 +139,14 @@ data class WorkoutSessionState(
     val trainingLocationId: String? = null
 )
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
+data class CapabilityProfile(
+    val exerciseLevel:Int,
+    val trainingExperience:Int? = null,
+    val pushCapacity:Int? = null,
+    val pullCapacity:Int? = null
+)
+internal fun AthleteProfile.toCapabilityProfile():CapabilityProfile =
+    CapabilityProfile(exerciseLevel=levelScore(level))
 data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
 internal fun assessedFitnessLevel(input:FitnessLevelAssessment):String {
     require(input.trainingMonths>=0 && input.pushUps>=0 && input.pullUps>=0)
@@ -666,12 +674,11 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
 }
 
 internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> =
-    generateWorkoutFromCatalogue(exercises,profile,athlete,sessions,readinessScore,avoidPlannedNames)
-internal fun generateWorkoutFromCatalogue(catalogue:List<Exercise>,profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> {
+    generateWorkoutFromCatalogue(exercises,resolveTrainingLocation(profile),athlete,athlete.toCapabilityProfile(),sessions,readinessScore,avoidPlannedNames)
+internal fun generateWorkoutFromCatalogue(catalogue:List<Exercise>,location:TrainingLocation, athlete: AthleteProfile, capability:CapabilityProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> {
     val context=coachingContext(sessions,readinessScore)
-    val maxLevel = levelScore(athlete.level)
     val eligible=skillEligibleExerciseNames(catalogue,sessions)
-    val available = catalogue.filter { it.name in eligible && equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
+    val available = catalogue.filter { it.name in eligible && locationCompatible(it,location) && levelScore(it.level) <= capability.exerciseLevel }
     val preferredRoles = when (athlete.goal) {
         "Calisthenics" -> listOf("Progressione", "Prerequisito", "Forza", "Accessorio")
         "Ipertrofia" -> listOf("Forza", "Accessorio", "Prerequisito", "Progressione")
@@ -718,7 +725,7 @@ internal fun materializePlannedSession(
  if(intent==null) return PlannedSessionRealization(planned.exercises,PlannedSessionRealizationSource.LEGACY_SNAPSHOT,planned.id)
  val effectiveAthlete=athlete.copy(goal=intent.goal,prioritySkills=intent.prioritySkills)
  val compatibleCatalogue=catalogue.filter{locationCompatible(it,location)}
- val generated=generateWorkoutFromCatalogue(compatibleCatalogue,location.asLegacyProfile(),effectiveAthlete,sessions,readinessScore)
+ val generated=generateWorkoutFromCatalogue(compatibleCatalogue,location,effectiveAthlete,effectiveAthlete.toCapabilityProfile(),sessions,readinessScore)
  val focused=if(intent.focusCategories.isEmpty()) generated else generated.filter{it.category in intent.focusCategories}
  val realized=focused.takeIf{it.isNotEmpty()} ?: generated
  return PlannedSessionRealization(realized,PlannedSessionRealizationSource.INTENT,planned.id)
