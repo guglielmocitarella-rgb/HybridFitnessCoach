@@ -185,6 +185,31 @@ class Rc2PlanningRegressionTest {
         assertEquals(plannedWeekExercises(listOf(ex),3),plannedWeekExercises(listOf(ex),51))
     }
 
+    @Test fun homeSuggestionUsesTodayPlanExercisesInsteadOfAdaptiveFallback() {
+        val original=plan()
+        val today=original.workouts.first().epochDay
+        val plannedExercise=Exercise("Plan exercise","Forza",listOf("Petto"),emptyList(),"Intermedio",listOf("Nessuna"),emptyList(),emptyList(),"")
+        val adaptiveExercise=Exercise("Adaptive exercise","Forza",listOf("Schiena"),emptyList(),"Intermedio",listOf("Nessuna"),emptyList(),emptyList(),"")
+        val withExercise=original.copy(workouts=original.workouts.mapIndexed { i,w -> if(i==0) w.copy(exercises=listOf(plannedExercise)) else w })
+
+        val suggestion=resolveSuggestedWorkout(withExercise,today){listOf(adaptiveExercise)}
+
+        assertEquals(withExercise.workouts.first().id,suggestion.plannedWorkout?.id)
+        assertEquals(listOf("Plan exercise"),suggestion.exercises.map{it.name})
+    }
+
+    @Test fun homeSuggestionFallsBackToAdaptiveWhenTodayPlanIsNotRunnable() {
+        val original=plan()
+        val today=original.workouts.first().epochDay
+        val adaptiveExercise=Exercise("Adaptive exercise","Forza",listOf("Schiena"),emptyList(),"Intermedio",listOf("Nessuna"),emptyList(),emptyList(),"")
+        val completed=original.copy(workouts=original.workouts.mapIndexed { i,w -> if(i==0) w.copy(state=PlannedWorkoutState.COMPLETED) else w })
+
+        val suggestion=resolveSuggestedWorkout(completed,today){listOf(adaptiveExercise)}
+
+        assertNull(suggestion.plannedWorkout)
+        assertEquals(listOf("Adaptive exercise"),suggestion.exercises.map{it.name})
+    }
+
     @Test fun homeLaunchSelectsOnlyRunnableWorkoutScheduledForToday() {
         val original=plan()
         val today=original.workouts.first().epochDay
