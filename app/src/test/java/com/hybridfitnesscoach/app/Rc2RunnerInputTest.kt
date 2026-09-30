@@ -69,4 +69,19 @@ class Rc2RunnerInputTest {
         }
     }
 
+    @Test fun directExecuteUsesTheSameEffectivePrescriptionAsAutomaticRunner() {
+        val ex=Exercise("Direct contract press","Petto","Manubri","Intermedio",
+            role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,
+            setRestSec=90,exerciseRestSec=120,targetSets=3,targetValue=6.0)
+        val athlete=AthleteProfile(level="Intermedio",goal="Forza")
+        val effective=exerciseWithEffectivePrescription(ex,athlete,emptyList(),80)
+        val state=singleExerciseWorkoutState(ex,"Palestra",1234L,athlete,emptyList(),80)
+        val launched=state.exercises.single()
+        assertEquals(effective.targetSets,launched.sets.size)
+        assertTrue(launched.sets.all{it.targetReps==effective.targetValue?.toInt()})
+        assertEquals(effective.setRestSec,launched.setRestSec)
+        assertEquals(effective.exerciseRestSec,launched.exerciseRestSec)
+        assertEquals(effective.setRestSec,launched.exerciseSnapshot?.setRestSec)
+    }
+
 }
