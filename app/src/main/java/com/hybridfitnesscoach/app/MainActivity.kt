@@ -596,6 +596,13 @@ private fun WorkoutSetState?.orEmptySet():List<WorkoutSetState> = this?.let{list
 internal fun remainingSeconds(endEpochMs:Long?, now:Long=System.currentTimeMillis()):Int =
     if(endEpochMs==null) 0 else kotlin.math.ceil((endEpochMs-now).coerceAtLeast(0L)/1000.0).toInt()
 
+internal fun exerciseEquipmentOptions(source:List<Exercise>):List<String> =
+    source.flatMap { it.equipment.split("/").map(String::trim) }
+        .filter { it.isNotBlank() && !it.equals("Non specificato",true) }
+        .distinctBy { it.lowercase() }.sortedBy { it.lowercase() }
+internal fun profileEquipmentOptions(source:List<Exercise>):List<String> =
+    (exerciseEquipmentOptions(source) + "Corpo libero").distinctBy { it.lowercase() }.sortedBy { it.lowercase() }
+
 internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean {
     fun normalize(value:String)=value.trim().lowercase().let{if(it=="macchina")"macchine" else it}
     val available=profile.equipment.map(::normalize).toSet()+"corpo libero"
@@ -1059,16 +1066,14 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     val equipmentFilters = remember { mutableStateListOf<String>() }
     val groupFilters = remember { mutableStateListOf<String>() }
     val skillFilters = remember { mutableStateListOf<String>() }
-    val measureFilters = remember { mutableStateListOf<ExerciseMeasure>() }
     var filterDialog by remember { mutableStateOf<String?>(null) }
-    val equipmentOptions = exercises.map { it.equipment }.filter { it.isNotBlank() }.distinct().sortedBy { it.lowercase() }
+    val equipmentOptions = exerciseEquipmentOptions(exercises)
     val matchingSkills = calisthenicsSkills.filter { s -> query.isNotBlank() && s.name.contains(query.trim(),true) }
     val shown = exercises.filter { ex ->
         (query.isBlank() || query.trim().split(Regex("\\s+")).all { token -> ex.name.contains(token,true) || ex.group.contains(token,true) || ex.equipment.contains(token,true) || ex.skills.any{it.contains(token,true)} }) &&
         (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
         (groupFilters.isEmpty() || groupFilters.any { ex.group.contains(it,true) }) &&
-        (skillFilters.isEmpty() || skillFilters.any { it in ex.skills }) &&
-        (measureFilters.isEmpty() || ex.measure in measureFilters)
+        (skillFilters.isEmpty() || skillFilters.any { it in ex.skills })
     }
     Column {
         Header("Libreria esercizi", exercises.size.toString()+" esercizi • "+calisthenicsSkills.size+" skill calisthenics")
@@ -1078,8 +1083,8 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
             FilterChip(selected=groupFilters.isNotEmpty(),onClick={filterDialog="groups"},label={Text("Muscoli"+if(groupFilters.isEmpty())"" else " ("+groupFilters.size+")")})
             FilterChip(selected=skillFilters.isNotEmpty(),onClick={filterDialog="skills"},label={Text("Skill"+if(skillFilters.isEmpty())"" else " ("+skillFilters.size+")")})
         }
-        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()||measureFilters.isNotEmpty()) {
- Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear();measureFilters.clear()}){Text("AZZERA")}}
+        if(equipmentFilters.isNotEmpty()||groupFilters.isNotEmpty()||skillFilters.isNotEmpty()) {
+ Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically){Text(shown.size.toString()+" risultati",color=Color.Gray,modifier=Modifier.weight(1f));TextButton(onClick={equipmentFilters.clear();groupFilters.clear();skillFilters.clear()}){Text("AZZERA")}}
  Button(onClick={filteredWorkout=true},enabled=shown.isNotEmpty(),modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth()){Text("GENERA WORKOUT DAI FILTRI")}
 }
         LazyColumn(contentPadding=PaddingValues(horizontal=20.dp,vertical=6.dp)){
@@ -1088,10 +1093,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
             if(shown.isEmpty()) item{Text("Nessun esercizio corrisponde ai filtri selezionati.",color=Color.Gray,modifier=Modifier.padding(12.dp))}
         }
     }
-    if(filterDialog=="measure") {
-        AlertDialog(onDismissRequest={filterDialog=null},title={Text("Filtra per misurazione")},text={Column{ExerciseMeasure.entries.forEach{m->Row(Modifier.fillMaxWidth().clickable{if(m in measureFilters)measureFilters.remove(m)else measureFilters.add(m)},verticalAlignment=Alignment.CenterVertically){Checkbox(m in measureFilters,{checked->if(checked){if(m !in measureFilters)measureFilters.add(m)}else measureFilters.remove(m)});Text(m.name)}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={measureFilters.clear()}){Text("AZZERA")}})
-    }
-    filterDialog?.takeIf{it!="measure" && it!="types"}?.let { type ->
+    filterDialog?.takeIf{it!="types"}?.let { type ->
         val title=when(type){"equipment"->"Filtra per attrezzatura";"groups"->"Filtra per gruppi muscolari";else->"Filtra per skill"}
         val opts=when(type){"equipment"->equipmentOptions;"groups"->recoveryGroups;else->calisthenicsSkills.map{it.name}}
         val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;else->skillFilters}
@@ -1684,7 +1686,7 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
 @Composable
 private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss: () -> Unit, onCreate: (EquipmentProfile) -> Unit) {
     var name by remember(current) { mutableStateOf(current?.name ?: "") }
-    val options = listOf("Corpo libero", "Sbarra", "Parallele", "Bilanciere", "Manubri", "Cavi", "Macchine", "Elastici", "Panca", "Kettlebell", "Leg press", "Anelli", "TRX", "Ab Wheel", "Foam Roller")
+    val options = profileEquipmentOptions(exercises)
     val selected = remember(current) { mutableStateListOf<String>().apply { addAll(current?.equipment ?: emptyList()) } }
 
     AlertDialog(
@@ -1724,7 +1726,7 @@ private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss:
         },
         confirmButton = {
             Button(
-                onClick = { onCreate(EquipmentProfile(name.trim(), "📍", selected.toList())) },
+                onClick = { onCreate(EquipmentProfile(name.trim(), "📍", selected.distinctBy{it.lowercase()}.sortedBy{it.lowercase()})) },
                 enabled = name.isNotBlank() && selected.isNotEmpty()
             ) { Text(if(current==null)"CREA" else "SALVA") }
         },
