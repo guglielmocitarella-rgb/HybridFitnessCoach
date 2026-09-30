@@ -30,7 +30,6 @@ private val Bg = Color(0xFFF7F8FA)
 internal enum class TrainingLocationKind(val stableId:String) { GYM("gym"), HOME("home"), OUTDOOR("outdoor"), CUSTOM("custom") }
 internal data class TrainingLocation(val id:String,val name:String,val icon:String,val kind:TrainingLocationKind,val capabilities:Set<EquipmentId>) {
     init { require(id.isNotBlank()); require(name.isNotBlank()) }
-    fun asLegacyProfile():EquipmentProfile = EquipmentProfile(name,icon,capabilities.map(EquipmentCatalog::displayName).sortedBy{it.lowercase()})
 }
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
 internal fun EquipmentProfile.toTrainingLocation(id:String="legacy:"+name.trim().lowercase().replace(" ","-")):TrainingLocation =
@@ -638,13 +637,6 @@ internal fun exerciseEquipmentOptions(source:List<Exercise>):List<String> =
 internal fun profileEquipmentOptions(source:List<Exercise>):List<String> =
     (exerciseEquipmentOptions(source) + EquipmentCatalog.displayName(EquipmentId.BODYWEIGHT))
         .distinct().sortedBy { it.lowercase() }
-
-internal fun equipmentCompatible(ex: Exercise, profile: EquipmentProfile): Boolean {
-    val required=EquipmentCatalog.requirementsFor(ex)
-    if(required.isEmpty()) return false
-    val available=profile.equipment.mapNotNull(EquipmentCatalog::fromDisplayName).toSet()+EquipmentId.BODYWEIGHT
-    return required==setOf(EquipmentId.BODYWEIGHT) || required.all { it in available }
-}
 
 internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 
