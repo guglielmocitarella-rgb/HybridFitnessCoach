@@ -274,6 +274,19 @@ internal fun enforceSkillMasteryPrescription(
     sessions:List<SessionRecord>
 ):List<Exercise> = items.map{applySkillMasteryPrescription(it,selectedSkills,sessions)}
 
+internal fun regenerateSkillWorkout(
+    original:List<Exercise>,
+    pool:List<Exercise>,
+    pinned:Set<String>,
+    context:CoachingContext,
+    selectedSkills:Collection<String>,
+    sessions:List<SessionRecord>
+):List<Exercise> = enforceSkillMasteryPrescription(
+    regenerateCoachedWorkout(original,pool,pinned,context),
+    selectedSkills,
+    sessions
+)
+
 internal data class EffectiveRunnerPrescription(
     val sets:Int,
     val value:Double,
