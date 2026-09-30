@@ -199,6 +199,34 @@ class AppStoreRecoveryTest {
         assertEquals(raw, prefs.getString("active_workout_v1", null))
     }
 
+    @Test fun athletePersistenceOwnsOnlyStableAthleteFields() {
+        val store = AppStore(context)
+        store.saveAthlete(AthleteProfile(
+            name = "Ada",
+            goal = "Calisthenics",
+            level = "Avanzato",
+            daysPerWeek = 6,
+            age = 35,
+            heightCm = 170f,
+            weightKg = 65f,
+            sex = "Donna",
+            prioritySkills = listOf("Front lever")
+        ))
+        assertFalse(prefs.contains("athlete_goal"))
+        assertFalse(prefs.contains("athlete_days"))
+        assertFalse(prefs.contains("athlete_priority_skills"))
+        val loaded = store.loadAthlete()
+        assertEquals("Ada", loaded.name)
+        assertEquals("Avanzato", loaded.level)
+        assertEquals(35, loaded.age)
+        assertEquals(170f, loaded.heightCm)
+        assertEquals(65f, loaded.weightKg)
+        assertEquals("Donna", loaded.sex)
+        assertEquals(AthleteProfile().goal, loaded.goal)
+        assertEquals(AthleteProfile().daysPerWeek, loaded.daysPerWeek)
+        assertTrue(loaded.prioritySkills.isEmpty())
+    }
+
     @Test fun malformedAthleteFieldDoesNotHideValidProfileFields() {
         prefs.edit().putString("athlete_name", "Ada").putString("athlete_days", "broken").commit()
         assertEquals("Ada", AppStore(context).loadAthlete().name)
