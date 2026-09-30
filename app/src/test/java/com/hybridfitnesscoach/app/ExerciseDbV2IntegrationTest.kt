@@ -49,7 +49,7 @@ class ExerciseDbV2IntegrationTest {
         val barbell=db.first{ "barbell" in it.equipment }
         val mapped=ExerciseDbV2.toLegacyExercise(barbell)
         assertEquals("Bilanciere",mapped.equipment)
-        assertTrue(locationCompatible(mapped,EquipmentProfile("Test","",listOf("Bilanciere")).toTrainingLocation()))
+        assertTrue(locationCompatible(mapped,TrainingLocation("test:barbell","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BARBELL))))
         assertNotEquals(ResistanceMode.NONE,mapped.resistanceMode)
     }
 
@@ -73,16 +73,16 @@ class ExerciseDbV2IntegrationTest {
         val row=records().first{it.equipment.isEmpty()}
         val mapped=ExerciseDbV2.toLegacyExercise(row)
         assertEquals("Non specificato",mapped.equipment)
-        assertFalse(locationCompatible(mapped,EquipmentProfile("Home","",emptyList()).toTrainingLocation()))
+        assertFalse(locationCompatible(mapped,TrainingLocation("test:home-empty","Home","",TrainingLocationKind.CUSTOM,emptySet())))
     }
 
     @Test fun multiTokenEquipmentPreservesAllRequiredResources() {
         val row=records().first{it.equipment.size>1}
         val mapped=ExerciseDbV2.toLegacyExercise(row)
         assertTrue(mapped.equipment.contains(" / "))
-        val all=EquipmentProfile("All","",mapped.equipment.split(" / "))
-        assertTrue(locationCompatible(mapped,all.toTrainingLocation()))
-        assertFalse(locationCompatible(mapped,EquipmentProfile("Partial","",listOf(mapped.equipment.substringBefore(" / "))).toTrainingLocation()))
+        val all=TrainingLocation("test:all","All","",TrainingLocationKind.CUSTOM,mapped.equipment.split(" / ").mapNotNull(EquipmentCatalog::fromDisplayName).toSet())
+        assertTrue(locationCompatible(mapped,all))
+        assertFalse(locationCompatible(mapped,TrainingLocation("test:partial","Partial","",TrainingLocationKind.CUSTOM,setOfNotNull(EquipmentCatalog.fromDisplayName(mapped.equipment.substringBefore(" / "))))))
     }
     @Test fun exerciseSpecificEvidenceLocatorSurvivesParsing() {
         val row=records().first{it.sourceRefs.any{ref->!ref.locator.isNullOrBlank()}}
@@ -160,7 +160,7 @@ class ExerciseDbV2IntegrationTest {
             }
             assertTrue(
                 "Selecting every displayed requirement must make ${ex.name} compatible: ${ex.equipment}",
-                locationCompatible(ex,EquipmentProfile("Contract","",required).toTrainingLocation())
+                locationCompatible(ex,TrainingLocation("test:contract","Contract","",TrainingLocationKind.CUSTOM,required.mapNotNull(EquipmentCatalog::fromDisplayName).toSet()))
             )
         }
     }
