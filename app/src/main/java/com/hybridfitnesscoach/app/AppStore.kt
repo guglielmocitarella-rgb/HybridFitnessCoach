@@ -150,8 +150,8 @@ class AppStore(context: Context) {
 
     private fun validateStore() {
         loadAthlete()
-        loadActiveProfileName()
-        loadCustomProfiles()
+        loadActiveTrainingLocationId()
+        loadTrainingLocations()
         loadSessions()
         loadActiveWorkout()
         readTrainingPlan()
