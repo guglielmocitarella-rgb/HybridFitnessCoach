@@ -304,8 +304,8 @@ class V091PlanningTest {
  }
 
  @Test fun plannedIntentMaterializesAgainstExecutionLocation(){
-  val machine=Exercise("Location machine","Gambe","Macchine","Intermedio",role="Forza",category=ExerciseCategory.SQUAT)
-  val body=Exercise("Location body","Gambe","Corpo libero","Intermedio",role="Forza",category=ExerciseCategory.SQUAT,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val machine=Exercise("Location machine","Gambe","Macchine","Intermedio",role="Forza",category=ExerciseCategory.LEGS)
+  val body=Exercise("Location body","Gambe","Corpo libero","Intermedio",role="Forza",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.BODYWEIGHT)
   val planned=PlannedWorkout("p",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza",emptyList(),emptySet(),0))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
   val realized=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio"),emptyList(),80,listOf(machine,body))
