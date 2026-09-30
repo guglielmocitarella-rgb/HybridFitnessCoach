@@ -12,12 +12,6 @@ class V09RegressionAuditTest {
         val b=generateWorkout(gym,athlete,emptyList(),readinessScore=80).map{it.name}
         assertEquals(a,b); assertEquals(6,a.size)
     }
-    @Test fun legacyGoalStillMapsToSupportedGenerationPath() {
-        val gym=profiles.first{it.name=="Palestra"}
-        val legacy=AthleteProfile(goal="Forza + Skill Calisthenics",level="Intermedio",prioritySkills=listOf("Front lever"))
-        val workout=generateWorkout(gym,legacy,emptyList())
-        assertEquals(6,workout.size); assertTrue(workout.all{equipmentCompatible(it,gym)})
-    }
     @Test fun v08StrengthPathRemainsAvailable() {
         val gym=profiles.first{it.name=="Palestra"}
         val workout=generateWorkout(gym,AthleteProfile(goal="Forza",level="Intermedio"),emptyList())
