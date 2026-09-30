@@ -66,7 +66,7 @@ class ExerciseDbV2IntegrationTest {
         val mapped=records().asSequence().map{ExerciseDbV2.toLegacyExercise(it)}
             .first{it.measure==ExerciseMeasure.REPS && it.resistanceMode!=ResistanceMode.NONE &&
                 it.category in setOf(ExerciseCategory.PUSH,ExerciseCategory.PULL,ExerciseCategory.LEGS,ExerciseCategory.CORE)}
-        val context=PrescriptionContext("Forza","Intermedio",mapped.category,5,5,5,null,80,null)
+        val context=PrescriptionContext("Forza",2,5,null,80)
         assertNotNull(SourcePrescriptionBaselineRegistry.baselineFor(mapped,context))
     }
     @Test fun emptyEquipmentIsUnknownAndFailsClosedForConstrainedGeneration() {

@@ -127,7 +127,7 @@ class Rc2PlanningRegressionTest {
 
     @Test fun fullFiftyTwoWeekPlanAlwaysRespectsProfileEquipmentAndAthleteLevel() {
         val profile=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",daysPerWeek=7,prioritySkills=listOf("Front lever"))
+        val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=7,prioritySkills=listOf("Front lever"))
         val recent=mutableListOf<List<String>>()
         val plan=TrainingPlanEngine.scheduleImmediately("year-profile",20_000,52,7){_,_->
             val selected=generateWorkout(profile,athlete,emptyList(),80,recent.flatten().toSet())
@@ -138,7 +138,8 @@ class Rc2PlanningRegressionTest {
         assertEquals(364,plan.workouts.size)
         assertTrue(plan.workouts.all{it.exercises.isNotEmpty()})
         assertTrue(plan.workouts.flatMap{it.exercises}.all{locationCompatible(it,profile)})
-        assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(athlete.level)})
+        val capability=athlete.toCapabilityProfile()
+        assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=capabilityLevelFor(it,capability)})
     }
 
     @Test fun failedCalendarPersistenceCannotExposeCandidatePlan() {
@@ -188,8 +189,8 @@ class Rc2PlanningRegressionTest {
     @Test fun homeSuggestionUsesTodayPlanExercisesInsteadOfAdaptiveFallback() {
         val original=plan()
         val today=original.workouts.first().epochDay
-        val plannedExercise=Exercise(name="Plan exercise", group="Petto", equipment="Nessuna", level="Intermedio")
-        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio")
+        val plannedExercise=Exercise(name="Plan exercise", group="Petto", equipment="Nessuna", level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val withExercise=original.copy(workouts=original.workouts.mapIndexed { i,w -> if(i==0) w.copy(exercises=listOf(plannedExercise)) else w })
 
         val suggestion=resolveSuggestedWorkout(withExercise,today){listOf(adaptiveExercise)}
@@ -201,7 +202,7 @@ class Rc2PlanningRegressionTest {
     @Test fun homeSuggestionFallsBackToAdaptiveWhenTodayPlanIsNotRunnable() {
         val original=plan()
         val today=original.workouts.first().epochDay
-        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio")
+        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val completed=original.copy(workouts=original.workouts.mapIndexed { i,w -> if(i==0) w.copy(state=PlannedWorkoutState.COMPLETED) else w })
 
         val suggestion=resolveSuggestedWorkout(completed,today){listOf(adaptiveExercise)}

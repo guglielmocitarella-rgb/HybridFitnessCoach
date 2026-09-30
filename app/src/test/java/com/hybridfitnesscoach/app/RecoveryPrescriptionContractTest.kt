@@ -4,7 +4,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RecoveryPrescriptionContractTest {
-    private val athlete=AthleteProfile(level="Intermedio",goal="Forza")
+    private val athlete=AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,goal="Forza")
 
     @Test fun sourcedSetRestReachesEffectiveExerciseAndPlannedState() {
         val ex=Exercise("Contract press","Petto","Manubri","Intermedio",
@@ -40,6 +40,22 @@ class RecoveryPrescriptionContractTest {
         val effective=exerciseWithEffectivePrescription(ex,athlete,emptyList(),80)
         assertEquals(effective.setRestSec,effective.exerciseRestSec)
     }
+    @Test fun customCoachingThenEffectivePrescriptionPropagatesSourceRecoveryWithoutLosingFallbackAdaptation() {
+        val source=Exercise("Custom source press","Petto","Bilanciere","Intermedio",
+            category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,
+            setRestSec=75,targetSets=3,targetValue=6.0)
+        val fallback=Exercise("Custom fallback run","Cardio","Corpo libero","Principiante",
+            category=ExerciseCategory.CARDIO,resistanceMode=ResistanceMode.BODYWEIGHT,
+            measure=ExerciseMeasure.DISTANCE,setRestSec=45,targetSets=2,targetValue=1000.0)
+        val coaching=coachingContext(emptyList(),30)
+        val coached=applyCoaching(listOf(source,fallback),coaching)
+        val effective=effectiveAutomaticExercises(coached,athlete,emptyList(),30)
+        assertTrue(effective.first().setRestSec>=180)
+        assertEquals(coached[1].targetSets,effective[1].targetSets)
+        assertEquals(coached[1].targetValue,effective[1].targetValue)
+        assertEquals(45,effective[1].setRestSec)
+    }
+
     @Test fun installedSourceGuidanceConstrainsRecoveryAndCarriesProvenance() {
         val previous=ExerciseDbV2.installedProgrammingGuidance()
         try {
@@ -49,7 +65,7 @@ class RecoveryPrescriptionContractTest {
             ))
             val ex=Exercise("Guidance press","Petto","Bilanciere","Intermedio",
                 category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
-            val context=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,5,null,80,null)
+            val context=PrescriptionContext("Forza",2,5,null,80)
             val baseline=SourcePrescriptionBaselineRegistry.baselineFor(ex,context)!!
             assertEquals(240,baseline.restSeconds)
             assertEquals("NSCA_ESS5",baseline.evidence.single().sourceId)

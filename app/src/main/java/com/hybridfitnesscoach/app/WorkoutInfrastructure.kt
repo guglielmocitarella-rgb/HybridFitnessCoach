@@ -215,9 +215,10 @@ internal fun customWorkoutCandidatePool(
     equipmentFilters:Collection<String> = emptyList()
 ):List<Exercise> {
     val eligible=skillEligibleExerciseNames(catalogue,sessions)
+    val capability=athlete.toCapabilityProfile()
     val base=catalogue.filter { ex ->
         ex.name in eligible &&
-        levelScore(ex.level)<=levelScore(athlete.level) &&
+        levelScore(ex.level)<=capabilityLevelFor(ex,capability) &&
         locationCompatible(ex,location) &&
         (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
         (mode!="Parti del corpo" || selectedGroups.isEmpty() || selectedGroups.any{ex.group.contains(it,true)})
@@ -312,18 +313,12 @@ internal fun effectiveRunnerPrescription(
         state?.sets?.takeIf{it.isNotEmpty()}?.let{sets->sets.count{it.completed}.toDouble()/sets.size}
     }
     val fatigue=latest?.workoutRpe ?: 5
-    val legacyIntensity=exercise.intensity
-    val legacyVolume=(exercise.targetSets ?: legacy.sets).coerceAtLeast(1)
     val context=PrescriptionContext(
         goal=athlete.goal,
-        athleteLevel=athlete.level,
-        exerciseType=exercise.category,
-        intensity=legacyIntensity,
-        volume=legacyVolume,
+        capabilityLevel=capabilityLevelFor(exercise,athlete.toCapabilityProfile()),
         fatigue=fatigue,
         recentPerformance=recent,
-        recoveryStatus=readinessScore,
-        skillLevel=levelScore(athlete.level)
+        recoveryStatus=readinessScore
     )
     val sourced=SourcePrescriptionBaselineRegistry.prescribeIfVerified(exercise,context)
     return if(sourced!=null) EffectiveRunnerPrescription(

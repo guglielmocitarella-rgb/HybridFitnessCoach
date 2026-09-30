@@ -63,7 +63,13 @@ class Rc2RunnerInputTest {
         ).forEach { (assessment, expected) ->
             val level=capabilityLevelName(capabilityFromAssessment(assessment).exerciseLevel)
             assertEquals(expected,level)
-            val workout=generateWorkout(gym,AthleteProfile(goal="Fitness generale",level=level),emptyList(),80)
+            val capability=capabilityFromAssessment(assessment)
+            val workout=generateWorkout(gym,AthleteProfile(
+                goal="Fitness generale",
+                assessedTrainingExperience=capability.trainingExperience,
+                assessedPushCapacity=capability.pushCapacity,
+                assessedPullCapacity=capability.pullCapacity
+            ),emptyList(),80)
             assertTrue(workout.isNotEmpty())
             assertTrue(workout.all{levelScore(it.level)<=levelScore(level)})
         }
@@ -73,7 +79,7 @@ class Rc2RunnerInputTest {
         val ex=Exercise("Direct contract press","Petto","Manubri","Intermedio",
             role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,
             setRestSec=90,exerciseRestSec=120,targetSets=3,targetValue=6.0)
-        val athlete=AthleteProfile(level="Intermedio",goal="Forza")
+        val athlete=AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,goal="Forza")
         val effective=exerciseWithEffectivePrescription(ex,athlete,emptyList(),80)
         val state=singleExerciseWorkoutState(ex,"Palestra",1234L,athlete,emptyList(),80)
         val launched=state.exercises.single()

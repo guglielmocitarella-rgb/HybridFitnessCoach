@@ -141,9 +141,15 @@ data class CapabilityProfile(
     val assessed:Boolean = false
 )
 internal fun AthleteProfile.toCapabilityProfile():CapabilityProfile {
-    val values=listOf(assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity)
-    val assessed=values.all{it in 1..3}
-    return CapabilityProfile(levelScore(level),assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity,assessed)
+    val experience=assessedTrainingExperience?.takeIf{it in 1..3}
+    val push=assessedPushCapacity?.takeIf{it in 1..3}
+    val pull=assessedPullCapacity?.takeIf{it in 1..3}
+    val assessed=listOf(experience,push,pull).all{it!=null}
+    val overall=if(assessed) {
+        val score=(experience!!-1)+(push!!-1)+(pull!!-1)
+        when { score>=5->3; score>=2->2; else->1 }
+    } else 1
+    return CapabilityProfile(overall,experience,push,pull,assessed)
 }
 data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
 internal fun capabilityFromAssessment(input:FitnessLevelAssessment):CapabilityProfile {
@@ -640,11 +646,13 @@ internal fun profileEquipmentOptions(source:List<Exercise>):List<String> =
 
 internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 internal fun capabilityLevelFor(ex:Exercise, capability:CapabilityProfile):Int {
-    if(!capability.assessed || ex.resistanceMode!=ResistanceMode.BODYWEIGHT) return capability.exerciseLevel
-    return when(ex.category) {
-        ExerciseCategory.PULL -> capability.pullCapacity ?: capability.exerciseLevel
-        ExerciseCategory.PUSH -> capability.pushCapacity ?: capability.exerciseLevel
-        else -> capability.exerciseLevel
+    if(!capability.assessed) return 1
+    return when {
+        ex.resistanceMode==ResistanceMode.BODYWEIGHT && ex.category==ExerciseCategory.PULL ->
+            capability.pullCapacity ?: 1
+        ex.resistanceMode==ResistanceMode.BODYWEIGHT && ex.category==ExerciseCategory.PUSH ->
+            capability.pushCapacity ?: 1
+        else -> capability.trainingExperience ?: 1
     }
 }
 
@@ -1260,7 +1268,8 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
         Card(Modifier.padding(horizontal=20.dp).fillMaxWidth().clickable { edit=true }) {
             Column(Modifier.padding(18.dp)) {
                 Text(if(athlete.name.isBlank()) "Configura profilo atleta" else athlete.name, fontSize=20.sp, fontWeight=FontWeight.Bold)
-                Text("Livello: " + athlete.level, color=Color.Gray);if(athlete.heightCm>0&&athlete.weightKg>0){val bmi=athlete.weightKg/((athlete.heightCm/100f)*(athlete.heightCm/100f));Text(String.format(java.util.Locale.ITALY,"%.1f kg • %.0f cm • BMI %.1f",athlete.weightKg,athlete.heightCm,bmi),color=Accent,fontSize=13.sp)}
+                val capability=athlete.toCapabilityProfile()
+                Text(if(capability.assessed) "Capacità • Esperienza "+capability.trainingExperience+"/3 • Push "+capability.pushCapacity+"/3 • Pull "+capability.pullCapacity+"/3" else "Capacità: valutazione da completare", color=Color.Gray);if(athlete.heightCm>0&&athlete.weightKg>0){val bmi=athlete.weightKg/((athlete.heightCm/100f)*(athlete.heightCm/100f));Text(String.format(java.util.Locale.ITALY,"%.1f kg • %.0f cm • BMI %.1f",athlete.weightKg,athlete.heightCm,bmi),color=Accent,fontSize=13.sp)}
                 Text("TOCCA PER MODIFICARE", color=Accent, fontSize=12.sp, modifier=Modifier.padding(top=8.dp))
             }
         }
@@ -1293,7 +1302,6 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
 @Composable
 private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(AthleteProfile)->Unit){
     var name by remember{mutableStateOf(current.name)}
-    var level by remember{mutableStateOf(current.level)}
     var age by remember{mutableStateOf(if(current.age>0)current.age.toString() else "")}
     var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")}
     var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")}
@@ -1311,31 +1319,32 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
             Text("Sesso (opzionale)",fontWeight=FontWeight.Bold)
             Row{listOf("Non specificato","Uomo","Donna").forEach{x->FilterChip(sex==x,{sex=x},{Text(x)},Modifier.padding(end=4.dp))}}
             if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}
-            Text("Livello",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
-            Text("Livello attuale: $level",color=Accent)
+            Text("Capacità atleta",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
+            if(listOf(assessedExperience,assessedPush,assessedPull).all{it!=null})
+                Text("Esperienza "+assessedExperience+"/3 • Push "+assessedPush+"/3 • Pull "+assessedPull+"/3",color=Accent)
+            else Text("Valutazione non completata: il generatore resta conservativo.",color=Color.Gray)
             if(assessmentOpen){
                 var months by remember{mutableStateOf("")}
                 var pushUps by remember{mutableStateOf("")}
                 var pullUps by remember{mutableStateOf("")}
-                Text("Valutazione livello",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
+                Text("Valutazione capacità",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
                 Text("Test interno orientativo: esperienza e capacità attuali. Il risultato viene usato per limitare la difficoltà del piano.",color=Color.Gray,fontSize=12.sp)
                 OutlinedTextField(months,{months=it.filter(Char::isDigit)},label={Text("Mesi di allenamento")},singleLine=true,modifier=Modifier.fillMaxWidth())
                 OutlinedTextField(pushUps,{pushUps=it.filter(Char::isDigit)},label={Text("Push-up consecutivi")},singleLine=true,modifier=Modifier.fillMaxWidth())
                 OutlinedTextField(pullUps,{pullUps=it.filter(Char::isDigit)},label={Text("Trazioni consecutive")},singleLine=true,modifier=Modifier.fillMaxWidth())
                 Button(onClick={
                     val capability=capabilityFromAssessment(FitnessLevelAssessment(months.toIntOrNull()?:0,pushUps.toIntOrNull()?:0,pullUps.toIntOrNull()?:0))
-                    level=capabilityLevelName(capability.exerciseLevel)
                     assessedExperience=capability.trainingExperience
                     assessedPush=capability.pushCapacity
                     assessedPull=capability.pullCapacity
                     assessmentOpen=false
-                },modifier=Modifier.fillMaxWidth()){Text("CALCOLA LIVELLO")}
+                },modifier=Modifier.fillMaxWidth()){Text("CALCOLA CAPACITÀ")}
             } else {
-                OutlinedButton(onClick={assessmentOpen=true},modifier=Modifier.fillMaxWidth()){Text("VALUTA LIVELLO")}
+                OutlinedButton(onClick={assessmentOpen=true},modifier=Modifier.fillMaxWidth()){Text("VALUTA CAPACITÀ")}
             }
             Text("Obiettivo, skill e giorni di allenamento si configurano nel programma multi-settimana.",color=Color.Gray,fontSize=12.sp,modifier=Modifier.padding(top=10.dp))
         }
-    }},confirmButton={Button(onClick={onSave(current.copy(name=name.trim(),level=level,age=age.toIntOrNull()?:0,heightCm=height.toFloatOrNull()?:0f,weightKg=weight.toFloatOrNull()?:0f,sex=sex,assessedTrainingExperience=assessedExperience,assessedPushCapacity=assessedPush,assessedPullCapacity=assessedPull))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
+    }},confirmButton={Button(onClick={onSave(current.copy(name=name.trim(),age=age.toIntOrNull()?:0,heightCm=height.toFloatOrNull()?:0f,weightKg=weight.toFloatOrNull()?:0f,sex=sex,assessedTrainingExperience=assessedExperience,assessedPushCapacity=assessedPush,assessedPullCapacity=assessedPull))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
 }
 @Composable
 private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation:LoadRecommendation?=null, targetSet:WorkoutSetState?=null, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
@@ -1416,6 +1425,7 @@ private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfi
         val ranked=base.sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(selectedSkills.any{s->s in it.skills})0 else 1}.thenBy{if(it.role=="Forza")0 else 1})
         generated=ranked.take(count)
         generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions,readinessScore))
+        generated=effectiveAutomaticExercises(generated,athlete,sessions,readinessScore)
         if(mode=="Skill") generated=enforceSkillMasteryPrescription(generated,selectedSkills,sessions)
         completed.clear();expandedCompleted.clear();reps.clear();restSeconds.clear();exerciseRpe.clear()
         generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second;exerciseRpe[ex.name]=5}
@@ -1455,6 +1465,8 @@ private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfi
                             TextButton(onClick={
                                 val pool=customWorkoutCandidatePool(selectedLocation,athlete,sessions,mode,selectedSkills,selectedGroups,equipmentFilters=initialEquipment)
                                 generated=if(mode=="Skill") regenerateSkillWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore),selectedSkills,sessions) else regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
+                                generated=effectiveAutomaticExercises(generated,athlete,sessions,readinessScore)
+                                if(mode=="Skill") generated=enforceSkillMasteryPrescription(generated,selectedSkills,sessions)
                                 reps.clear();restSeconds.clear();generated.forEach{ex->reps[ex.name]=prescriptionFor(ex).value.toInt();restSeconds[ex.name]=ex.setRestSec}
                                 generationMessage="Rigenerati solo gli esercizi non bloccati."
                             }){Text("RIGENERA NON BLOCCATI")}
@@ -1620,7 +1632,8 @@ private fun WorkoutDialog(profile: TrainingLocation, athlete: AthleteProfile, se
                 LazyColumn(state=listState,modifier=Modifier.weight(1f)){
                     if(!started)item{
                         CoachSummary(coachingContext(sessions,readinessScore))
-                        Text("Generato per "+athlete.goal+" • "+athlete.level+" • "+profile.name,color=Color.Gray)
+                        val capability=athlete.toCapabilityProfile()
+                        Text("Generato per "+athlete.goal+" • "+(if(capability.assessed)"capacità valutata" else "capacità da valutare")+" • "+profile.name,color=Color.Gray)
                         if(sessions.any{it.exerciseNames.isNotEmpty()})Text("Adattato anche agli allenamenti recenti",color=Accent,fontSize=12.sp)
                     }
                     item{LinearProgressIndicator(progress={if(totalSets==0)0f else doneSets.toFloat()/totalSets},modifier=Modifier.fillMaxWidth().padding(vertical=12.dp))}
