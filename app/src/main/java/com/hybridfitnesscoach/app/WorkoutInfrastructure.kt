@@ -237,45 +237,6 @@ internal fun customWorkoutCandidatePool(
     return (skillWork+support).distinct()
 }
 
-internal fun customWorkoutCandidatePool(
-    profile:EquipmentProfile,
-    athlete:AthleteProfile,
-    sessions:List<SessionRecord>,
-    mode:String,
-    selectedSkills:Collection<String>,
-    selectedGroups:Collection<String>
-):List<Exercise> {
-    val eligible=skillEligibleExercises(sessions)
-    val base=exercises.filter { ex ->
-        ex.name in eligible &&
-        levelScore(ex.level)<=levelScore(athlete.level) &&
-        equipmentCompatible(ex,profile) &&
-        (mode!="Parti del corpo" || selectedGroups.isEmpty() || selectedGroups.any{ex.group.contains(it,true)})
-    }
-    if(mode!="Skill") return base
-    if(selectedSkills.isEmpty()) return emptyList()
-
-    val focusNames=skillWorkoutFocusNames(selectedSkills,sessions)
-    val skillWork=base.filter{ex->
-        selectedSkills.any{s->s in ex.skills} && ex.name.lowercase() in focusNames
-    }.map { ex -> applySkillMasteryPrescription(ex,selectedSkills,sessions) }
-    // Support work may remain broad, but never reintroduce another progression
-    // exercise from the selected skill: mastered and locked nodes stay out.
-    val support=base.filter{ex->
-        ex !in skillWork &&
-        selectedSkills.none{s->s in ex.skills} &&
-        ex.role in setOf("Forza","Prerequisito","Accessorio")
-    }
-    return (skillWork+support).distinct()
-}
-
-
-/**
- * A skill workout must rehearse the currently consolidated progression at the
- * criterion that can actually establish mastery. This is deliberately separate
- * from generic strength/hypertrophy prescriptions: a 3x8 mastery node must not
- * silently become the generic 3x5 progression prescription.
- */
 internal fun applySkillMasteryPrescription(
     exercise:Exercise,
     selectedSkills:Collection<String>,
