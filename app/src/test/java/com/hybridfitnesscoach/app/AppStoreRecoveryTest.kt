@@ -217,6 +217,34 @@ class AppStoreRecoveryTest {
         assertEquals(raw, prefs.getString("active_workout_v1", null))
     }
 
+    @Test fun assessedAthleteCapabilitiesRoundTripAndLegacyFallback() {
+        val store = AppStore(context)
+        store.saveAthlete(AthleteProfile(
+            name = "Capability",
+            level = "Intermedio",
+            assessedTrainingExperience = 3,
+            assessedPushCapacity = 1,
+            assessedPullCapacity = 2
+        ))
+        val loaded = AppStore(context).loadAthlete()
+        assertEquals(3, loaded.assessedTrainingExperience)
+        assertEquals(1, loaded.assessedPushCapacity)
+        assertEquals(2, loaded.assessedPullCapacity)
+        assertTrue(loaded.toCapabilityProfile().assessed)
+
+        prefs.edit()
+            .remove("athlete_assessed_experience")
+            .remove("athlete_assessed_push")
+            .remove("athlete_assessed_pull")
+            .commit()
+        val legacy = AppStore(context).loadAthlete()
+        assertNull(legacy.assessedTrainingExperience)
+        assertNull(legacy.assessedPushCapacity)
+        assertNull(legacy.assessedPullCapacity)
+        assertFalse(legacy.toCapabilityProfile().assessed)
+        assertEquals(levelScore(legacy.level), legacy.toCapabilityProfile().exerciseLevel)
+    }
+
     @Test fun athletePersistenceOwnsOnlyStableAthleteFields() {
         val store = AppStore(context)
         store.saveAthlete(AthleteProfile(

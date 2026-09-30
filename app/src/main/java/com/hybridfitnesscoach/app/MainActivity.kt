@@ -146,7 +146,8 @@ data class CapabilityProfile(
     val assessed:Boolean = false
 )
 internal fun AthleteProfile.toCapabilityProfile():CapabilityProfile {
-    val assessed=listOf(assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity).all{it!=null}
+    val values=listOf(assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity)
+    val assessed=values.all{it in 1..3}
     return CapabilityProfile(levelScore(level),assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity,assessed)
 }
 data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
