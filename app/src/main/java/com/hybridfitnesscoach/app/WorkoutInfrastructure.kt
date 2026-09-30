@@ -187,6 +187,23 @@ object AdaptiveCoach {
 
 
 
+/**
+ * Resolve the progression node that should be trained for each selected skill.
+ * IN_PROGRESS takes precedence over the next AVAILABLE node; once mastery is
+ * demonstrated by persisted history, focus advances to that newly available node.
+ * If a graph is fully mastered, keep the terminal node available for maintenance.
+ */
+internal fun skillWorkoutFocusNames(
+    selectedSkills:Collection<String>,
+    sessions:List<SessionRecord>
+):Set<String> = selectedSkills.flatMap { skill ->
+    val states=SkillCatalog.progress(skill,sessions)
+    val focus=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS}
+        ?: states.firstOrNull{it.status==ProgressionStatus.AVAILABLE}
+        ?: states.lastOrNull{it.status==ProgressionStatus.MASTERED}
+    focus?.let{it.node.exerciseAliases+it.node.exerciseName}.orEmpty()
+}.map{it.lowercase()}.toSet()
+
 internal fun customWorkoutCandidatePool(
     profile:EquipmentProfile,
     athlete:AthleteProfile,
@@ -203,8 +220,19 @@ internal fun customWorkoutCandidatePool(
         (mode!="Parti del corpo" || selectedGroups.isEmpty() || selectedGroups.any{ex.group.contains(it,true)})
     }
     if(mode!="Skill") return base
-    val skillWork=base.filter{ex->selectedSkills.any{s->s in ex.skills}}
-    val support=base.filter{it !in skillWork && (it.role=="Forza"||it.role=="Prerequisito"||it.role=="Accessorio")}
+    if(selectedSkills.isEmpty()) return emptyList()
+
+    val focusNames=skillWorkoutFocusNames(selectedSkills,sessions)
+    val skillWork=base.filter{ex->
+        selectedSkills.any{s->s in ex.skills} && ex.name.lowercase() in focusNames
+    }
+    // Support work may remain broad, but never reintroduce another progression
+    // exercise from the selected skill: mastered and locked nodes stay out.
+    val support=base.filter{ex->
+        ex !in skillWork &&
+        selectedSkills.none{s->s in ex.skills} &&
+        ex.role in setOf("Forza","Prerequisito","Accessorio")
+    }
     return (skillWork+support).distinct()
 }
 
