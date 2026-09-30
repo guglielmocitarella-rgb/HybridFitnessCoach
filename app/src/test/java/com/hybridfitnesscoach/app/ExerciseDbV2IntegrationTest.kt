@@ -200,4 +200,29 @@ class ExerciseDbV2IntegrationTest {
         }
     }
 
+    @Test fun everyCanonicalProgressionEdgeResolvesAndExerciseDetailDirectionIsConsistent() {
+        val db=records()
+        val edges=ExerciseDbV2.parseProgressions(asset("progressions.json").readText())
+        val ids=db.map{it.id}.toSet()
+        assertTrue(edges.isNotEmpty())
+        assertTrue(edges.all{it.from in ids && it.to in ids})
+        assertTrue(edges.all{it.from!=it.to})
+        val previous=ExerciseDbV2.installedRecords()
+        try {
+            ExerciseDbV2.install(db)
+            ExerciseDbV2.installProgressions(edges)
+            edges.filter{it.relationship=="MAIN_PROGRESSION"}.forEach { edge ->
+                val easier=db.first{it.id==edge.from}
+                val harder=db.first{it.id==edge.to}
+                val easierRelations=ExerciseDbV2.progressionRelations(ExerciseDbV2.toLegacyExercise(easier))
+                val harderRelations=ExerciseDbV2.progressionRelations(ExerciseDbV2.toLegacyExercise(harder))
+                assertTrue("${easier.id} must expose ${harder.id} as harder",easierRelations.harder.any{it.id==harder.id})
+                assertTrue("${harder.id} must expose ${easier.id} as easier",harderRelations.easier.any{it.id==easier.id})
+            }
+        } finally {
+            ExerciseDbV2.install(previous)
+            ExerciseDbV2.installProgressions(emptyList())
+        }
+    }
+
 }
