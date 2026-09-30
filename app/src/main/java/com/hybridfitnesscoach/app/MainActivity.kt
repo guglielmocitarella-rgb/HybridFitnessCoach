@@ -124,6 +124,15 @@ data class WorkoutSessionState(
     val pausedRestRemainingSec: Int? = null
 )
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
+data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
+internal fun assessedFitnessLevel(input:FitnessLevelAssessment):String {
+    require(input.trainingMonths>=0 && input.pushUps>=0 && input.pullUps>=0)
+    val experience=when { input.trainingMonths>=24->2; input.trainingMonths>=6->1; else->0 }
+    val push=when { input.pushUps>=30->2; input.pushUps>=10->1; else->0 }
+    val pull=when { input.pullUps>=10->2; input.pullUps>=3->1; else->0 }
+    val score=experience+push+pull
+    return when { score>=5->"Avanzato"; score>=2->"Intermedio"; else->"Principiante" }
+}
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
@@ -1233,7 +1242,24 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
             Row{listOf("Non specificato","Uomo","Donna").forEach{x->FilterChip(sex==x,{sex=x},{Text(x)},Modifier.padding(end=4.dp))}}
             if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}
             Text("Livello",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
-            listOf("Principiante","Intermedio","Avanzato").forEach{x->Row(Modifier.fillMaxWidth().clickable{level=x},verticalAlignment=Alignment.CenterVertically){RadioButton(level==x,{level=x});Text(x)}}
+            Text("Livello attuale: $level",color=Accent)
+            var assessmentOpen by remember{mutableStateOf(false)}
+            if(assessmentOpen){
+                var months by remember{mutableStateOf("")}
+                var pushUps by remember{mutableStateOf("")}
+                var pullUps by remember{mutableStateOf("")}
+                Text("Valutazione livello",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
+                Text("Test interno orientativo: esperienza e capacità attuali. Il risultato viene usato per limitare la difficoltà del piano.",color=Color.Gray,fontSize=12.sp)
+                OutlinedTextField(months,{months=it.filter(Char::isDigit)},label={Text("Mesi di allenamento")},singleLine=true,modifier=Modifier.fillMaxWidth())
+                OutlinedTextField(pushUps,{pushUps=it.filter(Char::isDigit)},label={Text("Push-up consecutivi")},singleLine=true,modifier=Modifier.fillMaxWidth())
+                OutlinedTextField(pullUps,{pullUps=it.filter(Char::isDigit)},label={Text("Trazioni consecutive")},singleLine=true,modifier=Modifier.fillMaxWidth())
+                Button(onClick={
+                    level=assessedFitnessLevel(FitnessLevelAssessment(months.toIntOrNull()?:0,pushUps.toIntOrNull()?:0,pullUps.toIntOrNull()?:0))
+                    assessmentOpen=false
+                },modifier=Modifier.fillMaxWidth()){Text("CALCOLA LIVELLO")}
+            } else {
+                OutlinedButton(onClick={assessmentOpen=true},modifier=Modifier.fillMaxWidth()){Text("VALUTA LIVELLO")}
+            }
             Text("Obiettivo, skill e giorni di allenamento si configurano nel programma multi-settimana.",color=Color.Gray,fontSize=12.sp,modifier=Modifier.padding(top=10.dp))
         }
     }},confirmButton={Button(onClick={onSave(current.copy(name=name.trim(),level=level,age=age.toIntOrNull()?:0,heightCm=height.toFloatOrNull()?:0f,weightKg=weight.toFloatOrNull()?:0f,sex=sex))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
