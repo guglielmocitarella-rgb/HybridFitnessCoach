@@ -198,30 +198,33 @@ class V091PlanningTest {
   assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,setOf(1,8)){_,_->listOf(ex)}}
  }
 
- @Test fun planConfigurationDefaultsComeFromAthleteProfile(){
-  val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",daysPerWeek=4,prioritySkills=listOf("Front lever","Planche"))
-  val config=PlanConfiguration.fromAthlete(athlete)
-  assertEquals("Calisthenics",config.goal)
-  assertEquals(4,config.daysPerWeek)
-  assertEquals(listOf("Front lever","Planche"),config.prioritySkills)
+ @Test fun planConfigurationDefaultsAreIndependentFromAthleteProfile(){
+  val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",daysPerWeek=6,prioritySkills=listOf("Front lever"))
+  val config=PlanConfiguration.defaults()
+  assertEquals("Fitness generale",config.goal)
+  assertEquals(3,config.daysPerWeek)
+  assertTrue(config.prioritySkills.isEmpty())
   assertEquals(8,config.weeks)
-  assertEquals(4,config.trainingDays.size)
+  assertEquals(3,config.trainingDays.size)
+  assertEquals("Calisthenics",athlete.goal)
  }
- @Test fun planConfigurationNormalizesLegacyGoalAndInvalidFrequency(){
-  val athlete=AthleteProfile(goal="Forza + skill",level="Principiante",daysPerWeek=0)
-  val config=PlanConfiguration.fromAthlete(athlete)
-  assertEquals("Calisthenics",config.goal)
-  assertEquals(1,config.daysPerWeek)
-  assertEquals(1,config.trainingDays.size)
- }
- @Test fun explicitPlanConfigurationOverridesDoNotMutateAthleteProfile(){
+ @Test fun explicitPlanConfigurationDoesNotMutateAthleteProfile(){
   val athlete=AthleteProfile(goal="Forza",level="Intermedio",daysPerWeek=3,prioritySkills=listOf("Front lever"))
-  val config=PlanConfiguration.fromAthlete(athlete).copy(goal="Ipertrofia",weeks=12,daysPerWeek=2,trainingDays=setOf(2,5),prioritySkills=emptyList()).validated()
+  val config=PlanConfiguration("Ipertrofia",12,2,setOf(2,5),emptyList()).validated()
   assertEquals("Forza",athlete.goal)
   assertEquals(3,athlete.daysPerWeek)
   assertEquals("Ipertrofia",config.goal)
   assertEquals(12,config.weeks)
   assertEquals(setOf(2,5),config.trainingDays)
+ }
+ @Test fun planConfigurationRoundTripsFromPlanOwnedMetadata(){
+  val plan=TrainingPlan("p",1000,12,2,emptyList(),"Calisthenics",setOf(2,5),listOf("Front lever"))
+  val config=PlanConfiguration.fromPlan(plan)
+  assertEquals("Calisthenics",config.goal)
+  assertEquals(12,config.weeks)
+  assertEquals(2,config.daysPerWeek)
+  assertEquals(setOf(2,5),config.trainingDays)
+  assertEquals(listOf("Front lever"),config.prioritySkills)
  }
  @Test fun planConfigurationRejectsMismatchedCalendarDays(){
   assertThrows(IllegalArgumentException::class.java){
@@ -235,7 +238,7 @@ class V091PlanningTest {
   val config=PlanConfiguration("Forza",2,2,setOf(2,5),emptyList()).validated()
   val start=java.time.LocalDate.of(2026,10,1).toEpochDay()
   val plan=generateTrainingPlan("cfg",start,profile,athlete,config,emptyList(),null)
-  assertEquals(2,plan.weeks);assertEquals(2,plan.daysPerWeek);assertEquals(4,plan.workouts.size)
+  assertEquals(2,plan.weeks);assertEquals(2,plan.daysPerWeek);assertEquals("Forza",plan.goal);assertEquals(setOf(2,5),plan.trainingDays);assertTrue(plan.prioritySkills.isEmpty());assertEquals(4,plan.workouts.size)
   assertTrue(plan.workouts.all{java.time.LocalDate.ofEpochDay(it.epochDay).dayOfWeek.value in config.trainingDays})
   assertTrue(plan.workouts.all{it.exercises.isNotEmpty()})
  }
@@ -266,7 +269,7 @@ class V091PlanningTest {
   val profile=profiles.first{it.name=="Palestra"}
   val level=assessedFitnessLevel(FitnessLevelAssessment(0,5,0))
   val athlete=AthleteProfile(goal="Forza",level=level,daysPerWeek=2)
-  val config=PlanConfiguration.fromAthlete(athlete).copy(weeks=1).validated()
+  val config=PlanConfiguration("Forza",1,2,setOf(1,4),emptyList()).validated()
   val plan=generateTrainingPlan("assessment",20_000,profile,athlete,config,emptyList(),80)
   assertEquals("Principiante",level)
   assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(level)})
