@@ -49,7 +49,7 @@ class RecoveryPrescriptionContractTest {
             ))
             val ex=Exercise("Guidance press","Petto","Bilanciere","Intermedio",
                 category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
-            val context=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,5,null,80,null)
+            val context=PrescriptionContext("Forza",2,5,null,80)
             val baseline=SourcePrescriptionBaselineRegistry.baselineFor(ex,context)!!
             assertEquals(240,baseline.restSeconds)
             assertEquals("NSCA_ESS5",baseline.evidence.single().sourceId)

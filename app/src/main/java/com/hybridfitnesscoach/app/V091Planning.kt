@@ -57,7 +57,7 @@ object ExerciseEvidenceRegistry {
  }
 }
 
-data class PrescriptionContext(val goal:String,val athleteLevel:String,val exerciseType:ExerciseCategory,val intensity:Int,val volume:Int,val fatigue:Int,val recentPerformance:Double?,val recoveryStatus:Int?,val skillLevel:Int?)
+data class PrescriptionContext(val goal:String,val capabilityLevel:Int,val fatigue:Int,val recentPerformance:Double?,val recoveryStatus:Int?)
 data class SourcePrescriptionBaseline(val sets:Int,val repsOrDuration:Double,val loadKg:Double?=null,val rirOrRpe:Double?=null,val restSeconds:Int,val tempo:String?=null,val evidence:List<EvidenceRef>){init{require(sets>0);require(repsOrDuration>0);require(restSeconds>0);require(evidence.isNotEmpty()){"A source-based baseline requires provenance"}}}
 object SourcePrescriptionBaselineRegistry {
  private val compatibilityEvidence=EvidenceRef(
@@ -86,7 +86,7 @@ object SourcePrescriptionBaselineRegistry {
  }
  fun baselineFor(exercise:Exercise,context:PrescriptionContext):SourcePrescriptionBaseline? {
   if(!isEligibleResistanceExercise(exercise)) return null
-  val level=context.athleteLevel.lowercase()
+  val level=context.capabilityLevel.coerceIn(1,3)
   val goal=context.goal.lowercase()
   val scope=when {
    goal.contains("forza")->"max_strength:resistance_training"
@@ -96,7 +96,7 @@ object SourcePrescriptionBaselineRegistry {
   val rule=scope?.let(::restRule)
   val evidence=rule?.let{listOf(evidenceFor(it))}?:listOf(compatibilityEvidence)
   return when {
-   level.contains("princip") -> SourcePrescriptionBaseline(2,10.0,null,null,restSeconds(rule,120)?:120,null,evidence)
+   level==1 -> SourcePrescriptionBaseline(2,10.0,null,null,restSeconds(rule,120)?:120,null,evidence)
    goal.contains("ipertrof") -> SourcePrescriptionBaseline(3,10.0,null,null,restSeconds(rule,120)?:120,null,evidence)
    goal.contains("forza") -> SourcePrescriptionBaseline(3,6.0,null,null,restSeconds(rule,180)?:180,null,evidence)
    else -> null

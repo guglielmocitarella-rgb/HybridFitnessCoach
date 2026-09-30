@@ -32,7 +32,7 @@ class Rc2PrescriptionRegressionTest {
 
     @Test fun sourceBasedRestIsNeverSilentlyReplacedByLegacyHeuristic() {
         val ex = Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,setRestSec=75)
-        val context = PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,null,85,null)
+        val context = PrescriptionContext("Forza",2,3,null,85)
         val sourced = SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex, context)!!
         assertEquals(180, sourced.restSeconds)
         assertEquals(180, runnerSetRestSeconds(ex, sourced.restSeconds))

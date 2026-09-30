@@ -141,9 +141,15 @@ data class CapabilityProfile(
     val assessed:Boolean = false
 )
 internal fun AthleteProfile.toCapabilityProfile():CapabilityProfile {
-    val values=listOf(assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity)
-    val assessed=values.all{it in 1..3}
-    return CapabilityProfile(levelScore(level),assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity,assessed)
+    val experience=assessedTrainingExperience?.takeIf{it in 1..3}
+    val push=assessedPushCapacity?.takeIf{it in 1..3}
+    val pull=assessedPullCapacity?.takeIf{it in 1..3}
+    val assessed=listOf(experience,push,pull).all{it!=null}
+    val overall=if(assessed) {
+        val score=(experience!!-1)+(push!!-1)+(pull!!-1)
+        when { score>=5->3; score>=2->2; else->1 }
+    } else 1
+    return CapabilityProfile(overall,experience,push,pull,assessed)
 }
 data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
 internal fun capabilityFromAssessment(input:FitnessLevelAssessment):CapabilityProfile {
@@ -640,11 +646,13 @@ internal fun profileEquipmentOptions(source:List<Exercise>):List<String> =
 
 internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 internal fun capabilityLevelFor(ex:Exercise, capability:CapabilityProfile):Int {
-    if(!capability.assessed || ex.resistanceMode!=ResistanceMode.BODYWEIGHT) return capability.exerciseLevel
-    return when(ex.category) {
-        ExerciseCategory.PULL -> capability.pullCapacity ?: capability.exerciseLevel
-        ExerciseCategory.PUSH -> capability.pushCapacity ?: capability.exerciseLevel
-        else -> capability.exerciseLevel
+    if(!capability.assessed) return 1
+    return when {
+        ex.resistanceMode==ResistanceMode.BODYWEIGHT && ex.category==ExerciseCategory.PULL ->
+            capability.pullCapacity ?: 1
+        ex.resistanceMode==ResistanceMode.BODYWEIGHT && ex.category==ExerciseCategory.PUSH ->
+            capability.pushCapacity ?: 1
+        else -> capability.trainingExperience ?: 1
     }
 }
 
