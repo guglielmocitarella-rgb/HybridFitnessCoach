@@ -29,5 +29,22 @@ class V09RegressionAuditTest {
     }
     @Test fun readinessBandsAreStableAtUxBoundaries(){assertEquals("RECUPERO",readinessBand(44));assertEquals("CAUTELA",readinessBand(45));assertEquals("BUONO",readinessBand(60));assertEquals("PRONTO",readinessBand(80))}
     @Test fun homeNextUnlockIsExplicitAndEvidenceBased(){val states=SkillCatalog.progress("Front lever",emptyList());val label=nextUnlockLabel(states);assertTrue(label.startsWith("Prossimo sblocco:"));assertTrue(label.contains("sessioni"));assertTrue(label.contains("Tuck front lever"))}
+    @Test fun fitnessAssessmentHasDeterministicBoundariesAndRejectsInvalidInputs() {
+        assertEquals("Principiante",assessedFitnessLevel(FitnessLevelAssessment(0,0,0)))
+        assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(6,10,0)))
+        assertEquals("Avanzato",assessedFitnessLevel(FitnessLevelAssessment(24,30,10)))
+        assertThrows(IllegalArgumentException::class.java){assessedFitnessLevel(FitnessLevelAssessment(-1,10,3))}
+    }
+
+    @Test fun assessedLevelIsConsumedByWorkoutDifficultyFiltering() {
+        val beginner=AthleteProfile(level=assessedFitnessLevel(FitnessLevelAssessment(0,0,0)))
+        val advanced=AthleteProfile(level=assessedFitnessLevel(FitnessLevelAssessment(24,30,10)))
+        val easy=Exercise(name="Easy",group="Petto",equipment="Corpo libero",level="Principiante")
+        val hard=Exercise(name="Hard",group="Petto",equipment="Corpo libero",level="Avanzato")
+        assertTrue(difficultyAllowed(easy,beginner))
+        assertFalse(difficultyAllowed(hard,beginner))
+        assertTrue(difficultyAllowed(hard,advanced))
+    }
+
 }
 
