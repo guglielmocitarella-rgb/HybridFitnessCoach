@@ -49,9 +49,9 @@ class Rc2RunnerInputTest {
     }
 
     @Test fun assessedFitnessLevelBoundariesAreDeterministic() {
-        assertEquals("Principiante", assessedFitnessLevel(FitnessLevelAssessment(trainingMonths=2,pushUps=10,pullUps=1)))
-        assertEquals("Intermedio", assessedFitnessLevel(FitnessLevelAssessment(trainingMonths=6,pushUps=15,pullUps=3)))
-        assertEquals("Avanzato", assessedFitnessLevel(FitnessLevelAssessment(trainingMonths=24,pushUps=30,pullUps=10)))
+        assertEquals("Principiante", capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(trainingMonths=2,pushUps=10,pullUps=1)).exerciseLevel))
+        assertEquals("Intermedio", capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(trainingMonths=6,pushUps=15,pullUps=3)).exerciseLevel))
+        assertEquals("Avanzato", capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(trainingMonths=24,pushUps=30,pullUps=10)).exerciseLevel))
     }
 
     @Test fun assessedLevelActuallyConstrainsGeneratedWorkoutDifficulty() {
@@ -61,7 +61,7 @@ class Rc2RunnerInputTest {
             FitnessLevelAssessment(6,15,3) to "Intermedio",
             FitnessLevelAssessment(24,30,10) to "Avanzato"
         ).forEach { (assessment, expected) ->
-            val level=assessedFitnessLevel(assessment)
+            val level=capabilityLevelName(capabilityFromAssessment(assessment).exerciseLevel)
             assertEquals(expected,level)
             val workout=generateWorkout(gym,AthleteProfile(goal="Fitness generale",level=level),emptyList(),80)
             assertTrue(workout.isNotEmpty())

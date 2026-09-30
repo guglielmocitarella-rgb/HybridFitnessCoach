@@ -20,15 +20,15 @@ class CoachingIntegrationTest {
     }
     @Test fun compoundEquipmentRequiresAllResources() {
         val assisted=Exercise("Assisted pull", "Dorso", "Sbarra / Elastici", "Principiante")
-        assertFalse(equipmentCompatible(assisted,EquipmentProfile("Band","",listOf("Elastici"))))
-        assertTrue(equipmentCompatible(assisted,EquipmentProfile("Both","",listOf("Sbarra","Elastici"))))
+        assertFalse(locationCompatible(assisted,EquipmentProfile("Band","",listOf("Elastici")).toTrainingLocation()))
+        assertTrue(locationCompatible(assisted,EquipmentProfile("Both","",listOf("Sbarra","Elastici")).toTrainingLocation()))
     }
     @Test fun bodyweightNeedsNoPurchasedEquipment() {
-        assertTrue(equipmentCompatible(Exercise("Push-up","Petto","Corpo libero","Principiante"),gym))
+        assertTrue(locationCompatible(Exercise("Push-up","Petto","Corpo libero","Principiante"),resolveTrainingLocation(gym)))
     }
     @Test fun abWheelAndRollerHaveSelectableExercises() {
         for(eq in listOf("Ab Wheel","Foam Roller")) {
-            assertTrue(exercises.any{it.equipment==eq && equipmentCompatible(it,EquipmentProfile(eq,"",listOf(eq)))})
+            assertTrue(exercises.any{it.equipment==eq && locationCompatible(it,EquipmentProfile(eq,"",listOf(eq)).toTrainingLocation())})
         }
     }
 

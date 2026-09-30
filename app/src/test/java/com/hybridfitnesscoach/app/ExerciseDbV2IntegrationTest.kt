@@ -49,7 +49,7 @@ class ExerciseDbV2IntegrationTest {
         val barbell=db.first{ "barbell" in it.equipment }
         val mapped=ExerciseDbV2.toLegacyExercise(barbell)
         assertEquals("Bilanciere",mapped.equipment)
-        assertTrue(equipmentCompatible(mapped,EquipmentProfile("Test","",listOf("Bilanciere"))))
+        assertTrue(locationCompatible(mapped,EquipmentProfile("Test","",listOf("Bilanciere")).toTrainingLocation()))
         assertNotEquals(ResistanceMode.NONE,mapped.resistanceMode)
     }
 
@@ -73,7 +73,7 @@ class ExerciseDbV2IntegrationTest {
         val row=records().first{it.equipment.isEmpty()}
         val mapped=ExerciseDbV2.toLegacyExercise(row)
         assertEquals("Non specificato",mapped.equipment)
-        assertFalse(equipmentCompatible(mapped,EquipmentProfile("Home","",emptyList())))
+        assertFalse(locationCompatible(mapped,EquipmentProfile("Home","",emptyList()).toTrainingLocation()))
     }
 
     @Test fun multiTokenEquipmentPreservesAllRequiredResources() {
@@ -81,8 +81,8 @@ class ExerciseDbV2IntegrationTest {
         val mapped=ExerciseDbV2.toLegacyExercise(row)
         assertTrue(mapped.equipment.contains(" / "))
         val all=EquipmentProfile("All","",mapped.equipment.split(" / "))
-        assertTrue(equipmentCompatible(mapped,all))
-        assertFalse(equipmentCompatible(mapped,EquipmentProfile("Partial","",listOf(mapped.equipment.substringBefore(" / ")))))
+        assertTrue(locationCompatible(mapped,all.toTrainingLocation()))
+        assertFalse(locationCompatible(mapped,EquipmentProfile("Partial","",listOf(mapped.equipment.substringBefore(" / "))).toTrainingLocation()))
     }
     @Test fun exerciseSpecificEvidenceLocatorSurvivesParsing() {
         val row=records().first{it.sourceRefs.any{ref->!ref.locator.isNullOrBlank()}}
@@ -160,7 +160,7 @@ class ExerciseDbV2IntegrationTest {
             }
             assertTrue(
                 "Selecting every displayed requirement must make ${ex.name} compatible: ${ex.equipment}",
-                equipmentCompatible(ex,EquipmentProfile("Contract","",required))
+                locationCompatible(ex,EquipmentProfile("Contract","",required).toTrainingLocation())
             )
         }
     }

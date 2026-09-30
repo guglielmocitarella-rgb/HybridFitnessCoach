@@ -30,16 +30,16 @@ class V09RegressionAuditTest {
     @Test fun readinessBandsAreStableAtUxBoundaries(){assertEquals("RECUPERO",readinessBand(44));assertEquals("CAUTELA",readinessBand(45));assertEquals("BUONO",readinessBand(60));assertEquals("PRONTO",readinessBand(80))}
     @Test fun homeNextUnlockIsExplicitAndEvidenceBased(){val states=SkillCatalog.progress("Front lever",emptyList());val label=nextUnlockLabel(states);assertTrue(label.startsWith("Prossimo sblocco:"));assertTrue(label.contains("sessioni"));assertTrue(label.contains("Tuck front lever"))}
     @Test fun fitnessAssessmentHasDeterministicBoundariesAndRejectsInvalidInputs() {
-        assertEquals("Principiante",assessedFitnessLevel(FitnessLevelAssessment(0,0,0)))
-        assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(6,10,0)))
-        assertEquals("Avanzato",assessedFitnessLevel(FitnessLevelAssessment(24,30,10)))
-        assertThrows(IllegalArgumentException::class.java){assessedFitnessLevel(FitnessLevelAssessment(-1,10,3))}
+        assertEquals("Principiante",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,0,0)).exerciseLevel))
+        assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(6,10,0)).exerciseLevel))
+        assertEquals("Avanzato",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,30,10)).exerciseLevel))
+        assertThrows(IllegalArgumentException::class.java){capabilityFromAssessment(FitnessLevelAssessment(-1,10,3))}
     }
 
     @Test fun assessedLevelMapsToTheDifficultyCeilingUsedByWorkoutGeneration() {
-        val beginner=assessedFitnessLevel(FitnessLevelAssessment(0,0,0))
-        val intermediate=assessedFitnessLevel(FitnessLevelAssessment(6,10,0))
-        val advanced=assessedFitnessLevel(FitnessLevelAssessment(24,30,10))
+        val beginner=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,0,0)).exerciseLevel)
+        val intermediate=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(6,10,0)).exerciseLevel)
+        val advanced=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,30,10)).exerciseLevel)
 
         assertTrue(levelScore("Principiante")<=levelScore(beginner))
         assertFalse(levelScore("Intermedio")<=levelScore(beginner))

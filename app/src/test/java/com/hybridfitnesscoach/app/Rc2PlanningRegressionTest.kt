@@ -137,7 +137,7 @@ class Rc2PlanningRegressionTest {
         }
         assertEquals(364,plan.workouts.size)
         assertTrue(plan.workouts.all{it.exercises.isNotEmpty()})
-        assertTrue(plan.workouts.flatMap{it.exercises}.all{equipmentCompatible(it,profile)})
+        assertTrue(plan.workouts.flatMap{it.exercises}.all{locationCompatible(it,resolveTrainingLocation(profile))})
         assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(athlete.level)})
     }
 

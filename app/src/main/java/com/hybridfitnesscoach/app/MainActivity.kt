@@ -169,7 +169,7 @@ internal val trainingLocations = listOf(
     TrainingLocation("builtin:home","Casa","🏠",TrainingLocationKind.HOME,setOf(EquipmentId.AB_WHEEL,EquipmentId.BODYWEIGHT,EquipmentId.RESISTANCE_BAND,EquipmentId.FOAM_ROLLER,EquipmentId.PULL_UP_BAR)),
     TrainingLocation("builtin:outdoor","Parco","🌳",TrainingLocationKind.OUTDOOR,setOf(EquipmentId.BODYWEIGHT,EquipmentId.DIP_BARS,EquipmentId.PULL_UP_BAR))
 )
-internal val profiles = trainingLocations.map(TrainingLocation::asLegacyProfile)
+internal val profiles = trainingLocations.map { location -> EquipmentProfile(location.name,location.icon,location.capabilities.map(EquipmentCatalog::displayName).sortedBy { it.lowercase() }) }
 
 enum class ProgressionDecision { ADVANCE, MAINTAIN, REGRESS, DELOAD }
 data class SkillProgressionNode(val id:String,val skill:String,val label:String,val level:Int,val prerequisites:List<String> = emptyList())
@@ -1304,6 +1304,10 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
     var height by remember{mutableStateOf(if(current.heightCm>0)current.heightCm.toString() else "")}
     var weight by remember{mutableStateOf(if(current.weightKg>0)current.weightKg.toString() else "")}
     var sex by remember{mutableStateOf(current.sex)}
+    var assessedExperience by remember{mutableStateOf(current.assessedTrainingExperience)}
+    var assessedPush by remember{mutableStateOf(current.assessedPushCapacity)}
+    var assessedPull by remember{mutableStateOf(current.assessedPullCapacity)}
+    var assessmentOpen by remember{mutableStateOf(false)}
     AlertDialog(onDismissRequest=onDismiss,title={Text("Profilo atleta")},text={LazyColumn(Modifier.heightIn(max=520.dp)){
         item{
             OutlinedTextField(name,{name=it},label={Text("Nome")},singleLine=true,modifier=Modifier.fillMaxWidth())
@@ -1315,10 +1319,6 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
             if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}
             Text("Livello",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
             Text("Livello attuale: $level",color=Accent)
-            var assessedExperience by remember{mutableStateOf(current.assessedTrainingExperience)}
-            var assessedPush by remember{mutableStateOf(current.assessedPushCapacity)}
-            var assessedPull by remember{mutableStateOf(current.assessedPullCapacity)}
-            var assessmentOpen by remember{mutableStateOf(false)}
             if(assessmentOpen){
                 var months by remember{mutableStateOf("")}
                 var pushUps by remember{mutableStateOf("")}
