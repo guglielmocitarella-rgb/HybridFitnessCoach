@@ -34,13 +34,13 @@ Use small, descriptive commits with imperative subjects, following history: `Mig
 
 ## Current Release Target
 
-Target: **v0.9.3**. Primary development branch: `feature/v0.9.3`.
+Target: **v0.9.4** for device acceptance and subsequent development. Primary development branch: `feature/v0.9.4`. **v0.9.3 is frozen** on `release/v0.9.3`; do not add product changes to that release line.
 
 Deliver a robust, tested, maintainable, scientifically honest release. A compiling APK alone is insufficient.
 
 ## Compatibility Policy — Permanent
 
-Backward compatibility with earlier Hybrid Fitness Coach builds, persistence schemas, data models, APIs, or behaviors is **not a requirement for v0.9.3 and will not be a requirement for future releases** unless the owner explicitly reverses this policy. Do not retain legacy fields, fallbacks, migration code, compatibility adapters, nullable states, or tests solely to preserve older versions. Prefer the cleanest correct current-domain model and remove obsolete compatibility paths when they add complexity or ambiguity. Existing development/test data may be reset when a schema change requires it. This policy does not permit accidental loss or corruption of data created by the current supported build/schema.
+Backward compatibility with earlier Hybrid Fitness Coach builds, persistence schemas, data models, APIs, or behaviors is **not a requirement for v0.9.4 and will not be a requirement for future releases** unless the owner explicitly reverses this policy. Do not retain legacy fields, fallbacks, migration code, compatibility adapters, nullable states, or tests solely to preserve older versions. Prefer the cleanest correct current-domain model and remove obsolete compatibility paths when they add complexity or ambiguity. Existing development/test data may be reset when a schema change requires it. This policy does not permit accidental loss or corruption of data created by the current supported build/schema.
 
 ## Owner and Autonomy
 
