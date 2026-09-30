@@ -1348,7 +1348,9 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=liveReadiness
     var minutes by remember { mutableIntStateOf(45) }
-    val selectedEquipment = remember(profile,initialEquipment) { mutableStateListOf<String>().apply { addAll(if(initialEquipment.isNotEmpty()) initialEquipment else profile.equipment.ifEmpty { listOf("Corpo libero") }) } }
+    val initialLocation=remember(profile){resolveTrainingLocation(profile)}
+    val locationOptions=remember(profile){(trainingLocations+initialLocation).distinctBy{it.id}}
+    var selectedLocation by remember(profile){mutableStateOf(initialLocation)}
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
     var mode by remember(initialSkill,initialGroups) { mutableStateOf(if(initialSkill!="Nessuna") "Skill" else "Parti del corpo") }
     val selectedSkills = remember(initialSkill) { mutableStateListOf<String>().apply { if(initialSkill!="Nessuna") add(initialSkill) } }
@@ -1388,12 +1390,11 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     LaunchedEffect(currentExercise) { if(running){ val i=generated.indexOfFirst{it.name==currentExercise}; if(i>=0) listState.animateScrollToItem(i) } }
 
     val skills = listOf("Nessuna") + calisthenicsSkills.map { it.name }
-    val equipmentOptions = (listOf("Corpo libero") + profile.equipment + initialEquipment).distinct().sortedBy { it.lowercase() }
     fun prescription(ex:Exercise):Pair<Int,Int> = prescriptionFor(ex).value.toInt() to ex.setRestSec
     fun targetSetCount(ex:Exercise):Int = prescriptionFor(ex).sets
     fun build() {
         val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}; val recovery=recoveryScores(sessions)
-        val base=customWorkoutCandidatePool(EquipmentProfile("Custom","",selectedEquipment.toList()),athlete,sessions,mode,selectedSkills,selectedGroups)
+        val base=customWorkoutCandidatePool(selectedLocation,athlete,sessions,mode,selectedSkills,selectedGroups,equipmentFilters=initialEquipment)
         val ranked=base.sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(selectedSkills.any{s->s in it.skills})0 else 1}.thenBy{if(it.role=="Forza")0 else 1})
         generated=ranked.take(count)
         generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions,readinessScore))
@@ -1402,7 +1403,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
         generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second;exerciseRpe[ex.name]=5}
         exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0
         currentExercise=generated.firstOrNull()?.name
-        generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova ad ampliare attrezzatura, muscoli o livello/skill." else "Workout pronto: "+generated.size+" esercizi."
+        generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova un altro luogo o amplia muscoli/livello/skill." else "Workout pronto: "+generated.size+" esercizi."
     }
     fun resetPreview(){ generated=emptyList();generationMessage=null;completed.clear();exerciseRpe.clear();restRemaining=0;currentExercise=null }
 
@@ -1428,13 +1429,13 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                     Column(Modifier.fillMaxWidth().padding(bottom=8.dp)){
                         Text("WORKOUT GENERATO",fontWeight=FontWeight.Bold,color=Accent)
                         Text("Durata prevista: $minutes min")
-                        Text("Attrezzatura: "+selectedEquipment.joinToString(", "),fontSize=12.sp,color=Color.Gray)
+                        Text("Luogo: "+selectedLocation.icon+" "+selectedLocation.name,fontSize=12.sp,color=Color.Gray)
                         Text(if(mode=="Skill")"Skill: "+selectedSkills.joinToString(", ") else "Gruppi: "+selectedGroups.joinToString(", "),fontSize=12.sp,color=Color.Gray)
                         CoachSummary(coachingContext(sessions,readinessScore))
                         Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically){
                             Text("Blocca gli esercizi che vuoi mantenere",fontSize=12.sp,color=Color.Gray,modifier=Modifier.weight(1f))
                             TextButton(onClick={
-                                val pool=customWorkoutCandidatePool(EquipmentProfile("Custom","",selectedEquipment.toList()),athlete,sessions,mode,selectedSkills,selectedGroups)
+                                val pool=customWorkoutCandidatePool(selectedLocation,athlete,sessions,mode,selectedSkills,selectedGroups,equipmentFilters=initialEquipment)
                                 generated=if(mode=="Skill") regenerateSkillWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore),selectedSkills,sessions) else regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
                                 reps.clear();restSeconds.clear();generated.forEach{ex->reps[ex.name]=prescriptionFor(ex).value.toInt();restSeconds[ex.name]=ex.setRestSec}
                                 generationMessage="Rigenerati solo gli esercizi non bloccati."
@@ -1447,7 +1448,9 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                     if(!running && generated.isEmpty()){
                         if(filtersLocked){
                             item{
-                                Text("Workout basato sui filtri",fontWeight=FontWeight.Bold)
+                                Text("1. Luogo di allenamento",fontWeight=FontWeight.Bold)
+                                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){locationOptions.forEach{loc->FilterChip(selectedLocation.id==loc.id,{selectedLocation=loc;resetPreview()},{Text(loc.icon+" "+loc.name)})}}
+                                Text("Workout basato sui filtri",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
                                 Text((initialGroups+initialEquipment+selectedSkills).joinToString(" • "),color=Accent)
                                 Text("Durata workout",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
                                 Row{listOf(20,30,45,60,75).forEach{m->FilterChip(minutes==m,{minutes=m},{Text("$m")},Modifier.padding(end=4.dp))}}
@@ -1455,11 +1458,12 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                                 generationMessage?.let{Text(it,color=MaterialTheme.colorScheme.error,fontWeight=FontWeight.Bold)}
                             }
                         } else {
-                            item{Text("1. Attrezzatura disponibile",fontWeight=FontWeight.Bold);Text("Profilo attivo: "+profile.name+" • modifica valida solo per questo workout",color=Color.Gray,fontSize=12.sp)}
-                            items(equipmentOptions){e->Row(Modifier.fillMaxWidth().clickable{if(e in selectedEquipment)selectedEquipment.remove(e)else selectedEquipment.add(e)},verticalAlignment=Alignment.CenterVertically){Checkbox(e in selectedEquipment,{if(it){if(e !in selectedEquipment)selectedEquipment.add(e)}else selectedEquipment.remove(e)});Text(e)}}
                             item{
-                                val available=exercises.count{ex->equipmentCompatible(ex,EquipmentProfile("Custom","",selectedEquipment.toList()))}
-                                Text("$available esercizi compatibili con l'attrezzatura",color=Accent,fontSize=12.sp)
+                                Text("1. Luogo di allenamento",fontWeight=FontWeight.Bold)
+                                Text("Scegli dove svolgerai questo workout. Gli esercizi saranno adattati alle attrezzature realmente disponibili.",color=Color.Gray,fontSize=12.sp)
+                                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){locationOptions.forEach{loc->FilterChip(selectedLocation.id==loc.id,{selectedLocation=loc;resetPreview()},{Text(loc.icon+" "+loc.name)})}}
+                                val available=exercises.count{ex->locationCompatible(ex,selectedLocation)}
+                                Text("$available esercizi compatibili con "+selectedLocation.name,color=Accent,fontSize=12.sp)
                                 Text("2. Durata",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
                                 Row{listOf(20,30,45,60,75).forEach{m->FilterChip(minutes==m,{minutes=m},{Text("$m")},Modifier.padding(end=4.dp))}}
                                 Text("3. Cosa vuoi allenare?",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
@@ -1467,7 +1471,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             }
                             if(mode=="Parti del corpo") items(recoveryGroups){g->Row(Modifier.fillMaxWidth().clickable{if(g in selectedGroups)selectedGroups.remove(g)else selectedGroups.add(g)},verticalAlignment=Alignment.CenterVertically){Checkbox(g in selectedGroups,{if(it){if(g !in selectedGroups)selectedGroups.add(g)}else selectedGroups.remove(g)});Text(g)}}
                             if(mode=="Skill") item{skills.filter{it!="Nessuna"}.forEach{s->val linked=exercises.filter{s in it.skills};val muscles=linked.flatMap{ex->recoveryGroups.filter{g->ex.group.contains(g,true)}}.distinct().joinToString(" • ");Row(Modifier.fillMaxWidth().clickable{if(s in selectedSkills)selectedSkills.remove(s)else selectedSkills.add(s)},verticalAlignment=Alignment.CenterVertically){Checkbox(s in selectedSkills,{checked->if(checked){if(s !in selectedSkills)selectedSkills.add(s)}else selectedSkills.remove(s)});Column{Text(s);if(s in selectedSkills)Text("Coinvolge: $muscles",color=Color.Gray,fontSize=11.sp)}}}}
-                            item{Button(onClick={build()},enabled=selectedEquipment.isNotEmpty()&&(mode!="Skill"||selectedSkills.isNotEmpty()),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")};generationMessage?.let{Text(it,color=MaterialTheme.colorScheme.error,fontWeight=FontWeight.Bold)}}
+                            item{Button(onClick={build()},enabled=mode!="Skill"||selectedSkills.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")};generationMessage?.let{Text(it,color=MaterialTheme.colorScheme.error,fontWeight=FontWeight.Bold)}}
                         }
                     }
                     items(generated){ex->

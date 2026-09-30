@@ -211,13 +211,15 @@ internal fun customWorkoutCandidatePool(
     mode:String,
     selectedSkills:Collection<String>,
     selectedGroups:Collection<String>,
-    catalogue:List<Exercise> = exercises
+    catalogue:List<Exercise> = exercises,
+    equipmentFilters:Collection<String> = emptyList()
 ):List<Exercise> {
-    val eligible=skillEligibleExercises(sessions)
+    val eligible=skillEligibleExerciseNames(catalogue,sessions)
     val base=catalogue.filter { ex ->
         ex.name in eligible &&
         levelScore(ex.level)<=levelScore(athlete.level) &&
         locationCompatible(ex,location) &&
+        (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
         (mode!="Parti del corpo" || selectedGroups.isEmpty() || selectedGroups.any{ex.group.contains(it,true)})
     }
     if(mode!="Skill") return base
