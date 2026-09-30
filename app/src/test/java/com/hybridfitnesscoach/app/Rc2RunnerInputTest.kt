@@ -29,4 +29,23 @@ class Rc2RunnerInputTest {
         assertEquals(5, runnerEffort(0))
         assertEquals(5, runnerEffort(11))
     }
+    @Test fun singleExerciseLaunchBuildsRunnableWorkoutStateWithDefaultEffort() {
+        val ex=Exercise("Test execute","Core","Corpo libero","Intermedio",targetSets=4,targetValue=8.0)
+        val state=singleExerciseWorkoutState(ex,"Palestra",startedAtEpochMs=1234L)
+        assertEquals("single",state.runnerKind)
+        assertEquals("Palestra",state.profileName)
+        assertEquals(1,state.exercises.size)
+        assertEquals("Test execute",state.exercises.single().exerciseName)
+        assertEquals(4,state.exercises.single().sets.size)
+        assertEquals(5,state.exercises.single().rpe)
+        assertEquals("Test execute",state.exercises.single().exerciseSnapshot?.name)
+    }
+
+    @Test fun singleExerciseLaunchUsesExercisePrescriptionForTimeTargets() {
+        val ex=Exercise("Hold","Core","Corpo libero","Intermedio",measure=ExerciseMeasure.SECONDS,targetSets=3,targetValue=20.0)
+        val state=singleExerciseWorkoutState(ex,"Casa",startedAtEpochMs=9L)
+        assertEquals(listOf(20,20,20),state.exercises.single().sets.map{it.targetSeconds})
+        assertTrue(state.exercises.single().sets.all{it.targetReps==null})
+    }
+
 }
