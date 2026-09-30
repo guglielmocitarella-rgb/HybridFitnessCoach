@@ -205,6 +205,37 @@ internal fun skillWorkoutFocusNames(
 }.map{it.lowercase()}.toSet()
 
 internal fun customWorkoutCandidatePool(
+    location:TrainingLocation,
+    athlete:AthleteProfile,
+    sessions:List<SessionRecord>,
+    mode:String,
+    selectedSkills:Collection<String>,
+    selectedGroups:Collection<String>,
+    catalogue:List<Exercise> = exercises
+):List<Exercise> {
+    val eligible=skillEligibleExercises(sessions)
+    val base=catalogue.filter { ex ->
+        ex.name in eligible &&
+        levelScore(ex.level)<=levelScore(athlete.level) &&
+        locationCompatible(ex,location) &&
+        (mode!="Parti del corpo" || selectedGroups.isEmpty() || selectedGroups.any{ex.group.contains(it,true)})
+    }
+    if(mode!="Skill") return base
+    if(selectedSkills.isEmpty()) return emptyList()
+
+    val focusNames=skillWorkoutFocusNames(selectedSkills,sessions)
+    val skillWork=base.filter{ex->
+        selectedSkills.any{s->s in ex.skills} && ex.name.lowercase() in focusNames
+    }.map { ex -> applySkillMasteryPrescription(ex,selectedSkills,sessions) }
+    val support=base.filter{ex->
+        ex !in skillWork &&
+        selectedSkills.none{s->s in ex.skills} &&
+        ex.role in setOf("Forza","Prerequisito","Accessorio")
+    }
+    return (skillWork+support).distinct()
+}
+
+internal fun customWorkoutCandidatePool(
     profile:EquipmentProfile,
     athlete:AthleteProfile,
     sessions:List<SessionRecord>,

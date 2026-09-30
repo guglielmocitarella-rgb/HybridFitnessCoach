@@ -389,4 +389,20 @@ class V091PlanningTest {
   assertTrue(locationCompatible(body,withBodyweight))
  }
 
+ @Test fun customWorkoutPoolUsesCanonicalLocationCapabilities(){
+  val body=Exercise("Pool body","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val dumbbell=Exercise("Pool dumbbell","Spalle","Manubri","Principiante",role="Forza")
+  val machine=Exercise("Pool machine","Gambe","Macchine","Principiante",role="Forza")
+  val location=TrainingLocation("custom:db","Garage","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
+  val pool=customWorkoutCandidatePool(location,AthleteProfile(level="Intermedio"),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,dumbbell,machine))
+  assertEquals(listOf(dumbbell.name),pool.map{it.name})
+ }
+ @Test fun customWorkoutPoolBuiltInLocationKeepsExplicitBodyweight(){
+  val body=Exercise("Pool outdoor body","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val machine=Exercise("Pool outdoor machine","Gambe","Macchine","Principiante",role="Forza")
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val pool=customWorkoutCandidatePool(outdoor,AthleteProfile(level="Intermedio"),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,machine))
+  assertEquals(listOf(body.name),pool.map{it.name})
+ }
+
 }
