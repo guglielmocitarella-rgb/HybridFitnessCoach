@@ -31,11 +31,6 @@ internal enum class TrainingLocationKind(val stableId:String) { GYM("gym"), HOME
 internal data class TrainingLocation(val id:String,val name:String,val icon:String,val kind:TrainingLocationKind,val capabilities:Set<EquipmentId>) {
     init { require(id.isNotBlank()); require(name.isNotBlank()) }
 }
-data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
-internal fun EquipmentProfile.toTrainingLocation(id:String="legacy:"+name.trim().lowercase().replace(" ","-")):TrainingLocation =
-    TrainingLocation(id,name,icon,TrainingLocationKind.CUSTOM,equipment.mapNotNull(EquipmentCatalog::fromDisplayName).toSet())
-internal fun resolveTrainingLocation(profile:EquipmentProfile):TrainingLocation =
-    trainingLocations.firstOrNull{it.name==profile.name && it.icon==profile.icon} ?: profile.toTrainingLocation()
 internal fun locationCompatible(exercise:Exercise,location:TrainingLocation):Boolean {
     val required=EquipmentCatalog.requirementsFor(exercise)
     return required.isNotEmpty() && required.all{it in location.capabilities}
@@ -169,7 +164,6 @@ internal val trainingLocations = listOf(
     TrainingLocation("builtin:home","Casa","🏠",TrainingLocationKind.HOME,setOf(EquipmentId.AB_WHEEL,EquipmentId.BODYWEIGHT,EquipmentId.RESISTANCE_BAND,EquipmentId.FOAM_ROLLER,EquipmentId.PULL_UP_BAR)),
     TrainingLocation("builtin:outdoor","Parco","🌳",TrainingLocationKind.OUTDOOR,setOf(EquipmentId.BODYWEIGHT,EquipmentId.DIP_BARS,EquipmentId.PULL_UP_BAR))
 )
-internal val profiles = trainingLocations.map { location -> EquipmentProfile(location.name,location.icon,location.capabilities.map(EquipmentCatalog::displayName).sortedBy { it.lowercase() }) }
 
 enum class ProgressionDecision { ADVANCE, MAINTAIN, REGRESS, DELOAD }
 data class SkillProgressionNode(val id:String,val skill:String,val label:String,val level:Int,val prerequisites:List<String> = emptyList())
@@ -679,8 +673,8 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
     return fatigue.mapValues { (_, load) -> (100.0 - load.coerceAtMost(80.0)).toInt().coerceIn(20, 100) }
 }
 
-internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> =
-    generateWorkoutFromCatalogue(exercises,resolveTrainingLocation(profile),athlete,athlete.toCapabilityProfile(),sessions,readinessScore,avoidPlannedNames)
+internal fun generateWorkout(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> =
+    generateWorkoutFromCatalogue(exercises,profile,athlete,athlete.toCapabilityProfile(),sessions,readinessScore,avoidPlannedNames)
 internal fun generateWorkoutFromCatalogue(catalogue:List<Exercise>,location:TrainingLocation, athlete: AthleteProfile, capability:CapabilityProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> {
     val context=coachingContext(sessions,readinessScore)
     val eligible=skillEligibleExerciseNames(catalogue,sessions)
@@ -745,7 +739,7 @@ internal fun resolveSuggestedWorkout(plan:TrainingPlan?,today:Long,adaptive:()->
 internal fun generateTrainingPlan(
  planId:String,
  startEpochDay:Long,
- profile:EquipmentProfile,
+ profile:TrainingLocation,
  athlete:AthleteProfile,
  configuration:PlanConfiguration,
  sessions:List<SessionRecord>,
@@ -789,8 +783,8 @@ fun HybridFitnessApp() {
     val context = androidx.compose.ui.platform.LocalContext.current
     val store = remember { AppStore(context) }
     var tab by remember { mutableStateOf(Tab.HOME) }
-    val customProfiles = remember { mutableStateListOf<EquipmentProfile>().apply { addAll(store.loadCustomProfiles()) } }
-    var activeProfile by remember { mutableStateOf(customProfiles.firstOrNull { it.name == store.loadActiveProfileName() } ?: customProfiles.firstOrNull() ?: EquipmentProfile("Nessun profilo","📍",emptyList())) }
+    val customProfiles = remember { mutableStateListOf<TrainingLocation>().apply { addAll(store.loadTrainingLocations()) } }
+    var activeProfile by remember { mutableStateOf(customProfiles.firstOrNull { it.id == store.loadActiveTrainingLocationId() } ?: customProfiles.firstOrNull() ?: trainingLocations.first()) }
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     var calendarWorkout by remember { mutableStateOf<PlannedWorkout?>(null) }
@@ -837,10 +831,10 @@ fun HybridFitnessApp() {
                         )
                     }) { record -> saveFinishedWorkout(record) }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
- { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
- { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile=created; store.saveActiveProfileName(created.name) },
- { old, updated -> val i=customProfiles.indexOfFirst{it.name==old.name}; if(i>=0){customProfiles[i]=updated;store.saveCustomProfiles(customProfiles);if(activeProfile.name==old.name){activeProfile=updated;store.saveActiveProfileName(updated.name)}} },
- { doomed -> customProfiles.removeAll{it.name==doomed.name};store.saveCustomProfiles(customProfiles);if(activeProfile.name==doomed.name){activeProfile=customProfiles.firstOrNull()?:EquipmentProfile("Nessun profilo","📍",emptyList());store.saveActiveProfileName(activeProfile.name)} }
+ { selected -> activeProfile=selected; store.saveActiveTrainingLocationId(selected.id) },
+ { created -> customProfiles.add(created); store.saveTrainingLocations(customProfiles); activeProfile=created; store.saveActiveTrainingLocationId(created.id) },
+ { old, updated -> val i=customProfiles.indexOfFirst{it.name==old.name}; if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.name==old.name){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}} },
+ { doomed -> customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)} }
 )
                     Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
                 }
@@ -908,7 +902,7 @@ internal fun nextUnlockLabel(states:List<SkillNodeProgress>):String {
 }
 
 @Composable
-private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
+private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
     val readinessScore=LocalHealthConnect.current.readiness
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
@@ -929,7 +923,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         calendarWorkout?.let { requested ->
             val launch=resolveWorkoutLaunch(restoredWorkout,requested)
             plannedWorkoutToRun=launch.plannedWorkout?.let{planned->
-                val realized=materializePlannedSession(planned,resolveTrainingLocation(profile),athlete,sessions,readinessScore)
+                val realized=materializePlannedSession(planned,profile,athlete,sessions,readinessScore)
                 planned.copy(exercises=realized.exercises)
             }
             workoutOpen=launch.resumeActive || plannedWorkoutToRun?.exercises?.isNotEmpty()==true
@@ -966,7 +960,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
                     val suggestion=resolveSuggestedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay()){generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)}
                     val todayPlan=suggestion.plannedWorkout
-                    val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,resolveTrainingLocation(profile),athlete,sessions,readinessScore)}
+                    val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore)}
                     val suggested=realizedTodayPlan?.exercises ?: suggestion.exercises
                     Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
@@ -1157,7 +1151,7 @@ private fun RecoveryChart(sessions: List<SessionRecord>) {
 @Composable private fun ExerciseRow(a: String, b: String) { Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth()) { Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.FitnessCenter, null, tint = Accent); Spacer(Modifier.width(14.dp)); Column { Text(a, fontWeight = FontWeight.SemiBold); Text(b, color = Color.Gray, fontSize = 13.sp) } } } }
 
 @Composable
-private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, onExecuteExercise:(Exercise)->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
+private fun Library(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, onExecuteExercise:(Exercise)->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
     var selectedSkill by remember { mutableStateOf<String?>(null) }
     var skillWorkout by remember { mutableStateOf<String?>(null) }
     var filteredWorkout by remember { mutableStateOf(false) }
@@ -1171,7 +1165,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
     val matchingSkills = calisthenicsSkills.filter { s -> query.isNotBlank() && s.name.contains(query.trim(),true) }
     val shown = exercises.filter { ex ->
         (query.isBlank() || query.trim().split(Regex("\\s+")).all { token -> ex.name.contains(token,true) || ex.group.contains(token,true) || ex.equipment.contains(token,true) || ex.skills.any{it.contains(token,true)} }) &&
-        (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> ex.equipment.contains(eq,true) || (eq=="Macchine" && ex.equipment.contains("Macchina",true)) }) &&
+        (equipmentFilters.isEmpty() || equipmentFilters.any { eq -> EquipmentCatalog.fromDisplayName(eq)?.let { it in EquipmentCatalog.requirementsFor(ex) } == true }) &&
         (groupFilters.isEmpty() || groupFilters.any { ex.group.contains(it,true) }) &&
         (skillFilters.isEmpty() || skillFilters.any { it in ex.skills })
     }
@@ -1234,17 +1228,17 @@ private fun SkillDetailDialog(skillName: String, athlete: AthleteProfile, onDism
 }
 
 @Composable
-private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentProfile>, select: (EquipmentProfile) -> Unit, addProfile: (EquipmentProfile) -> Unit, editProfile: (EquipmentProfile,EquipmentProfile)->Unit, deleteProfile:(EquipmentProfile)->Unit) {
+private fun Equipment(active: TrainingLocation, customProfiles: List<TrainingLocation>, select: (TrainingLocation) -> Unit, addProfile: (TrainingLocation) -> Unit, editProfile: (TrainingLocation,TrainingLocation)->Unit, deleteProfile:(TrainingLocation)->Unit) {
     var showCreator by remember { mutableStateOf(false) }
-    var editing by remember { mutableStateOf<EquipmentProfile?>(null) }
-    var deleting by remember { mutableStateOf<EquipmentProfile?>(null) }
+    var editing by remember { mutableStateOf<TrainingLocation?>(null) }
+    var deleting by remember { mutableStateOf<TrainingLocation?>(null) }
     Column {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
         customProfiles.forEach { p ->
                         Card(Modifier.padding(horizontal=20.dp,vertical=6.dp).fillMaxWidth().clickable{select(p)},colors=CardDefaults.cardColors(containerColor=if(p==active)Accent.copy(alpha=.10f) else Color.White)){
                 Row(Modifier.padding(18.dp),verticalAlignment=Alignment.CenterVertically){
                     Text(p.icon,fontSize=32.sp);Spacer(Modifier.width(14.dp))
-                    Column(Modifier.weight(1f)){Text(p.name,fontSize=19.sp,fontWeight=FontWeight.Bold);Text(p.equipment.joinToString(" • "),color=Color.Gray,fontSize=13.sp)}
+                    Column(Modifier.weight(1f)){Text(p.name,fontSize=19.sp,fontWeight=FontWeight.Bold);Text(p.capabilities.map(EquipmentCatalog::displayName).sortedBy{it.lowercase()}.joinToString(" • "),color=Color.Gray,fontSize=13.sp)}
                     IconButton(onClick={editing=p}){Icon(Icons.Default.Edit,"Modifica")};IconButton(onClick={deleting=p}){Icon(Icons.Default.Delete,"Elimina")}
                     if(p==active)Icon(Icons.Default.CheckCircle,"Attivo",tint=Accent)
                 }
@@ -1252,8 +1246,8 @@ private fun Equipment(active: EquipmentProfile, customProfiles: List<EquipmentPr
         }
         if(customProfiles.isEmpty()) Text("Nessun profilo attrezzatura. Creane uno per generare workout.",color=Accent,modifier=Modifier.padding(horizontal=20.dp));OutlinedButton(onClick={showCreator=true},modifier=Modifier.padding(20.dp).fillMaxWidth()){Icon(Icons.Default.Add,null);Spacer(Modifier.width(8.dp));Text("NUOVO PROFILO")}
     }
-    if(showCreator) EquipmentProfileDialog(null,{showCreator=false}){created->addProfile(created);showCreator=false}
-    editing?.let{old->EquipmentProfileDialog(old,{editing=null}){updated->editProfile(old,updated);editing=null}}
+    if(showCreator) TrainingLocationDialog(null,{showCreator=false}){created->addProfile(created);showCreator=false}
+    editing?.let{old->TrainingLocationDialog(old,{editing=null}){updated->editProfile(old,updated);editing=null}}
     deleting?.let{p->AlertDialog(onDismissRequest={deleting=null},title={Text("Elimina profilo?")},text={Text("Vuoi eliminare "+p.name+"?")},confirmButton={Button(onClick={deleteProfile(p);deleting=null}){Text("ELIMINA")}},dismissButton={TextButton(onClick={deleting=null}){Text("ANNULLA")}})}
 }
 @Composable
@@ -1366,15 +1360,14 @@ private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation
 }
 
 @Composable
-private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null, restored:WorkoutSessionState?=null) {
+private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean, initialSkill: String = "Nessuna", initialEquipment: List<String> = emptyList(), initialGroups: List<String> = emptyList(), filtersLocked:Boolean=false, store:AppStore?=null, restored:WorkoutSessionState?=null) {
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=liveReadiness
     var minutes by remember { mutableIntStateOf(45) }
     val initialLocation=remember(profile,restored?.trainingLocationId){
-        val profileLocation=resolveTrainingLocation(profile)
-        restored?.trainingLocationId?.let{id->(trainingLocations+profileLocation).firstOrNull{it.id==id}} ?: profileLocation
+        restored?.trainingLocationId?.let{id->(trainingLocations+profile).firstOrNull{it.id==id}} ?: profile
     }
-    val locationOptions=remember(profile){(trainingLocations+initialLocation).distinctBy{it.id}}
+    val locationOptions=remember(profile){(trainingLocations+profile).distinctBy{it.id}}
     var selectedLocation by remember(profile){mutableStateOf(initialLocation)}
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
     var mode by remember(initialSkill,initialGroups) { mutableStateOf(if(initialSkill!="Nessuna") "Skill" else "Parti del corpo") }
@@ -1567,7 +1560,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
 }
 
 @Composable
-private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean) {
+private fun WorkoutDialog(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean) {
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=liveReadiness
     val compatible = remember(profile, athlete, sessions, restored, plannedWorkout, readinessScore) { val source=restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: plannedWorkout?.exercises?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions,readinessScore); effectiveAutomaticExercises(source,athlete,sessions,readinessScore,restored!=null || plannedWorkout!=null) }
@@ -1779,10 +1772,10 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
 }
 
 @Composable
-private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss: () -> Unit, onCreate: (EquipmentProfile) -> Unit) {
+private fun TrainingLocationDialog(current: TrainingLocation? = null, onDismiss: () -> Unit, onCreate: (TrainingLocation) -> Unit) {
     var name by remember(current) { mutableStateOf(current?.name ?: "") }
     val options = profileEquipmentOptions(exercises)
-    val selected = remember(current) { mutableStateListOf<String>().apply { addAll(current?.equipment ?: emptyList()) } }
+    val selected = remember(current) { mutableStateListOf<EquipmentId>().apply { addAll(current?.capabilities ?: emptySet()) } }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -1802,16 +1795,16 @@ private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss:
                 items(options) { item ->
                     Row(
                         Modifier.fillMaxWidth().clickable {
-                            if (item in selected) selected.remove(item) else selected.add(item)
+                            EquipmentCatalog.fromDisplayName(item)?.let { id -> if (id in selected) selected.remove(id) else selected.add(id) }
                         },
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Checkbox(
-                            checked = item in selected,
+                            checked = EquipmentCatalog.fromDisplayName(item) in selected,
                             onCheckedChange = { checked ->
                                 if (checked) {
-                                    if (item !in selected) selected.add(item)
-                                } else selected.remove(item)
+                                    EquipmentCatalog.fromDisplayName(item)?.let { if (it !in selected) selected.add(it) }
+                                } else EquipmentCatalog.fromDisplayName(item)?.let { selected.remove(it) }
                             }
                         )
                         Text(item)
@@ -1821,7 +1814,7 @@ private fun EquipmentProfileDialog(current: EquipmentProfile? = null, onDismiss:
         },
         confirmButton = {
             Button(
-                onClick = { onCreate(EquipmentProfile(name.trim(), "📍", selected.distinctBy{it.lowercase()}.sortedBy{it.lowercase()})) },
+                onClick = { onCreate(TrainingLocation(current?.id ?: "custom:"+System.currentTimeMillis(), name.trim(), "📍", TrainingLocationKind.CUSTOM, selected.toSet())) },
                 enabled = name.isNotBlank() && selected.isNotEmpty()
             ) { Text(if(current==null)"CREA" else "SALVA") }
         },
