@@ -381,4 +381,12 @@ class V091PlanningTest {
   assertEquals(requested,launch.plannedWorkout)
  }
 
+ @Test fun canonicalLocationCompatibilityRequiresExplicitBodyweightCapability(){
+  val body=Exercise("Body contract","Core","Corpo libero","Principiante",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val withoutBodyweight=TrainingLocation("custom:no-body","Garage","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
+  val withBodyweight=withoutBodyweight.copy(capabilities=setOf(EquipmentId.DUMBBELL,EquipmentId.BODYWEIGHT))
+  assertFalse(locationCompatible(body,withoutBodyweight))
+  assertTrue(locationCompatible(body,withBodyweight))
+ }
+
 }
