@@ -44,4 +44,20 @@ class SkillMasteryPrescriptionTest {
         assertEquals(8.0,focus.targetValue!!,0.0)
         assertTrue(pool.none{it.name.equals("Chest-to-bar Pull-up",true) || it.name.equals("Chest to bar pull-up",true)})
     }
+    @Test fun skillRegenerationCannotReplaceFocusWithLockedOrGenericProgression() {
+        val gym=profiles.first{it.name=="Palestra"}
+        val athlete=AthleteProfile(level="Avanzato")
+        val skill="Muscle-up"
+        val first=SkillCatalog.forSkill(skill).first{it.id=="pullup_strict"}
+        val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf(skill),emptyList())
+        val focus=pool.first{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}}
+        val original=listOf(focus)+pool.filter{it!=focus}.take(4)
+        val regenerated=regenerateSkillWorkout(original,pool,emptySet(),coachingContext(emptyList()),listOf(skill),emptyList())
+        assertTrue(regenerated.any{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}})
+        assertTrue(regenerated.none{ex -> ex.name.equals("Chest-to-bar Pull-up",true) || ex.name.equals("Chest to bar pull-up",true)})
+        val prescribed=regenerated.first{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}}
+        assertEquals(first.criterion.minSets,prescribed.targetSets)
+        assertEquals(first.criterion.minReps!!.toDouble(),prescribed.targetValue!!,0.0)
+    }
+
 }
