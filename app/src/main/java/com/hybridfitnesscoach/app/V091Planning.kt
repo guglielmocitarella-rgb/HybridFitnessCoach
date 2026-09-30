@@ -99,7 +99,7 @@ object ContextualPrescriptionEngine {
 }
 enum class PlannedWorkoutState { PLANNED, COMPLETED, PARTIAL, SKIPPED, RESCHEDULED, ADAPTED }
 data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null)
-data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>)
+data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>,val goal:String="Fitness generale",val trainingDays:Set<Int> = defaultTrainingDays(daysPerWeek),val prioritySkills:List<String> = emptyList())
 data class PlanConfiguration(
  val goal:String,
  val weeks:Int=8,
@@ -118,16 +118,23 @@ data class PlanConfiguration(
   )
  }
  companion object {
-  fun fromAthlete(athlete:AthleteProfile,weeks:Int=8):PlanConfiguration {
-   val frequency=athlete.daysPerWeek.coerceIn(1,7)
+  fun defaults(weeks:Int=8,daysPerWeek:Int=3):PlanConfiguration {
+   val frequency=daysPerWeek.coerceIn(1,7)
    return PlanConfiguration(
-    goal=normalizePlanGoal(athlete.goal),
+    goal="Fitness generale",
     weeks=weeks.coerceIn(1,52),
     daysPerWeek=frequency,
     trainingDays=defaultTrainingDays(frequency),
-    prioritySkills=athlete.prioritySkills
+    prioritySkills=emptyList()
    ).validated()
   }
+  fun fromPlan(plan:TrainingPlan):PlanConfiguration = PlanConfiguration(
+   goal=plan.goal,
+   weeks=plan.weeks,
+   daysPerWeek=plan.daysPerWeek,
+   trainingDays=plan.trainingDays,
+   prioritySkills=plan.prioritySkills
+  ).validated()
  }
 }
 internal fun normalizePlanGoal(goal:String):String = when(goal.trim()) {
