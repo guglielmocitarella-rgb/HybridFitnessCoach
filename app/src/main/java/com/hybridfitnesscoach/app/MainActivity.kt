@@ -771,7 +771,12 @@ fun HybridFitnessApp() {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> saveFinishedWorkout(record) }
                     Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
                     Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store, onExecuteExercise = { exercise ->
-                        libraryExerciseWorkout=singleExerciseWorkoutState(exercise,activeProfile.name)
+                        libraryExerciseWorkout=singleExerciseWorkoutState(
+                            exercise=exercise,
+                            profileName=activeProfile.name,
+                            athlete=athlete,
+                            sessions=sessions
+                        )
                     }) { record -> saveFinishedWorkout(record) }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
