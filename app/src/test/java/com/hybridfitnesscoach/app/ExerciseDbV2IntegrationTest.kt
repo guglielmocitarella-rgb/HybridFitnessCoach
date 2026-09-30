@@ -135,4 +135,22 @@ class ExerciseDbV2IntegrationTest {
         assertTrue(guidance.all{it.sourceId in sources})
         assertTrue(guidance.any{it.scope=="STRENGTH"})
     }
+    @Test fun equipmentFilterOptionsMatchCatalogTaxonomyAndAreAlphabetical() {
+        val options=exerciseEquipmentOptions(exercises)
+        assertEquals(options.sortedBy{it.lowercase()},options)
+        assertTrue("Fitball" in options)
+        assertTrue("Palla medica" in options)
+        assertTrue("Bilanciere EZ" in options)
+        assertFalse(options.any{"/" in it})
+        assertFalse("Non specificato" in options)
+    }
+
+    @Test fun profileEquipmentOptionsCoverEveryKnownCatalogEquipmentAndAreAlphabetical() {
+        val catalog=exerciseEquipmentOptions(exercises)
+        val profile=profileEquipmentOptions(exercises)
+        assertEquals(profile.sortedBy{it.lowercase()},profile)
+        assertTrue(profile.containsAll(catalog))
+        assertEquals(profile.distinct(),profile)
+    }
+
 }
