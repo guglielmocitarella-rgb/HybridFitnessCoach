@@ -55,7 +55,7 @@ class Rc2RunnerInputTest {
     }
 
     @Test fun assessedLevelActuallyConstrainsGeneratedWorkoutDifficulty() {
-        val gym=profiles.first{it.name=="Palestra"}
+        val gym=trainingLocations.first{it.name=="Palestra"}
         listOf(
             FitnessLevelAssessment(2,10,1) to "Principiante",
             FitnessLevelAssessment(6,15,3) to "Intermedio",
