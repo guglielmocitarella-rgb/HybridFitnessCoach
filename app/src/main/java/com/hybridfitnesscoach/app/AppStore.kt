@@ -91,7 +91,7 @@ private fun WorkoutSessionState.toJson():JSONObject { val a=JSONArray();exercise
     .put("exercises",a).put("currentExerciseIndex",currentExerciseIndex).put("elapsedBeforePauseMs",elapsedBeforePauseMs)
     .put("pausedAtEpochMs",pausedAtEpochMs).put("restEndsAtEpochMs",restEndsAtEpochMs).put("workoutRpe",workoutRpe).put("finishedAtEpochMs",finishedAtEpochMs)
     .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId).put("pausedRestRemainingSec",pausedRestRemainingSec) }
-private fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(1,2); val a=o.getJSONArray("exercises");return WorkoutSessionState(
+private fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(2); val a=o.getJSONArray("exercises");return WorkoutSessionState(
     o.getString("id"),o.getLong("startedAtEpochMs"),o.storedString("profileName",""),
     recovery.records(a,"active_workout_v1.exercises") { exercise, path -> workoutExerciseFromJson(exercise,recovery,path) },o.storedInt("currentExerciseIndex"),
     o.storedLong("elapsedBeforePauseMs",0L),o.optNullableLong("pausedAtEpochMs"),o.optNullableLong("restEndsAtEpochMs"),
@@ -125,9 +125,9 @@ private fun exerciseFromPlanSnapshot(o:JSONObject):Exercise = Exercise(
     o.getInt("targetSets"),o.optNullableDouble("targetValue"),o.optNullableInt("intervalRestSec"))
 
 /**
- * Keeps the v0.9 preference keys and JSON formats. Failed reads are never a new
- * installation: readable records are exposed, but every write is blocked until
- * the original data is repaired. No recovery/migration writes a partial result.
+ * Current-schema store. Failed reads are never treated as a new installation:
+ * readable current records are exposed, but every write is blocked until the
+ * original data is repaired. No recovery path writes a partial result.
  */
 class AppStore(context: Context) {
     private val recovery = StoreRecovery()
@@ -169,8 +169,7 @@ class AppStore(context: Context) {
     }
 
     fun loadAthlete(): AthleteProfile {
-        val storedGoal = string("athlete_goal", "Forza") ?: "Forza"
-        val goal = if (storedGoal == "Forza + skill" || storedGoal == "Forza + Skill Calisthenics") "Calisthenics" else storedGoal
+        val goal = string("athlete_goal", "Forza") ?: "Forza"
         return AthleteProfile(string("athlete_name", "") ?: "", goal,
             string("athlete_level", "Intermedio") ?: "Intermedio", int("athlete_days", 3),
             int("athlete_age"), float("athlete_height"), float("athlete_weight"),
@@ -193,8 +192,7 @@ class AppStore(context: Context) {
     fun saveActiveProfileName(name: String) = write { putString("active_equipment", name) }
 
     fun loadCustomProfiles(): List<EquipmentProfile> {
-        val migrated = field("equipment_profiles_migrated", false) { it.getBoolean("equipment_profiles_migrated", false) }
-        val raw = string("custom_profiles") ?: return if (migrated) emptyList() else profiles
+        val raw = string("custom_profiles") ?: return profiles
         return recovery.read("custom_profiles", emptyList()) {
             recovery.records(JSONArray(raw), "custom_profiles") { o, _ ->
                 require(o.has("equipment"))
@@ -206,7 +204,7 @@ class AppStore(context: Context) {
     fun saveCustomProfiles(items: List<EquipmentProfile>) {
         val array = JSONArray()
         items.forEach { array.put(JSONObject().put("name", it.name).put("icon", it.icon).put("equipment", JSONArray(it.equipment))) }
-        write { putString("custom_profiles", array.toString()).putBoolean("equipment_profiles_migrated", true) }
+        write { putString("custom_profiles", array.toString()) }
     }
 
     fun saveActiveWorkout(state: WorkoutSessionState) = write { putString("active_workout_v1", state.toJson().toString()) }
@@ -237,53 +235,31 @@ class AppStore(context: Context) {
         val raw = string("training_plan_v091") ?: return null
         return recovery.read("training_plan_v091", null) {
             val root = JSONObject(raw)
-            root.requireVersion(1, 2, 3)
-            val version = root.storedInt("schemaVersion", 1)
+            root.requireVersion(3)
             val workouts = recovery.records(root.getJSONArray("workouts"), "training_plan_v091.workouts") { o, path ->
-                val snapshots = o.storedArray("exerciseSnapshots")
-                val planned = if (snapshots != null) recovery.records(snapshots, "$path.exerciseSnapshots") { snapshot, _ ->
+                val snapshots = o.getJSONArray("exerciseSnapshots")
+                val planned = recovery.records(snapshots, "$path.exerciseSnapshots") { snapshot, _ ->
                     exerciseFromPlanSnapshot(snapshot)
-                } else {
-                    require(version == 1) { "Missing snapshots" }
-                    val names = o.getJSONArray("exerciseNames")
-                    (0 until names.length()).mapNotNull { index ->
-                        recovery.read<Exercise?>("$path.exerciseNames[$index]", null) {
-                            exercises.firstOrNull { it.name.equals(names.getString(index), ignoreCase = true) }
-                                ?: ExerciseDbV2.resolveLegacy(names.getString(index), ExerciseDbV2.installedRecords())?.let { record ->
-                                    exercises.firstOrNull { it.progressionKey == record.id } ?: ExerciseDbV2.toLegacyExercise(record)
-                                }
-                                ?: error("Unresolved legacy exercise")
-                        }
-                    }
                 }
-                PlannedWorkout(o.getString("id"), o.getLong("epochDay"), o.getInt("weekIndex"), o.getInt("sequenceInWeek"), planned,
+                PlannedWorkout(
+                    o.getString("id"), o.getLong("epochDay"), o.getInt("weekIndex"), o.getInt("sequenceInWeek"), planned,
                     PlannedWorkoutState.valueOf(o.storedString("state", "PLANNED")),
-                    o.storedLong("originalEpochDay", o.getLong("epochDay")), o.storedString("adaptationReason").takeIf { it.isNotBlank() },
-                    o.optNullableLong("actualExecutionEpochDay"))
+                    o.storedLong("originalEpochDay", o.getLong("epochDay")),
+                    o.storedString("adaptationReason").takeIf { it.isNotBlank() },
+                    o.optNullableLong("actualExecutionEpochDay")
+                )
             }
-            val daysPerWeek=root.getInt("daysPerWeek")
-            val trainingDays=if(version>=3) {
-                val a=root.getJSONArray("trainingDays")
-                (0 until a.length()).map{a.getInt(it)}.toSet()
-            } else defaultTrainingDays(daysPerWeek)
+            val trainingDaysArray = root.getJSONArray("trainingDays")
             TrainingPlan(
-                root.getString("id"), root.getLong("startEpochDay"), root.getInt("weeks"), daysPerWeek, workouts,
-                if(version>=3) normalizePlanGoal(root.getString("goal")) else "Fitness generale",
-                trainingDays,
-                if(version>=3) root.planStringList("prioritySkills") else emptyList()
+                root.getString("id"), root.getLong("startEpochDay"), root.getInt("weeks"), root.getInt("daysPerWeek"), workouts,
+                normalizePlanGoal(root.getString("goal")),
+                (0 until trainingDaysArray.length()).map { trainingDaysArray.getInt(it) }.toSet(),
+                root.planStringList("prioritySkills")
             )
         }
     }
 
-    fun loadTrainingPlan(): TrainingPlan? {
-        val plan = readTrainingPlan() ?: return null
-        // Only an entirely readable store may be migrated. Keep unresolved legacy
-        // references and every corrupt record in their original representation.
-        if (issues.isEmpty() && JSONObject(string("training_plan_v091")!!).storedInt("schemaVersion", 1) < 3) {
-            saveTrainingPlan(plan)
-        }
-        return plan
-    }
+    fun loadTrainingPlan(): TrainingPlan? = readTrainingPlan()
 
     fun loadSessions(): List<SessionRecord> {
         val raw = string("sessions") ?: return emptyList()
