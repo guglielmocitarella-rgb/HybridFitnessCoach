@@ -1371,6 +1371,25 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                         }
                     }
                 }
+                if(!running && generated.isNotEmpty()){
+                    Column(Modifier.fillMaxWidth().padding(bottom=8.dp)){
+                        Text("WORKOUT GENERATO",fontWeight=FontWeight.Bold,color=Accent)
+                        Text("Durata prevista: $minutes min")
+                        Text("Attrezzatura: "+selectedEquipment.joinToString(", "),fontSize=12.sp,color=Color.Gray)
+                        Text(if(mode=="Skill")"Skill: "+selectedSkills.joinToString(", ") else "Gruppi: "+selectedGroups.joinToString(", "),fontSize=12.sp,color=Color.Gray)
+                        CoachSummary(coachingContext(sessions,readinessScore))
+                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically){
+                            Text("Blocca gli esercizi che vuoi mantenere",fontSize=12.sp,color=Color.Gray,modifier=Modifier.weight(1f))
+                            TextButton(onClick={
+                                val pool=customWorkoutCandidatePool(EquipmentProfile("Custom","",selectedEquipment.toList()),athlete,sessions,mode,selectedSkills,selectedGroups)
+                                generated=if(mode=="Skill") regenerateSkillWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore),selectedSkills,sessions) else regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
+                                reps.clear();restSeconds.clear();generated.forEach{ex->reps[ex.name]=prescriptionFor(ex).value.toInt();restSeconds[ex.name]=ex.setRestSec}
+                                generationMessage="Rigenerati solo gli esercizi non bloccati."
+                            }){Text("RIGENERA NON BLOCCATI")}
+                        }
+                        Text("ESERCIZI",fontWeight=FontWeight.Bold)
+                    }
+                }
                 LazyColumn(state=listState,modifier=Modifier.weight(1f)){
                     if(!running && generated.isEmpty()){
                         if(filtersLocked){
@@ -1396,27 +1415,6 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             if(mode=="Parti del corpo") items(recoveryGroups){g->Row(Modifier.fillMaxWidth().clickable{if(g in selectedGroups)selectedGroups.remove(g)else selectedGroups.add(g)},verticalAlignment=Alignment.CenterVertically){Checkbox(g in selectedGroups,{if(it){if(g !in selectedGroups)selectedGroups.add(g)}else selectedGroups.remove(g)});Text(g)}}
                             if(mode=="Skill") item{skills.filter{it!="Nessuna"}.forEach{s->val linked=exercises.filter{s in it.skills};val muscles=linked.flatMap{ex->recoveryGroups.filter{g->ex.group.contains(g,true)}}.distinct().joinToString(" • ");Row(Modifier.fillMaxWidth().clickable{if(s in selectedSkills)selectedSkills.remove(s)else selectedSkills.add(s)},verticalAlignment=Alignment.CenterVertically){Checkbox(s in selectedSkills,{checked->if(checked){if(s !in selectedSkills)selectedSkills.add(s)}else selectedSkills.remove(s)});Column{Text(s);if(s in selectedSkills)Text("Coinvolge: $muscles",color=Color.Gray,fontSize=11.sp)}}}}
                             item{Button(onClick={build()},enabled=selectedEquipment.isNotEmpty()&&(mode!="Skill"||selectedSkills.isNotEmpty()),modifier=Modifier.fillMaxWidth().padding(vertical=10.dp)){Text("GENERA WORKOUT")};generationMessage?.let{Text(it,color=MaterialTheme.colorScheme.error,fontWeight=FontWeight.Bold)}}
-                        }
-                    }
-                    if(!running && generated.isNotEmpty()){
-                        item{
-                            Text("WORKOUT GENERATO",fontWeight=FontWeight.Bold,color=Accent)
-                            Text("Durata prevista: $minutes min")
-                            Text("Attrezzatura: "+selectedEquipment.joinToString(", "),fontSize=12.sp,color=Color.Gray)
-                            Text(if(mode=="Skill")"Skill: "+selectedSkills.joinToString(", ") else "Gruppi: "+selectedGroups.joinToString(", "),fontSize=12.sp,color=Color.Gray)
-                            Text("ESERCIZI",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
-                        }
-                    }
-                    if(!running && generated.isNotEmpty())item{
-                        CoachSummary(coachingContext(sessions,readinessScore))
-                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically){
-                            Text("Blocca gli esercizi che vuoi mantenere",fontSize=12.sp,color=Color.Gray,modifier=Modifier.weight(1f))
-                            TextButton(onClick={
-                                val pool=customWorkoutCandidatePool(EquipmentProfile("Custom","",selectedEquipment.toList()),athlete,sessions,mode,selectedSkills,selectedGroups)
-                                generated=if(mode=="Skill") regenerateSkillWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore),selectedSkills,sessions) else regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
-                                reps.clear();restSeconds.clear();generated.forEach{ex->reps[ex.name]=prescriptionFor(ex).value.toInt();restSeconds[ex.name]=ex.setRestSec}
-                                generationMessage="Rigenerati solo gli esercizi non bloccati."
-                            }){Text("RIGENERA NON BLOCCATI")}
                         }
                     }
                     items(generated){ex->
