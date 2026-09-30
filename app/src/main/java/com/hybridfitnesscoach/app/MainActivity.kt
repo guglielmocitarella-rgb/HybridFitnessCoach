@@ -833,7 +833,7 @@ fun HybridFitnessApp() {
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveTrainingLocationId(selected.id) },
  { created -> customProfiles.add(created); store.saveTrainingLocations(customProfiles); activeProfile=created; store.saveActiveTrainingLocationId(created.id) },
- { old, updated -> val i=customProfiles.indexOfFirst{it.name==old.name}; if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.name==old.name){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}} },
+ { old, updated -> val i=customProfiles.indexOfFirst{it.id==old.id}; if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.id==old.id){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}} },
  { doomed -> customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)} }
 )
                     Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
