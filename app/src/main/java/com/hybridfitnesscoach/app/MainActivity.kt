@@ -1409,7 +1409,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             Text("Blocca gli esercizi che vuoi mantenere",fontSize=12.sp,color=Color.Gray,modifier=Modifier.weight(1f))
                             TextButton(onClick={
                                 val pool=customWorkoutCandidatePool(EquipmentProfile("Custom","",selectedEquipment.toList()),athlete,sessions,mode,selectedSkills,selectedGroups)
-                                generated=regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
+                                generated=if(mode=="Skill") regenerateSkillWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore),selectedSkills,sessions) else regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
                                 reps.clear();restSeconds.clear();generated.forEach{ex->reps[ex.name]=prescriptionFor(ex).value.toInt();restSeconds[ex.name]=ex.setRestSec}
                                 generationMessage="Rigenerati solo gli esercizi non bloccati."
                             }){Text("RIGENERA NON BLOCCATI")}
