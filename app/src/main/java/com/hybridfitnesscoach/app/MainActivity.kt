@@ -715,7 +715,8 @@ internal fun materializePlannedSession(
  val intent=planned.intent
  if(intent==null) return PlannedSessionRealization(planned.exercises,PlannedSessionRealizationSource.LEGACY_SNAPSHOT,planned.id)
  val effectiveAthlete=athlete.copy(goal=intent.goal,prioritySkills=intent.prioritySkills)
- val generated=generateWorkoutFromCatalogue(catalogue,location.asLegacyProfile(),effectiveAthlete,sessions,readinessScore)
+ val compatibleCatalogue=catalogue.filter{locationCompatible(it,location)}
+ val generated=generateWorkoutFromCatalogue(compatibleCatalogue,location.asLegacyProfile(),effectiveAthlete,sessions,readinessScore)
  val focused=if(intent.focusCategories.isEmpty()) generated else generated.filter{it.category in intent.focusCategories}
  val realized=focused.takeIf{it.isNotEmpty()} ?: generated
  return PlannedSessionRealization(realized,PlannedSessionRealizationSource.INTENT,planned.id)

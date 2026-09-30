@@ -356,4 +356,15 @@ class V091PlanningTest {
   assertEquals(listOf(body.name),launch.exercises.map{it.name})
  }
 
+ @Test fun materializerHonorsExplicitCustomCapabilitiesWithoutImplicitBodyweight(){
+  val body=Exercise("Body implicit","Core","Corpo libero","Intermedio",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val dumbbell=Exercise("DB explicit","Spalle","Manubri","Intermedio",role="Forza")
+  val location=TrainingLocation("custom:db","Garage","🚗",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
+  val planned=PlannedWorkout("custom-cap",20_000,0,0,listOf(body),intent=PlannedSessionIntent("Forza"))
+  val realized=materializePlannedSession(planned,location,AthleteProfile(level="Intermedio"),emptyList(),80,listOf(body,dumbbell))
+  assertTrue(realized.exercises.isNotEmpty())
+  assertTrue(realized.exercises.all{it.name==dumbbell.name})
+  assertFalse(realized.exercises.any{it.name==body.name})
+ }
+
 }
