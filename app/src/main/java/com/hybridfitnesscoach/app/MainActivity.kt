@@ -38,7 +38,7 @@ internal fun resolveTrainingLocation(profile:EquipmentProfile):TrainingLocation 
     trainingLocations.firstOrNull{it.name==profile.name && it.icon==profile.icon} ?: profile.toTrainingLocation()
 internal fun locationCompatible(exercise:Exercise,location:TrainingLocation):Boolean {
     val required=EquipmentCatalog.requirementsFor(exercise)
-    return required.isNotEmpty() && (required==setOf(EquipmentId.BODYWEIGHT) || required.all{it in location.capabilities})
+    return required.isNotEmpty() && required.all{it in location.capabilities}
 }
 internal fun runnerEffort(value:Int?):Int = value?.takeIf { it in 1..10 } ?: 5
 internal fun recommendedSetRest(role:String,name:String,equipment:String):Int {
