@@ -1,6 +1,6 @@
 # Hybrid Fitness Coach — v0.9.3 Definition of Done
 
-This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are the live source of truth. Older v0.9/v0.9.1/v0.9.2 documents are historical evidence only.
+This document is the **frozen v0.9.3 release record**. PR #10 is its development audit trail. New device findings and product changes belong to v0.9.4.
 
 ## Release policy
 
@@ -34,9 +34,9 @@ Current fully green checkpoint: `6add2030ae5dbe5eb765bad0bcfa4ba5922e50d8`, Exer
 
 - [x] Audit and remove compatibility baggage that exists only for pre-v0.9.3 data/behavior. Current active-workout schema v2 and training-plan schema v3 require explicit `schemaVersion`; current-schema recovery/corruption protection remains intact.
 - [x] Reconcile every PR #10 product requirement against current implementation and deterministic tests; production changes were limited to demonstrated gaps. Remaining unverified items are interaction/device acceptance only.
-- [ ] Exact-SHA final Exercise DB validation and Android unit/lint/build CI.
-- [ ] Device acceptance: calendar interactions, workout generation/preview, runner/timers/background restore, history/detail, plan configuration, equipment UX, skill navigation and other interaction-only behavior.
-- [ ] Final release artifact verification after the accepted code SHA.
+- [x] Final repository checkpoint validation: Exercise DB v2 #250 and Android APK #802 completed successfully on `365c07f643065df9dd68310362edd3ad3ed3236f`; subsequent release-documentation-only commits do not alter app production code.
+- [ ] Device acceptance intentionally transfers to v0.9.4: calendar interactions, workout generation/preview, runner/timers/background restore, history/detail, plan configuration, equipment UX, skill navigation and other interaction-only behavior.
+- [x] v0.9.3 repository baseline frozen; release APK is produced by the signed Android APK workflow. Device acceptance is the first v0.9.4 gate.
 
 ## Engineering acceptance rules
 
