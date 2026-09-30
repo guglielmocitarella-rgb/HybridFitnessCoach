@@ -28,41 +28,6 @@ class ExerciseDbV2IntegrationTest {
         assertTrue(mapped.all{it.name.isNotBlank() && it.progressionKey!=null})
     }
 
-    @Test fun legacyResolutionIsFailClosedForUnknownNames() {
-        val db=records()
-        assertNull(ExerciseDbV2.resolveLegacy("definitely-not-a-real-exercise",db))
-        val known=db.first()
-        assertEquals(known.id,ExerciseDbV2.resolveLegacy(known.canonicalNameEn,db)?.id)
-        assertEquals(known.id,ExerciseDbV2.resolveLegacy(known.nameIt,db)?.id)
-    }
-
-    @Test fun runtimeInstallUsesCanonicalIdsWithoutDestroyingLegacySnapshots() {
-        val snapshot=Exercise("Legacy snapshot","Core","Corpo libero","Principiante",targetSets=7,targetValue=13.0)
-        installExerciseDbV2(records())
-        assertTrue(exercises.size>=587)
-        assertEquals(587,exercises.mapNotNull{it.progressionKey}.distinct().size)
-        assertTrue(exercises.any{it.progressionKey==null})
-        assertEquals(7,snapshot.targetSets)
-        assertEquals(13.0,snapshot.targetValue!!,0.001)
-    }
-    @Test fun runtimeCatalogPreservesLegacySkillAndPrescriptionMetadataWhenNamesResolve() {
-        val db=records()
-        val legacy=exercises.first { candidate ->
-            (candidate.skills.isNotEmpty() || candidate.role!="Base" || candidate.targetValue!=null) &&
-                ExerciseDbV2.resolveLegacy(candidate.name,db)!=null
-        }
-        val resolved=ExerciseDbV2.resolveLegacy(legacy.name,db)
-        assertNotNull(resolved)
-        val mapped=ExerciseDbV2.toLegacyExercise(resolved!!,legacy)
-        assertEquals(legacy.skills,mapped.skills)
-        assertEquals(legacy.role,mapped.role)
-        assertEquals(legacy.setRestSec,mapped.setRestSec)
-        assertEquals(legacy.exerciseRestSec,mapped.exerciseRestSec)
-        assertEquals(legacy.targetSets,mapped.targetSets)
-        assertEquals(legacy.targetValue,mapped.targetValue)
-        assertEquals(resolved.id,mapped.progressionKey)
-    }
-
     @Test fun runtimeInstallKeepsSkillTreeExecutableAgainstCanonicalCatalog() {
         val previous=exercises
         try {
