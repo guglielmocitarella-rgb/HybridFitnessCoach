@@ -135,8 +135,9 @@ class ExerciseDbV2IntegrationTest {
         assertTrue(guidance.all{it.sourceId in sources})
         assertTrue(guidance.any{it.scope=="STRENGTH"})
     }
-    @Test fun equipmentFilterOptionsMatchCatalogTaxonomyAndAreAlphabetical() {
-        val options=exerciseEquipmentOptions(exercises)
+    @Test fun equipmentFilterOptionsMatchCanonicalCatalogTaxonomyAndAreAlphabetical() {
+        val canonical=records().map { ExerciseDbV2.toLegacyExercise(it) }
+        val options=exerciseEquipmentOptions(canonical)
         assertEquals(options.sortedBy{it.lowercase()},options)
         assertTrue("Fitball" in options)
         assertTrue("Palla medica" in options)
@@ -145,12 +146,25 @@ class ExerciseDbV2IntegrationTest {
         assertFalse("Non specificato" in options)
     }
 
-    @Test fun profileEquipmentOptionsCoverEveryKnownCatalogEquipmentAndAreAlphabetical() {
-        val catalog=exerciseEquipmentOptions(exercises)
-        val profile=profileEquipmentOptions(exercises)
+    @Test fun profileEquipmentOptionsCoverEveryKnownCanonicalEquipmentAndAreAlphabetical() {
+        val canonical=records().map { ExerciseDbV2.toLegacyExercise(it) }
+        val catalog=exerciseEquipmentOptions(canonical)
+        val profile=profileEquipmentOptions(canonical)
         assertEquals(profile.sortedBy{it.lowercase()},profile)
         assertTrue(profile.containsAll(catalog))
         assertEquals(profile.distinct(),profile)
+    }
+
+    @Test fun installedRuntimeCatalogExposesTheSameCanonicalEquipmentTaxonomy() {
+        val previous=exercises
+        try {
+            installExerciseDbV2(records())
+            val runtime=exerciseEquipmentOptions(exercises)
+            val canonical=exerciseEquipmentOptions(records().map { ExerciseDbV2.toLegacyExercise(it) })
+            assertTrue(runtime.containsAll(canonical))
+        } finally {
+            exercises=previous
+        }
     }
 
 }
