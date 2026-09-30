@@ -28,7 +28,7 @@ This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are th
 | Completed workout detail | Structured executed-set detail, including actual reps/load/rest, is rendered from session history | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Generated workout preview | Summary, Adaptive Coach and regenerate controls are outside the exercise `LazyColumn`; only the exercise list scrolls; pinned regeneration behavior remains regression-covered | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 
-Current fully green checkpoint: `231f7a91cac307bb61eedbd55b97b397b95d0eef`, Exercise DB v2 #238 and Android APK #790.
+Current fully green checkpoint: `6f7eea9e0f99ac7d36afc366eaccd6aa5c017177`, Exercise DB v2 #242 and Android APK #794. Direct Execute now materializes the same effective prescription used by automatic generation; deterministic recovery tests also cover process recreation during exercise-transition recovery and preservation of current runner position plus structured performance.
 
 ## Remaining gates
 
