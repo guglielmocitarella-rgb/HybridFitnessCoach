@@ -225,7 +225,7 @@ internal fun customWorkoutCandidatePool(
     val focusNames=skillWorkoutFocusNames(selectedSkills,sessions)
     val skillWork=base.filter{ex->
         selectedSkills.any{s->s in ex.skills} && ex.name.lowercase() in focusNames
-    }
+    }.map { ex -> applySkillMasteryPrescription(ex,selectedSkills,sessions) }
     // Support work may remain broad, but never reintroduce another progression
     // exercise from the selected skill: mastered and locked nodes stay out.
     val support=base.filter{ex->
@@ -236,6 +236,43 @@ internal fun customWorkoutCandidatePool(
     return (skillWork+support).distinct()
 }
 
+
+/**
+ * A skill workout must rehearse the currently consolidated progression at the
+ * criterion that can actually establish mastery. This is deliberately separate
+ * from generic strength/hypertrophy prescriptions: a 3x8 mastery node must not
+ * silently become the generic 3x5 progression prescription.
+ */
+internal fun applySkillMasteryPrescription(
+    exercise:Exercise,
+    selectedSkills:Collection<String>,
+    sessions:List<SessionRecord>
+):Exercise {
+    val name=exercise.name.lowercase()
+    val state=selectedSkills.asSequence()
+        .flatMap{SkillCatalog.progress(it,sessions).asSequence()}
+        .firstOrNull { progress ->
+            progress.status in setOf(ProgressionStatus.IN_PROGRESS,ProgressionStatus.AVAILABLE,ProgressionStatus.MASTERED) &&
+            (progress.node.exerciseAliases+progress.node.exerciseName).any{it.lowercase()==name}
+        } ?: return exercise
+    val criterion=state.node.criterion
+    val target=when(exercise.measure) {
+        ExerciseMeasure.REPS -> criterion.minReps?.toDouble()
+        ExerciseMeasure.SECONDS, ExerciseMeasure.DURATION, ExerciseMeasure.INTERVALS -> criterion.minSeconds?.toDouble()
+        ExerciseMeasure.DISTANCE -> null
+    }
+    return exercise.copy(
+        targetSets=maxOf(exercise.targetSets,criterion.minSets),
+        targetValue=target ?: exercise.targetValue
+    )
+}
+
+/** Re-assert the mastery floor after Adaptive Coach adjustments. */
+internal fun enforceSkillMasteryPrescription(
+    items:List<Exercise>,
+    selectedSkills:Collection<String>,
+    sessions:List<SessionRecord>
+):List<Exercise> = items.map{applySkillMasteryPrescription(it,selectedSkills,sessions)}
 
 internal data class EffectiveRunnerPrescription(
     val sets:Int,
