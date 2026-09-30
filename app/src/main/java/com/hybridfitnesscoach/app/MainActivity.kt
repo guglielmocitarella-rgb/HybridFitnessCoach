@@ -725,6 +725,7 @@ fun HybridFitnessApp() {
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     var calendarWorkout by remember { mutableStateOf<PlannedWorkout?>(null) }
+    var libraryExerciseWorkout by remember { mutableStateOf<WorkoutSessionState?>(null) }
     fun saveFinishedWorkout(record: SessionRecord): Boolean {
         val saved = store.finishWorkout(record)
         if (saved) sessions = store.loadSessions()
@@ -758,7 +759,9 @@ fun HybridFitnessApp() {
                 when (tab) {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> saveFinishedWorkout(record) }
                     Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
-                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store) { record -> saveFinishedWorkout(record) }
+                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store, onExecuteExercise = { exercise ->
+                        libraryExerciseWorkout=singleExerciseWorkoutState(exercise,activeProfile.name)
+                    }) { record -> saveFinishedWorkout(record) }
                     Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
  { selected -> activeProfile=selected; store.saveActiveProfileName(selected.name) },
  { created -> customProfiles.add(created); store.saveCustomProfiles(customProfiles); activeProfile=created; store.saveActiveProfileName(created.name) },
@@ -768,6 +771,21 @@ fun HybridFitnessApp() {
                     Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
                 }
             }
+        }
+        libraryExerciseWorkout?.let { single ->
+            WorkoutDialog(
+                profile=activeProfile,
+                athlete=athlete,
+                sessions=sessions,
+                store=store,
+                restored=single,
+                onDismiss={ libraryExerciseWorkout=null },
+                onSave={ record ->
+                    val saved=saveFinishedWorkout(record)
+                    if(saved)libraryExerciseWorkout=null
+                    saved
+                }
+            )
         }
     }
 }
@@ -1058,7 +1076,7 @@ private fun RecoveryChart(sessions: List<SessionRecord>) {
 @Composable private fun ExerciseRow(a: String, b: String) { Card(Modifier.padding(horizontal = 20.dp, vertical = 5.dp).fillMaxWidth()) { Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Default.FitnessCenter, null, tint = Accent); Spacer(Modifier.width(14.dp)); Column { Text(a, fontWeight = FontWeight.SemiBold); Text(b, color = Color.Gray, fontSize = 13.sp) } } } }
 
 @Composable
-private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, onSessionSaved: (SessionRecord) -> Boolean) {
+private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, onExecuteExercise:(Exercise)->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
     var selectedSkill by remember { mutableStateOf<String?>(null) }
     var skillWorkout by remember { mutableStateOf<String?>(null) }
     var filteredWorkout by remember { mutableStateOf(false) }
@@ -1100,7 +1118,7 @@ private fun Library(profile: EquipmentProfile, athlete: AthleteProfile, sessions
         val target=when(type){"equipment"->equipmentFilters;"groups"->groupFilters;else->skillFilters}
         AlertDialog(onDismissRequest={filterDialog=null},title={Text(title)},text={LazyColumn(Modifier.heightIn(max=520.dp)){items(opts){o->Row(Modifier.fillMaxWidth().clickable{if(o in target)target.remove(o) else target.add(o)},verticalAlignment=Alignment.CenterVertically){Checkbox(o in target,{checked->if(checked){if(o !in target)target.add(o)}else target.remove(o)});Column(Modifier.clickable(enabled=type=="skills"){if(type=="skills"){selectedSkill=o;filterDialog=null}}){Text(o);if(type=="skills")calisthenicsSkills.firstOrNull{it.name==o}?.let{Text(it.category+" • "+it.level,color=Color.Gray,fontSize=12.sp)}}}}}},confirmButton={Button(onClick={filterDialog=null}){Text("APPLICA")}},dismissButton={TextButton(onClick={target.clear()}){Text("AZZERA")}})
     }
-    selected?.let{ex->ExerciseDetailDialog(ex=ex,sessions=sessions,onDismiss={selected=null},onSkillClick={skill->selected=null;selectedSkill=skill})}
+    selected?.let{ex->ExerciseDetailDialog(ex=ex,sessions=sessions,onDismiss={selected=null},onSkillClick={skill->selected=null;selectedSkill=skill},onExecute={selected=null;onExecuteExercise(ex)})}
     selectedSkill?.let { skill -> SkillDetailDialog(skill, athlete, { selectedSkill=null }, { skillWorkout=skill; selectedSkill=null }, sessions) }
     skillWorkout?.let { skill -> CustomWorkoutDialog(profile, athlete, sessions, { skillWorkout=null }, { record -> val saved=onSessionSaved(record);if(saved)skillWorkout=null;saved }, initialSkill=skill,store=store) }
     if(filteredWorkout) CustomWorkoutDialog(profile,athlete,sessions,{filteredWorkout=false},{record->val saved=onSessionSaved(record);if(saved)filteredWorkout=false;saved},initialEquipment=equipmentFilters.toList(),initialGroups=groupFilters.toList(),initialSkill=skillFilters.firstOrNull()?:"Nessuna",filtersLocked=true,store=store)
@@ -1579,7 +1597,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
 }
 
 @Composable
-private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSkillClick:(String)->Unit) {
+private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSkillClick:(String)->Unit, onExecute:()->Unit) {
     val stats = remember(ex.name,sessions) { ExerciseStatistics.fromHistory(ex.name,sessions) }
     val verifiedVideo=ExerciseVideoCatalog.findVerified(ex.name,ExerciseVideoCatalog.verifiedEntries)
     val context=androidx.compose.ui.platform.LocalContext.current
@@ -1690,7 +1708,8 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                 }
             }
         },
-        confirmButton = { TextButton(onClick = onDismiss) { Text("CHIUDI") } }
+        confirmButton = { Button(onClick=onExecute){Text("ESEGUI")} },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("CHIUDI") } }
     )
 }
 
