@@ -294,6 +294,7 @@ class V091PlanningTest {
   assertTrue(plan.workouts.all{it.intent!=null})
   assertTrue(plan.workouts.all{it.intent!!.goal=="Forza" && it.intent!!.prioritySkills==listOf("Front lever")})
   assertTrue(plan.workouts.all{it.intent!!.sequenceInWeek==it.sequenceInWeek})
+  assertTrue(plan.workouts.all{it.intent!!.focusCategories.isEmpty()}) // no focus inferred from location-bound snapshots
   assertTrue(plan.workouts.all{it.exercises.isNotEmpty()}) // compatibility snapshot retained during migration
  }
  @Test fun plannedSessionIntentValidationNormalizesMetadataWithoutLocation(){

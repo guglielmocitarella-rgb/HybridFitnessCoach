@@ -718,7 +718,7 @@ internal fun generateTrainingPlan(
  }
  return scheduled.copy(
   goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills,
-  workouts=scheduled.workouts.map{w->w.copy(intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,w.exercises.map{it.category}.filter{it!=ExerciseCategory.OTHER}.toSet(),w.sequenceInWeek).validated())}
+  workouts=scheduled.workouts.map{w->w.copy(intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,emptySet(),w.sequenceInWeek).validated())}
  )
 }
 
