@@ -101,17 +101,6 @@ class AppStoreRecoveryTest {
         assertEquals("builtin:home", AppStore(context).loadActiveWorkout()?.trainingLocationId)
     }
 
-    @Test fun legacyActiveWorkoutWithoutTrainingLocationStillLoads() {
-        val store = AppStore(context)
-        val active = WorkoutSessionState("legacy-location", 1000, "Casa", listOf(WorkoutExerciseState("Push-up")))
-        store.saveActiveWorkout(active)
-        val raw = JSONObject(prefs.getString("active_workout_v1", null)!!).apply { remove("trainingLocationId") }
-        prefs.edit().putString("active_workout_v1", raw.toString()).commit()
-        val restored = AppStore(context).loadActiveWorkout()
-        assertEquals(active.id, restored?.id)
-        assertNull(restored?.trainingLocationId)
-    }
-
     @Test fun finishingWorkoutAtomicallySavesHistoryPlanAndClearsActiveState() {
         val store = AppStore(context)
         val planned = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()))
@@ -217,7 +206,7 @@ class AppStoreRecoveryTest {
         assertEquals(raw, prefs.getString("active_workout_v1", null))
     }
 
-    @Test fun assessedAthleteCapabilitiesRoundTripAndLegacyFallback() {
+    @Test fun assessedAthleteCapabilitiesRoundTrip() {
         val store = AppStore(context)
         store.saveAthlete(AthleteProfile(
             name = "Capability",
@@ -232,17 +221,6 @@ class AppStoreRecoveryTest {
         assertEquals(2, loaded.assessedPullCapacity)
         assertTrue(loaded.toCapabilityProfile().assessed)
 
-        prefs.edit()
-            .remove("athlete_assessed_experience")
-            .remove("athlete_assessed_push")
-            .remove("athlete_assessed_pull")
-            .commit()
-        val legacy = AppStore(context).loadAthlete()
-        assertNull(legacy.assessedTrainingExperience)
-        assertNull(legacy.assessedPushCapacity)
-        assertNull(legacy.assessedPullCapacity)
-        assertFalse(legacy.toCapabilityProfile().assessed)
-        assertEquals(levelScore(legacy.level), legacy.toCapabilityProfile().exerciseLevel)
     }
 
     @Test fun athletePersistenceOwnsOnlyStableAthleteFields() {

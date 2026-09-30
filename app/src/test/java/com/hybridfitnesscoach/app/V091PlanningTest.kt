@@ -260,14 +260,14 @@ class V091PlanningTest {
  }
 
  @Test fun fitnessLevelAssessmentHasStableBoundaries(){
-  assertEquals("Principiante",assessedFitnessLevel(FitnessLevelAssessment(0,0,0)))
-  assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(6,10,0)))
-  assertEquals("Avanzato",assessedFitnessLevel(FitnessLevelAssessment(24,30,10)))
-  assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(24,0,0)))
+  assertEquals("Principiante",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,0,0)).exerciseLevel))
+  assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(6,10,0)).exerciseLevel))
+  assertEquals("Avanzato",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,30,10)).exerciseLevel))
+  assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,0,0)).exerciseLevel))
  }
  @Test fun assessedLevelConstrainsGeneratedPlanDifficulty(){
   val profile=profiles.first{it.name=="Palestra"}
-  val level=assessedFitnessLevel(FitnessLevelAssessment(0,5,0))
+  val level=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,5,0)).exerciseLevel)
   val athlete=AthleteProfile(goal="Forza",level=level,daysPerWeek=2)
   val config=PlanConfiguration("Forza",1,2,setOf(1,4),emptyList()).validated()
   val plan=generateTrainingPlan("assessment",20_000,profile,athlete,config,emptyList(),80)
@@ -275,7 +275,7 @@ class V091PlanningTest {
   assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(level)})
  }
  @Test fun fitnessLevelAssessmentRejectsNegativeInputs(){
-  assertThrows(IllegalArgumentException::class.java){assessedFitnessLevel(FitnessLevelAssessment(-1,0,0))}
+  assertThrows(IllegalArgumentException::class.java){capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(-1,0,0)).exerciseLevel)}
  }
 
 
@@ -437,7 +437,7 @@ class V091PlanningTest {
   assertEquals(3,mixed.trainingExperience)
   assertEquals(1,mixed.pushCapacity)
   assertEquals(3,mixed.pullCapacity)
-  assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(24,9,10)))
+  assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,9,10)).exerciseLevel))
  }
  @Test fun assessedBodyweightCapabilityCanDifferBetweenPushAndPull(){
   val push=Exercise("Push-up avanzato","Petto","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.BODYWEIGHT)

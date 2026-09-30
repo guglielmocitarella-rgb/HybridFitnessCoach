@@ -161,7 +161,6 @@ internal fun capabilityFromAssessment(input:FitnessLevelAssessment):CapabilityPr
     return CapabilityProfile(overall,experience,push,pull,assessed=true)
 }
 internal fun capabilityLevelName(level:Int):String = when(level.coerceIn(1,3)){1->"Principiante";2->"Intermedio";else->"Avanzato"}
-internal fun assessedFitnessLevel(input:FitnessLevelAssessment):String = capabilityLevelName(capabilityFromAssessment(input).exerciseLevel)
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
