@@ -647,13 +647,9 @@ internal fun profileEquipmentOptions(source:List<Exercise>):List<String> =
 internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
 internal fun capabilityLevelFor(ex:Exercise, capability:CapabilityProfile):Int {
     if(!capability.assessed || ex.resistanceMode!=ResistanceMode.BODYWEIGHT) return capability.exerciseLevel
-    val text=(ex.name+" "+ex.group+" "+ex.movementPattern+" "+ex.skills.joinToString(" ")).lowercase()
-    val pullFamily=listOf("pull","traz","chin","sbarra","muscle up","front lever","back lever").any{text.contains(it)}
-    val pushFamily=listOf("push","pieg","dip","spinta","handstand","planche").any{text.contains(it)}
-    return when {
-        pullFamily && !pushFamily -> capability.pullCapacity ?: capability.exerciseLevel
-        pushFamily && !pullFamily -> capability.pushCapacity ?: capability.exerciseLevel
-        pullFamily && pushFamily -> minOf(capability.pushCapacity ?: capability.exerciseLevel,capability.pullCapacity ?: capability.exerciseLevel)
+    return when(ex.category) {
+        ExerciseCategory.PULL -> capability.pullCapacity ?: capability.exerciseLevel
+        ExerciseCategory.PUSH -> capability.pushCapacity ?: capability.exerciseLevel
         else -> capability.exerciseLevel
     }
 }
