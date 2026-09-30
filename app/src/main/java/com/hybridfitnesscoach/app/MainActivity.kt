@@ -568,11 +568,12 @@ internal fun installExerciseDbV2(records:List<ExerciseV2Record>) {
         ExerciseDbV2.toLegacyExercise(record,legacy)
     }
     val migratedLegacyNames=migrated.map { it.name.trim().lowercase() }.toSet()
-    // Keep legacy-only exercises executable until they receive a sourced v2 record.
-    // This preserves existing plans/skill nodes without pretending unsourced records are v2.
-    val legacyOnly=legacyExercises.filter { it.name.trim().lowercase() !in migratedLegacyNames &&
+    // These are current-model programming entries still required by SkillCatalog but not yet
+    // represented by a source-backed v2 record. They are retained for current v0.9.3 behavior,
+    // not for backward compatibility with older app data.
+    val currentModelOnly=legacyExercises.filter { it.name.trim().lowercase() !in migratedLegacyNames &&
         ExerciseDbV2.resolveLegacy(it.name,records)==null }
-    exercises=(migrated+legacyOnly).distinctBy { it.progressionKey ?: it.name.trim().lowercase() }
+    exercises=(migrated+currentModelOnly).distinctBy { it.progressionKey ?: it.name.trim().lowercase() }
     if (exercises.isEmpty()) exercises=legacyExercises
 }
 
