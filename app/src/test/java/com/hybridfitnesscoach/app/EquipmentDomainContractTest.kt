@@ -20,12 +20,13 @@ class EquipmentDomainContractTest {
         assertFalse(equipmentCompatible(ex,EquipmentProfile("Home","",listOf("Corpo libero"))))
     }
 
-    @Test fun emptyCanonicalEquipmentMeansBodyweightCapability() {
-        val row=ExerciseV2Record("bw-test","Bodyweight test","Test corpo libero",emptyList(),"CALISTHENICS","PUSH",emptyList(),null,"REPS",listOf("s"),"HIGH")
+    @Test fun emptyCanonicalEquipmentRemainsUnknownAndFailsClosed() {
+        val row=ExerciseV2Record("unknown-test","Unknown equipment","Attrezzatura sconosciuta",emptyList(),"CALISTHENICS","PUSH",emptyList(),null,"REPS",listOf("s"),"HIGH")
         ExerciseDbV2.install(listOf(row))
         val ex=ExerciseDbV2.toLegacyExercise(row)
-        assertEquals(setOf(EquipmentId.BODYWEIGHT),EquipmentCatalog.requirementsFor(ex))
-        assertTrue(equipmentCompatible(ex,EquipmentProfile("Park","",emptyList())))
+        assertEquals("Non specificato",ex.equipment)
+        assertTrue(EquipmentCatalog.requirementsFor(ex).isEmpty())
+        assertFalse(equipmentCompatible(ex,EquipmentProfile("Park","",emptyList())))
     }
 
     @Test fun equipmentOptionsAreDeduplicatedAndAlphabetical() {

@@ -59,8 +59,8 @@ internal object EquipmentCatalog {
             ExerciseDbV2.installedRecords().firstOrNull { it.id==id }
         }
         if(canonical!=null) {
-            val ids=canonical.equipment.mapNotNull(::fromToken).toSet()
-            return if(canonical.equipment.isEmpty()) setOf(EquipmentId.BODYWEIGHT) else ids
+            if(canonical.equipment.isEmpty()) return emptySet()
+            return canonical.equipment.mapNotNull(::fromToken).toSet()
         }
         val legacy=exercise.equipment.split("/").mapNotNull(::fromDisplayName).toSet()
         return if(legacy.isEmpty() && exercise.equipment.equals("Corpo libero",true)) setOf(EquipmentId.BODYWEIGHT) else legacy

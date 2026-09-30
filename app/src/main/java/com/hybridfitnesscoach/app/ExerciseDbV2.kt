@@ -166,7 +166,7 @@ internal object ExerciseDbV2 {
         return withExerciseMetadata(Exercise(
             name=legacy?.name?:record.nameIt,
             group=group,
-            equipment=if(record.equipment.isNotEmpty()) record.equipment.joinToString(" / "){EquipmentCatalog.displayNameForToken(it)} else legacy?.equipment?:EquipmentCatalog.displayName(EquipmentId.BODYWEIGHT),
+            equipment=if(record.equipment.isNotEmpty()) record.equipment.joinToString(" / "){EquipmentCatalog.displayNameForToken(it)} else legacy?.equipment?:"Non specificato",
             level=record.level?:legacy?.level?:"Non valutato",
             skills=legacy?.skills?:emptyList(),
             role=legacy?.role?:"Base",
