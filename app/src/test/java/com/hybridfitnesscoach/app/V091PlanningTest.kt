@@ -331,4 +331,29 @@ class V091PlanningTest {
   assertTrue(realized.exercises.isEmpty())
  }
 
+ @Test fun builtInLegacyProfileResolvesToCanonicalLocation(){
+  val gymProfile=profiles.first{it.name=="Palestra"}
+  val resolved=resolveTrainingLocation(gymProfile)
+  assertEquals("builtin:gym",resolved.id)
+  assertEquals(TrainingLocationKind.GYM,resolved.kind)
+ }
+ @Test fun customLegacyProfileResolvesWithoutInventingCapabilities(){
+  val custom=EquipmentProfile("Garage","🚗",listOf("Corpo libero","Manubri","Attrezzo sconosciuto"))
+  val resolved=resolveTrainingLocation(custom)
+  assertEquals(TrainingLocationKind.CUSTOM,resolved.kind)
+  assertEquals(setOf(EquipmentId.BODYWEIGHT,EquipmentId.DUMBBELL),resolved.capabilities)
+ }
+ @Test fun realizedPlannedWorkoutCopyKeepsIdentityAndIntent(){
+  val snapshot=Exercise("Machine old","Gambe","Macchine","Intermedio",role="Forza")
+  val body=Exercise("Body new","Gambe","Corpo libero","Intermedio",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val planned=PlannedWorkout("identity",20_000,1,2,listOf(snapshot),intent=PlannedSessionIntent("Forza",sequenceInWeek=2))
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio"),emptyList(),80,listOf(snapshot,body))
+  val launch=planned.copy(exercises=realization.exercises)
+  assertEquals(planned.id,launch.id)
+  assertEquals(planned.intent,launch.intent)
+  assertEquals(planned.epochDay,launch.epochDay)
+  assertEquals(listOf(body.name),launch.exercises.map{it.name})
+ }
+
 }

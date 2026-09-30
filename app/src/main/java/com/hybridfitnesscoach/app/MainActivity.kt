@@ -34,6 +34,8 @@ internal data class TrainingLocation(val id:String,val name:String,val icon:Stri
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
 internal fun EquipmentProfile.toTrainingLocation(id:String="legacy:"+name.trim().lowercase().replace(" ","-")):TrainingLocation =
     TrainingLocation(id,name,icon,TrainingLocationKind.CUSTOM,equipment.mapNotNull(EquipmentCatalog::fromDisplayName).toSet())
+internal fun resolveTrainingLocation(profile:EquipmentProfile):TrainingLocation =
+    trainingLocations.firstOrNull{it.name==profile.name && it.icon==profile.icon} ?: profile.toTrainingLocation()
 internal fun locationCompatible(exercise:Exercise,location:TrainingLocation):Boolean {
     val required=EquipmentCatalog.requirementsFor(exercise)
     return required.isNotEmpty() && (required==setOf(EquipmentId.BODYWEIGHT) || required.all{it in location.capabilities})
@@ -910,8 +912,11 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
             val launch=resolveWorkoutLaunch(restoredWorkout,requested)
-            plannedWorkoutToRun=launch.plannedWorkout
-            workoutOpen=launch.resumeActive || launch.plannedWorkout!=null
+            plannedWorkoutToRun=launch.plannedWorkout?.let{planned->
+                val realized=materializePlannedSession(planned,resolveTrainingLocation(profile),athlete,sessions,readinessScore)
+                planned.copy(exercises=realized.exercises)
+            }
+            workoutOpen=launch.resumeActive || plannedWorkoutToRun?.exercises?.isNotEmpty()==true
             onCalendarWorkoutConsumed()
         }
     }
@@ -945,10 +950,11 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
                     val suggestion=resolveSuggestedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay()){generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)}
                     val todayPlan=suggestion.plannedWorkout
-                    val suggested=suggestion.exercises
+                    val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,resolveTrainingLocation(profile),athlete,sessions,readinessScore)}
+                    val suggested=realizedTodayPlan?.exercises ?: suggestion.exercises
                     Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
-                    Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
+                    Button(onClick = { plannedWorkoutToRun=todayPlan?.let{p->realizedTodayPlan?.let{r->p.copy(exercises=r.exercises)}?:p}; workoutOpen = true }, enabled=todayPlan==null || suggested.isNotEmpty(), modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
                 }
             }
