@@ -1599,8 +1599,6 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
 @Composable
 private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSkillClick:(String)->Unit, onExecute:()->Unit) {
     val stats = remember(ex.name,sessions) { ExerciseStatistics.fromHistory(ex.name,sessions) }
-    val verifiedVideo=ExerciseVideoCatalog.findVerified(ex.name,ExerciseVideoCatalog.verifiedEntries)
-    val context=androidx.compose.ui.platform.LocalContext.current
     val v2Record=ExerciseDbV2.recordFor(ex)
     val sourceDrivenInstructions = v2Record?.executionStepsIt?.takeIf { it.isNotEmpty() }?.joinToString("\n• ","• ")
         ?: v2Record?.descriptionIt?.takeIf { it.isNotBlank() }
@@ -1632,18 +1630,6 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                 Text("Come eseguirlo", fontWeight = FontWeight.Bold)
                 Text(instructions, modifier = Modifier.padding(top = 6.dp))
                 Spacer(Modifier.height(12.dp))
-                Text("Video dimostrativo",fontWeight=FontWeight.Bold)
-                if(verifiedVideo==null) {
-                    Text("Video verificato non ancora disponibile per questo esercizio.",fontSize=12.sp,color=Color.Gray)
-                } else {
-                    Text("Fonte: "+verifiedVideo.videoProvider,fontSize=12.sp,color=Color.Gray)
-                    TextButton(onClick={
-                        runCatching {
-                            context.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW,android.net.Uri.parse(verifiedVideo.videoUrl)))
-                        }
-                    }){Text("GUARDA VIDEO")}
-                }
-                Spacer(Modifier.height(12.dp))
                 if(stats.sessions>0){
                     Spacer(Modifier.height(12.dp))
                     Text("I tuoi progressi",fontWeight=FontWeight.Bold)
@@ -1654,38 +1640,6 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                     if(stats.totalLoadVolumeKg>0)Text("Volume con carico: ${stats.totalLoadVolumeKg.toInt()} kg")
                 }
                 Text("Ruolo: " + ex.role, fontWeight = FontWeight.SemiBold)
-                val evidence = ExerciseEvidenceRegistry.evidenceFor(ex)
-                val coverage = ExerciseEvidenceRegistry.coverage(ex)
-                val v2Sources = ExerciseDbV2.sourcesFor(ex)
-                Spacer(Modifier.height(12.dp))
-                Text("Fonti e copertura",fontWeight=FontWeight.Bold)
-                Text(
-                    when(coverage){
-                        EvidenceCoverage.NONE -> "Nessuna fonte verificata collegata a questo esercizio"
-                        EvidenceCoverage.PRESCRIPTION_ONLY -> "Copertura: prescrizione generale"
-                        EvidenceCoverage.TECHNIQUE_ONLY -> "Copertura: tecnica/anatomia"
-                        EvidenceCoverage.PARTIAL -> "Copertura parziale: tecnica + prescrizione"
-                        EvidenceCoverage.COMPLETE -> "Copertura completa: tecnica, prescrizione e progressione"
-                    },
-                    fontSize=12.sp,
-                    color=if(coverage==EvidenceCoverage.NONE) Color.Gray else Accent
-                )
-                if(v2Sources.isNotEmpty()) {
-                    v2Sources.forEach { source ->
-                        Text("DB v2: "+source.title,fontSize=12.sp,color=Accent,modifier=Modifier.padding(top=5.dp))
-                        source.evidenceType?.let{Text("Tipo evidenza: $it",fontSize=11.sp,color=Color.Gray)}
-                        source.locator?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
-                    }
-                }
-                evidence?.all?.distinctBy{it.sourceId}?.forEach { source ->
-                    Text("• "+source.sourceTitle,fontSize=12.sp,fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=5.dp))
-                    source.section?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
-                    source.pageOrLocation?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
-                }
-                if(evidence?.technique.isNullOrEmpty()) {
-                    Text("Tecnica specifica: non ancora verificata da una fonte collegata.",fontSize=11.sp,color=Color.Gray,modifier=Modifier.padding(top=5.dp))
-                }
-                Text("Le baseline prescrittive dipendono da obiettivo, livello e stato atleta; la scheda mostra qui solo la provenance generale.",fontSize=11.sp,color=Color.Gray,modifier=Modifier.padding(top=5.dp))
                 val progressionRelations=ExerciseDbV2.progressionRelations(ex)
                 if(progressionRelations.easier.isNotEmpty() || progressionRelations.harder.isNotEmpty()) {
                     Text("Progressione esercizio",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
