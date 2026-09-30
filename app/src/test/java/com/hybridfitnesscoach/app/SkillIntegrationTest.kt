@@ -171,4 +171,32 @@ class SkillIntegrationTest {
             assertTrue(node.criterion.evidenceNote.isNotBlank())
         }
     }
+    @Test fun untouchedRunnerDefaultRpeFiveCanValidateMasteryAfterPersistenceShape() {
+        val node=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
+        assertEquals(5,runnerEffort(null))
+        fun finishedSession(ts:Long):SessionRecord {
+            val planned=WorkoutExerciseState(
+                exerciseName=node.exerciseName,
+                rpe=null,
+                sets=(0 until node.criterion.minSets).map{index->
+                    WorkoutSetState(index=index,targetReps=node.criterion.minReps,actualReps=node.criterion.minReps,completed=true)
+                }
+            )
+            // Mirrors both runners: the untouched UI default is materialized into
+            // the structured persisted exercise, not left as a presentation fallback.
+            val persisted=planned.copy(rpe=runnerEffort(planned.rpe),status=WorkoutExerciseStatus.COMPLETED)
+            assertEquals(5,persisted.rpe)
+            return SessionRecord(
+                timestamp=ts,profileName="Palestra",
+                completedSets=node.criterion.minSets,totalSets=node.criterion.minSets,
+                exerciseRpe=mapOf(node.exerciseName to persisted.rpe!!),
+                structuredExercises=listOf(persisted)
+            )
+        }
+        val one=SkillCatalog.progress("Muscle-up",listOf(finishedSession(101)))
+        assertEquals(ProgressionStatus.IN_PROGRESS,one.first{it.node.id==node.id}.status)
+        val two=SkillCatalog.progress("Muscle-up",listOf(finishedSession(101),finishedSession(102)))
+        assertEquals(ProgressionStatus.MASTERED,two.first{it.node.id==node.id}.status)
+    }
+
 }
