@@ -197,23 +197,31 @@ class AppStore(context: Context) {
         }
     }
 
-    fun loadActiveProfileName(): String = string("active_equipment", "Palestra") ?: "Palestra"
-    fun saveActiveProfileName(name: String) = write { putString("active_equipment", name) }
+    internal fun loadActiveTrainingLocationId(): String = string("active_training_location", trainingLocations.first().id) ?: trainingLocations.first().id
+    internal fun saveActiveTrainingLocationId(id: String) = write { putString("active_training_location", id) }
 
-    fun loadCustomProfiles(): List<EquipmentProfile> {
-        val raw = string("custom_profiles") ?: return profiles
-        return recovery.read("custom_profiles", emptyList()) {
-            recovery.records(JSONArray(raw), "custom_profiles") { o, _ ->
-                require(o.has("equipment"))
-                EquipmentProfile(o.getString("name"), o.storedString("icon", "📍"), o.planStringList("equipment"))
-            }
+    internal fun loadTrainingLocations(): List<TrainingLocation> {
+        val raw = string("training_locations") ?: return trainingLocations
+        return recovery.read("training_locations", trainingLocations) {
+            recovery.records(JSONArray(raw), "training_locations") { o, _ ->
+                val kind=TrainingLocationKind.entries.firstOrNull { it.stableId==o.storedString("kind", TrainingLocationKind.CUSTOM.stableId) } ?: TrainingLocationKind.CUSTOM
+                val capabilities=o.planStringList("capabilities").mapNotNull { id -> EquipmentId.entries.firstOrNull { it.name==id } }.toSet()
+                TrainingLocation(o.getString("id"),o.getString("name"),o.storedString("icon","📍"),kind,capabilities)
+            }.filter { it.capabilities.isNotEmpty() }
         }
     }
 
-    fun saveCustomProfiles(items: List<EquipmentProfile>) {
+    internal fun saveTrainingLocations(items: List<TrainingLocation>) {
         val array = JSONArray()
-        items.forEach { array.put(JSONObject().put("name", it.name).put("icon", it.icon).put("equipment", JSONArray(it.equipment))) }
-        write { putString("custom_profiles", array.toString()) }
+        items.forEach { location ->
+            array.put(JSONObject()
+                .put("id",location.id)
+                .put("name",location.name)
+                .put("icon",location.icon)
+                .put("kind",location.kind.stableId)
+                .put("capabilities",JSONArray(location.capabilities.map { it.name }.sorted())))
+        }
+        write { putString("training_locations", array.toString()) }
     }
 
     fun saveActiveWorkout(state: WorkoutSessionState) = write { putString("active_workout_v1", state.toJson().toString()) }
