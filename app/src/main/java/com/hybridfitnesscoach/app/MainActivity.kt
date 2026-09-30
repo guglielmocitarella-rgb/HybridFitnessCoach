@@ -705,6 +705,7 @@ class MainActivity : ComponentActivity() {
         // here changes only new catalogue lookups and newly generated workouts.
         installExerciseDbV2(ExerciseDbV2.load(this))
         ExerciseDbV2.installSources(ExerciseDbV2.loadSources(this))
+        ExerciseDbV2.installProgressions(ExerciseDbV2.loadProgressions(this))
         setContent { HybridFitnessApp() }
     }
 }
@@ -1667,6 +1668,16 @@ private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, on
                     Text("Tecnica specifica: non ancora verificata da una fonte collegata.",fontSize=11.sp,color=Color.Gray,modifier=Modifier.padding(top=5.dp))
                 }
                 Text("Le baseline prescrittive dipendono da obiettivo, livello e stato atleta; la scheda mostra qui solo la provenance generale.",fontSize=11.sp,color=Color.Gray,modifier=Modifier.padding(top=5.dp))
+                val progressionRelations=ExerciseDbV2.progressionRelations(ex)
+                if(progressionRelations.easier.isNotEmpty() || progressionRelations.harder.isNotEmpty()) {
+                    Text("Progressione esercizio",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
+                    if(progressionRelations.easier.isNotEmpty())
+                        Text("Più facile: "+progressionRelations.easier.joinToString(" • "){it.nameIt},fontSize=12.sp,color=Color.Gray)
+                    else Text("Più facile: nessuna regressione verificata nel catalogo",fontSize=12.sp,color=Color.Gray)
+                    if(progressionRelations.harder.isNotEmpty())
+                        Text("Più difficile: "+progressionRelations.harder.joinToString(" • "){it.nameIt},fontSize=12.sp,color=Accent)
+                    else Text("Più difficile: nessuna progressione verificata nel catalogo",fontSize=12.sp,color=Color.Gray)
+                }
                 if (ex.skills.isNotEmpty()) {
                     Text("Skill collegate",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=8.dp))
                     val links=remember(ex.name,ex.skills,sessions){exerciseSkillLinks(ex,sessions)}
