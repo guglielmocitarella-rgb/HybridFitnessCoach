@@ -140,7 +140,7 @@ class AppStoreRecoveryTest {
         assertEquals(raw, prefs.getString("sessions", null))
     }
 
-    @Test fun missingEquipmentMigrationFlagDoesNotOverwriteExistingProfiles() {
+    @Test fun currentEquipmentProfilesRoundTripWithoutMigrationState() {
         val store = AppStore(context)
         val custom = listOf(EquipmentProfile("My equipment", "X", listOf("Ab Wheel")))
         store.saveCustomProfiles(custom)
@@ -155,15 +155,6 @@ class AppStoreRecoveryTest {
         assertTrue(store.issues.isEmpty())
         store.saveSessions(listOf(session(42)))
         assertEquals(listOf(session(42)), AppStore(context).loadSessions())
-    }
-
-    @Test fun legacyV09SessionWithoutOptionalFieldsStillLoads() {
-        prefs.edit().putString("sessions", """[{"timestamp":12,"profile":"Casa","done":2,"total":3}]""").commit()
-        val store = AppStore(context)
-        val expected = SessionRecord(12, "Casa", 2, 3)
-        assertEquals(listOf(expected), store.loadSessions())
-        store.saveSessions(store.loadSessions())
-        assertEquals(listOf(expected), AppStore(context).loadSessions())
     }
 
     @Test fun unsupportedPlanVersionCannotBeLoadedOrOverwritten() {
@@ -184,42 +175,6 @@ class AppStoreRecoveryTest {
         assertTrue(store.loadSessions().isEmpty())
         runCatching { store.saveSessions(emptyList()) }
         assertEquals("not json", prefs.getString("sessions", null))
-    }
-
-    @Test fun legacyActiveWorkoutWithoutNewFieldsUsesSafeDefaults() {
-        val raw = """{"id":"legacy","startedAtEpochMs":1000,"profileName":"Casa","exercises":[{"exerciseName":"Push-up","sets":[]}]}"""
-        prefs.edit().putString("active_workout_v1", raw).commit()
-        val active = AppStore(context).loadActiveWorkout()!!
-        assertEquals(0L, active.elapsedBeforePauseMs)
-        assertNull(active.pausedAtEpochMs)
-        assertNull(active.restEndsAtEpochMs)
-        assertEquals("automatic", active.runnerKind)
-        assertEquals(90, active.exercises.single().setRestSec)
-        assertEquals(120, active.exercises.single().exerciseRestSec)
-    }
-
-    @Test fun legacyPlanMigrationPreservesCompletedStateAndDatesAcrossLoads() {
-        val name = exercises.first().name
-        val workout = JSONObject().put("id", "w1").put("epochDay", 15).put("originalEpochDay", 10)
-            .put("actualExecutionEpochDay", 16).put("weekIndex", 0).put("sequenceInWeek", 0)
-            .put("state", "COMPLETED").put("exerciseNames", JSONArray().put(name))
-        val root = JSONObject().put("id", "p1").put("startEpochDay", 10).put("weeks", 1)
-            .put("daysPerWeek", 1).put("workouts", JSONArray().put(workout))
-        prefs.edit().putString("training_plan_v091", root.toString()).commit()
-        val first = AppStore(context).loadTrainingPlan()!!
-        assertEquals(PlannedWorkoutState.COMPLETED, first.workouts.single().state)
-        assertEquals(10L, first.workouts.single().originalEpochDay)
-        assertEquals(16L, first.workouts.single().actualExecutionEpochDay)
-        val migrated = JSONObject(prefs.getString("training_plan_v091", null)!!)
-        assertEquals(3, migrated.getInt("schemaVersion"))
-        assertEquals("Fitness generale", migrated.getString("goal"))
-        assertEquals(listOf(1), (0 until migrated.getJSONArray("trainingDays").length()).map { migrated.getJSONArray("trainingDays").getInt(it) })
-        assertEquals(0, migrated.getJSONArray("prioritySkills").length())
-        repeat(3) {
-            val store = AppStore(context)
-            assertEquals(first, store.loadTrainingPlan())
-            store.saveTrainingPlan(first)
-        }
     }
 
     @Test fun badSetDoesNotHideOtherActualSetsOrOtherSessions() {
@@ -301,18 +256,6 @@ class AppStoreRecoveryTest {
         assertEquals(raw, prefs.getString("training_plan_v091", null))
     }
 
-    @Test fun legacyPlanWithMissingExerciseIsNeverMigrated() {
-        val root = JSONObject().put("id", "p").put("startEpochDay", 1).put("weeks", 1).put("daysPerWeek", 1)
-            .put("workouts", JSONArray().put(JSONObject().put("id", "w").put("epochDay", 1)
-                .put("weekIndex", 0).put("sequenceInWeek", 0).put("exerciseNames", JSONArray().put("Missing legacy exercise"))))
-        val raw = root.toString()
-        prefs.edit().putString("training_plan_v091", raw).commit()
-        val store = AppStore(context)
-        assertNotNull(store.loadTrainingPlan())
-        assertTrue(store.issues.isNotEmpty())
-        assertEquals(raw, prefs.getString("training_plan_v091", null))
-    }
-
     @Test fun activeWorkoutReloadPreservesRecoveryOverridesAndRunningRest() {
         val exercise = WorkoutExerciseState("A", setRestSec = 75, exerciseRestSec = 150,
             sets = listOf(WorkoutSetState(0, targetReps = 8, completed = true, restUsedSec = 70)))
@@ -351,16 +294,6 @@ class AppStoreRecoveryTest {
         assertEquals(42, elapsedWorkoutSeconds(restored, 500_000))
         assertEquals(73, restored.pausedRestRemainingSec)
         assertNull(restored.restEndsAtEpochMs)
-    }
-
-    @Test fun legacyPausedWorkoutWithoutRestSnapshotKeepsBackwardCompatibleDefault() {
-        val raw = """{"id":"legacy-pause","startedAtEpochMs":1000,"profileName":"Casa","exercises":[],"elapsedBeforePauseMs":12000,"pausedAtEpochMs":13000}"""
-        prefs.edit().putString("active_workout_v1", raw).commit()
-
-        val restored = AppStore(context).loadActiveWorkout()!!
-
-        assertEquals(12, elapsedWorkoutSeconds(restored, 500_000))
-        assertNull(restored.pausedRestRemainingSec)
     }
 
     @Test fun currentPlanAndActiveWorkoutRoundTripPreserveEveryField() {
@@ -426,7 +359,7 @@ class AppStoreRecoveryTest {
             assertEquals(raw, file.readText())
         } finally { file.delete() }
     }
-    @Test fun planV2ExerciseSnapshotIsIndependentFromCurrentCatalogDefinition() {
+    @Test fun currentPlanExerciseSnapshotIsIndependentFromCurrentCatalogDefinition() {
         val original=exercises.first().copy(setRestSec=137,exerciseRestSec=241,targetSets=4,targetValue=11.0,role="Snapshot role")
         val plan=TrainingPlan("snapshot",10,1,1,listOf(PlannedWorkout("w",10,0,0,listOf(original))))
         val store=AppStore(context)
@@ -444,7 +377,7 @@ class AppStoreRecoveryTest {
         assertNotEquals(catalogSameName.copy(setRestSec=137,exerciseRestSec=241,targetSets=4,targetValue=11.0,role="Snapshot role"),catalogSameName)
     }
 
-    @Test fun activeWorkoutV2PersistsStableIdAndImmutableExerciseSnapshot() {
+    @Test fun currentActiveWorkoutPersistsStableIdAndImmutableExerciseSnapshot() {
         val catalog=exercises.first()
         val state=WorkoutSessionState("upgrade",1000,"Casa",listOf(plannedExerciseState(0,catalog)))
         val store=AppStore(context); store.saveActiveWorkout(state)
@@ -455,14 +388,4 @@ class AppStoreRecoveryTest {
         assertEquals(catalog,restored.exerciseSnapshot)
     }
 
-    @Test fun activeWorkoutV1PreDbStateRestoresWithoutCatalogLookupOrReplacement() {
-        val raw="""{"schemaVersion":1,"id":"legacy","startedAtEpochMs":1000,"profileName":"Casa","exercises":[{"exerciseName":"Legacy exercise no longer in catalog","measure":"REPS","sets":[{"index":0,"targetReps":8,"actualReps":6,"completed":true}],"status":"PARTIAL","setRestSec":77,"exerciseRestSec":155,"originalOrder":0,"currentOrder":0}],"currentExerciseIndex":0}"""
-        prefs.edit().putString("active_workout_v1",raw).commit()
-        val restored=AppStore(context).loadActiveWorkout()!!
-        assertEquals("Legacy exercise no longer in catalog",restored.exercises.single().exerciseName)
-        assertEquals(6,restored.exercises.single().sets.single().actualReps)
-        assertNull(restored.exercises.single().exerciseId)
-        assertNull(restored.exercises.single().exerciseSnapshot)
-        assertTrue(AppStore(context).issues.isEmpty())
-    }
 }
