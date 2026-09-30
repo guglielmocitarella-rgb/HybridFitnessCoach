@@ -19,7 +19,7 @@ internal fun StoreRecoveryScreen(store: AppStore) {
     val sessions = store.loadSessions()
     val plan = store.loadTrainingPlan()
     val active = store.loadActiveWorkout()
-    val equipment = store.loadCustomProfiles()
+    val equipment = store.loadTrainingLocations()
     val progression = store.loadProgressionNodes()
     MaterialTheme {
         Surface(Modifier.fillMaxSize()) {
@@ -31,7 +31,7 @@ internal fun StoreRecoveryScreen(store: AppStore) {
                 Text("Dati leggibili (possono essere incompleti)", style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier.padding(top = 16.dp))
                 Text("Atleta: ${athlete.name}")
-                equipment.forEach { Text("${it.name}: ${it.equipment.joinToString()}") }
+                equipment.forEach { Text("${it.name}: ${it.capabilities.map(EquipmentCatalog::displayName).sortedBy { name -> name.lowercase() }.joinToString()}") }
                 progression.forEach { (skill, node) -> Text("${skill.removePrefix("skill_node_")}: $node") }
                 plan?.let {
                     Text("Piano: ${it.id}")
