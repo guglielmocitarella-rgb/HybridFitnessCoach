@@ -281,11 +281,22 @@ internal fun regenerateSkillWorkout(
     context:CoachingContext,
     selectedSkills:Collection<String>,
     sessions:List<SessionRecord>
-):List<Exercise> = enforceSkillMasteryPrescription(
-    regenerateCoachedWorkout(original,pool,pinned,context),
-    selectedSkills,
-    sessions
-)
+):List<Exercise> {
+    val focusNames=skillWorkoutFocusNames(selectedSkills,sessions)
+    val regenerated=regenerateCoachedWorkout(original,pool,pinned,context).toMutableList()
+    // Generic regeneration optimizes replacement/order and may consume support
+    // candidates before the unique focus node. Reinsert the current progression
+    // focus if it was displaced; never source it from outside the guarded pool.
+    if(regenerated.none{it.name.lowercase() in focusNames}) {
+        val focus=pool.firstOrNull{it.name.lowercase() in focusNames}
+        if(focus!=null) {
+            val replaceAt=regenerated.indexOfFirst{it.name !in pinned}
+            if(replaceAt>=0) regenerated[replaceAt]=focus
+            else if(regenerated.isEmpty()) regenerated.add(focus)
+        }
+    }
+    return enforceSkillMasteryPrescription(regenerated,selectedSkills,sessions)
+}
 
 internal data class EffectiveRunnerPrescription(
     val sets:Int,
