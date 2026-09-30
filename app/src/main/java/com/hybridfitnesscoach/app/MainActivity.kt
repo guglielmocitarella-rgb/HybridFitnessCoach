@@ -134,7 +134,8 @@ data class WorkoutSessionState(
     val restKind: String? = null,
     val modifications: List<String> = emptyList(),
     val plannedWorkoutId: String? = null,
-    val pausedRestRemainingSec: Int? = null
+    val pausedRestRemainingSec: Int? = null,
+    val trainingLocationId: String? = null
 )
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
 data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
@@ -1348,7 +1349,10 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=liveReadiness
     var minutes by remember { mutableIntStateOf(45) }
-    val initialLocation=remember(profile){resolveTrainingLocation(profile)}
+    val initialLocation=remember(profile,restored?.trainingLocationId){
+        val profileLocation=resolveTrainingLocation(profile)
+        restored?.trainingLocationId?.let{id->(trainingLocations+profileLocation).firstOrNull{it.id==id}} ?: profileLocation
+    }
     val locationOptions=remember(profile){(trainingLocations+initialLocation).distinctBy{it.id}}
     var selectedLocation by remember(profile){mutableStateOf(initialLocation)}
     val selectedGroups = remember { mutableStateListOf<String>().apply { addAll(initialGroups) } }
@@ -1383,7 +1387,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
         if(running&&store!=null){
             val now=System.currentTimeMillis()
             val states=generated.mapIndexed{i,ex->recordedExerciseState(i,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,ex.name in pinnedNames)}
-            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),if(paused)elapsedSeconds*1000L else 0L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="custom",restKind=restKind,pausedRestRemainingSec=if(paused)restRemaining else null))
+            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),if(paused)elapsedSeconds*1000L else 0L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="custom",restKind=restKind,pausedRestRemainingSec=if(paused)restRemaining else null,trainingLocationId=selectedLocation.id))
         }
     }
     LaunchedEffect(running) { if(running){ if(currentExercise==null)currentExercise=generated.firstOrNull{(completed[it.name]?:0)<(executedSets[it.name]?.size?:prescriptionFor(it).sets)}?.name; val i=generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i) } }
@@ -1449,7 +1453,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                         if(filtersLocked){
                             item{
                                 Text("1. Luogo di allenamento",fontWeight=FontWeight.Bold)
-                                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){locationOptions.forEach{loc->FilterChip(selectedLocation.id==loc.id,{selectedLocation=loc;resetPreview()},{Text(loc.icon+" "+loc.name)})}}
+                                LazyRow(horizontalArrangement=Arrangement.spacedBy(6.dp)){items(locationOptions){loc->FilterChip(selectedLocation.id==loc.id,{selectedLocation=loc;resetPreview()},{Text(loc.icon+" "+loc.name)})}}
                                 Text("Workout basato sui filtri",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
                                 Text((initialGroups+initialEquipment+selectedSkills).joinToString(" • "),color=Accent)
                                 Text("Durata workout",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
@@ -1461,7 +1465,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
                             item{
                                 Text("1. Luogo di allenamento",fontWeight=FontWeight.Bold)
                                 Text("Scegli dove svolgerai questo workout. Gli esercizi saranno adattati alle attrezzature realmente disponibili.",color=Color.Gray,fontSize=12.sp)
-                                Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){locationOptions.forEach{loc->FilterChip(selectedLocation.id==loc.id,{selectedLocation=loc;resetPreview()},{Text(loc.icon+" "+loc.name)})}}
+                                LazyRow(horizontalArrangement=Arrangement.spacedBy(6.dp)){items(locationOptions){loc->FilterChip(selectedLocation.id==loc.id,{selectedLocation=loc;resetPreview()},{Text(loc.icon+" "+loc.name)})}}
                                 val available=exercises.count{ex->locationCompatible(ex,selectedLocation)}
                                 Text("$available esercizi compatibili con "+selectedLocation.name,color=Accent,fontSize=12.sp)
                                 Text("2. Durata",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))

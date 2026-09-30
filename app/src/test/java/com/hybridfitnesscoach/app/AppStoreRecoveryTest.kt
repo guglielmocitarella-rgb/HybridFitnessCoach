@@ -94,6 +94,24 @@ class AppStoreRecoveryTest {
         assertEquals(plan, reloaded.loadTrainingPlan())
     }
 
+    @Test fun activeWorkoutRoundTripPreservesTrainingLocation() {
+        val store = AppStore(context)
+        val active = WorkoutSessionState("location", 1000, "Casa", listOf(WorkoutExerciseState("Push-up")), trainingLocationId = "builtin:home")
+        store.saveActiveWorkout(active)
+        assertEquals("builtin:home", AppStore(context).loadActiveWorkout()?.trainingLocationId)
+    }
+
+    @Test fun legacyActiveWorkoutWithoutTrainingLocationStillLoads() {
+        val store = AppStore(context)
+        val active = WorkoutSessionState("legacy-location", 1000, "Casa", listOf(WorkoutExerciseState("Push-up")))
+        store.saveActiveWorkout(active)
+        val raw = JSONObject(prefs.getString("active_workout_v1", null)!!).apply { remove("trainingLocationId") }
+        prefs.edit().putString("active_workout_v1", raw.toString()).commit()
+        val restored = AppStore(context).loadActiveWorkout()
+        assertEquals(active.id, restored?.id)
+        assertNull(restored?.trainingLocationId)
+    }
+
     @Test fun finishingWorkoutAtomicallySavesHistoryPlanAndClearsActiveState() {
         val store = AppStore(context)
         val planned = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()))
