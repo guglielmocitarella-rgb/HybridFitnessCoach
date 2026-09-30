@@ -138,7 +138,8 @@ class Rc2PlanningRegressionTest {
         assertEquals(364,plan.workouts.size)
         assertTrue(plan.workouts.all{it.exercises.isNotEmpty()})
         assertTrue(plan.workouts.flatMap{it.exercises}.all{locationCompatible(it,profile)})
-        assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(athlete.level)})
+        val capability=athlete.toCapabilityProfile()
+        assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=capabilityLevelFor(it,capability)})
     }
 
     @Test fun failedCalendarPersistenceCannotExposeCandidatePlan() {
