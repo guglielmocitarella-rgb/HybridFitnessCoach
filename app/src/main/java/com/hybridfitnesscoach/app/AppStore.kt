@@ -56,7 +56,7 @@ private fun JSONObject.storedBoolean(key: String, default: Boolean = false): Boo
     if (!has(key)) default else (get(key) as? Boolean ?: error("Invalid boolean"))
 
 private fun JSONObject.requireVersion(vararg supported: Int) {
-    require(storedInt("schemaVersion", 1) in supported) { "Unsupported schema version" }
+    require(has("schemaVersion") && storedInt("schemaVersion") in supported) { "Unsupported schema version" }
 }
 
 private fun WorkoutSetState.toJson() = JSONObject()
