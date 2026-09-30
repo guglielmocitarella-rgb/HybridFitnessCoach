@@ -210,7 +210,11 @@ class AppStoreRecoveryTest {
         assertEquals(PlannedWorkoutState.COMPLETED, first.workouts.single().state)
         assertEquals(10L, first.workouts.single().originalEpochDay)
         assertEquals(16L, first.workouts.single().actualExecutionEpochDay)
-        assertEquals(2, JSONObject(prefs.getString("training_plan_v091", null)!!).getInt("schemaVersion"))
+        val migrated = JSONObject(prefs.getString("training_plan_v091", null)!!)
+        assertEquals(3, migrated.getInt("schemaVersion"))
+        assertEquals("Fitness generale", migrated.getString("goal"))
+        assertEquals(listOf(1), (0 until migrated.getJSONArray("trainingDays").length()).map { migrated.getJSONArray("trainingDays").getInt(it) })
+        assertEquals(0, migrated.getJSONArray("prioritySkills").length())
         repeat(3) {
             val store = AppStore(context)
             assertEquals(first, store.loadTrainingPlan())
