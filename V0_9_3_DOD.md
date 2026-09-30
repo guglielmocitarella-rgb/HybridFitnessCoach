@@ -21,14 +21,14 @@ This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are th
 | RPE default | Untouched runner RPE 5 is materialized into structured history and can qualify Progression Engine mastery | VERIFIED |
 | Plan ownership | Goal, frequency/calendar days and priority skills are plan-owned, independent from AthleteProfile, and persisted by the current schema; athlete persistence now owns only stable athlete fields | VERIFIED at repository level |
 | Compatibility cleanup | Current active-workout schema v2 and training-plan schema v3 require explicit version markers; compatibility-only implicit v1 acceptance is removed | VERIFIED |
-| Calendar reschedule | Reschedule is cascading; original date is retained and can be explicitly restored; Italian calendar date formatting is used | IMPLEMENTED_NOT_DEVICE_VERIFIED |
-| Fitness-level assessment | Athlete level can be assessed from current capability inputs and is consumed by workout difficulty filtering | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| Calendar reschedule | Reschedule is cascading; original date is retained and can be explicitly restored; Italian calendar date formatting is used | VERIFIED at repository level; device interaction pending |
+| Fitness-level assessment | Athlete level can be assessed from current capability inputs; deterministic boundary tests verify Principiante/Intermedio/Avanzato mapping and the same `levelScore` ceiling consumed by automatic/custom workout filtering | VERIFIED at repository level; device interaction pending |
 | Exercise library/equipment | Measurement/type filter is absent; equipment options are catalog-driven, deduplicated and alphabetically sorted | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Exercise detail action/progress | Detail exposes direct Execute action, executed repetition totals, loaded-volume statistics, and explicit easier/harder progression relations | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Completed workout detail | Structured executed-set detail, including actual reps/load/rest, is rendered from session history | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Generated workout preview | Summary, Adaptive Coach and regenerate controls are outside the exercise `LazyColumn`; only the exercise list scrolls; pinned regeneration behavior remains regression-covered | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 
-Current fully green checkpoint: `6f7eea9e0f99ac7d36afc366eaccd6aa5c017177`, Exercise DB v2 #242 and Android APK #794. Direct Execute now materializes the same effective prescription used by automatic generation; deterministic recovery tests also cover process recreation during exercise-transition recovery and preservation of current runner position plus structured performance.
+Current fully green checkpoint: `08f6eb4b09d6d412587bf728591b247444bc1c52`, Exercise DB v2 #247 and Android APK #799. Direct Execute materializes the automatic effective prescription; deterministic recovery tests cover process recreation and runner position/performance; Home suggestion tests bind today's runnable plan session to the suggested workout; fitness-assessment tests cover boundaries and the production difficulty ceiling.
 
 ## Remaining gates
 
