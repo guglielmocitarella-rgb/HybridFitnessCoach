@@ -367,4 +367,18 @@ class V091PlanningTest {
   assertFalse(realized.exercises.any{it.name==body.name})
  }
 
+ @Test fun activeWorkoutRecoveryWinsOverRequestedPlanLaunch(){
+  val active=WorkoutSessionState("active",1L,"Palestra",emptyList(),workoutRpe=5)
+  val requested=PlannedWorkout("requested",20_000,0,0,listOf(Exercise("X","Core","Corpo libero","Principiante")))
+  val launch=resolveWorkoutLaunch(active,requested)
+  assertTrue(launch.resumeActive)
+  assertNull(launch.plannedWorkout)
+ }
+ @Test fun requestedPlanLaunchesWhenThereIsNoActiveRecovery(){
+  val requested=PlannedWorkout("requested",20_000,0,0,listOf(Exercise("X","Core","Corpo libero","Principiante")))
+  val launch=resolveWorkoutLaunch(null,requested)
+  assertFalse(launch.resumeActive)
+  assertEquals(requested,launch.plannedWorkout)
+ }
+
 }
