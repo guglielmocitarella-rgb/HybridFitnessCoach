@@ -1800,7 +1800,7 @@ private fun TrainingLocationDialog(current: TrainingLocation? = null, onDismiss:
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Checkbox(
-                            checked = EquipmentCatalog.fromDisplayName(item) in selected,
+                            checked = EquipmentCatalog.fromDisplayName(item)?.let { it in selected } == true,
                             onCheckedChange = { checked ->
                                 if (checked) {
                                     EquipmentCatalog.fromDisplayName(item)?.let { if (it !in selected) selected.add(it) }
