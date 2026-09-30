@@ -438,9 +438,16 @@ internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetSta
 internal fun singleExerciseWorkoutState(
     exercise:Exercise,
     profileName:String,
-    startedAtEpochMs:Long=System.currentTimeMillis()
+    startedAtEpochMs:Long=System.currentTimeMillis(),
+    athlete:AthleteProfile?=null,
+    sessions:List<SessionRecord> = emptyList(),
+    readinessScore:Int?=null
 ):WorkoutSessionState {
-    val prescription=prescriptionFor(exercise)
+    // A fresh direct launch is later passed through WorkoutDialog as a restored
+    // snapshot, so materialize the effective prescription here instead of
+    // bypassing source-backed sets/reps/recovery.
+    val effective=athlete?.let{exerciseWithEffectivePrescription(exercise,it,sessions,readinessScore)} ?: exercise
+    val prescription=prescriptionFor(effective)
     val target=prescription.value
     val sets=(0 until prescription.sets).map { index ->
         WorkoutSetState(
@@ -451,15 +458,15 @@ internal fun singleExerciseWorkoutState(
         )
     }
     val state=WorkoutExerciseState(
-        exerciseName=exercise.name,
-        measure=exercise.measure,
+        exerciseName=effective.name,
+        measure=effective.measure,
         sets=sets,
         status=WorkoutExerciseStatus.PENDING,
         rpe=5,
-        setRestSec=exercise.setRestSec,
-        exerciseRestSec=exercise.exerciseRestSec,
-        exerciseId=exercise.progressionKey,
-        exerciseSnapshot=exercise
+        setRestSec=effective.setRestSec,
+        exerciseRestSec=effective.exerciseRestSec,
+        exerciseId=effective.progressionKey,
+        exerciseSnapshot=effective
     )
     return WorkoutSessionState(
         id="single-"+startedAtEpochMs,
