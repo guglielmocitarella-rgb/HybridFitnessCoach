@@ -4,7 +4,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class CoachingIntegrationTest {
-    private val gym=profiles.first{it.name=="Palestra"}
+    private val gym=trainingLocations.first{it.name=="Palestra"}
     private val athlete=AthleteProfile(goal="Forza",level="Intermedio")
     private fun history(rpe:Int,done:Int)=listOf(SessionRecord(System.currentTimeMillis(),"P",done,18,workoutRpe=rpe))
 
@@ -20,15 +20,15 @@ class CoachingIntegrationTest {
     }
     @Test fun compoundEquipmentRequiresAllResources() {
         val assisted=Exercise("Assisted pull", "Dorso", "Sbarra / Elastici", "Principiante")
-        assertFalse(locationCompatible(assisted,EquipmentProfile("Band","",listOf("Elastici")).toTrainingLocation()))
-        assertTrue(locationCompatible(assisted,EquipmentProfile("Both","",listOf("Sbarra","Elastici")).toTrainingLocation()))
+        assertFalse(locationCompatible(assisted,TrainingLocation("test:band","Band","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.RESISTANCE_BAND))))
+        assertTrue(locationCompatible(assisted,TrainingLocation("test:both","Both","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.PULL_UP_BAR,EquipmentId.RESISTANCE_BAND))))
     }
     @Test fun bodyweightNeedsNoPurchasedEquipment() {
-        assertTrue(locationCompatible(Exercise("Push-up","Petto","Corpo libero","Principiante"),resolveTrainingLocation(gym)))
+        assertTrue(locationCompatible(Exercise("Push-up","Petto","Corpo libero","Principiante"),gym))
     }
     @Test fun abWheelAndRollerHaveSelectableExercises() {
         for(eq in listOf("Ab Wheel","Foam Roller")) {
-            assertTrue(exercises.any{it.equipment==eq && locationCompatible(it,EquipmentProfile(eq,"",listOf(eq)).toTrainingLocation())})
+            assertTrue(exercises.any{it.equipment==eq && locationCompatible(it,TrainingLocation("test:"+eq,eq,"",TrainingLocationKind.CUSTOM,setOfNotNull(EquipmentCatalog.fromDisplayName(eq))))})
         }
     }
 
