@@ -416,4 +416,52 @@ class AppStoreRecoveryTest {
         assertEquals(catalog,restored.exerciseSnapshot)
     }
 
+    @Test fun runningExerciseRecoverySurvivesProcessRecreationFromAbsoluteDeadline() {
+        val now = 100_000L
+        val active = WorkoutSessionState(
+            id = "exercise-rest",
+            startedAtEpochMs = 1_000,
+            profileName = "Palestra",
+            exercises = listOf(WorkoutExerciseState("Squat", setRestSec = 90, exerciseRestSec = 180)),
+            restEndsAtEpochMs = now + 180_000L,
+            restKind = "Esercizio"
+        )
+        AppStore(context).saveActiveWorkout(active)
+
+        val restored = AppStore(context).loadActiveWorkout()!!
+
+        assertEquals("Esercizio", restored.restKind)
+        assertEquals(180, remainingSeconds(restored.restEndsAtEpochMs, now))
+        assertEquals(150, remainingSeconds(restored.restEndsAtEpochMs, now + 30_000L))
+        assertEquals(0, remainingSeconds(restored.restEndsAtEpochMs, now + 181_000L))
+    }
+
+    @Test fun activeRunnerReloadPreservesCurrentExerciseAndStructuredPerformance() {
+        val first = WorkoutExerciseState("Bench", sets = listOf(
+            WorkoutSetState(0, targetReps = 8, actualReps = 8, actualLoadKg = 80.0, completed = true, restUsedSec = 120),
+            WorkoutSetState(1, targetReps = 8)
+        ), status = WorkoutExerciseStatus.PARTIAL, rpe = 5)
+        val second = WorkoutExerciseState("Row", sets = listOf(WorkoutSetState(0, targetReps = 10)), rpe = 5)
+        val active = WorkoutSessionState(
+            id = "runner-position",
+            startedAtEpochMs = 1_000,
+            profileName = "Palestra",
+            exercises = listOf(first, second),
+            currentExerciseIndex = 1,
+            workoutRpe = 5,
+            runnerKind = "automatic"
+        )
+        AppStore(context).saveActiveWorkout(active)
+
+        val restored = AppStore(context).loadActiveWorkout()!!
+
+        assertEquals(1, restored.currentExerciseIndex)
+        assertEquals("Row", restored.exercises[restored.currentExerciseIndex].exerciseName)
+        assertEquals(8, restored.exercises.first().sets.first().actualReps)
+        assertEquals(80.0, restored.exercises.first().sets.first().actualLoadKg!!, 0.001)
+        assertEquals(120, restored.exercises.first().sets.first().restUsedSec)
+        assertEquals(5, restored.exercises.first().rpe)
+        assertEquals(5, restored.workoutRpe)
+    }
+
 }
