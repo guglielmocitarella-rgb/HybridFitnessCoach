@@ -364,3 +364,39 @@ internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetSta
         )
     }
 }
+
+
+internal fun singleExerciseWorkoutState(
+    exercise:Exercise,
+    profileName:String,
+    startedAtEpochMs:Long=System.currentTimeMillis()
+):WorkoutSessionState {
+    val prescription=prescriptionFor(exercise)
+    val target=prescription.value
+    val sets=(0 until prescription.sets).map { index ->
+        WorkoutSetState(
+            index=index,
+            targetReps=if(exercise.measure==ExerciseMeasure.REPS) target.toInt() else null,
+            targetSeconds=if(exercise.measure in setOf(ExerciseMeasure.SECONDS,ExerciseMeasure.DURATION,ExerciseMeasure.INTERVALS)) target.toInt() else null,
+            targetDistanceMeters=if(exercise.measure==ExerciseMeasure.DISTANCE) target else null
+        )
+    }
+    val state=WorkoutExerciseState(
+        exerciseName=exercise.name,
+        measure=exercise.measure,
+        sets=sets,
+        status=WorkoutExerciseStatus.PENDING,
+        rpe=5,
+        setRestSec=exercise.setRestSec,
+        exerciseRestSec=exercise.exerciseRestSec,
+        exerciseId=exercise.progressionKey,
+        exerciseSnapshot=exercise
+    )
+    return WorkoutSessionState(
+        id="single-"+startedAtEpochMs,
+        startedAtEpochMs=startedAtEpochMs,
+        profileName=profileName,
+        exercises=listOf(state),
+        runnerKind="single"
+    )
+}
