@@ -128,12 +128,21 @@ class ExerciseDbV2IntegrationTest {
     }
 
     @Test fun exerciseProvenanceRemainsAvailableToDomainWhenPresentationHidesIt() {
-        val row=records().first{it.sourceRefs.any{ref->!ref.locator.isNullOrBlank()}}
-        val mapped=ExerciseDbV2.toLegacyExercise(row)
-        val runtimeSources=ExerciseDbV2.sourcesFor(mapped)
-        assertTrue(runtimeSources.isNotEmpty())
-        assertTrue(runtimeSources.any{!it.locator.isNullOrBlank()})
-        assertTrue(row.sources.isNotEmpty())
+        val db=records()
+        val sources=ExerciseDbV2.parseSources(asset("sources.json").readText())
+        val row=db.first{it.sourceRefs.any{ref->!ref.locator.isNullOrBlank() && ref.sourceId in sources}}
+        val previous=ExerciseDbV2.installedRecords()
+        try {
+            ExerciseDbV2.install(db)
+            ExerciseDbV2.installSources(sources)
+            val mapped=ExerciseDbV2.toLegacyExercise(row)
+            val runtimeSources=ExerciseDbV2.sourcesFor(mapped)
+            assertTrue(runtimeSources.isNotEmpty())
+            assertTrue(runtimeSources.any{!it.locator.isNullOrBlank()})
+            assertTrue(row.sources.isNotEmpty())
+        } finally {
+            ExerciseDbV2.install(previous)
+        }
     }
 
     @Test fun sourceRegistryAndProgrammingGuidanceAreConsumableWithoutInventingExerciseSpecificRules() {
