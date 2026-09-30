@@ -137,11 +137,8 @@ data class PlanConfiguration(
   ).validated()
  }
 }
-internal fun normalizePlanGoal(goal:String):String = when(goal.trim()) {
- "Forza + skill","Forza + Skill Calisthenics" -> "Calisthenics"
- "" -> "Fitness generale"
- else -> goal.trim()
-}
+internal fun normalizePlanGoal(goal:String):String =
+ if(goal.isBlank()) "Fitness generale" else goal.trim()
 internal fun defaultTrainingDays(daysPerWeek:Int):Set<Int> {
  require(daysPerWeek in 1..7)
  return (0 until daysPerWeek).map{index->1+(index*7/daysPerWeek)}.toSet()
