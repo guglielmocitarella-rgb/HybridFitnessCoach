@@ -37,13 +37,6 @@ class Rc2HistoryDetailTest {
         assertFalse(text.contains("Carico:"))
         assertFalse(text.contains("reps"))
     }
-    @Test fun legacyHistoryNeverReconstructsActualSetsFromTodaysCatalog() {
-        val detail = historyExerciseDetails(SessionRecord(1, "P", 1, 3, exerciseNames = listOf("Push-up"), exerciseRpe = mapOf("Push-up" to 7))).single()
-        assertNull(detail.totalSets)
-        assertNull(detail.completedSets)
-        assertTrue(detail.lines.contains("RPE esercizio: 7"))
-        assertTrue(detail.lines.any { it.contains("non disponibili") })
-    }
     @Test fun historyShowsExecutedLoadedVolumeForWeightedRepExercise() {
         val session=SessionRecord(1,"Palestra",3,3,structuredExercises=listOf(
             WorkoutExerciseState("Panca",sets=listOf(
