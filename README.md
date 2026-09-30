@@ -4,11 +4,11 @@
 
 Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
 
-## Stato del progetto — v0.9.1 RC2
+## Stato del progetto — v0.9.3
 
-Il branch `feature/v0.9.1-training-plan` è la linea RC2 corrente. Integra Progression/Skill Tree, Adaptive Coach, piano multi-settimana, runner persistente, storico strutturato/recovery e Exercise DB v2 da 587 record canonici, senza assumere compatibilità con build o schemi precedenti.
+`feature/v0.9.3` e la PR #10 sono l'unica linea di sviluppo/release attiva. Le versioni v0.9.0, v0.9.1 e v0.9.2 sono chiuse e storiche; `release/v0.9.2` conserva il riferimento congelato alla release precedente. La DoD attiva è `V0_9_3_DOD.md`.
 
-GitHub e la PR #8 sono la fonte di verità per HEAD e CI. Non usare numeri di build riportati in questo README come prova dello stato corrente: ogni release candidate deve essere verificata contro le workflow run dell'esatto SHA finale. La copertura video catalog-wide resta separata dal gate software RC2; device acceptance resta un controllo esterno.
+GitHub e la PR #10 sono la fonte di verità per HEAD e CI. I documenti DoD delle versioni precedenti sono audit trail storico, non requisiti correnti. Ogni release candidate deve essere verificata contro le workflow run dell'esatto SHA finale e poi sottoposta a device acceptance.
 
 ### Funzioni disponibili
 
@@ -136,7 +136,7 @@ Baseline CI verificata: Android Build #166 verde (`7b108819`).
 | Catalogo ~500 reale/deduplicato/metadati | in verifica | sì | sì | sì | in verifica |
 | Ab Wheel + Foam Roller generator-ready | sì | sì | sì | sì | verde |
 | Salto UX complessivo v0.9 | sì | n/a | sì | sì | verde |
-| Persistenza / retrocompatibilità / offline-first | sì | sì | sì | sì | verde |
+| Persistenza current-schema / offline-first | sì | sì | sì | sì | verde |
 | Audit finale + APK 0.9 firmato + firma verificata | riaperto sul catalogo | sì | sì | sì | in verifica |
 
 I gate marcati `parziale` impediscono esplicitamente di dichiarare V0.9 COMPLETATA. La checklist va aggiornata solo sulla base di codice, wiring, test e CI verificati.
