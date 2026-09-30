@@ -413,4 +413,20 @@ class V091PlanningTest {
   assertEquals(listOf(dumbbell.name),pool.map{it.name})
  }
 
+ @Test fun capabilityProfilePreservesLegacyExerciseLevelContract(){
+  assertEquals(1,AthleteProfile(level="Principiante").toCapabilityProfile().exerciseLevel)
+  assertEquals(2,AthleteProfile(level="Intermedio").toCapabilityProfile().exerciseLevel)
+  assertEquals(3,AthleteProfile(level="Avanzato").toCapabilityProfile().exerciseLevel)
+ }
+ @Test fun canonicalGeneratorRequiresLocationCapabilityAndAthleteCapability(){
+  val easy=Exercise("Capability easy","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val hard=Exercise("Capability hard","Core","Corpo libero","Avanzato",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val dumbbell=Exercise("Capability dumbbell","Spalle","Manubri","Principiante",role="Forza")
+  val home=TrainingLocation("test:body","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
+  val generated=generateWorkoutFromCatalogue(listOf(easy,hard,dumbbell),home,AthleteProfile(level="Principiante"),CapabilityProfile(1),emptyList())
+  assertTrue(generated.any{it.name==easy.name})
+  assertFalse(generated.any{it.name==hard.name})
+  assertFalse(generated.any{it.name==dumbbell.name})
+ }
+
 }
