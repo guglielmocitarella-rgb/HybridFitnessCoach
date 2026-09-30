@@ -185,4 +185,19 @@ class ExerciseDbV2IntegrationTest {
         }
     }
 
+    @Test fun everyCanonicalEquipmentTokenRoundTripsThroughSelectableProfileAndCompatibility() {
+        val canonical=records().map { ExerciseDbV2.toLegacyExercise(it) }
+        val options=profileEquipmentOptions(canonical)
+        canonical.filter{!it.equipment.equals("Non specificato",true)}.forEach { ex ->
+            val required=ex.equipment.split("/").map(String::trim).filter(String::isNotBlank)
+            required.forEach { token ->
+                assertTrue("Missing selectable equipment token '$token' for ${ex.name}",token in options)
+            }
+            assertTrue(
+                "Selecting every displayed requirement must make ${ex.name} compatible: ${ex.equipment}",
+                equipmentCompatible(ex,EquipmentProfile("Contract","",required))
+            )
+        }
+    }
+
 }
