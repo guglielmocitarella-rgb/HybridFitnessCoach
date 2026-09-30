@@ -44,4 +44,36 @@ class Rc2HistoryDetailTest {
         assertTrue(detail.lines.contains("RPE esercizio: 7"))
         assertTrue(detail.lines.any { it.contains("non disponibili") })
     }
+    @Test fun historyShowsExecutedLoadedVolumeForWeightedRepExercise() {
+        val session=SessionRecord(1,"Palestra",3,3,structuredExercises=listOf(
+            WorkoutExerciseState("Panca",sets=listOf(
+                WorkoutSetState(0,actualReps=8,actualLoadKg=50.0,completed=true),
+                WorkoutSetState(1,actualReps=7,actualLoadKg=50.0,completed=true),
+                WorkoutSetState(2,actualReps=6,actualLoadKg=55.0,completed=true)
+            ),rpe=7)
+        ))
+        val detail=historyExerciseDetails(session).single()
+        assertEquals(1080.0,loadedVolumeKg(session.structuredExercises.single()),0.0)
+        assertTrue(detail.lines.contains("Volume con carico: 1080 kg"))
+    }
+
+    @Test fun loadedVolumeIgnoresIncompleteSetsAndSetsWithoutBothLoadAndReps() {
+        val exercise=WorkoutExerciseState("Panca",sets=listOf(
+            WorkoutSetState(0,actualReps=8,actualLoadKg=50.0,completed=true),
+            WorkoutSetState(1,actualReps=8,actualLoadKg=50.0,completed=false),
+            WorkoutSetState(2,actualReps=8,completed=true),
+            WorkoutSetState(3,actualLoadKg=50.0,completed=true)
+        ))
+        assertEquals(400.0,loadedVolumeKg(exercise),0.0)
+    }
+
+    @Test fun bodyweightOrTimedHistoryDoesNotInventLoadedVolume() {
+        val exercise=WorkoutExerciseState("Plank",measure=ExerciseMeasure.SECONDS,sets=listOf(
+            WorkoutSetState(0,actualSeconds=30,completed=true)
+        ))
+        assertEquals(0.0,loadedVolumeKg(exercise),0.0)
+        val session=SessionRecord(1,"Casa",1,1,structuredExercises=listOf(exercise))
+        assertFalse(historyExerciseDetails(session).single().lines.any{it.startsWith("Volume con carico:")})
+    }
+
 }
