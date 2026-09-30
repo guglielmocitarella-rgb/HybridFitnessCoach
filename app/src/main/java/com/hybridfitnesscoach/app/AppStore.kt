@@ -225,8 +225,10 @@ class AppStore(context: Context) {
                 .put("exerciseSnapshots", snapshots).put("state", w.state.name).put("originalEpochDay", w.originalEpochDay)
                 .put("adaptationReason", w.adaptationReason).put("actualExecutionEpochDay", w.actualExecutionEpochDay))
         }
-        return JSONObject().put("schemaVersion", 2).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
-            .put("weeks", plan.weeks).put("daysPerWeek", plan.daysPerWeek).put("workouts", workouts).toString()
+        return JSONObject().put("schemaVersion", 3).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
+            .put("weeks", plan.weeks).put("daysPerWeek", plan.daysPerWeek)
+            .put("goal", plan.goal).put("trainingDays", JSONArray(plan.trainingDays.sorted()))
+            .put("prioritySkills", JSONArray(plan.prioritySkills)).put("workouts", workouts).toString()
     }
 
     fun saveTrainingPlan(plan: TrainingPlan) = write { putString("training_plan_v091", trainingPlanJson(plan)) }
@@ -235,7 +237,7 @@ class AppStore(context: Context) {
         val raw = string("training_plan_v091") ?: return null
         return recovery.read("training_plan_v091", null) {
             val root = JSONObject(raw)
-            root.requireVersion(1, 2)
+            root.requireVersion(1, 2, 3)
             val version = root.storedInt("schemaVersion", 1)
             val workouts = recovery.records(root.getJSONArray("workouts"), "training_plan_v091.workouts") { o, path ->
                 val snapshots = o.storedArray("exerciseSnapshots")
@@ -259,7 +261,17 @@ class AppStore(context: Context) {
                     o.storedLong("originalEpochDay", o.getLong("epochDay")), o.storedString("adaptationReason").takeIf { it.isNotBlank() },
                     o.optNullableLong("actualExecutionEpochDay"))
             }
-            TrainingPlan(root.getString("id"), root.getLong("startEpochDay"), root.getInt("weeks"), root.getInt("daysPerWeek"), workouts)
+            val daysPerWeek=root.getInt("daysPerWeek")
+            val trainingDays=if(version>=3) {
+                val a=root.getJSONArray("trainingDays")
+                (0 until a.length()).map{a.getInt(it)}.toSet()
+            } else defaultTrainingDays(daysPerWeek)
+            TrainingPlan(
+                root.getString("id"), root.getLong("startEpochDay"), root.getInt("weeks"), daysPerWeek, workouts,
+                if(version>=3) normalizePlanGoal(root.getString("goal")) else "Fitness generale",
+                trainingDays,
+                if(version>=3) root.planStringList("prioritySkills") else emptyList()
+            )
         }
     }
 
@@ -267,7 +279,7 @@ class AppStore(context: Context) {
         val plan = readTrainingPlan() ?: return null
         // Only an entirely readable store may be migrated. Keep unresolved legacy
         // references and every corrupt record in their original representation.
-        if (issues.isEmpty() && JSONObject(string("training_plan_v091")!!).storedInt("schemaVersion", 1) == 1) {
+        if (issues.isEmpty() && JSONObject(string("training_plan_v091")!!).storedInt("schemaVersion", 1) < 3) {
             saveTrainingPlan(plan)
         }
         return plan
