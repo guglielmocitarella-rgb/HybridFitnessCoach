@@ -303,4 +303,32 @@ class V091PlanningTest {
   assertEquals(setOf(ExerciseCategory.PULL),intent.focusCategories);assertEquals(1,intent.sequenceInWeek)
  }
 
+ @Test fun plannedIntentMaterializesAgainstExecutionLocation(){
+  val machine=Exercise("Location machine","Gambe","Macchine","Intermedio",role="Forza",category=ExerciseCategory.SQUAT)
+  val body=Exercise("Location body","Gambe","Corpo libero","Intermedio",role="Forza",category=ExerciseCategory.SQUAT,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val planned=PlannedWorkout("p",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza",emptyList(),emptySet(),0))
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio"),emptyList(),80,listOf(machine,body))
+  assertEquals(PlannedSessionRealizationSource.INTENT,realized.source)
+  assertTrue(realized.exercises.isNotEmpty())
+  assertTrue(realized.exercises.all{locationCompatible(it,outdoor)})
+  assertFalse(realized.exercises.any{it.name==machine.name})
+ }
+ @Test fun legacyPlanWithoutIntentUsesImmutableSnapshotFallback(){
+  val snapshot=Exercise("Legacy snapshot","Petto","Bilanciere","Intermedio")
+  val planned=PlannedWorkout("legacy",20_000,0,0,listOf(snapshot),intent=null)
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio"),emptyList(),80)
+  assertEquals(PlannedSessionRealizationSource.LEGACY_SNAPSHOT,realized.source)
+  assertEquals(listOf(snapshot),realized.exercises)
+ }
+ @Test fun materializerNeverFallsBackToIncompatibleSnapshotWhenIntentExists(){
+  val machine=Exercise("Only machine","Gambe","Macchine","Intermedio",role="Forza")
+  val planned=PlannedWorkout("intent",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza"))
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio"),emptyList(),80,listOf(machine))
+  assertEquals(PlannedSessionRealizationSource.INTENT,realized.source)
+  assertTrue(realized.exercises.isEmpty())
+ }
+
 }

@@ -77,9 +77,10 @@ object SkillCatalog {
 
 
 /** Locked nodes are unavailable regardless of the self-reported athlete level. */
-internal fun skillEligibleExercises(sessions:List<SessionRecord>):Set<String> {
+internal fun skillEligibleExercises(sessions:List<SessionRecord>):Set<String> = skillEligibleExerciseNames(exercises,sessions)
+internal fun skillEligibleExerciseNames(catalogue:List<Exercise>,sessions:List<SessionRecord>):Set<String> {
     val states=SkillCatalog.skills().flatMap{SkillCatalog.progress(it,sessions)}
     val unlocked=states.filter{it.status!=ProgressionStatus.LOCKED}.flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
     val locked=states.filter{it.status==ProgressionStatus.LOCKED}.flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
-    return exercises.filter{it.name.lowercase() !in locked || it.name.lowercase() in unlocked}.map{it.name}.toSet()
+    return catalogue.filter{it.name.lowercase() !in locked || it.name.lowercase() in unlocked}.map{it.name}.toSet()
 }

@@ -661,11 +661,13 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
     return fatigue.mapValues { (_, load) -> (100.0 - load.coerceAtMost(80.0)).toInt().coerceIn(20, 100) }
 }
 
-internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> {
+internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> =
+    generateWorkoutFromCatalogue(exercises,profile,athlete,sessions,readinessScore,avoidPlannedNames)
+internal fun generateWorkoutFromCatalogue(catalogue:List<Exercise>,profile: EquipmentProfile, athlete: AthleteProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> {
     val context=coachingContext(sessions,readinessScore)
     val maxLevel = levelScore(athlete.level)
-    val eligible=skillEligibleExercises(sessions)
-    val available = exercises.filter { it.name in eligible && equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
+    val eligible=skillEligibleExerciseNames(catalogue,sessions)
+    val available = catalogue.filter { it.name in eligible && equipmentCompatible(it, profile) && levelScore(it.level) <= maxLevel }
     val preferredRoles = when (athlete.goal) {
         "Calisthenics" -> listOf("Progressione", "Prerequisito", "Forza", "Accessorio")
         "Ipertrofia" -> listOf("Forza", "Accessorio", "Prerequisito", "Progressione")
@@ -692,6 +694,29 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
     preferredRoles.forEach { role -> freshnessSorted.filter { it.role == role }.forEach { if (it !in result && result.size < 6) result.add(it) } }
     freshnessSorted.forEach { if (it !in result && result.size < 6) result.add(it) }
     return applyCoaching(sequenceWorkout(result).sortedBy{ex->if(athlete.prioritySkills.any{it in ex.skills})0 else 1},context)
+}
+
+internal enum class PlannedSessionRealizationSource { INTENT, LEGACY_SNAPSHOT }
+internal data class PlannedSessionRealization(
+ val exercises:List<Exercise>,
+ val source:PlannedSessionRealizationSource,
+ val plannedWorkoutId:String
+)
+internal fun materializePlannedSession(
+ planned:PlannedWorkout,
+ location:TrainingLocation,
+ athlete:AthleteProfile,
+ sessions:List<SessionRecord>,
+ readinessScore:Int?,
+ catalogue:List<Exercise> = exercises
+):PlannedSessionRealization {
+ val intent=planned.intent
+ if(intent==null) return PlannedSessionRealization(planned.exercises,PlannedSessionRealizationSource.LEGACY_SNAPSHOT,planned.id)
+ val effectiveAthlete=athlete.copy(goal=intent.goal,prioritySkills=intent.prioritySkills)
+ val generated=generateWorkoutFromCatalogue(catalogue,location.asLegacyProfile(),effectiveAthlete,sessions,readinessScore)
+ val focused=if(intent.focusCategories.isEmpty()) generated else generated.filter{it.category in intent.focusCategories}
+ val realized=focused.takeIf{it.isNotEmpty()} ?: generated
+ return PlannedSessionRealization(realized,PlannedSessionRealizationSource.INTENT,planned.id)
 }
 
 data class SuggestedWorkout(val exercises:List<Exercise>,val plannedWorkout:PlannedWorkout?)
