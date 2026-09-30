@@ -16,8 +16,8 @@ class EquipmentDomainContractTest {
         ExerciseDbV2.install(listOf(row))
         val ex=ExerciseDbV2.toLegacyExercise(row)
         assertEquals(setOf(EquipmentId.MACHINE),EquipmentCatalog.requirementsFor(ex))
-        assertTrue(locationCompatible(ex,EquipmentProfile("Gym","",listOf("Macchine")).toTrainingLocation()))
-        assertFalse(locationCompatible(ex,EquipmentProfile("Home","",listOf("Corpo libero")).toTrainingLocation()))
+        assertTrue(locationCompatible(ex,TrainingLocation("test:gym","Gym","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.MACHINE))))
+        assertFalse(locationCompatible(ex,TrainingLocation("test:home","Home","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))))
     }
 
     @Test fun emptyCanonicalEquipmentRemainsUnknownAndFailsClosed() {
@@ -26,7 +26,7 @@ class EquipmentDomainContractTest {
         val ex=ExerciseDbV2.toLegacyExercise(row)
         assertEquals("Non specificato",ex.equipment)
         assertTrue(EquipmentCatalog.requirementsFor(ex).isEmpty())
-        assertFalse(locationCompatible(ex,EquipmentProfile("Park","",emptyList()).toTrainingLocation()))
+        assertFalse(locationCompatible(ex,TrainingLocation("test:park","Park","",TrainingLocationKind.CUSTOM,emptySet())))
     }
 
     @Test fun equipmentOptionsAreDeduplicatedAndAlphabetical() {
