@@ -1,6 +1,6 @@
 # Hybrid Fitness Coach — v0.9.4 Definition of Done
 
-This is the active release DoD after the v0.9.3 freeze. The v0.9.4 branch starts exactly from the frozen v0.9.3 release line.
+This is the active release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0.9.4 development audit trail. The v0.9.4 branch starts exactly from the frozen v0.9.3 release line.
 
 ## Baseline
 
