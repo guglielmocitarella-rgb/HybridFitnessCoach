@@ -127,6 +127,15 @@ class ExerciseDbV2IntegrationTest {
         assertFalse(ref.locator.isNullOrBlank())
     }
 
+    @Test fun exerciseProvenanceRemainsAvailableToDomainWhenPresentationHidesIt() {
+        val row=records().first{it.sourceRefs.any{ref->!ref.locator.isNullOrBlank()}}
+        val mapped=ExerciseDbV2.toLegacyExercise(row)
+        val runtimeSources=ExerciseDbV2.sourcesFor(mapped)
+        assertTrue(runtimeSources.isNotEmpty())
+        assertTrue(runtimeSources.any{!it.locator.isNullOrBlank()})
+        assertTrue(row.sources.isNotEmpty())
+    }
+
     @Test fun sourceRegistryAndProgrammingGuidanceAreConsumableWithoutInventingExerciseSpecificRules() {
         val sources=ExerciseDbV2.parseSources(asset("sources.json").readText())
         val guidance=ExerciseDbV2.parseProgrammingGuidance(asset("programming_guidance.json").readText())
