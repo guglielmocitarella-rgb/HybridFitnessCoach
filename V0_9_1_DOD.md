@@ -1,3 +1,5 @@
+> **HISTORICAL / CLOSED RELEASE DOCUMENT** — v0.9.1 is closed. This file is retained only as historical audit evidence and MUST NOT be used as an active requirement, release gate, compatibility obligation, or source of current project status. The active release is v0.9.3; use `V0_9_3_DOD.md`, PR #10 and its exact HEAD. Backward compatibility with this release is not required.
+
 # Hybrid Fitness Coach — V0.9.1 persistent DoD
 
 ## RC2 audit checkpoint — 29 settembre 2026, post Exercise DB v2 integration
