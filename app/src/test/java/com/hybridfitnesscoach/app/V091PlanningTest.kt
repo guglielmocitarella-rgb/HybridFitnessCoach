@@ -25,7 +25,7 @@ class V091PlanningTest {
  @Test fun customSessionCannotConsumePlannedWorkoutByExerciseOverlap(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val custom=SessionRecord(0,"Personalizzato • Core",1,1,exerciseNames=listOf("A"));assertNull(PlannedWorkoutReconciler.findCandidate(plan,custom,1000));assertEquals(plan,PlannedWorkoutReconciler.complete(plan,custom,1000,2).plan)}
  @Test fun ambiguousUnlinkedSessionDoesNotCompleteFuturePlan(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val session=SessionRecord(0,"Palestra",1,1,exerciseNames=listOf("A"));assertNull(PlannedWorkoutReconciler.findCandidate(plan,session,1002))}
  @Test fun reconcilerRecordsPartiallyExecutedWorkoutAsPartial(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val first=plan.workouts.first();val session=SessionRecord(0,"Palestra",1,3,exerciseNames=listOf("A"),plannedWorkoutId=first.id);val update=PlannedWorkoutReconciler.complete(plan,session,1000,0);assertEquals(PlannedWorkoutState.PARTIAL,update.plan.workouts.first().state);assertEquals(1000L,update.plan.workouts.first().actualExecutionEpochDay)}
- @Test fun plannedExerciseHistoryIntroducesControlledVariety(){val profile=profiles.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza",level="Intermedio");val first=generateWorkout(profile,athlete,emptyList());assertTrue(first.isNotEmpty());val second=generateWorkout(profile,athlete,emptyList(),avoidPlannedNames=first.map{it.name}.toSet());assertTrue(second.isNotEmpty());assertNotEquals(first.map{it.name},second.map{it.name});assertTrue(second.all{locationCompatible(it,resolveTrainingLocation(profile))})}
+ @Test fun plannedExerciseHistoryIntroducesControlledVariety(){val profile=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza",level="Intermedio");val first=generateWorkout(profile,athlete,emptyList());assertTrue(first.isNotEmpty());val second=generateWorkout(profile,athlete,emptyList(),avoidPlannedNames=first.map{it.name}.toSet());assertTrue(second.isNotEmpty());assertNotEquals(first.map{it.name},second.map{it.name});assertTrue(second.all{locationCompatible(it,profile)})}
  @Test fun completedOrPartialWorkoutCannotBeRescheduled(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};for(state in listOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL)){val locked=plan.copy(workouts=plan.workouts.mapIndexed{index,w->if(index==0)w.copy(state=state,actualExecutionEpochDay=1001L)else w});assertEquals(locked,TrainingPlanEngine.reschedule(locked,locked.workouts.first().id,1010));assertEquals(locked,TrainingPlanEngine.skip(locked,locked.workouts.first().id))}}
  @Test fun deletingOnlyLinkedSessionReopensPlanEntryWithoutChangingOtherDates(){
   val ex=Exercise("A","Core","Corpo libero","Principiante")
@@ -233,7 +233,7 @@ class V091PlanningTest {
  }
 
  @Test fun configuredPlanGenerationPreservesConfigurationAcrossCalendar(){
-  val profile=profiles.first{it.name=="Palestra"}
+  val profile=trainingLocations.first{it.name=="Palestra"}
   val athlete=AthleteProfile(goal="Forza",level="Intermedio",daysPerWeek=3)
   val config=PlanConfiguration("Forza",2,2,setOf(2,5),emptyList()).validated()
   val start=java.time.LocalDate.of(2026,10,1).toEpochDay()
@@ -266,7 +266,7 @@ class V091PlanningTest {
   assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,0,0)).exerciseLevel))
  }
  @Test fun assessedLevelConstrainsGeneratedPlanDifficulty(){
-  val profile=profiles.first{it.name=="Palestra"}
+  val profile=trainingLocations.first{it.name=="Palestra"}
   val level=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,5,0)).exerciseLevel)
   val athlete=AthleteProfile(goal="Forza",level=level,daysPerWeek=2)
   val config=PlanConfiguration("Forza",1,2,setOf(1,4),emptyList()).validated()
@@ -288,7 +288,7 @@ class V091PlanningTest {
   assertEquals("builtin:gym",gym.id)
  }
  @Test fun generatedPlanCarriesLocationIndependentSessionIntent(){
-  val profile=profiles.first{it.name=="Palestra"}
+  val profile=trainingLocations.first{it.name=="Palestra"}
   val config=PlanConfiguration("Forza",1,2,setOf(1,4),listOf("Front lever")).validated()
   val plan=generateTrainingPlan("intent",20_000,profile,AthleteProfile(level="Intermedio"),config,emptyList(),80)
   assertTrue(plan.workouts.all{it.intent!=null})
@@ -331,17 +331,15 @@ class V091PlanningTest {
   assertTrue(realized.exercises.isEmpty())
  }
 
- @Test fun builtInLegacyProfileResolvesToCanonicalLocation(){
-  val gymProfile=profiles.first{it.name=="Palestra"}
-  val resolved=resolveTrainingLocation(gymProfile)
-  assertEquals("builtin:gym",resolved.id)
-  assertEquals(TrainingLocationKind.GYM,resolved.kind)
+ @Test fun builtInTrainingLocationHasStableCanonicalIdentity(){
+  val gym=trainingLocations.first{it.name=="Palestra"}
+  assertEquals("builtin:gym",gym.id)
+  assertEquals(TrainingLocationKind.GYM,gym.kind)
  }
- @Test fun customLegacyProfileResolvesWithoutInventingCapabilities(){
-  val custom=EquipmentProfile("Garage","🚗",listOf("Corpo libero","Manubri","Attrezzo sconosciuto"))
-  val resolved=resolveTrainingLocation(custom)
-  assertEquals(TrainingLocationKind.CUSTOM,resolved.kind)
-  assertEquals(setOf(EquipmentId.BODYWEIGHT,EquipmentId.DUMBBELL),resolved.capabilities)
+ @Test fun customTrainingLocationUsesOnlyExplicitCanonicalCapabilities(){
+  val custom=TrainingLocation("custom:garage","Garage","🚗",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT,EquipmentId.DUMBBELL))
+  assertEquals(TrainingLocationKind.CUSTOM,custom.kind)
+  assertEquals(setOf(EquipmentId.BODYWEIGHT,EquipmentId.DUMBBELL),custom.capabilities)
  }
  @Test fun realizedPlannedWorkoutCopyKeepsIdentityAndIntent(){
   val snapshot=Exercise("Machine old","Gambe","Macchine","Intermedio",role="Forza")
