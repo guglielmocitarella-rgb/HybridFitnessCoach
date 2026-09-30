@@ -166,12 +166,12 @@ internal object ExerciseDbV2 {
         return withExerciseMetadata(Exercise(
             name=legacy?.name?:record.nameIt,
             group=group,
-            equipment=if(record.equipment.isNotEmpty()) record.equipment.joinToString(" / "){equipmentDisplay(it)} else legacy?.equipment?:"Non specificato",
-            level=record.level?:legacy?.level?:"Intermedio",
+            equipment=if(record.equipment.isNotEmpty()) record.equipment.joinToString(" / "){EquipmentCatalog.displayNameForToken(it)} else legacy?.equipment?:EquipmentCatalog.displayName(EquipmentId.BODYWEIGHT),
+            level=record.level?:legacy?.level?:"Non valutato",
             skills=legacy?.skills?:emptyList(),
             role=legacy?.role?:"Base",
-            setRestSec=legacy?.setRestSec?:90,
-            exerciseRestSec=legacy?.exerciseRestSec?:120,
+            setRestSec=legacy?.setRestSec?:recommendedSetRest(legacy?.role?:"Base",record.nameIt,record.equipment.joinToString("/")),
+            exerciseRestSec=legacy?.exerciseRestSec?:recommendedExerciseRest(legacy?.role?:"Base",record.nameIt,record.equipment.joinToString("/")),
             secondaryGroups=legacy?.secondaryGroups?:emptyList(),
             movementPattern=legacy?.movementPattern?:"",
             category=category,
@@ -188,26 +188,6 @@ internal object ExerciseDbV2 {
         ))
     }
 
-    private fun equipmentDisplay(token:String)=when(token.lowercase()) {
-        "barbell" -> "Bilanciere"
-        "dumbbell" -> "Manubri"
-        "kettlebell" -> "Kettlebell"
-        "cable","cable_machine" -> "Cavi"
-        "machine" -> "Macchine"
-        "pull_up_bar" -> "Sbarra"
-        "dip_bars","parallettes" -> "Parallele"
-        "rings" -> "Anelli"
-        "resistance_band" -> "Elastici"
-        "ab_wheel" -> "Ab Wheel"
-        "stability_ball" -> "Fitball"
-        "medicine_ball" -> "Palla medica"
-        "battle_ropes","rope","rope_or_towel" -> "Corda"
-        "box" -> "Box"
-        "bosu" -> "Bosu"
-        "ez_bar" -> "Bilanciere EZ"
-        "towel" -> "Asciugamano"
-        else -> token.replace('_',' ').lowercase().replaceFirstChar{it.uppercase()}
-    }
 }
 
 private fun JSONArray?.strings():List<String> =
