@@ -40,4 +40,22 @@ class RecoveryPrescriptionContractTest {
         val effective=exerciseWithEffectivePrescription(ex,athlete,emptyList(),80)
         assertEquals(effective.setRestSec,effective.exerciseRestSec)
     }
+    @Test fun installedSourceGuidanceConstrainsRecoveryAndCarriesProvenance() {
+        val previous=ExerciseDbV2.installedProgrammingGuidance()
+        try {
+            ExerciseDbV2.installProgrammingGuidance(listOf(
+                ExerciseV2Guidance("strength-rest","NSCA_ESS5","max_strength:resistance_training",
+                    mapOf("min_seconds" to (240..240),"max_seconds" to (300..300)))
+            ))
+            val ex=Exercise("Guidance press","Petto","Bilanciere","Intermedio",
+                category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+            val context=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,5,null,80,null)
+            val baseline=SourcePrescriptionBaselineRegistry.baselineFor(ex,context)!!
+            assertEquals(240,baseline.restSeconds)
+            assertEquals("NSCA_ESS5",baseline.evidence.single().sourceId)
+        } finally {
+            ExerciseDbV2.installProgrammingGuidance(previous)
+        }
+    }
+
 }

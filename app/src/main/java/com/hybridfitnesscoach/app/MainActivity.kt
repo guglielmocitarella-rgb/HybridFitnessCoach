@@ -716,6 +716,7 @@ class MainActivity : ComponentActivity() {
         installExerciseDbV2(ExerciseDbV2.load(this))
         ExerciseDbV2.installSources(ExerciseDbV2.loadSources(this))
         ExerciseDbV2.installProgressions(ExerciseDbV2.loadProgressions(this))
+        ExerciseDbV2.installProgrammingGuidance(ExerciseDbV2.loadProgrammingGuidance(this))
         setContent { HybridFitnessApp() }
     }
 }

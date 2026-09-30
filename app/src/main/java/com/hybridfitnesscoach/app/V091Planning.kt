@@ -60,26 +60,45 @@ object ExerciseEvidenceRegistry {
 data class PrescriptionContext(val goal:String,val athleteLevel:String,val exerciseType:ExerciseCategory,val intensity:Int,val volume:Int,val fatigue:Int,val recentPerformance:Double?,val recoveryStatus:Int?,val skillLevel:Int?)
 data class SourcePrescriptionBaseline(val sets:Int,val repsOrDuration:Double,val loadKg:Double?=null,val rirOrRpe:Double?=null,val restSeconds:Int,val tempo:String?=null,val evidence:List<EvidenceRef>){init{require(sets>0);require(repsOrDuration>0);require(restSeconds>0);require(evidence.isNotEmpty()){"A source-based baseline requires provenance"}}}
 object SourcePrescriptionBaselineRegistry {
- private val acsmGeneralRt=EvidenceRef(
-  sourceId="acsm-getp-12-ch5-rt-prescription",
+ private val compatibilityEvidence=EvidenceRef(
+  sourceId="ACSM12",
   sourceTitle="ACSM's Guidelines for Exercise Testing and Prescription, 12th ed.",
-  section="Chapter 5 — Resistance Training: intensity, rest periods and volume",
-  pageOrLocation="physical PDF pages 355-360; Tables 5.7 and 5.10",
+  section="Chapter 5 — Resistance Training",
+  pageOrLocation="Table 5.7",
   evidenceType=EvidenceType.GUIDELINE
  )
- /**
-  * Goal/experience baselines intentionally apply to general resistance exercise, not to a
-  * named exercise. ACSM Table 5.10 supports 1-2 sets x 8-12 reps for untrained adults;
-  * Table 5.7 supports 90-180 s for hypertrophy/strength-endurance and 120-300 s for strength.
-  */
+ private fun evidenceFor(rule:ExerciseV2Guidance):EvidenceRef {
+  val source=ExerciseDbV2.sourceById(rule.sourceId)
+  return EvidenceRef(rule.sourceId,source?.title?:rule.sourceId,rule.scope,source?.locator,EvidenceType.GUIDELINE)
+ }
+ private fun restRule(scope:String):ExerciseV2Guidance? =
+  ExerciseDbV2.installedProgrammingGuidance().firstOrNull{it.scope.equals(scope,true)}
+ private fun restSeconds(rule:ExerciseV2Guidance?,preferred:Int):Int? {
+  if(rule==null)return null
+  val min=rule.guidance["min_seconds"]?.first
+  val max=rule.guidance["max_seconds"]?.last
+  return when {
+   min!=null && max!=null -> preferred.coerceIn(min,max)
+   min!=null -> maxOf(preferred,min)
+   max!=null -> minOf(preferred,max)
+   else -> null
+  }
+ }
  fun baselineFor(exercise:Exercise,context:PrescriptionContext):SourcePrescriptionBaseline? {
   if(!isEligibleResistanceExercise(exercise)) return null
   val level=context.athleteLevel.lowercase()
   val goal=context.goal.lowercase()
+  val scope=when {
+   goal.contains("forza")->"max_strength:resistance_training"
+   goal.contains("ipertrof")->"strength_endurance_or_hypertrophy:resistance_training"
+   else->null
+  }
+  val rule=scope?.let(::restRule)
+  val evidence=rule?.let{listOf(evidenceFor(it))}?:listOf(compatibilityEvidence)
   return when {
-   level.contains("princip") -> SourcePrescriptionBaseline(2,10.0,null,null,120,null,listOf(acsmGeneralRt))
-   goal.contains("ipertrof") -> SourcePrescriptionBaseline(3,10.0,null,null,120,null,listOf(acsmGeneralRt))
-   goal.contains("forza") -> SourcePrescriptionBaseline(3,6.0,null,null,180,null,listOf(acsmGeneralRt))
+   level.contains("princip") -> SourcePrescriptionBaseline(2,10.0,null,null,restSeconds(rule,120)?:120,null,evidence)
+   goal.contains("ipertrof") -> SourcePrescriptionBaseline(3,10.0,null,null,restSeconds(rule,120)?:120,null,evidence)
+   goal.contains("forza") -> SourcePrescriptionBaseline(3,6.0,null,null,restSeconds(rule,180)?:180,null,evidence)
    else -> null
   }
  }

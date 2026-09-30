@@ -38,10 +38,14 @@ internal object ExerciseDbV2 {
     private var installed:List<ExerciseV2Record> = emptyList()
     private var sourceRegistry:Map<String,ExerciseV2Source> = emptyMap()
     private var progressionRegistry:List<ExerciseV2Edge> = emptyList()
+    private var programmingGuidance:List<ExerciseV2Guidance> = emptyList()
     fun install(records:List<ExerciseV2Record>) { installed=records }
     fun installedRecords():List<ExerciseV2Record> = installed
     fun installSources(sources:Map<String,ExerciseV2Source>) { sourceRegistry=sources }
     fun installProgressions(edges:List<ExerciseV2Edge>) { progressionRegistry=edges }
+    fun installProgrammingGuidance(rules:List<ExerciseV2Guidance>) { programmingGuidance=rules }
+    fun installedProgrammingGuidance():List<ExerciseV2Guidance> = programmingGuidance
+    fun sourceById(id:String):ExerciseV2Source? = sourceRegistry[id]
     fun progressionRelations(exercise:Exercise):ExerciseV2ProgressionRelations {
         val record=recordFor(exercise) ?: return ExerciseV2ProgressionRelations(emptyList(),emptyList())
         val byId=installed.associateBy{it.id}
