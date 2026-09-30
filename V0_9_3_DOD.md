@@ -26,8 +26,9 @@ This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are th
 | Exercise library/equipment | Measurement/type filter is absent; equipment options are catalog-driven, deduplicated and alphabetically sorted | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Exercise detail action/progress | Detail exposes direct Execute action, executed repetition totals, loaded-volume statistics, and explicit easier/harder progression relations | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Completed workout detail | Structured executed-set detail, including actual reps/load/rest, is rendered from session history | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| Generated workout preview | Summary, Adaptive Coach and regenerate controls are outside the exercise `LazyColumn`; only the exercise list scrolls; pinned regeneration behavior remains regression-covered | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 
-Current fully green checkpoint: `b75d3e378bead489d67e4e7ebcb1ce4c71961f0a`, Exercise DB v2 #225 and Android APK #777.
+Current fully green checkpoint: `8b434d72a5f6b14b3611cf631b1802ebc1827899`, Exercise DB v2 #229 and Android APK #781.
 
 ## Remaining gates
 
