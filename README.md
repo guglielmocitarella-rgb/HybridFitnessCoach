@@ -1,6 +1,6 @@
 # Hybrid Fitness Coach
 
-> **Compatibility policy (v0.9.3 onward):** backward compatibility with previous app builds, persistence schemas, data models, or legacy behavior is intentionally out of scope and is not planned for future releases. Development targets the clean current model. Legacy migration/fallback code must not be retained solely for compatibility unless this policy is explicitly changed by the project owner.
+> **Compatibility policy (v0.9.3 onward):** no backward compatibility with previous app builds, persistence schemas, data models, or legacy behavior is intentionally out of scope and is not planned for future releases. Development targets the clean current model. Legacy migration/fallback code must not be retained solely for compatibility unless this policy is explicitly changed by the project owner.
 
 Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
 
