@@ -1340,6 +1340,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
         val ranked=base.sortedWith(compareBy<Exercise>{ex->val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100;if(rec<40)100 else if(rec<60)50 else 0}.thenBy{if(selectedSkills.any{s->s in it.skills})0 else 1}.thenBy{if(it.role=="Forza")0 else 1})
         generated=ranked.take(count)
         generated=applyCoaching(sequenceWorkout(generated),coachingContext(sessions,readinessScore))
+        if(mode=="Skill") generated=enforceSkillMasteryPrescription(generated,selectedSkills,sessions)
         completed.clear();expandedCompleted.clear();reps.clear();restSeconds.clear();exerciseRpe.clear()
         generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second;exerciseRpe[ex.name]=5}
         exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0
