@@ -405,4 +405,12 @@ class V091PlanningTest {
   assertEquals(listOf(body.name),pool.map{it.name})
  }
 
+ @Test fun customWorkoutLibraryEquipmentFilterIntersectsWithLocation(){
+  val dumbbell=Exercise("Filter dumbbell","Spalle","Manubri","Principiante",role="Forza")
+  val barbell=Exercise("Filter barbell","Gambe","Bilanciere","Principiante",role="Forza")
+  val gym=trainingLocations.first{it.kind==TrainingLocationKind.GYM}
+  val pool=customWorkoutCandidatePool(gym,AthleteProfile(level="Intermedio"),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(dumbbell,barbell),listOf("Manubri"))
+  assertEquals(listOf(dumbbell.name),pool.map{it.name})
+ }
+
 }
