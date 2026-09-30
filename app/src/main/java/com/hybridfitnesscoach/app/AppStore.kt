@@ -168,22 +168,23 @@ class AppStore(context: Context) {
         return committed
     }
 
-    fun loadAthlete(): AthleteProfile {
-        val goal = string("athlete_goal", "Forza") ?: "Forza"
-        return AthleteProfile(string("athlete_name", "") ?: "", goal,
-            string("athlete_level", "Intermedio") ?: "Intermedio", int("athlete_days", 3),
-            int("athlete_age"), float("athlete_height"), float("athlete_weight"),
-            string("athlete_sex", "Non specificato") ?: "Non specificato",
-            (string("athlete_priority_skills", "") ?: "").split("|").filter { it.isNotBlank() })
-    }
+    fun loadAthlete(): AthleteProfile =
+        AthleteProfile(
+            name = string("athlete_name", "") ?: "",
+            level = string("athlete_level", "Intermedio") ?: "Intermedio",
+            age = int("athlete_age"),
+            heightCm = float("athlete_height"),
+            weightKg = float("athlete_weight"),
+            sex = string("athlete_sex", "Non specificato") ?: "Non specificato"
+        )
 
     fun saveAthlete(p: AthleteProfile) {
         val history = string("weight_history", "") ?: ""
         write {
-            putString("athlete_name", p.name).putString("athlete_goal", p.goal).putString("athlete_level", p.level)
-                .putInt("athlete_days", p.daysPerWeek).putInt("athlete_age", p.age)
-                .putFloat("athlete_height", p.heightCm).putFloat("athlete_weight", p.weightKg)
-                .putString("athlete_sex", p.sex).putString("athlete_priority_skills", p.prioritySkills.joinToString("|"))
+            putString("athlete_name", p.name).putString("athlete_level", p.level)
+                .putInt("athlete_age", p.age).putFloat("athlete_height", p.heightCm)
+                .putFloat("athlete_weight", p.weightKg).putString("athlete_sex", p.sex)
+                .remove("athlete_goal").remove("athlete_days").remove("athlete_priority_skills")
             if (p.weightKg > 0) putString("weight_history", ("${System.currentTimeMillis()}:${p.weightKg};" + history).take(4000))
         }
     }
