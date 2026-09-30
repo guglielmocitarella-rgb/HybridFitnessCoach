@@ -5,7 +5,7 @@ import org.junit.Test
 
 class CoachingIntegrationTest {
     private val gym=trainingLocations.first{it.name=="Palestra"}
-    private val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+    private val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
     private fun history(rpe:Int,done:Int)=listOf(SessionRecord(System.currentTimeMillis(),"P",done,18,workoutRpe=rpe))
 
     @Test fun highFatigueReducesActualGeneratedSets() {

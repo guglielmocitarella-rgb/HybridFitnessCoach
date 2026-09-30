@@ -132,7 +132,7 @@ data class WorkoutSessionState(
     val pausedRestRemainingSec: Int? = null,
     val trainingLocationId: String? = null
 )
-data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList(), val assessedTrainingExperience:Int?=null, val assessedPushCapacity:Int?=null, val assessedPullCapacity:Int?=null)
+data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList(), val assessedTrainingExperience:Int?=null, val assessedPushCapacity:Int?=null, val assessedPullCapacity:Int?=null)
 data class CapabilityProfile(
     val exerciseLevel:Int,
     val trainingExperience:Int? = null,

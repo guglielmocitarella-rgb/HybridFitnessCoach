@@ -171,7 +171,6 @@ class AppStore(context: Context) {
     fun loadAthlete(): AthleteProfile =
         AthleteProfile(
             name = string("athlete_name", "") ?: "",
-            level = string("athlete_level", "Intermedio") ?: "Intermedio",
             age = int("athlete_age"),
             heightCm = float("athlete_height"),
             weightKg = float("athlete_weight"),
@@ -184,7 +183,7 @@ class AppStore(context: Context) {
     fun saveAthlete(p: AthleteProfile) {
         val history = string("weight_history", "") ?: ""
         write {
-            putString("athlete_name", p.name).putString("athlete_level", p.level)
+            putString("athlete_name", p.name).remove("athlete_level")
                 .putInt("athlete_age", p.age).putFloat("athlete_height", p.heightCm)
                 .putFloat("athlete_weight", p.weightKg).putString("athlete_sex", p.sex)
                 .apply {

@@ -210,7 +210,6 @@ class AppStoreRecoveryTest {
         val store = AppStore(context)
         store.saveAthlete(AthleteProfile(
             name = "Capability",
-            level = "Intermedio",
             assessedTrainingExperience = 3,
             assessedPushCapacity = 1,
             assessedPullCapacity = 2
@@ -228,7 +227,6 @@ class AppStoreRecoveryTest {
         store.saveAthlete(AthleteProfile(
             name = "Ada",
             goal = "Calisthenics",
-            level = "Avanzato",
             daysPerWeek = 6,
             age = 35,
             heightCm = 170f,
@@ -241,7 +239,6 @@ class AppStoreRecoveryTest {
         assertFalse(prefs.contains("athlete_priority_skills"))
         val loaded = store.loadAthlete()
         assertEquals("Ada", loaded.name)
-        assertEquals("Avanzato", loaded.level)
         assertEquals(35, loaded.age)
         assertEquals(170f, loaded.heightCm)
         assertEquals(65f, loaded.weightKg)
