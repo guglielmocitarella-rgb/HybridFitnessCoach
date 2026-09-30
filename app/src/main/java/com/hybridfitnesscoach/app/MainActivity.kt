@@ -26,8 +26,8 @@ import kotlinx.coroutines.delay
 private val Accent = Color(0xFF3568E8)
 private val Bg = Color(0xFFF7F8FA)
 
-enum class TrainingLocationKind(val stableId:String) { GYM("gym"), HOME("home"), OUTDOOR("outdoor"), CUSTOM("custom") }
-data class TrainingLocation(val id:String,val name:String,val icon:String,val kind:TrainingLocationKind,val capabilities:Set<EquipmentId>) {
+internal enum class TrainingLocationKind(val stableId:String) { GYM("gym"), HOME("home"), OUTDOOR("outdoor"), CUSTOM("custom") }
+internal data class TrainingLocation(val id:String,val name:String,val icon:String,val kind:TrainingLocationKind,val capabilities:Set<EquipmentId>) {
     init { require(id.isNotBlank()); require(name.isNotBlank()) }
     fun asLegacyProfile():EquipmentProfile = EquipmentProfile(name,icon,capabilities.map(EquipmentCatalog::displayName).sortedBy{it.lowercase()})
 }
