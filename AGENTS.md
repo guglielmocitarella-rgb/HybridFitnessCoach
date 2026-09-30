@@ -34,9 +34,13 @@ Use small, descriptive commits with imperative subjects, following history: `Mig
 
 ## Current Release Target
 
-Target: **v0.9.1**. Primary development branch: `feature/v0.9.1-training-plan`.
+Target: **v0.9.3**. Primary development branch: `feature/v0.9.3`.
 
-Deliver a robust, tested, maintainable, backward-compatible, scientifically honest release. A compiling APK alone is insufficient.
+Deliver a robust, tested, maintainable, scientifically honest release. A compiling APK alone is insufficient.
+
+## Compatibility Policy — Permanent
+
+Backward compatibility with earlier Hybrid Fitness Coach builds, persistence schemas, data models, APIs, or behaviors is **not a requirement for v0.9.3 and will not be a requirement for future releases** unless the owner explicitly reverses this policy. Do not retain legacy fields, fallbacks, migration code, compatibility adapters, nullable states, or tests solely to preserve older versions. Prefer the cleanest correct current-domain model and remove obsolete compatibility paths when they add complexity or ambiguity. Existing development/test data may be reset when a schema change requires it. This policy does not permit accidental loss or corruption of data created by the current supported build/schema.
 
 ## Owner and Autonomy
 
@@ -48,13 +52,13 @@ Ask only when a choice materially changes product behavior, user experience, pri
 
 ## Engineering Priorities
 
-Prefer, in order: correctness → data integrity → backward compatibility → testability → maintainability → traceability → scientific honesty → simplicity. Avoid speculative or cosmetic large refactors.
+Prefer, in order: correctness → current-schema data integrity → testability → maintainability → traceability → scientific honesty → simplicity. Backward compatibility is explicitly out of scope. Avoid speculative or cosmetic large refactors.
 
-## v0.9.1 Areas
+## Current Release Areas
 
 Verify these areas; do not assume they are broken. Inspect current HEAD before changing any area:
 
-- Robust/versioned persistence and v0.9 migration compatibility.
+- Robust/versioned persistence for the current schema; legacy migration compatibility is not required.
 - Real performance/fatigue integration, Prescription Engine, recovery-aware scheduler, 1–52-week programming, and structured rest prescriptions.
 - Raw exercise catalog validation, exercise evidence provenance, skill progression provenance, and exercise video infrastructure with verified coverage.
 - Exercise Detail, calendar, Health Connect/readiness, and architecture/scalability.
@@ -72,7 +76,7 @@ Never fabricate citations, URLs, authors, page numbers, scientific conclusions, 
 
 ## Persistence and Migration
 
-Treat user training data as valuable. Never silently discard valid athlete profiles, training history, plans, completed sets, equipment configuration, or progression information. Schema/persistence changes require backward-compatible migration strategies and tests where applicable. Handle corruption explicitly; do not convert the entire store to an empty dataset.
+Treat data written by the current supported schema as valuable. Never silently discard or corrupt valid current-schema athlete profiles, training history, plans, completed sets, equipment configuration, or progression information. Schema/persistence changes do **not** require migration from older app versions: prefer a clean schema and explicit reset over compatibility machinery. Tests should validate the current schema and current-build recovery/integrity. Handle corruption explicitly; do not convert a valid current-schema store to an empty dataset.
 
 ## Health Connect
 
@@ -92,7 +96,7 @@ Never hide required-check failures with `continue-on-error`, `|| true`, or equiv
 
 ## Git Safety
 
-Never force push or delete `main`, rewrite shared history without necessity, delete tests just for green CI, overwrite user data without migration, or commit passwords, API keys, signing secrets, or keystores. Require explicit owner approval before destructive Git operations.
+Never force push or delete `main`, rewrite shared history without necessity, delete tests just for green CI, overwrite valid current-schema user data without an explicit current-schema transition, or commit passwords, API keys, signing secrets, or keystores. Require explicit owner approval before destructive Git operations.
 
 ## Definition of Done Reporting
 
