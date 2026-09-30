@@ -32,13 +32,24 @@ internal data class ExerciseV2EvidenceRef(val sourceId:String,val evidenceType:S
 internal data class ExerciseV2Edge(val from:String,val to:String,val relationship:String,val sources:List<String>)
 internal data class ExerciseV2Source(val id:String,val title:String,val evidenceType:String?,val locator:String?)
 internal data class ExerciseV2Guidance(val id:String,val sourceId:String,val scope:String,val guidance:Map<String,IntRange>)
+internal data class ExerciseV2ProgressionRelations(val easier:List<ExerciseV2Record>,val harder:List<ExerciseV2Record>)
 
 internal object ExerciseDbV2 {
     private var installed:List<ExerciseV2Record> = emptyList()
     private var sourceRegistry:Map<String,ExerciseV2Source> = emptyMap()
+    private var progressionRegistry:List<ExerciseV2Edge> = emptyList()
     fun install(records:List<ExerciseV2Record>) { installed=records }
     fun installedRecords():List<ExerciseV2Record> = installed
     fun installSources(sources:Map<String,ExerciseV2Source>) { sourceRegistry=sources }
+    fun installProgressions(edges:List<ExerciseV2Edge>) { progressionRegistry=edges }
+    fun progressionRelations(exercise:Exercise):ExerciseV2ProgressionRelations {
+        val record=recordFor(exercise) ?: return ExerciseV2ProgressionRelations(emptyList(),emptyList())
+        val byId=installed.associateBy{it.id}
+        val main=progressionRegistry.filter{it.relationship=="MAIN_PROGRESSION"}
+        val easier=main.filter{it.to==record.id}.mapNotNull{byId[it.from]}.distinctBy{it.id}
+        val harder=main.filter{it.from==record.id}.mapNotNull{byId[it.to]}.distinctBy{it.id}
+        return ExerciseV2ProgressionRelations(easier,harder)
+    }
     fun sourcesFor(exercise:Exercise):List<ExerciseV2Source> {
         val record=recordFor(exercise) ?: return emptyList()
         val refs=record.sourceRefs.associateBy { it.sourceId }
