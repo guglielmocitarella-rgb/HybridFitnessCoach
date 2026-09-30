@@ -19,7 +19,7 @@ This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are th
 | Equipment contract | Canonical equipment tokens are selectable and round-trip through generator compatibility across the catalog | VERIFIED |
 | Exercise progression detail | Every MAIN_PROGRESSION edge resolves with from= easier and to= harder in Exercise Detail semantics | VERIFIED |
 | RPE default | Untouched runner RPE 5 is materialized into structured history and can qualify Progression Engine mastery | VERIFIED |
-| Plan ownership | Goal, frequency/calendar days and priority skills are plan-owned, independent from AthleteProfile, and persisted by the current schema | VERIFIED at repository level |
+| Plan ownership | Goal, frequency/calendar days and priority skills are plan-owned, independent from AthleteProfile, and persisted by the current schema; athlete persistence now owns only stable athlete fields | VERIFIED at repository level |
 | Compatibility cleanup | Current active-workout schema v2 and training-plan schema v3 require explicit version markers; compatibility-only implicit v1 acceptance is removed | VERIFIED |
 | Calendar reschedule | Reschedule is cascading; original date is retained and can be explicitly restored; Italian calendar date formatting is used | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Fitness-level assessment | Athlete level can be assessed from current capability inputs and is consumed by workout difficulty filtering | IMPLEMENTED_NOT_DEVICE_VERIFIED |
@@ -28,7 +28,7 @@ This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are th
 | Completed workout detail | Structured executed-set detail, including actual reps/load/rest, is rendered from session history | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Generated workout preview | Summary, Adaptive Coach and regenerate controls are outside the exercise `LazyColumn`; only the exercise list scrolls; pinned regeneration behavior remains regression-covered | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 
-Current fully green checkpoint: `8b434d72a5f6b14b3611cf631b1802ebc1827899`, Exercise DB v2 #229 and Android APK #781.
+Current fully green checkpoint: `231f7a91cac307bb61eedbd55b97b397b95d0eef`, Exercise DB v2 #238 and Android APK #790.
 
 ## Remaining gates
 
