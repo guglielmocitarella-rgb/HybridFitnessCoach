@@ -35,6 +35,7 @@ class EquipmentDomainContractTest {
         val options=exerciseEquipmentOptions(listOf(a,b))
         assertEquals(options.sortedBy { it.lowercase() },options)
         assertEquals(1,options.count { it=="Macchina" })
+        assertFalse("Macchine" in options)
         assertTrue("Manubri" in options)
     }
 }
