@@ -147,11 +147,11 @@ class AppStoreRecoveryTest {
         assertEquals(raw, prefs.getString("sessions", null))
     }
 
-    @Test fun currentEquipmentProfilesRoundTripWithoutMigrationState() {
+    @Test fun currentTrainingLocationsRoundTripWithoutMigrationState() {
         val store = AppStore(context)
-        val custom = listOf(EquipmentProfile("My equipment", "X", listOf("Ab Wheel")))
-        store.saveCustomProfiles(custom)
-        assertEquals(custom, store.loadCustomProfiles())
+        val custom = listOf(TrainingLocation("custom:test","My equipment","X",TrainingLocationKind.CUSTOM,setOf(EquipmentId.AB_WHEEL)))
+        store.saveTrainingLocations(custom)
+        assertEquals(custom, store.loadTrainingLocations())
     }
 
     @Test fun newInstallationAndCurrentHistoryRoundTrip() {
@@ -278,8 +278,8 @@ class AppStoreRecoveryTest {
             val recovered = AppStore(context)
             assertTrue(recovered.issues.isNotEmpty())
             recovered.saveAthlete(AthleteProfile(name = "Replacement"))
-            recovered.saveActiveProfileName("Replacement")
-            recovered.saveCustomProfiles(emptyList())
+            recovered.saveActiveTrainingLocationId("custom:replacement")
+            recovered.saveTrainingLocations(emptyList())
             recovered.saveSkillNode("Front lever", "front_full")
             recovered.saveActiveWorkout(WorkoutSessionState("new", 1, "Casa", emptyList()))
             recovered.clearActiveWorkout()
@@ -389,14 +389,14 @@ class AppStoreRecoveryTest {
         } finally { file.delete() }
     }
 
-    @Test fun malformedEquipmentRecoversValidProfileAndProtectsOriginal() {
-        val raw = """[{"name":"Home","equipment":["Ab Wheel","Foam Roller"]},{"name":"broken","equipment":false}]"""
-        prefs.edit().putString("custom_profiles", raw).commit()
+    @Test fun malformedTrainingLocationRecoversValidLocationAndProtectsOriginal() {
+        val raw = """[{"id":"custom:home","name":"Home","kind":"custom","capabilities":["AB_WHEEL","FOAM_ROLLER"]},{"id":"broken","name":"broken","capabilities":false}]"""
+        prefs.edit().putString("training_locations", raw).commit()
         val store = AppStore(context)
-        assertEquals(listOf("Home"), store.loadCustomProfiles().map { it.name })
+        assertEquals(listOf("Home"), store.loadTrainingLocations().map { it.name })
         assertTrue(store.issues.isNotEmpty())
-        store.saveCustomProfiles(store.loadCustomProfiles())
-        assertEquals(raw, prefs.getString("custom_profiles", null))
+        store.saveTrainingLocations(store.loadTrainingLocations())
+        assertEquals(raw, prefs.getString("training_locations", null))
     }
 
     @Test fun malformedNestedXmlIsNotANewInstallation() {
