@@ -28,12 +28,12 @@ This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are th
 | Completed workout detail | Structured executed-set detail, including actual reps/load/rest, is rendered from session history | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 | Generated workout preview | Summary, Adaptive Coach and regenerate controls are outside the exercise `LazyColumn`; only the exercise list scrolls; pinned regeneration behavior remains regression-covered | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 
-Current fully green checkpoint: `08f6eb4b09d6d412587bf728591b247444bc1c52`, Exercise DB v2 #247 and Android APK #799. Direct Execute materializes the automatic effective prescription; deterministic recovery tests cover process recreation and runner position/performance; Home suggestion tests bind today's runnable plan session to the suggested workout; fitness-assessment tests cover boundaries and the production difficulty ceiling.
+Current fully green checkpoint: `6add2030ae5dbe5eb765bad0bcfa4ba5922e50d8`, Exercise DB v2 #249 and Android APK #801. The PR #10 product-scope reconciliation is complete at repository level: every declared product requirement is either repository-verified or explicitly retained as `IMPLEMENTED_NOT_DEVICE_VERIFIED`; no interaction-only behavior is promoted to verified without device evidence. Direct Execute materializes the automatic effective prescription; deterministic recovery tests cover process recreation and runner position/performance; Home suggestion tests bind today's runnable plan session to the suggested workout; fitness-assessment tests cover boundaries and the production difficulty ceiling.
 
 ## Remaining gates
 
 - [x] Audit and remove compatibility baggage that exists only for pre-v0.9.3 data/behavior. Current active-workout schema v2 and training-plan schema v3 require explicit `schemaVersion`; current-schema recovery/corruption protection remains intact.
-- [ ] Reconcile every remaining PR #10 product requirement against current implementation and deterministic tests; change production only for demonstrated gaps.
+- [x] Reconcile every PR #10 product requirement against current implementation and deterministic tests; production changes were limited to demonstrated gaps. Remaining unverified items are interaction/device acceptance only.
 - [ ] Exact-SHA final Exercise DB validation and Android unit/lint/build CI.
 - [ ] Device acceptance: calendar interactions, workout generation/preview, runner/timers/background restore, history/detail, plan configuration, equipment UX, skill navigation and other interaction-only behavior.
 - [ ] Final release artifact verification after the accepted code SHA.
