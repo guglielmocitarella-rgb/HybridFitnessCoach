@@ -20,12 +20,18 @@ This is the **only active release DoD**. GitHub PR #10 and its exact HEAD are th
 | Exercise progression detail | Every MAIN_PROGRESSION edge resolves with from= easier and to= harder in Exercise Detail semantics | VERIFIED |
 | RPE default | Untouched runner RPE 5 is materialized into structured history and can qualify Progression Engine mastery | VERIFIED |
 | Plan ownership | Goal, frequency/calendar days and priority skills are plan-owned, independent from AthleteProfile, and persisted by the current schema | VERIFIED at repository level |
+| Compatibility cleanup | Current active-workout schema v2 and training-plan schema v3 require explicit version markers; compatibility-only implicit v1 acceptance is removed | VERIFIED |
+| Calendar reschedule | Reschedule is cascading; original date is retained and can be explicitly restored; Italian calendar date formatting is used | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| Fitness-level assessment | Athlete level can be assessed from current capability inputs and is consumed by workout difficulty filtering | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| Exercise library/equipment | Measurement/type filter is absent; equipment options are catalog-driven, deduplicated and alphabetically sorted | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| Exercise detail action/progress | Detail exposes direct Execute action, executed repetition totals, loaded-volume statistics, and explicit easier/harder progression relations | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| Completed workout detail | Structured executed-set detail, including actual reps/load/rest, is rendered from session history | IMPLEMENTED_NOT_DEVICE_VERIFIED |
 
-Last fully green checkpoint before documentation normalization: `9488f2049e3e28a034c25ee2ee41cecec6f0fc54`, Exercise DB v2 #220 and Android APK #772.
+Current fully green checkpoint: `b75d3e378bead489d67e4e7ebcb1ce4c71961f0a`, Exercise DB v2 #225 and Android APK #777.
 
 ## Remaining gates
 
-- [ ] Audit and remove compatibility baggage that exists only for pre-v0.9.3 data/behavior.
+- [x] Audit and remove compatibility baggage that exists only for pre-v0.9.3 data/behavior. Current active-workout schema v2 and training-plan schema v3 require explicit `schemaVersion`; current-schema recovery/corruption protection remains intact.
 - [ ] Reconcile every remaining PR #10 product requirement against current implementation and deterministic tests; change production only for demonstrated gaps.
 - [ ] Exact-SHA final Exercise DB validation and Android unit/lint/build CI.
 - [ ] Device acceptance: calendar interactions, workout generation/preview, runner/timers/background restore, history/detail, plan configuration, equipment UX, skill navigation and other interaction-only behavior.
