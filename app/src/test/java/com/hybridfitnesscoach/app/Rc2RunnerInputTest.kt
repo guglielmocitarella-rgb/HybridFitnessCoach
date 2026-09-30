@@ -29,6 +29,10 @@ class Rc2RunnerInputTest {
         assertEquals(5, runnerEffort(0))
         assertEquals(5, runnerEffort(11))
     }
+    @Test fun persistedLegacyWorkoutEffortZeroNormalizesToFive() {
+        val legacy = WorkoutSessionState("legacy", 1L, "Palestra", emptyList(), workoutRpe = 0)
+        assertEquals(5, runnerEffort(legacy.workoutRpe))
+    }
     @Test fun singleExerciseLaunchBuildsRunnableWorkoutStateWithDefaultEffort() {
         val ex=Exercise("Test execute","Core","Corpo libero","Intermedio",targetSets=4,targetValue=8.0)
         val state=singleExerciseWorkoutState(ex,"Palestra",startedAtEpochMs=1234L)
