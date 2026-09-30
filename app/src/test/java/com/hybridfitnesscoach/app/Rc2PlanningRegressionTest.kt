@@ -188,8 +188,8 @@ class Rc2PlanningRegressionTest {
     @Test fun homeSuggestionUsesTodayPlanExercisesInsteadOfAdaptiveFallback() {
         val original=plan()
         val today=original.workouts.first().epochDay
-        val plannedExercise=Exercise("Plan exercise","Forza",listOf("Petto"),emptyList(),"Intermedio",listOf("Nessuna"),emptyList(),emptyList(),"")
-        val adaptiveExercise=Exercise("Adaptive exercise","Forza",listOf("Schiena"),emptyList(),"Intermedio",listOf("Nessuna"),emptyList(),emptyList(),"")
+        val plannedExercise=Exercise(name="Plan exercise", group="Petto", equipment="Nessuna", level="Intermedio")
+        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio")
         val withExercise=original.copy(workouts=original.workouts.mapIndexed { i,w -> if(i==0) w.copy(exercises=listOf(plannedExercise)) else w })
 
         val suggestion=resolveSuggestedWorkout(withExercise,today){listOf(adaptiveExercise)}
@@ -201,7 +201,7 @@ class Rc2PlanningRegressionTest {
     @Test fun homeSuggestionFallsBackToAdaptiveWhenTodayPlanIsNotRunnable() {
         val original=plan()
         val today=original.workouts.first().epochDay
-        val adaptiveExercise=Exercise("Adaptive exercise","Forza",listOf("Schiena"),emptyList(),"Intermedio",listOf("Nessuna"),emptyList(),emptyList(),"")
+        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio")
         val completed=original.copy(workouts=original.workouts.mapIndexed { i,w -> if(i==0) w.copy(state=PlannedWorkoutState.COMPLETED) else w })
 
         val suggestion=resolveSuggestedWorkout(completed,today){listOf(adaptiveExercise)}
