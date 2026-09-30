@@ -699,11 +699,12 @@ internal fun generateTrainingPlan(
  val valid=configuration.validated()
  val configuredAthlete=athlete.forPlan(valid)
  val recentPlanned=mutableListOf<List<String>>()
- return TrainingPlanEngine.scheduleImmediately(planId,startEpochDay,valid.weeks,valid.daysPerWeek,valid.trainingDays){week,_->
+ val scheduled=TrainingPlanEngine.scheduleImmediately(planId,startEpochDay,valid.weeks,valid.daysPerWeek,valid.trainingDays){week,_->
   val selected=plannedWeekExercises(generateWorkout(profile,configuredAthlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
   recentPlanned.add(selected.map{it.name});if(recentPlanned.size>3)recentPlanned.removeAt(0)
   selected
  }
+ return scheduled.copy(goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills)
 }
 
 class MainActivity : ComponentActivity() {
@@ -853,12 +854,12 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
     var customSkill by remember { mutableStateOf("Nessuna") }
     var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
     var planSaveError by remember { mutableStateOf(false) }
-    val initialPlanConfiguration = remember(athlete) { PlanConfiguration.fromAthlete(athlete) }
-    var requestedWeeks by remember(athlete) { mutableIntStateOf(initialPlanConfiguration.weeks) }
-    var planGoal by remember(athlete) { mutableStateOf(initialPlanConfiguration.goal) }
-    var planDaysPerWeek by remember(athlete) { mutableIntStateOf(initialPlanConfiguration.daysPerWeek) }
-    val planWeekdays = remember(athlete) { mutableStateListOf<Int>().apply { addAll(initialPlanConfiguration.trainingDays.sorted()) } }
-    val planSkills = remember(athlete) { mutableStateListOf<String>().apply { addAll(initialPlanConfiguration.prioritySkills) } }
+    val initialPlanConfiguration = remember(trainingPlan) { trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults() }
+    var requestedWeeks by remember(trainingPlan?.id) { mutableIntStateOf(initialPlanConfiguration.weeks) }
+    var planGoal by remember(trainingPlan?.id) { mutableStateOf(initialPlanConfiguration.goal) }
+    var planDaysPerWeek by remember(trainingPlan?.id) { mutableIntStateOf(initialPlanConfiguration.daysPerWeek) }
+    val planWeekdays = remember(trainingPlan?.id) { mutableStateListOf<Int>().apply { addAll(initialPlanConfiguration.trainingDays.sorted()) } }
+    val planSkills = remember(trainingPlan?.id) { mutableStateListOf<String>().apply { addAll(initialPlanConfiguration.prioritySkills) } }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
@@ -882,7 +883,10 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         return created
     }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
-        item { Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", athlete.goal + " • " + athlete.daysPerWeek + " giorni/settimana") }
+        item {
+            val planLabel=trainingPlan?.let{it.goal+" • "+it.daysPerWeek+" giorni/settimana"} ?: "Nessun programma attivo"
+            Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", planLabel)
+        }
         item {
             Card(Modifier.padding(horizontal = 20.dp).fillMaxWidth(), shape = RoundedCornerShape(20.dp)) {
                 Column(Modifier.padding(20.dp)) {
@@ -893,7 +897,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
                     }
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
-                    val suggestion=resolveSuggestedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay()){generateWorkout(profile,athlete,sessions,readinessScore)}
+                    val suggestion=resolveSuggestedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay()){generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)}
                     val todayPlan=suggestion.plannedWorkout
                     val suggested=suggestion.exercises
                     Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
@@ -933,7 +937,7 @@ private fun Home(profile: EquipmentProfile, athlete: AthleteProfile, sessions: L
         item { Box(Modifier.padding(horizontal=20.dp)) { ReadinessOverview(readinessScore,sessions) } }
         item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore,trainingPlan,java.time.LocalDate.now().toEpochDay())) } }
         item { SectionTitle("Il tuo Skill Tree") }
-        items(athlete.prioritySkills.ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
+        items(trainingPlan?.prioritySkills.orEmpty().ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
             val states=SkillCatalog.progress(skill,sessions)
             val percent=ProgressionEngine.skillProgress(states)
             val current=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE}
