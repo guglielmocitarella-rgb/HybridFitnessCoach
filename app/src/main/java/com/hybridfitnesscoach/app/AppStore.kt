@@ -215,6 +215,17 @@ class AppStore(context: Context) {
     }
     fun clearActiveWorkout() = write { remove("active_workout_v1") }
 
+    private fun intentJson(intent:PlannedSessionIntent):JSONObject = JSONObject()
+        .put("goal",intent.goal).put("prioritySkills",JSONArray(intent.prioritySkills))
+        .put("focusCategories",JSONArray(intent.focusCategories.map{it.name}.sorted()))
+        .put("sequenceInWeek",intent.sequenceInWeek)
+
+    private fun intentFromJson(o:JSONObject):PlannedSessionIntent = PlannedSessionIntent(
+        o.storedString("goal","Fitness generale"),o.planStringList("prioritySkills"),
+        o.planStringList("focusCategories").map{ExerciseCategory.valueOf(it)}.toSet(),
+        o.storedInt("sequenceInWeek",0)
+    ).validated()
+
     private fun trainingPlanJson(plan: TrainingPlan): String {
         val workouts = JSONArray()
         plan.workouts.forEach { w ->
@@ -222,9 +233,10 @@ class AppStore(context: Context) {
             workouts.put(JSONObject().put("id", w.id).put("epochDay", w.epochDay).put("weekIndex", w.weekIndex)
                 .put("sequenceInWeek", w.sequenceInWeek).put("exerciseNames", JSONArray(w.exercises.map { it.name }))
                 .put("exerciseSnapshots", snapshots).put("state", w.state.name).put("originalEpochDay", w.originalEpochDay)
-                .put("adaptationReason", w.adaptationReason).put("actualExecutionEpochDay", w.actualExecutionEpochDay))
+                .put("adaptationReason", w.adaptationReason).put("actualExecutionEpochDay", w.actualExecutionEpochDay)
+                .put("intent",w.intent?.let(::intentJson)))
         }
-        return JSONObject().put("schemaVersion", 3).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
+        return JSONObject().put("schemaVersion", 4).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
             .put("weeks", plan.weeks).put("daysPerWeek", plan.daysPerWeek)
             .put("goal", plan.goal).put("trainingDays", JSONArray(plan.trainingDays.sorted()))
             .put("prioritySkills", JSONArray(plan.prioritySkills)).put("workouts", workouts).toString()
@@ -236,7 +248,7 @@ class AppStore(context: Context) {
         val raw = string("training_plan_v091") ?: return null
         return recovery.read("training_plan_v091", null) {
             val root = JSONObject(raw)
-            root.requireVersion(3)
+            root.requireVersion(3,4)
             val workouts = recovery.records(root.getJSONArray("workouts"), "training_plan_v091.workouts") { o, path ->
                 val snapshots = o.getJSONArray("exerciseSnapshots")
                 val planned = recovery.records(snapshots, "$path.exerciseSnapshots") { snapshot, _ ->
@@ -247,7 +259,8 @@ class AppStore(context: Context) {
                     PlannedWorkoutState.valueOf(o.storedString("state", "PLANNED")),
                     o.storedLong("originalEpochDay", o.getLong("epochDay")),
                     o.storedString("adaptationReason").takeIf { it.isNotBlank() },
-                    o.optNullableLong("actualExecutionEpochDay")
+                    o.optNullableLong("actualExecutionEpochDay"),
+                    if(o.has("intent")&&!o.isNull("intent")) intentFromJson(o.getJSONObject("intent")) else null
                 )
             }
             val trainingDaysArray = root.getJSONArray("trainingDays")

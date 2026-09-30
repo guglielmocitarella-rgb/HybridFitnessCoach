@@ -117,7 +117,19 @@ object ContextualPrescriptionEngine {
  }
 }
 enum class PlannedWorkoutState { PLANNED, COMPLETED, PARTIAL, SKIPPED, RESCHEDULED, ADAPTED }
-data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null)
+data class PlannedSessionIntent(
+ val goal:String,
+ val prioritySkills:List<String> = emptyList(),
+ val focusCategories:Set<ExerciseCategory> = emptySet(),
+ val sequenceInWeek:Int = 0
+) {
+ init { require(sequenceInWeek>=0) }
+ fun validated():PlannedSessionIntent = copy(
+  goal=normalizePlanGoal(goal),
+  prioritySkills=prioritySkills.map(String::trim).filter(String::isNotBlank).distinct()
+ )
+}
+data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null,val intent:PlannedSessionIntent?=null)
 data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>,val goal:String="Fitness generale",val trainingDays:Set<Int> = defaultTrainingDays(daysPerWeek),val prioritySkills:List<String> = emptyList())
 data class PlanConfiguration(
  val goal:String,

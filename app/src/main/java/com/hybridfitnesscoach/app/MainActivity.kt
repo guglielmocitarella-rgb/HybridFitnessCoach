@@ -26,7 +26,18 @@ import kotlinx.coroutines.delay
 private val Accent = Color(0xFF3568E8)
 private val Bg = Color(0xFFF7F8FA)
 
+enum class TrainingLocationKind(val stableId:String) { GYM("gym"), HOME("home"), OUTDOOR("outdoor"), CUSTOM("custom") }
+data class TrainingLocation(val id:String,val name:String,val icon:String,val kind:TrainingLocationKind,val capabilities:Set<EquipmentId>) {
+    init { require(id.isNotBlank()); require(name.isNotBlank()) }
+    fun asLegacyProfile():EquipmentProfile = EquipmentProfile(name,icon,capabilities.map(EquipmentCatalog::displayName).sortedBy{it.lowercase()})
+}
 data class EquipmentProfile(val name: String, val icon: String, val equipment: List<String>)
+internal fun EquipmentProfile.toTrainingLocation(id:String="legacy:"+name.trim().lowercase().replace(" ","-")):TrainingLocation =
+    TrainingLocation(id,name,icon,TrainingLocationKind.CUSTOM,equipment.mapNotNull(EquipmentCatalog::fromDisplayName).toSet())
+internal fun locationCompatible(exercise:Exercise,location:TrainingLocation):Boolean {
+    val required=EquipmentCatalog.requirementsFor(exercise)
+    return required.isNotEmpty() && (required==setOf(EquipmentId.BODYWEIGHT) || required.all{it in location.capabilities})
+}
 internal fun runnerEffort(value:Int?):Int = value?.takeIf { it in 1..10 } ?: 5
 internal fun recommendedSetRest(role:String,name:String,equipment:String):Int {
     // RC2: rest must not be inferred from exercise-name substrings. Keep the
@@ -136,11 +147,12 @@ internal fun assessedFitnessLevel(input:FitnessLevelAssessment):String {
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
-internal val profiles = listOf(
-    EquipmentProfile("Palestra", "🏋️", listOf("Ab Wheel", "Bilanciere", "Cavi", "Foam Roller", "Kettlebell", "Leg press", "Macchine", "Manubri", "Panca", "Parallele", "Sbarra")),
-    EquipmentProfile("Casa", "🏠", listOf("Ab Wheel", "Corpo libero", "Elastici", "Foam Roller", "Sbarra")),
-    EquipmentProfile("Parco", "🌳", listOf("Corpo libero", "Parallele", "Sbarra"))
+internal val trainingLocations = listOf(
+    TrainingLocation("builtin:gym","Palestra","🏋️",TrainingLocationKind.GYM,setOf(EquipmentId.AB_WHEEL,EquipmentId.BARBELL,EquipmentId.CABLE,EquipmentId.FOAM_ROLLER,EquipmentId.KETTLEBELL,EquipmentId.LEG_PRESS,EquipmentId.MACHINE,EquipmentId.DUMBBELL,EquipmentId.BENCH,EquipmentId.DIP_BARS,EquipmentId.PULL_UP_BAR,EquipmentId.BODYWEIGHT)),
+    TrainingLocation("builtin:home","Casa","🏠",TrainingLocationKind.HOME,setOf(EquipmentId.AB_WHEEL,EquipmentId.BODYWEIGHT,EquipmentId.RESISTANCE_BAND,EquipmentId.FOAM_ROLLER,EquipmentId.PULL_UP_BAR)),
+    TrainingLocation("builtin:outdoor","Parco","🌳",TrainingLocationKind.OUTDOOR,setOf(EquipmentId.BODYWEIGHT,EquipmentId.DIP_BARS,EquipmentId.PULL_UP_BAR))
 )
+internal val profiles = trainingLocations.map(TrainingLocation::asLegacyProfile)
 
 enum class ProgressionDecision { ADVANCE, MAINTAIN, REGRESS, DELOAD }
 data class SkillProgressionNode(val id:String,val skill:String,val label:String,val level:Int,val prerequisites:List<String> = emptyList())
@@ -704,7 +716,10 @@ internal fun generateTrainingPlan(
   recentPlanned.add(selected.map{it.name});if(recentPlanned.size>3)recentPlanned.removeAt(0)
   selected
  }
- return scheduled.copy(goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills)
+ return scheduled.copy(
+  goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills,
+  workouts=scheduled.workouts.map{w->w.copy(intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,w.exercises.map{it.category}.filter{it!=ExerciseCategory.OTHER}.toSet(),w.sequenceInWeek).validated())}
+ )
 }
 
 class MainActivity : ComponentActivity() {

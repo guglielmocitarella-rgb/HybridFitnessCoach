@@ -464,4 +464,31 @@ class AppStoreRecoveryTest {
         assertEquals(5, restored.workoutRpe)
     }
 
+    @Test fun schemaFourPlanRoundTripPreservesIntentAndLegacySnapshots() {
+        val ex=exercises.first()
+        val intent=PlannedSessionIntent("Forza",listOf("Front lever"),setOf(ExerciseCategory.PULL),0).validated()
+        val plan=TrainingPlan("intent-v4",10,1,1,listOf(PlannedWorkout("w",10,0,0,listOf(ex),intent=intent)))
+        val store=AppStore(context)
+        assertTrue(store.saveTrainingPlan(plan))
+        val raw=JSONObject(prefs.getString("training_plan_v091",null)!!)
+        assertEquals(4,raw.getInt("schemaVersion"))
+        assertTrue(raw.getJSONArray("workouts").getJSONObject(0).has("exerciseSnapshots"))
+        assertTrue(raw.getJSONArray("workouts").getJSONObject(0).has("intent"))
+        assertEquals(plan,AppStore(context).loadTrainingPlan())
+    }
+
+    @Test fun schemaThreePlanWithoutIntentStillLoadsForBackwardCompatibility() {
+        val ex=exercises.first()
+        val plan=TrainingPlan("legacy-v3",10,1,1,listOf(PlannedWorkout("w",10,0,0,listOf(ex))))
+        val store=AppStore(context)
+        assertTrue(store.saveTrainingPlan(plan))
+        val root=JSONObject(prefs.getString("training_plan_v091",null)!!)
+        root.put("schemaVersion",3)
+        root.getJSONArray("workouts").getJSONObject(0).remove("intent")
+        prefs.edit().putString("training_plan_v091",root.toString()).commit()
+        val loaded=AppStore(context).loadTrainingPlan()!!
+        assertEquals(plan,loaded)
+        assertNull(loaded.workouts.single().intent)
+    }
+
 }

@@ -279,4 +279,27 @@ class V091PlanningTest {
  }
 
 
+ @Test fun locationDomainUsesCanonicalCapabilitiesInsteadOfDisplayAliases(){
+  val machine=Exercise("Machine test","Gambe","Macchine","Intermedio")
+  val gym=trainingLocations.first{it.kind==TrainingLocationKind.GYM}
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  assertTrue(locationCompatible(machine,gym))
+  assertFalse(locationCompatible(machine,outdoor))
+  assertEquals("builtin:gym",gym.id)
+ }
+ @Test fun generatedPlanCarriesLocationIndependentSessionIntent(){
+  val profile=profiles.first{it.name=="Palestra"}
+  val config=PlanConfiguration("Forza",1,2,setOf(1,4),listOf("Front lever")).validated()
+  val plan=generateTrainingPlan("intent",20_000,profile,AthleteProfile(level="Intermedio"),config,emptyList(),80)
+  assertTrue(plan.workouts.all{it.intent!=null})
+  assertTrue(plan.workouts.all{it.intent!!.goal=="Forza" && it.intent!!.prioritySkills==listOf("Front lever")})
+  assertTrue(plan.workouts.all{it.intent!!.sequenceInWeek==it.sequenceInWeek})
+  assertTrue(plan.workouts.all{it.exercises.isNotEmpty()}) // compatibility snapshot retained during migration
+ }
+ @Test fun plannedSessionIntentValidationNormalizesMetadataWithoutLocation(){
+  val intent=PlannedSessionIntent("  Forza  ",listOf("Front lever","Front lever"," "),setOf(ExerciseCategory.PULL),1).validated()
+  assertEquals("Forza",intent.goal);assertEquals(listOf("Front lever"),intent.prioritySkills)
+  assertEquals(setOf(ExerciseCategory.PULL),intent.focusCategories);assertEquals(1,intent.sequenceInWeek)
+ }
+
 }
