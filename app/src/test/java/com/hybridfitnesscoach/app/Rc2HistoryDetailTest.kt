@@ -69,4 +69,42 @@ class Rc2HistoryDetailTest {
         assertFalse(historyExerciseDetails(session).single().lines.any{it.startsWith("Volume con carico:")})
     }
 
+    @Test fun exerciseDetailStatisticsUseOnlyPersistedExecutedPerformance() {
+        val history=listOf(
+            SessionRecord(1,"Palestra",2,3,structuredExercises=listOf(
+                WorkoutExerciseState("Panca",sets=listOf(
+                    WorkoutSetState(0,targetReps=10,actualReps=8,actualLoadKg=50.0,completed=true),
+                    WorkoutSetState(1,targetReps=10,actualReps=7,actualLoadKg=55.0,completed=true),
+                    WorkoutSetState(2,targetReps=10)
+                ))
+            )),
+            SessionRecord(2,"Palestra",1,1,structuredExercises=listOf(
+                WorkoutExerciseState("PANCA",sets=listOf(
+                    WorkoutSetState(0,targetReps=10,actualReps=6,actualLoadKg=60.0,completed=true)
+                ))
+            ))
+        )
+        val stats=ExerciseStatistics.fromHistory("panca",history)
+        assertEquals(2,stats.sessions)
+        assertEquals(3,stats.completedSets)
+        assertEquals(21,stats.totalReps)
+        assertEquals(1085.0,stats.totalLoadVolumeKg,0.0)
+        assertEquals(60.0,stats.maxLoadKg!!,0.0)
+    }
+
+    @Test fun exerciseDetailStatisticsDoNotInventTargetsAsExecutedRepetitions() {
+        val history=listOf(SessionRecord(1,"Casa",0,2,structuredExercises=listOf(
+            WorkoutExerciseState("Push-up",sets=listOf(
+                WorkoutSetState(0,targetReps=20),
+                WorkoutSetState(1,targetReps=20)
+            ))
+        )))
+        val stats=ExerciseStatistics.fromHistory("Push-up",history)
+        assertEquals(1,stats.sessions)
+        assertEquals(0,stats.completedSets)
+        assertEquals(0,stats.totalReps)
+        assertEquals(0.0,stats.totalLoadVolumeKg,0.0)
+        assertNull(stats.maxLoadKg)
+    }
+
 }
