@@ -6,14 +6,14 @@ import org.junit.Test
 /** Release-gate regressions for v0.9 that exercise only local deterministic code. */
 class V09RegressionAuditTest {
     @Test fun generationIsDeterministicAndOffline() {
-        val gym=profiles.first{it.name=="Palestra"}
+        val gym=trainingLocations.first{it.name=="Palestra"}
         val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",prioritySkills=listOf("Front lever"))
         val a=generateWorkout(gym,athlete,emptyList(),readinessScore=80).map{it.name}
         val b=generateWorkout(gym,athlete,emptyList(),readinessScore=80).map{it.name}
         assertEquals(a,b); assertEquals(6,a.size)
     }
     @Test fun v08StrengthPathRemainsAvailable() {
-        val gym=profiles.first{it.name=="Palestra"}
+        val gym=trainingLocations.first{it.name=="Palestra"}
         val workout=generateWorkout(gym,AthleteProfile(goal="Forza",level="Intermedio"),emptyList())
         assertEquals(6,workout.size); assertTrue(workout.any{it.role=="Forza"})
     }
