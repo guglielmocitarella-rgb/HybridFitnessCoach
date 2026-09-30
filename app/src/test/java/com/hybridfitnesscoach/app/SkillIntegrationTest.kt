@@ -126,6 +126,45 @@ class SkillIntegrationTest {
     }
 
 
+    @Test fun skillWorkoutTargetsCurrentUnlockedProgressionInsteadOfMasteredOrLockedNodes() {
+        val gym=profiles.first{it.name=="Palestra"}
+        val athlete=AthleteProfile(level="Avanzato")
+        val first=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
+        fun qualifyingSession(ts:Long)=SessionRecord(
+            timestamp=ts,profileName="Palestra",completedSets=3,totalSets=3,
+            structuredExercises=listOf(WorkoutExerciseState(
+                exerciseName=first.exerciseName,rpe=7,
+                sets=(1..3).map{WorkoutSetState(it,targetReps=8,actualReps=8,completed=true)}
+            ))
+        )
+        val history=listOf(qualifyingSession(1),qualifyingSession(2))
+        val states=SkillCatalog.progress("Muscle-up",history)
+        val current=states.first{it.status==ProgressionStatus.AVAILABLE}
+        val mastered=states.filter{it.status==ProgressionStatus.MASTERED}.flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
+        val locked=states.filter{it.status==ProgressionStatus.LOCKED}.flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
+        val pool=customWorkoutCandidatePool(gym,athlete,history,"Skill",listOf("Muscle-up"),emptyList())
+        val skillWork=pool.filter{"Muscle-up" in it.skills}
+        assertTrue((current.node.exerciseAliases+current.node.exerciseName).any{name->skillWork.any{it.name.equals(name,true)}})
+        assertTrue(skillWork.none{it.name.lowercase() in mastered})
+        assertTrue(skillWork.none{it.name.lowercase() in locked})
+    }
+
+    @Test fun skillWorkoutFocusPrefersInProgressNodeUntilItIsMastered() {
+        val first=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
+        val attempt=SessionRecord(
+            timestamp=10,profileName="Palestra",completedSets=3,totalSets=3,
+            structuredExercises=listOf(WorkoutExerciseState(
+                exerciseName=first.exerciseName,rpe=7,
+                sets=(1..3).map{WorkoutSetState(it,targetReps=8,actualReps=8,completed=true)}
+            ))
+        )
+        val focus=skillWorkoutFocusNames(listOf("Muscle-up"),listOf(attempt)).map{it.lowercase()}.toSet()
+        assertTrue((first.exerciseAliases+first.exerciseName).any{it.lowercase() in focus})
+        val next=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_chest"}
+        assertFalse((next.exerciseAliases+next.exerciseName).any{it.lowercase() in focus})
+    }
+
+
     @Test fun masteryThresholdsAreExplicitlyClassifiedAsAppRules() {
         SkillCatalog.nodes.forEach { node ->
             assertEquals("APP_RULE", node.criterion.evidenceClass)
