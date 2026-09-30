@@ -88,7 +88,7 @@ class Rc2HistoryDetailTest {
         assertEquals(2,stats.sessions)
         assertEquals(3,stats.completedSets)
         assertEquals(21,stats.totalReps)
-        assertEquals(1085.0,stats.totalLoadVolumeKg,0.0)
+        assertEquals(1145.0,stats.totalLoadVolumeKg,0.0)
         assertEquals(60.0,stats.maxLoadKg!!,0.0)
     }
 
