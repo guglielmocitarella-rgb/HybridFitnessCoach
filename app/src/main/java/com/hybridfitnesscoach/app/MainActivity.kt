@@ -1290,7 +1290,7 @@ private fun CustomWorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfi
     val restSeconds = remember { mutableStateMapOf<String, Int>() }
     val executedSets = remember { mutableStateMapOf<String,List<WorkoutSetState>>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets)} } }
     val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply{restored?.exercises?.forEach{e->put(e.exerciseName,runnerEffort(e.rpe))}} }
-    var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
+    var workoutRpe by remember { mutableIntStateOf(runnerEffort(restored?.workoutRpe)) }
     val listState = rememberLazyListState()
 
     LaunchedEffect(running,paused,restEndsAt,sessionStartedAt){ while(running&&!paused){ val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);sessionStartedAt?.let{elapsedSeconds=((now-it)/1000L).toInt()};delay(500) } }
@@ -1479,7 +1479,7 @@ private fun WorkoutDialog(profile: EquipmentProfile, athlete: AthleteProfile, se
     val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply {
         compatible.forEach { put(it.name, runnerEffort(restored?.exercises?.firstOrNull { saved -> saved.exerciseName==it.name }?.rpe)) }
     } }
-    var workoutRpe by remember { mutableIntStateOf(restored?.workoutRpe?:5) }
+    var workoutRpe by remember { mutableIntStateOf(runnerEffort(restored?.workoutRpe)) }
     val listState = rememberLazyListState()
 
     LaunchedEffect(started,paused,restEndsAt,sessionStartedAt){while(started&&!paused){val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);sessionStartedAt?.let{elapsedSeconds=((now-it)/1000L).toInt()};delay(500)}}
