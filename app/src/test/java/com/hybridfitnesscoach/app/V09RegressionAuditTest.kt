@@ -36,14 +36,20 @@ class V09RegressionAuditTest {
         assertThrows(IllegalArgumentException::class.java){assessedFitnessLevel(FitnessLevelAssessment(-1,10,3))}
     }
 
-    @Test fun assessedLevelIsConsumedByWorkoutDifficultyFiltering() {
-        val beginner=AthleteProfile(level=assessedFitnessLevel(FitnessLevelAssessment(0,0,0)))
-        val advanced=AthleteProfile(level=assessedFitnessLevel(FitnessLevelAssessment(24,30,10)))
-        val easy=Exercise(name="Easy",group="Petto",equipment="Corpo libero",level="Principiante")
-        val hard=Exercise(name="Hard",group="Petto",equipment="Corpo libero",level="Avanzato")
-        assertTrue(difficultyAllowed(easy,beginner))
-        assertFalse(difficultyAllowed(hard,beginner))
-        assertTrue(difficultyAllowed(hard,advanced))
+    @Test fun assessedLevelMapsToTheDifficultyCeilingUsedByWorkoutGeneration() {
+        val beginner=assessedFitnessLevel(FitnessLevelAssessment(0,0,0))
+        val intermediate=assessedFitnessLevel(FitnessLevelAssessment(6,10,0))
+        val advanced=assessedFitnessLevel(FitnessLevelAssessment(24,30,10))
+
+        assertTrue(levelScore("Principiante")<=levelScore(beginner))
+        assertFalse(levelScore("Intermedio")<=levelScore(beginner))
+        assertFalse(levelScore("Avanzato")<=levelScore(beginner))
+
+        assertTrue(levelScore("Principiante")<=levelScore(intermediate))
+        assertTrue(levelScore("Intermedio")<=levelScore(intermediate))
+        assertFalse(levelScore("Avanzato")<=levelScore(intermediate))
+
+        assertTrue(levelScore("Avanzato")<=levelScore(advanced))
     }
 
 }
