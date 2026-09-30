@@ -52,4 +52,25 @@ class Rc2RunnerInputTest {
         assertTrue(state.exercises.single().sets.all{it.targetReps==null})
     }
 
+    @Test fun assessedFitnessLevelBoundariesAreDeterministic() {
+        assertEquals("Principiante", assessedFitnessLevel(FitnessLevelAssessment(trainingMonths=2,pushUps=10,pullUps=1)))
+        assertEquals("Intermedio", assessedFitnessLevel(FitnessLevelAssessment(trainingMonths=6,pushUps=15,pullUps=3)))
+        assertEquals("Avanzato", assessedFitnessLevel(FitnessLevelAssessment(trainingMonths=24,pushUps=30,pullUps=10)))
+    }
+
+    @Test fun assessedLevelActuallyConstrainsGeneratedWorkoutDifficulty() {
+        val gym=profiles.first{it.name=="Palestra"}
+        listOf(
+            FitnessLevelAssessment(2,10,1) to "Principiante",
+            FitnessLevelAssessment(6,15,3) to "Intermedio",
+            FitnessLevelAssessment(24,30,10) to "Avanzato"
+        ).forEach { (assessment, expected) ->
+            val level=assessedFitnessLevel(assessment)
+            assertEquals(expected,level)
+            val workout=generateWorkout(gym,AthleteProfile(goal="Fitness generale",level=level),emptyList(),80)
+            assertTrue(workout.isNotEmpty())
+            assertTrue(workout.all{levelScore(it.level)<=levelScore(level)})
+        }
+    }
+
 }
