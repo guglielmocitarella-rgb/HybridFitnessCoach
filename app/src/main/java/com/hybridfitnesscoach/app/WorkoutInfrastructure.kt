@@ -325,7 +325,15 @@ internal fun exerciseWithEffectivePrescription(
     readinessScore:Int?=null
 ):Exercise {
     val p=effectiveRunnerPrescription(exercise,athlete,sessions,readinessScore)
-    return exercise.copy(targetSets=p.sets,targetValue=p.value,setRestSec=p.restSeconds)
+    return exercise.copy(
+        targetSets=p.sets,
+        targetValue=p.value,
+        setRestSec=p.restSeconds,
+        // The transition after the final set belongs to the same effective
+        // recovery prescription. Otherwise sourced set recovery reaches the
+        // runner while exercise-transition recovery silently stays legacy.
+        exerciseRestSec=if(p.sourceBased) p.restSeconds else exercise.exerciseRestSec
+    )
 }
 internal fun effectiveAutomaticExercises(
     source:List<Exercise>,
