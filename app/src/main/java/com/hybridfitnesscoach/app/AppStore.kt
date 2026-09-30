@@ -175,7 +175,10 @@ class AppStore(context: Context) {
             age = int("athlete_age"),
             heightCm = float("athlete_height"),
             weightKg = float("athlete_weight"),
-            sex = string("athlete_sex", "Non specificato") ?: "Non specificato"
+            sex = string("athlete_sex", "Non specificato") ?: "Non specificato",
+            assessedTrainingExperience = int("athlete_assessed_experience").takeIf{it in 1..3},
+            assessedPushCapacity = int("athlete_assessed_push").takeIf{it in 1..3},
+            assessedPullCapacity = int("athlete_assessed_pull").takeIf{it in 1..3}
         )
 
     fun saveAthlete(p: AthleteProfile) {
@@ -184,6 +187,11 @@ class AppStore(context: Context) {
             putString("athlete_name", p.name).putString("athlete_level", p.level)
                 .putInt("athlete_age", p.age).putFloat("athlete_height", p.heightCm)
                 .putFloat("athlete_weight", p.weightKg).putString("athlete_sex", p.sex)
+                .apply {
+                    p.assessedTrainingExperience?.let{putInt("athlete_assessed_experience",it)} ?: remove("athlete_assessed_experience")
+                    p.assessedPushCapacity?.let{putInt("athlete_assessed_push",it)} ?: remove("athlete_assessed_push")
+                    p.assessedPullCapacity?.let{putInt("athlete_assessed_pull",it)} ?: remove("athlete_assessed_pull")
+                }
                 .remove("athlete_goal").remove("athlete_days").remove("athlete_priority_skills")
             if (p.weightKg > 0) putString("weight_history", ("${System.currentTimeMillis()}:${p.weightKg};" + history).take(4000))
         }

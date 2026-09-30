@@ -429,4 +429,28 @@ class V091PlanningTest {
   assertFalse(generated.any{it.name==dumbbell.name})
  }
 
+ @Test fun fitnessAssessmentProducesIndependentCapabilitiesAtBoundaries(){
+  assertEquals(CapabilityProfile(1,1,1,1,true),capabilityFromAssessment(FitnessLevelAssessment(5,9,2)))
+  assertEquals(CapabilityProfile(2,2,2,2,true),capabilityFromAssessment(FitnessLevelAssessment(6,10,3)))
+  assertEquals(CapabilityProfile(3,3,3,3,true),capabilityFromAssessment(FitnessLevelAssessment(24,30,10)))
+  val mixed=capabilityFromAssessment(FitnessLevelAssessment(24,9,10))
+  assertEquals(3,mixed.trainingExperience)
+  assertEquals(1,mixed.pushCapacity)
+  assertEquals(3,mixed.pullCapacity)
+  assertEquals("Intermedio",assessedFitnessLevel(FitnessLevelAssessment(24,9,10)))
+ }
+ @Test fun assessedBodyweightCapabilityCanDifferBetweenPushAndPull(){
+  val push=Exercise("Push-up avanzato","Petto","Corpo libero","Avanzato",role="Forza",movementPattern="push",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val pull=Exercise("Pull-up avanzato","Dorso","Corpo libero","Avanzato",role="Forza",movementPattern="pull",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val body=TrainingLocation("test:body-cap","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
+  val capability=CapabilityProfile(exerciseLevel=3,trainingExperience=3,pushCapacity=1,pullCapacity=3,assessed=true)
+  val generated=generateWorkoutFromCatalogue(listOf(push,pull),body,AthleteProfile(level="Avanzato"),capability,emptyList())
+  assertFalse(generated.any{it.name==push.name})
+  assertTrue(generated.any{it.name==pull.name})
+ }
+ @Test fun unassessedCapabilityKeepsGeneralLevelForBodyweightFamilies(){
+  val push=Exercise("Push-up legacy","Petto","Corpo libero","Avanzato",role="Forza",movementPattern="push",resistanceMode=ResistanceMode.BODYWEIGHT)
+  assertEquals(3,capabilityLevelFor(push,CapabilityProfile(3)))
+ }
+
 }

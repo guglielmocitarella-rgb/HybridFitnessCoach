@@ -137,24 +137,30 @@ data class WorkoutSessionState(
     val pausedRestRemainingSec: Int? = null,
     val trainingLocationId: String? = null
 )
-data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList())
+data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val level: String = "Intermedio", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList(), val assessedTrainingExperience:Int?=null, val assessedPushCapacity:Int?=null, val assessedPullCapacity:Int?=null)
 data class CapabilityProfile(
     val exerciseLevel:Int,
     val trainingExperience:Int? = null,
     val pushCapacity:Int? = null,
-    val pullCapacity:Int? = null
+    val pullCapacity:Int? = null,
+    val assessed:Boolean = false
 )
-internal fun AthleteProfile.toCapabilityProfile():CapabilityProfile =
-    CapabilityProfile(exerciseLevel=levelScore(level))
-data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
-internal fun assessedFitnessLevel(input:FitnessLevelAssessment):String {
-    require(input.trainingMonths>=0 && input.pushUps>=0 && input.pullUps>=0)
-    val experience=when { input.trainingMonths>=24->2; input.trainingMonths>=6->1; else->0 }
-    val push=when { input.pushUps>=30->2; input.pushUps>=10->1; else->0 }
-    val pull=when { input.pullUps>=10->2; input.pullUps>=3->1; else->0 }
-    val score=experience+push+pull
-    return when { score>=5->"Avanzato"; score>=2->"Intermedio"; else->"Principiante" }
+internal fun AthleteProfile.toCapabilityProfile():CapabilityProfile {
+    val assessed=listOf(assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity).all{it!=null}
+    return CapabilityProfile(levelScore(level),assessedTrainingExperience,assessedPushCapacity,assessedPullCapacity,assessed)
 }
+data class FitnessLevelAssessment(val trainingMonths:Int,val pushUps:Int,val pullUps:Int)
+internal fun capabilityFromAssessment(input:FitnessLevelAssessment):CapabilityProfile {
+    require(input.trainingMonths>=0 && input.pushUps>=0 && input.pullUps>=0)
+    val experience=when { input.trainingMonths>=24->3; input.trainingMonths>=6->2; else->1 }
+    val push=when { input.pushUps>=30->3; input.pushUps>=10->2; else->1 }
+    val pull=when { input.pullUps>=10->3; input.pullUps>=3->2; else->1 }
+    val score=(experience-1)+(push-1)+(pull-1)
+    val overall=when { score>=5->3; score>=2->2; else->1 }
+    return CapabilityProfile(overall,experience,push,pull,assessed=true)
+}
+internal fun capabilityLevelName(level:Int):String = when(level.coerceIn(1,3)){1->"Principiante";2->"Intermedio";else->"Avanzato"}
+internal fun assessedFitnessLevel(input:FitnessLevelAssessment):String = capabilityLevelName(capabilityFromAssessment(input).exerciseLevel)
 data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null)
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
@@ -639,6 +645,18 @@ internal fun profileEquipmentOptions(source:List<Exercise>):List<String> =
         .distinct().sortedBy { it.lowercase() }
 
 internal fun levelScore(level: String) = when(level) { "Principiante" -> 1; "Intermedio" -> 2; else -> 3 }
+internal fun capabilityLevelFor(ex:Exercise, capability:CapabilityProfile):Int {
+    if(!capability.assessed || ex.resistanceMode!=ResistanceMode.BODYWEIGHT) return capability.exerciseLevel
+    val text=(ex.name+" "+ex.group+" "+ex.movementPattern+" "+ex.skills.joinToString(" ")).lowercase()
+    val pullFamily=listOf("pull","traz","chin","sbarra","muscle up","front lever","back lever").any{text.contains(it)}
+    val pushFamily=listOf("push","pieg","dip","spinta","handstand","planche").any{text.contains(it)}
+    return when {
+        pullFamily && !pushFamily -> capability.pullCapacity ?: capability.exerciseLevel
+        pushFamily && !pullFamily -> capability.pushCapacity ?: capability.exerciseLevel
+        pullFamily && pushFamily -> minOf(capability.pushCapacity ?: capability.exerciseLevel,capability.pullCapacity ?: capability.exerciseLevel)
+        else -> capability.exerciseLevel
+    }
+}
 
 private val recoveryGroups = listOf("Dorso", "Petto", "Spalle", "Gambe", "Core", "Bicipiti", "Tricipiti")
 
@@ -670,7 +688,7 @@ internal fun generateWorkout(profile: EquipmentProfile, athlete: AthleteProfile,
 internal fun generateWorkoutFromCatalogue(catalogue:List<Exercise>,location:TrainingLocation, athlete: AthleteProfile, capability:CapabilityProfile, sessions: List<SessionRecord>, readinessScore:Int?=null, avoidPlannedNames:Set<String> = emptySet()): List<Exercise> {
     val context=coachingContext(sessions,readinessScore)
     val eligible=skillEligibleExerciseNames(catalogue,sessions)
-    val available = catalogue.filter { it.name in eligible && locationCompatible(it,location) && levelScore(it.level) <= capability.exerciseLevel }
+    val available = catalogue.filter { it.name in eligible && locationCompatible(it,location) && levelScore(it.level) <= capabilityLevelFor(it,capability) }
     val preferredRoles = when (athlete.goal) {
         "Calisthenics" -> listOf("Progressione", "Prerequisito", "Forza", "Accessorio")
         "Ipertrofia" -> listOf("Forza", "Accessorio", "Prerequisito", "Progressione")
@@ -1301,6 +1319,9 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
             if((height.toFloatOrNull()?:0f)>0&&(weight.toFloatOrNull()?:0f)>0){val hm=(height.toFloat()/100f);Text("BMI: "+String.format(java.util.Locale.ITALY,"%.1f",weight.toFloat()/(hm*hm)),color=Accent)}
             Text("Livello",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
             Text("Livello attuale: $level",color=Accent)
+            var assessedExperience by remember{mutableStateOf(current.assessedTrainingExperience)}
+            var assessedPush by remember{mutableStateOf(current.assessedPushCapacity)}
+            var assessedPull by remember{mutableStateOf(current.assessedPullCapacity)}
             var assessmentOpen by remember{mutableStateOf(false)}
             if(assessmentOpen){
                 var months by remember{mutableStateOf("")}
@@ -1312,7 +1333,11 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
                 OutlinedTextField(pushUps,{pushUps=it.filter(Char::isDigit)},label={Text("Push-up consecutivi")},singleLine=true,modifier=Modifier.fillMaxWidth())
                 OutlinedTextField(pullUps,{pullUps=it.filter(Char::isDigit)},label={Text("Trazioni consecutive")},singleLine=true,modifier=Modifier.fillMaxWidth())
                 Button(onClick={
-                    level=assessedFitnessLevel(FitnessLevelAssessment(months.toIntOrNull()?:0,pushUps.toIntOrNull()?:0,pullUps.toIntOrNull()?:0))
+                    val capability=capabilityFromAssessment(FitnessLevelAssessment(months.toIntOrNull()?:0,pushUps.toIntOrNull()?:0,pullUps.toIntOrNull()?:0))
+                    level=capabilityLevelName(capability.exerciseLevel)
+                    assessedExperience=capability.trainingExperience
+                    assessedPush=capability.pushCapacity
+                    assessedPull=capability.pullCapacity
                     assessmentOpen=false
                 },modifier=Modifier.fillMaxWidth()){Text("CALCOLA LIVELLO")}
             } else {
@@ -1320,7 +1345,7 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
             }
             Text("Obiettivo, skill e giorni di allenamento si configurano nel programma multi-settimana.",color=Color.Gray,fontSize=12.sp,modifier=Modifier.padding(top=10.dp))
         }
-    }},confirmButton={Button(onClick={onSave(current.copy(name=name.trim(),level=level,age=age.toIntOrNull()?:0,heightCm=height.toFloatOrNull()?:0f,weightKg=weight.toFloatOrNull()?:0f,sex=sex))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
+    }},confirmButton={Button(onClick={onSave(current.copy(name=name.trim(),level=level,age=age.toIntOrNull()?:0,heightCm=height.toFloatOrNull()?:0f,weightKg=weight.toFloatOrNull()?:0f,sex=sex,assessedTrainingExperience=assessedExperience,assessedPushCapacity=assessedPush,assessedPullCapacity=assessedPull))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
 }
 @Composable
 private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation:LoadRecommendation?=null, targetSet:WorkoutSetState?=null, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
