@@ -5,10 +5,10 @@ import org.junit.Test
 
 class SkillMasteryPrescriptionTest {
     @Test fun skillCandidateUsesCurrentNodeMasteryPrescription() {
-        val gym=profiles.first{it.name=="Palestra"}
+        val gym=trainingLocations.first{it.name=="Palestra"}
         val athlete=AthleteProfile(level="Avanzato")
         val first=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
-        val pool=customWorkoutCandidatePool(resolveTrainingLocation(gym),athlete,emptyList(),"Skill",listOf("Muscle-up"),emptyList())
+        val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Muscle-up"),emptyList())
         val focus=pool.first{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}}
         assertEquals(first.criterion.minSets,focus.targetSets)
         assertEquals(first.criterion.minReps!!.toDouble(),focus.targetValue!!,0.0)
@@ -38,18 +38,18 @@ class SkillMasteryPrescriptionTest {
         val states=SkillCatalog.progress("Muscle-up",listOf(attempt))
         assertEquals(ProgressionStatus.IN_PROGRESS,states.first{it.node.id==first.id}.status)
         assertEquals(ProgressionStatus.LOCKED,states.first{it.node.id=="pullup_chest"}.status)
-        val gym=profiles.first{it.name=="Palestra"}
-        val pool=customWorkoutCandidatePool(resolveTrainingLocation(gym),AthleteProfile(level="Avanzato"),listOf(attempt),"Skill",listOf("Muscle-up"),emptyList())
+        val gym=trainingLocations.first{it.name=="Palestra"}
+        val pool=customWorkoutCandidatePool(gym,AthleteProfile(level="Avanzato"),listOf(attempt),"Skill",listOf("Muscle-up"),emptyList())
         val focus=pool.first{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}}
         assertEquals(8.0,focus.targetValue!!,0.0)
         assertTrue(pool.none{it.name.equals("Chest-to-bar Pull-up",true) || it.name.equals("Chest to bar pull-up",true)})
     }
     @Test fun skillRegenerationCannotReplaceFocusWithLockedOrGenericProgression() {
-        val gym=profiles.first{it.name=="Palestra"}
+        val gym=trainingLocations.first{it.name=="Palestra"}
         val athlete=AthleteProfile(level="Avanzato")
         val skill="Muscle-up"
         val first=SkillCatalog.forSkill(skill).first{it.id=="pullup_strict"}
-        val pool=customWorkoutCandidatePool(resolveTrainingLocation(gym),athlete,emptyList(),"Skill",listOf(skill),emptyList())
+        val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf(skill),emptyList())
         val focus=pool.first{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}}
         val original=listOf(focus)+pool.filter{it!=focus}.take(4)
         val regenerated=regenerateSkillWorkout(original,pool,emptySet(),coachingContext(emptyList()),listOf(skill),emptyList())
