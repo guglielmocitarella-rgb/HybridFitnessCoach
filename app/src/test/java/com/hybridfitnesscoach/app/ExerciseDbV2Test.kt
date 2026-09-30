@@ -44,4 +44,31 @@ class ExerciseDbV2Test {
         assertEquals(6.0,mapped.targetValue!!,0.001)
         assertEquals(180,mapped.setRestSec)
     }
+    @Test fun progressionRelationsExposeExplicitEasierAndHarderExercises() {
+        val a=ExerciseV2Record("easy","Easy","Facile",emptyList(),"SKILL","TEST",emptyList(),null,"SECONDS",listOf("s"),"HIGH")
+        val b=ExerciseV2Record("current","Current","Corrente",emptyList(),"SKILL","TEST",emptyList(),null,"SECONDS",listOf("s"),"HIGH")
+        val d=ExerciseV2Record("hard","Hard","Difficile",emptyList(),"SKILL","TEST",emptyList(),null,"SECONDS",listOf("s"),"HIGH")
+        ExerciseDbV2.install(listOf(a,b,d))
+        ExerciseDbV2.installProgressions(listOf(
+            ExerciseV2Edge("easy","current","MAIN_PROGRESSION",listOf("s")),
+            ExerciseV2Edge("current","hard","MAIN_PROGRESSION",listOf("s"))
+        ))
+        val relation=ExerciseDbV2.progressionRelations(ExerciseDbV2.toLegacyExercise(b))
+        assertEquals(listOf("Facile"),relation.easier.map{it.nameIt})
+        assertEquals(listOf("Difficile"),relation.harder.map{it.nameIt})
+    }
+
+    @Test fun progressionRelationsIgnoreNonProgressionEdgesAndUnknownIds() {
+        val a=ExerciseV2Record("a","A","A",emptyList(),"SKILL","TEST",emptyList(),null,"REPS",listOf("s"),"HIGH")
+        val b=ExerciseV2Record("b","B","B",emptyList(),"SKILL","TEST",emptyList(),null,"REPS",listOf("s"),"HIGH")
+        ExerciseDbV2.install(listOf(a,b))
+        ExerciseDbV2.installProgressions(listOf(
+            ExerciseV2Edge("a","b","RELATED",listOf("s")),
+            ExerciseV2Edge("missing","a","MAIN_PROGRESSION",listOf("s"))
+        ))
+        val relation=ExerciseDbV2.progressionRelations(ExerciseDbV2.toLegacyExercise(a))
+        assertTrue(relation.easier.isEmpty())
+        assertTrue(relation.harder.isEmpty())
+    }
+
 }
