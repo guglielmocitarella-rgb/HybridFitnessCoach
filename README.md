@@ -1,10 +1,12 @@
 # Hybrid Fitness Coach
 
+> **Compatibility policy (v0.9.3 onward):** backward compatibility with previous app builds, persistence schemas, data models, or legacy behavior is intentionally out of scope and is not planned for future releases. Development targets the clean current model. Legacy migration/fallback code must not be retained solely for compatibility unless this policy is explicitly changed by the project owner.
+
 Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
 
 ## Stato del progetto — v0.9.1 RC2
 
-Il branch `feature/v0.9.1-training-plan` è la linea RC2 corrente. Integra Progression/Skill Tree, Adaptive Coach, piano multi-settimana, runner persistente, storico strutturato/recovery e Exercise DB v2 da 587 record canonici, mantenendo una compatibilità legacy fail-closed dove la migrazione v2 non è ancora possibile.
+Il branch `feature/v0.9.1-training-plan` è la linea RC2 corrente. Integra Progression/Skill Tree, Adaptive Coach, piano multi-settimana, runner persistente, storico strutturato/recovery e Exercise DB v2 da 587 record canonici, senza assumere compatibilità con build o schemi precedenti.
 
 GitHub e la PR #8 sono la fonte di verità per HEAD e CI. Non usare numeri di build riportati in questo README come prova dello stato corrente: ogni release candidate deve essere verificata contro le workflow run dell'esatto SHA finale. La copertura video catalog-wide resta separata dal gate software RC2; device acceptance resta un controllo esterno.
 
@@ -96,7 +98,7 @@ L'obiettivo della V0.8 Evoluta non è anticipare l'Adaptive Coach, ma assicurare
 - Persistenza locale della sessione attiva e ripristino del workout automatico.
 - Recuperi basati su deadline assolute, ricostruibili dopo background/process recreation.
 - State transitions pure per selezione, skip/ripresa, aggiunta serie e riordino.
-- Storico retrocompatibile esteso con dati strutturati.
+- Storico strutturato per lo schema corrente.
 - Recovery deterministico basato sulle serie realmente completate e usato dal generatore.
 - Filtri Libreria per attrezzatura, muscoli, skill e tipologia universale.
 - Boundary architetturali Health Connect: raw data → normalizzazione → readiness input.
@@ -108,7 +110,7 @@ La V0.9 utilizzerà queste fondamenta per Progression Engine, grafi di progressi
 
 ## Affidabilità V0.8 Evoluta
 
-Le funzioni fondamentali sono locali/offline-first: profilo, attrezzatura, libreria, generazione, Runner, sessione attiva, storico e Recovery non dipendono dalla rete. Lo storage SharedPreferences mantiene lettura retrocompatibile dei record V0.8 precedenti tramite campi opzionali/default, senza destructive migration.
+Le funzioni fondamentali sono locali/offline-first: profilo, attrezzatura, libreria, generazione, Runner, sessione attiva, storico e Recovery non dipendono dalla rete. Lo storage SharedPreferences è validato sullo schema corrente; la lettura di record di versioni precedenti non costituisce un requisito.
 
 Il timer di recupero usa deadline assolute e viene ricostruito al restore. Le sessioni attive conservano runner di origine, esercizio corrente, set eseguiti, valori effettivi, RPE, skip e contesto del recupero.
 
