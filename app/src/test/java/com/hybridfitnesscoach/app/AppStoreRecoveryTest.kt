@@ -521,4 +521,56 @@ class AppStoreRecoveryTest {
         assertEquals(plan,AppStore(context).loadTrainingPlans().singleOrNull())
     }
 
+    @Test fun multiplePlansCanBeEnabledIndependentlyAcrossReload() {
+        val store=AppStore(context)
+        val strength=TrainingPlan("strength",10,4,2,listOf(PlannedWorkout("s1",10,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))),"Forza")
+        val calisthenics=TrainingPlan("calisthenics",10,4,1,listOf(PlannedWorkout("c1",10,0,0,emptyList(),intent=PlannedSessionIntent("Calisthenics"))),"Calisthenics")
+        assertTrue(store.saveTrainingPlan(strength))
+        assertTrue(store.saveTrainingPlan(calisthenics))
+        assertTrue(store.setTrainingPlanEnabled(strength.id,true))
+        assertTrue(store.setTrainingPlanEnabled(calisthenics.id,true))
+
+        val reloaded=AppStore(context)
+        assertEquals(setOf("strength","calisthenics"),reloaded.loadEnabledTrainingPlanIds())
+        assertEquals(setOf("strength","calisthenics"),reloaded.loadEnabledTrainingPlans().map{it.id}.toSet())
+
+        assertTrue(reloaded.setTrainingPlanEnabled(strength.id,false))
+        val again=AppStore(context)
+        assertEquals(setOf("calisthenics"),again.loadEnabledTrainingPlanIds())
+        assertEquals(listOf("calisthenics"),again.loadEnabledTrainingPlans().map{it.id})
+        assertEquals(setOf("strength","calisthenics"),again.loadTrainingPlans().map{it.id}.toSet())
+    }
+
+    @Test fun deletingOneEnabledPlanPreservesOtherPlansAndHistory() {
+        val store=AppStore(context)
+        val a=TrainingPlan("a",10,1,1,listOf(PlannedWorkout("a-w",10,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))))
+        val b=TrainingPlan("b",10,1,1,listOf(PlannedWorkout("b-w",10,0,0,emptyList(),intent=PlannedSessionIntent("Calisthenics"))))
+        store.saveTrainingPlan(a);store.saveTrainingPlan(b)
+        store.setTrainingPlanEnabled("a",true);store.setTrainingPlanEnabled("b",true)
+        val historical=session(99).copy(plannedWorkoutId="a-w")
+        store.saveSessions(listOf(historical))
+
+        assertTrue(store.deleteTrainingPlan("a"))
+
+        val reloaded=AppStore(context)
+        assertEquals(listOf("b"),reloaded.loadTrainingPlans().map{it.id})
+        assertEquals(setOf("b"),reloaded.loadEnabledTrainingPlanIds())
+        assertEquals(listOf(historical),reloaded.loadSessions())
+    }
+
+    @Test fun finishingSessionUpdatesOnlyItsOwningPlanWhenPlansShareADay() {
+        val store=AppStore(context)
+        val aWorkout=PlannedWorkout("a-w",10,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))
+        val bWorkout=PlannedWorkout("b-w",10,0,0,emptyList(),intent=PlannedSessionIntent("Calisthenics"))
+        store.saveTrainingPlan(TrainingPlan("a",10,1,1,listOf(aWorkout)))
+        store.saveTrainingPlan(TrainingPlan("b",10,1,1,listOf(bWorkout)))
+        val record=session(100).copy(plannedWorkoutId="b-w")
+
+        assertTrue(store.finishWorkout(record))
+
+        val plans=AppStore(context).loadTrainingPlans().associateBy{it.id}
+        assertEquals(PlannedWorkoutState.PLANNED,plans.getValue("a").workouts.single().state)
+        assertEquals(PlannedWorkoutState.PARTIAL,plans.getValue("b").workouts.single().state)
+    }
+
 }
