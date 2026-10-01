@@ -242,15 +242,16 @@ class V091PlanningTest {
   assertTrue(plan.workouts.all{java.time.LocalDate.ofEpochDay(it.epochDay).dayOfWeek.value in config.trainingDays})
   assertTrue(plan.workouts.all{it.exercises.isEmpty() && it.intent!=null})
  }
- @Test fun suggestedWorkoutUsesTodaysPlanSnapshotBeforeAdaptiveFallback(){
-  val planned=Exercise("Planned","Core","Corpo libero","Principiante")
+ @Test fun suggestedWorkoutIdentifiesTodaysIntentPlanWithoutEmbeddingExercises(){
   val fallback=Exercise("Fallback","Core","Corpo libero","Principiante")
   val today=2000L
-  val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("today",today,0,0,listOf(planned))))
+  val intent=PlannedSessionIntent("Forza")
+  val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("today",today,0,0,emptyList(),intent=intent)))
   val resolved=resolveSuggestedWorkout(plan,today){listOf(fallback)}
   assertEquals("today",resolved.plannedWorkout?.id)
-  assertEquals(listOf("Planned"),resolved.exercises.map{it.name})
+  assertTrue(resolved.exercises.isEmpty())
  }
+
  @Test fun suggestedWorkoutFallsBackWhenNoRunnablePlanSessionExistsToday(){
   val fallback=Exercise("Fallback","Core","Corpo libero","Principiante")
   val today=2000L
@@ -319,14 +320,14 @@ class V091PlanningTest {
   assertTrue(realized.exercises.all{locationCompatible(it,outdoor)})
   assertFalse(realized.exercises.any{it.name==machine.name})
  }
- @Test fun legacyPlanWithoutIntentUsesImmutableSnapshotFallback(){
-  val snapshot=Exercise("Legacy snapshot","Petto","Bilanciere","Intermedio")
-  val planned=PlannedWorkout("legacy",20_000,0,0,listOf(snapshot),intent=null)
+ @Test fun plannedSessionWithoutIntentIsRejected(){
+  val planned=PlannedWorkout("invalid",20_000,0,0,emptyList(),intent=null)
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80)
-  assertEquals(PlannedSessionRealizationSource.LEGACY_SNAPSHOT,realized.source)
-  assertEquals(listOf(snapshot),realized.exercises)
+  assertThrows(IllegalArgumentException::class.java){
+   materializePlannedSession(planned,outdoor,AthleteProfile(),emptyList(),80)
+  }
  }
+
  @Test fun materializerNeverFallsBackToIncompatibleSnapshotWhenIntentExists(){
   val machine=Exercise("Only machine","Gambe","Macchine","Intermedio",role="Forza")
   val planned=PlannedWorkout("intent",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza"))
@@ -346,17 +347,14 @@ class V091PlanningTest {
   assertEquals(TrainingLocationKind.CUSTOM,custom.kind)
   assertEquals(setOf(EquipmentId.BODYWEIGHT,EquipmentId.DUMBBELL),custom.capabilities)
  }
- @Test fun realizedPlannedWorkoutCopyKeepsIdentityAndIntent(){
-  val snapshot=Exercise("Machine old","Gambe","Macchine","Intermedio",role="Forza")
+ @Test fun realizationKeepsPlanIdentitySeparateFromRunnerExercises(){
   val body=Exercise("Body new","Gambe","Corpo libero","Intermedio",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
-  val planned=PlannedWorkout("identity",20_000,1,2,listOf(snapshot),intent=PlannedSessionIntent("Forza",sequenceInWeek=2))
+  val planned=PlannedWorkout("identity",20_000,1,2,emptyList(),intent=PlannedSessionIntent("Forza",sequenceInWeek=2))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(snapshot,body))
-  val launch=planned.copy(exercises=realization.exercises)
-  assertEquals(planned.id,launch.id)
-  assertEquals(planned.intent,launch.intent)
-  assertEquals(planned.epochDay,launch.epochDay)
-  assertEquals(listOf(body.name),launch.exercises.map{it.name})
+  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(body))
+  assertEquals(planned.id,realization.plannedWorkoutId)
+  assertTrue(planned.exercises.isEmpty())
+  assertEquals(listOf(body.name),realization.exercises.map{it.name})
  }
 
  @Test fun materializerHonorsExplicitCustomCapabilitiesWithoutImplicitBodyweight(){

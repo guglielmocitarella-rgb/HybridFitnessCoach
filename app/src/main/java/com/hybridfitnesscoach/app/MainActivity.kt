@@ -717,7 +717,7 @@ internal fun generateWorkoutFromCatalogue(catalogue:List<Exercise>,location:Trai
     return applyCoaching(sequenceWorkout(result).sortedBy{ex->if(athlete.prioritySkills.any{it in ex.skills})0 else 1},context)
 }
 
-internal enum class PlannedSessionRealizationSource { INTENT, LEGACY_SNAPSHOT }
+internal enum class PlannedSessionRealizationSource { INTENT }
 internal data class PlannedSessionRealization(
  val exercises:List<Exercise>,
  val source:PlannedSessionRealizationSource,
@@ -731,8 +731,7 @@ internal fun materializePlannedSession(
  readinessScore:Int?,
  catalogue:List<Exercise> = exercises
 ):PlannedSessionRealization {
- val intent=planned.intent
- if(intent==null) return PlannedSessionRealization(planned.exercises,PlannedSessionRealizationSource.LEGACY_SNAPSHOT,planned.id)
+ val intent=requireNotNull(planned.intent) { "Planned session ${planned.id} has no intent" }
  val effectiveAthlete=athlete.copy(goal=intent.goal,prioritySkills=intent.prioritySkills)
  val compatibleCatalogue=catalogue.filter{locationCompatible(it,location)}
  val generated=generateWorkoutFromCatalogue(compatibleCatalogue,location,effectiveAthlete,effectiveAthlete.toCapabilityProfile(),sessions,readinessScore)
@@ -744,7 +743,7 @@ internal fun materializePlannedSession(
 data class SuggestedWorkout(val exercises:List<Exercise>,val plannedWorkout:PlannedWorkout?)
 internal fun resolveSuggestedWorkout(plan:TrainingPlan?,today:Long,adaptive:()->List<Exercise>):SuggestedWorkout {
  val planned=todayPlannedWorkout(plan,today)
- return if(planned!=null) SuggestedWorkout(planned.exercises,planned) else SuggestedWorkout(adaptive(),null)
+ return if(planned!=null) SuggestedWorkout(emptyList(),planned) else SuggestedWorkout(adaptive(),null)
 }
 internal fun generateTrainingPlan(planId:String,startEpochDay:Long,configuration:PlanConfiguration):TrainingPlan {
  val valid=configuration.validated()
@@ -757,8 +756,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Install the canonical exercise catalogue before any store-backed state is read.
-        // Persisted plans/workouts keep their immutable Exercise snapshots, so enabling DB v2
-        // here changes only new catalogue lookups and newly generated workouts.
+        // Persisted plans keep only session intent; concrete exercises are materialized
+        // against the current catalogue and execution location when the workout starts.
         installExerciseDbV2(ExerciseDbV2.load(this))
         ExerciseDbV2.installSources(ExerciseDbV2.loadSources(this))
         ExerciseDbV2.installProgressions(ExerciseDbV2.loadProgressions(this))
@@ -918,9 +917,9 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
             val launch=resolveWorkoutLaunch(restoredWorkout,requested)
             plannedWorkoutToRun=launch.plannedWorkout?.let{planned->
                 val realized=materializePlannedSession(planned,profile,athlete,sessions,readinessScore)
-                planned.copy(exercises=realized.exercises)
+                planned
             }
-            workoutOpen=launch.resumeActive || plannedWorkoutToRun?.exercises?.isNotEmpty()==true
+            workoutOpen=launch.resumeActive || plannedWorkoutToRun?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore).exercises.isNotEmpty()}==true
             onCalendarWorkoutConsumed()
         }
     }
@@ -960,7 +959,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                     val suggested=realizedTodayPlan?.exercises ?: suggestion.exercises
                     Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
-                    Button(onClick = { plannedWorkoutToRun=todayPlan?.let{p->realizedTodayPlan?.let{r->p.copy(exercises=r.exercises)}?:p}; workoutOpen = true }, enabled=todayPlan==null || suggested.isNotEmpty(), modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
+                    Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, enabled=todayPlan==null || suggested.isNotEmpty(), modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
                 }
             }
@@ -988,9 +987,9 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                         Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
                         homePlanState.todayWorkout?.let{
                             Text("Oggi • Sessione "+(it.sequenceInWeek+1),fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
-                            Text(it.exercises.size.toString()+" esercizi • "+calendarDate(it.epochDay),fontSize=13.sp,color=Color.Gray)
+                            Text("Sessione da materializzare • "+calendarDate(it.epochDay),fontSize=13.sp,color=Color.Gray)
                         } ?: Text("Nessuna sessione pianificata per oggi",modifier=Modifier.padding(top=10.dp),fontSize=13.sp,color=Color.Gray)
-                        Text(homePlanState.nextWorkout?.let{"Prossima: "+calendarDate(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
+                        Text(homePlanState.nextWorkout?.let{"Prossima: "+calendarDate(it.epochDay)+" • esercizi definiti all’avvio"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
                         OutlinedButton(onClick=managePlan,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("GESTISCI PROGRAMMA")}
                     }
                 }
@@ -1167,7 +1166,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 } else {
                     item {
                         if(planSaveError) Text("Impossibile salvare la modifica. Riprova.",color=Color.Red,fontSize=12.sp,modifier=Modifier.padding(bottom=8.dp))
-                        Text(workout.intent?.let{intent->"Obiettivo: "+intent.goal+(if(intent.prioritySkills.isEmpty())"" else "\nSkill: "+intent.prioritySkills.joinToString())} ?: workout.exercises.joinToString(" • "){it.name})
+                        Text(workout.intent?.let{intent->"Obiettivo: "+intent.goal+(if(intent.prioritySkills.isEmpty())"" else "\nSkill: "+intent.prioritySkills.joinToString())} ?: "Sessione priva di intent")
                         Spacer(Modifier.height(12.dp))
                         Text("Riprogramma di:",fontWeight=FontWeight.SemiBold)
                         Row(verticalAlignment=Alignment.CenterVertically) {
@@ -1646,7 +1645,7 @@ private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfi
 private fun WorkoutDialog(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean) {
     val liveReadiness=LocalHealthConnect.current.readiness
     val readinessScore=liveReadiness
-    val compatible = remember(profile, athlete, sessions, restored, plannedWorkout, readinessScore) { val source=restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()} ?: plannedWorkout?.exercises?.takeIf{it.isNotEmpty()} ?: generateWorkout(profile, athlete, sessions,readinessScore); effectiveAutomaticExercises(source,athlete,sessions,readinessScore,restored!=null || plannedWorkout!=null) }
+    val compatible = remember(profile, athlete, sessions, restored, plannedWorkout, readinessScore) { val restoredSource=restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()}; val source=restoredSource ?: plannedWorkout?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore).exercises} ?: generateWorkout(profile, athlete, sessions,readinessScore); effectiveAutomaticExercises(source,athlete,sessions,readinessScore,restoredSource!=null || plannedWorkout!=null) }
     val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
     val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
     val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
