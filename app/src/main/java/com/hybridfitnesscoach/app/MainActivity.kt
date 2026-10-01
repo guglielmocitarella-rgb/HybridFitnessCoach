@@ -804,90 +804,184 @@ fun HybridFitnessApp() {
             }
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
-                when (tab) {
-                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.PROFILE }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> saveFinishedWorkout(record) }
-                    Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
-                    Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() }, showAthleteProfile=false)
-                    Tab.PROFILE -> ProfileHub(
-                        active=activeProfile, athlete=athlete, sessions=sessions, store=store, customProfiles=customProfiles,
-                        onAthleteSave={ updated -> athlete=updated; store.saveAthlete(updated) },
-                        selectLocation={ selected -> activeProfile=selected; store.saveActiveTrainingLocationId(selected.id) },
-                        addLocation={ created -> customProfiles.add(created); store.saveTrainingLocations(customProfiles); activeProfile=created; store.saveActiveTrainingLocationId(created.id) },
-                        editLocation={ old, updated -> val i=customProfiles.indexOfFirst{it.id==old.id}; if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.id==old.id){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}} },
-                        deleteLocation={ doomed -> customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)} },
-                        onExecuteExercise={ exercise -> workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.SINGLE_EXERCISE,sourceExerciseId=exercise.progressionKey?:exercise.name)) },
-                        onSessionSaved={ record -> saveFinishedWorkout(record) }
+                val launchScreen=workoutLaunch?.takeIf{it.stage!=WorkoutLaunchStage.RUNNER}
+                if(launchScreen!=null){
+                    val locationOptions=(trainingLocations+customProfiles+activeProfile).distinctBy{it.id}
+                    val allPlans=store.loadTrainingPlans()
+                    val enabledPlans=store.loadEnabledTrainingPlans()
+                    val extraAthlete=athlete.copy(
+                        goal=enabledPlans.joinToString(" + "){it.goal}.ifBlank{athlete.goal},
+                        prioritySkills=enabledPlans.flatMap{it.prioritySkills}.distinct()
                     )
+                    val sourceExercise=launchScreen.intent.sourceExerciseId?.let{id->
+                        exercises.firstOrNull{it.progressionKey==id || it.name==id}
+                    }
+                    val compatibleLocations=remember(launchScreen.intent,locationOptions,athlete,sessions,health.readiness){
+                        locationOptions.filter{place->
+                            when(launchScreen.intent.origin){
+                                WorkoutOrigin.SINGLE_EXERCISE -> sourceExercise?.let{locationCompatible(it,place)}==true
+                                WorkoutOrigin.PLAN -> allPlans.asSequence().flatMap{it.workouts.asSequence()}
+                                    .firstOrNull{it.id==launchScreen.intent.plannedWorkoutId}
+                                    ?.let{materializePlannedSession(it,place,athlete,sessions,health.readiness).exercises.isNotEmpty()}==true
+                                WorkoutOrigin.ADAPTIVE_EXTRA -> generateWorkout(place,extraAthlete,sessions,health.readiness).isNotEmpty()
+                                else -> false
+                            }
+                        }
+                    }
+                    WorkoutLaunchScreen(
+                        flow=launchScreen,locations=compatibleLocations,
+                        preferredLocationId=store.loadActiveTrainingLocationId(),readinessScore=health.readiness,
+                        onChooseLocation={place->
+                            val selected=selectWorkoutLocation(launchScreen,place.id)
+                            val now=System.currentTimeMillis()
+                            val materialized=when(launchScreen.intent.origin){
+                                WorkoutOrigin.SINGLE_EXERCISE -> singleExerciseWorkoutState(
+                                    exercise=requireNotNull(sourceExercise),profileName=place.name,startedAtEpochMs=now,
+                                    athlete=athlete,sessions=sessions,readinessScore=health.readiness,trainingLocationId=place.id
+                                )
+                                WorkoutOrigin.PLAN -> {
+                                    val planned=requireNotNull(allPlans.asSequence().flatMap{it.workouts.asSequence()}
+                                        .firstOrNull{it.id==launchScreen.intent.plannedWorkoutId})
+                                    val realization=materializePlannedSession(planned,place,athlete,sessions,health.readiness)
+                                    WorkoutSessionState(
+                                        id="plan-"+planned.id+"-"+now,startedAtEpochMs=now,profileName=place.name,
+                                        exercises=realization.exercises.mapIndexed(::plannedExerciseState),
+                                        plannedWorkoutId=realization.plannedWorkoutId,trainingLocationId=place.id
+                                    )
+                                }
+                                WorkoutOrigin.ADAPTIVE_EXTRA -> {
+                                    val generated=generateWorkout(place,extraAthlete,sessions,health.readiness)
+                                    val effective=effectiveAutomaticExercises(generated,athlete,sessions,health.readiness)
+                                    WorkoutSessionState(
+                                        id="extra-"+now,startedAtEpochMs=now,profileName=place.name,
+                                        exercises=effective.mapIndexed(::plannedExerciseState).map{it.copy(rpe=5)},
+                                        trainingLocationId=place.id
+                                    )
+                                }
+                                else -> error("Workout origin has no materializer yet: "+launchScreen.intent.origin)
+                            }
+                            workoutLaunch=materializeWorkoutLaunch(selected,materialized)
+                        },
+                        onStart={
+                            val place=locationOptions.firstOrNull{it.id==launchScreen.locationId}
+                            if(place!=null){activeProfile=place;store.saveActiveTrainingLocationId(place.id)}
+                            workoutLaunch=startWorkoutRunner(launchScreen)
+                        },
+                        onCancel={workoutLaunch=null}
+                    )
+                } else {
+                    when (tab) {
+                        Tab.HOME -> Home(
+                            profile=activeProfile,athlete=athlete,sessions=sessions,store=store,
+                            changeProfile={tab=Tab.PROFILE},managePlan={tab=Tab.PLAN},
+                            calendarWorkout=calendarWorkout,onCalendarWorkoutConsumed={calendarWorkout=null},
+                            onStartPlannedWorkout={workout->workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.PLAN,plannedWorkoutId=workout.id))},
+                            onStartAdaptiveExtra={workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.ADAPTIVE_EXTRA))},
+                            onSessionSaved={record->saveFinishedWorkout(record)}
+                        )
+                        Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
+                        Tab.PROGRESS -> Progress(athlete,sessions,{updated->athlete=updated;store.saveAthlete(updated)},{timestamp->store.deleteSession(timestamp);sessions=store.loadSessions()},showAthleteProfile=false)
+                        Tab.PROFILE -> ProfileHub(
+                            active=activeProfile,athlete=athlete,sessions=sessions,store=store,customProfiles=customProfiles,
+                            onAthleteSave={updated->athlete=updated;store.saveAthlete(updated)},
+                            selectLocation={selected->activeProfile=selected;store.saveActiveTrainingLocationId(selected.id)},
+                            addLocation={created->customProfiles.add(created);store.saveTrainingLocations(customProfiles);activeProfile=created;store.saveActiveTrainingLocationId(created.id)},
+                            editLocation={old,updated->val i=customProfiles.indexOfFirst{it.id==old.id};if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.id==old.id){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}}},
+                            deleteLocation={doomed->customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)}},
+                            onExecuteExercise={exercise->workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.SINGLE_EXERCISE,sourceExerciseId=exercise.progressionKey?:exercise.name))},
+                            onSessionSaved={record->saveFinishedWorkout(record)}
+                        )
+                    }
                 }
             }
         }
-        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.CHOOSE_LOCATION}?.let { flow ->
-            val source=flow.intent.sourceExerciseId?.let{id->exercises.firstOrNull{it.progressionKey==id || it.name==id}}
-            val locations=(trainingLocations+customProfiles+activeProfile).distinctBy{it.id}
-                .filter{place->source?.let{locationCompatible(it,place)}==true}
-            AlertDialog(
-                onDismissRequest={workoutLaunch=null},
-                title={Text("Scegli dove allenarti")},
-                text={
-                    if(source==null) Text("L'esercizio selezionato non è più disponibile.")
-                    else if(locations.isEmpty()) Text("Nessun luogo configurato dispone dell'attrezzatura richiesta da "+source.name+".")
-                    else LazyColumn(Modifier.heightIn(max=420.dp)){
-                        items(locations,key={it.id}){place->
-                            TextButton(onClick={
-                                val selected=selectWorkoutLocation(flow,place.id)
-                                val workout=singleExerciseWorkoutState(
-                                    exercise=source,profileName=place.name,athlete=athlete,sessions=sessions,
-                                    readinessScore=health.readiness,trainingLocationId=place.id
-                                )
-                                workoutLaunch=materializeWorkoutLaunch(selected,workout)
-                            },modifier=Modifier.fillMaxWidth()){
-                                Text(place.icon+"  "+place.name,modifier=Modifier.fillMaxWidth())
-                            }
-                        }
-                    }
-                },
-                confirmButton={TextButton(onClick={workoutLaunch=null}){Text("ANNULLA")}}
-            )
-        }
-        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.PREVIEW}?.let { flow ->
-            val workout=flow.workout
-            AlertDialog(
-                onDismissRequest={workoutLaunch=null},
-                title={Text("Anteprima allenamento")},
-                text={
-                    LazyColumn(Modifier.heightIn(max=480.dp)){
-                        item{Text("Luogo: "+(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}?.name.orEmpty(),color=Color.Gray)}
-                        items(workout?.exercises.orEmpty()){exercise->
-                            val first=exercise.sets.firstOrNull()
-                            val target=when(exercise.measure){
-                                ExerciseMeasure.REPS -> (first?.targetReps?.toString()?: "—")+" ripetizioni"
-                                ExerciseMeasure.SECONDS,ExerciseMeasure.DURATION,ExerciseMeasure.INTERVALS -> (first?.targetSeconds?.toString()?: "—")+" secondi"
-                                ExerciseMeasure.DISTANCE -> (first?.targetDistanceMeters?.toString()?: "—")+" metri"
-                            }
-                            Text(exercise.exerciseName,fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
-                            Text(exercise.sets.size.toString()+" serie • "+target+" • recupero "+exercise.setRestSec+" s",color=Color.Gray)
-                        }
-                    }
-                },
-                confirmButton={Button(onClick={
-                    val place=(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}
-                    if(place!=null){activeProfile=place;store.saveActiveTrainingLocationId(place.id)}
-                    workoutLaunch=startWorkoutRunner(flow)
-                }){Text("AVVIA")}},
-                dismissButton={TextButton(onClick={workoutLaunch=null}){Text("ANNULLA")}}
-            )
-        }
-        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.RUNNER}?.let { flow ->
+remove modal gate        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.RUNNER}?.let { flow ->
             val place=(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}?:activeProfile
             WorkoutDialog(
                 profile=place,athlete=athlete,sessions=sessions,store=store,restored=flow.workout,
-                plannedWorkout=flow.workout?.plannedWorkoutId?.let{id->store.loadEnabledTrainingPlans().asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{it.id==id}},
+                plannedWorkout=flow.workout?.plannedWorkoutId?.let{id->store.loadTrainingPlans().asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{it.id==id}},
                 onDismiss={workoutLaunch=null},
                 onSave={record->val saved=saveFinishedWorkout(record);if(saved)workoutLaunch=null;saved}
             )
         }
     }
 }
+}
+
+@Composable
+private fun WorkoutLaunchScreen(
+    flow:WorkoutLaunchFlow,
+    locations:List<TrainingLocation>,
+    preferredLocationId:String,
+    readinessScore:Int?,
+    onChooseLocation:(TrainingLocation)->Unit,
+    onStart:()->Unit,
+    onCancel:()->Unit
+) {
+    var selectedLocationId by remember(flow.intent,locations,preferredLocationId) {
+        mutableStateOf(preferredWorkoutLocation(locations,preferredLocationId)?.id)
+    }
+    val originLabel=when(flow.intent.origin) {
+        WorkoutOrigin.PLAN -> "Sessione del piano"
+        WorkoutOrigin.ADAPTIVE_EXTRA -> "Allenamento extra adattivo"
+        WorkoutOrigin.CUSTOM -> "Workout personalizzato"
+        WorkoutOrigin.SKILL -> "Allenamento skill"
+        WorkoutOrigin.LIBRARY -> "Workout dalla libreria"
+        WorkoutOrigin.SINGLE_EXERCISE -> "Singolo esercizio"
+    }
+    Column(Modifier.fillMaxSize().background(Bg)) {
+        Header(if(flow.stage==WorkoutLaunchStage.CHOOSE_LOCATION)"Avvia allenamento" else "Anteprima allenamento",
+            originLabel+" • readiness "+(readinessScore?.toString()?: "non disponibile"))
+        if(flow.stage==WorkoutLaunchStage.CHOOSE_LOCATION) {
+            Text("Scegli il luogo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(horizontal=20.dp,vertical=8.dp))
+            if(locations.isEmpty()) {
+                Text("Nessun luogo configurato è compatibile con questo allenamento.",color=Color.Gray,modifier=Modifier.padding(20.dp))
+            } else {
+                LazyColumn(Modifier.weight(1f),contentPadding=PaddingValues(horizontal=16.dp,vertical=4.dp)) {
+                    items(locations,key={it.id}){place->
+                        Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{selectedLocationId=place.id},
+                            colors=CardDefaults.cardColors(containerColor=if(selectedLocationId==place.id)MaterialTheme.colorScheme.primaryContainer else Color.White)) {
+                            Row(Modifier.padding(14.dp),verticalAlignment=Alignment.CenterVertically) {
+                                RadioButton(selectedLocationId==place.id,{selectedLocationId=place.id})
+                                Text(place.icon+"  "+place.name,modifier=Modifier.weight(1f),fontWeight=FontWeight.SemiBold)
+                                if(place.id==preferredLocationId)Text("ULTIMO USATO",fontSize=10.sp,color=Accent)
+                            }
+                        }
+                    }
+                }
+            }
+            Row(Modifier.fillMaxWidth().padding(16.dp),horizontalArrangement=Arrangement.spacedBy(10.dp)) {
+                OutlinedButton(onClick=onCancel,modifier=Modifier.weight(1f)){Text("ANNULLA")}
+                Button(onClick={locations.firstOrNull{it.id==selectedLocationId}?.let(onChooseLocation),
+                    enabled=locations.any{it.id==selectedLocationId},modifier=Modifier.weight(1f)){Text("CONTINUA")}
+            }
+        } else if(flow.stage==WorkoutLaunchStage.PREVIEW) {
+            LazyColumn(Modifier.weight(1f),contentPadding=PaddingValues(horizontal=20.dp,vertical=8.dp)) {
+                item{Text("Luogo: "+(locations.firstOrNull{it.id==flow.locationId}?.name?:flow.locationId.orEmpty()),color=Color.Gray)}
+                itemsIndexed(flow.workout?.exercises.orEmpty(),key={index,exercise->index.toString()+"-"+(exercise.exerciseId?:exercise.exerciseName)}){_,exercise->
+                    val first=exercise.sets.firstOrNull()
+                    val target=when(exercise.measure){
+                        ExerciseMeasure.REPS -> (first?.targetReps?.toString()?: "—")+" ripetizioni"
+                        ExerciseMeasure.SECONDS,ExerciseMeasure.DURATION,ExerciseMeasure.INTERVALS -> (first?.targetSeconds?.toString()?: "—")+" secondi"
+                        ExerciseMeasure.DISTANCE -> (first?.targetDistanceMeters?.toString()?: "—")+" metri"
+                    }
+                    val load=first?.targetLoadKg?.let{" • "+it+" kg"}.orEmpty()
+                    val assist=first?.targetAssistanceKg?.let{" • assistenza "+it+" kg"}.orEmpty()
+                    Card(Modifier.fillMaxWidth().padding(vertical=5.dp),colors=CardDefaults.cardColors(containerColor=Color.White)) {
+                        Column(Modifier.padding(14.dp)) {
+                            Text(exercise.exerciseName,fontWeight=FontWeight.Bold)
+                            Text(exercise.sets.size.toString()+" serie • "+target+" • recupero "+exercise.setRestSec+" s"+load+assist,color=Color.Gray)
+                            Text("RPE "+runnerEffort(exercise.rpe),fontSize=12.sp,color=Accent)
+                        }
+                    }
+                }
+            }
+            Row(Modifier.fillMaxWidth().padding(16.dp),horizontalArrangement=Arrangement.spacedBy(10.dp)) {
+                OutlinedButton(onClick=onCancel,modifier=Modifier.weight(1f)){Text("ANNULLA")}
+                Button(onClick=onStart,enabled=flow.workout?.exercises?.isNotEmpty()==true,modifier=Modifier.weight(1f)){Text("AVVIA")}
+            }
+        }
+    }
 }
 
 @Composable
@@ -980,7 +1074,7 @@ internal fun nextUnlockLabel(states:List<SkillNodeProgress>):String {
 }
 
 @Composable
-private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
+private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onStartPlannedWorkout:(PlannedWorkout)->Unit, onStartAdaptiveExtra:()->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
     val readinessScore=LocalHealthConnect.current.readiness
     val restoredWorkout = remember { store.loadActiveWorkout() }
     var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
@@ -989,12 +1083,10 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     var treePicker by remember { mutableStateOf(false) }
     var customSkill by remember { mutableStateOf("Nessuna") }
     var enabledPlans by remember { mutableStateOf(store.loadEnabledTrainingPlans()) }
-    var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
             val launch=resolveWorkoutLaunch(restoredWorkout,requested)
-            plannedWorkoutToRun=launch.plannedWorkout
-            workoutOpen=launch.resumeActive || plannedWorkoutToRun?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore).exercises.isNotEmpty()}==true
+            if(launch.resumeActive) workoutOpen=true else launch.plannedWorkout?.let(onStartPlannedWorkout)
             onCalendarWorkoutConsumed()
         }
     }
@@ -1029,7 +1121,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                                 Column(Modifier.padding(12.dp)) {
                                     Text(owner.goal,fontWeight=FontWeight.Bold)
                                     Text(realized.exercises.size.toString()+" esercizi • sessione "+(scheduled.sequenceInWeek+1),color=Color.Gray,fontSize=12.sp)
-                                    Button(onClick={plannedWorkoutToRun=scheduled;workoutOpen=true},enabled=realized.exercises.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(top=8.dp)){Text("INIZIA")}
+                                    Button(onClick={onStartPlannedWorkout(scheduled)},enabled=realized.exercises.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(top=8.dp)){Text("INIZIA")}
                                 }
                             }
                         }
@@ -1037,7 +1129,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                         Text("Nessuna sessione programmata", fontSize = 22.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                         nextSession?.let { (owner,w) -> Text("Prossimo: "+owner.goal+" • "+calendarDate(w.epochDay),color=Color.Gray) }
                         Text("Puoi recuperare oppure aggiungere una sessione extra adattata al carico complessivo dei piani attivi.",fontSize=13.sp,color=Color.Gray,modifier=Modifier.padding(top=8.dp))
-                        Button(onClick={plannedWorkoutToRun=null;workoutOpen=true},enabled=extra.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(top=18.dp),shape=RoundedCornerShape(14.dp)){Text("ALLENAMENTO EXTRA")}
+                        Button(onClick=onStartAdaptiveExtra,enabled=extra.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(top=18.dp),shape=RoundedCornerShape(14.dp)){Text("ALLENAMENTO EXTRA")}
                     }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
                     TextButton(onClick=managePlan,modifier=Modifier.fillMaxWidth()){Text(if(enabledPlans.isEmpty())"CREA PIANO" else "VEDI PIANI")}
@@ -1067,7 +1159,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     }
     if(treePicker) AlertDialog(onDismissRequest={treePicker=false},title={Text("Skill Tree")},text={LazyColumn{items(calisthenicsSkills){skill->TextButton(onClick={treeSkill=skill.name;treePicker=false}){Text(skill.name)}}}},confirmButton={TextButton(onClick={treePicker=false}){Text("CHIUDI")}})
     treeSkill?.let{skill->SkillDetailDialog(skill,athlete,{treeSkill=null},{customSkill=skill;treeSkill=null;customWorkoutOpen=true},sessions)}
-    if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, plannedWorkout=plannedWorkoutToRun ?: restoredWorkout?.plannedWorkoutId?.let{id->enabledPlans.asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{w->w.id==id}}, onDismiss = { workoutOpen = false;plannedWorkoutToRun=null }, onSave = {record->val saved=onSessionSaved(record);if(saved)enabledPlans=store.loadEnabledTrainingPlans();saved}) }
+    if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, plannedWorkout=restoredWorkout?.plannedWorkoutId?.let{id->store.loadTrainingPlans().asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{w->w.id==id}}, onDismiss = { workoutOpen = false }, onSave = {record->val saved=onSessionSaved(record);if(saved)enabledPlans=store.loadEnabledTrainingPlans();saved}) }
     if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, initialSkill=customSkill, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
 }
 

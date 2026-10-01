@@ -48,16 +48,18 @@ Still pending:
 - physical verification of accessibility, scroll, back navigation, empty/error states and destructive actions;
 - complex dialog-based flows still exist and must be reduced where they are acting as screens.
 
-P01.2 is **PARTIAL**. The main architectural gap is the workout-start pipeline: origins do not yet all pass through one explicit choose-location -> materialize/generate -> preview -> universal Runner gate. In particular, library/single-exercise execution still constructs a workout directly and opens `WorkoutDialog`.
+P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_CI_VERIFIED** on the current candidate. Single-exercise, plan and adaptive-extra starts now use the same `WorkoutLaunchFlow`: choose a compatible location (last used location is preselected), materialize with readiness/history/equipment context, review prescriptions, then enter the existing `WorkoutDialog` Runner. Session location and `plannedWorkoutId` ownership are carried into active-workout persistence and history.
 
-**Next engineering step:** implement the universal workout-start gate/pipeline foundation and route one origin at a time through it, preserving the existing universal execution/persistence behavior. Start with library/single-exercise because it exposes the current bypass clearly, then migrate plan/extra/custom/skill origins without creating parallel runners.
+Custom and skill workout generation still need migration onto this same flow; no additional Runner was introduced. The new launch gate is a screen. Its physical interaction, back-navigation and visual behavior remain **DEVICE_PENDING**.
+
+**Next engineering step:** migrate custom/skill generation to `WorkoutLaunchFlow` only when they can hand a materialized state to the same Runner without duplicating execution or persistence.
 
 ## Active roadmap
 
 The binding scope is `V0_9_5_DOD.md`.
 
 Execution order from the current checkpoint:
-1. P01.2/P04 universal workout-start pipeline foundation;
+1. P01.2/P04 universal workout-start pipeline; single, plan and adaptive-extra origins share the flow; custom/skill remain to migrate;
 2. complete P01 interaction/device acceptance as flows become screen-based;
 3. P02/P03 Home + Plan/calendar UX;
 4. P05 universal Runner, exercise technique access and timed-exercise preparation countdown;

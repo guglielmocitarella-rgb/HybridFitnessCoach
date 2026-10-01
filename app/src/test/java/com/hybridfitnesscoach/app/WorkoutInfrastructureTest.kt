@@ -146,3 +146,21 @@ class WorkoutLaunchFlowTest {
         }
     }
 }
+
+
+class WorkoutLocationPreferenceTest {
+    private fun location(id:String)=TrainingLocation(
+        id=id,name=id,icon="•",kind=TrainingLocationKind.CUSTOM,capabilities=setOf(EquipmentId.BODYWEIGHT)
+    )
+
+    @Test fun lastUsedLocationIsPreferredWhenStillAvailable() {
+        val available=listOf(location("home"),location("gym"))
+        assertEquals("gym",preferredWorkoutLocation(available,"gym")?.id)
+    }
+
+    @Test fun firstAvailableLocationIsFallbackWhenLastUsedWasRemoved() {
+        val available=listOf(location("home"),location("gym"))
+        assertEquals("home",preferredWorkoutLocation(available,"deleted")?.id)
+        assertNull(preferredWorkoutLocation(emptyList(),"deleted"))
+    }
+}

@@ -134,6 +134,13 @@ Mostrare almeno:
 ### 4. Avvia
 Tutte le origini entrano nello stesso Runner.
 
+### Stato implementazione v0.9.5
+- **PARTIAL / IMPLEMENTED_NOT_CI_VERIFIED:** singolo esercizio, sessione del piano e allenamento extra adattivo convergono su `WorkoutLaunchFlow` e sul Runner esistente.
+- La scelta del luogo preseleziona l'ultimo luogo effettivamente utilizzato e filtra quelli incompatibili con attrezzatura/sessione.
+- Il materializzatore conserva prescrizioni effettive, readiness e storico; il Runner persiste il luogo scelto e mantiene `plannedWorkoutId` per l'ownership multi-plan.
+- Custom e skill restano da migrare sulla stessa astrazione; non va aggiunto un Runner separato.
+- La verifica fisica del nuovo gate è **DEVICE_PENDING**.
+
 ## P05 — Workout Runner universale
 
 Il Runner deve essere unico e coerente per sessione del piano, extra adattivo, personalizzato, skill/libreria e singolo esercizio.

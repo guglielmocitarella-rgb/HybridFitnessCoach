@@ -382,6 +382,9 @@ internal data class WorkoutLaunchFlow(
 
 internal fun beginWorkoutLaunch(intent:WorkoutLaunchIntent)=WorkoutLaunchFlow(intent)
 
+internal fun preferredWorkoutLocation(locations:List<TrainingLocation>,lastUsedLocationId:String?):TrainingLocation? =
+    locations.firstOrNull{it.id==lastUsedLocationId} ?: locations.firstOrNull()
+
 internal fun selectWorkoutLocation(flow:WorkoutLaunchFlow,locationId:String):WorkoutLaunchFlow {
     require(flow.stage==WorkoutLaunchStage.CHOOSE_LOCATION)
     require(locationId.isNotBlank())
