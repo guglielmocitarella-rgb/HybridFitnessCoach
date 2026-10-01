@@ -1045,7 +1045,7 @@ internal fun calendarStateMarker(state:PlannedWorkoutState):String=when(state){
 private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->Unit) {
     val today=java.time.LocalDate.now().toEpochDay()
     var plans by remember { mutableStateOf(store.loadTrainingPlans()) }
-    var plan by remember { mutableStateOf(store.loadEnabledTrainingPlans().firstOrNull()) }
+    var plan by remember { mutableStateOf(store.loadTrainingPlans().firstOrNull()) }
     var enabledPlanIds by remember { mutableStateOf(store.loadEnabledTrainingPlanIds()) }
     var showPlans by remember { mutableStateOf(false) }
     var confirmDelete by remember { mutableStateOf<TrainingPlan?>(null) }
@@ -1071,7 +1071,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
         if(plan==null) {
             Card(Modifier.padding(20.dp).fillMaxWidth()) {
                 Column(Modifier.padding(20.dp)) {
-                    Text("Nessun piano attivo",fontWeight=FontWeight.Bold,fontSize=20.sp)
+                    Text("Nessun piano selezionato",fontWeight=FontWeight.Bold,fontSize=20.sp)
                     Text("Crea qui il tuo programma multi-settimana. Il luogo di allenamento verrà scelto quando avvierai ogni sessione.",color=Color.Gray,modifier=Modifier.padding(top=6.dp))
                     Button(onClick={editPlan=true},modifier=Modifier.fillMaxWidth().padding(top=14.dp)){Text("CREA PIANO")}
                 }
@@ -1242,8 +1242,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                             Switch(checked=saved.id in enabledPlanIds,onCheckedChange={enabled->
                                 if(store.setTrainingPlanEnabled(saved.id,enabled)){
                                     enabledPlanIds=store.loadEnabledTrainingPlanIds()
-                                    if(!enabled && plan?.id==saved.id)plan=store.loadEnabledTrainingPlans().firstOrNull()
-                                    if(enabled)plan=saved
+                                    // Enabling a plan changes Coach participation only; UI selection is independent.
                                 }
                             })
                         }
@@ -1259,7 +1258,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 if(store.deleteTrainingPlan(doomed.id)){
                     plans=store.loadTrainingPlans()
                     enabledPlanIds=store.loadEnabledTrainingPlanIds()
-                    plan=store.loadEnabledTrainingPlans().firstOrNull()
+                    plan=plans.firstOrNull()
                     confirmDelete=null
                 } else planSaveError=true
             }){Text("ELIMINA PIANO")}},
