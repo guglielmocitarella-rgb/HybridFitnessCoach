@@ -135,7 +135,7 @@ Mostrare almeno:
 Tutte le origini entrano nello stesso Runner.
 
 ### Stato implementazione v0.9.5
-- **PARTIAL / IMPLEMENTED_NOT_CI_VERIFIED:** singolo esercizio, sessione del piano e allenamento extra adattivo convergono su `WorkoutLaunchFlow` e sul Runner esistente.
+- **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `b12f665fd2309170d067614055c6f71429c1e643`: Android APK #867 is **SUCCESS** on the exact SHA (unit tests, lint, PR debug APK build/upload); release signing was skipped. Single exercise, plan session and adaptive extra converge on `WorkoutLaunchFlow` and the existing Runner.
 - La scelta del luogo preseleziona l'ultimo luogo effettivamente utilizzato e filtra quelli incompatibili con attrezzatura/sessione.
 - Il materializzatore conserva prescrizioni effettive, readiness e storico; il Runner persiste il luogo scelto e mantiene `plannedWorkoutId` per l'ownership multi-plan.
 - Custom e skill restano da migrare sulla stessa astrazione; non va aggiunto un Runner separato.

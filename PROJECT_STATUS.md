@@ -48,7 +48,7 @@ Still pending:
 - physical verification of accessibility, scroll, back navigation, empty/error states and destructive actions;
 - complex dialog-based flows still exist and must be reduced where they are acting as screens.
 
-P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_CI_VERIFIED** on the current candidate. Single-exercise, plan and adaptive-extra starts now use the same `WorkoutLaunchFlow`: choose a compatible location (last used location is preselected), materialize with readiness/history/equipment context, review prescriptions, then enter the existing `WorkoutDialog` Runner. Session location and `plannedWorkoutId` ownership are carried into active-workout persistence and history.
+P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `b12f665fd2309170d067614055c6f71429c1e643`; Android APK #867 is **SUCCESS** on this exact SHA (unit tests, Android lint, PR debug APK build/upload). Single-exercise, plan and adaptive-extra starts use the same `WorkoutLaunchFlow`: choose a compatible location (last used location is preselected), materialize with readiness/history/equipment context, review prescriptions, then enter the existing `WorkoutDialog` Runner. Session location and `plannedWorkoutId` ownership are carried into active-workout persistence and history. Release signing was skipped in this workflow.
 
 Custom and skill workout generation still need migration onto this same flow; no additional Runner was introduced. The new launch gate is a screen. Its physical interaction, back-navigation and visual behavior remain **DEVICE_PENDING**.
 
