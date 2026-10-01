@@ -1116,7 +1116,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
         var days by remember { mutableIntStateOf(current.daysPerWeek) }
         val weekdays=remember { mutableStateListOf<Int>().apply{addAll(current.trainingDays.sorted())} }
         val skills=remember { mutableStateListOf<String>().apply{addAll(current.prioritySkills)} }
-        AlertDialog(onDismissRequest={editPlan=false},title={Text("Modifica programma")},text={LazyColumn(Modifier.heightIn(max=520.dp)){item{
+        AlertDialog(onDismissRequest={editPlan=false},title={Text(if(plan==null)"Crea piano" else "Modifica programma")},text={LazyColumn(Modifier.heightIn(max=520.dp)){item{
             Text("Obiettivo",fontWeight=FontWeight.SemiBold)
             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(4.dp)){listOf("Forza","Ipertrofia","Calisthenics","Fitness generale").forEach{g->FilterChip(selected=goal==g,onClick={goal=g},label={Text(g,fontSize=10.sp)})}}
             Text("Allenamenti a settimana: $days",fontWeight=FontWeight.SemiBold)
