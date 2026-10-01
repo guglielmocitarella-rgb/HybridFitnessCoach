@@ -1032,7 +1032,10 @@ internal fun calendarStateMarker(state:PlannedWorkoutState):String=when(state){
 @Composable
 private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->Unit) {
     val today=java.time.LocalDate.now().toEpochDay()
+    var plans by remember { mutableStateOf(store.loadTrainingPlans()) }
     var plan by remember { mutableStateOf(store.loadTrainingPlan()) }
+    var showPlans by remember { mutableStateOf(false) }
+    var confirmDelete by remember { mutableStateOf<TrainingPlan?>(null) }
     val todayDate=java.time.LocalDate.ofEpochDay(today)
     var calendarYear by remember { mutableIntStateOf(todayDate.year) }
     var calendarMonth by remember { mutableIntStateOf(todayDate.monthValue) }
@@ -1044,10 +1047,14 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
     var planSaveError by remember { mutableStateOf(false) }
     fun persistCandidate(candidate:TrainingPlan):Boolean {
         if(!store.saveTrainingPlan(candidate)){ planSaveError=true; return false }
-        plan=candidate; planSaveError=false; return true
+        plan=candidate;plans=store.loadTrainingPlans(); planSaveError=false; return true
     }
     Column(Modifier.fillMaxSize()) {
-        Header("Programma","Calendario mensile")
+        Header("Piano","Calendario e programmi")
+        Row(Modifier.fillMaxWidth().padding(horizontal=16.dp),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+            OutlinedButton(onClick={showPlans=true},modifier=Modifier.weight(1f)){Text("I MIEI PIANI")}
+            Button(onClick={plan=null;editPlan=true},modifier=Modifier.weight(1f)){Text("+ NUOVO PIANO")}
+        }
         if(plan==null) {
             Card(Modifier.padding(20.dp).fillMaxWidth()) {
                 Column(Modifier.padding(20.dp)) {
@@ -1063,6 +1070,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 Text(monthState.title,fontWeight=FontWeight.Bold,fontSize=18.sp,modifier=Modifier.weight(1f),textAlign=androidx.compose.ui.text.style.TextAlign.Center)
                 IconButton(onClick={val shifted=shiftCalendarMonth(calendarYear,calendarMonth,1);calendarYear=shifted.first;calendarMonth=shifted.second}){Icon(Icons.Default.ChevronRight,"Mese successivo")}
                 TextButton(onClick={editPlan=true}){Text("MODIFICA")}
+                TextButton(onClick={confirmDelete=plan}){Text("ELIMINA")}
             }
             Row(Modifier.fillMaxWidth().padding(horizontal=12.dp)) {
                 listOf("L","M","M","G","V","S","D").forEach{label->Text(label,fontSize=11.sp,fontWeight=FontWeight.Bold,color=Color.Gray,textAlign=androidx.compose.ui.text.style.TextAlign.Center,modifier=Modifier.weight(1f))}
@@ -1130,7 +1138,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 val candidate=PlanConfiguration(goal,current.weeks,days,weekdays.toSet(),skills.toList()).validated()
                 if(plan==null){
                     val created=generateTrainingPlan("plan-"+today,today,candidate)
-                    if(persistCandidate(created))editPlan=false
+                    if(store.saveTrainingPlan(created) && store.activateTrainingPlan(created.id)){plans=store.loadTrainingPlans();plan=created;planSaveError=false;editPlan=false}else planSaveError=true
                 } else { confirmRegeneration=candidate;editPlan=false }
             }
         },enabled=weekdays.size==days){Text(if(plan==null)"CREA PIANO" else "RIVEDI MODIFICHE")}},dismissButton={TextButton(onClick={editPlan=false}){Text("ANNULLA")}})
@@ -1206,6 +1214,37 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             }
         })
     }
+    if(showPlans) {
+        AlertDialog(onDismissRequest={showPlans=false},title={Text("I miei piani")},text={
+            LazyColumn(Modifier.heightIn(max=480.dp)) {
+                if(plans.isEmpty())item{Text("Nessun piano salvato.",color=Color.Gray)}
+                items(plans){saved->
+                    Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{
+                        if(store.activateTrainingPlan(saved.id)){plan=saved;showPlans=false}
+                    }) {
+                        Column(Modifier.padding(14.dp)) {
+                            Text(saved.goal,fontWeight=FontWeight.Bold)
+                            Text(saved.weeks.toString()+" settimane • "+saved.daysPerWeek+" sessioni/settimana",fontSize=12.sp,color=Color.Gray)
+                            if(saved.id==plan?.id)Text("ATTIVO",color=Accent,fontSize=11.sp,fontWeight=FontWeight.Bold)
+                        }
+                    }
+                }
+            }
+        },confirmButton={TextButton(onClick={showPlans=false}){Text("CHIUDI")}})
+    }
+    confirmDelete?.let { doomed ->
+        AlertDialog(onDismissRequest={confirmDelete=null},title={Text("Eliminare questo piano?")},
+            text={Text("Le sessioni future di questo piano verranno eliminate. Gli allenamenti già eseguiti resteranno nello storico.")},
+            confirmButton={Button(onClick={
+                if(store.deleteTrainingPlan(doomed.id)){
+                    plans=store.loadTrainingPlans()
+                    plan=store.loadTrainingPlan()
+                    confirmDelete=null
+                } else planSaveError=true
+            }){Text("ELIMINA PIANO")}},
+            dismissButton={TextButton(onClick={confirmDelete=null}){Text("ANNULLA")}})
+    }
+
 }
 
 @Composable
