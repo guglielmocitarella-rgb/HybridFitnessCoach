@@ -90,13 +90,16 @@ class Rc2PlanningRegressionTest {
         assertEquals(original.workouts.drop(2).map { it.epochDay }, restored.workouts.drop(2).map { it.epochDay })
     }
 
-    @Test fun futureSkippedWorkoutRemainsInFutureCalendar() {
+    @Test fun calendarKeepsFutureSkippedAndPartialWorkoutsOnTheirScheduledDate() {
         val future = plan().workouts.first().copy(epochDay = 1010)
         val skipped = future.copy(state = PlannedWorkoutState.SKIPPED)
-        assertFalse(isPastCalendarWorkout(skipped, 1000))
-        assertTrue(isPastCalendarWorkout(skipped, 1011))
-        assertTrue(isPastCalendarWorkout(future.copy(state = PlannedWorkoutState.PARTIAL), 1000))
-        assertFalse(isPastCalendarWorkout(future, 1000))
+        val partial = future.copy(id = "partial", state = PlannedWorkoutState.PARTIAL)
+        val calendarPlan = plan().copy(workouts = listOf(skipped, partial))
+        val date = java.time.LocalDate.ofEpochDay(1010)
+        val month = calendarMonthState(calendarPlan, date.year, date.monthValue, 1000)
+        val day = month.days.first { it.epochDay == 1010L }
+        assertEquals(listOf(skipped, partial), day.workouts)
+        assertEquals(setOf(PlannedWorkoutState.SKIPPED, PlannedWorkoutState.PARTIAL), day.states)
     }
 
     @Test fun calendarLaunchNeverReplacesAnActiveWorkout() {
