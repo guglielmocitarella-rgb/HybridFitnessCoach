@@ -943,7 +943,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     var treeSkill by remember { mutableStateOf<String?>(null) }
     var treePicker by remember { mutableStateOf(false) }
     var customSkill by remember { mutableStateOf("Nessuna") }
-    var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
+    var enabledPlans by remember { mutableStateOf(store.loadEnabledTrainingPlans()) }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
@@ -955,7 +955,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item {
-            val planLabel=trainingPlan?.let{it.goal+" • "+it.daysPerWeek+" giorni/settimana"} ?: "Nessun programma attivo"
+            val planLabel=if(enabledPlans.isEmpty())"Nessun programma attivo" else enabledPlans.size.toString()+" piani attivi • "+enabledPlans.sumOf{it.daysPerWeek}+" sessioni/settimana"
             Header(if (athlete.name.isBlank()) "Buongiorno 👋" else "Ciao, " + athlete.name + " 👋", planLabel)
         }
         item {
@@ -969,29 +969,41 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Oggi", fontWeight = FontWeight.SemiBold)
                     val today=java.time.LocalDate.now().toEpochDay()
-                    val homePlanState=deriveHomePlanState(trainingPlan,today)
-                    val todayPlan=homePlanState.todayWorkout
-                    val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore)}
-                    val extra=if(todayPlan==null)generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore) else emptyList()
-                    if(todayPlan!=null) {
-                        Text("Allenamento del piano", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
-                        Text((realizedTodayPlan?.exercises?.size ?: 0).toString()+" esercizi • "+calendarDate(todayPlan.epochDay), color = Color.Gray)
-                        Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen=true }, enabled=realizedTodayPlan?.exercises?.isNotEmpty()==true, modifier=Modifier.fillMaxWidth().padding(top=18.dp), shape=RoundedCornerShape(14.dp)){Text("INIZIA")}
+                    val todaySessions=enabledPlans.flatMap{plan->plan.workouts.filter{w->w.epochDay==today && w.state !in setOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED)}.map{w->plan to w}}
+                        .sortedWith(compareBy<Pair<TrainingPlan,PlannedWorkout>>{it.first.goal}.thenBy{it.second.sequenceInWeek})
+                    val nextSession=enabledPlans.flatMap{plan->plan.workouts.filter{w->w.epochDay>today && w.state==PlannedWorkoutState.PLANNED}.map{w->plan to w}}
+                        .minByOrNull{it.second.epochDay}
+                    val combinedSkills=enabledPlans.flatMap{it.prioritySkills}.distinct()
+                    val combinedGoal=enabledPlans.joinToString(" + "){it.goal}.ifBlank{athlete.goal}
+                    val extraAthlete=athlete.copy(goal=combinedGoal,prioritySkills=combinedSkills)
+                    val extra=if(todaySessions.isEmpty())generateWorkout(profile,extraAthlete,sessions,readinessScore) else emptyList()
+                    if(todaySessions.isNotEmpty()) {
+                        Text(if(todaySessions.size==1)"Allenamento del piano" else todaySessions.size.toString()+" allenamenti dei piani", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+                        todaySessions.forEach { (owner,scheduled) ->
+                            val realized=materializePlannedSession(scheduled,profile,athlete,sessions,readinessScore)
+                            Card(Modifier.fillMaxWidth().padding(top=10.dp)) {
+                                Column(Modifier.padding(12.dp)) {
+                                    Text(owner.goal,fontWeight=FontWeight.Bold)
+                                    Text(realized.exercises.size.toString()+" esercizi • sessione "+(scheduled.sequenceInWeek+1),color=Color.Gray,fontSize=12.sp)
+                                    Button(onClick={plannedWorkoutToRun=scheduled;workoutOpen=true},enabled=realized.exercises.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(top=8.dp)){Text("INIZIA")}
+                                }
+                            }
+                        }
                     } else {
                         Text("Nessuna sessione programmata", fontSize = 22.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
-                        homePlanState.nextWorkout?.let { Text("Prossimo allenamento: "+calendarDate(it.epochDay),color=Color.Gray) }
-                        Text("Puoi recuperare oppure aggiungere una sessione extra adattata al tuo stato e al programma.",fontSize=13.sp,color=Color.Gray,modifier=Modifier.padding(top=8.dp))
+                        nextSession?.let { (owner,w) -> Text("Prossimo: "+owner.goal+" • "+calendarDate(w.epochDay),color=Color.Gray) }
+                        Text("Puoi recuperare oppure aggiungere una sessione extra adattata al carico complessivo dei piani attivi.",fontSize=13.sp,color=Color.Gray,modifier=Modifier.padding(top=8.dp))
                         Button(onClick={plannedWorkoutToRun=null;workoutOpen=true},enabled=extra.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(top=18.dp),shape=RoundedCornerShape(14.dp)){Text("ALLENAMENTO EXTRA")}
                     }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
-                    TextButton(onClick=managePlan,modifier=Modifier.fillMaxWidth()){Text(if(trainingPlan==null)"CREA PIANO" else "VEDI PIANO")}
+                    TextButton(onClick=managePlan,modifier=Modifier.fillMaxWidth()){Text(if(enabledPlans.isEmpty())"CREA PIANO" else "VEDI PIANI")}
                 }
             }
         }
         item { Box(Modifier.padding(horizontal=20.dp)) { ReadinessOverview(readinessScore,sessions) } }
-        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore,trainingPlan,java.time.LocalDate.now().toEpochDay())) } }
+        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore,null,java.time.LocalDate.now().toEpochDay())) } }
         item { SectionTitle("Il tuo Skill Tree") }
-        items(trainingPlan?.prioritySkills.orEmpty().ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
+        items(enabledPlans.flatMap{it.prioritySkills}.distinct().ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
             val states=SkillCatalog.progress(skill,sessions)
             val percent=ProgressionEngine.skillProgress(states)
             val current=states.firstOrNull{it.status==ProgressionStatus.IN_PROGRESS || it.status==ProgressionStatus.AVAILABLE}
@@ -1011,7 +1023,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     }
     if(treePicker) AlertDialog(onDismissRequest={treePicker=false},title={Text("Skill Tree")},text={LazyColumn{items(calisthenicsSkills){skill->TextButton(onClick={treeSkill=skill.name;treePicker=false}){Text(skill.name)}}}},confirmButton={TextButton(onClick={treePicker=false}){Text("CHIUDI")}})
     treeSkill?.let{skill->SkillDetailDialog(skill,athlete,{treeSkill=null},{customSkill=skill;treeSkill=null;customWorkoutOpen=true},sessions)}
-    if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, plannedWorkout=plannedWorkoutToRun ?: restoredWorkout?.plannedWorkoutId?.let{id->trainingPlan?.workouts?.firstOrNull{it.id==id}}, onDismiss = { workoutOpen = false;plannedWorkoutToRun=null }, onSave = {record->val saved=onSessionSaved(record);if(saved)trainingPlan=store.loadTrainingPlan();saved}) }
+    if (workoutOpen && restoredWorkout?.runnerKind!="custom") { WorkoutDialog(profile = profile, athlete = athlete, sessions = sessions, store = store, restored = restoredWorkout, plannedWorkout=plannedWorkoutToRun ?: restoredWorkout?.plannedWorkoutId?.let{id->enabledPlans.asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{w->w.id==id}}, onDismiss = { workoutOpen = false;plannedWorkoutToRun=null }, onSave = {record->val saved=onSessionSaved(record);if(saved)enabledPlans=store.loadEnabledTrainingPlans();saved}) }
     if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, initialSkill=customSkill, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
 }
 
