@@ -35,24 +35,27 @@ Sul candidato corrente il piano multisettimanale persiste intenti di sessione in
 - Piano multi-settimana intent-only, modificabile e materializzato rispetto al luogo al momento dell'esecuzione
 - Exercise DB v2 con provenienza/evidence tier e validazione deterministica
 
-### V0.8 Evoluta — implementata
+### Architettura consolidata
 
-La V0.8 Evoluta include:
+Le fondamenta delle release precedenti restano attive: runner multimodale, stato sessione strutturato, timer persistenti, storico reale, Recovery/Readiness, Health Connect opzionale, skill/progressioni e generazione adattiva. La v0.9.4 non riapre queste aree salvo regressioni dimostrate.
 
-- modello esercizio universale: reps, secondi, durata, distanza e intervalli;
-- supporto strutturale per corpo libero, sovraccarico e assistenza;
-- esercizi bilaterali, unilaterali e alternati;
-- metadati per pattern motorio, categoria, intensità, fatica sistemica e complessità tecnica;
-- Workout Runner multimodale data-driven per reps, secondi/isometrie, durata, distanza e intervalli, con lateralità, carico e assistenza;
-- sessione attiva persistente e recuperabile sia per workout automatici sia personalizzati;
-- timer robusti basati su timestamp reali;
-- storico strutturato e interrogabile;
-- architettura offline-first;
-- predisposizione Health Connect;
-- esercizi pinned/locked per futura rigenerazione parziale;
-- test JVM per state machine, prescrizioni multimodali, timer/deadline, sessioni parziali, storico eseguito, Recovery, generatore, Front Lever e boundary Health readiness.
+Il flusso corrente è:
 
-Il modello dati è già predisposto con un collegamento opaco alle future progressioni, evitando una nuova migrazione strutturale quando verrà introdotta la V0.9.
+```
+Capability Profile + TrainingLocation + Recovery/Readiness + History
+                              ↓
+                    Plan intent / Adaptive Coach
+                              ↓
+             Execution-time workout materialization
+                              ↓
+                         Workout Runner
+                              ↓
+                  Structured execution evidence
+                              ↓
+                    History / Recovery / Coach
+```
+
+Il piano futuro non è un archivio di esercizi precongelati: conserva l'intento. Gli esercizi concreti appartengono alla materializzazione della sessione e all'evidenza di esecuzione.
 
 ## Roadmap attiva
 
