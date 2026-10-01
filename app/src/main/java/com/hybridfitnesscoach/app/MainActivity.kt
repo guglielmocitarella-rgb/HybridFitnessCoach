@@ -835,7 +835,7 @@ fun HybridFitnessApp() {
                         items(locations,key={it.id}){place->
                             TextButton(onClick={
                                 val selected=selectWorkoutLocation(flow,place.id)
-                                val workout=materializeSingleExerciseWorkout(
+                                val workout=singleExerciseWorkoutState(
                                     exercise=source,profileName=place.name,athlete=athlete,sessions=sessions,
                                     readinessScore=health.readiness,trainingLocationId=place.id
                                 )

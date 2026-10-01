@@ -470,14 +470,14 @@ internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetSta
 }
 
 
-internal fun materializeSingleExerciseWorkout(
+internal fun singleExerciseWorkoutState(
     exercise:Exercise,
     profileName:String,
     startedAtEpochMs:Long=System.currentTimeMillis(),
     athlete:AthleteProfile?=null,
     sessions:List<SessionRecord> = emptyList(),
     readinessScore:Int?=null,
-    trainingLocationId:String
+    trainingLocationId:String?=null
 ):WorkoutSessionState {
     val effective=athlete?.let{exerciseWithEffectivePrescription(exercise,it,sessions,readinessScore)} ?: exercise
     val prescription=prescriptionFor(effective)
