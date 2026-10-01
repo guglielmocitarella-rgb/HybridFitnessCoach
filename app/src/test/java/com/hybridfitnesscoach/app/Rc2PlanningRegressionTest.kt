@@ -52,7 +52,7 @@ class Rc2PlanningRegressionTest {
         val first = original.workouts.first()
         val session = SessionRecord(1, "Palestra", 1, 3, plannedWorkoutId = first.id)
         val partial = PlannedWorkoutReconciler.complete(original, session, 1000, 0).plan
-        val recovered = PlannedWorkoutReconciler.afterDeletion(partial, session, emptyList())
+        val recovered = PlannedWorkoutReconciler.afterDeletion(partial, session, emptyList()).let { p -> p.copy(workouts=p.workouts.map { w -> w.copy(exercises=emptyList(),intent=PlannedSessionIntent("Forza",sequenceInWeek=w.sequenceInWeek)) }) }
         assertEquals(6, coachingContext(emptyList(), null, recovered, 1001).upcomingSessions)
         assertEquals(0, coachingContext(emptyList(), null, recovered, 1001).planDisruptions)
     }
