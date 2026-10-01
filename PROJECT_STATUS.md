@@ -50,9 +50,7 @@ Still pending:
 
 P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `b12f665fd2309170d067614055c6f71429c1e643`; Android APK #867 is **SUCCESS** on this exact SHA (unit tests, Android lint, PR debug APK build/upload). Single-exercise, plan and adaptive-extra starts use the same `WorkoutLaunchFlow`: choose a compatible location (last used location is preselected), materialize with readiness/history/equipment context, review prescriptions, then enter the existing `WorkoutDialog` Runner. Session location and `plannedWorkoutId` ownership are carried into active-workout persistence and history. Release signing was skipped in this workflow.
 
-Custom and skill workout generation still need migration onto this same flow; no additional Runner was introduced. The new launch gate is a screen. Its physical interaction, back-navigation and visual behavior remain **DEVICE_PENDING**.
-
-**Next engineering step:** migrate custom/skill generation to `WorkoutLaunchFlow` only when they can hand a materialized state to the same Runner without duplicating execution or persistence.
+Custom, skill and library-filter origins now choose a compatible location, generate and preview through the same `WorkoutLaunchFlow`, then use the existing Runner and persistence. Active custom sessions restore in that Runner from their saved exercise snapshots. The exact post-migration commit is **IMPLEMENTED_NOT_CI_VERIFIED** pending Android APK CI. Physical interaction and visual behavior remain **DEVICE_PENDING**.
 
 ## Active roadmap
 

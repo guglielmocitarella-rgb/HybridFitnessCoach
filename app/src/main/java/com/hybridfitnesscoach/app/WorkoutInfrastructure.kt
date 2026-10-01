@@ -363,13 +363,23 @@ internal enum class WorkoutLaunchStage { CHOOSE_LOCATION, MATERIALIZE, PREVIEW, 
 internal data class WorkoutLaunchIntent(
     val origin:WorkoutOrigin,
     val sourceExerciseId:String?=null,
-    val plannedWorkoutId:String?=null
+    val plannedWorkoutId:String?=null,
+    val focusSkill:String?=null,
+    val equipmentFilters:List<String> = emptyList(),
+    val groupFilters:List<String> = emptyList(),
+    val lockFilters:Boolean=false
 ) {
     init {
         require(sourceExerciseId==null || sourceExerciseId.isNotBlank())
         require(plannedWorkoutId==null || (origin==WorkoutOrigin.PLAN && plannedWorkoutId.isNotBlank()))
         require(origin!=WorkoutOrigin.PLAN || plannedWorkoutId!=null)
         require(origin!=WorkoutOrigin.SINGLE_EXERCISE || sourceExerciseId!=null)
+        require(focusSkill==null || focusSkill.isNotBlank())
+        require(focusSkill==null || origin in setOf(WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY))
+        require((equipmentFilters.isEmpty() && groupFilters.isEmpty() && !lockFilters) || origin==WorkoutOrigin.LIBRARY)
+        require(!lockFilters || origin==WorkoutOrigin.LIBRARY)
+        require(origin in setOf(WorkoutOrigin.CUSTOM,WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY) ||
+            (focusSkill==null && equipmentFilters.isEmpty() && groupFilters.isEmpty() && !lockFilters))
     }
 }
 
@@ -396,6 +406,23 @@ internal fun materializeWorkoutLaunch(flow:WorkoutLaunchFlow,workout:WorkoutSess
     require(workout.trainingLocationId==flow.locationId) { "Workout must be materialized for the selected location" }
     require(workout.plannedWorkoutId==flow.intent.plannedWorkoutId) { "Planned workout ownership must be preserved" }
     return flow.copy(stage=WorkoutLaunchStage.PREVIEW,workout=workout)
+}
+
+
+internal fun generatedWorkoutSessionState(
+    intent:WorkoutLaunchIntent,locationId:String,exercises:List<Exercise>,startedAtEpochMs:Long,
+    pinnedExerciseNames:Set<String> = emptySet(),setRestOverridesSec:Map<String,Int> = emptyMap()
+):WorkoutSessionState {
+    require(intent.origin in setOf(WorkoutOrigin.CUSTOM,WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY))
+    require(locationId.isNotBlank() && exercises.isNotEmpty())
+    require(setRestOverridesSec.values.all{it>0})
+    val suffix=intent.focusSkill?.let{" • $it"}.orEmpty()
+    val states=exercises.mapIndexed{index,ex->
+        val effective=setRestOverridesSec[ex.name]?.let{ex.copy(setRestSec=it)}?:ex
+        plannedExerciseState(index,effective).copy(rpe=5,pinned=ex.name in pinnedExerciseNames)
+    }
+    return WorkoutSessionState("custom-"+startedAtEpochMs,startedAtEpochMs,"Personalizzato$suffix",
+        states,runnerKind="custom",trainingLocationId=locationId)
 }
 
 internal fun startWorkoutRunner(flow:WorkoutLaunchFlow):WorkoutLaunchFlow {

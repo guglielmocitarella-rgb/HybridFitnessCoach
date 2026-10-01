@@ -105,6 +105,8 @@ class WorkoutLaunchFlowTest {
     private fun intent(origin:WorkoutOrigin):WorkoutLaunchIntent = when(origin) {
         WorkoutOrigin.PLAN -> WorkoutLaunchIntent(origin,plannedWorkoutId="planned-42")
         WorkoutOrigin.SINGLE_EXERCISE -> WorkoutLaunchIntent(origin,sourceExerciseId="bench-press")
+        WorkoutOrigin.SKILL -> WorkoutLaunchIntent(origin,focusSkill="Handstand")
+        WorkoutOrigin.LIBRARY -> WorkoutLaunchIntent(origin,focusSkill="Handstand",groupFilters=listOf("Core"),lockFilters=true)
         else -> WorkoutLaunchIntent(origin)
     }
 
@@ -137,6 +139,33 @@ class WorkoutLaunchFlowTest {
         )
         assertEquals(request.plannedWorkoutId,preview.workout?.plannedWorkoutId)
         assertEquals(request.plannedWorkoutId,startWorkoutRunner(preview).workout?.plannedWorkoutId)
+    }
+
+
+    @Test fun generatedCustomSkillAndLibraryWorkoutsSharePrescribedRunnerState() {
+        val ex=Exercise("Tuck front lever","Dorso / Core","Sbarra","Principiante",skills=listOf("Front lever"),
+            measure=ExerciseMeasure.SECONDS,targetSets=3,targetValue=12.0,setRestSec=90,progressionKey="front_tuck")
+        listOf(intent(WorkoutOrigin.CUSTOM),intent(WorkoutOrigin.SKILL),intent(WorkoutOrigin.LIBRARY)).forEach{request->
+            val selected=selectWorkoutLocation(beginWorkoutLaunch(request),"home")
+            val materialized=generatedWorkoutSessionState(request,"home",listOf(ex),500L,setOf(ex.name),mapOf(ex.name to 75))
+            val preview=materializeWorkoutLaunch(selected,materialized)
+            assertEquals(WorkoutLaunchStage.PREVIEW,preview.stage)
+            assertEquals("home",preview.workout?.trainingLocationId)
+            assertEquals("custom",preview.workout?.runnerKind)
+            val state=preview.workout!!.exercises.single()
+            assertEquals(3,state.sets.size);assertEquals(12,state.sets.first().targetSeconds)
+            assertEquals(75,state.setRestSec);assertEquals(5,state.rpe);assertTrue(state.pinned)
+            assertEquals("front_tuck",state.exerciseId)
+            assertEquals(WorkoutLaunchStage.RUNNER,startWorkoutRunner(preview).stage)
+        }
+    }
+
+    @Test fun generatedSkillHistoryLabelRetainsFocusAndLocation() {
+        val intent=WorkoutLaunchIntent(WorkoutOrigin.SKILL,focusSkill="Handstand")
+        val state=generatedWorkoutSessionState(intent,"outdoor",
+            listOf(Exercise("Wall handstand","Core","Corpo libero","Principiante",measure=ExerciseMeasure.SECONDS,targetValue=20.0)),700L)
+        assertEquals("Personalizzato • Handstand",state.profileName)
+        assertEquals("outdoor",state.trainingLocationId);assertNull(state.plannedWorkoutId)
     }
 
     @Test fun launchRejectsMaterializationForAtADifferentLocation() {
