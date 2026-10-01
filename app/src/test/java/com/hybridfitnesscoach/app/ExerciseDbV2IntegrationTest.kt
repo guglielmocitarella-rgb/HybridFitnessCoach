@@ -39,6 +39,15 @@ class ExerciseDbV2IntegrationTest {
         }
     }
 
+    @Test fun v2MappingKeepsProgrammingAsAppRuleBaseline() {
+        val record=records().first { it.id=="ex-deadlift" }
+        val mapped=ExerciseDbV2.toLegacyExercise(record)
+        assertTrue(record.executionEvidence in setOf("SPECIFIC_SOURCE","FAMILY_GUIDANCE"))
+        assertTrue(mapped.targetSets>0)
+        assertTrue(mapped.setRestSec>0)
+        assertTrue(mapped.exerciseRestSec>0)
+    }
+
     @Test fun canonicalRecordsMapToExecutableAppExercises() {
         val mapped=records().map{ExerciseDbV2.toLegacyExercise(it)}
         assertEquals(587,mapped.size)

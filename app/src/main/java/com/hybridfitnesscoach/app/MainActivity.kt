@@ -608,6 +608,8 @@ internal fun installExerciseDbV2(records:List<ExerciseV2Record>) {
 
 internal data class ExercisePrescription(val sets:Int,val value:Double,val unit:String)
 internal fun prescriptionFor(ex:Exercise):ExercisePrescription {
+    // APP_RULE baseline required by the workout runner; source programming examples
+    // are intentionally not treated as universal exercise prescriptions.
     val defaultValue = when(ex.measure) {
         ExerciseMeasure.REPS -> when(ex.role){"Forza"->6.0;"Progressione"->5.0;else->10.0}
         ExerciseMeasure.SECONDS, ExerciseMeasure.DURATION -> when(ex.level){"Principiante"->20.0;"Intermedio"->30.0;else->40.0}

@@ -147,6 +147,8 @@ internal object ExerciseDbV2 {
         uniqueLookup(records)[name.trim().lowercase()]
 
     fun toLegacyExercise(record:ExerciseV2Record,legacy:Exercise?=null):Exercise {
+        // DB v2 owns identity, execution evidence and equipment. Sets/reps/rest below
+        // are operational APP_RULE baselines adapted later by the coaching layer.
         val measure=runCatching{ExerciseMeasure.valueOf(record.measure)}.getOrDefault(legacy?.measure?:ExerciseMeasure.REPS)
         val family=record.family.uppercase()
         val category=when {
