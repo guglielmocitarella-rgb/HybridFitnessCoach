@@ -95,7 +95,7 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 
 ## Verified implementation checkpoints — 2026-10-01
 
-Latest immutable green rollback checkpoint: `1ec072b36e2cde04bf16a7d8a190a28c6c276f44` (`checkpoint/v0.9.4-f10-green`).
+Latest immutable green rollback checkpoint: `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07` (`checkpoint/v0.9.4-f01-f11-green`).
 
 CI evidence at that checkpoint:
 - Exercise DB v2 #284 — SUCCESS.
@@ -107,17 +107,17 @@ Repository-level verified progress at/before the checkpoint:
 - **F03/F04 — VERIFIED foundation/repository-level:** `TrainingLocation` is canonical; obsolete `EquipmentProfile` and localized matching debt removed.
 - **F06 — VERIFIED repository-level:** coarse athlete level removed; multidimensional capability drives eligibility/prescription.
 
-Current verified HEAD: `1ec072b36e2cde04bf16a7d8a190a28c6c276f44` (`checkpoint/v0.9.4-f10-green`).
+Current verified runtime HEAD: `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07` (`checkpoint/v0.9.4-f01-f11-green`).
 - **F05 — VERIFIED repository-level:** schema 5 plan persistence is intent-only and execution-time materialization is location-aware.
 - **F07 — VERIFIED domain/persistence:** future regeneration preserves completed/partial/past evidence; explicit confirmation/device UX remains pending.
 - **F08 — VERIFIED repository-level:** deterministic no-plan/active-plan/disruption/completed/readiness behavior is covered with intent-only fixtures.
-- Exercise DB v2 #291 — SUCCESS.
-- Android APK #844 — SUCCESS.
+- Exercise DB v2 #292 — SUCCESS.
+- Android APK #845 — SUCCESS (PR debug APK; signed-release steps skipped by PR-event policy).
 - PR #11 was open and mergeable at verification time.
 - **F09 — VERIFIED repository-level:** monthly calendar presentation/action policy is covered on `801f4a827…`; device interaction acceptance remains.
 - **F10 — VERIFIED repository-level:** Home plan presentation and deterministic today/next selection are covered on `1ec072b36…`; device presentation acceptance remains.
-- **F11 — IMPLEMENTED_NOT_CI_VERIFIED:** reset boundary exists; strengthened empty/regeneration/pinned-position regression evidence is the current candidate.
-- **Next:** global F01–F11 pre-CI audit before the final candidate push.
+- **F11 — VERIFIED repository-level:** reset boundary plus empty/regeneration/pinned-position regression evidence passed Android APK #845 on the final runtime SHA.
+- **Next:** produce and signature-verify the v0.9.4 signed release APK from exact runtime SHA `cfacd7e3…`, then run targeted physical-device acceptance for all `DEVICE_PENDING` clauses.
 
 These statuses do not mark v0.9.4 complete. Remaining acceptance clauses and F01–F11 device/UI requirements continue to apply.
 

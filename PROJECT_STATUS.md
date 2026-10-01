@@ -19,11 +19,11 @@ Immutable rollback checkpoint:
 
 ## Current development candidate
 
-Current verified branch HEAD after F10 closure:
-- SHA `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`
-- Immutable rollback: `checkpoint/v0.9.4-f10-green`.
-- Exercise DB v2 #291 — **SUCCESS**.
-- Android APK #844 — **SUCCESS**.
+Current verified runtime HEAD after F01–F11 closure:
+- SHA `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`
+- Immutable rollback: `checkpoint/v0.9.4-f01-f11-green`.
+- Exercise DB v2 #292 — **SUCCESS**.
+- Android APK #845 — **SUCCESS** (debug artifact; signed-release steps skipped on PR event).
 - PR #11 — open and mergeable at verification time.
 - Plan persistence schema: **v5 intent-only** for planned sessions.
 - Future `PlannedWorkout` persistence no longer stores concrete exercise snapshots/names.
@@ -47,11 +47,11 @@ Current verified branch HEAD after F10 closure:
 | F08 Adaptive Coach with/without plan | VERIFIED repository-level on `f96d426…` | Device presentation/behavior acceptance |
 | F09 Monthly calendar | VERIFIED repository-level on `801f4a827…` | Physical-device interaction acceptance |
 | F10 Home plan presentation/iconography | VERIFIED repository-level on `1ec072b36…` | Physical-device presentation acceptance |
-| F11 Preview reset | IMPLEMENTED_NOT_CI_VERIFIED | Strengthened reset/pinned regression + final pre-CI + device acceptance |
+| F11 Preview reset | VERIFIED repository-level on `cfacd7e3…` | Physical-device scrolling/reset acceptance |
 
 ## Next work
 
-F09 and F10 exact-SHA gates are green; `checkpoint/v0.9.4-f10-green` is the current immutable rollback. F11 production reset behavior is already present through `previewGeneration`, `LaunchedEffect(previewGeneration)` and `previewNavigationAfterGeneration`; strengthened regression coverage is being completed before the global F01–F11 pre-CI audit. Then proceed final exact-SHA CI → signed APK → physical-device acceptance.
+F01–F11 automated repository gates are green on exact runtime SHA `cfacd7e3…`; `checkpoint/v0.9.4-f01-f11-green` is the immutable rollback. Exercise DB v2 #292 and Android APK #845 succeeded. The PR workflow produced a debug APK only; signed-release steps were skipped by event policy. Next: signed release APK from the exact runtime SHA, then targeted physical-device acceptance.
 
 ## Status terminology
 

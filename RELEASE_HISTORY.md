@@ -9,7 +9,7 @@ This file is the compact release ledger. GitHub commits and workflow runs remain
 | v0.9.1 | Historical / closed | repository history / PR #8 audit trail | historical RC2 CI | Multi-week plan, recovery, exercise detail/progression and persistence work. |
 | v0.9.2 | Frozen | `release/v0.9.2` at `9c6229485ee622f3e0d825bc20c5adf58fb39d92` | green checkpoint recorded in release history | Closed predecessor baseline. |
 | v0.9.3 | Frozen | `release/v0.9.3`; validated production-code checkpoint `365c07f643065df9dd68310362edd3ad3ed3236f` | Exercise DB v2 #250: success; Android APK #802: success | Repository acceptance complete. Interaction/device acceptance transfers to v0.9.4. |
-| v0.9.4 | Active | verified HEAD `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`; checkpoint `checkpoint/v0.9.4-f10-green` | Exercise DB v2 #291 success; Android APK #844 success; PR #11 mergeable at verification time. | F01–F10 repository-level verified in their current scopes; F11 reset behavior implemented, strengthened regression/pre-CI pending. |
+| v0.9.4 | Active | runtime SHA `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`; checkpoint `checkpoint/v0.9.4-f01-f11-green` | Exercise DB v2 #292 success; Android APK #845 success; PR #11 mergeable at verification time. | F01–F11 repository-level verified; signed release APK and physical-device acceptance pending. |
 
 ## Release discipline
 
@@ -55,3 +55,12 @@ The active line is `feature/v0.9.4`. The historical `feature/v0.9.1-training-pla
 - F09 centralizes calendar action policy and covers all planned-workout states, including dormant ADAPTED presentation.
 - F10 centralizes Home plan presentation and aligns deterministic same-day workout selection across Home and the legacy resolver.
 - Next: close F11 regression evidence, then run the global F01–F11 pre-CI audit.
+
+## v0.9.4 F01–F11 final repository checkpoint — 2026-10-01
+
+- Runtime SHA: `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`.
+- Immutable rollback: `checkpoint/v0.9.4-f01-f11-green`.
+- Exercise DB v2 #292: success.
+- Android APK #845: success; PR debug APK uploaded. Signed-release restore/build/signature/upload steps were skipped because the run was triggered by `pull_request`.
+- F11 strengthened empty/regeneration/pinned-position regression evidence is green on the final runtime SHA.
+- Release remains open until a signed v0.9.4 APK is produced and signature-verified from the exact runtime SHA, followed by targeted physical-device acceptance of all DEVICE_PENDING clauses.

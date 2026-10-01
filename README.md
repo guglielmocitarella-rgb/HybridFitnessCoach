@@ -10,9 +10,9 @@ La v0.9.3 resta congelata su `release/v0.9.3`. Lo sviluppo corrente è esclusiva
 
 ### Baseline verde e candidato corrente
 
-Il rollback sicuro corrente è `checkpoint/v0.9.4-f10-green` a `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`, verificato da Exercise DB v2 #291 e Android APK #844.
+Il rollback sicuro corrente è `checkpoint/v0.9.4-f01-f11-green` a `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`, verificato da Exercise DB v2 #292 e Android APK #845.
 
-Il branch di sviluppo ha come ultimo baseline CI verificato `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`, congelato come `checkpoint/v0.9.4-f10-green`. Sullo SHA exact-CI Exercise DB v2 #291 e Android APK #844 sono entrambi verdi. F09 e F10 sono repository-level verificati; F11 è implementato ed è in chiusura con regression evidence rafforzata prima del pre-CI globale.
+Il runtime v0.9.4 ha come baseline finale CI verificato `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`, congelato come `checkpoint/v0.9.4-f01-f11-green`. Exercise DB v2 #292 e Android APK #845 sono verdi; F01–F11 sono repository-level verificati nei rispettivi scope. Il workflow PR ha prodotto solo il debug APK: restano signed release APK e device acceptance.
 
 Sul candidato corrente il piano multisettimanale persiste intenti di sessione indipendenti dal luogo (schema piano v5); gli esercizi concreti vengono materializzati all'avvio in base a luogo, capability, storico e readiness. Gli snapshot concreti restano nel runner/storico come evidenza di ciò che è stato realmente prescritto/eseguito. Le migrazioni legacy del piano sono fuori scope per policy.
 
@@ -61,7 +61,7 @@ Il piano futuro non è un archivio di esercizi precongelati: conserva l'intento.
 
 **v0.9.3** — congelata; baseline storica.
 
-**v0.9.4** — sviluppo e acceptance attivi. F01–F10 sono repository-level verificati nei rispettivi scope (restano le acceptance fisiche esplicitamente indicate). F11 ha già il reset di preview implementato ed è in chiusura con regression test rafforzati; seguiranno audit globale F01–F11, CI finale, APK firmato e device acceptance.
+**v0.9.4** — repository implementation F01–F11 completata sul runtime SHA `cfacd7e3…`; restano signed release APK e physical-device acceptance delle clausole `DEVICE_PENDING`.
 
 ## Stack
 
