@@ -86,4 +86,35 @@ class F10F11RegressionTest {
         assertEquals("earlier",todayPlannedWorkout(plan,today)?.id)
     }
 
+
+    @Test fun emptyGeneratedPreviewHasNoSelectionAndNoScrollTarget() {
+        val navigation=previewNavigationAfterGeneration(emptyList())
+        assertNull(navigation.exerciseName)
+        assertEquals(-1,navigation.scrollIndex)
+    }
+
+    @Test fun everyRegeneratedPreviewDerivesNavigationOnlyFromNewGeneration() {
+        val oldFirst=Exercise("Old first","Push","Corpo libero","Principiante")
+        val oldLast=Exercise("Old last","Pull","Corpo libero","Principiante")
+        assertEquals("Old first",previewNavigationAfterGeneration(listOf(oldFirst,oldLast)).exerciseName)
+
+        val newFirst=Exercise("New first","Core","Corpo libero","Principiante")
+        val newLast=Exercise("New last","Gambe","Corpo libero","Principiante")
+        val navigation=previewNavigationAfterGeneration(listOf(newFirst,newLast))
+        assertEquals("New first",navigation.exerciseName)
+        assertEquals(0,navigation.scrollIndex)
+    }
+
+    @Test fun pinnedExerciseKeepsItsOriginalPositionButPreviewStillStartsAtIndexZero() {
+        val first=Exercise("First","Push","Corpo libero","Principiante")
+        val pinned=Exercise("Pinned middle","Core","Corpo libero","Principiante")
+        val oldLast=Exercise("Old last","Pull","Corpo libero","Principiante")
+        val replacement=Exercise("Replacement","Pull","Corpo libero","Principiante")
+        val regenerated=regenerateUnpinned(listOf(first,pinned,oldLast),listOf(replacement),setOf("Pinned middle"))
+        assertSame(pinned,regenerated[1])
+        val navigation=previewNavigationAfterGeneration(regenerated)
+        assertEquals(regenerated.first().name,navigation.exerciseName)
+        assertEquals(0,navigation.scrollIndex)
+    }
+
 }

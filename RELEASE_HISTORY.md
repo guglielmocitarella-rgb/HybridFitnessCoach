@@ -9,7 +9,7 @@ This file is the compact release ledger. GitHub commits and workflow runs remain
 | v0.9.1 | Historical / closed | repository history / PR #8 audit trail | historical RC2 CI | Multi-week plan, recovery, exercise detail/progression and persistence work. |
 | v0.9.2 | Frozen | `release/v0.9.2` at `9c6229485ee622f3e0d825bc20c5adf58fb39d92` | green checkpoint recorded in release history | Closed predecessor baseline. |
 | v0.9.3 | Frozen | `release/v0.9.3`; validated production-code checkpoint `365c07f643065df9dd68310362edd3ad3ed3236f` | Exercise DB v2 #250: success; Android APK #802: success | Repository acceptance complete. Interaction/device acceptance transfers to v0.9.4. |
-| v0.9.4 | Active | verified HEAD `f96d426964630c354c2aa4f08880c1caceb232be`; checkpoint `checkpoint/v0.9.4-f08-green` | Exercise DB v2 #288 success; Android APK #841 success; PR #11 mergeable at verification time. | F01–F08 repository-level verified in their current scopes; F07 device UX pending; next block F09 monthly calendar. |
+| v0.9.4 | Active | verified HEAD `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`; checkpoint `checkpoint/v0.9.4-f10-green` | Exercise DB v2 #291 success; Android APK #844 success; PR #11 mergeable at verification time. | F01–F10 repository-level verified in their current scopes; F11 reset behavior implemented, strengthened regression/pre-CI pending. |
 
 ## Release discipline
 
@@ -47,3 +47,11 @@ The active line is `feature/v0.9.4`. The historical `feature/v0.9.1-training-pla
 - Adaptive Coach regression contract now covers no-plan, clean active plan, disrupted plan, completed evidence and low-readiness precedence using intent-only planned sessions.
 - No production-code change was required for F08 closure; the existing conservative plan-aware behavior passed the exact-SHA gates after test/contract cleanup.
 - Next block: F09 monthly calendar audit.
+
+## v0.9.4 F09/F10 green verification — 2026-10-01
+
+- F09 verified SHA: `801f4a827933cecaeb5f1780e016a62735f388a5`; checkpoint `checkpoint/v0.9.4-f09-green`; Exercise DB v2 #290 and Android APK #843 successful.
+- F10 verified SHA: `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`; checkpoint `checkpoint/v0.9.4-f10-green`; Exercise DB v2 #291 and Android APK #844 successful.
+- F09 centralizes calendar action policy and covers all planned-workout states, including dormant ADAPTED presentation.
+- F10 centralizes Home plan presentation and aligns deterministic same-day workout selection across Home and the legacy resolver.
+- Next: close F11 regression evidence, then run the global F01–F11 pre-CI audit.

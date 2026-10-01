@@ -87,7 +87,7 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 **Acceptance:** presentation state is derived from plan domain state rather than duplicated mutable UI state; Compose/device acceptance checks visual hierarchy, labels and icon semantics. `DEVICE_PENDING`.
 
 ### F11 — Generated-workout preview always opens at the first exercise
-**Current:** preview can retain scroll/selection state and reopen showing the last exercise instead of the first.
+**Current:** implementation already has an explicit `previewGeneration` reset boundary. `LaunchedEffect(previewGeneration)` resets preview scroll, and `previewNavigationAfterGeneration()` derives selection from the newly generated list. Generation/regeneration set the first new exercise as current while pinned exercises are preserved. Strengthened regression evidence is pending CI.
 
 **Expected:** every newly generated/regenerated preview starts from exercise 1 while preserving only intentionally locked exercises; summary/Adaptive Coach/regeneration controls remain fixed and exercise list scrolls top-to-bottom.
 
@@ -95,7 +95,7 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 
 ## Verified implementation checkpoints — 2026-10-01
 
-Latest immutable green rollback checkpoint: `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1` (`checkpoint/v0.9.4-f01-evidence-green`).
+Latest immutable green rollback checkpoint: `1ec072b36e2cde04bf16a7d8a190a28c6c276f44` (`checkpoint/v0.9.4-f10-green`).
 
 CI evidence at that checkpoint:
 - Exercise DB v2 #284 — SUCCESS.
@@ -114,7 +114,10 @@ Current verified HEAD: `f96d426964630c354c2aa4f08880c1caceb232be` (`checkpoint/v
 - Exercise DB v2 #288 — SUCCESS.
 - Android APK #841 — SUCCESS.
 - PR #11 was open and mergeable at verification time.
-- **Next:** F09 monthly calendar audit; map contract and gaps before changing F10/F11.
+- **F09 — VERIFIED repository-level:** monthly calendar presentation/action policy is covered on `801f4a827…`; device interaction acceptance remains.
+- **F10 — VERIFIED repository-level:** Home plan presentation and deterministic today/next selection are covered on `1ec072b36…`; device presentation acceptance remains.
+- **F11 — IMPLEMENTED_NOT_CI_VERIFIED:** reset boundary exists; strengthened empty/regeneration/pinned-position regression evidence is the current candidate.
+- **Next:** global F01–F11 pre-CI audit before the final candidate push.
 
 These statuses do not mark v0.9.4 complete. Remaining acceptance clauses and F01–F11 device/UI requirements continue to apply.
 

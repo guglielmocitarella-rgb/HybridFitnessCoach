@@ -19,11 +19,11 @@ Immutable rollback checkpoint:
 
 ## Current development candidate
 
-Current verified branch HEAD after F08 closure:
-- SHA `f96d426964630c354c2aa4f08880c1caceb232be`
-- Immutable rollback: `checkpoint/v0.9.4-f08-green`.
-- Exercise DB v2 #288 — **SUCCESS**.
-- Android APK #841 — **SUCCESS**.
+Current verified branch HEAD after F10 closure:
+- SHA `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`
+- Immutable rollback: `checkpoint/v0.9.4-f10-green`.
+- Exercise DB v2 #291 — **SUCCESS**.
+- Android APK #844 — **SUCCESS**.
 - PR #11 — open and mergeable at verification time.
 - Plan persistence schema: **v5 intent-only** for planned sessions.
 - Future `PlannedWorkout` persistence no longer stores concrete exercise snapshots/names.
@@ -45,13 +45,13 @@ Current verified branch HEAD after F08 closure:
 | F06 Capability Profile | VERIFIED repository-level | Device assessment/UX acceptance |
 | F07 Editable plan / future regeneration | VERIFIED domain/persistence on `fcfcbb200…` | Explicit UI confirmation/device acceptance |
 | F08 Adaptive Coach with/without plan | VERIFIED repository-level on `f96d426…` | Device presentation/behavior acceptance |
-| F09 Monthly calendar | PARTIAL | Complete presentation/interaction acceptance |
-| F10 Home plan presentation/iconography | PARTIAL | UI cleanup + device acceptance |
-| F11 Preview reset | PARTIAL | Explicit generation reset regression + device acceptance |
+| F09 Monthly calendar | VERIFIED repository-level on `801f4a827…` | Physical-device interaction acceptance |
+| F10 Home plan presentation/iconography | VERIFIED repository-level on `1ec072b36…` | Physical-device presentation acceptance |
+| F11 Preview reset | IMPLEMENTED_NOT_CI_VERIFIED | Strengthened reset/pinned regression + final pre-CI + device acceptance |
 
 ## Next work
 
-F08 exact-SHA gates are green and `checkpoint/v0.9.4-f08-green` is frozen. Next perform an F09-only audit of the monthly calendar: date/month model, locale/Italian formatting, state semantics (planned/rescheduled/completed/partial/skipped/cancelled), selection/actions and interaction with F07 future regeneration. Do not modify F10/F11 until the F09 contract is mapped. Then proceed F10 → F11 → global F01–F11 audit → final exact-SHA CI → signed APK → physical-device acceptance.
+F09 and F10 exact-SHA gates are green; `checkpoint/v0.9.4-f10-green` is the current immutable rollback. F11 production reset behavior is already present through `previewGeneration`, `LaunchedEffect(previewGeneration)` and `previewNavigationAfterGeneration`; strengthened regression coverage is being completed before the global F01–F11 pre-CI audit. Then proceed final exact-SHA CI → signed APK → physical-device acceptance.
 
 ## Status terminology
 

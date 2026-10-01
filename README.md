@@ -10,7 +10,7 @@ La v0.9.3 resta congelata su `release/v0.9.3`. Lo sviluppo corrente è esclusiva
 
 ### Baseline verde e candidato corrente
 
-Il rollback sicuro corrente è `checkpoint/v0.9.4-f01-evidence-green` a `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1`, verificato da Exercise DB v2 #284 e Android APK #837.
+Il rollback sicuro corrente è `checkpoint/v0.9.4-f10-green` a `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`, verificato da Exercise DB v2 #291 e Android APK #844.
 
 Il branch di sviluppo è ora verificato a `f96d426964630c354c2aa4f08880c1caceb232be`, congelato anche come `checkpoint/v0.9.4-f08-green`. Sullo SHA exact-CI Exercise DB v2 #288 e Android APK #841 sono entrambi verdi. F08 è stato riallineato al piano intent-only con copertura deterministica per assenza/presenza piano, disruption, completed e readiness bassa.
 
@@ -61,7 +61,7 @@ Il piano futuro non è un archivio di esercizi precongelati: conserva l'intento.
 
 **v0.9.3** — congelata; baseline storica.
 
-**v0.9.4** — sviluppo e acceptance attivi. F01–F08 sono repository-level verificati nelle rispettive componenti (F07 conserva acceptance UX residua). Il prossimo blocco è F09 — calendario mensile — seguito da F10/F11, audit globale, CI finale, APK firmato e device acceptance.
+**v0.9.4** — sviluppo e acceptance attivi. F01–F10 sono repository-level verificati nei rispettivi scope (restano le acceptance fisiche esplicitamente indicate). F11 ha già il reset di preview implementato ed è in chiusura con regression test rafforzati; seguiranno audit globale F01–F11, CI finale, APK firmato e device acceptance.
 
 ## Stack
 
