@@ -187,40 +187,36 @@ class Rc2PlanningRegressionTest {
         assertEquals(plannedWeekExercises(listOf(ex),3),plannedWeekExercises(listOf(ex),51))
     }
 
-    @Test fun homeSuggestionIdentifiesTodayPlanWithoutPreMaterializedExercises() {
-        val original=plan()
-        val today=original.workouts.first().epochDay
-        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio")
-
-        val suggestion=resolveSuggestedWorkout(original,today){listOf(adaptiveExercise)}
-
-        assertEquals(original.workouts.first().id,suggestion.plannedWorkout?.id)
-        assertTrue(suggestion.exercises.isEmpty())
+    @Test fun homeLaunchReturnsEveryRunnableWorkoutScheduledForTodayAcrossPlans() {
+        val strength=plan()
+        val today=strength.workouts.first().epochDay
+        val calisthenics=strength.copy(
+            id="calisthenics",
+            goal="Calisthenics",
+            workouts=strength.workouts.mapIndexed{i,w->if(i==0)w.copy(id="cal-today") else w.copy(id="cal-"+i)}
+        )
+        val todaySessions=todayPlannedWorkouts(listOf(strength,calisthenics),today)
+        assertEquals(2,todaySessions.size)
+        assertEquals(setOf(strength.id,calisthenics.id),todaySessions.map{it.first.id}.toSet())
+        assertEquals(setOf(strength.workouts.first().id,"cal-today"),todaySessions.map{it.second.id}.toSet())
     }
 
-    @Test fun homeSuggestionFallsBackToAdaptiveWhenTodayPlanIsNotRunnable() {
+    @Test fun homeLaunchExcludesNonRunnableStatesWithoutHidingOtherPlans() {
         val original=plan()
         val today=original.workouts.first().epochDay
-        val adaptiveExercise=Exercise(name="Adaptive exercise", group="Schiena", equipment="Nessuna", level="Intermedio")
-        val completed=original.copy(workouts=original.workouts.mapIndexed { i,w -> if(i==0) w.copy(state=PlannedWorkoutState.COMPLETED) else w })
-
-        val suggestion=resolveSuggestedWorkout(completed,today){listOf(adaptiveExercise)}
-
-        assertNull(suggestion.plannedWorkout)
-        assertEquals(listOf("Adaptive exercise"),suggestion.exercises.map{it.name})
-    }
-
-    @Test fun homeLaunchSelectsOnlyRunnableWorkoutScheduledForToday() {
-        val original=plan()
-        val today=original.workouts.first().epochDay
-        assertEquals(original.workouts.first().id,todayPlannedWorkout(original,today)?.id)
-        val completed=original.copy(workouts=original.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.COMPLETED) else w})
-        assertNull(todayPlannedWorkout(completed,today))
-        val skipped=original.copy(workouts=original.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.SKIPPED) else w})
-        assertNull(todayPlannedWorkout(skipped,today))
-        val partial=original.copy(workouts=original.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.PARTIAL) else w})
-        assertNull(todayPlannedWorkout(partial,today))
-        assertNull(todayPlannedWorkout(original,today+1))
+        fun withState(id:String,state:PlannedWorkoutState)=original.copy(
+            id=id,goal=id,
+            workouts=original.workouts.mapIndexed{i,w->if(i==0)w.copy(id=id+"-today",state=state) else w.copy(id=id+"-"+i)}
+        )
+        val runnable=withState("run",PlannedWorkoutState.PLANNED)
+        val sessions=todayPlannedWorkouts(listOf(
+            runnable,
+            withState("done",PlannedWorkoutState.COMPLETED),
+            withState("skip",PlannedWorkoutState.SKIPPED),
+            withState("partial",PlannedWorkoutState.PARTIAL)
+        ),today)
+        assertEquals(listOf("run"),sessions.map{it.first.id})
+        assertTrue(todayPlannedWorkouts(listOf(runnable),today+1).isEmpty())
     }
 
     @Test fun aggregateCoachCountsAllEnabledPlanSessionsAndSameDayCollisions() {
