@@ -137,6 +137,14 @@ data class CalendarDayState(val epochDay:Long,val inMonth:Boolean,val isToday:Bo
 data class CalendarMonthState(val year:Int,val month:Int,val title:String,val days:List<CalendarDayState>) {
  init { require(days.size==42) }
 }
+data class CalendarWorkoutActions(val canStart:Boolean,val canSkip:Boolean,val canReschedule:Boolean,val canRestoreOriginalDate:Boolean)
+internal fun calendarWorkoutActions(workout:PlannedWorkout):CalendarWorkoutActions {
+ val historical=workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL
+ val skipped=workout.state==PlannedWorkoutState.SKIPPED
+ return CalendarWorkoutActions(!historical&&!skipped,!historical&&!skipped,!historical,!historical&&workout.epochDay!=workout.originalEpochDay)
+}
+internal val calendarLegendStates=listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED)
+
 internal fun calendarMonthState(plan:TrainingPlan,year:Int,month:Int,today:Long):CalendarMonthState {
  val first=java.time.LocalDate.of(year,month,1)
  val gridStart=first.minusDays((first.dayOfWeek.value-1).toLong())

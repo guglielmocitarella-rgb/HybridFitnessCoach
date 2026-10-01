@@ -1089,7 +1089,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 }
                 item {
                     Row(Modifier.fillMaxWidth().padding(horizontal=4.dp,vertical=8.dp),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
-                        listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED).forEach{state->
+                        calendarLegendStates.forEach{state->
                             Text(calendarStateMarker(state)+" "+calendarStateLabel(state),fontSize=8.sp,color=calendarStateColor(state),modifier=Modifier.weight(1f),maxLines=1)
                         }
                     }
@@ -1134,6 +1134,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
     }
     selected?.let { workout ->
         val historical=workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL
+        val actions=calendarWorkoutActions(workout)
         val actual=if(historical)store.loadSessions().firstOrNull{it.plannedWorkoutId==workout.id}else null
         AlertDialog(onDismissRequest={selected=null},title={Text(if(historical)"Allenamento eseguito" else "Gestisci sessione")},text={
             LazyColumn(Modifier.heightIn(max=480.dp)) {
@@ -1177,15 +1178,15 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             else TextButton(onClick={
                 val candidate=TrainingPlanEngine.reschedule(plan!!,workout.id,workout.epochDay+rescheduleOffset,minimumGapDays=0)
                 if(persistCandidate(candidate)){ selected=null;rescheduleOffset=1 }
-            }){Text("RIPROGRAMMA")}
+            },enabled=actions.canReschedule){Text("RIPROGRAMMA")}
         },dismissButton={
             if(!historical)Row {
-                TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=workout.state!=PlannedWorkoutState.SKIPPED){Text("INIZIA")}
+                TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=actions.canStart){Text("INIZIA")}
                 TextButton(onClick={
                     val candidate=TrainingPlanEngine.skip(plan!!,workout.id)
                     if(persistCandidate(candidate)) selected=null
-                }){Text("SALTA")}
-                if(workout.epochDay!=workout.originalEpochDay) TextButton(onClick={
+                },enabled=actions.canSkip){Text("SALTA")}
+                if(actions.canRestoreOriginalDate) TextButton(onClick={
                     val candidate=TrainingPlanEngine.restoreOriginalDate(plan!!,workout.id,minimumGapDays=0)
                     if(persistCandidate(candidate)){selected=null;rescheduleOffset=1}
                 }){Text("RIPRISTINA DATA ORIGINALE")}

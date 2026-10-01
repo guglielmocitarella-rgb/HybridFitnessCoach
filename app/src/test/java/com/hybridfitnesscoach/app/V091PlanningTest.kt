@@ -571,4 +571,23 @@ class V091PlanningTest {
  @Test fun calendarLabelsAndMarkersCoverEveryState(){
   PlannedWorkoutState.values().forEach{state->assertTrue(calendarStateLabel(state).isNotBlank());assertTrue(calendarStateMarker(state).isNotBlank())}
  }
+
+  @Test fun calendarLegendCoversEveryDomainStateIncludingAdapted(){
+   assertEquals(PlannedWorkoutState.values().toSet(),calendarLegendStates.toSet())
+  }
+  @Test fun calendarActionsAreExplicitForEveryWorkoutState(){
+   fun workout(state:PlannedWorkoutState,moved:Boolean=false)=PlannedWorkout("x",if(moved)101L else 100L,0,0,emptyList(),state=state,originalEpochDay=100L,intent=PlannedSessionIntent("Forza"))
+   listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED).forEach{state->
+    val a=calendarWorkoutActions(workout(state,moved=state==PlannedWorkoutState.RESCHEDULED))
+    assertTrue(a.canStart);assertTrue(a.canSkip);assertTrue(a.canReschedule)
+   }
+   val skipped=calendarWorkoutActions(workout(PlannedWorkoutState.SKIPPED))
+   assertFalse(skipped.canStart);assertFalse(skipped.canSkip);assertTrue(skipped.canReschedule)
+   listOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL).forEach{state->
+    val a=calendarWorkoutActions(workout(state,true))
+    assertFalse(a.canStart);assertFalse(a.canSkip);assertFalse(a.canReschedule);assertFalse(a.canRestoreOriginalDate)
+   }
+   assertTrue(calendarWorkoutActions(workout(PlannedWorkoutState.RESCHEDULED,true)).canRestoreOriginalDate)
+   assertFalse(calendarWorkoutActions(workout(PlannedWorkoutState.PLANNED)).canRestoreOriginalDate)
+  }
 }
