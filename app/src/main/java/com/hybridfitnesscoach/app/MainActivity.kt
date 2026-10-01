@@ -948,10 +948,9 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
                     val today=java.time.LocalDate.now().toEpochDay()
                     val homePlanState=deriveHomePlanState(trainingPlan,today)
-                    val suggestion=resolveSuggestedWorkout(trainingPlan,today){generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)}
-                    val todayPlan=homePlanState.todayWorkout ?: suggestion.plannedWorkout
+                    val todayPlan=homePlanState.todayWorkout
                     val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore)}
-                    val suggested=realizedTodayPlan?.exercises ?: suggestion.exercises
+                    val suggested=realizedTodayPlan?.exercises ?: generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)
                     Text(if(homePlanState.status==HomePlanStatus.TODAY)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
                     Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, enabled=todayPlan==null || suggested.isNotEmpty(), modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
