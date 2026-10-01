@@ -1150,7 +1150,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             if(weekdays.size==days){
                 val candidate=PlanConfiguration(goal,current.weeks,days,weekdays.toSet(),skills.toList()).validated()
                 if(plan==null){
-                    val created=generateTrainingPlan("plan-"+today,today,candidate)
+                    val created=generateTrainingPlan("plan-"+today+"-"+java.util.UUID.randomUUID(),today,candidate)
                     if(store.saveTrainingPlan(created) && store.setTrainingPlanEnabled(created.id,true)){plans=store.loadTrainingPlans();enabledPlanIds=store.loadEnabledTrainingPlanIds();plan=created;planSaveError=false;editPlan=false}else planSaveError=true
                 } else { confirmRegeneration=candidate;editPlan=false }
             }
