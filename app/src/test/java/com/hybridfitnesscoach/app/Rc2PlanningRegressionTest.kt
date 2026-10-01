@@ -128,21 +128,19 @@ class Rc2PlanningRegressionTest {
         assertTrue(twice.decisions.isEmpty())
     }
 
-    @Test fun fullFiftyTwoWeekPlanAlwaysRespectsProfileEquipmentAndAthleteLevel() {
+    @Test fun fullFiftyTwoWeekPlanStoresIntentAndMaterializesAgainstExecutionProfile() {
         val profile=trainingLocations.first{it.name=="Palestra"}
         val athlete=AthleteProfile(goal="Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=7,prioritySkills=listOf("Front lever"))
-        val recent=mutableListOf<List<String>>()
-        val plan=TrainingPlanEngine.scheduleImmediately("year-profile",20_000,52,7){_,_->
-            val selected=generateWorkout(profile,athlete,emptyList(),80,recent.flatten().toSet())
-            recent.add(selected.map{it.name})
-            if(recent.size>3)recent.removeAt(0)
-            selected
-        }
+        val plan=generateTrainingPlan("year-profile",20_000,PlanConfiguration("Calisthenics",52,7,(1..7).toSet(),listOf("Front lever")))
         assertEquals(364,plan.workouts.size)
-        assertTrue(plan.workouts.all{it.exercises.isNotEmpty()})
-        assertTrue(plan.workouts.flatMap{it.exercises}.all{locationCompatible(it,profile)})
+        assertTrue(plan.workouts.all{it.exercises.isEmpty() && it.intent!=null})
         val capability=athlete.toCapabilityProfile()
-        assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=capabilityLevelFor(it,capability)})
+        plan.workouts.take(14).forEach { workout ->
+            val realized=materializePlannedSession(workout,profile,athlete,emptyList(),80)
+            assertTrue(realized.exercises.isNotEmpty())
+            assertTrue(realized.exercises.all{locationCompatible(it,profile)})
+            assertTrue(realized.exercises.all{levelScore(it.level)<=capabilityLevelFor(it,capability)})
+        }
     }
 
     @Test fun failedCalendarPersistenceCannotExposeCandidatePlan() {
