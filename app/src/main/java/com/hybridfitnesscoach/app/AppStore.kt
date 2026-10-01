@@ -183,7 +183,7 @@ class AppStore(context: Context) {
     fun saveAthlete(p: AthleteProfile) {
         val history = string("weight_history", "") ?: ""
         write {
-            putString("athlete_name", p.name).remove("athlete_level")
+            putString("athlete_name", p.name)
                 .putInt("athlete_age", p.age).putFloat("athlete_height", p.heightCm)
                 .putFloat("athlete_weight", p.weightKg).putString("athlete_sex", p.sex)
                 .apply {
