@@ -22,6 +22,13 @@ class ExerciseDbV2IntegrationTest {
         assertTrue(db.all{it.id.isNotBlank() && it.nameIt.isNotBlank() && it.sources.isNotEmpty()})
     }
 
+    @Test fun everyCanonicalRecordCarriesF01ExecutionContract() {
+        val db=records()
+        assertTrue(db.all{it.descriptionIt.isNotBlank()})
+        assertTrue(db.all{it.setupIt.isNotBlank()})
+        assertTrue(db.all{it.executionStepsIt.isNotEmpty() && it.executionStepsIt.all(String::isNotBlank)})
+    }
+
     @Test fun canonicalRecordsMapToExecutableAppExercises() {
         val mapped=records().map{ExerciseDbV2.toLegacyExercise(it)}
         assertEquals(587,mapped.size)
