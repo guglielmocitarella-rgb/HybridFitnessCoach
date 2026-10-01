@@ -1,19 +1,12 @@
 name: Exercise DB v2
 on:
   push:
-    branches: [feature/exercise-db-v2-source-driven]
     paths:
       - 'exercise-db-v2/**'
       - 'tools/build_exercise_db.py'
       - 'tools/validate_exercise_db.py'
       - 'tests/test_exercise_db_v2.py'
       - '.github/workflows/exercise-db-v2.yml'
-  pull_request:
-    paths:
-      - 'exercise-db-v2/**'
-      - 'tools/build_exercise_db.py'
-      - 'tools/validate_exercise_db.py'
-      - 'tests/test_exercise_db_v2.py'
 jobs:
   validate:
     runs-on: ubuntu-latest
