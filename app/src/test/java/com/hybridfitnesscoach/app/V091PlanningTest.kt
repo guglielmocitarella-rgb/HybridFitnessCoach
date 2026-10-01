@@ -25,7 +25,7 @@ class V091PlanningTest {
  @Test fun customSessionCannotConsumePlannedWorkoutByExerciseOverlap(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val custom=SessionRecord(0,"Personalizzato • Core",1,1,exerciseNames=listOf("A"));assertNull(PlannedWorkoutReconciler.findCandidate(plan,custom,1000));assertEquals(plan,PlannedWorkoutReconciler.complete(plan,custom,1000,2).plan)}
  @Test fun ambiguousUnlinkedSessionDoesNotCompleteFuturePlan(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val session=SessionRecord(0,"Palestra",1,1,exerciseNames=listOf("A"));assertNull(PlannedWorkoutReconciler.findCandidate(plan,session,1002))}
  @Test fun reconcilerRecordsPartiallyExecutedWorkoutAsPartial(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val first=plan.workouts.first();val session=SessionRecord(0,"Palestra",1,3,exerciseNames=listOf("A"),plannedWorkoutId=first.id);val update=PlannedWorkoutReconciler.complete(plan,session,1000,0);assertEquals(PlannedWorkoutState.PARTIAL,update.plan.workouts.first().state);assertEquals(1000L,update.plan.workouts.first().actualExecutionEpochDay)}
- @Test fun plannedExerciseHistoryIntroducesControlledVariety(){val profile=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2);val first=generateWorkout(profile,athlete,emptyList());assertTrue(first.isNotEmpty());val second=generateWorkout(profile,athlete,emptyList(),avoidPlannedNames=first.map{it.name}.toSet());assertTrue(second.isNotEmpty());assertNotEquals(first.map{it.name},second.map{it.name});assertTrue(second.all{locationCompatible(it,profile)})}
+ @Test fun plannedExerciseHistoryIntroducesControlledVariety(){val profile=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2);val first=generateWorkout(profile,athlete,emptyList());assertTrue(first.isNotEmpty());val second=generateWorkout(profile,athlete,emptyList(),avoidPlannedNames=first.map{it.name}.toSet());assertTrue(second.isNotEmpty());assertNotEquals(first.map{it.name},second.map{it.name});assertTrue(second.all{locationCompatible(it,profile)})}
  @Test fun completedOrPartialWorkoutCannotBeRescheduled(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};for(state in listOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL)){val locked=plan.copy(workouts=plan.workouts.mapIndexed{index,w->if(index==0)w.copy(state=state,actualExecutionEpochDay=1001L)else w});assertEquals(locked,TrainingPlanEngine.reschedule(locked,locked.workouts.first().id,1010));assertEquals(locked,TrainingPlanEngine.skip(locked,locked.workouts.first().id))}}
  @Test fun deletingOnlyLinkedSessionReopensPlanEntryWithoutChangingOtherDates(){
   val ex=Exercise("A","Core","Corpo libero","Principiante")
@@ -199,7 +199,7 @@ class V091PlanningTest {
  }
 
  @Test fun planConfigurationDefaultsAreIndependentFromAthleteProfile(){
-  val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=6,prioritySkills=listOf("Front lever"))
+  val athlete=AthleteProfile(goal="Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=6,prioritySkills=listOf("Front lever"))
   val config=PlanConfiguration.defaults()
   assertEquals("Fitness generale",config.goal)
   assertEquals(3,config.daysPerWeek)
@@ -209,7 +209,7 @@ class V091PlanningTest {
   assertEquals("Calisthenics",athlete.goal)
  }
  @Test fun explicitPlanConfigurationDoesNotMutateAthleteProfile(){
-  val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=3,prioritySkills=listOf("Front lever"))
+  val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=3,prioritySkills=listOf("Front lever"))
   val config=PlanConfiguration("Ipertrofia",12,2,setOf(2,5),emptyList()).validated()
   assertEquals("Forza",athlete.goal)
   assertEquals(3,athlete.daysPerWeek)
@@ -234,7 +234,7 @@ class V091PlanningTest {
 
  @Test fun configuredPlanGenerationPreservesConfigurationAcrossCalendar(){
   val profile=trainingLocations.first{it.name=="Palestra"}
-  val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=3)
+  val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=3)
   val config=PlanConfiguration("Forza",2,2,setOf(2,5),emptyList()).validated()
   val start=java.time.LocalDate.of(2026,10,1).toEpochDay()
   val plan=generateTrainingPlan("cfg",start,profile,athlete,config,emptyList(),null)
@@ -294,7 +294,7 @@ class V091PlanningTest {
  @Test fun generatedPlanCarriesLocationIndependentSessionIntent(){
   val profile=trainingLocations.first{it.name=="Palestra"}
   val config=PlanConfiguration("Forza",1,2,setOf(1,4),listOf("Front lever")).validated()
-  val plan=generateTrainingPlan("intent",20_000,profile,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),config,emptyList(),80)
+  val plan=generateTrainingPlan("intent",20_000,profile,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),config,emptyList(),80)
   assertTrue(plan.workouts.all{it.intent!=null})
   assertTrue(plan.workouts.all{it.intent!!.goal=="Forza" && it.intent!!.prioritySkills==listOf("Front lever")})
   assertTrue(plan.workouts.all{it.intent!!.sequenceInWeek==it.sequenceInWeek})
@@ -312,7 +312,7 @@ class V091PlanningTest {
   val body=Exercise("Location body","Gambe","Corpo libero","Intermedio",role="Forza",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.BODYWEIGHT)
   val planned=PlannedWorkout("p",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza",emptyList(),emptySet(),0))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine,body))
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine,body))
   assertEquals(PlannedSessionRealizationSource.INTENT,realized.source)
   assertTrue(realized.exercises.isNotEmpty())
   assertTrue(realized.exercises.all{locationCompatible(it,outdoor)})
@@ -322,7 +322,7 @@ class V091PlanningTest {
   val snapshot=Exercise("Legacy snapshot","Petto","Bilanciere","Intermedio")
   val planned=PlannedWorkout("legacy",20_000,0,0,listOf(snapshot),intent=null)
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80)
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80)
   assertEquals(PlannedSessionRealizationSource.LEGACY_SNAPSHOT,realized.source)
   assertEquals(listOf(snapshot),realized.exercises)
  }
@@ -330,7 +330,7 @@ class V091PlanningTest {
   val machine=Exercise("Only machine","Gambe","Macchine","Intermedio",role="Forza")
   val planned=PlannedWorkout("intent",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza"))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine))
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine))
   assertEquals(PlannedSessionRealizationSource.INTENT,realized.source)
   assertTrue(realized.exercises.isEmpty())
  }
@@ -350,7 +350,7 @@ class V091PlanningTest {
   val body=Exercise("Body new","Gambe","Corpo libero","Intermedio",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
   val planned=PlannedWorkout("identity",20_000,1,2,listOf(snapshot),intent=PlannedSessionIntent("Forza",sequenceInWeek=2))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(snapshot,body))
+  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(snapshot,body))
   val launch=planned.copy(exercises=realization.exercises)
   assertEquals(planned.id,launch.id)
   assertEquals(planned.intent,launch.intent)
@@ -363,7 +363,7 @@ class V091PlanningTest {
   val dumbbell=Exercise("DB explicit","Spalle","Manubri","Intermedio",role="Forza")
   val location=TrainingLocation("custom:db","Garage","🚗",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
   val planned=PlannedWorkout("custom-cap",20_000,0,0,listOf(body),intent=PlannedSessionIntent("Forza"))
-  val realized=materializePlannedSession(planned,location,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(body,dumbbell))
+  val realized=materializePlannedSession(planned,location,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(body,dumbbell))
   assertTrue(realized.exercises.isNotEmpty())
   assertTrue(realized.exercises.all{it.name==dumbbell.name})
   assertFalse(realized.exercises.any{it.name==body.name})
@@ -396,14 +396,14 @@ class V091PlanningTest {
   val dumbbell=Exercise("Pool dumbbell","Spalle","Manubri","Principiante",role="Forza")
   val machine=Exercise("Pool machine","Gambe","Macchine","Principiante",role="Forza")
   val location=TrainingLocation("custom:db","Garage","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
-  val pool=customWorkoutCandidatePool(location,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,dumbbell,machine))
+  val pool=customWorkoutCandidatePool(location,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,dumbbell,machine))
   assertEquals(listOf(dumbbell.name),pool.map{it.name})
  }
  @Test fun customWorkoutPoolBuiltInLocationKeepsExplicitBodyweight(){
   val body=Exercise("Pool outdoor body","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
   val machine=Exercise("Pool outdoor machine","Gambe","Macchine","Principiante",role="Forza")
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val pool=customWorkoutCandidatePool(outdoor,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,machine))
+  val pool=customWorkoutCandidatePool(outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,machine))
   assertEquals(listOf(body.name),pool.map{it.name})
  }
 
@@ -411,7 +411,7 @@ class V091PlanningTest {
   val dumbbell=Exercise("Filter dumbbell","Spalle","Manubri","Principiante",role="Forza")
   val barbell=Exercise("Filter barbell","Gambe","Bilanciere","Principiante",role="Forza")
   val gym=trainingLocations.first{it.kind==TrainingLocationKind.GYM}
-  val pool=customWorkoutCandidatePool(gym,AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(dumbbell,barbell),listOf("Manubri"))
+  val pool=customWorkoutCandidatePool(gym,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(dumbbell,barbell),listOf("Manubri"))
   assertEquals(listOf(dumbbell.name),pool.map{it.name})
  }
 
@@ -426,7 +426,7 @@ class V091PlanningTest {
   val hard=Exercise("Capability hard","Core","Corpo libero","Avanzato",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
   val dumbbell=Exercise("Capability dumbbell","Spalle","Manubri","Principiante",role="Forza")
   val home=TrainingLocation("test:body","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
-  val generated=generateWorkoutFromCatalogue(listOf(easy,hard,dumbbell),home,AthleteProfile(level="Principiante",assessedTrainingExperience=1,assessedPushCapacity=1,assessedPullCapacity=1),CapabilityProfile(1),emptyList())
+  val generated=generateWorkoutFromCatalogue(listOf(easy,hard,dumbbell),home,AthleteProfile(assessedTrainingExperience=1,assessedPushCapacity=1,assessedPullCapacity=1),CapabilityProfile(1),emptyList())
   assertTrue(generated.any{it.name==easy.name})
   assertFalse(generated.any{it.name==hard.name})
   assertFalse(generated.any{it.name==dumbbell.name})
@@ -447,7 +447,7 @@ class V091PlanningTest {
   val pull=Exercise("Pull-up avanzato","Dorso","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PULL,resistanceMode=ResistanceMode.BODYWEIGHT)
   val body=TrainingLocation("test:body-cap","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
   val capability=CapabilityProfile(exerciseLevel=3,trainingExperience=3,pushCapacity=1,pullCapacity=3,assessed=true)
-  val generated=generateWorkoutFromCatalogue(listOf(push,pull),body,AthleteProfile(level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3),capability,emptyList())
+  val generated=generateWorkoutFromCatalogue(listOf(push,pull),body,AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3),capability,emptyList())
   assertFalse(generated.any{it.name==push.name})
   assertTrue(generated.any{it.name==pull.name})
  }
