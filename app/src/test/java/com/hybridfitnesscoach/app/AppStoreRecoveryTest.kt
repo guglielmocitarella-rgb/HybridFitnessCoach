@@ -111,10 +111,11 @@ class AppStoreRecoveryTest {
             listOf(WorkoutExerciseState("Push-up")), plannedWorkoutId = planned.id)
         store.saveActiveWorkout(active)
 
-        assertTrue(store.finishWorkout(session(1)))
+        val finished = session(1).copy(plannedWorkoutId = planned.id)
+        assertTrue(store.finishWorkout(finished))
 
         val reloaded = AppStore(context)
-        assertEquals(listOf(session(1)), reloaded.loadSessions())
+        assertEquals(listOf(finished), reloaded.loadSessions())
         assertNull(reloaded.loadActiveWorkout())
         assertEquals(PlannedWorkoutState.PARTIAL, reloaded.loadTrainingPlans().singleOrNull()!!.workouts.single().state)
     }
