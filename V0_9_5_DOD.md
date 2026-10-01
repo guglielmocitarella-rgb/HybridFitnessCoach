@@ -2,7 +2,7 @@
 
 ## Missione della release
 
-La v0.9.5 parte dalla baseline v0.9.4 congelata. La v0.9.4 resta immutata come riferimento repository-level verificato; la v0.9.5 porta avanti le clausole DEVICE_PENDING e concentra lo sviluppo sul passaggio da motore funzionale a prodotto comprensibile, coerente e verificato su dispositivo.
+La v0.9.5 parte dalla baseline v0.9.4 congelata. La v0.9.4 resta immutata come riferimento repository-level verificato; la v0.9.5 recupera le clausole DEVICE_PENDING e porta l'app da motore funzionale a prodotto comprensibile, coerente e verificato su dispositivo.
 
 Baseline runtime ereditata: `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07` (`checkpoint/v0.9.4-f01-f11-green`).
 CI ereditata: Exercise DB v2 #292 SUCCESS; Android APK #845 SUCCESS.
@@ -10,179 +10,314 @@ CI ereditata: Exercise DB v2 #292 SUCCESS; Android APK #845 SUCCESS.
 ## Principi vincolanti
 
 1. Non riaprire F01-F11 già repository-verified salvo regressione dimostrata o requisito v0.9.5 esplicito.
-2. Nessuna retrocompatibilità con schemi/modelli legacy è richiesta.
-3. Adaptive Coach deve essere il motore dell'esperienza, non un concetto che l'utente deve comprendere per usare l'app.
-4. L'interfaccia deve privilegiare: stato attuale -> prossima azione -> motivazione -> dettaglio opzionale.
-5. Ogni nuovo comportamento deterministico deve avere test automatici; interazioni/visuali restano DEVICE_PENDING fino a test fisico.
-6. Evitare nuove grandi feature non necessarie prima di chiudere UX, device acceptance e release gate.
+2. Nessuna retrocompatibilità con schemi, modelli, UI o API legacy è richiesta. Non introdurre adapter, doppie API o percorsi paralleli per preservare comportamenti obsoleti.
+3. Codice/fallback legacy ancora usato dal modello corrente va rimosso quando la sostituzione corrente è completa e verificata, non mantenuto per compatibilità.
+4. Adaptive Coach deve essere il motore dell'esperienza, non un concetto che l'utente deve comprendere per usare l'app.
+5. L'interfaccia privilegia: stato attuale -> prossima azione -> motivazione -> dettaglio opzionale.
+6. Qualunque origine di workout converge su un'unica pipeline di avvio, esecuzione, persistenza e storico.
+7. Ogni nuovo comportamento deterministico deve avere test automatici; interazioni/visuali restano DEVICE_PENDING fino a test fisico.
+8. Limitare i push: audit e verifiche locali/statiche prima di consumare CI.
 
-## P01 — Audit UX end-to-end e navigazione
+## P01 — UX end-to-end e architettura informativa
 
-Obiettivo: audit completo Home -> Piano/Calendario -> generazione -> Runner -> salvataggio -> Progressi -> Profilo.
+### P01.1 — Navigazione top-level
 
-- ridurre concetti tecnici esposti;
-- definire gerarchia coerente delle azioni;
-- eliminare/accorpare controlli ridondanti;
-- iconografia coerente;
-- navigazione principale semplice e prevedibile;
-- verificare accessibilità, scroll, back navigation, conferme distruttive e stato vuoto/errori.
+Target:
+- Oggi;
+- Piano;
+- Progressi;
+- Profilo.
 
-## P02 — Home come centro operativo
+Decisioni:
+- Attrezzatura non è una destinazione primaria: confluisce in Profilo -> Luoghi di allenamento.
+- Profilo atleta non resta nascosto dentro Progressi.
+- Creazione/configurazione del piano non appartiene alla Home.
+- Libreria esercizi resta disponibile come funzione secondaria/contestuale da Profilo, ricerca, Skill ed Exercise Detail.
+- ridurre l'uso di AlertDialog per workflow complessi: Runner e generazione diventano flussi/schermate dedicate; dialog solo per vere azioni modali o conferme.
+- verificare accessibilità, scroll, back navigation, empty/error state e azioni distruttive.
+
+### P01.2 — Pipeline universale workout
+
+Ogni origine:
+- sessione del piano;
+- allenamento extra adattivo;
+- workout personalizzato;
+- workout generato da skill/libreria;
+- singolo esercizio;
+
+deve convergere su:
+
+`origine -> scegli luogo -> materializza/genera -> anteprima -> Runner universale -> salva -> storico/progressi -> Adaptive Coach`.
+
+Non creare Runner o persistenze separate per origine.
+
+## P02 — Home / Oggi
 
 La Home deve rispondere immediatamente a: come sto, cosa faccio oggi, perché, cosa viene dopo.
 
-- readiness/recovery leggibile;
-- una CTA primaria per l'allenamento consigliato/odierno;
-- durata, focus e sintesi sessione;
-- motivazione Adaptive Coach espandibile, non dominante;
-- prossime sessioni in forma compatta;
-- piano-at-a-glance senza duplicare il calendario completo.
+### Se oggi esiste una sessione del piano
+- mostrare esplicitamente "Allenamento del piano";
+- CTA primaria "Inizia";
+- mostrare focus/durata/sintesi senza duplicare il calendario;
+- l'esercizio effettivo viene materializzato dopo la scelta del luogo.
+
+### Se oggi non esiste una sessione del piano
+- mostrare "Nessuna sessione programmata" o stato di recupero appropriato;
+- mostrare la prossima sessione;
+- offrire "Allenamento extra" come azione consapevole, non mascherata da sessione del piano.
+
+### Allenamento extra adattivo
+Non è un workout personalizzato e non è una sessione del piano. È generato automaticamente dall'Adaptive Coach considerando almeno:
+- Capability Profile;
+- readiness/recovery;
+- storico e fatica recente;
+- obiettivi;
+- piano futuro, per evitare interferenze non necessarie con la prossima sessione.
+
+CTA secondaria distinta: "Crea workout personalizzato".
 
 ## P03 — Piano multisettimanale e calendario
 
+- il piano è indipendente dal luogo di allenamento fino all'avvio della singola sessione;
 - viste Settimana e Calendario mensile;
-- stati pianificato/completato/parziale/saltato/riprogrammato immediatamente distinguibili;
-- azioni secondarie raccolte in menu contestuale anziché molte CTA concorrenti;
+- stati pianificato/completato/parziale/saltato/riprogrammato distinguibili;
+- dettaglio sessione;
+- azioni secondarie raccolte senza molte CTA concorrenti;
 - riprogrammazione coerente, cascata dove prevista e ripristino data originale;
 - modifica obiettivo/frequenza/giorni/skill con review e conferma prima della rigenerazione futura;
 - storico già eseguito immutabile.
 
-## P04 — Generazione workout semplificata
+## P04 — Gate universale di avvio workout
 
-L'utente specifica intento, non prescrizione manuale.
+Vale per qualsiasi workout.
 
-- luogo di allenamento;
-- durata;
-- focus/parti del corpo/skill;
-- serie, reps, recuperi, carichi e timing generati automaticamente;
-- preview sempre dall'esercizio 1;
-- conferma chiara prima dell'avvio quando appropriato;
-- locked/pinned comprensibili e coerenti.
+### 1. Scegli luogo
+- scelta disponibile prima di ogni esecuzione;
+- ultimo luogo effettivamente utilizzato preselezionato;
+- utente libero di cambiarlo;
+- il piano multisettimanale non richiede un luogo in fase di creazione.
 
-## P05 — Workout Runner UX
+### 2. Materializza / genera
+Usare:
+- attrezzatura realmente disponibile nel luogo scelto;
+- Capability Profile;
+- stato/readiness atleta;
+- storico;
+- intent/origine del workout.
 
+### 3. Anteprima
+Mostrare almeno:
+- esercizi nell'ordine corretto a partire dal primo;
+- serie;
+- reps/tempo/distanza;
+- recuperi;
+- carichi/assistenza suggeriti quando applicabili.
+
+### 4. Avvia
+Tutte le origini entrano nello stesso Runner.
+
+## P05 — Workout Runner universale
+
+Il Runner deve essere unico e coerente per sessione del piano, extra adattivo, personalizzato, skill/libreria e singolo esercizio.
+
+### P05.1 — Esercizio corrente
 - esercizio corrente dominante;
-- indicatore serie corretto fin dalla prima serie;
-- carico/reps/tempo/RPE immediatamente leggibili;
-- RPE/fatica default 5 e valido se non modificato;
-- navigazione precedente/successivo e salto esercizio;
-- conferma per termine/salvataggio quando necessaria;
-- recuperi e timer persistenti coerenti.
+- serie corrente/totale corretta fin dalla prima serie;
+- target reps/tempo/distanza;
+- carico/assistenza;
+- RPE esercizio default 5, valido se non modificato;
+- recupero;
+- precedente/successivo;
+- salta/riprendi esercizio;
+- annulla ultima serie.
 
-### P05.1 — Countdown preparazione esercizi a tempo
+### P05.2 — "Come eseguirlo" obbligatorio
 
+Durante QUALSIASI workout ogni esercizio deve offrire accesso evidente a "Come eseguirlo" senza perdere lo stato del Runner.
+
+Mostrare, quando disponibili nel DB/modello:
+- setup/posizione iniziale;
+- tecnica/passaggi di esecuzione;
+- indicazioni tecniche;
+- attrezzatura;
+- target/prescrizione;
+- regressione/esercizio più facile;
+- progressione/esercizio più difficile.
+
+Aprire/chiudere il dettaglio non deve perdere o alterare:
+- serie;
+- timer esercizio;
+- timer recupero;
+- pausa;
+- valori inseriti;
+- posizione nel workout.
+
+### P05.3 — Recupero
+- timer automatico coerente con prescrizione;
+- pausa/ripresa;
+- salta recupero;
+- persistenza/recovery dello stato.
+
+### P05.4 — Countdown preparazione esercizi a tempo
 Per ogni esercizio prescritto a tempo:
 - gli ultimi 5 secondi del recupero diventano countdown di preparazione 5-4-3-2-1;
 - il countdown NON aggiunge 5 secondi al recupero;
 - a zero parte automaticamente il timer a rovescio dell'esercizio;
-- feedback visivo evidente; feedback sonoro se audio/feedback sonoro è abilitato;
-- se il recupero residuo è <5 s, il countdown parte dal tempo effettivamente disponibile;
-- comportamento implementato nel Runner come regola generale, non duplicato nei singoli esercizi;
-- test deterministici su transizione recovery -> preparation -> timed exercise, pause/restore/background e boundary temporali.
+- feedback visivo evidente; sonoro se previsto/abilitato;
+- se il recupero residuo è <5 s, partire dal tempo realmente disponibile;
+- regola generale del Runner, non duplicata nei singoli esercizi;
+- test deterministici su recovery -> preparation -> timed exercise, pause/restore/background e boundary temporali.
 
-## P06 — Capability Profile multidimensionale esteso
+### P05.5 — Fine workout
+- conferma prima di terminare/salvare;
+- riepilogo post-workout;
+- persistenza completa dei risultati;
+- storico immediatamente coerente.
 
-Il Capability Profile non deve limitarsi principalmente a Push/Pull e non deve collassare in un singolo livello globale.
+## P06 — Workout personalizzato
 
-Dimensioni minime da progettare/validare:
-- spinta parte superiore;
-- tirata parte superiore;
+L'utente specifica intento, non prescrizione manuale.
+
+- passa sempre dal gate universale P04;
+- ultimo luogo usato preselezionato ma modificabile;
+- durata;
+- focus/parti del corpo/skill;
+- serie, reps, recuperi, carichi e timing generati automaticamente;
+- anteprima sempre dall'esercizio 1;
+- locked/pinned comprensibili;
+- rigenerazione dei soli esercizi non bloccati;
+- avvio nel Runner universale P05.
+
+## P07 — Capability Profile multidimensionale 2.0
+
+Il Capability Profile non collassa in un singolo livello globale.
+
+Dimensioni minime:
+- esperienza generale;
+- spinta orizzontale;
+- tirata orizzontale;
 - spinta verticale;
 - tirata verticale;
 - gambe/squat;
 - catena posteriore/hip hinge;
 - core;
-- capacità isometriche dove rilevanti;
+- capacità isometriche;
 - skill/calisthenics.
 
 Requisiti:
-- ampliare gli esercizi di assessment per coprire le diverse parti del corpo/capacità;
+- ampliare gli esercizi di assessment per coprire le dimensioni;
 - scegliere test con regressioni accessibili e progressioni più difficili;
-- documentare provenienza/ragione delle soglie: SOURCE_BASED, APP_RULE, FALLBACK o UNVERIFIED;
+- documentare provenienza/ragione soglie: SOURCE_BASED, APP_RULE, FALLBACK o UNVERIFIED;
 - non inventare soglie arbitrarie;
 - generator/prescription usa la dimensione pertinente all'esercizio;
-- capacità elevata in un distretto non deve innalzare automaticamente gli altri;
+- capacità elevata in un distretto non innalza automaticamente gli altri;
 - stato unassessed conservativo;
-- assessment iniziale può essere breve e completato progressivamente per non appesantire onboarding;
-- UI comprensibile, evitando di esporre soltanto numeri interni;
+- assessment iniziale breve e completabile progressivamente;
+- UI comprensibile;
 - regression test su classificazione, soglie, persistenza ed eligibility.
 
-## P07 — Progressi e storico
-
-Progressi deve rispondere alla domanda “sto migliorando?”.
-
-- allenamenti/frequenza/costanza;
-- volume effettivo per esercizi caricati e trend;
-- forza/carichi e reps;
-- progressioni calisthenics/skill;
-- dettaglio sessione con programmato vs eseguito;
-- serie, reps, carichi, RPE, durata e volume effettivo;
-- stati parziale/saltato/completato coerenti con Recovery/Coach.
-
-## P08 — Exercise Detail e progressioni
+## P08 — Exercise Detail / database / progressioni
 
 - descrizione/setup/esecuzione DB-owned;
+- tecnica disponibile sia dalla Libreria sia dal Runner;
 - attrezzatura e prescrizione leggibili;
 - progressione/regressione esplicite;
 - mostrare chiaramente esercizio più facile -> corrente -> più difficile quando il grafo lo consente;
-- per skill complesse valutare rappresentazione visuale della progressione.
+- per skill complesse valutare rappresentazione visuale;
+- dati mancanti necessari a "Come eseguirlo" devono essere identificati e completati/validati prima del release gate.
 
-## P09 — Onboarding
+## P09 — Progressi e storico
+
+Progressi deve rispondere a "sto migliorando?".
+
+- allenamenti/frequenza/costanza;
+- volume effettivo per esercizi caricati e trend;
+- forza/carichi/reps;
+- progressioni calisthenics/skill;
+- dettaglio sessione programmato vs eseguito;
+- serie, reps, tempi, distanze, carichi, assistenza, recuperi, RPE, durata e volume effettivo;
+- stati parziale/saltato/completato coerenti con Recovery/Coach.
+
+## P10 — Profilo e configurazione
+
+- dati atleta;
+- obiettivi;
+- Capability Profile;
+- Health Connect;
+- accesso Libreria esercizi/ricerca;
+- Luoghi di allenamento:
+  - crea;
+  - modifica;
+  - elimina;
+  - attrezzatura disponibile;
+  - persistenza ultimo luogo effettivamente utilizzato.
+
+## P11 — Onboarding
 
 Percorso guidato minimo:
 1. dati essenziali atleta;
-2. luoghi di allenamento;
-3. obiettivi;
-4. assessment iniziale Capability Profile;
-5. frequenza/giorni;
-6. proposta piano.
+2. obiettivo;
+3. assessment iniziale Capability Profile;
+4. primo luogo di allenamento;
+5. Health Connect opzionale;
+6. frequenza/giorni e proposta piano.
 
-L'onboarding non deve obbligare a completare ogni dimensione del Capability Profile prima di poter usare l'app; le valutazioni mancanti possono essere proposte progressivamente.
+Non obbligare a completare ogni dimensione del Capability Profile prima di usare l'app; le valutazioni mancanti possono essere proposte progressivamente.
 
-## P10 — Device acceptance ereditata da v0.9.4
+## P12 — Cleanup tecnico e device acceptance ereditata
 
-Eseguire su dispositivo fisico tutte le clausole DEVICE_PENDING F01-F11, incluse:
+### Cleanup
+- eliminare UI obsoleta dopo la sostituzione;
+- eliminare API non utilizzate;
+- eliminare compatibility layer inutili;
+- eliminare fallback legacy quando non servono al modello corrente;
+- nessuna retrocompatibilità come motivazione per mantenere codice morto.
+
+### DEVICE_PENDING v0.9.4
+Eseguire su dispositivo fisico tutte le clausole ancora pendenti F01-F11, incluse:
 - Exercise Detail;
 - timer/recuperi;
-- TrainingLocation in Custom Workout;
+- TrainingLocation;
 - materializzazione piano in luoghi diversi;
 - modifica/rigenerazione piano;
 - calendario;
 - Home;
 - preview/reset/scroll;
-- persistenza/recovery dopo background/process recreation dove rilevante.
+- persistenza/recovery dopo background/process recreation.
 
 Ogni problema trovato diventa bug v0.9.5 con riproduzione e regression test quando deterministico.
 
-## P11 — Release gate
+## P13 — Release gate v0.9.5
 
 La v0.9.5 non è completa finché:
-- P01-P10 richiesti sono accettati;
+- P01-P12 richiesti sono accettati;
 - suite JVM/regression/lint è verde;
 - Exercise DB deterministic validation è verde;
+- test della pipeline universale coprono tutte le origini workout;
+- test Runner coprono tecnica esercizio, timer, recuperi, RPE e recovery;
 - APK release firmato è prodotto dall'esatto SHA candidato;
 - firma APK è verificata;
 - device acceptance mirata è completata;
 - documentazione e PROJECT_STATUS riflettono lo SHA effettivo;
-- nessun risultato CI viene usato come sostituto della verifica fisica.
+- nessun risultato CI sostituisce la verifica fisica.
 
-## Ordine di lavoro proposto
+## Ordine di lavoro
 
-1. Audit UX end-to-end.
-2. Capability Profile: ricerca/test/soglie e modello multidimensionale.
-3. Runner, incluso countdown preparazione timed exercises.
-4. Home e navigazione.
-5. Piano/Calendario.
-6. Generazione/preview.
-7. Progressi/Storico.
-8. Profilo/Capability UI ed Exercise Detail.
-9. Onboarding.
-10. Device acceptance completa.
-11. Signed release, documentazione e freeze candidato.
+1. P01 — navigation shell + separazione responsabilità.
+2. P02/P03 — Home e Piano con origini workout inequivocabili.
+3. P04 — gate universale e persistenza ultimo luogo usato.
+4. P05 — Runner universale, tecnica esercizio e timer.
+5. P06 — custom workout sulla pipeline comune.
+6. P07 — Capability Profile multidimensionale.
+7. P08 — Exercise Detail/database/progressioni.
+8. P09/P10 — Progressi, Storico e Profilo.
+9. P11 — Onboarding.
+10. P12 — cleanup + DEVICE_PENDING.
+11. P13 — audit finale, signed APK, device acceptance e freeze.
 
 ## Fuori scope salvo necessità emersa dall'audit
 
-- riscrittura dei motori F01-F11 già verificati;
+- riscrittura gratuita dei motori F01-F11 già verificati;
 - compatibilità legacy;
 - nuove integrazioni di rete non necessarie;
-- espansioni funzionali che non contribuiscono a UX, correttezza, assessment, device acceptance o release readiness.
+- espansioni che non contribuiscono a UX, correttezza, assessment, device acceptance o release readiness.
