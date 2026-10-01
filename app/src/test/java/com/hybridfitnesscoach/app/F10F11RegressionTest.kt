@@ -24,6 +24,8 @@ class F10F11RegressionTest {
         assertEquals(true,state.active)
         assertEquals("today",state.todayWorkout?.id)
         assertEquals("next",state.nextWorkout?.id)
+        assertEquals(HomePlanStatus.TODAY,state.status)
+        assertEquals("Sessione di oggi",state.primaryLabel)
     }
 
     @Test fun homeStateHasNoDuplicatedUiFallbackWhenPlanMissing() {
@@ -31,6 +33,8 @@ class F10F11RegressionTest {
         assertEquals(false,state.active)
         assertNull(state.todayWorkout)
         assertNull(state.nextWorkout)
+        assertEquals(HomePlanStatus.NO_PLAN,state.status)
+        assertEquals("Nessun programma attivo",state.primaryLabel)
     }
 
     @Test fun newPreviewAlwaysStartsFromFirstGeneratedExercise() {
@@ -51,5 +55,25 @@ class F10F11RegressionTest {
         val navigation=previewNavigationAfterGeneration(regenerated)
         assertEquals("Pinned",navigation.exerciseName)
         assertEquals(0,navigation.scrollIndex)
+    }
+
+    @Test fun homeStateDistinguishesUpcomingFromFinishedPlan() {
+        val today=100L
+        val upcoming=deriveHomePlanState(TrainingPlan("p",today,2,1,listOf(workout("next",today+2))),today)
+        assertEquals(HomePlanStatus.UPCOMING,upcoming.status)
+        assertEquals("Nessuna sessione pianificata per oggi",upcoming.primaryLabel)
+        assertEquals("Prossima sessione disponibile",upcoming.secondaryLabel)
+
+        val finished=deriveHomePlanState(TrainingPlan("p",today-14,2,1,listOf(workout("done",today-1,PlannedWorkoutState.COMPLETED))),today)
+        assertEquals(HomePlanStatus.NO_FUTURE,finished.status)
+        assertEquals("Programma senza sessioni future",finished.primaryLabel)
+        assertNull(finished.nextWorkout)
+    }
+
+    @Test fun adaptedSessionRemainsActionableOnHome() {
+        val today=100L
+        val state=deriveHomePlanState(TrainingPlan("p",today,1,1,listOf(workout("adapted",today,PlannedWorkoutState.ADAPTED))),today)
+        assertEquals(HomePlanStatus.TODAY,state.status)
+        assertEquals("adapted",state.todayWorkout?.id)
     }
 }

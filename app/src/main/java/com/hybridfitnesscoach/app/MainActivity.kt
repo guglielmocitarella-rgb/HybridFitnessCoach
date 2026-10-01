@@ -952,7 +952,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                     val todayPlan=homePlanState.todayWorkout ?: suggestion.plannedWorkout
                     val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore)}
                     val suggested=realizedTodayPlan?.exercises ?: suggestion.exercises
-                    Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+                    Text(if(homePlanState.status==HomePlanStatus.TODAY)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
                     Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
                     Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, enabled=todayPlan==null || suggested.isNotEmpty(), modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
                     OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
@@ -981,10 +981,10 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                         Text(plan.goal,fontWeight=FontWeight.SemiBold,color=Accent)
                         Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
                         homePlanState.todayWorkout?.let{
-                            Text("Oggi • Sessione "+(it.sequenceInWeek+1),fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
+                            Text(homePlanState.primaryLabel+" • Sessione "+(it.sequenceInWeek+1),fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
                             Text("Sessione da materializzare • "+calendarDate(it.epochDay),fontSize=13.sp,color=Color.Gray)
-                        } ?: Text("Nessuna sessione pianificata per oggi",modifier=Modifier.padding(top=10.dp),fontSize=13.sp,color=Color.Gray)
-                        Text(homePlanState.nextWorkout?.let{"Prossima: "+calendarDate(it.epochDay)+" • esercizi definiti all’avvio"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
+                        } ?: Text(homePlanState.primaryLabel,modifier=Modifier.padding(top=10.dp),fontSize=13.sp,color=Color.Gray)
+                        homePlanState.nextWorkout?.let{Text((homePlanState.secondaryLabel?:"Prossima")+": "+calendarDate(it.epochDay)+" • esercizi definiti all’avvio",modifier=Modifier.padding(top=6.dp))}
                         OutlinedButton(onClick=managePlan,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("GESTISCI PROGRAMMA")}
                     }
                 }

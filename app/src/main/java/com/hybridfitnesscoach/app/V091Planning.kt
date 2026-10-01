@@ -162,13 +162,17 @@ internal fun shiftCalendarMonth(year:Int,month:Int,delta:Int):Pair<Int,Int> {
 data class PreviewNavigationState(val exerciseName:String?,val scrollIndex:Int)
 internal fun previewNavigationAfterGeneration(generated:List<Exercise>):PreviewNavigationState =
  PreviewNavigationState(generated.firstOrNull()?.name,if(generated.isEmpty())-1 else 0)
+enum class HomePlanStatus { NO_PLAN, TODAY, UPCOMING, NO_FUTURE }
 data class HomePlanState(
  val active:Boolean,
  val todayWorkout:PlannedWorkout?,
- val nextWorkout:PlannedWorkout?
+ val nextWorkout:PlannedWorkout?,
+ val status:HomePlanStatus,
+ val primaryLabel:String,
+ val secondaryLabel:String?
 )
 internal fun deriveHomePlanState(plan:TrainingPlan?,today:Long):HomePlanState {
- if(plan==null)return HomePlanState(false,null,null)
+ if(plan==null)return HomePlanState(false,null,null,HomePlanStatus.NO_PLAN,"Nessun programma attivo",null)
  val actionable=plan.workouts.filter{
   it.state !in setOf(PlannedWorkoutState.SKIPPED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL)
  }
@@ -178,7 +182,19 @@ internal fun deriveHomePlanState(plan:TrainingPlan?,today:Long):HomePlanState {
  val nextWorkout=actionable
   .filter{it.epochDay>today}
   .minWithOrNull(compareBy<PlannedWorkout>{it.epochDay}.thenBy{it.weekIndex}.thenBy{it.sequenceInWeek})
- return HomePlanState(true,todayWorkout,nextWorkout)
+ val status=when {
+  todayWorkout!=null -> HomePlanStatus.TODAY
+  nextWorkout!=null -> HomePlanStatus.UPCOMING
+  else -> HomePlanStatus.NO_FUTURE
+ }
+ val primary=when(status) {
+  HomePlanStatus.TODAY -> "Sessione di oggi"
+  HomePlanStatus.UPCOMING -> "Nessuna sessione pianificata per oggi"
+  HomePlanStatus.NO_FUTURE -> "Programma senza sessioni future"
+  HomePlanStatus.NO_PLAN -> "Nessun programma attivo"
+ }
+ val secondary=nextWorkout?.let{"Prossima sessione disponibile"}
+ return HomePlanState(true,todayWorkout,nextWorkout,status,primary,secondary)
 }
 
 data class PlanConfiguration(
