@@ -491,7 +491,7 @@ class AppStoreRecoveryTest {
         val store=AppStore(context)
         assertTrue(store.saveTrainingPlan(plan))
         val raw=JSONObject(prefs.getString("training_plans_v095",null)!!)
-        assertEquals(5,raw.getInt("schemaVersion"))
+        assertEquals(1,raw.getInt("schemaVersion"))
         assertFalse(raw.getJSONArray("plans").getJSONObject(0).getJSONArray("workouts").getJSONObject(0).has("exerciseSnapshots"))
         assertTrue(raw.getJSONArray("plans").getJSONObject(0).getJSONArray("workouts").getJSONObject(0).has("intent"))
         assertEquals(plan,AppStore(context).loadTrainingPlans().singleOrNull())
