@@ -1,67 +1,71 @@
 # Hybrid Fitness Coach — Project Status
 
-VERSION: v0.9.4
-BRANCH: feature/v0.9.4
-PR: #11
-SOURCE OF TRUTH: GitHub branch `feature/v0.9.4`, `V0_9_4_DOD.md`, and the exact branch HEAD.
-PREVIOUS RELEASES: v0.9.0–v0.9.2 are historical; v0.9.3 is frozen on `release/v0.9.3`.
-COMPATIBILITY: backward compatibility is out of scope unless the owner explicitly reverses the policy.
+**Version:** v0.9.5  
+**Branch:** `feature/v0.9.5`  
+**Pull request:** #13 — `v0.9.5 — multi-plan foundation`  
+**Source of truth:** current GitHub HEAD + this file + `V0_9_5_DOD.md`.
 
-## Verified green baseline
+## Frozen predecessor
 
-Immutable rollback checkpoint:
-- `checkpoint/v0.9.4-f01-evidence-green`
-- SHA `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1`
-- Exercise DB v2 #284 — SUCCESS
-- Android APK #837 — SUCCESS
-- F01 evidence tier/validator/tests integrated.
-- Earlier repository-verified foundations preserved: F02 recovery propagation, F03 canonical equipment/location, F04 TrainingLocation-based custom generation, F06 multidimensional capability propagation.
+v0.9.4 runtime is frozen at `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`, checkpoint `checkpoint/v0.9.4-f01-f11-green`.
 
-## Current development candidate
+Repository evidence:
+- Exercise DB v2 #292 — SUCCESS
+- Android APK #845 — SUCCESS
+- F01–F11 repository-level gates closed
+- signed release and physical-device clauses intentionally transferred to v0.9.5
 
-Current verified runtime HEAD after F01–F11 closure:
-- SHA `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`
-- Immutable rollback: `checkpoint/v0.9.4-f01-f11-green`.
-- Exercise DB v2 #292 — **SUCCESS**.
-- Android APK #845 — **SUCCESS** (debug artifact; signed-release steps skipped on PR event).
-- PR #11 — open and mergeable at verification time.
-- Plan persistence schema: **v5 intent-only** for planned sessions.
-- Future `PlannedWorkout` persistence no longer stores concrete exercise snapshots/names.
-- Planned sessions are materialized against the current `TrainingLocation`, athlete capability, history and readiness at execution.
-- Active/completed workout evidence remains concrete in runner/history state.
-- Legacy plan snapshot fallback and schema 3/4 plan migration paths are intentionally removed under the no-backward-compatibility policy.
-- Future plan regeneration preserves completed/partial/past evidence and changes only eligible future sessions.
-- Static pre-CI audit covered the complete Kotlin tree (36 files) and removed stale snapshot-based regression fixtures before push.
+No new product work belongs on v0.9.4.
 
-## F01–F11 status
+## Current v0.9.5 candidate
 
-| Finding | Repository status | Remaining gate |
-|---|---|---|
-| F01 Exercise execution contract/evidence | VERIFIED on `e4c4f208…` | Device presentation acceptance |
-| F02 Recovery prescription propagation | VERIFIED repository-level | Device timer acceptance |
-| F03 Equipment taxonomy | VERIFIED repository-level | Device presentation acceptance |
-| F04 Custom Workout uses TrainingLocation | VERIFIED foundation/repository-level | Device UX acceptance |
-| F05 Location-independent Training Plan | VERIFIED repository-level on `fcfcbb200…` | Device execution at different locations |
-| F06 Capability Profile | VERIFIED repository-level | Device assessment/UX acceptance |
-| F07 Editable plan / future regeneration | VERIFIED domain/persistence on `fcfcbb200…` | Explicit UI confirmation/device acceptance |
-| F08 Adaptive Coach with/without plan | VERIFIED repository-level on `f96d426…` | Device presentation/behavior acceptance |
-| F09 Monthly calendar | VERIFIED repository-level on `801f4a827…` | Physical-device interaction acceptance |
-| F10 Home plan presentation/iconography | VERIFIED repository-level on `1ec072b36…` | Physical-device presentation acceptance |
-| F11 Preview reset | VERIFIED repository-level on `cfacd7e3…` | Physical-device scrolling/reset acceptance |
+Pre-documentation HEAD: `2f339e93547cea38df7abec68ab476ca29f9bb0e`.
 
-## Next work
+Implemented in the current multi-plan foundation:
+- multiple plans can coexist;
+- plans have independent identity/ownership;
+- plans can be enabled/disabled;
+- disabled plans do not contribute to active coaching;
+- Adaptive Coach aggregates enabled plans;
+- same-day sessions from different active plans are represented rather than silently collapsed;
+- regression tests cover aggregate planned evidence and disruptions.
 
-F01–F11 automated repository gates are green on exact runtime SHA `cfacd7e3…`; `checkpoint/v0.9.4-f01-f11-green` is the immutable rollback. Exercise DB v2 #292 and Android APK #845 succeeded. The PR workflow produced a debug APK only; signed-release steps were skipped by event policy. Next: signed release APK from the exact runtime SHA, then targeted physical-device acceptance.
+Verification on that exact HEAD:
+- Exercise DB v2 #36896846427 — **SUCCESS**
+- Android APK #36896846526 — **FAILURE**
 
-## Status terminology
+Therefore the current v0.9.5 candidate is **IMPLEMENTED_NOT_CI_VERIFIED**, not a green checkpoint. Diagnose and close the Android failure before treating the multi-plan foundation as verified or moving to the next CI checkpoint.
 
-Use `VERIFIED`, `IMPLEMENTED_NOT_CI_VERIFIED`, `IMPLEMENTED_NOT_DEVICE_VERIFIED`, `PARTIAL`, `BLOCKED`, or `DEVICE_PENDING`. A green repository workflow is necessary but is never proof of physical-device behavior.
+## Active roadmap
 
-## v0.9.4 closure
+The binding scope is `V0_9_5_DOD.md`.
 
-- Runtime baseline: `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`.
-- Repository checkpoint: `checkpoint/v0.9.4-f01-f11-green`.
-- CI: Exercise DB v2 #292 success; Android APK #845 success.
-- Deliverable: CI debug artifact `HybridFitnessCoach-v0.9.4-device-test` from the exact runtime SHA.
-- Remaining signed-release and DEVICE_PENDING acceptance are intentionally transferred to v0.9.5.
-- v0.9.5 starts from the frozen v0.9.4 line; no v0.9.4 runtime changes are permitted after closure.
+Execution order:
+1. close/verify multi-plan foundation;
+2. P01 navigation and information architecture;
+3. P02/P03 Home + Plan/calendar UX;
+4. P04 universal workout-start gate;
+5. P05 universal Runner, exercise technique access and timed-exercise preparation countdown;
+6. P06 custom workout on the common pipeline;
+7. P07 Capability Profile 2.0;
+8. P08 Exercise Detail/database/progressions;
+9. P09/P10 Progress/History/Profile;
+10. P11 onboarding;
+11. P12 cleanup + inherited device acceptance;
+12. P13 signed release/device acceptance/freeze.
+
+## Status vocabulary
+
+Use only:
+- **VERIFIED** — supported by the required repository/device evidence;
+- **IMPLEMENTED_NOT_CI_VERIFIED** — code exists but the exact candidate has not passed required CI;
+- **IMPLEMENTED_NOT_DEVICE_VERIFIED** — repository gates pass, physical interaction still pending;
+- **PARTIAL** — requirement only partly implemented;
+- **BLOCKED** — cannot currently progress;
+- **DEVICE_PENDING** — explicitly awaiting physical-device acceptance.
+
+A green build never substitutes for physical-device behavior where interaction, lifecycle, timers, Health Connect or visual presentation matters.
+
+## PR hygiene
+
+#13 is the only active development PR. Historical PRs #1, #8, #9, #10 and #12 were closed on 2026-10-01 as housekeeping; their Git history remains available for audit. PR #11 (v0.9.4) was already closed.
