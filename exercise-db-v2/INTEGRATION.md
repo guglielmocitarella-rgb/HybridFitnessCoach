@@ -25,6 +25,7 @@ Execution content uses explicit evidence tiers. F01 repository validation requir
 
 - F01 evidence tier/validator/tests are green at checkpoint `e4c4f208…`.
 - Canonical equipment integrates with `TrainingLocation`; localized equipment strings are not a compatibility contract.
-- Plan schema v5 is intent-only on candidate `d182d34e…`; planned sessions do not retain DB exercise snapshots. Concrete exercise definitions are materialized for the active runner and retained in execution/history evidence where required.
+- Plan schema v5 intent-only integration is repository-level verified on `fcfcbb200…`; planned sessions do not retain DB exercise snapshots. Concrete exercise definitions are materialized for the active runner and retained in execution/history evidence where required.
+- Exact-SHA evidence for the current integrated line: Exercise DB v2 #286 SUCCESS and Android APK #839 SUCCESS.
 - Legacy plan schema migration and legacy-only catalogue retention are not required solely for backward compatibility.
 - Videos remain deferred unless separately promoted into the active release DoD.

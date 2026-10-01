@@ -19,10 +19,12 @@ Immutable rollback checkpoint:
 
 ## Current development candidate
 
-Current branch HEAD after the F05/F07 plan-domain cleanup:
-- SHA `d182d34e81b8ef678675002462467bf41672f66b`
-- Fast-forwarded from the green baseline; no force push.
-- CI status: **PENDING** at documentation update time. Do not report this SHA as green until exact-SHA workflows complete.
+Current verified branch HEAD after F05/F07 and documentation alignment:
+- SHA `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`
+- Code candidate `d182d34e81b8ef678675002462467bf41672f66b` plus documentation-only commits; no force push.
+- Exercise DB v2 #286 — **SUCCESS**.
+- Android APK #839 — **SUCCESS**.
+- PR #11 — open and mergeable at verification time.
 - Plan persistence schema: **v5 intent-only** for planned sessions.
 - Future `PlannedWorkout` persistence no longer stores concrete exercise snapshots/names.
 - Planned sessions are materialized against the current `TrainingLocation`, athlete capability, history and readiness at execution.
@@ -39,17 +41,17 @@ Current branch HEAD after the F05/F07 plan-domain cleanup:
 | F02 Recovery prescription propagation | VERIFIED repository-level | Device timer acceptance |
 | F03 Equipment taxonomy | VERIFIED repository-level | Device presentation acceptance |
 | F04 Custom Workout uses TrainingLocation | VERIFIED foundation/repository-level | Device UX acceptance |
-| F05 Location-independent Training Plan | IMPLEMENTED_NOT_CI_VERIFIED on `d182d34e…` | Exact-SHA CI + device execution at different locations |
+| F05 Location-independent Training Plan | VERIFIED repository-level on `fcfcbb200…` | Device execution at different locations |
 | F06 Capability Profile | VERIFIED repository-level | Device assessment/UX acceptance |
-| F07 Editable plan / future regeneration | IMPLEMENTED_NOT_CI_VERIFIED on `d182d34e…` | Exact-SHA CI + explicit UI confirmation/device acceptance |
-| F08 Adaptive Coach with/without plan | PARTIAL / next domain audit | Deterministic closure + device acceptance |
+| F07 Editable plan / future regeneration | VERIFIED domain/persistence on `fcfcbb200…` | Explicit UI confirmation/device acceptance |
+| F08 Adaptive Coach with/without plan | PARTIAL — implementation seam exists | Next: intent-only fixture cleanup + deterministic with/without-plan audit + device acceptance |
 | F09 Monthly calendar | PARTIAL | Complete presentation/interaction acceptance |
 | F10 Home plan presentation/iconography | PARTIAL | UI cleanup + device acceptance |
 | F11 Preview reset | PARTIAL | Explicit generation reset regression + device acceptance |
 
 ## Next work
 
-Do not modify the pushed F05/F07 candidate while its exact-SHA CI is unresolved unless a compile/test blocker is reported. If CI is green, freeze a new checkpoint and continue in dependency order: F08 → F09 → F10 → F11 → global F01–F11 audit → final exact-SHA CI → signed APK → physical-device acceptance.
+F05/F07 exact-SHA gates are green. Freeze `fcfcbb200…` as the next rollback checkpoint before code changes. Continue with an F08-only static/domain audit: align coaching tests with intent-only `PlannedWorkout`, prove deterministic behavior with and without an active plan, and avoid touching F09–F11 until F08 is closed. Then proceed F09 → F10 → F11 → global F01–F11 audit → final exact-SHA CI → signed APK → physical-device acceptance.
 
 ## Status terminology
 

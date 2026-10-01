@@ -45,7 +45,7 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 **Acceptance:** generation API receives a location/capability context rather than an ad-hoc UI equipment list; changing location changes eligible exercises deterministically; Compose/device verification confirms the equipment checklist is gone from Custom Workout.
 
 ### F05 — Training Plan is location-independent; each session adapts at execution
-**Current:** implemented on candidate `d182d34e…`: plan schema v5 persists session intent only; future plan rows do not persist exercise snapshots/names, and exercises are materialized at execution against the current location/capability/readiness context. Exact-SHA CI is pending.
+**Current:** repository-level verified on `fcfcbb200…`: plan schema v5 persists session intent only; future plan rows do not persist exercise snapshots/names, and exercises are materialized at execution against the current location/capability/readiness context. Exercise DB v2 #286 and Android APK #839 are green. Device execution at different locations remains pending.
 
 **Expected:** plan creation does not ask for a training location. The plan stores training intent/prescription independently from location. When a planned session is started, the chosen current location adapts only that session while preserving plan intent, progression and completed history.
 
@@ -59,7 +59,7 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 **Acceptance:** explicit capability dimensions and deterministic classification/eligibility tests exist; assessment exercises and thresholds have documented provenance (`SOURCE_BASED`, `APP_RULE`, `FALLBACK`, or `UNVERIFIED`); generator cannot select an exercise above the relevant demonstrated capability solely because a fallback says “Intermedio”.
 
 ### F07 — Existing multi-week plan is editable with controlled future regeneration
-**Current:** domain/persistence support for editable configuration and controlled future-only regeneration is implemented on `d182d34e…`, preserving completed/partial/past evidence. Exact-SHA CI and explicit confirmation/device UX remain pending.
+**Current:** domain/persistence support for editable configuration and controlled future-only regeneration is repository-level verified on `fcfcbb200…`, preserving completed/partial/past evidence. Explicit confirmation/device UX remains pending.
 
 **Expected:** goal, weekly frequency/days and priority skills remain editable after creation. A controlled regeneration updates only eligible future sessions; completed/partial history and immutable execution evidence remain intact.
 
@@ -107,10 +107,13 @@ Repository-level verified progress at/before the checkpoint:
 - **F03/F04 — VERIFIED foundation/repository-level:** `TrainingLocation` is canonical; obsolete `EquipmentProfile` and localized matching debt removed.
 - **F06 — VERIFIED repository-level:** coarse athlete level removed; multidimensional capability drives eligibility/prescription.
 
-Current pushed candidate: `d182d34e81b8ef678675002462467bf41672f66b`.
-- **F05/F07 — IMPLEMENTED_NOT_CI_VERIFIED:** schema 5 plan persistence is intent-only; legacy snapshot fallback/schema 3–4 migration removed; materialization happens at execution; future regeneration preserves completed/partial/past evidence.
-- Static pre-CI audit covered all 36 Kotlin files and corrected stale snapshot-based regression fixtures before push.
-- Exact-SHA CI was pending when this document was updated.
+Current verified HEAD: `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`.
+- **F05 — VERIFIED repository-level:** schema 5 plan persistence is intent-only and execution-time materialization is location-aware.
+- **F07 — VERIFIED domain/persistence:** future regeneration preserves completed/partial/past evidence; explicit confirmation/device UX remains pending.
+- Exercise DB v2 #286 — SUCCESS.
+- Android APK #839 — SUCCESS.
+- PR #11 was open and mergeable at verification time.
+- **Next:** F08 static/domain audit and intent-only regression cleanup; do not start F09 until F08 deterministic gates are closed.
 
 These statuses do not mark v0.9.4 complete. Remaining acceptance clauses and F01–F11 device/UI requirements continue to apply.
 

@@ -12,7 +12,7 @@ La v0.9.3 resta congelata su `release/v0.9.3`. Lo sviluppo corrente è esclusiva
 
 Il rollback sicuro corrente è `checkpoint/v0.9.4-f01-evidence-green` a `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1`, verificato da Exercise DB v2 #284 e Android APK #837.
 
-Il branch di sviluppo è stato avanzato a `d182d34e81b8ef678675002462467bf41672f66b` con il cleanup F05/F07. Al momento di questo aggiornamento la CI exact-SHA del nuovo HEAD è in attesa: non va quindi descritto come checkpoint verde.
+Il branch di sviluppo è ora verificato a `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`. Il codice F05/F07 deriva da `d182d34e81b8ef678675002462467bf41672f66b`; i commit successivi fino a `fcfcbb200…` sono documentali. Sullo SHA corrente Exercise DB v2 #286 e Android APK #839 sono entrambi verdi.
 
 Sul candidato corrente il piano multisettimanale persiste intenti di sessione indipendenti dal luogo (schema piano v5); gli esercizi concreti vengono materializzati all'avvio in base a luogo, capability, storico e readiness. Gli snapshot concreti restano nel runner/storico come evidenza di ciò che è stato realmente prescritto/eseguito. Le migrazioni legacy del piano sono fuori scope per policy.
 
@@ -61,7 +61,7 @@ Il piano futuro non è un archivio di esercizi precongelati: conserva l'intento.
 
 **v0.9.3** — congelata; baseline storica.
 
-**v0.9.4** — sviluppo e acceptance attivi. F01/F02/F03/F04/F06 hanno fondamenta repository-level verificate; F05/F07 sono implementati sul candidato `d182d34e…` con CI in attesa. Restano la chiusura F08–F11, audit globale, CI finale, APK firmato e device acceptance.
+**v0.9.4** — sviluppo e acceptance attivi. F01/F02/F03/F04/F05/F06 e il dominio/persistenza F07 sono repository-level verificati sul checkpoint corrente. Il prossimo blocco è F08 (Adaptive Coach con/senza piano), seguito da F09–F11, audit globale, CI finale, APK firmato e device acceptance.
 
 ## Stack
 

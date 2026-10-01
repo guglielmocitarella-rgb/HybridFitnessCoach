@@ -9,7 +9,7 @@ This file is the compact release ledger. GitHub commits and workflow runs remain
 | v0.9.1 | Historical / closed | repository history / PR #8 audit trail | historical RC2 CI | Multi-week plan, recovery, exercise detail/progression and persistence work. |
 | v0.9.2 | Frozen | `release/v0.9.2` at `9c6229485ee622f3e0d825bc20c5adf58fb39d92` | green checkpoint recorded in release history | Closed predecessor baseline. |
 | v0.9.3 | Frozen | `release/v0.9.3`; validated production-code checkpoint `365c07f643065df9dd68310362edd3ad3ed3236f` | Exercise DB v2 #250: success; Android APK #802: success | Repository acceptance complete. Interaction/device acceptance transfers to v0.9.4. |
-| v0.9.4 | Active | rollback checkpoint `checkpoint/v0.9.4-f01-evidence-green` at `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1`; development HEAD `d182d34e81b8ef678675002462467bf41672f66b` | checkpoint: Exercise DB v2 #284 success; Android APK #837 success. Current HEAD CI pending at documentation update time. | F01 evidence checkpoint verified. F02/F03/F04/F06 foundations verified repository-level. F05/F07 intent-only plan/persistence cleanup pushed and awaiting exact-SHA CI. |
+| v0.9.4 | Active | verified HEAD `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`; prior rollback `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1` | Exercise DB v2 #286 success; Android APK #839 success; PR #11 mergeable at verification time. | F01/F02/F03/F04/F05/F06 repository-level verified; F07 domain/persistence verified with device UX pending; next block F08. |
 
 ## Release discipline
 
@@ -28,3 +28,12 @@ The active line is `feature/v0.9.4`. The historical `feature/v0.9.1-training-pla
 
 - `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1` is the immutable F01 evidence green rollback point (`checkpoint/v0.9.4-f01-evidence-green`), with Exercise DB v2 #284 and Android APK #837 successful.
 - `d182d34e81b8ef678675002462467bf41672f66b` is the subsequent F05/F07 candidate pushed by fast-forward to `feature/v0.9.4`. It introduces plan schema v5 intent-only persistence and execution-time materialization. CI was still pending when this ledger entry was written and must be recorded separately after completion.
+
+## v0.9.4 F05/F07 green verification — 2026-10-01
+
+- Verified HEAD: `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`.
+- Exercise DB v2 #286 — SUCCESS.
+- Android APK #839 — SUCCESS.
+- F05 location-independent plan persistence/materialization is repository-level verified.
+- F07 future-only regeneration/domain persistence is repository-level verified; explicit confirmation and physical-device UX remain acceptance work.
+- Next dependency-ordered block: F08 Adaptive Coach with/without active plan. Existing implementation seam is present, but its remaining plan fixtures must be aligned to the intent-only contract before F08 can be marked verified.
