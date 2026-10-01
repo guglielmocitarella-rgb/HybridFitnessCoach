@@ -717,10 +717,8 @@ internal fun generateWorkoutFromCatalogue(catalogue:List<Exercise>,location:Trai
     return applyCoaching(sequenceWorkout(result).sortedBy{ex->if(athlete.prioritySkills.any{it in ex.skills})0 else 1},context)
 }
 
-internal enum class PlannedSessionRealizationSource { INTENT }
 internal data class PlannedSessionRealization(
  val exercises:List<Exercise>,
- val source:PlannedSessionRealizationSource,
  val plannedWorkoutId:String
 )
 internal fun materializePlannedSession(
@@ -737,7 +735,7 @@ internal fun materializePlannedSession(
  val generated=generateWorkoutFromCatalogue(compatibleCatalogue,location,effectiveAthlete,effectiveAthlete.toCapabilityProfile(),sessions,readinessScore)
  val focused=if(intent.focusCategories.isEmpty()) generated else generated.filter{it.category in intent.focusCategories}
  val realized=focused.takeIf{it.isNotEmpty()} ?: generated
- return PlannedSessionRealization(realized,PlannedSessionRealizationSource.INTENT,planned.id)
+ return PlannedSessionRealization(realized,planned.id)
 }
 
 data class SuggestedWorkout(val exercises:List<Exercise>,val plannedWorkout:PlannedWorkout?)
@@ -915,10 +913,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
             val launch=resolveWorkoutLaunch(restoredWorkout,requested)
-            plannedWorkoutToRun=launch.plannedWorkout?.let{planned->
-                val realized=materializePlannedSession(planned,profile,athlete,sessions,readinessScore)
-                planned
-            }
+            plannedWorkoutToRun=launch.plannedWorkout
             workoutOpen=launch.resumeActive || plannedWorkoutToRun?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore).exercises.isNotEmpty()}==true
             onCalendarWorkoutConsumed()
         }

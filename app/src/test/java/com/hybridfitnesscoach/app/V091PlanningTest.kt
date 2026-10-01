@@ -315,7 +315,6 @@ class V091PlanningTest {
   val planned=PlannedWorkout("p",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza",emptyList(),emptySet(),0))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
   val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine,body))
-  assertEquals(PlannedSessionRealizationSource.INTENT,realized.source)
   assertTrue(realized.exercises.isNotEmpty())
   assertTrue(realized.exercises.all{locationCompatible(it,outdoor)})
   assertFalse(realized.exercises.any{it.name==machine.name})
@@ -333,7 +332,6 @@ class V091PlanningTest {
   val planned=PlannedWorkout("intent",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza"))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
   val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine))
-  assertEquals(PlannedSessionRealizationSource.INTENT,realized.source)
   assertTrue(realized.exercises.isEmpty())
  }
 
