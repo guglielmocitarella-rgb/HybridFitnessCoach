@@ -61,7 +61,7 @@ Il piano futuro non è un archivio di esercizi precongelati: conserva l'intento.
 
 **v0.9.3** — congelata; baseline storica.
 
-**v0.9.4** — repository implementation F01–F11 completata sul runtime SHA `cfacd7e3…`; restano signed release APK e physical-device acceptance delle clausole `DEVICE_PENDING`.
+**v0.9.4** — FROZEN baseline. F01–F11 repository-level completati sul runtime SHA `cfacd7e3…`; per decisione di release, signed-release/device acceptance residui passano a v0.9.5, che usa questa linea come base.
 
 ## Stack
 
@@ -149,3 +149,7 @@ Baseline CI verificata: Android Build #166 verde (`7b108819`).
 | Audit finale + APK 0.9 firmato + firma verificata | riaperto sul catalogo | sì | sì | sì | in verifica |
 
 I gate marcati `parziale` impediscono esplicitamente di dichiarare V0.9 COMPLETATA. La checklist va aggiornata solo sulla base di codice, wiring, test e CI verificati.
+
+### Baseline v0.9.5
+
+La v0.9.5 deve partire dalla linea frozen v0.9.4. Il runtime verificato è `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`; il commit successivo di chiusura contiene solo documentazione. Tutte le clausole DEVICE_PENDING e il gate signed-release non eseguiti in v0.9.4 sono backlog obbligatorio della v0.9.5.

@@ -9,7 +9,7 @@ This file is the compact release ledger. GitHub commits and workflow runs remain
 | v0.9.1 | Historical / closed | repository history / PR #8 audit trail | historical RC2 CI | Multi-week plan, recovery, exercise detail/progression and persistence work. |
 | v0.9.2 | Frozen | `release/v0.9.2` at `9c6229485ee622f3e0d825bc20c5adf58fb39d92` | green checkpoint recorded in release history | Closed predecessor baseline. |
 | v0.9.3 | Frozen | `release/v0.9.3`; validated production-code checkpoint `365c07f643065df9dd68310362edd3ad3ed3236f` | Exercise DB v2 #250: success; Android APK #802: success | Repository acceptance complete. Interaction/device acceptance transfers to v0.9.4. |
-| v0.9.4 | Active | runtime SHA `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`; checkpoint `checkpoint/v0.9.4-f01-f11-green` | Exercise DB v2 #292 success; Android APK #845 success; PR #11 mergeable at verification time. | F01–F11 repository-level verified; signed release APK and physical-device acceptance pending. |
+| v0.9.4 | Frozen | runtime `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`; final documentation closure follows on same frozen line | Exercise DB v2 #292 success; Android APK #845 success | Repository baseline complete. Signed-release and physical-device/UI acceptance transferred to v0.9.5 by release decision. |
 
 ## Release discipline
 
@@ -64,3 +64,10 @@ The active line is `feature/v0.9.4`. The historical `feature/v0.9.1-training-pla
 - Android APK #845: success; PR debug APK uploaded. Signed-release restore/build/signature/upload steps were skipped because the run was triggered by `pull_request`.
 - F11 strengthened empty/regeneration/pinned-position regression evidence is green on the final runtime SHA.
 - Release remains open until a signed v0.9.4 APK is produced and signature-verified from the exact runtime SHA, followed by targeted physical-device acceptance of all DEVICE_PENDING clauses.
+
+## v0.9.4 closure / v0.9.5 handoff — 2026-10-01
+
+- v0.9.4 runtime is frozen at `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`; checkpoint `checkpoint/v0.9.4-f01-f11-green`.
+- CI artifact #845 provides the exact-SHA debug APK used as the v0.9.4 deliverable.
+- Remaining signed-release and physical-device/UI acceptance are transferred to v0.9.5.
+- v0.9.5 must branch from the final v0.9.4 frozen line and inherit all DEVICE_PENDING acceptance items before adding/closing further release scope.

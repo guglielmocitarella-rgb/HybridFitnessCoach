@@ -56,3 +56,12 @@ F01–F11 automated repository gates are green on exact runtime SHA `cfacd7e3…
 ## Status terminology
 
 Use `VERIFIED`, `IMPLEMENTED_NOT_CI_VERIFIED`, `IMPLEMENTED_NOT_DEVICE_VERIFIED`, `PARTIAL`, `BLOCKED`, or `DEVICE_PENDING`. A green repository workflow is necessary but is never proof of physical-device behavior.
+
+## v0.9.4 closure
+
+- Runtime baseline: `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`.
+- Repository checkpoint: `checkpoint/v0.9.4-f01-f11-green`.
+- CI: Exercise DB v2 #292 success; Android APK #845 success.
+- Deliverable: CI debug artifact `HybridFitnessCoach-v0.9.4-device-test` from the exact runtime SHA.
+- Remaining signed-release and DEVICE_PENDING acceptance are intentionally transferred to v0.9.5.
+- v0.9.5 starts from the frozen v0.9.4 line; no v0.9.4 runtime changes are permitted after closure.

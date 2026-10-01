@@ -171,3 +171,9 @@ v0.9.4 is not complete until:
 3. a new signed APK is produced and tied to that exact SHA;
 4. physical-device acceptance explicitly passes all F01–F11 marked `DEVICE_PENDING`;
 5. no green CI run is reported as proof of device acceptance.
+
+## Closure decision — 2026-10-01
+
+v0.9.4 is frozen as the repository-verified baseline. Runtime code remains tied to `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07` and `checkpoint/v0.9.4-f01-f11-green`. Exercise DB v2 #292 and Android APK #845 are green. The CI artifact `HybridFitnessCoach-v0.9.4-device-test` is the debug APK produced from that exact runtime SHA.
+
+By release decision, the remaining physical-device/UI acceptance and signed-release gate are transferred to v0.9.5 and are not blockers for freezing v0.9.4 as the development baseline. v0.9.5 must begin from this frozen line and carry forward every unresolved DEVICE_PENDING clause before new acceptance is declared complete.
