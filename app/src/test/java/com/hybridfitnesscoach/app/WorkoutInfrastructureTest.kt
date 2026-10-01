@@ -103,8 +103,8 @@ class WorkoutInfrastructureTest {
 
 class WorkoutLaunchFlowTest {
     private fun intent(origin:WorkoutOrigin):WorkoutLaunchIntent = when(origin) {
-        WorkoutOrigin.PLANNED -> WorkoutLaunchIntent(origin,plannedWorkoutId="planned-42")
-        WorkoutOrigin.SINGLE_EXERCISE -> WorkoutLaunchIntent(origin,sourceId="bench-press")
+        WorkoutOrigin.PLAN -> WorkoutLaunchIntent(origin,plannedWorkoutId="planned-42")
+        WorkoutOrigin.SINGLE_EXERCISE -> WorkoutLaunchIntent(origin,sourceExerciseId="bench-press")
         else -> WorkoutLaunchIntent(origin)
     }
 
@@ -130,7 +130,7 @@ class WorkoutLaunchFlowTest {
     }
 
     @Test fun plannedWorkoutOwnershipSurvivesTheCommonLaunchFlow() {
-        val request=intent(WorkoutOrigin.PLANNED)
+        val request=intent(WorkoutOrigin.PLAN)
         val preview=materializeWorkoutLaunch(
             selectWorkoutLocation(beginWorkoutLaunch(request),"gym"),
             materialized("gym",request.plannedWorkoutId)
