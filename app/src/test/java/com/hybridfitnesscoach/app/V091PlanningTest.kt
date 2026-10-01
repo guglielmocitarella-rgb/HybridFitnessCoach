@@ -548,7 +548,7 @@ class V091PlanningTest {
  }
  @Test fun calendarMonthStateExposesEveryPlanStatusWithoutMutatingDomain(){
   val start=java.time.LocalDate.of(2026,6,1).toEpochDay()
-  val states=listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED)
+  val states=PlannedWorkoutState.values().toList()
   val workouts=states.mapIndexed{i,s->PlannedWorkout("s$i",start+i,0,i,emptyList(),state=s)}
   val plan=TrainingPlan("states",start,1,5,workouts)
   val month=calendarMonthState(plan,2026,6,start+10)
