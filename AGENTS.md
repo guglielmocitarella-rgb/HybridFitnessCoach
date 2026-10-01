@@ -34,7 +34,7 @@ Use small, descriptive commits with imperative subjects, following history: `Mig
 
 ## Current Release Target
 
-Target: **v0.9.5**. Primary development branch: `feature/v0.9.5`; active PR: **#13**. **v0.9.4 is frozen** at runtime `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07` (`checkpoint/v0.9.4-f01-f11-green`); do not add product changes to older release lines.
+Target: **v0.9.5**. Primary development branch: `feature/v0.9.5`; active PR: **#14**. **v0.9.4 is frozen** at runtime `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07` (`checkpoint/v0.9.4-f01-f11-green`); do not add product changes to older release lines.
 
 Deliver a robust, tested, maintainable, scientifically honest release. A compiling APK alone is insufficient.
 
