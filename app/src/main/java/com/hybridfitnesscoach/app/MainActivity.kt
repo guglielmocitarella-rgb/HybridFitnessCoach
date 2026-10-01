@@ -774,7 +774,7 @@ fun HybridFitnessApp() {
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     var calendarWorkout by remember { mutableStateOf<PlannedWorkout?>(null) }
-    var libraryExerciseWorkout by remember { mutableStateOf<WorkoutSessionState?>(null) }
+    var workoutLaunch by remember { mutableStateOf<WorkoutLaunchFlow?>(null) }
     fun saveFinishedWorkout(record: SessionRecord): Boolean {
         val saved = store.finishWorkout(record)
         if (saved) sessions = store.loadSessions()
@@ -815,25 +815,75 @@ fun HybridFitnessApp() {
                         addLocation={ created -> customProfiles.add(created); store.saveTrainingLocations(customProfiles); activeProfile=created; store.saveActiveTrainingLocationId(created.id) },
                         editLocation={ old, updated -> val i=customProfiles.indexOfFirst{it.id==old.id}; if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.id==old.id){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}} },
                         deleteLocation={ doomed -> customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)} },
-                        onExecuteExercise={ exercise -> libraryExerciseWorkout=singleExerciseWorkoutState(exercise=exercise,profileName=activeProfile.name,athlete=athlete,sessions=sessions) },
+                        onExecuteExercise={ exercise -> workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.SINGLE_EXERCISE,sourceExerciseId=exercise.progressionKey?:exercise.name)) },
                         onSessionSaved={ record -> saveFinishedWorkout(record) }
                     )
                 }
             }
         }
-        libraryExerciseWorkout?.let { single ->
+        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.CHOOSE_LOCATION}?.let { flow ->
+            val source=flow.intent.sourceExerciseId?.let{id->exercises.firstOrNull{it.progressionKey==id || it.name==id}}
+            val locations=(trainingLocations+customProfiles+activeProfile).distinctBy{it.id}
+                .filter{place->source?.let{locationCompatible(it,place)}==true}
+            AlertDialog(
+                onDismissRequest={workoutLaunch=null},
+                title={Text("Scegli dove allenarti")},
+                text={
+                    if(source==null) Text("L'esercizio selezionato non è più disponibile.")
+                    else if(locations.isEmpty()) Text("Nessun luogo configurato dispone dell'attrezzatura richiesta da "+source.name+".")
+                    else LazyColumn(Modifier.heightIn(max=420.dp)){
+                        items(locations,key={it.id}){place->
+                            TextButton(onClick={
+                                val selected=selectWorkoutLocation(flow,place.id)
+                                val workout=materializeSingleExerciseWorkout(
+                                    exercise=source,profileName=place.name,athlete=athlete,sessions=sessions,
+                                    readinessScore=health.readiness,trainingLocationId=place.id
+                                )
+                                workoutLaunch=materializeWorkoutLaunch(selected,workout)
+                            },modifier=Modifier.fillMaxWidth()){
+                                Text(place.icon+"  "+place.name,modifier=Modifier.fillMaxWidth())
+                            }
+                        }
+                    }
+                },
+                confirmButton={TextButton(onClick={workoutLaunch=null}){Text("ANNULLA")}}
+            )
+        }
+        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.PREVIEW}?.let { flow ->
+            val workout=flow.workout
+            AlertDialog(
+                onDismissRequest={workoutLaunch=null},
+                title={Text("Anteprima allenamento")},
+                text={
+                    LazyColumn(Modifier.heightIn(max=480.dp)){
+                        item{Text("Luogo: "+(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}?.name.orEmpty(),color=Color.Gray)}
+                        items(workout?.exercises.orEmpty()){exercise->
+                            val first=exercise.sets.firstOrNull()
+                            val target=when(exercise.measure){
+                                ExerciseMeasure.REPS -> (first?.targetReps?.toString()?: "—")+" ripetizioni"
+                                ExerciseMeasure.SECONDS,ExerciseMeasure.DURATION,ExerciseMeasure.INTERVALS -> (first?.targetSeconds?.toString()?: "—")+" secondi"
+                                ExerciseMeasure.DISTANCE -> (first?.targetDistanceMeters?.toString()?: "—")+" metri"
+                            }
+                            Text(exercise.exerciseName,fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
+                            Text(exercise.sets.size.toString()+" serie • "+target+" • recupero "+exercise.setRestSec+" s",color=Color.Gray)
+                        }
+                    }
+                },
+                confirmButton={Button(onClick={
+                    val place=(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}
+                    if(place!=null){activeProfile=place;store.saveActiveTrainingLocationId(place.id)}
+                    workoutLaunch=startWorkoutRunner(flow)
+                }){Text("AVVIA")}},
+                dismissButton={TextButton(onClick={workoutLaunch=null}){Text("ANNULLA")}}
+            )
+        }
+        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.RUNNER}?.let { flow ->
+            val place=(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}?:activeProfile
             WorkoutDialog(
-                profile=activeProfile,
-                athlete=athlete,
-                sessions=sessions,
-                store=store,
-                restored=single,
-                onDismiss={ libraryExerciseWorkout=null },
-                onSave={ record ->
-                    val saved=saveFinishedWorkout(record)
-                    if(saved)libraryExerciseWorkout=null
-                    saved
-                }
+                profile=place,athlete=athlete,sessions=sessions,store=store,restored=flow.workout,
+                plannedWorkout=flow.workout?.plannedWorkoutId?.let{id->store.loadEnabledTrainingPlans().asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{it.id==id}},
+                onDismiss={workoutLaunch=null},
+                onSave={record->val saved=saveFinishedWorkout(record);if(saved)workoutLaunch=null;saved}
             )
         }
     }
@@ -1738,7 +1788,7 @@ private fun WorkoutDialog(profile: TrainingLocation, athlete: AthleteProfile, se
             val states=compatible.mapIndexed { index, ex ->
                 recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false)
             }
-            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),if(paused)elapsedSeconds*1000L else 0L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="automatic",restKind=restKind,plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id,pausedRestRemainingSec=if(paused)restRemaining else null))
+            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),if(paused)elapsedSeconds*1000L else 0L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="automatic",restKind=restKind,plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id,pausedRestRemainingSec=if(paused)restRemaining else null,trainingLocationId=restored?.trainingLocationId?:profile.id))
         }
     }
     LaunchedEffect(started){if(started){if(currentExercise==null)currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;val i=compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i+1)}}

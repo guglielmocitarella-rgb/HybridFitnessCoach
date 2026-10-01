@@ -357,6 +357,49 @@ internal fun effectiveAutomaticExercises(
 ):List<Exercise> = if(restored) source else source.map{exerciseWithEffectivePrescription(it,athlete,sessions,readinessScore)}
 
 
+internal enum class WorkoutOrigin { PLAN, ADAPTIVE_EXTRA, CUSTOM, SKILL, LIBRARY, SINGLE_EXERCISE }
+internal enum class WorkoutLaunchStage { CHOOSE_LOCATION, MATERIALIZE, PREVIEW, RUNNER }
+
+internal data class WorkoutLaunchIntent(
+    val origin:WorkoutOrigin,
+    val sourceExerciseId:String?=null,
+    val plannedWorkoutId:String?=null
+) {
+    init {
+        require(sourceExerciseId==null || sourceExerciseId.isNotBlank())
+        require(plannedWorkoutId==null || (origin==WorkoutOrigin.PLAN && plannedWorkoutId.isNotBlank()))
+        require(origin!=WorkoutOrigin.PLAN || plannedWorkoutId!=null)
+        require(origin!=WorkoutOrigin.SINGLE_EXERCISE || sourceExerciseId!=null)
+    }
+}
+
+internal data class WorkoutLaunchFlow(
+    val intent:WorkoutLaunchIntent,
+    val stage:WorkoutLaunchStage=WorkoutLaunchStage.CHOOSE_LOCATION,
+    val locationId:String?=null,
+    val workout:WorkoutSessionState?=null
+)
+
+internal fun beginWorkoutLaunch(intent:WorkoutLaunchIntent)=WorkoutLaunchFlow(intent)
+
+internal fun selectWorkoutLocation(flow:WorkoutLaunchFlow,locationId:String):WorkoutLaunchFlow {
+    require(flow.stage==WorkoutLaunchStage.CHOOSE_LOCATION)
+    require(locationId.isNotBlank())
+    return flow.copy(stage=WorkoutLaunchStage.MATERIALIZE,locationId=locationId)
+}
+
+internal fun materializeWorkoutLaunch(flow:WorkoutLaunchFlow,workout:WorkoutSessionState):WorkoutLaunchFlow {
+    require(flow.stage==WorkoutLaunchStage.MATERIALIZE)
+    require(workout.trainingLocationId==flow.locationId) { "Workout must be materialized for the selected location" }
+    require(workout.plannedWorkoutId==flow.intent.plannedWorkoutId) { "Planned workout ownership must be preserved" }
+    return flow.copy(stage=WorkoutLaunchStage.PREVIEW,workout=workout)
+}
+
+internal fun startWorkoutRunner(flow:WorkoutLaunchFlow):WorkoutLaunchFlow {
+    require(flow.stage==WorkoutLaunchStage.PREVIEW && flow.workout!=null)
+    return flow.copy(stage=WorkoutLaunchStage.RUNNER)
+}
+
 internal data class WorkoutLaunchResolution(
     val plannedWorkout:PlannedWorkout?,
     val resumeActive:Boolean
@@ -427,17 +470,15 @@ internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetSta
 }
 
 
-internal fun singleExerciseWorkoutState(
+internal fun materializeSingleExerciseWorkout(
     exercise:Exercise,
     profileName:String,
     startedAtEpochMs:Long=System.currentTimeMillis(),
     athlete:AthleteProfile?=null,
     sessions:List<SessionRecord> = emptyList(),
-    readinessScore:Int?=null
+    readinessScore:Int?=null,
+    trainingLocationId:String
 ):WorkoutSessionState {
-    // A fresh direct launch is later passed through WorkoutDialog as a restored
-    // snapshot, so materialize the effective prescription here instead of
-    // bypassing source-backed sets/reps/recovery.
     val effective=athlete?.let{exerciseWithEffectivePrescription(exercise,it,sessions,readinessScore)} ?: exercise
     val prescription=prescriptionFor(effective)
     val target=prescription.value
@@ -465,6 +506,7 @@ internal fun singleExerciseWorkoutState(
         startedAtEpochMs=startedAtEpochMs,
         profileName=profileName,
         exercises=listOf(state),
-        runnerKind="single"
+        runnerKind="single",
+        trainingLocationId=trainingLocationId
     )
 }
