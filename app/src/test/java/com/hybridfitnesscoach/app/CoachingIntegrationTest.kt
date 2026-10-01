@@ -63,7 +63,7 @@ class CoachingIntegrationTest {
         val today=20_000L
         val planned=PlannedWorkout("w",today,0,0,emptyList(),state=PlannedWorkoutState.SKIPPED,intent=PlannedSessionIntent("Forza"))
         val plan=TrainingPlan("p",today,1,1,listOf(planned))
-        val withPlan=coachingContext(history,90,plan,today,now)
+        val withPlan=coachingContext(history,90,listOf(plan),today,now)
         assertEquals(ProgressionDecision.MAINTAIN,withPlan.plan.decision)
         assertEquals(1,withPlan.planDisruptions)
         assertTrue(withPlan.plan.notes.any{it.contains("Progressione sospesa")})
@@ -77,7 +77,7 @@ class CoachingIntegrationTest {
         )
         val today=20_000L
         val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("w",today+1,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))))
-        val context=coachingContext(history,90,plan,today,now)
+        val context=coachingContext(history,90,listOf(plan),today,now)
         assertEquals(ProgressionDecision.ADVANCE,context.plan.decision)
         assertEquals(0,context.planDisruptions)
         assertEquals(1,context.upcomingSessions)
@@ -91,7 +91,7 @@ class CoachingIntegrationTest {
         )
         val today=20_000L
         val completed=PlannedWorkout("done",today,0,0,emptyList(),state=PlannedWorkoutState.COMPLETED,intent=PlannedSessionIntent("Forza"))
-        val context=coachingContext(history,90,TrainingPlan("p",today,1,1,listOf(completed)),today,now)
+        val context=coachingContext(history,90,listOf(TrainingPlan("p",today,1,1,listOf(completed))),today,now)
         assertEquals(ProgressionDecision.ADVANCE,context.plan.decision)
         assertEquals(1,context.plannedEvidence)
         assertEquals(0,context.planDisruptions)
@@ -101,7 +101,7 @@ class CoachingIntegrationTest {
     @Test fun lowReadinessRemainsDeloadWithActiveDisruptedPlan() {
         val today=20_000L
         val skipped=PlannedWorkout("skip",today,0,0,emptyList(),state=PlannedWorkoutState.SKIPPED,intent=PlannedSessionIntent("Forza"))
-        val context=coachingContext(emptyList(),25,TrainingPlan("p",today,1,1,listOf(skipped)),today)
+        val context=coachingContext(emptyList(),25,listOf(TrainingPlan("p",today,1,1,listOf(skipped))),today)
         assertEquals(ProgressionDecision.DELOAD,context.plan.decision)
         assertEquals(1,context.planDisruptions)
         assertEquals(0,context.upcomingSessions)
