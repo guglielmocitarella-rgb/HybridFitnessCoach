@@ -72,6 +72,33 @@ internal fun coachingContext(
     )
 }
 
+internal fun coachingContext(
+    sessions:List<SessionRecord>,
+    readiness:Int?,
+    trainingPlans:List<TrainingPlan>,
+    todayEpochDay:Long,
+    now:Long=System.currentTimeMillis()
+):CoachingContext {
+    val history=coachingContext(sessions,readiness,now)
+    if(trainingPlans.isEmpty())return history
+    val recentStart=todayEpochDay-28
+    val workouts=trainingPlans.flatMap{it.workouts}
+    val recent=workouts.filter{it.epochDay in recentStart..todayEpochDay}
+    val disruptions=recent.count{it.state==PlannedWorkoutState.PARTIAL || it.state==PlannedWorkoutState.SKIPPED}
+    val completed=recent.count{it.state==PlannedWorkoutState.COMPLETED}
+    val upcoming=workouts.count{it.state in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED)}
+    val collisions=workouts.filter{it.state in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED)}
+        .groupingBy{it.epochDay}.eachCount().count{it.value>1}
+    val base=history.plan
+    val adjusted=if(base.decision==ProgressionDecision.ADVANCE && disruptions>0)
+        base.copy(intensityFactor=1.0,volumeFactor=1.0,decision=ProgressionDecision.MAINTAIN,
+            notes=base.notes+listOf("Progressione sospesa: piani recenti con sessioni parziali o saltate"))
+    else base
+    val note="Piani attivi: "+trainingPlans.size+" • "+completed+" completate • "+disruptions+" parziali/saltate • "+upcoming+" da eseguire"+
+        if(collisions>0)" • "+collisions+" giorni con sessioni multiple" else ""
+    return history.copy(plan=adjusted.copy(notes=adjusted.notes+note),plannedEvidence=recent.size,planDisruptions=disruptions,upcomingSessions=upcoming)
+}
+
 internal fun exerciseRecovery(ex:Exercise,recovery:Map<String,Int>):Int =
     recovery.filterKeys{ex.group.contains(it,true)||it in ex.secondaryGroups}.values.minOrNull()?:100
 
