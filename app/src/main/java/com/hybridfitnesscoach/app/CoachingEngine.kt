@@ -41,9 +41,10 @@ internal fun coachingContext(
     sessions:List<SessionRecord>,
     readiness:Int?,
     trainingPlan:TrainingPlan?,
-    todayEpochDay:Long
+    todayEpochDay:Long,
+    now:Long=System.currentTimeMillis()
 ):CoachingContext {
-    val history=coachingContext(sessions,readiness)
+    val history=coachingContext(sessions,readiness,now)
     val plan=trainingPlan ?: return history
     val recentStart=todayEpochDay-28
     val recent=plan.workouts.filter{it.epochDay in recentStart..todayEpochDay}

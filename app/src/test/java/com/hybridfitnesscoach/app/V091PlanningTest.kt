@@ -55,7 +55,7 @@ class V091PlanningTest {
   ))
   val historyOnly=coachingContext(sessions,readiness=90,now=now)
   assertEquals(ProgressionDecision.ADVANCE,historyOnly.plan.decision)
-  val combined=coachingContext(sessions,90,disrupted,today)
+  val combined=coachingContext(sessions,90,disrupted,today,now)
   assertEquals(ProgressionDecision.MAINTAIN,combined.plan.decision)
   assertEquals(1,combined.planDisruptions)
   assertEquals(1,combined.upcomingSessions)
@@ -537,7 +537,7 @@ class V091PlanningTest {
   assertEquals(2,historyOnly.evidenceSessions);assertNull(historyOnly.readiness);assertTrue(historyOnly.plan.notes.any{it.contains("2 workout recenti")})
   val today=java.time.Instant.ofEpochMilli(now).atZone(java.time.ZoneOffset.UTC).toLocalDate().toEpochDay()
   val plan=TrainingPlan("f08",today,1,1,listOf(PlannedWorkout("next",today+1,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))))
-  val withPlan=coachingContext(history,null,plan,today)
+  val withPlan=coachingContext(history,null,plan,today,now)
   assertEquals(historyOnly.evidenceSessions,withPlan.evidenceSessions);assertEquals(1,withPlan.upcomingSessions);assertTrue(withPlan.plan.notes.any{it.startsWith("Piano")})
  }
 

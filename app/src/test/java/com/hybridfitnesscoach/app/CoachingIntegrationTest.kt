@@ -63,7 +63,7 @@ class CoachingIntegrationTest {
         val today=20_000L
         val planned=PlannedWorkout("w",today,0,0,listOf(exercises.first()),state=PlannedWorkoutState.SKIPPED)
         val plan=TrainingPlan("p",today,1,1,listOf(planned))
-        val withPlan=coachingContext(history,90,plan,today)
+        val withPlan=coachingContext(history,90,plan,today,now)
         assertEquals(ProgressionDecision.MAINTAIN,withPlan.plan.decision)
         assertEquals(1,withPlan.planDisruptions)
         assertTrue(withPlan.plan.notes.any{it.contains("Progressione sospesa")})
@@ -77,7 +77,7 @@ class CoachingIntegrationTest {
         )
         val today=20_000L
         val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("w",today+1,0,0,listOf(exercises.first()))))
-        val context=coachingContext(history,90,plan,today)
+        val context=coachingContext(history,90,plan,today,now)
         assertEquals(ProgressionDecision.ADVANCE,context.plan.decision)
         assertEquals(0,context.planDisruptions)
         assertEquals(1,context.upcomingSessions)
