@@ -267,7 +267,6 @@ class V091PlanningTest {
  }
  @Test fun assessedLevelConstrainsGeneratedPlanDifficulty(){
   val profile=trainingLocations.first{it.name=="Palestra"}
-  val level=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,5,0)).exerciseLevel)
   val capability=capabilityFromAssessment(FitnessLevelAssessment(0,5,0))
   val athlete=AthleteProfile(goal="Forza",daysPerWeek=2,
    assessedTrainingExperience=capability.trainingExperience,
@@ -275,8 +274,8 @@ class V091PlanningTest {
    assessedPullCapacity=capability.pullCapacity)
   val config=PlanConfiguration("Forza",1,2,setOf(1,4),emptyList()).validated()
   val plan=generateTrainingPlan("assessment",20_000,profile,athlete,config,emptyList(),80)
-  assertEquals("Principiante",level)
-  assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=levelScore(level)})
+  assertEquals(1,capability.exerciseLevel)
+  assertTrue(plan.workouts.flatMap{it.exercises}.all{levelScore(it.level)<=capabilityLevelFor(it,capability)})
  }
  @Test fun fitnessLevelAssessmentRejectsNegativeInputs(){
   assertThrows(IllegalArgumentException::class.java){capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(-1,0,0)).exerciseLevel)}
