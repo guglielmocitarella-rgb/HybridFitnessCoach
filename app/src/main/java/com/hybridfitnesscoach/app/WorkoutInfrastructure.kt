@@ -403,15 +403,16 @@ internal fun exerciseSkillLinks(exercise:Exercise,sessions:List<SessionRecord>):
     }
 
 
-internal fun todayPlannedWorkout(plan:TrainingPlan?,today:Long):PlannedWorkout? =
-    plan?.workouts
-        ?.filter{
+internal fun todayPlannedWorkouts(plans:List<TrainingPlan>,today:Long):List<Pair<TrainingPlan,PlannedWorkout>> =
+    plans.flatMap { plan ->
+        plan.workouts.filter {
             it.epochDay==today &&
             it.state!=PlannedWorkoutState.COMPLETED &&
             it.state!=PlannedWorkoutState.PARTIAL &&
             it.state!=PlannedWorkoutState.SKIPPED
-        }
-        ?.minWithOrNull(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek})
+        }.map { plan to it }
+    }.sortedWith(compareBy<Pair<TrainingPlan,PlannedWorkout>>{it.first.goal}
+        .thenBy{it.second.weekIndex}.thenBy{it.second.sequenceInWeek})
 
 
 internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetState> {
