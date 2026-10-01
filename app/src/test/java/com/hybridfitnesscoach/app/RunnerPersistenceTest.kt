@@ -34,7 +34,7 @@ class RunnerPersistenceTest {
     }
     @Test fun plannedWorkoutLaunchPreservesMaterializedPlanPrescription() {
         val planned=Exercise("Planned press","Petto","Bilanciere","Intermedio",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,targetSets=4,targetValue=9.0,setRestSec=137)
-        val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+        val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val launch=effectiveAutomaticExercises(listOf(planned),athlete,emptyList(),20,restored=true).single()
         assertEquals(planned,launch)
         assertEquals(4,launch.targetSets)
@@ -44,7 +44,7 @@ class RunnerPersistenceTest {
 
     @Test fun freshSuggestedWorkoutStillMaterializesCurrentAdaptivePrescription() {
         val source=Exercise("Fresh press","Petto","Bilanciere","Intermedio",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,targetSets=4,targetValue=9.0,setRestSec=137)
-        val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+        val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val fresh=effectiveAutomaticExercises(listOf(source),athlete,emptyList(),20,restored=false).single()
         assertNotEquals(source,fresh)
     }

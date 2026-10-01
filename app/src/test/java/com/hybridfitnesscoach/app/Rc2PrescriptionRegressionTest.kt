@@ -41,7 +41,7 @@ class Rc2PrescriptionRegressionTest {
 
     @Test fun effectiveRunnerPrescriptionUsesVerifiedBaselineForEligibleResistanceExercise() {
         val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,setRestSec=75)
-        val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+        val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val out=effectiveRunnerPrescription(ex,athlete,emptyList(),85)
         assertTrue(out.sourceBased)
         assertEquals(3,out.sets)
@@ -51,7 +51,7 @@ class Rc2PrescriptionRegressionTest {
 
     @Test fun effectiveRunnerPrescriptionFallsBackExactlyForUnsupportedExercise() {
         val ex=Exercise("Synthetic run","Cardio","Corpo libero","Principiante",category=ExerciseCategory.CARDIO,measure=ExerciseMeasure.DISTANCE,resistanceMode=ResistanceMode.BODYWEIGHT,targetSets=1,targetValue=1000.0,setRestSec=45)
-        val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+        val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val legacy=prescriptionFor(ex)
         val out=effectiveRunnerPrescription(ex,athlete,emptyList(),85)
         assertFalse(out.sourceBased)
@@ -62,7 +62,7 @@ class Rc2PrescriptionRegressionTest {
 
     @Test fun automaticRunnerMaterializesVerifiedTargetsIntoPersistableExerciseState() {
         val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,setRestSec=75)
-        val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+        val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val materialized=effectiveAutomaticExercises(listOf(ex),athlete,emptyList(),85).single()
         val state=plannedExerciseState(0,materialized)
         assertEquals(3,state.sets.size)
@@ -72,7 +72,7 @@ class Rc2PrescriptionRegressionTest {
 
     @Test fun automaticRunnerResumeNeverRecalculatesPersistedPrescription() {
         val persisted=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD,targetSets=2,targetValue=4.0,setRestSec=111)
-        val athlete=AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+        val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
         val resumed=effectiveAutomaticExercises(listOf(persisted),athlete,emptyList(),20,restored=true).single()
         assertEquals(2,resumed.targetSets)
         assertEquals(4.0,resumed.targetValue!!,0.001)

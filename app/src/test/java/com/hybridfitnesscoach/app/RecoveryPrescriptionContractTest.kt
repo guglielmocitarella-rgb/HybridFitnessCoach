@@ -4,7 +4,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RecoveryPrescriptionContractTest {
-    private val athlete=AthleteProfile(level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,goal="Forza")
+    private val athlete=AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,goal="Forza")
 
     @Test fun sourcedSetRestReachesEffectiveExerciseAndPlannedState() {
         val ex=Exercise("Contract press","Petto","Manubri","Intermedio",
