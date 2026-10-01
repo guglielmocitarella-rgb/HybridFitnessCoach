@@ -1049,7 +1049,13 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
     Column(Modifier.fillMaxSize()) {
         Header("Programma","Calendario mensile")
         if(plan==null) {
-            Card(Modifier.padding(20.dp).fillMaxWidth()){Text("Crea il programma dalla schermata Oggi.",modifier=Modifier.padding(20.dp))}
+            Card(Modifier.padding(20.dp).fillMaxWidth()) {
+                Column(Modifier.padding(20.dp)) {
+                    Text("Nessun piano attivo",fontWeight=FontWeight.Bold,fontSize=20.sp)
+                    Text("Crea qui il tuo programma multi-settimana. Il luogo di allenamento verrà scelto quando avvierai ogni sessione.",color=Color.Gray,modifier=Modifier.padding(top=6.dp))
+                    Button(onClick={editPlan=true},modifier=Modifier.fillMaxWidth().padding(top=14.dp)){Text("CREA PIANO")}
+                }
+            }
         } else {
             val monthState=calendarMonthState(plan!!,calendarYear,calendarMonth,today)
             Row(Modifier.fillMaxWidth().padding(horizontal=16.dp,vertical=6.dp),verticalAlignment=Alignment.CenterVertically) {
@@ -1104,8 +1110,8 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             }}
         },confirmButton={},dismissButton={TextButton(onClick={selectedDayWorkouts=emptyList()}){Text("CHIUDI")}})
     }
-    if(editPlan && plan!=null) {
-        val current=PlanConfiguration.fromPlan(plan!!)
+    if(editPlan) {
+        val current=plan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()
         var goal by remember { mutableStateOf(current.goal) }
         var days by remember { mutableIntStateOf(current.daysPerWeek) }
         val weekdays=remember { mutableStateListOf<Int>().apply{addAll(current.trainingDays.sorted())} }
@@ -1118,8 +1124,16 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             Text("Giorni",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp))
             Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(3.dp)){listOf("L","M","M","G","V","S","D").forEachIndexed{index,label->val day=index+1;FilterChip(selected=day in weekdays,onClick={if(day in weekdays)weekdays.remove(day) else if(weekdays.size<days)weekdays.add(day)},label={Text(label)})}}
             Text("Skill prioritarie (opzionali)",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp));calisthenicsSkills.take(12).forEach{s->FilterChip(selected=s.name in skills,onClick={if(s.name in skills)skills.remove(s.name)else skills.add(s.name)},label={Text(s.name)})}
-            Text("Le sessioni già eseguite e quelle passate non verranno modificate.",fontSize=12.sp,color=Color.Gray,modifier=Modifier.padding(top=10.dp))
-        }}},confirmButton={Button(onClick={if(weekdays.size==days){confirmRegeneration=PlanConfiguration(goal,current.weeks,days,weekdays.toSet(),skills.toList()).validated();editPlan=false}},enabled=weekdays.size==days){Text("RIVEDI MODIFICHE")}},dismissButton={TextButton(onClick={editPlan=false}){Text("ANNULLA")}})
+            Text(if(plan==null)"Il piano viene creato come intent: gli esercizi saranno definiti al momento dell'avvio in base al luogo scelto." else "Le sessioni già eseguite e quelle passate non verranno modificate.",fontSize=12.sp,color=Color.Gray,modifier=Modifier.padding(top=10.dp))
+        }}},confirmButton={Button(onClick={
+            if(weekdays.size==days){
+                val candidate=PlanConfiguration(goal,current.weeks,days,weekdays.toSet(),skills.toList()).validated()
+                if(plan==null){
+                    val created=generateTrainingPlan("plan-"+today,today,candidate)
+                    if(persistCandidate(created))editPlan=false
+                } else { confirmRegeneration=candidate;editPlan=false }
+            }
+        },enabled=weekdays.size==days){Text(if(plan==null)"CREA PIANO" else "RIVEDI MODIFICHE")}},dismissButton={TextButton(onClick={editPlan=false}){Text("ANNULLA")}})
     }
     confirmRegeneration?.let { candidateConfig ->
         val current=plan!!
