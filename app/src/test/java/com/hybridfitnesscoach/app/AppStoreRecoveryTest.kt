@@ -167,7 +167,7 @@ class AppStoreRecoveryTest {
     }
 
     @Test fun unsupportedPlanVersionCannotBeLoadedOrOverwritten() {
-        val raw = """{"schemaVersion":999,"id":"future","startEpochDay":1,"weeks":1,"daysPerWeek":1,"workouts":[]}"""
+        val raw = """{"schemaVersion":999,"plans":[]}"""
         prefs.edit().putString("training_plans_v095", raw).commit()
         val store = AppStore(context)
         assertNull(store.loadTrainingPlans().singleOrNull())
@@ -297,7 +297,7 @@ class AppStoreRecoveryTest {
         val store = AppStore(context)
         store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(completed)))
         val root = JSONObject(prefs.getString("training_plans_v095", null)!!)
-        root.getJSONArray("workouts").put(JSONObject().put("id", "broken"))
+        root.getJSONArray("plans").getJSONObject(0).getJSONArray("workouts").put(JSONObject().put("id", "broken"))
         val raw = root.toString()
         prefs.edit().putString("training_plans_v095", raw).commit()
         val recovered = AppStore(context)
@@ -416,8 +416,8 @@ class AppStoreRecoveryTest {
         val store=AppStore(context)
         assertTrue(store.saveTrainingPlan(plan))
         val raw=JSONObject(prefs.getString("training_plans_v095",null)!!)
-        val saved=raw.getJSONArray("workouts").getJSONObject(0)
-        assertEquals(5,raw.getInt("schemaVersion"))
+        val saved=raw.getJSONArray("plans").getJSONObject(0).getJSONArray("workouts").getJSONObject(0)
+        assertEquals(1,raw.getInt("schemaVersion"))
         assertFalse(saved.has("exerciseNames"))
         assertFalse(saved.has("exerciseSnapshots"))
         assertTrue(saved.has("intent"))
@@ -492,14 +492,14 @@ class AppStoreRecoveryTest {
         assertTrue(store.saveTrainingPlan(plan))
         val raw=JSONObject(prefs.getString("training_plans_v095",null)!!)
         assertEquals(5,raw.getInt("schemaVersion"))
-        assertFalse(raw.getJSONArray("workouts").getJSONObject(0).has("exerciseSnapshots"))
-        assertTrue(raw.getJSONArray("workouts").getJSONObject(0).has("intent"))
+        assertFalse(raw.getJSONArray("plans").getJSONObject(0).getJSONArray("workouts").getJSONObject(0).has("exerciseSnapshots"))
+        assertTrue(raw.getJSONArray("plans").getJSONObject(0).getJSONArray("workouts").getJSONObject(0).has("intent"))
         assertEquals(plan,AppStore(context).loadTrainingPlans().singleOrNull())
     }
 
     @Test fun preIntentPlanSchemaIsRejectedInsteadOfMigrated() {
         val store=AppStore(context)
-        val raw="""{"schemaVersion":4,"id":"legacy","startEpochDay":10,"weeks":1,"daysPerWeek":1,"goal":"Forza","trainingDays":[1],"prioritySkills":[],"workouts":[]}"""
+        val raw="""{"schemaVersion":4,"plans":[]}"""
         prefs.edit().putString("training_plans_v095",raw).commit()
         assertNull(store.loadTrainingPlans().singleOrNull())
         assertTrue(store.issues.isNotEmpty())
@@ -513,11 +513,11 @@ class AppStoreRecoveryTest {
         val store=AppStore(context)
         assertTrue(store.saveTrainingPlan(plan))
         val raw=JSONObject(prefs.getString("training_plans_v095",null)!!)
-        val saved=raw.getJSONArray("workouts").getJSONObject(0)
+        val saved=raw.getJSONArray("plans").getJSONObject(0).getJSONArray("workouts").getJSONObject(0)
         assertFalse(saved.has("exerciseSnapshots"))
         assertFalse(saved.has("exerciseNames"))
-        assertEquals("Calisthenics",raw.getString("goal"))
-        assertEquals(3,raw.getInt("daysPerWeek"))
+        assertEquals("Calisthenics",raw.getJSONArray("plans").getJSONObject(0).getString("goal"))
+        assertEquals(3,raw.getJSONArray("plans").getJSONObject(0).getInt("daysPerWeek"))
         assertEquals(plan,AppStore(context).loadTrainingPlans().singleOrNull())
     }
 
