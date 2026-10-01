@@ -22,7 +22,9 @@ class AppStoreRecoveryTest {
 
     @Test fun rc2RescheduleAndPartialDeletionKeepSummaryConsistentAfterReload() {
         val store = AppStore(context)
-        val original = TrainingPlanEngine.scheduleImmediately("rc2", 1000, 2, 3) { _, _ -> emptyList() }
+        val original = TrainingPlanEngine.scheduleImmediately("rc2", 1000, 2, 3) { _, _ -> emptyList() }.let { plan ->
+            plan.copy(workouts=plan.workouts.map { it.copy(intent=PlannedSessionIntent("Forza",sequenceInWeek=it.sequenceInWeek)) })
+        }
         val moved = TrainingPlanEngine.reschedule(original, original.workouts.first().id, 1008)
         store.saveTrainingPlan(moved)
         assertEquals(moved, AppStore(context).loadTrainingPlan())
