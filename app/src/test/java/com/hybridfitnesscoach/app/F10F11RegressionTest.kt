@@ -76,4 +76,14 @@ class F10F11RegressionTest {
         assertEquals(HomePlanStatus.TODAY,state.status)
         assertEquals("adapted",state.todayWorkout?.id)
     }
+
+    @Test fun homeAndLegacyResolverChooseSameDeterministicWorkoutForToday() {
+        val today=100L
+        val later=PlannedWorkout("later",today,1,2,emptyList(),intent=PlannedSessionIntent("Forza"))
+        val earlier=PlannedWorkout("earlier",today,0,1,emptyList(),intent=PlannedSessionIntent("Forza"))
+        val plan=TrainingPlan("p",today,2,2,listOf(later,earlier))
+        assertEquals("earlier",deriveHomePlanState(plan,today).todayWorkout?.id)
+        assertEquals("earlier",todayPlannedWorkout(plan,today)?.id)
+    }
+
 }

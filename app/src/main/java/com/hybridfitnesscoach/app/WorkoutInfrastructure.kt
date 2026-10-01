@@ -404,12 +404,14 @@ internal fun exerciseSkillLinks(exercise:Exercise,sessions:List<SessionRecord>):
 
 
 internal fun todayPlannedWorkout(plan:TrainingPlan?,today:Long):PlannedWorkout? =
-    plan?.workouts?.firstOrNull{
-        it.epochDay==today &&
-        it.state!=PlannedWorkoutState.COMPLETED &&
-        it.state!=PlannedWorkoutState.PARTIAL &&
-        it.state!=PlannedWorkoutState.SKIPPED
-    }
+    plan?.workouts
+        ?.filter{
+            it.epochDay==today &&
+            it.state!=PlannedWorkoutState.COMPLETED &&
+            it.state!=PlannedWorkoutState.PARTIAL &&
+            it.state!=PlannedWorkoutState.SKIPPED
+        }
+        ?.minWithOrNull(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek})
 
 
 internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetState> {
