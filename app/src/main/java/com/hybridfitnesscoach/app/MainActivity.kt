@@ -812,7 +812,7 @@ fun HybridFitnessApp() {
                 when (tab) {
                     Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.PROFILE }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> saveFinishedWorkout(record) }
                     Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
-                    Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
+                    Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() }, showAthleteProfile=false)
                     Tab.PROFILE -> ProfileHub(
                         active=activeProfile, athlete=athlete, sessions=sessions, store=store, customProfiles=customProfiles,
                         onAthleteSave={ updated -> athlete=updated; store.saveAthlete(updated) },
@@ -1359,12 +1359,13 @@ private fun Equipment(active: TrainingLocation, customProfiles: List<TrainingLoc
     deleting?.let{p->AlertDialog(onDismissRequest={deleting=null},title={Text("Elimina profilo?")},text={Text("Vuoi eliminare "+p.name+"?")},confirmButton={Button(onClick={deleteProfile(p);deleting=null}){Text("ELIMINA")}},dismissButton={TextButton(onClick={deleting=null}){Text("ANNULLA")}})}
 }
 @Composable
-private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit, onDeleteSession: (Long) -> Unit) {
+private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit, onDeleteSession: (Long) -> Unit, showAthleteProfile:Boolean=true) {
     var pendingDeletion by remember { mutableStateOf<SessionRecord?>(null) }
     var edit by remember { mutableStateOf(false) }
     var selectedSession by remember { mutableStateOf<SessionRecord?>(null) }
     Column {
         Header("Profilo e progressi", "Dati salvati sul dispositivo")
+        if(showAthleteProfile) {
         Card(Modifier.padding(horizontal=20.dp).fillMaxWidth().clickable { edit=true }) {
             Column(Modifier.padding(18.dp)) {
                 Text(if(athlete.name.isBlank()) "Configura profilo atleta" else athlete.name, fontSize=20.sp, fontWeight=FontWeight.Bold)
@@ -1372,6 +1373,7 @@ private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onA
                 Text(if(capability.assessed) "Capacità • Esperienza "+capability.trainingExperience+"/3 • Push "+capability.pushCapacity+"/3 • Pull "+capability.pullCapacity+"/3" else "Capacità: valutazione da completare", color=Color.Gray);if(athlete.heightCm>0&&athlete.weightKg>0){val bmi=athlete.weightKg/((athlete.heightCm/100f)*(athlete.heightCm/100f));Text(String.format(java.util.Locale.ITALY,"%.1f kg • %.0f cm • BMI %.1f",athlete.weightKg,athlete.heightCm,bmi),color=Accent,fontSize=13.sp)}
                 Text("TOCCA PER MODIFICARE", color=Accent, fontSize=12.sp, modifier=Modifier.padding(top=8.dp))
             }
+        }
         }
         SectionTitle("Storico allenamenti")
         if(sessions.isEmpty()) Text("Completa un allenamento per iniziare lo storico.", color=Color.Gray, modifier=Modifier.padding(horizontal=20.dp))
