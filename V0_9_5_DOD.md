@@ -135,12 +135,12 @@ Mostrare almeno:
 Tutte le origini entrano nello stesso Runner.
 
 ### Stato implementazione v0.9.5
-- **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `b12f665fd2309170d067614055c6f71429c1e643`: Android APK #867 is **SUCCESS** on the exact SHA (unit tests, lint, PR debug APK build/upload); release signing was skipped. Single exercise, plan session and adaptive extra converge on `WorkoutLaunchFlow` and the existing Runner.
+- **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `8ab66bc96955cb6249f7e90300dac572c78152f8`: Android APK #869 is **SUCCESS** on the exact SHA (unit tests, Android lint, PR debug APK build/upload); release signing was skipped. All origins—single exercise, plan, adaptive extra, custom, skill and library filters—share `WorkoutLaunchFlow`, preview, the existing Runner and persistence. Physical acceptance remains **DEVICE_PENDING**.
 - La scelta del luogo preseleziona l'ultimo luogo effettivamente utilizzato e filtra quelli incompatibili con attrezzatura/sessione.
 - Il materializzatore conserva prescrizioni effettive, readiness e storico; il Runner persiste il luogo scelto e mantiene `plannedWorkoutId` per l'ownership multi-plan.
 - Custom, skill e workout dai filtri Libreria passano ora per `WorkoutLaunchFlow`, il medesimo materializzatore di stato, il Runner e la persistenza condivisi.
 - Le sessioni custom attive conservano location, snapshot esercizi, set effettivi, recupero e RPE durante il ripristino nel Runner comune.
-- Il codice post-migrazione è **IMPLEMENTED_NOT_CI_VERIFIED** fino alla CI sull'esatto SHA; la verifica fisica resta **DEVICE_PENDING**.
+- La generazione custom conserva durata, focus, filtri e blocco degli esercizi; le sessioni attive ripristinano snapshot, location, set, recupero e RPE nel Runner condiviso.
 
 ## P05 — Workout Runner universale
 

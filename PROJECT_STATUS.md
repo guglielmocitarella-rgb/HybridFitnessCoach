@@ -48,16 +48,14 @@ Still pending:
 - physical verification of accessibility, scroll, back navigation, empty/error states and destructive actions;
 - complex dialog-based flows still exist and must be reduced where they are acting as screens.
 
-P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `b12f665fd2309170d067614055c6f71429c1e643`; Android APK #867 is **SUCCESS** on this exact SHA (unit tests, Android lint, PR debug APK build/upload). Single-exercise, plan and adaptive-extra starts use the same `WorkoutLaunchFlow`: choose a compatible location (last used location is preselected), materialize with readiness/history/equipment context, review prescriptions, then enter the existing `WorkoutDialog` Runner. Session location and `plannedWorkoutId` ownership are carried into active-workout persistence and history. Release signing was skipped in this workflow.
-
-Custom, skill and library-filter origins now choose a compatible location, generate and preview through the same `WorkoutLaunchFlow`, then use the existing Runner and persistence. Active custom sessions restore in that Runner from their saved exercise snapshots. The exact post-migration commit is **IMPLEMENTED_NOT_CI_VERIFIED** pending Android APK CI. Physical interaction and visual behavior remain **DEVICE_PENDING**.
+P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `8ab66bc96955cb6249f7e90300dac572c78152f8`; Android APK #869 is **SUCCESS** on this exact SHA (unit tests, Android lint, PR debug APK build/upload). Single exercise, plan session, adaptive extra, custom, skill and library-filter origins share `WorkoutLaunchFlow`, the same preview and the existing `WorkoutDialog` Runner. Location selection, readiness/history/equipment filtering, generated prescriptions, RPE, actual sets, active-session recovery and `plannedWorkoutId` ownership use shared state/persistence. Release signing was skipped. The new interaction and visual behavior remain **DEVICE_PENDING**.
 
 ## Active roadmap
 
 The binding scope is `V0_9_5_DOD.md`.
 
 Execution order from the current checkpoint:
-1. P01.2/P04 universal workout-start pipeline; single, plan and adaptive-extra origins share the flow; custom/skill remain to migrate;
+1. P01.2/P04 universal workout-start pipeline; all workout origins share location selection, materialization, preview, Runner and persistence; physical acceptance remains pending;
 2. complete P01 interaction/device acceptance as flows become screen-based;
 3. P02/P03 Home + Plan/calendar UX;
 4. P05 universal Runner, exercise technique access and timed-exercise preparation countdown;
