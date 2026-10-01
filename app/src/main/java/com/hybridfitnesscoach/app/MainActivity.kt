@@ -1021,12 +1021,29 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     if (customWorkoutOpen || (workoutOpen && restoredWorkout?.runnerKind=="custom")) { CustomWorkoutDialog(profile, athlete, sessions, { customWorkoutOpen=false;workoutOpen=false }, onSessionSaved, initialSkill=customSkill, store=store, restored=restoredWorkout?.takeIf{it.runnerKind=="custom"}) }
 }
 
+internal fun calendarStateLabel(state:PlannedWorkoutState):String=when(state){
+ PlannedWorkoutState.PLANNED->"Pianificato";PlannedWorkoutState.RESCHEDULED->"Riprogrammato";PlannedWorkoutState.COMPLETED->"Completato";PlannedWorkoutState.PARTIAL->"Parziale";PlannedWorkoutState.SKIPPED->"Saltato";PlannedWorkoutState.ADAPTED->"Adattato"
+}
+internal fun calendarStateMarker(state:PlannedWorkoutState):String=when(state){
+ PlannedWorkoutState.PLANNED->"P";PlannedWorkoutState.RESCHEDULED->"R";PlannedWorkoutState.COMPLETED->"✓";PlannedWorkoutState.PARTIAL->"½";PlannedWorkoutState.SKIPPED->"–";PlannedWorkoutState.ADAPTED->"A"
+}
+@Composable private fun calendarStateColor(state:PlannedWorkoutState):Color=when(state){
+ PlannedWorkoutState.COMPLETED->MaterialTheme.colorScheme.primary
+ PlannedWorkoutState.PARTIAL->MaterialTheme.colorScheme.tertiary
+ PlannedWorkoutState.SKIPPED->Color.Gray
+ PlannedWorkoutState.RESCHEDULED->MaterialTheme.colorScheme.secondary
+ else->Accent
+}
+
 @Composable
 private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->Unit) {
     val today=java.time.LocalDate.now().toEpochDay()
     var plan by remember { mutableStateOf(store.loadTrainingPlan()) }
-    var showPast by remember { mutableStateOf(false) }
+    val todayDate=java.time.LocalDate.ofEpochDay(today)
+    var calendarYear by remember { mutableIntStateOf(todayDate.year) }
+    var calendarMonth by remember { mutableIntStateOf(todayDate.monthValue) }
     var selected by remember { mutableStateOf<PlannedWorkout?>(null) }
+    var selectedDayWorkouts by remember { mutableStateOf<List<PlannedWorkout>>(emptyList()) }
     var rescheduleOffset by remember { mutableStateOf(1) }
     var editPlan by remember { mutableStateOf(false) }
     var confirmRegeneration by remember { mutableStateOf<PlanConfiguration?>(null) }
@@ -1036,37 +1053,62 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
         plan=candidate; planSaveError=false; return true
     }
     Column(Modifier.fillMaxSize()) {
-        Header("Programma","Calendario allenamenti • passato e futuro")
+        Header("Programma","Calendario mensile")
         if(plan==null) {
             Card(Modifier.padding(20.dp).fillMaxWidth()){Text("Crea il programma dalla schermata Oggi.",modifier=Modifier.padding(20.dp))}
         } else {
-            Row(Modifier.padding(horizontal=20.dp),verticalAlignment=Alignment.CenterVertically) {
-                FilterChip(selected=!showPast,onClick={showPast=false},label={Text("Futuri")})
-                Spacer(Modifier.width(8.dp))
-                FilterChip(selected=showPast,onClick={showPast=true},label={Text("Passati")})
-                Spacer(Modifier.weight(1f))
-                TextButton(onClick={editPlan=true}){Text("MODIFICA PIANO")}
+            val monthState=calendarMonthState(plan!!,calendarYear,calendarMonth,today)
+            Row(Modifier.fillMaxWidth().padding(horizontal=16.dp,vertical=6.dp),verticalAlignment=Alignment.CenterVertically) {
+                IconButton(onClick={val shifted=shiftCalendarMonth(calendarYear,calendarMonth,-1);calendarYear=shifted.first;calendarMonth=shifted.second}){Icon(Icons.Default.ChevronLeft,"Mese precedente")}
+                Text(monthState.title,fontWeight=FontWeight.Bold,fontSize=18.sp,modifier=Modifier.weight(1f),textAlign=androidx.compose.ui.text.style.TextAlign.Center)
+                IconButton(onClick={val shifted=shiftCalendarMonth(calendarYear,calendarMonth,1);calendarYear=shifted.first;calendarMonth=shifted.second}){Icon(Icons.Default.ChevronRight,"Mese successivo")}
+                TextButton(onClick={editPlan=true}){Text("MODIFICA")}
             }
-            val visible=plan!!.workouts.filter{isPastCalendarWorkout(it,today)==showPast}.sortedBy{it.epochDay}
-            LazyColumn(contentPadding=PaddingValues(bottom=24.dp)) {
-                items(visible,key={it.id}) { workout ->
-                    Card(Modifier.padding(horizontal=20.dp,vertical=5.dp).fillMaxWidth().clickable{selected=workout},shape=RoundedCornerShape(16.dp)) {
-                        Column(Modifier.padding(16.dp)) {
-                            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
-                                Text(calendarDate(workout.epochDay),fontWeight=FontWeight.Bold)
-                                Text(workout.state.name,fontSize=12.sp,color=Accent,fontWeight=FontWeight.SemiBold)
+            Row(Modifier.fillMaxWidth().padding(horizontal=12.dp)) {
+                listOf("L","M","M","G","V","S","D").forEach{label->Text(label,fontSize=11.sp,fontWeight=FontWeight.Bold,color=Color.Gray,textAlign=androidx.compose.ui.text.style.TextAlign.Center,modifier=Modifier.weight(1f))}
+            }
+            LazyColumn(Modifier.weight(1f),contentPadding=PaddingValues(horizontal=12.dp,vertical=4.dp)) {
+                items(monthState.days.chunked(7)) { week ->
+                    Row(Modifier.fillMaxWidth()) {
+                        week.forEach { day ->
+                            val enabled=day.workouts.isNotEmpty()
+                            Card(
+                                Modifier.weight(1f).aspectRatio(0.82f).padding(2.dp).then(if(enabled)Modifier.clickable{
+                                    if(day.workouts.size==1)selected=day.workouts.single() else selectedDayWorkouts=day.workouts
+                                } else Modifier),
+                                shape=RoundedCornerShape(10.dp),
+                                colors=CardDefaults.cardColors(containerColor=if(day.isToday)MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface)
+                            ) {
+                                Column(Modifier.fillMaxSize().padding(5.dp)) {
+                                    Text(java.time.LocalDate.ofEpochDay(day.epochDay).dayOfMonth.toString(),fontSize=12.sp,fontWeight=if(day.isToday)FontWeight.Bold else FontWeight.Normal,color=if(day.inMonth)MaterialTheme.colorScheme.onSurface else Color.Gray)
+                                    Spacer(Modifier.weight(1f))
+                                    day.workouts.take(3).forEach { workout ->
+                                        Text(calendarStateMarker(workout.state),fontSize=10.sp,fontWeight=FontWeight.Bold,color=calendarStateColor(workout.state),maxLines=1)
+                                    }
+                                    if(day.workouts.size>3)Text("+"+(day.workouts.size-3),fontSize=9.sp,color=Color.Gray)
+                                }
                             }
-                            Text("Settimana "+(workout.weekIndex+1)+" • Sessione "+(workout.sequenceInWeek+1),fontSize=13.sp,color=Color.Gray)
-                            Text(workout.intent?.let{intent->intent.goal+(if(intent.prioritySkills.isEmpty())"" else " • "+intent.prioritySkills.joinToString())} ?: workout.exercises.joinToString(" • "){it.name},fontSize=12.sp,modifier=Modifier.padding(top=5.dp))
-                            if(workout.epochDay!=workout.originalEpochDay) Text("Data originale: "+calendarDate(workout.originalEpochDay),fontSize=11.sp,color=Color.Gray)
-                            workout.adaptationReason?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
-                            if(workout.state==PlannedWorkoutState.PLANNED || workout.state==PlannedWorkoutState.RESCHEDULED) Text("Tocca per avviare, saltare o riprogrammare",fontSize=11.sp,color=Accent,modifier=Modifier.padding(top=6.dp))
                         }
                     }
                 }
-                if(visible.isEmpty()) item{Text("Nessuna sessione in questa vista.",modifier=Modifier.padding(20.dp),color=Color.Gray)}
+                item {
+                    Row(Modifier.fillMaxWidth().padding(horizontal=4.dp,vertical=8.dp),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
+                        listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED).forEach{state->
+                            Text(calendarStateMarker(state)+" "+calendarStateLabel(state),fontSize=8.sp,color=calendarStateColor(state),modifier=Modifier.weight(1f),maxLines=1)
+                        }
+                    }
+                }
             }
         }
+    }
+    if(selectedDayWorkouts.isNotEmpty()) {
+        AlertDialog(onDismissRequest={selectedDayWorkouts=emptyList()},title={Text("Sessioni del giorno")},text={
+            Column { selectedDayWorkouts.forEach { workout ->
+                TextButton(onClick={selected=workout;selectedDayWorkouts=emptyList()},modifier=Modifier.fillMaxWidth()) {
+                    Text("Sessione "+(workout.sequenceInWeek+1)+" • "+calendarStateLabel(workout.state),modifier=Modifier.fillMaxWidth())
+                }
+            }}
+        },confirmButton={},dismissButton={TextButton(onClick={selectedDayWorkouts=emptyList()}){Text("CHIUDI")}})
     }
     if(editPlan && plan!=null) {
         val current=PlanConfiguration.fromPlan(plan!!)

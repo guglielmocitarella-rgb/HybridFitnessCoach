@@ -523,4 +523,58 @@ class V091PlanningTest {
   assertEquals("Calisthenics",changed.goal);assertEquals(3,changed.daysPerWeek);assertEquals(setOf(2,4,6),changed.trainingDays);assertEquals(listOf("Front lever"),changed.prioritySkills)
   assertTrue(changed.workouts.all{it.intent?.goal=="Calisthenics" && it.intent?.prioritySkills==listOf("Front lever")})
  }
+
+ @Test fun adaptiveCoachAcceptanceMatrixWorksWithoutPlanOrHealthConnect(){
+  val now=1_800_000_000_000L
+  val fresh=coachingContext(emptyList(),readiness=null,now=now)
+  assertEquals(0,fresh.evidenceSessions);assertNull(fresh.readiness);assertNotEquals(ProgressionDecision.ADVANCE,fresh.plan.decision)
+  assertTrue(fresh.plan.notes.any{it.contains("Calibrazione iniziale")})
+  val history=listOf(
+   SessionRecord(now-86_400_000,"Palestra",3,3,workoutRpe=6,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=8,completed=true))))),
+   SessionRecord(now-2*86_400_000,"Palestra",3,3,workoutRpe=6,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=8,completed=true)))))
+  )
+  val historyOnly=coachingContext(history,readiness=null,now=now)
+  assertEquals(2,historyOnly.evidenceSessions);assertNull(historyOnly.readiness);assertTrue(historyOnly.plan.notes.any{it.contains("2 workout recenti")})
+  val today=java.time.Instant.ofEpochMilli(now).atZone(java.time.ZoneOffset.UTC).toLocalDate().toEpochDay()
+  val plan=TrainingPlan("f08",today,1,1,listOf(PlannedWorkout("next",today+1,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))))
+  val withPlan=coachingContext(history,null,plan,today)
+  assertEquals(historyOnly.evidenceSessions,withPlan.evidenceSessions);assertEquals(1,withPlan.upcomingSessions);assertTrue(withPlan.plan.notes.any{it.startsWith("Piano")})
+ }
+
+ @Test fun calendarMonthStateBuildsStableMondayFirstSixWeekGrid(){
+  val may1=java.time.LocalDate.of(2026,5,1).toEpochDay()
+  val plan=TrainingPlan("cal",may1,1,2,listOf(
+   PlannedWorkout("a",may1,0,0,emptyList(),state=PlannedWorkoutState.PLANNED),
+   PlannedWorkout("b",may1,0,1,emptyList(),state=PlannedWorkoutState.RESCHEDULED)
+  ))
+  val state=calendarMonthState(plan,2026,5,may1)
+  assertEquals(42,state.days.size);assertEquals(java.time.DayOfWeek.MONDAY,java.time.LocalDate.ofEpochDay(state.days.first().epochDay).dayOfWeek)
+  assertEquals("Maggio 2026",state.title)
+  val day=state.days.first{it.epochDay==may1};assertTrue(day.inMonth);assertTrue(day.isToday);assertEquals(listOf("a","b"),day.workouts.map{it.id})
+ }
+ @Test fun calendarMonthStateExposesEveryPlanStatusWithoutMutatingDomain(){
+  val start=java.time.LocalDate.of(2026,6,1).toEpochDay()
+  val states=listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED)
+  val workouts=states.mapIndexed{i,s->PlannedWorkout("s$i",start+i,0,i,emptyList(),state=s)}
+  val plan=TrainingPlan("states",start,1,5,workouts)
+  val month=calendarMonthState(plan,2026,6,start+10)
+  assertEquals(states.toSet(),month.days.flatMap{it.states}.toSet());assertEquals(workouts,plan.workouts)
+ }
+ @Test fun calendarMonthNavigationCrossesYearBoundariesDeterministically(){
+  assertEquals(2027 to 1,shiftCalendarMonth(2026,12,1));assertEquals(2025 to 12,shiftCalendarMonth(2026,1,-1))
+ }
+ @Test fun calendarReflectsCascadeRestoreAndCompletedProtection(){
+  val start=java.time.LocalDate.of(2026,7,6).toEpochDay()
+  val base=TrainingPlanEngine.schedule("calendar-actions",start,2,setOf(1,3)){_,_->emptyList()}
+  val moved=TrainingPlanEngine.reschedule(base,base.workouts.first().id,start+2,minimumGapDays=1)
+  assertTrue(calendarMonthState(moved,2026,7,start).days.any{day->day.workouts.any{it.id==base.workouts.first().id&&it.state==PlannedWorkoutState.RESCHEDULED}})
+  val restored=TrainingPlanEngine.restoreOriginalDate(moved,base.workouts.first().id,0)
+  assertEquals(base.workouts.map{it.epochDay},restored.workouts.map{it.epochDay})
+  val completed=base.copy(workouts=base.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=w.epochDay)else w})
+  assertEquals(completed,TrainingPlanEngine.reschedule(completed,completed.workouts.first().id,start+5))
+ }
+
+ @Test fun calendarLabelsAndMarkersCoverEveryState(){
+  PlannedWorkoutState.values().forEach{state->assertTrue(calendarStateLabel(state).isNotBlank());assertTrue(calendarStateMarker(state).isNotBlank())}
+ }
 }

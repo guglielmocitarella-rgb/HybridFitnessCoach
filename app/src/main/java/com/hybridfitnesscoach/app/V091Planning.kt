@@ -131,6 +131,26 @@ data class PlannedSessionIntent(
 }
 data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null,val intent:PlannedSessionIntent?=null)
 data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>,val goal:String="Fitness generale",val trainingDays:Set<Int> = defaultTrainingDays(daysPerWeek),val prioritySkills:List<String> = emptyList())
+data class CalendarDayState(val epochDay:Long,val inMonth:Boolean,val isToday:Boolean,val workouts:List<PlannedWorkout>) {
+ val states:Set<PlannedWorkoutState> get()=workouts.map{it.state}.toSet()
+}
+data class CalendarMonthState(val year:Int,val month:Int,val title:String,val days:List<CalendarDayState>) {
+ init { require(days.size==42) }
+}
+internal fun calendarMonthState(plan:TrainingPlan,year:Int,month:Int,today:Long):CalendarMonthState {
+ val first=java.time.LocalDate.of(year,month,1)
+ val gridStart=first.minusDays((first.dayOfWeek.value-1).toLong())
+ val days=(0L until 42L).map{offset->
+  val date=gridStart.plusDays(offset);val epoch=date.toEpochDay()
+  CalendarDayState(epoch,date.monthValue==month,epoch==today,plan.workouts.filter{it.epochDay==epoch}.sortedWith(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek}))
+ }
+ val title=first.month.getDisplayName(java.time.format.TextStyle.FULL,java.util.Locale.ITALIAN).replaceFirstChar{it.uppercase()}
+ return CalendarMonthState(year,month,"$title $year",days)
+}
+internal fun shiftCalendarMonth(year:Int,month:Int,delta:Int):Pair<Int,Int> {
+ val shifted=java.time.YearMonth.of(year,month).plusMonths(delta.toLong())
+ return shifted.year to shifted.monthValue
+}
 data class PreviewNavigationState(val exerciseName:String?,val scrollIndex:Int)
 internal fun previewNavigationAfterGeneration(generated:List<Exercise>):PreviewNavigationState =
  PreviewNavigationState(generated.firstOrNull()?.name,if(generated.isEmpty())-1 else 0)
@@ -231,9 +251,6 @@ internal fun AthleteProfile.forPlan(configuration:PlanConfiguration):AthleteProf
  val valid=configuration.validated()
  return copy(goal=valid.goal,daysPerWeek=valid.daysPerWeek,prioritySkills=valid.prioritySkills)
 }
-/** Calendar tabs follow the date, except sessions already performed. */
-internal fun isPastCalendarWorkout(workout:PlannedWorkout,today:Long):Boolean =
-    workout.epochDay < today || workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL
 object TrainingPlanEngine {
  fun schedule(planId:String,startEpochDay:Long,weeks:Int,trainingDays:Set<Int>,workoutFactory:(week:Int,session:Int)->List<Exercise>):TrainingPlan{
   require(weeks in 1..52);require(trainingDays.isNotEmpty());require(trainingDays.all{it in 1..7});val startDayOfWeek=java.time.LocalDate.ofEpochDay(startEpochDay).dayOfWeek.value;val sorted=trainingDays.sortedBy{(it-startDayOfWeek+7)%7}
