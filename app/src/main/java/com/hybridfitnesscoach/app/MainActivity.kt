@@ -952,7 +952,7 @@ private fun WorkoutLaunchScreen(
             }
             Row(Modifier.fillMaxWidth().padding(16.dp),horizontalArrangement=Arrangement.spacedBy(10.dp)) {
                 OutlinedButton(onClick=onCancel,modifier=Modifier.weight(1f)){Text("ANNULLA")}
-                Button(onClick={locations.firstOrNull{it.id==selectedLocationId}?.let(onChooseLocation),
+                Button(onClick={locations.firstOrNull{it.id==selectedLocationId}?.let(onChooseLocation)},
                     enabled=locations.any{it.id==selectedLocationId},modifier=Modifier.weight(1f)){Text("CONTINUA")}
             }
         } else if(flow.stage==WorkoutLaunchStage.PREVIEW) {
