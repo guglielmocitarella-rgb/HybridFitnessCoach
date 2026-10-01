@@ -1786,26 +1786,14 @@ private fun WorkoutDialog(profile: TrainingLocation, athlete: AthleteProfile, se
 private fun ExerciseDetailDialog(ex: Exercise, sessions: List<SessionRecord>, onDismiss: () -> Unit, onSkillClick:(String)->Unit, onExecute:()->Unit) {
     val stats = remember(ex.name,sessions) { ExerciseStatistics.fromHistory(ex.name,sessions) }
     val v2Record=ExerciseDbV2.recordFor(ex)
-    val sourceDrivenInstructions = v2Record?.executionStepsIt?.takeIf { it.isNotEmpty() }?.joinToString("\n• ","• ")
-        ?: v2Record?.descriptionIt?.takeIf { it.isNotBlank() }
-    val instructions = sourceDrivenInstructions ?: when (ex.name) {
-        "Corsa intervallata 60/60" -> "Alterna 60 secondi di corsa sostenuta e 60 secondi di recupero. Ripeti per il numero di intervalli previsto, mantenendo un ritmo controllabile e costante."
-        "Trazioni prone" -> "Parti in sospensione completa, mantieni il tronco stabile e porta il petto verso la sbarra senza slancio. Torna in basso in controllo."
-        "Lat machine" -> "Mantieni il torace alto e tira la barra verso la parte alta del petto. Evita di trasformare il movimento in uno slancio del busto."
-        "Panca piana" -> "Mantieni scapole addotte e piedi stabili. Scendi in controllo verso il petto e spingi mantenendo polsi e gomiti stabili."
-        "Push-up" -> "Mantieni testa, tronco e bacino allineati. Scendi in controllo e spingi senza perdere la tensione del core."
-        "Dip alle parallele" -> "Mantieni le spalle stabili, scendi in controllo e risali senza rimbalzo. Interrompi se avverti dolore alla spalla."
-        "Squat" -> "Mantieni il piede stabile e il tronco compatto. Scendi in controllo e risali coordinando ginocchia e anche."
-        "Bulgarian split squat" -> "Mantieni il bacino stabile, scendi verticalmente e spingi soprattutto con la gamba anteriore."
-        "Pike push-up" -> "Mantieni il bacino alto e porta la testa tra le mani in controllo. Spingi mantenendo le spalle attive."
-        "Hollow body hold" -> "Mantieni la zona lombare aderente al suolo e il bacino in retroversione. Riduci la leva se perdi la posizione."
-        else -> when {
-            ex.role=="Progressione" -> "Progressione tecnica per "+ex.skills.joinToString().ifBlank{"la skill selezionata"}+". Mantieni una variante che consenta controllo completo e interrompi la serie prima di perdere la posizione."
-            ex.role=="Forza" -> "Usa un carico che consenta tutte le ripetizioni previste con tecnica stabile. Mantieni discesa controllata, assetto solido e evita ripetizioni forzate."
-            ex.role=="Prerequisito" -> "Concentrati sulla qualità del movimento e sul controllo. Questo esercizio costruisce i requisiti necessari per "+ex.skills.joinToString().ifBlank{"le progressioni successive"}+"."
-            else -> "Esegui con escursione controllata e assetto stabile. Regola carico o variante per completare le ripetizioni previste lasciando margine tecnico."
-        }
+    val sourceDrivenInstructions = v2Record?.let { record ->
+        buildString {
+            if(record.setupIt.isNotBlank()) append("Preparazione\n").append(record.setupIt).append("\n\n")
+            if(record.executionStepsIt.isNotEmpty()) append("Esecuzione\n• ").append(record.executionStepsIt.joinToString("\n• "))
+            else if(record.descriptionIt.isNotBlank()) append(record.descriptionIt)
+        }.takeIf { it.isNotBlank() }
     }
+    val instructions = sourceDrivenInstructions ?: "Dettagli tecnici non disponibili: esercizio non validato nel catalogo F01."
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(ex.name) },

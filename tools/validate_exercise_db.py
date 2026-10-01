@@ -52,7 +52,14 @@ def main():
         for prereq in x.get("prerequisites") or []:
             ref=prereq if isinstance(prereq,str) else prereq.get("id") or prereq.get("exercise_id")
             if not ref or ref not in set(ids): errors.append(f"{x.get('id')}: unknown prerequisite {ref}")
-        for field in ("descriptionIt","primaryMuscles","equipment","prescription","restGuidance"):
+        # F01 execution contract: every selectable canonical movement must carry
+        # source-reviewed execution content. Programming guidance remains separate.
+        for field in ("descriptionIt","setupIt"):
+            if not str(x.get(field) or "").strip(): errors.append(f"{x.get('id')}: missing required F01 {field}")
+        steps=x.get("executionStepsIt") or []
+        if not isinstance(steps,list) or not steps or any(not str(step).strip() for step in steps):
+            errors.append(f"{x.get('id')}: missing required F01 executionStepsIt")
+        for field in ("primaryMuscles","equipment","prescription","restGuidance"):
             if not x.get(field): warnings.append(f"{x.get('id')}: missing {field}")
     used_sources=set()
     for x in exercises:

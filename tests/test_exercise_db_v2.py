@@ -20,6 +20,23 @@ class ExerciseDbV2Test(unittest.TestCase):
         try: self.assertNotEqual(subprocess.call([sys.executable,str(ROOT/"tools/validate_exercise_db.py")]),0)
         finally: raw.write_text(original,encoding="utf-8")
 
+    def test_validator_rejects_missing_f01_execution_contract(self):
+        original=(DB/"exercises.json").read_text(encoding="utf-8")
+        data=json.loads(original)
+        data[0]["descriptionIt"]=None
+        data[0]["setupIt"]=None
+        data[0]["executionStepsIt"]=[]
+        (DB/"exercises.json").write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+        try: self.assertNotEqual(subprocess.call([sys.executable,str(ROOT/"tools/validate_exercise_db.py")]),0)
+        finally: (DB/"exercises.json").write_text(original,encoding="utf-8")
+
+    def test_all_exercises_have_f01_execution_contract(self):
+        data=json.loads((DB/"exercises.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(data),587)
+        self.assertTrue(all(str(x.get("descriptionIt") or "").strip() for x in data))
+        self.assertTrue(all(str(x.get("setupIt") or "").strip() for x in data))
+        self.assertTrue(all(x.get("executionStepsIt") and all(str(s).strip() for s in x["executionStepsIt"]) for x in data))
+
     def test_validator_rejects_unknown_progression_source(self):
         original=(DB/"progressions.json").read_text(encoding="utf-8")
         data=json.loads(original); data[0]["sources"][0]["source_id"]="NOT_REGISTERED"
