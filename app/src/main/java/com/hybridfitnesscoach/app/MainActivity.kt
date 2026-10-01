@@ -1001,7 +1001,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
             }
         }
         item { Box(Modifier.padding(horizontal=20.dp)) { ReadinessOverview(readinessScore,sessions) } }
-        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore,null,java.time.LocalDate.now().toEpochDay())) } }
+        item { Box(Modifier.padding(horizontal=20.dp)) { CoachSummary(coachingContext(sessions,readinessScore,enabledPlans,java.time.LocalDate.now().toEpochDay())) } }
         item { SectionTitle("Il tuo Skill Tree") }
         items(enabledPlans.flatMap{it.prioritySkills}.distinct().ifEmpty{listOf("Front lever","Planche","Handstand")}.take(3)) { skill ->
             val states=SkillCatalog.progress(skill,sessions)
