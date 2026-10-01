@@ -12,54 +12,54 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 - Green CI is necessary but never sufficient for release acceptance.
 - Compatibility policy and engineering rules: see `AGENTS.md`.
 - Status vocabulary: `VERIFIED`, `IMPLEMENTED_NOT_DEVICE_VERIFIED`, `PARTIAL`, `BLOCKED`, `DEVICE_PENDING`.
-- Do not patch production code from this backlog until the cross-cutting audit and technical plan are complete.
+- Cross-cutting audit and technical plan are complete; implementation proceeds finding-by-finding with static pre-CI audit and exact-SHA gates.
 
 ## Frozen v0.9.4 backlog — 11 findings
 
 ### F01 — Exercise descriptions and execution contract
-**Current:** the runtime model accepts empty `descriptionIt`, `setupIt` and `executionStepsIt`; Exercise Detail can therefore fall back to generic/name-based instructions instead of DB-owned exercise-specific content.
+**Current:** repository-level F01 enrichment/evidence work is integrated and green at `e4c4f208…`: evidence tier, validator and regression coverage are present. Physical Exercise Detail acceptance remains pending.
 
 **Expected:** every selectable exercise has usable Italian description/setup/execution content owned by the canonical exercise contract. Runtime must not silently manufacture exercise-specific technique from the exercise name.
 
 **Acceptance:** catalog validation rejects missing required user-facing execution fields for selectable exercises; Android integration proves those fields survive DB loading; Exercise Detail renders DB-owned content. Deterministic regression required; final UI behavior is `DEVICE_PENDING` until physical-device retest.
 
 ### F02 — Recovery prescription must be source/effective and non-legacy
-**Current:** `ExerciseDbV2.toLegacyExercise()` can fall back to fixed 90 s set rest / 120 s exercise rest, while other runtime paths still carry legacy recovery values.
+**Current:** source/effective recovery propagation is repository-verified through generation, runner materialization and persistence; physical timer behavior remains pending.
 
 **Expected:** set and transition recovery come from one explicit prescription contract with traceable source/effective values and controlled fallback; no arbitrary legacy default may override canonical/programming guidance.
 
 **Acceptance:** tests cover representative strength, hypertrophy, calisthenics/skill and fallback cases; generated plan, custom workout, runner and persisted snapshots preserve the same effective recovery. No unexplained fixed recovery jump. Device timer display remains `DEVICE_PENDING`.
 
 ### F03 — Equipment taxonomy is canonical, specific and user-readable
-**Current:** DB tokens are converted to UI strings and reused by legacy matching; generic `machine → Macchine` collapses materially different equipment and permits labels such as Macchina/Macchine to become ambiguous.
+**Current:** canonical equipment IDs and `TrainingLocation` are the repository-level contract; localized labels no longer drive compatibility logic and Machine/Machines duplication is regression-protected.
 
 **Expected:** canonical equipment IDs are domain data; localized labels are presentation only. Machine-based exercises use specific machine requirements where the source/catalog supports them. Selectable equipment is catalog-derived, deduplicated and alphabetically displayed.
 
 **Acceptance:** validator/integration tests prove every exercise equipment token maps to a canonical selectable capability or an explicitly non-selectable requirement; no logic depends on localized display strings; catalog-wide compatibility tests pass.
 
 ### F04 — Custom Workout selects a training location, not a manual equipment list
-**Current:** Custom Workout exposes equipment selection directly, duplicating configuration already represented by equipment/location profiles.
+**Current:** Custom Workout generation is based on `TrainingLocation`/capabilities rather than the removed `EquipmentProfile` contract. Final interaction remains device-pending.
 
 **Expected:** the user selects the place/profile where the session will be performed; available equipment is derived from that profile. Series, reps, recovery, loads and timing remain generated automatically from athlete state.
 
 **Acceptance:** generation API receives a location/capability context rather than an ad-hoc UI equipment list; changing location changes eligible exercises deterministically; Compose/device verification confirms the equipment checklist is gone from Custom Workout.
 
 ### F05 — Training Plan is location-independent; each session adapts at execution
-**Current:** plan workouts persist concrete exercise snapshots, so equipment/location assumptions can become embedded at plan creation.
+**Current:** implemented on candidate `d182d34e…`: plan schema v5 persists session intent only; future plan rows do not persist exercise snapshots/names, and exercises are materialized at execution against the current location/capability/readiness context. Exact-SHA CI is pending.
 
 **Expected:** plan creation does not ask for a training location. The plan stores training intent/prescription independently from location. When a planned session is started, the chosen current location adapts only that session while preserving plan intent, progression and completed history.
 
 **Acceptance:** domain tests create a plan without location, execute equivalent sessions under different location profiles and prove compatible substitutions without rewriting completed/past sessions or unrelated future history. Location is never a required PlanConfiguration field.
 
 ### F06 — Fitness/Capability Profile replaces coarse self-declared level
-**Current:** prescription/generation still consumes `AthleteProfile.level`, and DB conversion can default unknown exercises to `Intermedio`.
+**Current:** coarse `AthleteProfile.level` has been removed from current model/persistence/decision paths. Assessed training experience plus Push/Pull capability dimensions drive eligibility with conservative unassessed behavior.
 
 **Expected:** exercise difficulty eligibility is derived from a structured Fitness/Capability Profile based on meaningful baseline capabilities/tests. The assessment must use exercises appropriate for establishing a base level and must constrain generated difficulty without pretending one global label measures every capability.
 
 **Acceptance:** explicit capability dimensions and deterministic classification/eligibility tests exist; assessment exercises and thresholds have documented provenance (`SOURCE_BASED`, `APP_RULE`, `FALLBACK`, or `UNVERIFIED`); generator cannot select an exercise above the relevant demonstrated capability solely because a fallback says “Intermedio”.
 
 ### F07 — Existing multi-week plan is editable with controlled future regeneration
-**Current:** a generated plan is primarily a fixed persisted schedule; there is no complete user flow for editing plan configuration and deliberately regenerating only the future.
+**Current:** domain/persistence support for editable configuration and controlled future-only regeneration is implemented on `d182d34e…`, preserving completed/partial/past evidence. Exact-SHA CI and explicit confirmation/device UX remain pending.
 
 **Expected:** goal, weekly frequency/days and priority skills remain editable after creation. A controlled regeneration updates only eligible future sessions; completed/partial history and immutable execution evidence remain intact.
 
@@ -93,18 +93,24 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 
 **Acceptance:** preview state has an explicit reset boundary keyed to generation identity; regression test covers regeneration/locked exercises and prevents stale selected/scroll state from leaking. Final scrolling behavior is `DEVICE_PENDING`.
 
-## Verified implementation checkpoint — 2026-10-01
+## Verified implementation checkpoints — 2026-10-01
 
-Repository-level checkpoint: `0735f62152221299cbdc894eb023456f685c05fa`.
+Latest immutable green rollback checkpoint: `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1` (`checkpoint/v0.9.4-f01-evidence-green`).
 
-CI evidence:
-- Exercise DB v2 #273 — SUCCESS.
-- Android APK #826 — SUCCESS.
+CI evidence at that checkpoint:
+- Exercise DB v2 #284 — SUCCESS.
+- Android APK #837 — SUCCESS.
 
-Verified repository-level progress:
-- **F03/F04 foundation — VERIFIED:** `TrainingLocation` is the canonical equipment/location contract; residual `EquipmentProfile` APIs and localized equipment matching debt were removed; Machine/Machines UI duplication is regression-protected.
-- **F06 core + propagation — VERIFIED:** coarse `AthleteProfile.level` is removed from the current athlete model, persistence and prescription/generation decisions. Assessed training experience and Push/Pull capability dimensions drive eligibility; unassessed capability fails closed conservatively. Asymmetric Push/Pull filtering has dedicated regression coverage.
-- **F02 propagation — VERIFIED at repository level:** source/effective recovery reaches set recovery and exercise-transition recovery, is materialized into runner exercise snapshots, and remains stable through persistence/resume. Physical timer behavior remains subject to device acceptance where applicable.
+Repository-level verified progress at/before the checkpoint:
+- **F01 — VERIFIED repository-level:** evidence tier, validator and deterministic tests integrated; device presentation remains pending.
+- **F02 — VERIFIED repository-level:** source/effective recovery reaches runner prescriptions and persisted active-workout evidence.
+- **F03/F04 — VERIFIED foundation/repository-level:** `TrainingLocation` is canonical; obsolete `EquipmentProfile` and localized matching debt removed.
+- **F06 — VERIFIED repository-level:** coarse athlete level removed; multidimensional capability drives eligibility/prescription.
+
+Current pushed candidate: `d182d34e81b8ef678675002462467bf41672f66b`.
+- **F05/F07 — IMPLEMENTED_NOT_CI_VERIFIED:** schema 5 plan persistence is intent-only; legacy snapshot fallback/schema 3–4 migration removed; materialization happens at execution; future regeneration preserves completed/partial/past evidence.
+- Static pre-CI audit covered all 36 Kotlin files and corrected stale snapshot-based regression fixtures before push.
+- Exact-SHA CI was pending when this document was updated.
 
 These statuses do not mark v0.9.4 complete. Remaining acceptance clauses and F01–F11 device/UI requirements continue to apply.
 
@@ -114,10 +120,10 @@ The baseline already exposes several structural coupling points that must be rem
 
 1. `ExerciseDbV2.toLegacyExercise()` translates canonical equipment IDs into localized strings and supplies legacy level/recovery defaults.
 2. ~~`PrescriptionContext` still accepts a single `athleteLevel:String`.~~ Resolved at the verified checkpoint: prescription consumes a numeric relevant capability level derived from the structured Capability Profile.
-3. `TrainingPlan` persists concrete `Exercise` snapshots per future `PlannedWorkout`; this is incompatible with clean location-at-execution adaptation unless intent and realization are separated.
-4. `AppStore` persists the same concrete plan snapshots, so the domain/persistence schema must change together rather than via UI-only substitution.
-5. Coaching already supports optional `TrainingPlan?`, which is a useful seam for F08 and should be preserved rather than replaced.
-6. Existing reschedule/completion protection is valuable and must remain regression-protected while the plan model changes.
+3. ~~`TrainingPlan` persisted concrete future exercise snapshots.~~ Resolved on candidate `d182d34e…`: persisted future sessions are intent-only and realization occurs at execution.
+4. ~~`AppStore` persisted concrete plan snapshots.~~ Resolved on candidate `d182d34e…`: plan schema v5 persists intent only; active/history evidence remains concrete.
+5. Coaching supports optional `TrainingPlan?`; this remains the seam to close F08 and must be preserved.
+6. Reschedule/completion protection remains regression-protected after the F05/F07 model change.
 
 ## Mandatory implementation order
 

@@ -4,17 +4,17 @@
 
 Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
 
-## Stato del progetto — v0.9.3 congelata / v0.9.4 test e sviluppo
+## Stato del progetto — v0.9.4 attiva
 
-La v0.9.3 è la baseline congelata dopo il completamento dei gate repository-level e delle workflow Exercise DB v2 #250 e Android APK #802 sul checkpoint `365c07f643065df9dd68310362edd3ad3ed3236f`. Il riferimento immutabile di linea è `release/v0.9.3`; la PR #10 resta audit trail della fase v0.9.3.
+La v0.9.3 resta congelata su `release/v0.9.3`. Lo sviluppo corrente è esclusivamente su `feature/v0.9.4` e PR #11; `V0_9_4_DOD.md` è la DoD vincolante.
 
-Lo sviluppo e il device acceptance successivi appartengono a `feature/v0.9.4`. Qualsiasi problema trovato sul device viene registrato e corretto in v0.9.4, senza modificare la baseline v0.9.3. `V0_9_3_DOD.md` è storico; `V0_9_4_DOD.md` è la DoD attiva.
+### Baseline verde e candidato corrente
 
-### Checkpoint v0.9.4 verificato
+Il rollback sicuro corrente è `checkpoint/v0.9.4-f01-evidence-green` a `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1`, verificato da Exercise DB v2 #284 e Android APK #837.
 
-Il checkpoint `0735f62152221299cbdc894eb023456f685c05fa` su `feature/v0.9.4` ha superato Exercise DB v2 #273 e Android APK #826. In questo checkpoint il dominio attrezzatura/luogo usa il contratto canonico `TrainingLocation`; il vecchio livello atleta globale non guida più generazione o prescrizione, sostituito dalle dimensioni Capability valutate; i recuperi effettivi/source-backed vengono propagati e persistiti nel runner.
+Il branch di sviluppo è stato avanzato a `d182d34e81b8ef678675002462467bf41672f66b` con il cleanup F05/F07. Al momento di questo aggiornamento la CI exact-SHA del nuovo HEAD è in attesa: non va quindi descritto come checkpoint verde.
 
-Il vecchio nome di branch `feature/v0.9.1-training-plan` è solo un riferimento storico e non rappresenta la release attiva.
+Sul candidato corrente il piano multisettimanale persiste intenti di sessione indipendenti dal luogo (schema piano v5); gli esercizi concreti vengono materializzati all'avvio in base a luogo, capability, storico e readiness. Gli snapshot concreti restano nel runner/storico come evidenza di ciò che è stato realmente prescritto/eseguito. Le migrazioni legacy del piano sono fuori scope per policy.
 
 ### Funzioni disponibili
 
@@ -31,7 +31,9 @@ Il vecchio nome di branch `feature/v0.9.1-training-plan` è solo un riferimento 
 - Storico sessioni con confronto programmato/eseguito
 - Recovery Engine basato sul lavoro realmente svolto
 - Persistenza locale di profilo, attrezzatura, storico e recovery
-- Build Android firmata tramite GitHub Actions
+- Build Android tramite GitHub Actions; artefatto firmato sui gate release configurati
+- Piano multi-settimana intent-only, modificabile e materializzato rispetto al luogo al momento dell'esecuzione
+- Exercise DB v2 con provenienza/evidence tier e validazione deterministica
 
 ### V0.8 Evoluta — implementata
 
@@ -52,13 +54,11 @@ La V0.8 Evoluta include:
 
 Il modello dati è già predisposto con un collegamento opaco alle future progressioni, evitando una nuova migrazione strutturale quando verrà introdotta la V0.9.
 
-## Roadmap
+## Roadmap attiva
 
-**V0.8 Evoluta**  
-Workout infrastructure, runner multimodale, affidabilità, persistenza e Health Connect readiness.
+**v0.9.3** — congelata; baseline storica.
 
-**V0.9**  
-Progression Engine + Workout Sequencing Engine + Adaptive Coach. I dati di recovery, storico, RPE e salute potranno essere utilizzati per adattare progressivamente la programmazione.
+**v0.9.4** — sviluppo e acceptance attivi. F01/F02/F03/F04/F06 hanno fondamenta repository-level verificate; F05/F07 sono implementati sul candidato `d182d34e…` con CI in attesa. Restano la chiusura F08–F11, audit globale, CI finale, APK firmato e device acceptance.
 
 ## Stack
 
