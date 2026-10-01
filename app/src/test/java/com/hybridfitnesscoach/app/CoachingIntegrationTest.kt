@@ -61,7 +61,7 @@ class CoachingIntegrationTest {
         val history=listOf(good(now-1_000),good(now-2_000))
         assertEquals(ProgressionDecision.ADVANCE,coachingContext(history,90,now).plan.decision)
         val today=20_000L
-        val planned=PlannedWorkout("w",today,0,0,listOf(exercises.first()),state=PlannedWorkoutState.SKIPPED)
+        val planned=PlannedWorkout("w",today,0,0,emptyList(),state=PlannedWorkoutState.SKIPPED,intent=PlannedSessionIntent("Forza"))
         val plan=TrainingPlan("p",today,1,1,listOf(planned))
         val withPlan=coachingContext(history,90,plan,today,now)
         assertEquals(ProgressionDecision.MAINTAIN,withPlan.plan.decision)
@@ -76,11 +76,35 @@ class CoachingIntegrationTest {
             SessionRecord(now-2_000,"P",10,10,workoutRpe=7)
         )
         val today=20_000L
-        val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("w",today+1,0,0,listOf(exercises.first()))))
+        val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("w",today+1,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))))
         val context=coachingContext(history,90,plan,today,now)
         assertEquals(ProgressionDecision.ADVANCE,context.plan.decision)
         assertEquals(0,context.planDisruptions)
         assertEquals(1,context.upcomingSessions)
+    }
+
+    @Test fun completedPlanEvidenceDoesNotSuppressHistoryBasedAdvance() {
+        val now=System.currentTimeMillis()
+        val history=listOf(
+            SessionRecord(now-1_000,"P",10,10,workoutRpe=7),
+            SessionRecord(now-2_000,"P",10,10,workoutRpe=7)
+        )
+        val today=20_000L
+        val completed=PlannedWorkout("done",today,0,0,emptyList(),state=PlannedWorkoutState.COMPLETED,intent=PlannedSessionIntent("Forza"))
+        val context=coachingContext(history,90,TrainingPlan("p",today,1,1,listOf(completed)),today,now)
+        assertEquals(ProgressionDecision.ADVANCE,context.plan.decision)
+        assertEquals(1,context.plannedEvidence)
+        assertEquals(0,context.planDisruptions)
+        assertEquals(0,context.upcomingSessions)
+    }
+
+    @Test fun lowReadinessRemainsDeloadWithActiveDisruptedPlan() {
+        val today=20_000L
+        val skipped=PlannedWorkout("skip",today,0,0,emptyList(),state=PlannedWorkoutState.SKIPPED,intent=PlannedSessionIntent("Forza"))
+        val context=coachingContext(emptyList(),25,TrainingPlan("p",today,1,1,listOf(skipped)),today)
+        assertEquals(ProgressionDecision.DELOAD,context.plan.decision)
+        assertEquals(1,context.planDisruptions)
+        assertEquals(0,context.upcomingSessions)
     }
 
 }
