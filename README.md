@@ -1,155 +1,55 @@
 # Hybrid Fitness Coach
 
-> **Compatibility policy (v0.9.3 onward):** backward compatibility with previous app builds, persistence schemas, data models, or legacy behavior is intentionally out of scope and is not planned for future releases. Development targets the clean current model. Legacy migration/fallback code must not be retained solely for compatibility unless this policy is explicitly changed by the project owner.
+Android/Kotlin/Jetpack Compose fitness coach for pesi, corpo libero e calisthenics.
 
-Android fitness coach ibrido per allenamento con pesi, corpo libero e calisthenics. Il progetto combina profilo atleta, attrezzatura disponibile, skill, generazione workout, esecuzione guidata, storico e recupero in un flusso unico.
+## Current development line
 
-## Stato del progetto — v0.9.4 attiva
+- **Active release:** v0.9.5
+- **Active branch:** `feature/v0.9.5`
+- **Active PR:** #13 — v0.9.5 multi-plan foundation
+- **Frozen predecessor:** v0.9.4 runtime `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`
+- **v0.9.4 rollback checkpoint:** `checkpoint/v0.9.4-f01-f11-green`
+- **Compatibility policy:** backward compatibility with obsolete schemas/APIs/UI is out of scope unless explicitly reinstated.
 
-La v0.9.3 resta congelata su `release/v0.9.3`. Lo sviluppo corrente è esclusivamente su `feature/v0.9.4` e PR #11; `V0_9_4_DOD.md` è la DoD vincolante.
+Do not use old PRs or old release DoDs as the current source of truth.
 
-### Baseline verde e candidato corrente
+## Documentation map
 
-Il rollback sicuro corrente è `checkpoint/v0.9.4-f01-f11-green` a `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`, verificato da Exercise DB v2 #292 e Android APK #845.
+| Document | Purpose |
+|---|---|
+| `PROJECT_STATUS.md` | Current branch, PR, verified baseline, current blockers and next step |
+| `V0_9_5_DOD.md` | Binding v0.9.5 product roadmap and Definition of Done |
+| `RELEASE_HISTORY.md` | Compact historical release ledger |
+| `AGENTS.md` | Permanent engineering/repository rules |
+| `exercise-db-v2/INTEGRATION.md` | Exercise DB integration contract |
+| `V0_9_*.md` older than 0.9.5 | Historical evidence only |
 
-Il runtime v0.9.4 ha come baseline finale CI verificato `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`, congelato come `checkpoint/v0.9.4-f01-f11-green`. Exercise DB v2 #292 e Android APK #845 sono verdi; F01–F11 sono repository-level verificati nei rispettivi scope. Il workflow PR ha prodotto solo il debug APK: restano signed release APK e device acceptance.
-
-Sul candidato corrente il piano multisettimanale persiste intenti di sessione indipendenti dal luogo (schema piano v5); gli esercizi concreti vengono materializzati all'avvio in base a luogo, capability, storico e readiness. Gli snapshot concreti restano nel runner/storico come evidenza di ciò che è stato realmente prescritto/eseguito. Le migrazioni legacy del piano sono fuori scope per policy.
-
-### Funzioni disponibili
-
-- Profilo atleta con dati fisici e Capability Profile multidimensionale; obiettivo/frequenza/skill prioritarie appartengono alla configurazione del piano
-- Luoghi di allenamento (`TrainingLocation`) con attrezzatura/capacità canoniche
-- Workout automatico dalla Home
-- Creazione workout personalizzato per parti del corpo o skill calisthenics multiple
-- Libreria esercizi con filtri e generazione workout
-- Workout player con navigazione libera
-- Timer allenamento e recuperi tra serie/esercizi
-- Pausa, ripresa e salto recupero
-- RPE per esercizio e fatica complessiva
-- Gestione esercizi completati, parziali e non eseguiti
-- Storico sessioni con confronto programmato/eseguito
-- Recovery Engine basato sul lavoro realmente svolto
-- Persistenza locale di profilo, attrezzatura, storico e recovery
-- Build Android tramite GitHub Actions; artefatto firmato sui gate release configurati
-- Piano multi-settimana intent-only, modificabile e materializzato rispetto al luogo al momento dell'esecuzione
-- Exercise DB v2 con provenienza/evidence tier e validazione deterministica
-
-### Architettura consolidata
-
-Le fondamenta delle release precedenti restano attive: runner multimodale, stato sessione strutturato, timer persistenti, storico reale, Recovery/Readiness, Health Connect opzionale, skill/progressioni e generazione adattiva. La v0.9.4 non riapre queste aree salvo regressioni dimostrate.
-
-Il flusso corrente è:
+## Architecture
 
 ```
-Capability Profile + TrainingLocation + Recovery/Readiness + History
-                              ↓
-                    Plan intent / Adaptive Coach
-                              ↓
-             Execution-time workout materialization
-                              ↓
-                         Workout Runner
-                              ↓
-                  Structured execution evidence
-                              ↓
-                    History / Recovery / Coach
+Athlete + Capability Profile + Training Locations + Readiness/Recovery + History
+                                  ↓
+                    Active plans / Adaptive Coach
+                                  ↓
+                    Workout intent and scheduling
+                                  ↓
+                  choose TrainingLocation at start
+                                  ↓
+                materialize / generate concrete workout
+                                  ↓
+                           preview
+                                  ↓
+                     universal Workout Runner
+                                  ↓
+                  structured execution evidence
+                                  ↓
+                 History / Recovery / Adaptive Coach
 ```
 
-Il piano futuro non è un archivio di esercizi precongelati: conserva l'intento. Gli esercizi concreti appartengono alla materializzazione della sessione e all'evidenza di esecuzione.
+A future plan stores intent, not a frozen exercise snapshot. Concrete exercises are materialized at execution time using the selected location and current athlete state.
 
-## Roadmap attiva
+## Current v0.9.5 direction
 
-**v0.9.3** — congelata; baseline storica.
+v0.9.5 is the active product/UX consolidation release. It includes the multi-plan model, then converges all workout origins on one start/materialization/preview/runner pipeline, improves Home/Piano/Progressi/Profilo, expands Capability Profile, completes Exercise Detail/technique access, and closes inherited device-acceptance and signed-release gates.
 
-**v0.9.4** — FROZEN baseline. F01–F11 repository-level completati sul runtime SHA `cfacd7e3…`; per decisione di release, signed-release/device acceptance residui passano a v0.9.5, che usa questa linea come base.
-
-## Stack
-
-- Kotlin 2.4.10
-- Jetpack Compose + Material 3
-- Compose BOM 2026.09.00
-- Android Gradle Plugin 9.4.0
-- compileSdk / targetSdk 37
-- minSdk 26
-
-## Build automatica
-
-GitHub Actions compila il progetto a ogni push sui branch configurati. La pipeline produce l'APK release firmato quando sono disponibili i secret di firma e pubblica l'artefatto della build per il collaudo Android.
-
-Le modifiche della V0.8 Evoluta vengono introdotte incrementalmente: ogni macro-fase deve compilare correttamente prima di procedere alla successiva.
-
-## Principio architetturale
-
-```
-Profilo atleta + Attrezzatura + Recovery
-                 ↓
-          Workout Generation
-                 ↓
-           Workout Runner
-                 ↓
-       Sessione strutturata
-                 ↓
-        Storico / Recovery
-                 ↓
-     Health Data Normalization
-                 ↓
-        Adaptive Coach V0.9
-```
-
-L'obiettivo della V0.8 Evoluta non è anticipare l'Adaptive Coach, ma assicurare che Workout Runner, dati e storico siano abbastanza solidi da non dover essere riscritti nella V0.9.
-
-
-## Implementato nella V0.8 Evoluta
-
-- Modello esercizio universale con modalità reps, secondi, durata, distanza e intervalli.
-- Metadati per lateralità, resistenza, recuperi, intensità e futura progressione.
-- Stato sessione strutturato con previsto vs eseguito, RPE, skip, ordine e pinned.
-- Persistenza locale della sessione attiva e ripristino del workout automatico.
-- Recuperi basati su deadline assolute, ricostruibili dopo background/process recreation.
-- State transitions pure per selezione, skip/ripresa, aggiunta serie e riordino.
-- Storico strutturato per lo schema corrente.
-- Recovery deterministico basato sulle serie realmente completate e usato dal generatore.
-- Filtri Libreria per attrezzatura, muscoli, skill e tipologia universale.
-- Boundary architetturali Health Connect: raw data → normalizzazione → readiness input.
-- Test JVM dell'infrastruttura e delle transizioni principali.
-
-## Previsto per la V0.9
-
-La V0.9 utilizzerà queste fondamenta per Progression Engine, grafi di progressione/regressione, deload, Workout Sequencing Engine, rigenerazione parziale con esercizi pinned e Adaptive Coach. Queste funzioni **non sono dichiarate implementate nella V0.8**.
-
-## Affidabilità V0.8 Evoluta
-
-Le funzioni fondamentali sono locali/offline-first: profilo, attrezzatura, libreria, generazione, Runner, sessione attiva, storico e Recovery non dipendono dalla rete. Lo storage SharedPreferences è validato sullo schema corrente; la lettura di record di versioni precedenti non costituisce un requisito.
-
-Il timer di recupero usa deadline assolute e viene ricostruito al restore. Le sessioni attive conservano runner di origine, esercizio corrente, set eseguiti, valori effettivi, RPE, skip e contesto del recupero.
-
-Health Connect resta volutamente un boundary architetturale nella V0.8: dati raw → normalizzazione → readiness input. La V0.8 non simula letture sanitarie e non implementa ancora decisioni adattive basate su Health Connect.
-
-## Confine V0.9
-
-Progression Engine, grafi skill, advance/maintain/regress, deload, Sequencing Engine, rigenerazione intelligente e Adaptive Coach restano funzionalità V0.9. La V0.8 fornisce modello universale, stato strutturato, pinned/locked readiness, storico eseguito e boundary readiness su cui costruirle.
-
-
-## V0.9 — checklist persistente DoD
-
-Baseline CI verificata: Android Build #166 verde (`7b108819`).
-
-| Gate | Implementato | Testato | E2E | UX | CI |
-|---|---|---|---|---|---|
-| Progression Engine + skill graph/prerequisiti | sì | sì | sì | sì | verde |
-| Skill Tree / progress / next unlock | sì | sì | sì | sì | verde |
-| Load Recommendation + calibrazione | sì | sì | sì | Runner | verde |
-| Adaptive Coach + recovery/readiness/RPE | sì | sì | sì | sì | verde |
-| Sequencing + pinned/locked regeneration | sì | sì | sì | sì | verde |
-| Health Connect opzionale + fallback | sì | sì | sì | sì | verde |
-| Catalogo ~500 reale/deduplicato/metadati | in verifica | sì | sì | sì | in verifica |
-| Ab Wheel + Foam Roller generator-ready | sì | sì | sì | sì | verde |
-| Salto UX complessivo v0.9 | sì | n/a | sì | sì | verde |
-| Persistenza current-schema / offline-first | sì | sì | sì | sì | verde |
-| Audit finale + APK 0.9 firmato + firma verificata | riaperto sul catalogo | sì | sì | sì | in verifica |
-
-I gate marcati `parziale` impediscono esplicitamente di dichiarare V0.9 COMPLETATA. La checklist va aggiornata solo sulla base di codice, wiring, test e CI verificati.
-
-### Baseline v0.9.5
-
-La v0.9.5 deve partire dalla linea frozen v0.9.4. Il runtime verificato è `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`; il commit successivo di chiusura contiene solo documentazione. Tutte le clausole DEVICE_PENDING e il gate signed-release non eseguiti in v0.9.4 sono backlog obbligatorio della v0.9.5.
+The exact status belongs in `PROJECT_STATUS.md`; detailed requirements belong in `V0_9_5_DOD.md`. This README intentionally does not duplicate the historical v0.8/v0.9 checklists.
