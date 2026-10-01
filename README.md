@@ -12,7 +12,7 @@ La v0.9.3 resta congelata su `release/v0.9.3`. Lo sviluppo corrente è esclusiva
 
 Il rollback sicuro corrente è `checkpoint/v0.9.4-f10-green` a `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`, verificato da Exercise DB v2 #291 e Android APK #844.
 
-Il branch di sviluppo è ora verificato a `f96d426964630c354c2aa4f08880c1caceb232be`, congelato anche come `checkpoint/v0.9.4-f08-green`. Sullo SHA exact-CI Exercise DB v2 #288 e Android APK #841 sono entrambi verdi. F08 è stato riallineato al piano intent-only con copertura deterministica per assenza/presenza piano, disruption, completed e readiness bassa.
+Il branch di sviluppo ha come ultimo baseline CI verificato `1ec072b36e2cde04bf16a7d8a190a28c6c276f44`, congelato come `checkpoint/v0.9.4-f10-green`. Sullo SHA exact-CI Exercise DB v2 #291 e Android APK #844 sono entrambi verdi. F09 e F10 sono repository-level verificati; F11 è implementato ed è in chiusura con regression evidence rafforzata prima del pre-CI globale.
 
 Sul candidato corrente il piano multisettimanale persiste intenti di sessione indipendenti dal luogo (schema piano v5); gli esercizi concreti vengono materializzati all'avvio in base a luogo, capability, storico e readiness. Gli snapshot concreti restano nel runner/storico come evidenza di ciò che è stato realmente prescritto/eseguito. Le migrazioni legacy del piano sono fuori scope per policy.
 

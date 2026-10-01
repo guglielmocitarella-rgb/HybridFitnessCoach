@@ -107,12 +107,12 @@ Repository-level verified progress at/before the checkpoint:
 - **F03/F04 — VERIFIED foundation/repository-level:** `TrainingLocation` is canonical; obsolete `EquipmentProfile` and localized matching debt removed.
 - **F06 — VERIFIED repository-level:** coarse athlete level removed; multidimensional capability drives eligibility/prescription.
 
-Current verified HEAD: `f96d426964630c354c2aa4f08880c1caceb232be` (`checkpoint/v0.9.4-f08-green`).
+Current verified HEAD: `1ec072b36e2cde04bf16a7d8a190a28c6c276f44` (`checkpoint/v0.9.4-f10-green`).
 - **F05 — VERIFIED repository-level:** schema 5 plan persistence is intent-only and execution-time materialization is location-aware.
 - **F07 — VERIFIED domain/persistence:** future regeneration preserves completed/partial/past evidence; explicit confirmation/device UX remains pending.
 - **F08 — VERIFIED repository-level:** deterministic no-plan/active-plan/disruption/completed/readiness behavior is covered with intent-only fixtures.
-- Exercise DB v2 #288 — SUCCESS.
-- Android APK #841 — SUCCESS.
+- Exercise DB v2 #291 — SUCCESS.
+- Android APK #844 — SUCCESS.
 - PR #11 was open and mergeable at verification time.
 - **F09 — VERIFIED repository-level:** monthly calendar presentation/action policy is covered on `801f4a827…`; device interaction acceptance remains.
 - **F10 — VERIFIED repository-level:** Home plan presentation and deterministic today/next selection are covered on `1ec072b36…`; device presentation acceptance remains.
