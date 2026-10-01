@@ -10,10 +10,16 @@ La v0.9.3 è la baseline congelata dopo il completamento dei gate repository-lev
 
 Lo sviluppo e il device acceptance successivi appartengono a `feature/v0.9.4`. Qualsiasi problema trovato sul device viene registrato e corretto in v0.9.4, senza modificare la baseline v0.9.3. `V0_9_3_DOD.md` è storico; `V0_9_4_DOD.md` è la DoD attiva.
 
+### Checkpoint v0.9.4 verificato
+
+Il checkpoint `0735f62152221299cbdc894eb023456f685c05fa` su `feature/v0.9.4` ha superato Exercise DB v2 #273 e Android APK #826. In questo checkpoint il dominio attrezzatura/luogo usa il contratto canonico `TrainingLocation`; il vecchio livello atleta globale non guida più generazione o prescrizione, sostituito dalle dimensioni Capability valutate; i recuperi effettivi/source-backed vengono propagati e persistiti nel runner.
+
+Il vecchio nome di branch `feature/v0.9.1-training-plan` è solo un riferimento storico e non rappresenta la release attiva.
+
 ### Funzioni disponibili
 
-- Profilo atleta con obiettivo, livello, frequenza, dati fisici e skill prioritarie
-- Profili attrezzatura completamente personalizzabili
+- Profilo atleta con dati fisici e Capability Profile multidimensionale; obiettivo/frequenza/skill prioritarie appartengono alla configurazione del piano
+- Luoghi di allenamento (`TrainingLocation`) con attrezzatura/capacità canoniche
 - Workout automatico dalla Home
 - Creazione workout personalizzato per parti del corpo o skill calisthenics multiple
 - Libreria esercizi con filtri e generazione workout
