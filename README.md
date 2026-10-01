@@ -6,7 +6,7 @@ Android/Kotlin/Jetpack Compose fitness coach for pesi, corpo libero e calistheni
 
 - **Active release:** v0.9.5
 - **Active branch:** `feature/v0.9.5`
-- **Active PR:** #13 — v0.9.5 multi-plan foundation
+- **Active PR:** #14 — v0.9.5 multi-plan checkpoint
 - **Frozen predecessor:** v0.9.4 runtime `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`
 - **v0.9.4 rollback checkpoint:** `checkpoint/v0.9.4-f01-f11-green`
 - **Compatibility policy:** backward compatibility with obsolete schemas/APIs/UI is out of scope unless explicitly reinstated.
