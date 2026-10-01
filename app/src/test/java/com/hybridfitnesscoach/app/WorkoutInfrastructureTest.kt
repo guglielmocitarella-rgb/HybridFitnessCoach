@@ -99,3 +99,50 @@ class WorkoutInfrastructureTest {
     @Test fun sequencingPrefersSameSetupWhenPriorityIsEqual(){val a=Exercise("A","Petto","Bilanciere","Intermedio",role="Forza",movementPattern="push");val b=Exercise("B","Dorso","Sbarra","Intermedio",role="Forza",movementPattern="pull");val c=Exercise("C","Gambe","Bilanciere","Intermedio",role="Forza",movementPattern="squat");val out=sequenceWorkout(listOf(a,b,c));assertEquals("A",out[0].name);assertEquals("C",out[1].name)}
     @Test fun sequencingSeparatesRepeatedMovementPatternWhenAlternativeExists(){val a=Exercise("A","Dorso","Sbarra","Intermedio",role="Forza",movementPattern="pull");val b=Exercise("B","Dorso","Sbarra","Intermedio",role="Forza",movementPattern="pull");val c=Exercise("C","Petto","Sbarra","Intermedio",role="Forza",movementPattern="push");val out=sequenceWorkout(listOf(a,b,c));assertEquals("A",out[0].name);assertEquals("C",out[1].name)}
 }
+
+
+class WorkoutLaunchFlowTest {
+    private fun intent(origin:WorkoutOrigin):WorkoutLaunchIntent = when(origin) {
+        WorkoutOrigin.PLANNED -> WorkoutLaunchIntent(origin,plannedWorkoutId="planned-42")
+        WorkoutOrigin.SINGLE_EXERCISE -> WorkoutLaunchIntent(origin,sourceId="bench-press")
+        else -> WorkoutLaunchIntent(origin)
+    }
+
+    private fun materialized(locationId:String, plannedWorkoutId:String?=null)=WorkoutSessionState(
+        id="session",startedAtEpochMs=100L,profileName="Test",exercises=emptyList(),
+        plannedWorkoutId=plannedWorkoutId,trainingLocationId=locationId
+    )
+
+    @Test fun everyOriginBeginsByChoosingALocation() {
+        WorkoutOrigin.entries.forEach { origin ->
+            assertEquals(WorkoutLaunchStage.CHOOSE_LOCATION,beginWorkoutLaunch(intent(origin)).stage)
+        }
+    }
+
+    @Test fun singleExerciseFlowsThroughLocationMaterializationPreviewAndRunner() {
+        val location=selectWorkoutLocation(beginWorkoutLaunch(intent(WorkoutOrigin.SINGLE_EXERCISE)),"home")
+        assertEquals(WorkoutLaunchStage.MATERIALIZE,location.stage)
+        assertEquals("home",location.locationId)
+
+        val preview=materializeWorkoutLaunch(location,materialized("home"))
+        assertEquals(WorkoutLaunchStage.PREVIEW,preview.stage)
+        assertEquals(WorkoutLaunchStage.RUNNER,startWorkoutRunner(preview).stage)
+    }
+
+    @Test fun plannedWorkoutOwnershipSurvivesTheCommonLaunchFlow() {
+        val request=intent(WorkoutOrigin.PLANNED)
+        val preview=materializeWorkoutLaunch(
+            selectWorkoutLocation(beginWorkoutLaunch(request),"gym"),
+            materialized("gym",request.plannedWorkoutId)
+        )
+        assertEquals(request.plannedWorkoutId,preview.workout?.plannedWorkoutId)
+        assertEquals(request.plannedWorkoutId,startWorkoutRunner(preview).workout?.plannedWorkoutId)
+    }
+
+    @Test fun launchRejectsMaterializationForAtADifferentLocation() {
+        val selected=selectWorkoutLocation(beginWorkoutLaunch(intent(WorkoutOrigin.SINGLE_EXERCISE)),"home")
+        assertThrows(IllegalArgumentException::class.java) {
+            materializeWorkoutLaunch(selected,materialized("gym"))
+        }
+    }
+}
