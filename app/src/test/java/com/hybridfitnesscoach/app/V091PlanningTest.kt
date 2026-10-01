@@ -514,7 +514,8 @@ class V091PlanningTest {
   val skipped=base.workouts.last().copy(state=PlannedWorkoutState.SKIPPED)
   val source=base.copy(workouts=base.workouts.map{if(it.id==skipped.id)skipped else it})
   val changed=regenerateFuturePlan(source,PlanConfiguration("Ipertrofia",2,3,setOf(1,3,5),emptyList()),1000)
-  assertEquals(skipped,changed.workouts.first{it.id==skipped.id})\n  assertEquals(1,changed.workouts.count{it.epochDay==skipped.epochDay})
+  assertEquals(skipped,changed.workouts.first{it.id==skipped.id})
+  assertEquals(1,changed.workouts.count{it.epochDay==skipped.epochDay})
  }
  @Test fun futureRegenerationCoversEachEditableField(){
   val base=generateTrainingPlan("fields",1000,PlanConfiguration("Forza",3,2,setOf(1,4),emptyList()))
