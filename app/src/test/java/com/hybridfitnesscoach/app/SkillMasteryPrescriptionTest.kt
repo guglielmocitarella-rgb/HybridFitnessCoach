@@ -6,7 +6,7 @@ import org.junit.Test
 class SkillMasteryPrescriptionTest {
     @Test fun skillCandidateUsesCurrentNodeMasteryPrescription() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
         val first=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
         val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Muscle-up"),emptyList())
         val focus=pool.first{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}}
@@ -39,14 +39,14 @@ class SkillMasteryPrescriptionTest {
         assertEquals(ProgressionStatus.IN_PROGRESS,states.first{it.node.id==first.id}.status)
         assertEquals(ProgressionStatus.LOCKED,states.first{it.node.id=="pullup_chest"}.status)
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val pool=customWorkoutCandidatePool(gym,AthleteProfile(level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3),listOf(attempt),"Skill",listOf("Muscle-up"),emptyList())
+        val pool=customWorkoutCandidatePool(gym,AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3),listOf(attempt),"Skill",listOf("Muscle-up"),emptyList())
         val focus=pool.first{ex -> (first.exerciseAliases+first.exerciseName).any{it.equals(ex.name,true)}}
         assertEquals(8.0,focus.targetValue!!,0.0)
         assertTrue(pool.none{it.name.equals("Chest-to-bar Pull-up",true) || it.name.equals("Chest to bar pull-up",true)})
     }
     @Test fun skillRegenerationCannotReplaceFocusWithLockedOrGenericProgression() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
         val skill="Muscle-up"
         val first=SkillCatalog.forSkill(skill).first{it.id=="pullup_strict"}
         val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf(skill),emptyList())

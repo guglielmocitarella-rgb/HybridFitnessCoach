@@ -7,14 +7,14 @@ import org.junit.Test
 class V09RegressionAuditTest {
     @Test fun generationIsDeterministicAndOffline() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(goal="Calisthenics",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,prioritySkills=listOf("Front lever"))
+        val athlete=AthleteProfile(goal="Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,prioritySkills=listOf("Front lever"))
         val a=generateWorkout(gym,athlete,emptyList(),readinessScore=80).map{it.name}
         val b=generateWorkout(gym,athlete,emptyList(),readinessScore=80).map{it.name}
         assertEquals(a,b); assertEquals(6,a.size)
     }
     @Test fun v08StrengthPathRemainsAvailable() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val workout=generateWorkout(gym,AthleteProfile(goal="Forza",level="Intermedio",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList())
+        val workout=generateWorkout(gym,AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList())
         assertEquals(6,workout.size); assertTrue(workout.any{it.role=="Forza"})
     }
     @Test fun readinessChangesAdaptivePrescriptionWithoutNetworkState() {

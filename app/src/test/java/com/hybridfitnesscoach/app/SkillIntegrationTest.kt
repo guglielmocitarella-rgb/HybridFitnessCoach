@@ -16,7 +16,7 @@ class SkillIntegrationTest {
     }
     @Test fun newAthleteCannotGenerateLockedProgressions() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val workout=generateWorkout(gym,AthleteProfile(goal="Calisthenics",level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3,prioritySkills=listOf("Front lever")),emptyList())
+        val workout=generateWorkout(gym,AthleteProfile(goal="Calisthenics",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3,prioritySkills=listOf("Front lever")),emptyList())
         assertFalse(workout.any{it.name=="Advanced tuck front lever"})
     }
     @Test fun catalogueHasConsistentMetadataAndNoDuplicateNames() {
@@ -55,7 +55,7 @@ class SkillIntegrationTest {
 
     @Test fun skillWorkoutCandidatePoolKeepsSkillPriorityAndCompatibleSupportExercises() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
         val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Front lever"),emptyList())
         assertTrue(pool.isNotEmpty())
         assertTrue(pool.any{"Front lever" in it.skills})
@@ -65,7 +65,7 @@ class SkillIntegrationTest {
     }
     @Test fun lockedSkillNodesNeverEnterCustomCandidatePoolForNewAthlete() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
         val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Front lever"),emptyList())
         val locked=SkillCatalog.progress("Front lever",emptyList()).filter{it.status==ProgressionStatus.LOCKED}
             .flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
@@ -128,7 +128,7 @@ class SkillIntegrationTest {
 
     @Test fun skillWorkoutTargetsCurrentUnlockedProgressionInsteadOfMasteredOrLockedNodes() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(level="Avanzato",assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
         val first=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
         fun qualifyingSession(ts:Long)=SessionRecord(
             timestamp=ts,profileName="Palestra",completedSets=3,totalSets=3,
