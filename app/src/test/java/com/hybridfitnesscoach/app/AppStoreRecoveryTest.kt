@@ -512,4 +512,18 @@ class AppStoreRecoveryTest {
         assertNull(loaded.workouts.single().intent)
     }
 
+
+    @Test fun locationIndependentEditedPlanConfigurationRoundTripsWithEmptySnapshots() {
+        val intent=PlannedSessionIntent("Calisthenics",listOf("Front lever"),emptySet(),0).validated()
+        val workout=PlannedWorkout("future",20,1,0,emptyList(),intent=intent)
+        val plan=TrainingPlan("edited",10,4,3,listOf(workout),"Calisthenics",setOf(2,4,6),listOf("Front lever"))
+        val store=AppStore(context)
+        assertTrue(store.saveTrainingPlan(plan))
+        val raw=JSONObject(prefs.getString("training_plan_v091",null)!!)
+        val saved=raw.getJSONArray("workouts").getJSONObject(0)
+        assertEquals(0,saved.getJSONArray("exerciseSnapshots").length())
+        assertEquals("Calisthenics",raw.getString("goal"))
+        assertEquals(3,raw.getInt("daysPerWeek"))
+        assertEquals(plan,AppStore(context).loadTrainingPlan())
+    }
 }

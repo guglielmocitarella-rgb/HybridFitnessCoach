@@ -744,27 +744,11 @@ internal fun resolveSuggestedWorkout(plan:TrainingPlan?,today:Long,adaptive:()->
  val planned=todayPlannedWorkout(plan,today)
  return if(planned!=null) SuggestedWorkout(planned.exercises,planned) else SuggestedWorkout(adaptive(),null)
 }
-internal fun generateTrainingPlan(
- planId:String,
- startEpochDay:Long,
- profile:TrainingLocation,
- athlete:AthleteProfile,
- configuration:PlanConfiguration,
- sessions:List<SessionRecord>,
- readinessScore:Int?
-):TrainingPlan {
+internal fun generateTrainingPlan(planId:String,startEpochDay:Long,configuration:PlanConfiguration):TrainingPlan {
  val valid=configuration.validated()
- val configuredAthlete=athlete.forPlan(valid)
- val recentPlanned=mutableListOf<List<String>>()
- val scheduled=TrainingPlanEngine.scheduleImmediately(planId,startEpochDay,valid.weeks,valid.daysPerWeek,valid.trainingDays){week,_->
-  val selected=plannedWeekExercises(generateWorkout(profile,configuredAthlete,sessions,readinessScore,recentPlanned.flatten().toSet()),week)
-  recentPlanned.add(selected.map{it.name});if(recentPlanned.size>3)recentPlanned.removeAt(0)
-  selected
- }
- return scheduled.copy(
-  goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills,
-  workouts=scheduled.workouts.map{w->w.copy(intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,emptySet(),w.sequenceInWeek).validated())}
- )
+ val scheduled=TrainingPlanEngine.scheduleImmediately(planId,startEpochDay,valid.weeks,valid.daysPerWeek,valid.trainingDays){_,_->emptyList()}
+ return scheduled.copy(goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills,
+  workouts=scheduled.workouts.map{w->w.copy(exercises=emptyList(),intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,emptySet(),w.sequenceInWeek).validated())})
 }
 
 class MainActivity : ComponentActivity() {
@@ -942,7 +926,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
         trainingPlan?.let { return it }
         val today=java.time.LocalDate.now().toEpochDay()
         val configuration=PlanConfiguration(planGoal,requestedWeeks,planDaysPerWeek,planWeekdays.toSet(),planSkills.toList()).validated()
-        val created=generateTrainingPlan("plan-"+today,today,profile,athlete,configuration,sessions,readinessScore)
+        val created=generateTrainingPlan("plan-"+today,today,configuration)
         if (!store.saveTrainingPlan(created)) {
             planSaveError = true
             return created
@@ -1044,6 +1028,8 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
     var showPast by remember { mutableStateOf(false) }
     var selected by remember { mutableStateOf<PlannedWorkout?>(null) }
     var rescheduleOffset by remember { mutableStateOf(1) }
+    var editPlan by remember { mutableStateOf(false) }
+    var confirmRegeneration by remember { mutableStateOf<PlanConfiguration?>(null) }
     var planSaveError by remember { mutableStateOf(false) }
     fun persistCandidate(candidate:TrainingPlan):Boolean {
         if(!store.saveTrainingPlan(candidate)){ planSaveError=true; return false }
@@ -1058,6 +1044,8 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 FilterChip(selected=!showPast,onClick={showPast=false},label={Text("Futuri")})
                 Spacer(Modifier.width(8.dp))
                 FilterChip(selected=showPast,onClick={showPast=true},label={Text("Passati")})
+                Spacer(Modifier.weight(1f))
+                TextButton(onClick={editPlan=true}){Text("MODIFICA PIANO")}
             }
             val visible=plan!!.workouts.filter{isPastCalendarWorkout(it,today)==showPast}.sortedBy{it.epochDay}
             LazyColumn(contentPadding=PaddingValues(bottom=24.dp)) {
@@ -1069,7 +1057,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                                 Text(workout.state.name,fontSize=12.sp,color=Accent,fontWeight=FontWeight.SemiBold)
                             }
                             Text("Settimana "+(workout.weekIndex+1)+" • Sessione "+(workout.sequenceInWeek+1),fontSize=13.sp,color=Color.Gray)
-                            Text(workout.exercises.joinToString(" • "){it.name},fontSize=12.sp,modifier=Modifier.padding(top=5.dp))
+                            Text(workout.intent?.let{intent->intent.goal+(if(intent.prioritySkills.isEmpty())"" else " • "+intent.prioritySkills.joinToString())} ?: workout.exercises.joinToString(" • "){it.name},fontSize=12.sp,modifier=Modifier.padding(top=5.dp))
                             if(workout.epochDay!=workout.originalEpochDay) Text("Data originale: "+calendarDate(workout.originalEpochDay),fontSize=11.sp,color=Color.Gray)
                             workout.adaptationReason?.let{Text(it,fontSize=11.sp,color=Color.Gray)}
                             if(workout.state==PlannedWorkoutState.PLANNED || workout.state==PlannedWorkoutState.RESCHEDULED) Text("Tocca per avviare, saltare o riprogrammare",fontSize=11.sp,color=Accent,modifier=Modifier.padding(top=6.dp))
@@ -1079,6 +1067,32 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 if(visible.isEmpty()) item{Text("Nessuna sessione in questa vista.",modifier=Modifier.padding(20.dp),color=Color.Gray)}
             }
         }
+    }
+    if(editPlan && plan!=null) {
+        val current=PlanConfiguration.fromPlan(plan!!)
+        var goal by remember { mutableStateOf(current.goal) }
+        var days by remember { mutableIntStateOf(current.daysPerWeek) }
+        val weekdays=remember { mutableStateListOf<Int>().apply{addAll(current.trainingDays.sorted())} }
+        val skills=remember { mutableStateListOf<String>().apply{addAll(current.prioritySkills)} }
+        AlertDialog(onDismissRequest={editPlan=false},title={Text("Modifica programma")},text={LazyColumn(Modifier.heightIn(max=520.dp)){item{
+            Text("Obiettivo",fontWeight=FontWeight.SemiBold)
+            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(4.dp)){listOf("Forza","Ipertrofia","Calisthenics","Fitness generale").forEach{g->FilterChip(selected=goal==g,onClick={goal=g},label={Text(g,fontSize=10.sp)})}}
+            Text("Allenamenti a settimana: $days",fontWeight=FontWeight.SemiBold)
+            Row{OutlinedButton(onClick={if(days>1){days--;while(weekdays.size>days)weekdays.removeAt(weekdays.lastIndex)}}){Text("−")};Spacer(Modifier.width(8.dp));Button(onClick={if(days<7)days++}){Text("+")}}
+            Text("Giorni",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp))
+            Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(3.dp)){listOf("L","M","M","G","V","S","D").forEachIndexed{index,label->val day=index+1;FilterChip(selected=day in weekdays,onClick={if(day in weekdays)weekdays.remove(day) else if(weekdays.size<days)weekdays.add(day)},label={Text(label)})}}
+            Text("Skill prioritarie (opzionali)",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp));calisthenicsSkills.take(12).forEach{s->FilterChip(selected=s.name in skills,onClick={if(s.name in skills)skills.remove(s.name)else skills.add(s.name)},label={Text(s.name)})}
+            Text("Le sessioni già eseguite e quelle passate non verranno modificate.",fontSize=12.sp,color=Color.Gray,modifier=Modifier.padding(top=10.dp))
+        }}},confirmButton={Button(onClick={if(weekdays.size==days){confirmRegeneration=PlanConfiguration(goal,current.weeks,days,weekdays.toSet(),skills.toList()).validated();editPlan=false}},enabled=weekdays.size==days){Text("RIVEDI MODIFICHE")}},dismissButton={TextButton(onClick={editPlan=false}){Text("ANNULLA")}})
+    }
+    confirmRegeneration?.let { candidateConfig ->
+        val current=plan!!
+        val protected=current.workouts.count{it.epochDay<today || it.state !in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED)}
+        val replaceable=current.workouts.size-protected
+        AlertDialog(onDismissRequest={confirmRegeneration=null},title={Text("Rigenerare le sessioni future?")},
+            text={Text("Verranno sostituite solo le sessioni future modificabili ($replaceable attuali). Storico, sessioni completate/parziali e dati di esecuzione restano invariati.")},
+            confirmButton={Button(onClick={val candidate=regenerateFuturePlan(current,candidateConfig,today);if(persistCandidate(candidate))confirmRegeneration=null}){Text("CONFERMA RIGENERAZIONE")}},
+            dismissButton={TextButton(onClick={confirmRegeneration=null}){Text("ANNULLA")}})
     }
     selected?.let { workout ->
         val historical=workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL
@@ -1109,7 +1123,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 } else {
                     item {
                         if(planSaveError) Text("Impossibile salvare la modifica. Riprova.",color=Color.Red,fontSize=12.sp,modifier=Modifier.padding(bottom=8.dp))
-                        Text(workout.exercises.joinToString(" • "){it.name})
+                        Text(workout.intent?.let{intent->"Obiettivo: "+intent.goal+(if(intent.prioritySkills.isEmpty())"" else "\nSkill: "+intent.prioritySkills.joinToString())} ?: workout.exercises.joinToString(" • "){it.name})
                         Spacer(Modifier.height(12.dp))
                         Text("Riprogramma di:",fontWeight=FontWeight.SemiBold)
                         Row(verticalAlignment=Alignment.CenterVertically) {
@@ -1128,7 +1142,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             }){Text("RIPROGRAMMA")}
         },dismissButton={
             if(!historical)Row {
-                TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=workout.exercises.isNotEmpty() && workout.state!=PlannedWorkoutState.SKIPPED){Text("INIZIA")}
+                TextButton(onClick={ selected=null; onStartWorkout(workout) },enabled=workout.state!=PlannedWorkoutState.SKIPPED){Text("INIZIA")}
                 TextButton(onClick={
                     val candidate=TrainingPlanEngine.skip(plan!!,workout.id)
                     if(persistCandidate(candidate)) selected=null

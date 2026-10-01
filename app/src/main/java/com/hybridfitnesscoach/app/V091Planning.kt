@@ -196,6 +196,37 @@ internal fun defaultTrainingDays(daysPerWeek:Int):Set<Int> {
  require(daysPerWeek in 1..7)
  return (0 until daysPerWeek).map{index->1+(index*7/daysPerWeek)}.toSet()
 }
+internal fun regenerateFuturePlan(plan:TrainingPlan,configuration:PlanConfiguration,today:Long):TrainingPlan {
+ val valid=configuration.validated()
+ val protected=plan.workouts.filter{
+  it.epochDay<today || it.state !in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED)
+ }
+ val protectedDates=protected.map{it.epochDay}.toSet()
+ val planEndExclusive=plan.startEpochDay+valid.weeks*7L
+ val futureStart=maxOf(today,plan.startEpochDay)
+ val regenerated=if(futureStart>=planEndExclusive) emptyList() else
+  (futureStart until planEndExclusive).filter{epochDay->
+   epochDay !in protectedDates && java.time.LocalDate.ofEpochDay(epochDay).dayOfWeek.value in valid.trainingDays
+  }.map{epochDay->
+   val weekIndex=((epochDay-plan.startEpochDay)/7L).toInt()
+   val weekStart=plan.startEpochDay+weekIndex*7L
+   val sequence=(weekStart until epochDay).count{day->
+    java.time.LocalDate.ofEpochDay(day).dayOfWeek.value in valid.trainingDays
+   }
+   PlannedWorkout(
+    id=plan.id+"-r"+epochDay,
+    epochDay=epochDay,
+    weekIndex=weekIndex,
+    sequenceInWeek=sequence,
+    exercises=emptyList(),
+    intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,emptySet(),sequence).validated()
+   )
+  }
+ return plan.copy(
+  weeks=valid.weeks,daysPerWeek=valid.daysPerWeek,goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills,
+  workouts=(protected+regenerated).sortedWith(compareBy<PlannedWorkout>{it.epochDay}.thenBy{it.weekIndex}.thenBy{it.sequenceInWeek})
+ )
+}
 internal fun AthleteProfile.forPlan(configuration:PlanConfiguration):AthleteProfile {
  val valid=configuration.validated()
  return copy(goal=valid.goal,daysPerWeek=valid.daysPerWeek,prioritySkills=valid.prioritySkills)
