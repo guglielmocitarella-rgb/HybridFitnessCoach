@@ -747,7 +747,7 @@ internal fun generateTrainingPlan(planId:String,startEpochDay:Long,configuration
  val valid=configuration.validated()
  val scheduled=TrainingPlanEngine.scheduleImmediately(planId,startEpochDay,valid.weeks,valid.daysPerWeek,valid.trainingDays){_,_->emptyList()}
  return scheduled.copy(goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills,
-  workouts=scheduled.workouts.map{w->w.copy(exercises=emptyList(),intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,emptySet(),w.sequenceInWeek).validated())})
+  workouts=scheduled.workouts.map{w->w.copy(intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,emptySet(),w.sequenceInWeek).validated())})
 }
 
 class MainActivity : ComponentActivity() {

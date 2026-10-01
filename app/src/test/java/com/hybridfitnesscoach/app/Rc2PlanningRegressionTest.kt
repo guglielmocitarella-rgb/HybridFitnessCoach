@@ -115,7 +115,7 @@ class Rc2PlanningRegressionTest {
         val resolved=resolveWorkoutLaunch(null,requested)
         assertFalse(resolved.resumeActive)
         assertEquals(requested.id,resolved.plannedWorkout?.id)
-        assertEquals(requested.exercises,resolved.plannedWorkout?.exercises)
+        assertEquals(requested.intent,resolved.plannedWorkout?.intent)
     }
 
     @Test fun completedOrPartialWorkoutCannotBeCompletedAgainThroughReconciler() {
