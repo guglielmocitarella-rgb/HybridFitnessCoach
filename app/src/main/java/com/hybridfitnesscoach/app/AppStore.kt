@@ -310,9 +310,6 @@ class AppStore(context: Context) {
         return loadTrainingPlans().filter{it.id in enabled}
     }
 
-    /** Temporary single-plan view for call sites not yet migrated to aggregate scheduling. */
-    fun loadTrainingPlan():TrainingPlan? = loadEnabledTrainingPlans().firstOrNull()
-
     fun saveTrainingPlan(plan:TrainingPlan):Boolean {
         val plans=loadTrainingPlans().toMutableList()
         val index=plans.indexOfFirst{it.id==plan.id}
@@ -380,14 +377,12 @@ class AppStore(context: Context) {
     /** Commit history, linked plan and active-runner removal in one preferences transaction. */
     fun finishWorkout(s: SessionRecord): Boolean {
         val history = loadSessions()
-        val plan = loadTrainingPlan()
-        val updatedPlan = plan?.let {
-            val executionDay = java.time.Instant.ofEpochMilli(s.timestamp)
-                .atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
-            PlannedWorkoutReconciler.complete(it, s, executionDay, 0).plan
-        }
         val plans=loadTrainingPlans()
-        val updatedPlans=if(updatedPlan!=null && updatedPlan!=plan) plans.map{if(it.id==updatedPlan.id)updatedPlan else it} else plans
+        val executionDay = java.time.Instant.ofEpochMilli(s.timestamp)
+            .atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
+        val owner=plans.firstOrNull{plan->plan.workouts.any{it.id==s.plannedWorkoutId}}
+        val updatedPlan=owner?.let{PlannedWorkoutReconciler.complete(it,s,executionDay,0).plan}
+        val updatedPlans=if(updatedPlan!=null && updatedPlan!=owner) plans.map{if(it.id==updatedPlan.id)updatedPlan else it} else plans
         val plansRoot=JSONObject().put("schemaVersion",1).put("plans",JSONArray().apply{updatedPlans.forEach{put(trainingPlanJsonObject(it))}})
         return write {
             putString("sessions", sessionsJson(listOf(s) + history))
@@ -399,7 +394,7 @@ class AppStore(context: Context) {
     fun addSession(s: SessionRecord) = saveSessions(listOf(s) + loadSessions())
 
     fun completePlannedWorkoutForSession(s: SessionRecord, minimumGapDays: Int = 0): ScheduleUpdate? {
-        val plan = loadTrainingPlan() ?: return null
+        val plan = loadTrainingPlans().firstOrNull{candidate->candidate.workouts.any{it.id==s.plannedWorkoutId}} ?: return null
         val executionDay = java.time.Instant.ofEpochMilli(s.timestamp).atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
         val update = PlannedWorkoutReconciler.complete(plan, s, executionDay, minimumGapDays)
         if (update.plan == plan) return null
@@ -411,9 +406,9 @@ class AppStore(context: Context) {
         val sessions = loadSessions()
         val removed = sessions.firstOrNull { it.timestamp == timestamp } ?: return
         val remaining = sessions.filterNot { it.timestamp == timestamp }
-        val plan = loadTrainingPlan()
-        val restored = plan?.let { PlannedWorkoutReconciler.afterDeletion(it, removed, remaining) }
         val plans=loadTrainingPlans()
+        val plan=plans.firstOrNull{candidate->candidate.workouts.any{it.id==removed.plannedWorkoutId}}
+        val restored = plan?.let { PlannedWorkoutReconciler.afterDeletion(it, removed, remaining) }
         val updatedPlans=if(restored!=null && restored!=plan) plans.map{if(it.id==restored.id)restored else it} else plans
         val plansRoot=JSONObject().put("schemaVersion",1).put("plans",JSONArray().apply{updatedPlans.forEach{put(trainingPlanJsonObject(it))}})
         write {
