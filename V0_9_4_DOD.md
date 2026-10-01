@@ -93,12 +93,27 @@ This is the binding release DoD after the v0.9.3 freeze. GitHub PR #11 is the v0
 
 **Acceptance:** preview state has an explicit reset boundary keyed to generation identity; regression test covers regeneration/locked exercises and prevents stale selected/scroll state from leaking. Final scrolling behavior is `DEVICE_PENDING`.
 
+## Verified implementation checkpoint — 2026-10-01
+
+Repository-level checkpoint: `0735f62152221299cbdc894eb023456f685c05fa`.
+
+CI evidence:
+- Exercise DB v2 #273 — SUCCESS.
+- Android APK #826 — SUCCESS.
+
+Verified repository-level progress:
+- **F03/F04 foundation — VERIFIED:** `TrainingLocation` is the canonical equipment/location contract; residual `EquipmentProfile` APIs and localized equipment matching debt were removed; Machine/Machines UI duplication is regression-protected.
+- **F06 core + propagation — VERIFIED:** coarse `AthleteProfile.level` is removed from the current athlete model, persistence and prescription/generation decisions. Assessed training experience and Push/Pull capability dimensions drive eligibility; unassessed capability fails closed conservatively. Asymmetric Push/Pull filtering has dedicated regression coverage.
+- **F02 propagation — VERIFIED at repository level:** source/effective recovery reaches set recovery and exercise-transition recovery, is materialized into runner exercise snapshots, and remains stable through persistence/resume. Physical timer behavior remains subject to device acceptance where applicable.
+
+These statuses do not mark v0.9.4 complete. Remaining acceptance clauses and F01–F11 device/UI requirements continue to apply.
+
 ## Cross-cutting audit findings at baseline HEAD
 
 The baseline already exposes several structural coupling points that must be removed before UI work:
 
 1. `ExerciseDbV2.toLegacyExercise()` translates canonical equipment IDs into localized strings and supplies legacy level/recovery defaults.
-2. `PrescriptionContext` still accepts a single `athleteLevel:String`.
+2. ~~`PrescriptionContext` still accepts a single `athleteLevel:String`.~~ Resolved at the verified checkpoint: prescription consumes a numeric relevant capability level derived from the structured Capability Profile.
 3. `TrainingPlan` persists concrete `Exercise` snapshots per future `PlannedWorkout`; this is incompatible with clean location-at-execution adaptation unless intent and realization are separated.
 4. `AppStore` persists the same concrete plan snapshots, so the domain/persistence schema must change together rather than via UI-only substitution.
 5. Coaching already supports optional `TrainingPlan?`, which is a useful seam for F08 and should be preserved rather than replaced.
