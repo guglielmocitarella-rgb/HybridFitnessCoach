@@ -244,11 +244,12 @@ class AppStore(context: Context) {
     private fun trainingPlanJson(plan: TrainingPlan): String {
         val workouts = JSONArray()
         plan.workouts.forEach { w ->
+            val intent=requireNotNull(w.intent) { "Schema 5 requires intent for planned workout ${w.id}" }
             workouts.put(JSONObject().put("id", w.id).put("epochDay", w.epochDay).put("weekIndex", w.weekIndex)
                 .put("sequenceInWeek", w.sequenceInWeek)
                 .put("state", w.state.name).put("originalEpochDay", w.originalEpochDay)
                 .put("adaptationReason", w.adaptationReason).put("actualExecutionEpochDay", w.actualExecutionEpochDay)
-                .put("intent",w.intent?.let(::intentJson)))
+                .put("intent",intentJson(intent)))
         }
         return JSONObject().put("schemaVersion", 5).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
             .put("weeks", plan.weeks).put("daysPerWeek", plan.daysPerWeek)
@@ -270,7 +271,7 @@ class AppStore(context: Context) {
                     o.storedLong("originalEpochDay", o.getLong("epochDay")),
                     o.storedString("adaptationReason").takeIf { it.isNotBlank() },
                     o.optNullableLong("actualExecutionEpochDay"),
-                    if(o.has("intent")&&!o.isNull("intent")) intentFromJson(o.getJSONObject("intent")) else null
+                    intentFromJson(o.getJSONObject("intent"))
                 )
             }
             val trainingDaysArray = root.getJSONArray("trainingDays")

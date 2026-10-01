@@ -50,7 +50,7 @@ class AppStoreRecoveryTest {
     @Test fun deletingLinkedSessionPersistsHistoryAndPlanTogether() {
         val store = AppStore(context)
         val completed = PlannedWorkout("planned-1", 10, 0, 0, emptyList(),
-            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10)
+            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10, intent = PlannedSessionIntent("Forza"))
         store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(completed)))
         store.saveSessions(listOf(session(1)))
 
@@ -66,7 +66,7 @@ class AppStoreRecoveryTest {
     @Test fun deletingOneOfDuplicateLinkedSessionsKeepsPlanCompletedAcrossReload() {
         val store = AppStore(context)
         val completed = PlannedWorkout("planned-1", 10, 0, 0, emptyList(),
-            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10)
+            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10, intent = PlannedSessionIntent("Forza"))
         store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(completed)))
         store.saveSessions(listOf(session(1), session(2)))
 
@@ -82,7 +82,7 @@ class AppStoreRecoveryTest {
     @Test fun deletingUnlinkedSessionCannotChangeCompletedPlan() {
         val store = AppStore(context)
         val completed = PlannedWorkout("planned-1", 10, 0, 0, emptyList(),
-            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10)
+            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 10, intent = PlannedSessionIntent("Forza"))
         val plan = TrainingPlan("p", 10, 1, 1, listOf(completed))
         store.saveTrainingPlan(plan)
         store.saveSessions(listOf(session(1).copy(plannedWorkoutId = null)))
@@ -103,7 +103,7 @@ class AppStoreRecoveryTest {
 
     @Test fun finishingWorkoutAtomicallySavesHistoryPlanAndClearsActiveState() {
         val store = AppStore(context)
-        val planned = PlannedWorkout("planned-1", 10, 0, 0, listOf(exercises.first()))
+        val planned = PlannedWorkout("planned-1", 10, 0, 0, emptyList(), intent=PlannedSessionIntent("Forza"))
         store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(planned)))
         val active = WorkoutSessionState("active", 1000, "Casa",
             listOf(WorkoutExerciseState("Push-up")), plannedWorkoutId = planned.id)
@@ -291,7 +291,7 @@ class AppStoreRecoveryTest {
 
     @Test fun oneBadPlannedWorkoutPreservesCompletedWorkoutAndOriginalBytes() {
         val completed = PlannedWorkout("w1", 15, 0, 0, emptyList(),
-            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 16)
+            PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 16, intent = PlannedSessionIntent("Forza"))
         val store = AppStore(context)
         store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(completed)))
         val root = JSONObject(prefs.getString("training_plan_v091", null)!!)
@@ -346,8 +346,8 @@ class AppStoreRecoveryTest {
     }
 
     @Test fun currentPlanAndActiveWorkoutRoundTripPreserveEveryField() {
-        val workout = PlannedWorkout("w1", 15, 1, 2, listOf(exercises.first().copy(targetValue = 7.0)),
-            PlannedWorkoutState.PARTIAL, 10, "Adapted", 16)
+        val workout = PlannedWorkout("w1", 15, 1, 2, emptyList(),
+            PlannedWorkoutState.PARTIAL, 10, "Adapted", 16, intent=PlannedSessionIntent("Forza"))
         val plan = TrainingPlan("p", 10, 52, 3, listOf(workout))
         val active = WorkoutSessionState("active", 123, "Casa", session(1).structuredExercises,
             0, 1000, 234, 567, 8, 890, "custom", "set", listOf("Changed"), "w1")
