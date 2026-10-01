@@ -155,7 +155,7 @@ class AppStore(context: Context) {
         loadSessions()
         loadActiveWorkout()
         loadTrainingPlans()
-        loadActiveTrainingPlanId()
+        loadEnabledTrainingPlanIds()
         loadProgressionNodes()
         string("weight_history")
     }
