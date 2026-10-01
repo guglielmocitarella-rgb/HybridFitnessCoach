@@ -32,46 +32,7 @@ internal fun coachingContext(sessions:List<SessionRecord>, readiness:Int?=null, 
     return CoachingContext(plan.copy(notes=plan.notes+evidence),recovery,readiness,recent.size)
 }
 
-/**
- * Combines execution history with the persisted calendar without inventing physiological
- * recovery rules. Plan state can conservatively suppress ADVANCE after a recent
- * partial/skipped planned session; it never manufactures a progression signal.
- */
-internal fun coachingContext(
-    sessions:List<SessionRecord>,
-    readiness:Int?,
-    trainingPlan:TrainingPlan?,
-    todayEpochDay:Long,
-    now:Long=System.currentTimeMillis()
-):CoachingContext {
-    val history=coachingContext(sessions,readiness,now)
-    val plan=trainingPlan ?: return history
-    val recentStart=todayEpochDay-28
-    val recent=plan.workouts.filter{it.epochDay in recentStart..todayEpochDay}
-    val disruptions=recent.count{it.state==PlannedWorkoutState.PARTIAL || it.state==PlannedWorkoutState.SKIPPED}
-    val completed=recent.count{it.state==PlannedWorkoutState.COMPLETED}
-    val upcoming=plan.workouts.count{it.state in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED)}
-    val base=history.plan
-    val adjusted=if(base.decision==ProgressionDecision.ADVANCE && disruptions>0)
-        base.copy(
-            intensityFactor=1.0,
-            volumeFactor=1.0,
-            decision=ProgressionDecision.MAINTAIN,
-            notes=base.notes+listOf("Progressione sospesa: piano recente con sessioni parziali o saltate")
-        )
-    else base
-    val planNote=when {
-        recent.isEmpty()->"Piano attivo: nessuna sessione pianificata conclusa nelle ultime 4 settimane"
-        else->"Piano: $completed completate, $disruptions parziali/saltate, $upcoming da eseguire"
-    }
-    return history.copy(
-        plan=adjusted.copy(notes=adjusted.notes+planNote),
-        plannedEvidence=recent.size,
-        planDisruptions=disruptions,
-        upcomingSessions=upcoming
-    )
-}
-
+/** Combines execution history with every enabled persisted plan. */
 internal fun coachingContext(
     sessions:List<SessionRecord>,
     readiness:Int?,
