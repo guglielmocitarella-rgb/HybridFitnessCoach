@@ -966,8 +966,10 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                     }
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
-                    val suggestion=resolveSuggestedWorkout(trainingPlan,java.time.LocalDate.now().toEpochDay()){generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)}
-                    val todayPlan=suggestion.plannedWorkout
+                    val today=java.time.LocalDate.now().toEpochDay()
+                    val homePlanState=deriveHomePlanState(trainingPlan,today)
+                    val suggestion=resolveSuggestedWorkout(trainingPlan,today){generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)}
+                    val todayPlan=homePlanState.todayWorkout ?: suggestion.plannedWorkout
                     val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore)}
                     val suggested=realizedTodayPlan?.exercises ?: suggestion.exercises
                     Text(if(todayPlan!=null)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
@@ -995,10 +997,14 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                         Button(onClick={ensurePlan()},enabled=planWeekdays.size==planDaysPerWeek,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
                         if (planSaveError) Text("Impossibile salvare il programma. Controlla i dati e riprova.", color=MaterialTheme.colorScheme.error, fontSize=13.sp)
                     } else {
-                        val today=java.time.LocalDate.now().toEpochDay()
-                        val next=plan.workouts.filter{it.epochDay>=today && it.state!=PlannedWorkoutState.SKIPPED && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL}.minByOrNull{it.epochDay}
+                        val homePlanState=deriveHomePlanState(plan,java.time.LocalDate.now().toEpochDay())
+                        Text(plan.goal,fontWeight=FontWeight.SemiBold,color=Accent)
                         Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
-                        Text(next?.let{"Prossima sessione: "+calendarDate(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
+                        homePlanState.todayWorkout?.let{
+                            Text("Oggi • Sessione "+(it.sequenceInWeek+1),fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
+                            Text(it.exercises.size.toString()+" esercizi • "+calendarDate(it.epochDay),fontSize=13.sp,color=Color.Gray)
+                        } ?: Text("Nessuna sessione pianificata per oggi",modifier=Modifier.padding(top=10.dp),fontSize=13.sp,color=Color.Gray)
+                        Text(homePlanState.nextWorkout?.let{"Prossima: "+calendarDate(it.epochDay)+" • "+it.exercises.size+" esercizi"}?:"Nessuna sessione futura",modifier=Modifier.padding(top=6.dp))
                         OutlinedButton(onClick=managePlan,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("GESTISCI PROGRAMMA")}
                     }
                 }
@@ -1404,6 +1410,7 @@ private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfi
     val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply{restored?.exercises?.forEach{e->put(e.exerciseName,runnerEffort(e.rpe))}} }
     var workoutRpe by remember { mutableIntStateOf(runnerEffort(restored?.workoutRpe)) }
     val listState = rememberLazyListState()
+    var previewGeneration by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(running,paused,restEndsAt,sessionStartedAt){ while(running&&!paused){ val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);sessionStartedAt?.let{elapsedSeconds=((now-it)/1000L).toInt()};delay(500) } }
     LaunchedEffect(running,paused,skipped.toMap(),currentExercise,restRemaining,completed.toMap(),executedSets.toMap(),exerciseRpe.toMap(),workoutRpe) {
@@ -1411,6 +1418,12 @@ private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfi
             val now=System.currentTimeMillis()
             val states=generated.mapIndexed{i,ex->recordedExerciseState(i,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,ex.name in pinnedNames)}
             store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,"Personalizzato",states,generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),if(paused)elapsedSeconds*1000L else 0L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind="custom",restKind=restKind,pausedRestRemainingSec=if(paused)restRemaining else null,trainingLocationId=selectedLocation.id))
+        }
+    }
+    LaunchedEffect(previewGeneration) {
+        if(!running) {
+            val navigation=previewNavigationAfterGeneration(generated)
+            if(navigation.scrollIndex>=0) listState.scrollToItem(navigation.scrollIndex)
         }
     }
     LaunchedEffect(running) { if(running){ if(currentExercise==null)currentExercise=generated.firstOrNull{(completed[it.name]?:0)<(executedSets[it.name]?.size?:prescriptionFor(it).sets)}?.name; val i=generated.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i) } }
@@ -1429,8 +1442,9 @@ private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfi
         completed.clear();expandedCompleted.clear();reps.clear();restSeconds.clear();exerciseRpe.clear()
         generated.forEach{ex->val p=prescription(ex);reps[ex.name]=p.first;restSeconds[ex.name]=p.second;exerciseRpe[ex.name]=5}
         exerciseRestSeconds=generated.maxOfOrNull{it.exerciseRestSec}?:180;running=false;paused=false;elapsedSeconds=0;restRemaining=0
-        currentExercise=generated.firstOrNull()?.name
+        currentExercise=previewNavigationAfterGeneration(generated).exerciseName
         generationMessage=if(generated.isEmpty())"Nessun esercizio compatibile: prova un altro luogo o amplia muscoli/livello/skill." else "Workout pronto: "+generated.size+" esercizi."
+        previewGeneration++
     }
     fun resetPreview(){ generated=emptyList();generationMessage=null;completed.clear();exerciseRpe.clear();restRemaining=0;currentExercise=null }
 
@@ -1466,6 +1480,8 @@ private fun CustomWorkoutDialog(profile: TrainingLocation, athlete: AthleteProfi
                                 generated=if(mode=="Skill") regenerateSkillWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore),selectedSkills,sessions) else regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
                                 reps.clear();restSeconds.clear();generated.forEach{ex->reps[ex.name]=prescriptionFor(ex).value.toInt();restSeconds[ex.name]=ex.setRestSec}
                                 generationMessage="Rigenerati solo gli esercizi non bloccati."
+                                currentExercise=previewNavigationAfterGeneration(generated).exerciseName
+                                previewGeneration++
                             }){Text("RIGENERA NON BLOCCATI")}
                         }
                         Text("ESERCIZI",fontWeight=FontWeight.Bold)

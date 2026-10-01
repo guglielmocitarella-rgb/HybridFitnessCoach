@@ -131,6 +131,28 @@ data class PlannedSessionIntent(
 }
 data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null,val intent:PlannedSessionIntent?=null)
 data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>,val goal:String="Fitness generale",val trainingDays:Set<Int> = defaultTrainingDays(daysPerWeek),val prioritySkills:List<String> = emptyList())
+data class PreviewNavigationState(val exerciseName:String?,val scrollIndex:Int)
+internal fun previewNavigationAfterGeneration(generated:List<Exercise>):PreviewNavigationState =
+ PreviewNavigationState(generated.firstOrNull()?.name,if(generated.isEmpty())-1 else 0)
+data class HomePlanState(
+ val active:Boolean,
+ val todayWorkout:PlannedWorkout?,
+ val nextWorkout:PlannedWorkout?
+)
+internal fun deriveHomePlanState(plan:TrainingPlan?,today:Long):HomePlanState {
+ if(plan==null)return HomePlanState(false,null,null)
+ val actionable=plan.workouts.filter{
+  it.state !in setOf(PlannedWorkoutState.SKIPPED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL)
+ }
+ val todayWorkout=actionable
+  .filter{it.epochDay==today}
+  .minWithOrNull(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek})
+ val nextWorkout=actionable
+  .filter{it.epochDay>today}
+  .minWithOrNull(compareBy<PlannedWorkout>{it.epochDay}.thenBy{it.weekIndex}.thenBy{it.sequenceInWeek})
+ return HomePlanState(true,todayWorkout,nextWorkout)
+}
+
 data class PlanConfiguration(
  val goal:String,
  val weeks:Int=8,
