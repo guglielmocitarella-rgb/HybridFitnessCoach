@@ -3,6 +3,7 @@ package com.hybridfitnesscoach.app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -11,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -895,7 +897,7 @@ fun HybridFitnessApp() {
                 }
             }
         }
-remove modal gate        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.RUNNER}?.let { flow ->
+        workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.RUNNER}?.let { flow ->
             val place=(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}?:activeProfile
             WorkoutDialog(
                 profile=place,athlete=athlete,sessions=sessions,store=store,restored=flow.workout,
