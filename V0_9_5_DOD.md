@@ -18,6 +18,24 @@ CI ereditata: Exercise DB v2 #292 SUCCESS; Android APK #845 SUCCESS.
 7. Ogni nuovo comportamento deterministico deve avere test automatici; interazioni/visuali restano DEVICE_PENDING fino a test fisico.
 8. Limitare i push: audit e verifiche locali/statiche prima di consumare CI.
 
+## P00 — Multi-plan foundation
+
+La v0.9.5 supporta **due o più piani contemporaneamente attivi**. Un piano può essere disattivato senza essere eliminato.
+
+Requisiti:
+- ogni piano ha identità e ownership proprie;
+- enable/disable è persistente;
+- un piano disattivato non influenza Adaptive Coach, scheduling attivo o suggerimenti;
+- Adaptive Coach aggrega tutti e soli i piani attivi;
+- due piani attivi possono programmare sessioni nello stesso giorno senza perdita o sovrascrittura implicita;
+- collisioni nello stesso giorno devono restare esplicite e gestibili dalla UI;
+- storico/esecuzioni mantengono l'origine del piano;
+- eliminare un piano non deve eliminare o riscrivere evidenza storica già eseguita;
+- modifica/rigenerazione di un piano non deve mutare le sessioni appartenenti a un altro piano;
+- test deterministici devono coprire enable/disable, persistenza, ownership, aggregazione Adaptive Coach, collisioni same-day e storico.
+
+**Stato corrente:** implementato sul candidato v0.9.5 ma non ancora VERIFIED: sull'HEAD pre-documentazione `2f339e93547cea38df7abec68ab476ca29f9bb0e` Exercise DB è verde mentre Android APK è fallita. Chiudere il failure prima di promuovere P00 a VERIFIED.
+
 ## P01 — UX end-to-end e architettura informativa
 
 ### P01.1 — Navigazione top-level
@@ -303,17 +321,17 @@ La v0.9.5 non è completa finché:
 
 ## Ordine di lavoro
 
-1. P01 — navigation shell + separazione responsabilità.
-2. P02/P03 — Home e Piano con origini workout inequivocabili.
-3. P04 — gate universale e persistenza ultimo luogo usato.
-4. P05 — Runner universale, tecnica esercizio e timer.
-5. P06 — custom workout sulla pipeline comune.
-6. P07 — Capability Profile multidimensionale.
-7. P08 — Exercise Detail/database/progressioni.
-8. P09/P10 — Progressi, Storico e Profilo.
-9. P11 — Onboarding.
-10. P12 — cleanup + DEVICE_PENDING.
-11. P13 — audit finale, signed APK, device acceptance e freeze.
+1. P00 — chiudere e verificare multi-plan foundation.\n2. P01 — navigation shell + separazione responsabilità.
+3. P02/P03 — Home e Piano con origini workout inequivocabili.
+4. P04 — gate universale e persistenza ultimo luogo usato.
+5. P05 — Runner universale, tecnica esercizio e timer.
+6. P06 — custom workout sulla pipeline comune.
+7. P07 — Capability Profile multidimensionale.
+8. P08 — Exercise Detail/database/progressioni.
+9. P09/P10 — Progressi, Storico e Profilo.
+10. P11 — Onboarding.
+11. P12 — cleanup + DEVICE_PENDING.
+12. P13 — audit finale, signed APK, device acceptance e freeze.
 
 ## Fuori scope salvo necessità emersa dall'audit
 
