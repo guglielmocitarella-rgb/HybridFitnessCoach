@@ -34,7 +34,7 @@ Requisiti:
 - modifica/rigenerazione di un piano non deve mutare le sessioni appartenenti a un altro piano;
 - test deterministici devono coprire enable/disable, persistenza, ownership, aggregazione Adaptive Coach, collisioni same-day e storico.
 
-**Stato corrente:** implementato sul candidato v0.9.5 ma non ancora VERIFIED: sull'HEAD pre-documentazione `2f339e93547cea38df7abec68ab476ca29f9bb0e` Exercise DB è verde mentre Android APK è fallita. Chiudere il failure prima di promuovere P00 a VERIFIED.
+**Stato corrente:** **VERIFIED a livello repository** sul checkpoint `7dc3de6da7931173550618d7f63da34f5bfa4861` (PR #14): Android APK #857 SUCCESS sull'esatto SHA, con unit test, lint e debug APK; test deterministici coprono enable/disable persistente, ownership, aggregazione dei piani attivi, collisioni same-day e conservazione dello storico. La verifica fisica/visuale resta nei gate DEVICE_PENDING di P12/P13.
 
 ## P01 — UX end-to-end e architettura informativa
 
@@ -321,7 +321,8 @@ La v0.9.5 non è completa finché:
 
 ## Ordine di lavoro
 
-1. P00 — chiudere e verificare multi-plan foundation.\n2. P01 — navigation shell + separazione responsabilità.
+1. P00 — multi-plan foundation: repository VERIFIED sul checkpoint `7dc3de6da7931173550618d7f63da34f5bfa4861`; device acceptance resta nei gate P12/P13.
+2. P01 — navigation shell + separazione responsabilità.
 3. P02/P03 — Home e Piano con origini workout inequivocabili.
 4. P04 — gate universale e persistenza ultimo luogo usato.
 5. P05 — Runner universale, tecnica esercizio e timer.
