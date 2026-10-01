@@ -154,7 +154,8 @@ class AppStore(context: Context) {
         loadTrainingLocations()
         loadSessions()
         loadActiveWorkout()
-        readTrainingPlan()
+        loadTrainingPlans()
+        loadActiveTrainingPlanId()
         loadProgressionNodes()
         string("weight_history")
     }
@@ -241,50 +242,87 @@ class AppStore(context: Context) {
         o.storedInt("sequenceInWeek",0)
     ).validated()
 
-    private fun trainingPlanJson(plan: TrainingPlan): String {
+    private fun trainingPlanJsonObject(plan: TrainingPlan): JSONObject {
         val workouts = JSONArray()
         plan.workouts.forEach { w ->
-            val intent=requireNotNull(w.intent) { "Schema 5 requires intent for planned workout ${w.id}" }
+            val intent=requireNotNull(w.intent) { "Current plan schema requires intent for planned workout ${w.id}" }
             workouts.put(JSONObject().put("id", w.id).put("epochDay", w.epochDay).put("weekIndex", w.weekIndex)
                 .put("sequenceInWeek", w.sequenceInWeek)
                 .put("state", w.state.name).put("originalEpochDay", w.originalEpochDay)
                 .put("adaptationReason", w.adaptationReason).put("actualExecutionEpochDay", w.actualExecutionEpochDay)
                 .put("intent",intentJson(intent)))
         }
-        return JSONObject().put("schemaVersion", 5).put("id", plan.id).put("startEpochDay", plan.startEpochDay)
+        return JSONObject().put("id", plan.id).put("startEpochDay", plan.startEpochDay)
             .put("weeks", plan.weeks).put("daysPerWeek", plan.daysPerWeek)
             .put("goal", plan.goal).put("trainingDays", JSONArray(plan.trainingDays.sorted()))
-            .put("prioritySkills", JSONArray(plan.prioritySkills)).put("workouts", workouts).toString()
+            .put("prioritySkills", JSONArray(plan.prioritySkills)).put("workouts", workouts)
     }
 
-    fun saveTrainingPlan(plan: TrainingPlan) = write { putString("training_plan_v091", trainingPlanJson(plan)) }
-
-    private fun readTrainingPlan(): TrainingPlan? {
-        val raw = string("training_plan_v091") ?: return null
-        return recovery.read("training_plan_v091", null) {
-            val root = JSONObject(raw)
-            root.requireVersion(5)
-            val workouts = recovery.records(root.getJSONArray("workouts"), "training_plan_v091.workouts") { o, _ ->
-                PlannedWorkout(
-                    o.getString("id"), o.getLong("epochDay"), o.getInt("weekIndex"), o.getInt("sequenceInWeek"), emptyList(),
-                    PlannedWorkoutState.valueOf(o.storedString("state", "PLANNED")),
-                    o.storedLong("originalEpochDay", o.getLong("epochDay")),
-                    o.storedString("adaptationReason").takeIf { it.isNotBlank() },
-                    o.optNullableLong("actualExecutionEpochDay"),
-                    intentFromJson(o.getJSONObject("intent"))
-                )
-            }
-            val trainingDaysArray = root.getJSONArray("trainingDays")
-            TrainingPlan(
-                root.getString("id"), root.getLong("startEpochDay"), root.getInt("weeks"), root.getInt("daysPerWeek"), workouts,
-                normalizePlanGoal(root.getString("goal")),
-                (0 until trainingDaysArray.length()).map { trainingDaysArray.getInt(it) }.toSet(),
-                root.planStringList("prioritySkills")
+    private fun trainingPlanFromJson(root:JSONObject,path:String):TrainingPlan {
+        val workouts = recovery.records(root.getJSONArray("workouts"), "$path.workouts") { o, _ ->
+            PlannedWorkout(
+                o.getString("id"), o.getLong("epochDay"), o.getInt("weekIndex"), o.getInt("sequenceInWeek"), emptyList(),
+                PlannedWorkoutState.valueOf(o.storedString("state", "PLANNED")),
+                o.storedLong("originalEpochDay", o.getLong("epochDay")),
+                o.storedString("adaptationReason").takeIf { it.isNotBlank() },
+                o.optNullableLong("actualExecutionEpochDay"),
+                intentFromJson(o.getJSONObject("intent"))
             )
+        }
+        val trainingDaysArray = root.getJSONArray("trainingDays")
+        return TrainingPlan(
+            root.getString("id"), root.getLong("startEpochDay"), root.getInt("weeks"), root.getInt("daysPerWeek"), workouts,
+            normalizePlanGoal(root.getString("goal")),
+            (0 until trainingDaysArray.length()).map { trainingDaysArray.getInt(it) }.toSet(),
+            root.planStringList("prioritySkills")
+        )
+    }
+
+    fun loadTrainingPlans():List<TrainingPlan> {
+        val raw=string("training_plans_v095") ?: return emptyList()
+        return recovery.read("training_plans_v095", emptyList()) {
+            val root=JSONObject(raw);root.requireVersion(1)
+            recovery.records(root.getJSONArray("plans"),"training_plans_v095.plans"){o,path->trainingPlanFromJson(o,path)}
         }
     }
 
-    fun loadTrainingPlan(): TrainingPlan? = readTrainingPlan()
+    fun saveTrainingPlans(plans:List<TrainingPlan>):Boolean {
+        require(plans.map{it.id}.distinct().size==plans.size) { "Plan ids must be unique" }
+        val root=JSONObject().put("schemaVersion",1).put("plans",JSONArray().apply{plans.forEach{put(trainingPlanJsonObject(it))}})
+        return write { putString("training_plans_v095",root.toString()) }
+    }
+
+    fun loadActiveTrainingPlanId():String? = string("active_training_plan_id_v095")?.takeIf{it.isNotBlank()}
+
+    fun saveActiveTrainingPlanId(id:String?):Boolean = write {
+        if(id==null) remove("active_training_plan_id_v095") else putString("active_training_plan_id_v095",id)
+    }
+
+    fun loadTrainingPlan():TrainingPlan? {
+        val plans=loadTrainingPlans()
+        val activeId=loadActiveTrainingPlanId()
+        return plans.firstOrNull{it.id==activeId}
+    }
+
+    fun saveTrainingPlan(plan:TrainingPlan):Boolean {
+        val plans=loadTrainingPlans().toMutableList()
+        val index=plans.indexOfFirst{it.id==plan.id}
+        if(index>=0)plans[index]=plan else plans.add(plan)
+        if(!saveTrainingPlans(plans))return false
+        return if(loadActiveTrainingPlanId()==null)saveActiveTrainingPlanId(plan.id) else true
+    }
+
+    fun activateTrainingPlan(id:String):Boolean {
+        if(loadTrainingPlans().none{it.id==id})return false
+        return saveActiveTrainingPlanId(id)
+    }
+
+    fun deleteTrainingPlan(id:String):Boolean {
+        val remaining=loadTrainingPlans().filterNot{it.id==id}
+        if(!saveTrainingPlans(remaining))return false
+        return if(loadActiveTrainingPlanId()==id)saveActiveTrainingPlanId(null) else true
+    }
+
 
     fun loadSessions(): List<SessionRecord> {
         val raw = string("sessions") ?: return emptyList()
