@@ -19,11 +19,11 @@ Immutable rollback checkpoint:
 
 ## Current development candidate
 
-Current verified branch HEAD after F05/F07 and documentation alignment:
-- SHA `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`
-- Code candidate `d182d34e81b8ef678675002462467bf41672f66b` plus documentation-only commits; no force push.
-- Exercise DB v2 #286 — **SUCCESS**.
-- Android APK #839 — **SUCCESS**.
+Current verified branch HEAD after F08 closure:
+- SHA `f96d426964630c354c2aa4f08880c1caceb232be`
+- Immutable rollback: `checkpoint/v0.9.4-f08-green`.
+- Exercise DB v2 #288 — **SUCCESS**.
+- Android APK #841 — **SUCCESS**.
 - PR #11 — open and mergeable at verification time.
 - Plan persistence schema: **v5 intent-only** for planned sessions.
 - Future `PlannedWorkout` persistence no longer stores concrete exercise snapshots/names.
@@ -44,14 +44,14 @@ Current verified branch HEAD after F05/F07 and documentation alignment:
 | F05 Location-independent Training Plan | VERIFIED repository-level on `fcfcbb200…` | Device execution at different locations |
 | F06 Capability Profile | VERIFIED repository-level | Device assessment/UX acceptance |
 | F07 Editable plan / future regeneration | VERIFIED domain/persistence on `fcfcbb200…` | Explicit UI confirmation/device acceptance |
-| F08 Adaptive Coach with/without plan | PARTIAL — implementation seam exists | Next: intent-only fixture cleanup + deterministic with/without-plan audit + device acceptance |
+| F08 Adaptive Coach with/without plan | VERIFIED repository-level on `f96d426…` | Device presentation/behavior acceptance |
 | F09 Monthly calendar | PARTIAL | Complete presentation/interaction acceptance |
 | F10 Home plan presentation/iconography | PARTIAL | UI cleanup + device acceptance |
 | F11 Preview reset | PARTIAL | Explicit generation reset regression + device acceptance |
 
 ## Next work
 
-F05/F07 exact-SHA gates are green. Freeze `fcfcbb200…` as the next rollback checkpoint before code changes. Continue with an F08-only static/domain audit: align coaching tests with intent-only `PlannedWorkout`, prove deterministic behavior with and without an active plan, and avoid touching F09–F11 until F08 is closed. Then proceed F09 → F10 → F11 → global F01–F11 audit → final exact-SHA CI → signed APK → physical-device acceptance.
+F08 exact-SHA gates are green and `checkpoint/v0.9.4-f08-green` is frozen. Next perform an F09-only audit of the monthly calendar: date/month model, locale/Italian formatting, state semantics (planned/rescheduled/completed/partial/skipped/cancelled), selection/actions and interaction with F07 future regeneration. Do not modify F10/F11 until the F09 contract is mapped. Then proceed F10 → F11 → global F01–F11 audit → final exact-SHA CI → signed APK → physical-device acceptance.
 
 ## Status terminology
 

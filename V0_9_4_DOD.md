@@ -107,13 +107,14 @@ Repository-level verified progress at/before the checkpoint:
 - **F03/F04 — VERIFIED foundation/repository-level:** `TrainingLocation` is canonical; obsolete `EquipmentProfile` and localized matching debt removed.
 - **F06 — VERIFIED repository-level:** coarse athlete level removed; multidimensional capability drives eligibility/prescription.
 
-Current verified HEAD: `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`.
+Current verified HEAD: `f96d426964630c354c2aa4f08880c1caceb232be` (`checkpoint/v0.9.4-f08-green`).
 - **F05 — VERIFIED repository-level:** schema 5 plan persistence is intent-only and execution-time materialization is location-aware.
 - **F07 — VERIFIED domain/persistence:** future regeneration preserves completed/partial/past evidence; explicit confirmation/device UX remains pending.
-- Exercise DB v2 #286 — SUCCESS.
-- Android APK #839 — SUCCESS.
+- **F08 — VERIFIED repository-level:** deterministic no-plan/active-plan/disruption/completed/readiness behavior is covered with intent-only fixtures.
+- Exercise DB v2 #288 — SUCCESS.
+- Android APK #841 — SUCCESS.
 - PR #11 was open and mergeable at verification time.
-- **Next:** F08 static/domain audit and intent-only regression cleanup; do not start F09 until F08 deterministic gates are closed.
+- **Next:** F09 monthly calendar audit; map contract and gaps before changing F10/F11.
 
 These statuses do not mark v0.9.4 complete. Remaining acceptance clauses and F01–F11 device/UI requirements continue to apply.
 
@@ -125,7 +126,7 @@ The baseline already exposes several structural coupling points that must be rem
 2. ~~`PrescriptionContext` still accepts a single `athleteLevel:String`.~~ Resolved at the verified checkpoint: prescription consumes a numeric relevant capability level derived from the structured Capability Profile.
 3. ~~`TrainingPlan` persisted concrete future exercise snapshots.~~ Resolved on candidate `d182d34e…`: persisted future sessions are intent-only and realization occurs at execution.
 4. ~~`AppStore` persisted concrete plan snapshots.~~ Resolved on candidate `d182d34e…`: plan schema v5 persists intent only; active/history evidence remains concrete.
-5. Coaching supports optional `TrainingPlan?`; this remains the seam to close F08 and must be preserved.
+5. Coaching supports optional `TrainingPlan?`; F08 is repository-verified and this seam must remain regression-protected.
 6. Reschedule/completion protection remains regression-protected after the F05/F07 model change.
 
 ## Mandatory implementation order

@@ -9,7 +9,7 @@ This file is the compact release ledger. GitHub commits and workflow runs remain
 | v0.9.1 | Historical / closed | repository history / PR #8 audit trail | historical RC2 CI | Multi-week plan, recovery, exercise detail/progression and persistence work. |
 | v0.9.2 | Frozen | `release/v0.9.2` at `9c6229485ee622f3e0d825bc20c5adf58fb39d92` | green checkpoint recorded in release history | Closed predecessor baseline. |
 | v0.9.3 | Frozen | `release/v0.9.3`; validated production-code checkpoint `365c07f643065df9dd68310362edd3ad3ed3236f` | Exercise DB v2 #250: success; Android APK #802: success | Repository acceptance complete. Interaction/device acceptance transfers to v0.9.4. |
-| v0.9.4 | Active | verified HEAD `fcfcbb200da73a6fa2475d5c29ee63eeeaf05ecf`; prior rollback `e4c4f208b8f6909aa76680b9b7316bef5f10ebc1` | Exercise DB v2 #286 success; Android APK #839 success; PR #11 mergeable at verification time. | F01/F02/F03/F04/F05/F06 repository-level verified; F07 domain/persistence verified with device UX pending; next block F08. |
+| v0.9.4 | Active | verified HEAD `f96d426964630c354c2aa4f08880c1caceb232be`; checkpoint `checkpoint/v0.9.4-f08-green` | Exercise DB v2 #288 success; Android APK #841 success; PR #11 mergeable at verification time. | F01–F08 repository-level verified in their current scopes; F07 device UX pending; next block F09 monthly calendar. |
 
 ## Release discipline
 
@@ -37,3 +37,13 @@ The active line is `feature/v0.9.4`. The historical `feature/v0.9.1-training-pla
 - F05 location-independent plan persistence/materialization is repository-level verified.
 - F07 future-only regeneration/domain persistence is repository-level verified; explicit confirmation and physical-device UX remain acceptance work.
 - Next dependency-ordered block: F08 Adaptive Coach with/without active plan. Existing implementation seam is present, but its remaining plan fixtures must be aligned to the intent-only contract before F08 can be marked verified.
+
+## v0.9.4 F08 green verification — 2026-10-01
+
+- Verified SHA: `f96d426964630c354c2aa4f08880c1caceb232be`.
+- Frozen rollback: `checkpoint/v0.9.4-f08-green`.
+- Exercise DB v2 #288 — SUCCESS.
+- Android APK #841 — SUCCESS.
+- Adaptive Coach regression contract now covers no-plan, clean active plan, disrupted plan, completed evidence and low-readiness precedence using intent-only planned sessions.
+- No production-code change was required for F08 closure; the existing conservative plan-aware behavior passed the exact-SHA gates after test/contract cleanup.
+- Next block: F09 monthly calendar audit.
