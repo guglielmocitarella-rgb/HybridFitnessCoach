@@ -27,17 +27,17 @@ class AppStoreRecoveryTest {
         }
         val moved = TrainingPlanEngine.reschedule(original, original.workouts.first().id, 1008)
         store.saveTrainingPlan(moved)
-        assertEquals(moved, AppStore(context).loadTrainingPlan())
+        assertEquals(moved, AppStore(context).loadTrainingPlans().singleOrNull())
         val record = session(1).copy(plannedWorkoutId = moved.workouts.first().id)
         store.saveSessions(listOf(record))
         store.saveTrainingPlan(PlannedWorkoutReconciler.complete(moved, record, 1008, 0).plan)
         store.deleteSession(1)
-        val reloaded = AppStore(context).loadTrainingPlan()!!
-        assertEquals(6, coachingContext(AppStore(context).loadSessions(), null, reloaded, 1009).upcomingSessions)
+        val reloaded = AppStore(context).loadTrainingPlans().singleOrNull()!!
+        assertEquals(6, coachingContext(AppStore(context).loadSessions(), null, listOf(reloaded), 1009).upcomingSessions)
         assertEquals(moved.workouts.map { it.originalEpochDay }, reloaded.workouts.map { it.originalEpochDay })
         val restored = TrainingPlanEngine.reschedule(reloaded, reloaded.workouts.first().id, 1000)
         store.saveTrainingPlan(restored)
-        assertEquals(1000L, AppStore(context).loadTrainingPlan()!!.workouts.first().epochDay)
+        assertEquals(1000L, AppStore(context).loadTrainingPlans().singleOrNull()!!.workouts.first().epochDay)
         assertTrue(restored.workouts.zipWithNext().all { (a,b) -> a.epochDay < b.epochDay })
     }
 
@@ -59,7 +59,7 @@ class AppStoreRecoveryTest {
         store.deleteSession(1)
 
         assertTrue(AppStore(context).loadSessions().isEmpty())
-        val restored = AppStore(context).loadTrainingPlan()!!.workouts.single()
+        val restored = AppStore(context).loadTrainingPlans().singleOrNull()!!.workouts.single()
         assertEquals(PlannedWorkoutState.PLANNED, restored.state)
         assertNull(restored.actualExecutionEpochDay)
     }
@@ -76,7 +76,7 @@ class AppStoreRecoveryTest {
 
         val reloaded = AppStore(context)
         assertEquals(listOf(2L), reloaded.loadSessions().map { it.timestamp })
-        val retained = reloaded.loadTrainingPlan()!!.workouts.single()
+        val retained = reloaded.loadTrainingPlans().singleOrNull()!!.workouts.single()
         assertEquals(PlannedWorkoutState.COMPLETED, retained.state)
         assertEquals(10L, retained.actualExecutionEpochDay)
     }
@@ -93,7 +93,7 @@ class AppStoreRecoveryTest {
 
         val reloaded = AppStore(context)
         assertTrue(reloaded.loadSessions().isEmpty())
-        assertEquals(plan, reloaded.loadTrainingPlan())
+        assertEquals(plan, reloaded.loadTrainingPlans().singleOrNull())
     }
 
     @Test fun activeWorkoutRoundTripPreservesTrainingLocation() {
@@ -116,7 +116,7 @@ class AppStoreRecoveryTest {
         val reloaded = AppStore(context)
         assertEquals(listOf(session(1)), reloaded.loadSessions())
         assertNull(reloaded.loadActiveWorkout())
-        assertEquals(PlannedWorkoutState.PARTIAL, reloaded.loadTrainingPlan()!!.workouts.single().state)
+        assertEquals(PlannedWorkoutState.PARTIAL, reloaded.loadTrainingPlans().singleOrNull()!!.workouts.single().state)
     }
 
     @Test fun failedFinishPreservesActiveWorkoutAndOriginalHistory() {
@@ -160,7 +160,7 @@ class AppStoreRecoveryTest {
         val store = AppStore(context)
         assertTrue(store.loadSessions().isEmpty())
         assertNull(store.loadActiveWorkout())
-        assertNull(store.loadTrainingPlan())
+        assertNull(store.loadTrainingPlans().singleOrNull())
         assertTrue(store.issues.isEmpty())
         store.saveSessions(listOf(session(42)))
         assertEquals(listOf(session(42)), AppStore(context).loadSessions())
@@ -168,11 +168,11 @@ class AppStoreRecoveryTest {
 
     @Test fun unsupportedPlanVersionCannotBeLoadedOrOverwritten() {
         val raw = """{"schemaVersion":999,"id":"future","startEpochDay":1,"weeks":1,"daysPerWeek":1,"workouts":[]}"""
-        prefs.edit().putString("training_plan_v091", raw).commit()
+        prefs.edit().putString("training_plans_v095", raw).commit()
         val store = AppStore(context)
-        assertNull(store.loadTrainingPlan())
+        assertNull(store.loadTrainingPlans().singleOrNull())
         runCatching { store.saveTrainingPlan(TrainingPlan("new", 1, 1, 1, emptyList())) }
-        assertEquals(raw, prefs.getString("training_plan_v091", null))
+        assertEquals(raw, prefs.getString("training_plans_v095", null))
     }
 
     @Test fun malformedHistoryDoesNotPreventReadingAthleteAndProgression() {
@@ -296,15 +296,15 @@ class AppStoreRecoveryTest {
             PlannedWorkoutState.COMPLETED, 10, actualExecutionEpochDay = 16, intent = PlannedSessionIntent("Forza"))
         val store = AppStore(context)
         store.saveTrainingPlan(TrainingPlan("p", 10, 1, 1, listOf(completed)))
-        val root = JSONObject(prefs.getString("training_plan_v091", null)!!)
+        val root = JSONObject(prefs.getString("training_plans_v095", null)!!)
         root.getJSONArray("workouts").put(JSONObject().put("id", "broken"))
         val raw = root.toString()
-        prefs.edit().putString("training_plan_v091", raw).commit()
+        prefs.edit().putString("training_plans_v095", raw).commit()
         val recovered = AppStore(context)
-        assertEquals(listOf(completed), recovered.loadTrainingPlan()!!.workouts)
+        assertEquals(listOf(completed), recovered.loadTrainingPlans().singleOrNull()!!.workouts)
         assertTrue(recovered.issues.isNotEmpty())
-        recovered.saveTrainingPlan(recovered.loadTrainingPlan()!!)
-        assertEquals(raw, prefs.getString("training_plan_v091", null))
+        recovered.saveTrainingPlan(recovered.loadTrainingPlans().singleOrNull()!!)
+        assertEquals(raw, prefs.getString("training_plans_v095", null))
     }
 
     @Test fun activeWorkoutReloadPreservesRecoveryOverridesAndRunningRest() {
@@ -357,7 +357,7 @@ class AppStoreRecoveryTest {
         store.saveTrainingPlan(plan)
         store.saveActiveWorkout(active)
         val reloaded = AppStore(context)
-        assertEquals(plan, reloaded.loadTrainingPlan())
+        assertEquals(plan, reloaded.loadTrainingPlans().singleOrNull())
         assertEquals(active, reloaded.loadActiveWorkout())
         assertTrue(reloaded.issues.isEmpty())
     }
@@ -415,13 +415,13 @@ class AppStoreRecoveryTest {
         val plan=TrainingPlan("intent-only",10,1,1,listOf(PlannedWorkout("w",10,0,0,listOf(exercises.first()),intent=intent)))
         val store=AppStore(context)
         assertTrue(store.saveTrainingPlan(plan))
-        val raw=JSONObject(prefs.getString("training_plan_v091",null)!!)
+        val raw=JSONObject(prefs.getString("training_plans_v095",null)!!)
         val saved=raw.getJSONArray("workouts").getJSONObject(0)
         assertEquals(5,raw.getInt("schemaVersion"))
         assertFalse(saved.has("exerciseNames"))
         assertFalse(saved.has("exerciseSnapshots"))
         assertTrue(saved.has("intent"))
-        val loaded=AppStore(context).loadTrainingPlan()!!.workouts.single()
+        val loaded=AppStore(context).loadTrainingPlans().singleOrNull()!!.workouts.single()
         assertTrue(loaded.exercises.isEmpty())
         assertEquals(intent,loaded.intent)
     }
@@ -490,20 +490,20 @@ class AppStoreRecoveryTest {
         val plan=TrainingPlan("intent-v5",10,1,1,listOf(PlannedWorkout("w",10,0,0,emptyList(),intent=intent)))
         val store=AppStore(context)
         assertTrue(store.saveTrainingPlan(plan))
-        val raw=JSONObject(prefs.getString("training_plan_v091",null)!!)
+        val raw=JSONObject(prefs.getString("training_plans_v095",null)!!)
         assertEquals(5,raw.getInt("schemaVersion"))
         assertFalse(raw.getJSONArray("workouts").getJSONObject(0).has("exerciseSnapshots"))
         assertTrue(raw.getJSONArray("workouts").getJSONObject(0).has("intent"))
-        assertEquals(plan,AppStore(context).loadTrainingPlan())
+        assertEquals(plan,AppStore(context).loadTrainingPlans().singleOrNull())
     }
 
     @Test fun preIntentPlanSchemaIsRejectedInsteadOfMigrated() {
         val store=AppStore(context)
         val raw="""{"schemaVersion":4,"id":"legacy","startEpochDay":10,"weeks":1,"daysPerWeek":1,"goal":"Forza","trainingDays":[1],"prioritySkills":[],"workouts":[]}"""
-        prefs.edit().putString("training_plan_v091",raw).commit()
-        assertNull(store.loadTrainingPlan())
+        prefs.edit().putString("training_plans_v095",raw).commit()
+        assertNull(store.loadTrainingPlans().singleOrNull())
         assertTrue(store.issues.isNotEmpty())
-        assertEquals(raw,prefs.getString("training_plan_v091",null))
+        assertEquals(raw,prefs.getString("training_plans_v095",null))
     }
 
     @Test fun locationIndependentEditedPlanConfigurationRoundTripsWithoutSnapshots() {
@@ -512,13 +512,13 @@ class AppStoreRecoveryTest {
         val plan=TrainingPlan("edited",10,4,3,listOf(workout),"Calisthenics",setOf(2,4,6),listOf("Front lever"))
         val store=AppStore(context)
         assertTrue(store.saveTrainingPlan(plan))
-        val raw=JSONObject(prefs.getString("training_plan_v091",null)!!)
+        val raw=JSONObject(prefs.getString("training_plans_v095",null)!!)
         val saved=raw.getJSONArray("workouts").getJSONObject(0)
         assertFalse(saved.has("exerciseSnapshots"))
         assertFalse(saved.has("exerciseNames"))
         assertEquals("Calisthenics",raw.getString("goal"))
         assertEquals(3,raw.getInt("daysPerWeek"))
-        assertEquals(plan,AppStore(context).loadTrainingPlan())
+        assertEquals(plan,AppStore(context).loadTrainingPlans().singleOrNull())
     }
 
 }
