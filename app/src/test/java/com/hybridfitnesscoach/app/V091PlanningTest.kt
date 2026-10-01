@@ -450,9 +450,9 @@ class V091PlanningTest {
   assertFalse(generated.any{it.name==push.name})
   assertTrue(generated.any{it.name==pull.name})
  }
- @Test fun unassessedCapabilityKeepsGeneralLevelForBodyweightFamilies(){
-  val push=Exercise("Push-up legacy","Petto","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.BODYWEIGHT)
-  assertEquals(3,capabilityLevelFor(push,CapabilityProfile(3)))
+ @Test fun unassessedCapabilityFailsClosedForBodyweightFamilies(){
+  val push=Exercise("Push-up unassessed","Petto","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.BODYWEIGHT)
+  assertEquals(1,capabilityLevelFor(push,CapabilityProfile(3)))
  }
 
 }
