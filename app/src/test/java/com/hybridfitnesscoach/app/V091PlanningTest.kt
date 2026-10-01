@@ -4,7 +4,7 @@ import org.junit.Test
 class V091PlanningTest {
  private val source=EvidenceRef("test-source","Synthetic test source","section","p.1",EvidenceType.GUIDELINE)
  @Test fun prescriptionCannotExistWithoutEvidence(){assertThrows(IllegalArgumentException::class.java){SourcePrescriptionBaseline(3,8.0,restSeconds=120,evidence=emptyList())}}
- @Test fun contextualPrescriptionKeepsProvenanceAndDeloadsDeterministically(){val base=SourcePrescriptionBaseline(4,8.0,100.0,8.0,180,evidence=listOf(source));val out=ContextualPrescriptionEngine.prescribe(base,PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,8,32,8,0.8,30,null));assertEquals(AdaptiveDecision.DELOAD,out.progressionSuggestion);assertTrue(out.sets<base.sets);assertTrue(out.loadKg!!<base.loadKg!!);assertEquals(source,out.evidence.single())}
+ @Test fun contextualPrescriptionKeepsProvenanceAndDeloadsDeterministically(){val base=SourcePrescriptionBaseline(4,8.0,100.0,8.0,180,evidence=listOf(source));val out=ContextualPrescriptionEngine.prescribe(base,PrescriptionContext("Forza",2,8,0.8,30));assertEquals(AdaptiveDecision.DELOAD,out.progressionSuggestion);assertTrue(out.sets<base.sets);assertTrue(out.loadKg!!<base.loadKg!!);assertEquals(source,out.evidence.single())}
  @Test fun multiWeekPlanCreatesDatedNonAliasedSessions(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1005,4,setOf(1,3,5)){week,session->listOf(ex.copy(name="Test w"+week+" s"+session))};assertEquals(12,plan.workouts.size);assertEquals(4,plan.weeks);assertEquals(12,plan.workouts.map{it.id}.distinct().size);assertEquals(12,plan.workouts.map{it.exercises.first().name}.distinct().size);assertEquals(listOf(1005L,1007L,1009L),plan.workouts.take(3).map{it.epochDay})}
  @Test fun reschedulePreservesOriginalDateAndFlagsRecoveryConflict(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1005,1,setOf(1,3)){_,_->listOf(ex)};val moved=TrainingPlanEngine.reschedule(plan,"p-w1-s1",1007,minimumGapDays=2);val item=moved.workouts.first{it.id=="p-w1-s1"};assertEquals(1005,item.originalEpochDay);assertEquals(1007,item.epochDay);assertEquals(PlannedWorkoutState.RESCHEDULED,item.state);assertNotNull(item.adaptationReason)}
  @Test fun skippedWorkoutRemainsInCalendar(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1000,1,setOf(1)){_,_->listOf(ex)};val skipped=TrainingPlanEngine.skip(plan,"p-w1-s1");assertEquals(PlannedWorkoutState.SKIPPED,skipped.workouts.single().state)}
@@ -119,7 +119,7 @@ class V091PlanningTest {
 
  @Test fun contextualPrescriptionIsFailClosedWithoutVerifiedNumericBaseline(){
   val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
-  val context=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,0.95,90,null)
+  val context=PrescriptionContext("Forza",2,3,0.95,90)
   val baseline=SourcePrescriptionBaselineRegistry.baselineFor(ex,context)
   assertNotNull(baseline)
   assertEquals(3,baseline!!.sets)
@@ -130,32 +130,32 @@ class V091PlanningTest {
  @Test fun generalPrescriptionEvidenceDoesNotBecomeNumericBaseline(){
   val ex=Exercise("Synthetic squat","Gambe","Bilanciere","Base",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
   assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(ex))
-  val context=PrescriptionContext("Ipertrofia","Intermedio",ExerciseCategory.LEGS,5,5,4,0.8,70,null)
+  val context=PrescriptionContext("Ipertrofia",2,4,0.8,70)
   assertNotNull(SourcePrescriptionBaselineRegistry.baselineFor(ex,context))
  }
 
  @Test fun acsmBeginnerBaselineUsesSupportedGeneralPublicRange(){
   val ex=Exercise("Synthetic row","Dorso","Cavi","Principiante",category=ExerciseCategory.PULL,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
-  val c=PrescriptionContext("Benessere","Principiante",ExerciseCategory.PULL,4,4,4,null,70,null)
+  val c=PrescriptionContext("Benessere",1,4,null,70)
   val b=SourcePrescriptionBaselineRegistry.baselineFor(ex,c)!!
   assertEquals(2,b.sets);assertEquals(10.0,b.repsOrDuration,0.001);assertEquals(120,b.restSeconds)
  }
  @Test fun nonResistanceAndNonRepExercisesRemainOutsideRtBaseline(){
   val cardio=Exercise("Run","Cardio","Corpo libero","Principiante",category=ExerciseCategory.CARDIO,measure=ExerciseMeasure.DURATION,resistanceMode=ResistanceMode.BODYWEIGHT)
-  val c=PrescriptionContext("Benessere","Principiante",ExerciseCategory.CARDIO,4,4,4,null,70,null)
+  val c=PrescriptionContext("Benessere",1,4,null,70)
   assertNull(SourcePrescriptionBaselineRegistry.baselineFor(cardio,c))
  }
 
  @Test fun verifiedPrescriptionProducesRunnerTargetsWithinSourceBaseline(){
   val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
-  val c=PrescriptionContext("Forza","Intermedio",ExerciseCategory.PUSH,5,5,3,null,85,null)
+  val c=PrescriptionContext("Forza",2,3,null,85)
   val p=SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,c)!!
   assertEquals(3,p.sets);assertEquals(6.0,p.repsOrDuration,0.001);assertEquals(180,p.restSeconds)
   assertTrue(p.evidence.any{it.sourceTitle.contains("ACSM")})
  }
  @Test fun bodyweightMobilityDoesNotInheritResistanceEvidenceOrNumericTargets(){
   val mobility=Exercise("Synthetic mobility","Mobilità","Corpo libero","Principiante",category=ExerciseCategory.MOBILITY,measure=ExerciseMeasure.REPS,resistanceMode=ResistanceMode.BODYWEIGHT)
-  val context=PrescriptionContext("Forza","Principiante",ExerciseCategory.MOBILITY,3,3,3,null,80,null)
+  val context=PrescriptionContext("Forza",1,3,null,80)
   assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage(mobility))
   assertNull(SourcePrescriptionBaselineRegistry.baselineFor(mobility,context))
  }
