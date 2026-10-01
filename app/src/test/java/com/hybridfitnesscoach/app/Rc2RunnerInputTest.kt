@@ -71,7 +71,7 @@ class Rc2RunnerInputTest {
                 assessedPullCapacity=capability.pullCapacity
             ),emptyList(),80)
             assertTrue(workout.isNotEmpty())
-            assertTrue(workout.all{levelScore(it.level)<=levelScore(level)})
+            assertTrue(workout.all{levelScore(it.level)<=capabilityLevelFor(it,capability)})
         }
     }
 
