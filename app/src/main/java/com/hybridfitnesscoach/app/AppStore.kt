@@ -375,11 +375,12 @@ class AppStore(context: Context) {
                 .atZone(java.time.ZoneId.systemDefault()).toLocalDate().toEpochDay()
             PlannedWorkoutReconciler.complete(it, s, executionDay, 0).plan
         }
+        val plans=loadTrainingPlans()
+        val updatedPlans=if(updatedPlan!=null && updatedPlan!=plan) plans.map{if(it.id==updatedPlan.id)updatedPlan else it} else plans
+        val plansRoot=JSONObject().put("schemaVersion",1).put("plans",JSONArray().apply{updatedPlans.forEach{put(trainingPlanJsonObject(it))}})
         return write {
             putString("sessions", sessionsJson(listOf(s) + history))
-            if (updatedPlan != null && updatedPlan != plan) {
-                putString("training_plan_v091", trainingPlanJson(updatedPlan))
-            }
+            if(updatedPlans!=plans)putString("training_plans_v095",plansRoot.toString())
             remove("active_workout_v1")
         }
     }
@@ -401,9 +402,12 @@ class AppStore(context: Context) {
         val remaining = sessions.filterNot { it.timestamp == timestamp }
         val plan = loadTrainingPlan()
         val restored = plan?.let { PlannedWorkoutReconciler.afterDeletion(it, removed, remaining) }
+        val plans=loadTrainingPlans()
+        val updatedPlans=if(restored!=null && restored!=plan) plans.map{if(it.id==restored.id)restored else it} else plans
+        val plansRoot=JSONObject().put("schemaVersion",1).put("plans",JSONArray().apply{updatedPlans.forEach{put(trainingPlanJsonObject(it))}})
         write {
             putString("sessions", sessionsJson(remaining))
-            if (restored != null && restored != plan) putString("training_plan_v091", trainingPlanJson(restored))
+            if(updatedPlans!=plans)putString("training_plans_v095",plansRoot.toString())
         }
     }
 }
