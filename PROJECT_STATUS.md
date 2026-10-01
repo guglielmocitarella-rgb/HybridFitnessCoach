@@ -1,38 +1,30 @@
 # Hybrid Fitness Coach — Project Status
 
-VERSION: v0.9.3
-BRANCH: feature/v0.9.3
-SOURCE OF TRUTH: GitHub PR #10 and the exact branch HEAD.
-PREVIOUS RELEASES: v0.9.0, v0.9.1 and v0.9.2 are closed/historical. The frozen v0.9.2 reference is `release/v0.9.2`. They are not active release gates for v0.9.3.
-COMPATIBILITY: backward compatibility is permanently out of scope from v0.9.3 onward unless the owner explicitly reverses the policy.
+VERSION: v0.9.4
+BRANCH: feature/v0.9.4
+SOURCE OF TRUTH: GitHub branch `feature/v0.9.4`, `V0_9_4_DOD.md`, and the exact branch HEAD.
+PREVIOUS RELEASES: v0.9.0, v0.9.1 and v0.9.2 are historical; v0.9.3 is frozen on `release/v0.9.3`. The former `feature/v0.9.1-training-plan` ref is historical naming only and is not the active release line.
+COMPATIBILITY: backward compatibility remains out of scope unless the owner explicitly reverses the policy.
 
 LAST VERIFIED CHECKPOINT:
-- HEAD `b75d3e378bead489d67e4e7ebcb1ce4c71961f0a`
-- Exercise DB v2 #225: GREEN
-- Android APK #777: GREEN
-- Compatibility-baggage audit completed through explicit current-schema version enforcement.
-- Plan configuration is owned by TrainingPlan rather than AthleteProfile and persisted by the current schema.
+- HEAD `0735f62152221299cbdc894eb023456f685c05fa`
+- Exercise DB v2 #273: GREEN
+- Android APK #826: GREEN
+- F03/F04 equipment/location cleanup is verified at repository level: legacy `EquipmentProfile` and duplicate Machine/Machines contracts were removed.
+- F06 propagation cleanup is verified at repository level: coarse `AthleteProfile.level` was removed from model/persistence/decision paths; generation and prescription use assessed capability dimensions with conservative unassessed behavior.
+- F02 propagation cleanup is verified at repository level: effective/source-backed recovery is propagated through set and exercise-transition recovery and persisted runner snapshots.
 
 CURRENT RELEASE STATE:
-- v0.9.3 is the only active release line.
-- PR #10 remains the live development/acceptance surface.
-- Repository CI is not a substitute for device acceptance.
-
-VERIFIED RECENT AUDIT AREAS:
-- Skill workout candidate selection, locked-node exclusion, focus retention on regeneration and mastery prescription.
-- Source/effective recovery propagation through set and exercise-transition recovery.
-- Exercise DB v2 equipment taxonomy → selectable equipment → generator compatibility, catalog-wide.
-- Exercise progression graph direction → Exercise Detail easier/harder semantics, catalog-wide.
-- Default runner RPE 5 → structured session history → Progression Engine/mastery.
-- Training-plan configuration decoupled from athlete profile and stored as plan-owned metadata.
-- Compatibility-only persistence acceptance removed; current active-workout schema v2 and training-plan schema v3 now require explicit schemaVersion, while current-schema corruption/recovery remains fail-closed.
+- v0.9.4 is the only active development line.
+- `feature/v0.9.4` is the primary development branch.
+- v0.9.3 remains frozen; do not backport v0.9.4 product work.
+- Repository CI is not a substitute for physical-device acceptance.
 
 OPEN WORK, IN ORDER:
-1. Maintain `V0_9_3_DOD.md` as the sole active release DoD and reconcile remaining PR #10 requirements against current code/tests.
-2. Complete focused audits for any v0.9.3 requirement not yet demonstrated end-to-end.
-3. Run exact-SHA CI for the final candidate.
-4. Device acceptance on the final APK; record device-only findings separately from repository verification.
-5. Verify the final release artifact after device acceptance.
+1. Continue the remaining `V0_9_4_DOD.md` findings from the verified checkpoint; next planned UI block is F10 Home plan presentation/iconography followed by F11 preview reset, unless a dependency audit changes the order.
+2. Preserve F02/F06 regression coverage while evolving plan/location behavior.
+3. Run exact-SHA CI for subsequent candidates.
+4. Perform targeted physical-device acceptance for all `DEVICE_PENDING` findings before release closure.
 
 STATUS TERMINOLOGY:
 Use VERIFIED, IMPLEMENTED_NOT_DEVICE_VERIFIED, PARTIAL, or BLOCKED. Do not reopen old RC2 gates as current requirements.
