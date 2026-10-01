@@ -136,11 +136,19 @@ Tutte le origini entrano nello stesso Runner.
 
 ### Stato implementazione v0.9.5
 - **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `8ab66bc96955cb6249f7e90300dac572c78152f8`: Android APK #869 is **SUCCESS** on the exact SHA (unit tests, Android lint, PR debug APK build/upload); release signing was skipped. All origins—single exercise, plan, adaptive extra, custom, skill and library filters—share `WorkoutLaunchFlow`, preview, the existing Runner and persistence. Physical acceptance remains **DEVICE_PENDING**.
-- La scelta del luogo preseleziona l'ultimo luogo effettivamente utilizzato e filtra quelli incompatibili con attrezzatura/sessione.
+- La scelta del luogo offre tutti i luoghi configurati e preseleziona l'ultimo effettivamente utilizzato; adattamento o empty/error state avvengono dopo la scelta. La selezione nel Profilo non modifica l'ultimo luogo usato.
 - Il materializzatore conserva prescrizioni effettive, readiness e storico; il Runner persiste il luogo scelto e mantiene `plannedWorkoutId` per l'ownership multi-plan.
 - Custom, skill e workout dai filtri Libreria passano ora per `WorkoutLaunchFlow`, il medesimo materializzatore di stato, il Runner e la persistenza condivisi.
 - Le sessioni custom attive conservano location, snapshot esercizi, set effettivi, recupero e RPE durante il ripristino nel Runner comune.
 - La generazione custom conserva durata, focus, filtri e blocco degli esercizi; le sessioni attive ripristinano snapshot, location, set, recupero e RPE nel Runner condiviso.
+
+### Audit hardening successivo al checkpoint P04 — 2026-10-01
+
+Audit effettuato su `2164814bbec687f87393146107aacc3a4255c077`, con Android APK #870 SUCCESS come baseline. Il bypass del singolo esercizio era già eliminato. Il candidato corrente corregge selezione prematuramente filtrata dei luoghi, durata custom limitata a cinque valori, collisioni del Runner per nome, ricostruzione della prescrizione, RPE iniziale delle sessioni del piano, recovery separato dalla Home e perdita di occorrenze ripetute nello storico/recupero.
+
+Evidenza locale: clean JVM suite **362/362**, assembleDebug SUCCESS, lintDebug SUCCESS con 0 errori (4 warning, 1 hint). Regression test coprono tutte le origini, snapshot e serializzazione, ownership/location/origin, occorrenze omonime, default RPE, skip/resume/undo, pausa e recupero, protezione del workout attivo e budget/pin della rigenerazione. Nessun nuovo schema/API di compatibilità legacy è introdotto; P00 resta protetto dalla suite completa.
+
+Il risultato CI del nuovo candidato va verificato sull'esatto HEAD pubblicato; la CI della baseline non lo sostituisce. Lo stato complessivo resta **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED**, con **DEVICE_PENDING** sulle interazioni, sui timer in background e sulla ricreazione fisica del processo. La chiusura P05 (schermata Runner, tecnica, countdown e riepilogo) non è anticipata da questo audit.
 
 ## P05 — Workout Runner universale
 
@@ -348,3 +356,4 @@ La v0.9.5 non è completa finché:
 - compatibilità legacy;
 - nuove integrazioni di rete non necessarie;
 - espansioni che non contribuiscono a UX, correttezza, assessment, device acceptance o release readiness.
+

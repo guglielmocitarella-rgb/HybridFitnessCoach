@@ -86,17 +86,17 @@ private fun workoutExerciseFromJson(o:JSONObject, recovery:StoreRecovery, path:S
     o.optNullableInt("rpe"),o.storedBoolean("pinned"),o.storedInt("setRestSec",90),o.storedInt("exerciseRestSec",120),o.storedInt("originalOrder"),o.storedInt("currentOrder"),
     o.storedString("exerciseId").takeIf{it.isNotBlank()},
     if(o.has("exerciseSnapshot")&&!o.isNull("exerciseSnapshot")) exerciseFromPlanSnapshot(o.getJSONObject("exerciseSnapshot")) else null) }
-private fun WorkoutSessionState.toJson():JSONObject { val a=JSONArray();exercises.forEach{a.put(it.toJson())};return JSONObject()
+internal fun WorkoutSessionState.toJson():JSONObject { val a=JSONArray();exercises.forEach{a.put(it.toJson())};return JSONObject()
     .put("schemaVersion",2).put("id",id).put("startedAtEpochMs",startedAtEpochMs).put("profileName",profileName)
     .put("exercises",a).put("currentExerciseIndex",currentExerciseIndex).put("elapsedBeforePauseMs",elapsedBeforePauseMs)
     .put("pausedAtEpochMs",pausedAtEpochMs).put("restEndsAtEpochMs",restEndsAtEpochMs).put("workoutRpe",workoutRpe).put("finishedAtEpochMs",finishedAtEpochMs)
-    .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId).put("pausedRestRemainingSec",pausedRestRemainingSec).put("trainingLocationId",trainingLocationId) }
-private fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(2); val a=o.getJSONArray("exercises");return WorkoutSessionState(
+    .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId).put("pausedRestRemainingSec",pausedRestRemainingSec).put("trainingLocationId",trainingLocationId).put("workoutOrigin",workoutOrigin) }
+internal fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(2); val a=o.getJSONArray("exercises");return WorkoutSessionState(
     o.getString("id"),o.getLong("startedAtEpochMs"),o.storedString("profileName",""),
     recovery.records(a,"active_workout_v1.exercises") { exercise, path -> workoutExerciseFromJson(exercise,recovery,path) },o.storedInt("currentExerciseIndex"),
     o.storedLong("elapsedBeforePauseMs",0L),o.optNullableLong("pausedAtEpochMs"),o.optNullableLong("restEndsAtEpochMs"),
     o.optNullableInt("workoutRpe"),o.optNullableLong("finishedAtEpochMs"),o.storedString("runnerKind","automatic"),if(o.has("restKind")&&!o.isNull("restKind"))o.getString("restKind") else null,
-    (o.storedArray("modifications")?:JSONArray()).let{a->(0 until a.length()).map{a.getString(it)}},o.storedString("plannedWorkoutId").takeIf{it.isNotBlank()},o.optNullableInt("pausedRestRemainingSec"),o.storedString("trainingLocationId").takeIf{it.isNotBlank()}) }
+    (o.storedArray("modifications")?:JSONArray()).let{a->(0 until a.length()).map{a.getString(it)}},o.storedString("plannedWorkoutId").takeIf{it.isNotBlank()},o.optNullableInt("pausedRestRemainingSec"),o.storedString("trainingLocationId").takeIf{it.isNotBlank()},o.storedString("workoutOrigin","ADAPTIVE_EXTRA")) }
 
 private fun Exercise.toPlanSnapshotJson():JSONObject = JSONObject()
     .put("name",name).put("group",group).put("equipment",equipment).put("level",level)
@@ -151,6 +151,7 @@ class AppStore(context: Context) {
     private fun validateStore() {
         loadAthlete()
         loadActiveTrainingLocationId()
+        loadLastUsedTrainingLocationId()
         loadTrainingLocations()
         loadSessions()
         loadActiveWorkout()
@@ -198,6 +199,7 @@ class AppStore(context: Context) {
     }
 
     internal fun loadActiveTrainingLocationId(): String = string("active_training_location", trainingLocations.first().id) ?: trainingLocations.first().id
+    internal fun loadLastUsedTrainingLocationId():String? = string("last_used_training_location")
     internal fun saveActiveTrainingLocationId(id: String) = write { putString("active_training_location", id) }
 
     internal fun loadTrainingLocations(): List<TrainingLocation> {
@@ -224,6 +226,16 @@ class AppStore(context: Context) {
         write { putString("training_locations", array.toString()) }
     }
 
+    internal fun startWorkout(state:WorkoutSessionState):Boolean {
+        if(loadActiveWorkout()!=null)return false
+        val location=requireNotNull(state.trainingLocationId)
+        require(state.exercises.isNotEmpty())
+        return write {
+            putString("active_workout_v1",state.toJson().toString())
+            putString("last_used_training_location",location)
+            putString("active_training_location",location)
+        }
+    }
     fun saveActiveWorkout(state: WorkoutSessionState) = write { putString("active_workout_v1", state.toJson().toString()) }
     fun loadActiveWorkout(): WorkoutSessionState? {
         val raw = string("active_workout_v1") ?: return null
@@ -345,7 +357,8 @@ class AppStore(context: Context) {
                     recovery.records(structured, "$path.structuredExercises") { exercise, exercisePath ->
                         workoutExerciseFromJson(exercise, recovery, exercisePath)
                     }, o.planStringList("skippedExercises"), o.planStringList("modifications"),
-                    o.storedString("plannedWorkoutId").takeIf { it.isNotBlank() })
+                    o.storedString("plannedWorkoutId").takeIf { it.isNotBlank() },
+                    o.storedString("trainingLocationId").takeIf{it.isNotBlank()},o.storedString("workoutOrigin","ADAPTIVE_EXTRA"))
             }.sortedByDescending { it.timestamp }
         }
     }
@@ -358,7 +371,8 @@ class AppStore(context: Context) {
                 .put("total", s.totalSets).put("exercises", JSONArray(s.exerciseNames)).put("exerciseRpe", JSONObject(s.exerciseRpe))
                 .put("workoutRpe", s.workoutRpe).put("completedByExercise", JSONObject(s.completedByExercise))
                 .put("durationSec", s.durationSec).put("structuredExercises", structured).put("skippedExercises", JSONArray(s.skippedExercises))
-                .put("modifications", JSONArray(s.modifications)).put("plannedWorkoutId", s.plannedWorkoutId))
+                .put("modifications", JSONArray(s.modifications)).put("plannedWorkoutId", s.plannedWorkoutId)
+                .put("trainingLocationId",s.trainingLocationId).put("workoutOrigin",s.workoutOrigin))
         }
         return array.toString()
     }
@@ -459,4 +473,5 @@ private fun validatePreferenceFile(context: Context) {
         require(closed) { "Truncated preference XML" }
     }
 }
+
 

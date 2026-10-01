@@ -3,6 +3,10 @@ package com.hybridfitnesscoach.app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.compose.BackHandler
+import androidx.compose.runtime.saveable.Saver
+import androidx.compose.runtime.saveable.rememberSaveable
+import org.json.JSONObject
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.rememberScrollState
@@ -132,7 +136,8 @@ data class WorkoutSessionState(
     val modifications: List<String> = emptyList(),
     val plannedWorkoutId: String? = null,
     val pausedRestRemainingSec: Int? = null,
-    val trainingLocationId: String? = null
+    val trainingLocationId: String? = null,
+    val workoutOrigin: String = "ADAPTIVE_EXTRA"
 )
 data class AthleteProfile(val name: String = "", val goal: String = "Forza + skill", val daysPerWeek: Int = 3, val age:Int=0, val heightCm:Float=0f, val weightKg:Float=0f, val sex:String="Non specificato", val prioritySkills:List<String> = emptyList(), val assessedTrainingExperience:Int?=null, val assessedPushCapacity:Int?=null, val assessedPullCapacity:Int?=null)
 data class CapabilityProfile(
@@ -164,7 +169,7 @@ internal fun capabilityFromAssessment(input:FitnessLevelAssessment):CapabilityPr
     return CapabilityProfile(overall,experience,push,pull,assessed=true)
 }
 internal fun capabilityLevelName(level:Int):String = when(level.coerceIn(1,3)){1->"Principiante";2->"Intermedio";else->"Avanzato"}
-data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null)
+data class SessionRecord(val timestamp: Long, val profileName: String, val completedSets: Int, val totalSets: Int, val exerciseNames: List<String> = emptyList(), val exerciseRpe: Map<String,Int> = emptyMap(), val workoutRpe:Int=0, val completedByExercise:Map<String,Int> = emptyMap(), val durationSec:Int=0, val structuredExercises:List<WorkoutExerciseState> = emptyList(), val skippedExercises:List<String> = emptyList(), val modifications:List<String> = emptyList(), val plannedWorkoutId:String?=null,val trainingLocationId:String?=null,val workoutOrigin:String="ADAPTIVE_EXTRA")
 data class CalisthenicsSkill(val name:String, val category:String, val level:String)
 
 internal val trainingLocations = listOf(
@@ -671,8 +676,13 @@ internal fun recoveryScores(sessions: List<SessionRecord>, now: Long = System.cu
             // Recovery model V0.8: exponential fatigue decay, time constant 38h. A single fatigue contribution falls to ~28% after 48h and ~15% after 72h; UI returns toward 100 progressively.
             val recoveryFactor = kotlin.math.exp(-ageHours / 38.0)
             val setsPerExercise = session.totalSets.toDouble() / session.exerciseNames.size.coerceAtLeast(1)
-            session.exerciseNames.mapNotNull { n -> exercises.firstOrNull { it.name == n } }.forEach { ex ->
-                val actualSets=session.structuredExercises.firstOrNull{it.exerciseName==ex.name}?.sets?.count{it.completed}?.toDouble() ?: if(session.completedByExercise.isNotEmpty()) (session.completedByExercise[ex.name]?:0).toDouble() else setsPerExercise
+            val contributions=if(session.structuredExercises.isNotEmpty())session.structuredExercises.mapNotNull { saved ->
+                val ex=saved.exerciseSnapshot ?: exercises.firstOrNull{it.name==saved.exerciseName}
+                ex?.let{it to saved.sets.count{set->set.completed}.toDouble()}
+            } else session.exerciseNames.distinct().mapNotNull { name ->
+                exercises.firstOrNull{it.name==name}?.let{it to (session.completedByExercise[name]?.toDouble() ?: setsPerExercise)}
+            }
+            contributions.forEach { (ex,actualSets) ->
                 if(actualSets<=0) return@forEach
                 val matched = recoveryGroups.filter { ex.group.contains(it, ignoreCase = true) }
                 matched.forEachIndexed { index, group ->
@@ -766,6 +776,12 @@ enum class Tab { HOME, PLAN, PROGRESS, PROFILE }
 private val italianCalendarDate = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy", java.util.Locale.ITALY)
 private fun calendarDate(epochDay:Long):String = java.time.LocalDate.ofEpochDay(epochDay).format(italianCalendarDate)
 
+private fun stringListSaver()=Saver<androidx.compose.runtime.snapshots.SnapshotStateList<String>,ArrayList<String>>(
+    save={ArrayList(it)},restore={mutableStateListOf<String>().apply{addAll(it)}})
+private fun exerciseListSaver()=Saver<List<Exercise>,String>(
+    save={WorkoutSessionState("builder",0,"builder",it.mapIndexed(::plannedExerciseState)).toJson().toString()},
+    restore={workoutSessionFromJson(JSONObject(it),StoreRecovery()).exercises.map{e->requireNotNull(e.exerciseSnapshot)}})
+
 @Composable
 fun HybridFitnessApp() {
     val context = androidx.compose.ui.platform.LocalContext.current
@@ -776,10 +792,22 @@ fun HybridFitnessApp() {
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     var calendarWorkout by remember { mutableStateOf<PlannedWorkout?>(null) }
-    var workoutLaunch by remember { mutableStateOf<WorkoutLaunchFlow?>(null) }
+    var workoutLaunch by rememberSaveable(stateSaver=Saver<WorkoutLaunchFlow?,String>(
+        save={it?.toLaunchJson().orEmpty()},restore={it.takeIf{value->value.isNotEmpty()}?.let(::workoutLaunchFromJson)}
+    )) { mutableStateOf<WorkoutLaunchFlow?>(store.loadActiveWorkout()?.let(::resumeWorkoutLaunch)) }
+    var suspendedWorkout by remember { mutableStateOf(store.loadActiveWorkout()?.takeIf{workoutLaunch==null}) }
+    LaunchedEffect(Unit) {
+        val active=store.loadActiveWorkout()
+        if(active!=null && workoutLaunch!=null)workoutLaunch=resumeWorkoutLaunch(active)
+    }
+    fun requestWorkout(intent:WorkoutLaunchIntent) {
+        val active=store.loadActiveWorkout()
+        workoutLaunch=active?.let(::resumeWorkoutLaunch) ?: beginWorkoutLaunch(intent)
+        suspendedWorkout=null
+    }
     fun saveFinishedWorkout(record: SessionRecord): Boolean {
         val saved = store.finishWorkout(record)
-        if (saved) sessions = store.loadSessions()
+        if (saved) { sessions = store.loadSessions();suspendedWorkout=null }
         else android.widget.Toast.makeText(context, "Salvataggio non riuscito: allenamento conservato per il recupero.", android.widget.Toast.LENGTH_LONG).show()
         return saved
     }
@@ -792,6 +820,10 @@ fun HybridFitnessApp() {
     MaterialTheme(colorScheme = lightColorScheme(primary = Accent, background = Bg, surface = Color.White)) {
         Scaffold(
             containerColor = Bg,
+            floatingActionButton={if(suspendedWorkout!=null)ExtendedFloatingActionButton(
+                onClick={store.loadActiveWorkout()?.let{workoutLaunch=resumeWorkoutLaunch(it);suspendedWorkout=null}},
+                text={Text("RIPRENDI ALLENAMENTO")},icon={Icon(Icons.Default.PlayArrow,null)}
+            )},
             bottomBar = {
                 NavigationBar(containerColor = Color.White) {
                     listOf(
@@ -820,33 +852,19 @@ fun HybridFitnessApp() {
                     val sourceExercise=launchScreen.intent.sourceExerciseId?.let{id->
                         exercises.firstOrNull{it.progressionKey==id || it.name==id}
                     }
-                    val compatibleLocations=remember(launchScreen.intent,locationOptions,athlete,sessions,health.readiness){
-                        locationOptions.filter{place->
-                            when(launchScreen.intent.origin){
-                                WorkoutOrigin.SINGLE_EXERCISE -> sourceExercise?.let{locationCompatible(it,place)}==true
-                                WorkoutOrigin.PLAN -> allPlans.asSequence().flatMap{it.workouts.asSequence()}
-                                    .firstOrNull{it.id==launchScreen.intent.plannedWorkoutId}
-                                    ?.let{materializePlannedSession(it,place,athlete,sessions,health.readiness).exercises.isNotEmpty()}==true
-                                WorkoutOrigin.ADAPTIVE_EXTRA -> generateWorkout(place,extraAthlete,sessions,health.readiness).isNotEmpty()
-                                WorkoutOrigin.CUSTOM,WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY -> {
-                                    val focus=launchScreen.intent.focusSkill
-                                    customWorkoutCandidatePool(place,athlete,sessions,if(focus!=null)"Skill" else "Parti del corpo",
-                                        listOfNotNull(focus),launchScreen.intent.groupFilters,equipmentFilters=launchScreen.intent.equipmentFilters).isNotEmpty()
-                                }
-                                else -> false
-                            }
-                        }
-                    }
                     WorkoutLaunchScreen(
-                        flow=launchScreen,locations=compatibleLocations,
-                        preferredLocationId=store.loadActiveTrainingLocationId(),readinessScore=health.readiness,
+                        flow=launchScreen,locations=locationOptions,
+                        preferredLocationId=store.loadLastUsedTrainingLocationId().orEmpty(),readinessScore=health.readiness,
                         onChooseLocation={place->
                             val selected=selectWorkoutLocation(launchScreen,place.id)
                             if(launchScreen.intent.origin in customOrigins) workoutLaunch=selected else {
                             val now=System.currentTimeMillis()
-                            val materialized=when(launchScreen.intent.origin){
+                            val result=runCatching { when(launchScreen.intent.origin){
                                 WorkoutOrigin.SINGLE_EXERCISE -> singleExerciseWorkoutState(
-                                    exercise=requireNotNull(sourceExercise),profileName=place.name,startedAtEpochMs=now,
+                                    exercise=requireNotNull(sourceExercise).let{source->
+                                        if(locationCompatible(source,place))source else exercises.filter{locationCompatible(it,place)&&it.category==source.category&&levelScore(it.level)<=capabilityLevelFor(it,athlete.toCapabilityProfile())}.sortedWith(compareBy<Exercise>{if(it.movementPattern==source.movementPattern)0 else 1}.thenBy{it.name}).firstOrNull()
+                                            ?:error("Nessun esercizio adattabile disponibile in questo luogo.")
+                                    },profileName=place.name,startedAtEpochMs=now,
                                     athlete=athlete,sessions=sessions,readinessScore=health.readiness,trainingLocationId=place.id
                                 )
                                 WorkoutOrigin.PLAN -> {
@@ -870,15 +888,25 @@ fun HybridFitnessApp() {
                                 }
                                 else -> error("Workout origin has no materializer yet: "+launchScreen.intent.origin)
                             }
-                            workoutLaunch=materializeWorkoutLaunch(selected,materialized)
+                            }
+                            workoutLaunch=result.fold(
+                                onSuccess={materialized->materializeWorkoutLaunch(selected,freezeWorkoutTargets(materialized,sessions,health.readiness))},
+                                onFailure={selected.copy(stage=WorkoutLaunchStage.CHOOSE_LOCATION,errorMessage="Impossibile preparare il workout in questo luogo. Scegli un altro luogo o modifica i filtri.")}
+                            )
                             }
                         },
-                        onStart={
+                        onStart=start@{
+                            val active=store.loadActiveWorkout()
+                            if(active!=null){workoutLaunch=resumeWorkoutLaunch(active);return@start}
                             val place=locationOptions.firstOrNull{it.id==launchScreen.locationId}
-                            if(place!=null){activeProfile=place;store.saveActiveTrainingLocationId(place.id)}
-                            workoutLaunch=startWorkoutRunner(launchScreen)
+                            val candidate=startWorkoutRunner(launchScreen)
+                            val state=requireNotNull(candidate.workout).copy(startedAtEpochMs=System.currentTimeMillis())
+                            if(store.startWorkout(state)) {
+                                if(place!=null)activeProfile=place
+                                workoutLaunch=candidate.copy(workout=state)
+                            } else android.widget.Toast.makeText(context,"Avvio non salvato: riprova.",android.widget.Toast.LENGTH_LONG).show()
                         },
-                        onCancel={workoutLaunch=null}
+                        onCancel={workoutLaunch=if(launchScreen.stage==WorkoutLaunchStage.PREVIEW)beginWorkoutLaunch(launchScreen.intent)else null}
                     )
                 } else if(builderFlow!=null) {
                     val location=(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==builderFlow.locationId}
@@ -888,7 +916,7 @@ fun HybridFitnessApp() {
                         onMaterialize={generated,pinned->
                             val current=workoutLaunch
                             if(current!=null && current.stage==WorkoutLaunchStage.MATERIALIZE) {
-                                val state=generatedWorkoutSessionState(current.intent,location.id,generated,System.currentTimeMillis(),pinned)
+                                val state=freezeWorkoutTargets(generatedWorkoutSessionState(current.intent,location.id,generated,System.currentTimeMillis(),pinned),sessions,health.readiness)
                                 workoutLaunch=materializeWorkoutLaunch(current,state)
                             }
                         }
@@ -899,10 +927,9 @@ fun HybridFitnessApp() {
                             profile=activeProfile,athlete=athlete,sessions=sessions,store=store,
                             changeProfile={tab=Tab.PROFILE},managePlan={tab=Tab.PLAN},
                             calendarWorkout=calendarWorkout,onCalendarWorkoutConsumed={calendarWorkout=null},
-                            onStartPlannedWorkout={workout->workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.PLAN,plannedWorkoutId=workout.id))},
-                            onStartAdaptiveExtra={workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.ADAPTIVE_EXTRA))},
-                            onStartCustomWorkout={intent->workoutLaunch=beginWorkoutLaunch(intent)},
-                            onSessionSaved={record->saveFinishedWorkout(record)}
+                            onStartPlannedWorkout={workout->requestWorkout(WorkoutLaunchIntent(WorkoutOrigin.PLAN,plannedWorkoutId=workout.id))},
+                            onStartAdaptiveExtra={requestWorkout(WorkoutLaunchIntent(WorkoutOrigin.ADAPTIVE_EXTRA))},
+                            onStartCustomWorkout={intent->requestWorkout(intent)}
                         )
                         Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
                         Tab.PROGRESS -> Progress(athlete,sessions,{updated->athlete=updated;store.saveAthlete(updated)},{timestamp->store.deleteSession(timestamp);sessions=store.loadSessions()},showAthleteProfile=false)
@@ -913,21 +940,19 @@ fun HybridFitnessApp() {
                             addLocation={created->customProfiles.add(created);store.saveTrainingLocations(customProfiles);activeProfile=created;store.saveActiveTrainingLocationId(created.id)},
                             editLocation={old,updated->val i=customProfiles.indexOfFirst{it.id==old.id};if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.id==old.id){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}}},
                             deleteLocation={doomed->customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)}},
-                            onExecuteExercise={exercise->workoutLaunch=beginWorkoutLaunch(WorkoutLaunchIntent(WorkoutOrigin.SINGLE_EXERCISE,sourceExerciseId=exercise.progressionKey?:exercise.name))},
-                            onStartWorkout={intent->workoutLaunch=beginWorkoutLaunch(intent)}
+                            onExecuteExercise={exercise->requestWorkout(WorkoutLaunchIntent(WorkoutOrigin.SINGLE_EXERCISE,sourceExerciseId=exercise.progressionKey?:exercise.name))},
+                            onStartWorkout={intent->requestWorkout(intent)}
                         )
                     }
                 }
             }
         }
         workoutLaunch?.takeIf{it.stage==WorkoutLaunchStage.RUNNER}?.let { flow ->
-            val place=(trainingLocations+customProfiles+activeProfile).firstOrNull{it.id==flow.locationId}?:activeProfile
-            WorkoutDialog(
-                profile=place,athlete=athlete,sessions=sessions,store=store,restored=flow.workout,
-                plannedWorkout=flow.workout?.plannedWorkoutId?.let{id->store.loadTrainingPlans().asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{it.id==id}},
-                onDismiss={workoutLaunch=null},
+            key(flow.workout?.id) { WorkoutDialog(
+                store=store,restored=store.loadActiveWorkout()?.takeIf{it.id==flow.workout?.id}?:requireNotNull(flow.workout),
+                onDismiss={workoutLaunch=null;suspendedWorkout=store.loadActiveWorkout()},
                 onSave={record->val saved=saveFinishedWorkout(record);if(saved)workoutLaunch=null;saved}
-            )
+            ) }
         }
     }
 }
@@ -943,7 +968,8 @@ private fun WorkoutLaunchScreen(
     onStart:()->Unit,
     onCancel:()->Unit
 ) {
-    var selectedLocationId by remember(flow.intent,locations,preferredLocationId) {
+    BackHandler(onBack=onCancel)
+    var selectedLocationId by rememberSaveable(flow.intent,locations,preferredLocationId) {
         mutableStateOf(preferredWorkoutLocation(locations,preferredLocationId)?.id)
     }
     val originLabel=when(flow.intent.origin) {
@@ -958,9 +984,10 @@ private fun WorkoutLaunchScreen(
         Header(if(flow.stage==WorkoutLaunchStage.CHOOSE_LOCATION)"Avvia allenamento" else "Anteprima allenamento",
             originLabel+" • readiness "+(readinessScore?.toString()?: "non disponibile"))
         if(flow.stage==WorkoutLaunchStage.CHOOSE_LOCATION) {
+            flow.errorMessage?.let{Text(it,color=MaterialTheme.colorScheme.error,modifier=Modifier.padding(16.dp))}
             Text("Scegli il luogo",fontWeight=FontWeight.Bold,modifier=Modifier.padding(horizontal=20.dp,vertical=8.dp))
             if(locations.isEmpty()) {
-                Text("Nessun luogo configurato è compatibile con questo allenamento.",color=Color.Gray,modifier=Modifier.padding(20.dp))
+                Text("Nessun luogo configurato. Aggiungi un luogo dal Profilo.",color=Color.Gray,modifier=Modifier.padding(20.dp))
             } else {
                 LazyColumn(Modifier.weight(1f),contentPadding=PaddingValues(horizontal=16.dp,vertical=4.dp)) {
                     items(locations,key={it.id}){place->
@@ -982,6 +1009,7 @@ private fun WorkoutLaunchScreen(
             }
         } else if(flow.stage==WorkoutLaunchStage.PREVIEW) {
             LazyColumn(Modifier.weight(1f),contentPadding=PaddingValues(horizontal=20.dp,vertical=8.dp)) {
+                if(flow.workout?.exercises.isNullOrEmpty())item{Text("Nessun esercizio disponibile. Torna alla scelta del luogo o modifica i filtri.",color=MaterialTheme.colorScheme.error)}
                 item{Text("Luogo: "+(locations.firstOrNull{it.id==flow.locationId}?.name?:flow.locationId.orEmpty()),color=Color.Gray)}
                 itemsIndexed(flow.workout?.exercises.orEmpty(),key={index,exercise->index.toString()+"-"+(exercise.exerciseId?:exercise.exerciseName)}){_,exercise->
                     val first=exercise.sets.firstOrNull()
@@ -1002,7 +1030,7 @@ private fun WorkoutLaunchScreen(
                 }
             }
             Row(Modifier.fillMaxWidth().padding(16.dp),horizontalArrangement=Arrangement.spacedBy(10.dp)) {
-                OutlinedButton(onClick=onCancel,modifier=Modifier.weight(1f)){Text("ANNULLA")}
+                OutlinedButton(onClick=onCancel,modifier=Modifier.weight(1f)){Text("CAMBIA LUOGO")}
                 Button(onClick=onStart,enabled=flow.workout?.exercises?.isNotEmpty()==true,modifier=Modifier.weight(1f)){Text("AVVIA")}
             }
         }
@@ -1099,17 +1127,14 @@ internal fun nextUnlockLabel(states:List<SkillNodeProgress>):String {
 }
 
 @Composable
-private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onStartPlannedWorkout:(PlannedWorkout)->Unit, onStartAdaptiveExtra:()->Unit, onStartCustomWorkout:(WorkoutLaunchIntent)->Unit, onSessionSaved: (SessionRecord) -> Boolean) {
+private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store: AppStore, changeProfile: () -> Unit, managePlan: () -> Unit, calendarWorkout:PlannedWorkout?, onCalendarWorkoutConsumed:()->Unit, onStartPlannedWorkout:(PlannedWorkout)->Unit, onStartAdaptiveExtra:()->Unit, onStartCustomWorkout:(WorkoutLaunchIntent)->Unit) {
     val readinessScore=LocalHealthConnect.current.readiness
-    val restoredWorkout = remember { store.loadActiveWorkout() }
-    var workoutOpen by remember { mutableStateOf(restoredWorkout != null) }
     var treeSkill by remember { mutableStateOf<String?>(null) }
     var treePicker by remember { mutableStateOf(false) }
     var enabledPlans by remember { mutableStateOf(store.loadEnabledTrainingPlans()) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
-            val launch=resolveWorkoutLaunch(restoredWorkout,requested)
-            if(launch.resumeActive) workoutOpen=true else launch.plannedWorkout?.let(onStartPlannedWorkout)
+            onStartPlannedWorkout(requested)
             onCalendarWorkoutConsumed()
         }
     }
@@ -1182,11 +1207,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     }
     if(treePicker) AlertDialog(onDismissRequest={treePicker=false},title={Text("Skill Tree")},text={LazyColumn{items(calisthenicsSkills){skill->TextButton(onClick={treeSkill=skill.name;treePicker=false}){Text(skill.name)}}}},confirmButton={TextButton(onClick={treePicker=false}){Text("CHIUDI")}})
     treeSkill?.let{skill->SkillDetailDialog(skill,athlete,{treeSkill=null},{onStartCustomWorkout(WorkoutLaunchIntent(WorkoutOrigin.SKILL,focusSkill=skill));treeSkill=null},sessions)}
-    if(workoutOpen && restoredWorkout!=null) WorkoutDialog(
-        profile=profile,athlete=athlete,sessions=sessions,store=store,restored=restoredWorkout,
-        plannedWorkout=restoredWorkout.plannedWorkoutId?.let{id->store.loadTrainingPlans().asSequence().flatMap{it.workouts.asSequence()}.firstOrNull{w->w.id==id}},
-        onDismiss={workoutOpen=false},onSave={record->val saved=onSessionSaved(record);if(saved)enabledPlans=store.loadEnabledTrainingPlans();saved}
-    )
+
 }
 
 internal fun calendarStateLabel(state:PlannedWorkoutState):String=when(state){
@@ -1637,14 +1658,18 @@ private fun AthleteDialog(current:AthleteProfile,onDismiss:()->Unit,onSave:(Athl
     }},confirmButton={Button(onClick={onSave(current.copy(name=name.trim(),age=age.toIntOrNull()?:0,heightCm=height.toFloatOrNull()?:0f,weightKg=weight.toFloatOrNull()?:0f,sex=sex,assessedTrainingExperience=assessedExperience,assessedPushCapacity=assessedPush,assessedPullCapacity=assessedPull))}){Text("SALVA")}},dismissButton={TextButton(onClick=onDismiss){Text("ANNULLA")}})
 }
 @Composable
-private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation:LoadRecommendation?=null, targetSet:WorkoutSetState?=null, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
-    val p=prescriptionFor(ex)
-    val inputTarget=runnerInputTarget(ex,targetSet)
-    var value by remember(ex.name,inputTarget){mutableStateOf(inputTarget.toString())}
-    var load by remember(ex.name,recommendation?.loadKg){mutableStateOf(recommendation?.loadKg?.toString()?:"")}
-    var assistance by remember(ex.name,recommendation?.assistanceKg){mutableStateOf(recommendation?.assistanceKg?.toString()?:"")}
+private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, targetSet:WorkoutSetState, onComplete:(Int?,Int?,Double?,Double?,Double?)->Unit) {
+    val inputTarget=when(ex.measure){
+        ExerciseMeasure.REPS->requireNotNull(targetSet.targetReps).toDouble()
+        ExerciseMeasure.DISTANCE->requireNotNull(targetSet.targetDistanceMeters)
+        else->requireNotNull(targetSet.targetSeconds).toDouble()
+    }
+    var value by rememberSaveable(ex.name,targetSet.index,inputTarget){mutableStateOf(inputTarget.toString())}
+    var load by rememberSaveable(ex.name,targetSet.targetLoadKg){mutableStateOf(targetSet.targetLoadKg?.toString()?:"")}
+    var assistance by rememberSaveable(ex.name,targetSet.targetAssistanceKg){mutableStateOf(targetSet.targetAssistanceKg?.toString()?:"")}
     Column {
-        recommendation?.let { rec -> if(ex.resistanceMode==ResistanceMode.EXTERNAL_LOAD||ex.resistanceMode==ResistanceMode.ASSISTED) Text((if(rec.loadKg!=null)"Carico consigliato: ${rec.loadKg} kg" else if(rec.assistanceKg!=null)"Assistenza consigliata: ${rec.assistanceKg} kg" else "Calibrazione iniziale")+ " • "+rec.reason,color=Accent,fontSize=12.sp,fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(bottom=4.dp)) }
+        targetSet.targetLoadKg?.let{Text("Carico previsto: $it kg",color=Accent,fontSize=12.sp)}
+        targetSet.targetAssistanceKg?.let{Text("Assistenza prevista: $it kg",color=Accent,fontSize=12.sp)}
         val label=when(ex.measure){ExerciseMeasure.REPS->if(ex.laterality==Laterality.UNILATERAL)"Ripetizioni per lato" else "Ripetizioni";ExerciseMeasure.SECONDS->"Secondi mantenuti";ExerciseMeasure.DURATION->"Secondi eseguiti";ExerciseMeasure.DISTANCE->"Distanza (m)";ExerciseMeasure.INTERVALS->"Secondi lavoro"}
         OutlinedTextField(value,{value=it.filter{ch->ch.isDigit()||ch=='.'}},label={Text(label)},singleLine=true,enabled=enabled,modifier=Modifier.fillMaxWidth())
         if(ex.laterality==Laterality.UNILATERAL||ex.laterality==Laterality.ALTERNATING) Text(if(ex.laterality==Laterality.UNILATERAL)"Valore riferito a ciascun lato" else "Alternare i lati",color=Color.Gray,fontSize=11.sp)
@@ -1661,26 +1686,27 @@ private fun ExerciseExecutionInputs(ex:Exercise, enabled:Boolean, recommendation
 @Composable
 private fun CustomWorkoutBuilderScreen(location:TrainingLocation,athlete:AthleteProfile,sessions:List<SessionRecord>,intent:WorkoutLaunchIntent,onDismiss:()->Unit,onMaterialize:(List<Exercise>,Set<String>)->Unit) {
     val readinessScore=LocalHealthConnect.current.readiness
-    var minutes by remember(intent){mutableIntStateOf(45)}
+    BackHandler(onBack=onDismiss)
+    var minutes by rememberSaveable(intent){mutableIntStateOf(45)}
     val initialSkill=intent.focusSkill
-    var mode by remember(intent){mutableStateOf(if(initialSkill!=null)"Skill" else "Parti del corpo")}
-    val selectedSkills=remember(intent){mutableStateListOf<String>().apply{initialSkill?.let{add(it)}}}
-    val selectedGroups=remember(intent){mutableStateListOf<String>().apply{addAll(intent.groupFilters)}}
-    val pinnedNames=remember(intent){mutableStateListOf<String>()}
-    var generated by remember(intent){mutableStateOf<List<Exercise>>(emptyList())}
+    var mode by rememberSaveable(intent){mutableStateOf(if(initialSkill!=null)"Skill" else "Parti del corpo")}
+    val selectedSkills=rememberSaveable(intent,saver=stringListSaver()){mutableStateListOf<String>().apply{initialSkill?.let{add(it)}}}
+    val selectedGroups=rememberSaveable(intent,saver=stringListSaver()){mutableStateListOf<String>().apply{addAll(intent.groupFilters)}}
+    val pinnedNames=rememberSaveable(intent,saver=stringListSaver()){mutableStateListOf<String>()}
+    var generated by rememberSaveable(intent,stateSaver=exerciseListSaver()){mutableStateOf<List<Exercise>>(emptyList())}
     var generationMessage by remember(intent){mutableStateOf<String?>(null)}
     val lockFocus=intent.origin==WorkoutOrigin.SKILL || intent.lockFilters
     val skills=calisthenicsSkills.map{it.name}
     fun candidatePool()=customWorkoutCandidatePool(location,athlete,sessions,mode,selectedSkills,selectedGroups,equipmentFilters=intent.equipmentFilters)
     fun build() {
-        val count=when{minutes<=25->4;minutes<=40->5;minutes<=60->6;else->8}
         val recovery=recoveryScores(sessions)
         val ranked=candidatePool().sortedWith(compareBy<Exercise>{ex->
             val rec=recovery.filterKeys{ex.group.contains(it,true)}.values.minOrNull()?:100
             if(rec<40)100 else if(rec<60)50 else 0
         }.thenBy{if(selectedSkills.any{s->s in it.skills})0 else 1}.thenBy{if(it.role=="Forza")0 else 1})
-        var result=applyCoaching(sequenceWorkout(ranked.take(count)),coachingContext(sessions,readinessScore))
+        var result=applyCoaching(sequenceWorkout(ranked),coachingContext(sessions,readinessScore))
         if(mode=="Skill")result=enforceSkillMasteryPrescription(result,selectedSkills,sessions)
+        result=fitCustomWorkoutDuration(result,minutes)
         generated=result;pinnedNames.retainAll(result.map{it.name}.toSet())
         generationMessage=if(result.isEmpty())"Nessun esercizio compatibile con questo luogo e questi filtri." else "Workout pronto: ${result.size} esercizi."
     }
@@ -1688,14 +1714,16 @@ private fun CustomWorkoutBuilderScreen(location:TrainingLocation,athlete:Athlete
         val pool=candidatePool()
         generated=if(mode=="Skill")regenerateSkillWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore),selectedSkills,sessions)
             else regenerateCoachedWorkout(generated,pool,pinnedNames.toSet(),coachingContext(sessions,readinessScore))
-        generationMessage="Rigenerati solo gli esercizi non bloccati."
+        generated=fitCustomWorkoutDuration(generated,minutes,pinnedNames.toSet())
+        generationMessage="Rigenerati solo gli esercizi non bloccati, entro la durata stimata."
     }
     AlertDialog(onDismissRequest=onDismiss,title={Text(if(generated.isEmpty())"Crea workout" else "Workout generato")},
         text={Column(Modifier.heightIn(max=560.dp)){
             Text("Luogo: ${location.icon} ${location.name}",color=Color.Gray)
             if(generated.isEmpty()){
                 Text("Durata",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
-                Row{listOf(20,30,45,60,75).forEach{v->FilterChip(minutes==v,{minutes=v},{Text("${v} min")},Modifier.padding(end=4.dp))}}
+                Text("$minutes minuti • durata stimata",color=Accent)
+                Slider(value=minutes.toFloat(),onValueChange={minutes=(it/5).toInt()*5},valueRange=10f..120f,steps=21)
                 if(!lockFocus){
                     Text("Cosa vuoi allenare?",fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=12.dp))
                     Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){
@@ -1742,146 +1770,95 @@ private fun CustomWorkoutBuilderScreen(location:TrainingLocation,athlete:Athlete
 
 
 @Composable
-private fun WorkoutDialog(profile: TrainingLocation, athlete: AthleteProfile, sessions: List<SessionRecord>, store:AppStore, restored:WorkoutSessionState?=null, plannedWorkout:PlannedWorkout?=null, onDismiss: () -> Unit, onSave: (SessionRecord) -> Boolean) {
-    val liveReadiness=LocalHealthConnect.current.readiness
-    val readinessScore=liveReadiness
-    val compatible = remember(profile, athlete, sessions, restored, plannedWorkout, readinessScore) { val restoredSource=restored?.let{restoreExercises(it)}?.takeIf{it.isNotEmpty()}; val source=restoredSource ?: plannedWorkout?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore).exercises} ?: generateWorkout(profile, athlete, sessions,readinessScore); effectiveAutomaticExercises(source,athlete,sessions,readinessScore,restoredSource!=null || plannedWorkout!=null) }
-    val completedSets = remember { mutableStateMapOf<String, Int>().apply { restored?.exercises?.forEach { e -> put(e.exerciseName,e.sets.count{it.completed}) } } }
-    val expandedCompleted = remember { mutableStateMapOf<String, Boolean>() }
-    val skipped = remember { mutableStateMapOf<String, Boolean>().apply{restored?.exercises?.filter{it.status==WorkoutExerciseStatus.SKIPPED}?.forEach{put(it.exerciseName,true)}} }
-    val totalSets = compatible.sumOf{prescriptionFor(it).sets}
-    val doneSets = completedSets.values.sum()
-    var started by remember { mutableStateOf(restored != null) }
+private fun WorkoutDialog(store:AppStore, restored:WorkoutSessionState, onDismiss:()->Unit, onSave:(SessionRecord)->Boolean) {
+    var state by remember(restored.id) { mutableStateOf(restored.copy(exercises=restored.exercises.map{it.copy(rpe=runnerEffort(it.rpe))})) }
+    var now by remember { mutableLongStateOf(System.currentTimeMillis()) }
     var confirmFinish by remember { mutableStateOf(false) }
-    var sessionStartedAt by remember { mutableStateOf(restored?.startedAtEpochMs) }
-    val sessionId = remember { restored?.id ?: "auto-"+System.currentTimeMillis() }
-    var paused by remember { mutableStateOf(restored?.pausedAtEpochMs != null) }
-    var elapsedSeconds by remember { mutableIntStateOf(restored?.let{elapsedWorkoutSeconds(it,System.currentTimeMillis())}?:0) }
-    var restRemaining by remember { mutableIntStateOf(restored?.pausedRestRemainingSec ?: remainingSeconds(restored?.restEndsAtEpochMs)) }
-    var restEndsAt by remember { mutableStateOf(restored?.restEndsAtEpochMs) }
-    var restKind by remember { mutableStateOf(restored?.restKind?:"Serie") }
-    var currentExercise by remember { mutableStateOf<String?>(restored?.exercises?.getOrNull(restored.currentExerciseIndex)?.exerciseName) }
-    val executedSets = remember { mutableStateMapOf<String,List<WorkoutSetState>>().apply{restored?.exercises?.forEach{put(it.exerciseName,it.sets)} } }
-    val exerciseRpe = remember { mutableStateMapOf<String,Int>().apply {
-        compatible.forEach { put(it.name, runnerEffort(restored?.exercises?.firstOrNull { saved -> saved.exerciseName==it.name }?.rpe)) }
-    } }
-    var workoutRpe by remember { mutableIntStateOf(runnerEffort(restored?.workoutRpe)) }
-    val listState = rememberLazyListState()
-
-    LaunchedEffect(started,paused,restEndsAt,sessionStartedAt){while(started&&!paused){val now=System.currentTimeMillis();restRemaining=remainingSeconds(restEndsAt,now);sessionStartedAt?.let{elapsedSeconds=((now-it)/1000L).toInt()};delay(500)}}
-    LaunchedEffect(started, paused, skipped.toMap(),exerciseRpe.toMap(),currentExercise, restRemaining, doneSets, executedSets.toMap(), workoutRpe) {
-        if(started) {
-            val now=System.currentTimeMillis()
-            val states=compatible.mapIndexed { index, ex ->
-                recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false)
-            }
-            store.saveActiveWorkout(WorkoutSessionState(sessionId,sessionStartedAt?:now,restored?.profileName?:profile.name,states,compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0),if(paused)elapsedSeconds*1000L else 0L,if(paused)now else null,restEndsAt,workoutRpe,runnerKind=restored?.runnerKind?: "automatic",restKind=restKind,plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id,pausedRestRemainingSec=if(paused)restRemaining else null,trainingLocationId=restored?.trainingLocationId?:profile.id))
-        }
+    val context=androidx.compose.ui.platform.LocalContext.current
+    val listState=rememberLazyListState()
+    fun update(next:WorkoutSessionState) {
+        if(store.saveActiveWorkout(next)) state=next
+        else android.widget.Toast.makeText(context,"Stato non salvato: riprova prima di uscire.",android.widget.Toast.LENGTH_LONG).show()
     }
-    LaunchedEffect(started){if(started){if(currentExercise==null)currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name;val i=compatible.indexOfFirst{it.name==currentExercise}.coerceAtLeast(0);listState.scrollToItem(i+1)}}
-    LaunchedEffect(currentExercise){if(started){val i=compatible.indexOfFirst{it.name==currentExercise};if(i>=0)listState.animateScrollToItem(i+1)}}
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("Allenamento • " + profile.name) },
-        text = {
-            Column(Modifier.heightIn(max=520.dp)){
-                if(started){
-                    Card(Modifier.fillMaxWidth().padding(bottom=8.dp)){
-                        Column(Modifier.padding(10.dp)){
-                            Text("Tempo allenamento: "+String.format("%02d:%02d",elapsedSeconds/60,elapsedSeconds%60),fontWeight=FontWeight.Bold)
-                            if(paused) Text("IN PAUSA",color=Accent,fontWeight=FontWeight.Bold)
-                            if(restRemaining>0) Text("Recupero "+restKind.lowercase()+": "+restRemaining+" sec",color=Accent,fontSize=18.sp,fontWeight=FontWeight.Bold)
-                            Row(horizontalArrangement=Arrangement.spacedBy(6.dp)){
-                                OutlinedButton(onClick={if(paused){paused=false;sessionStartedAt=System.currentTimeMillis()-elapsedSeconds*1000L;if(restRemaining>0)restEndsAt=System.currentTimeMillis()+restRemaining*1000L}else{paused=true;restRemaining=remainingSeconds(restEndsAt);restEndsAt=null}}){Text(if(paused)"RIPRENDI" else "PAUSA")}
-                                if(restRemaining>0) TextButton(onClick={restRemaining=0;restEndsAt=null}){Text("SALTA RECUPERO")}
-                            }
-                        }
-                    }
-                }
-                LazyColumn(state=listState,modifier=Modifier.weight(1f)){
-                    if(!started)item{
-                        CoachSummary(coachingContext(sessions,readinessScore))
-                        val capability=athlete.toCapabilityProfile()
-                        Text("Generato per "+athlete.goal+" • "+(if(capability.assessed)"capacità valutata" else "capacità da valutare")+" • "+profile.name,color=Color.Gray)
-                        if(sessions.any{it.exerciseNames.isNotEmpty()})Text("Adattato anche agli allenamenti recenti",color=Accent,fontSize=12.sp)
-                    }
-                    item{LinearProgressIndicator(progress={if(totalSets==0)0f else doneSets.toFloat()/totalSets},modifier=Modifier.fillMaxWidth().padding(vertical=12.dp))}
-                    if(compatible.isEmpty())item{Text("Nessun esercizio compatibile con questo profilo.")}
-                    items(compatible){ex->
-                        val count=completedSets[ex.name]?:0
-                        val isSkipped=skipped[ex.name]==true
-                        val targetSets=prescriptionFor(ex).sets
-                        val done=count>=targetSets
-                        val expanded=!done||(expandedCompleted[ex.name]?:false)
-                        Card(Modifier.fillMaxWidth().padding(vertical=5.dp).clickable{
-                            if(started){
-                                if(done)expandedCompleted[ex.name]=!(expandedCompleted[ex.name]?:false)
-                                else {skipped[ex.name]=false;currentExercise=ex.name}
-                            }
-                        }){
-                            Column(Modifier.padding(12.dp)){
-                                Text((if(done)"✓ " else if(isSkipped)"↷ " else if(started&&currentExercise==ex.name)"▶ " else "")+ex.name,fontWeight=FontWeight.Bold);if(started&&currentExercise==ex.name&&!done&&!isSkipped)Text("ESERCIZIO ATTIVO • serie "+(count+1).coerceAtMost(targetSets)+"/"+targetSets,color=Accent,fontSize=12.sp,fontWeight=FontWeight.Bold);if(isSkipped)Text("SALTATO • tocca RIPRENDI per continuare",color=Color.Gray,fontSize=12.sp)
-                                if(done)Text("COMPLETATO • "+targetSets+"/"+targetSets+" serie",color=Accent,fontSize=12.sp)
-                                if(expanded){
-                                    val p=prescriptionFor(ex)
-                                    Text(p.sets.toString()+" serie × "+p.value.toInt()+" "+p.unit+" • "+ex.setRestSec+"s serie / "+ex.exerciseRestSec+"s esercizio",color=Accent,fontSize=12.sp)
-                                    if(started&&count>0){Text("Fatica esercizio (RPE): "+(exerciseRpe[ex.name]?:5)+"/10",fontSize=12.sp);Slider(value=(exerciseRpe[ex.name]?:5).toFloat(),onValueChange={exerciseRpe[ex.name]=it.toInt()},valueRange=1f..10f,steps=8)}
-                                    Text(ex.equipment+" • "+ex.role,color=Color.Gray,fontSize=12.sp)
-                                    if(started&&!done){Row(horizontalArrangement=Arrangement.spacedBy(4.dp)){TextButton(onClick={skipped[ex.name]=!isSkipped;if(!isSkipped){currentExercise=compatible.firstOrNull{it.name!=ex.name&&(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}else currentExercise=ex.name}){Text(if(isSkipped)"RIPRENDI" else "SALTA ESERCIZIO")}}}
-                                    if(started&&!done&&!isSkipped){
-                                        ExerciseExecutionInputs(ex,!paused&&restRemaining==0,loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readinessScore?:100)),executedSets[ex.name]?.firstOrNull{!it.completed}){ar,asec,dist,load,assist->
-                                            val p=prescriptionFor(ex)
-                                            val old=executedSets[ex.name]?:plannedExerciseState(0,ex).sets
-                                            if(count<old.size){
-                                                val xs=old.toMutableList()
-                                                xs[count]=xs[count].copy(actualReps=ar,actualSeconds=asec,actualDistanceMeters=dist,actualLoadKg=load,actualAssistanceKg=assist,completed=true)
-                                                executedSets[ex.name]=xs
-                                                completedSets[ex.name]=count+1
-                                                if(count+1>=p.sets){
-                                                    restKind="Esercizio";restRemaining=ex.exerciseRestSec
-                                                    currentExercise=compatible.dropWhile{it.name!=ex.name}.drop(1).firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets&&skipped[it.name]!=true}?.name
-                                                        ?:compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets&&skipped[it.name]!=true}?.name
-                                                } else {
-                                                    restKind="Serie";restRemaining=runnerSetRestSeconds(ex);currentExercise=ex.name
-                                                }
-                                                restEndsAt=System.currentTimeMillis()+restRemaining*1000L
+    fun suspendRunner() {
+        val paused=WorkoutRunnerEngine.pause(state,System.currentTimeMillis())
+        if(store.saveActiveWorkout(paused)){state=paused;onDismiss()}
+    }
+    val paused=state.pausedAtEpochMs!=null
+    val remaining=state.pausedRestRemainingSec ?: remainingSeconds(state.restEndsAtEpochMs,now)
+    val doneSets=state.exercises.sumOf{e->e.sets.count{it.completed}}
+    val totalSets=state.exercises.sumOf{it.sets.size}
+    LaunchedEffect(paused) { while(!paused){now=System.currentTimeMillis();delay(500)} }
+    LaunchedEffect(state.currentExerciseIndex) {
+        if(state.exercises.isNotEmpty())listState.animateScrollToItem(state.currentExerciseIndex+1)
+    }
+    AlertDialog(onDismissRequest=::suspendRunner,title={Text("Allenamento • "+state.profileName)},text={
+        Column(Modifier.heightIn(max=520.dp)) {
+            Text("Tempo allenamento: "+elapsedWorkoutSeconds(state,now).let{String.format("%02d:%02d",it/60,it%60)},fontWeight=FontWeight.Bold)
+            if(paused)Text("IN PAUSA",color=Accent)
+            if(remaining>0)Text("Recupero ${state.restKind?.lowercase().orEmpty()}: $remaining sec",color=Accent,fontSize=18.sp)
+            Row(horizontalArrangement=Arrangement.spacedBy(4.dp)) {
+                OutlinedButton(onClick={val time=System.currentTimeMillis();update(if(paused)WorkoutRunnerEngine.resume(state,time) else WorkoutRunnerEngine.pause(state,time))}){Text(if(paused)"RIPRENDI" else "PAUSA")}
+                if(remaining>0)TextButton(onClick={update(state.copy(restEndsAtEpochMs=null,pausedRestRemainingSec=null))}){Text("SALTA RECUPERO")}
+            }
+            Row {
+                TextButton(onClick={update(WorkoutRunnerEngine.select(state,state.currentExerciseIndex-1))},enabled=state.currentExerciseIndex>0){Text("PRECEDENTE")}
+                TextButton(onClick={update(WorkoutRunnerEngine.select(state,state.currentExerciseIndex+1))},enabled=state.currentExerciseIndex<state.exercises.lastIndex){Text("SUCCESSIVO")}
+            }
+            LazyColumn(state=listState,modifier=Modifier.weight(1f)) {
+                item { LinearProgressIndicator(progress={if(totalSets==0)0f else doneSets.toFloat()/totalSets},modifier=Modifier.fillMaxWidth().padding(vertical=12.dp)) }
+                itemsIndexed(state.exercises,key={index,_->index}) { index,saved ->
+                    val ex=requireNotNull(saved.exerciseSnapshot).copy(measure=saved.measure,
+                        setRestSec=saved.setRestSec,exerciseRestSec=saved.exerciseRestSec,
+                        intervalRestSec=if(saved.measure==ExerciseMeasure.INTERVALS)saved.setRestSec else saved.exerciseSnapshot.intervalRestSec)
+                    val count=saved.sets.count{it.completed}
+                    val skipped=saved.status==WorkoutExerciseStatus.SKIPPED
+                    val done=count==saved.sets.size
+                    val current=index==state.currentExerciseIndex
+                    val target=saved.sets.firstOrNull{!it.completed} ?: saved.sets.lastOrNull()
+                    Card(Modifier.fillMaxWidth().padding(vertical=5.dp).clickable{update(WorkoutRunnerEngine.select(state,index))}) {
+                        Column(Modifier.padding(12.dp)) {
+                            Text((if(done)"✓ " else if(skipped)"↷ " else if(current)"▶ " else "")+saved.exerciseName,fontWeight=FontWeight.Bold)
+                            Text(if(done)"COMPLETATO • $count/${saved.sets.size} serie" else "Serie ${(count+1).coerceAtMost(saved.sets.size)}/${saved.sets.size}",color=Accent,fontSize=12.sp)
+                            if(current) {
+                                Text("${saved.sets.size} serie • "+when(saved.measure){
+                                    ExerciseMeasure.REPS->"${target?.targetReps} rip"
+                                    ExerciseMeasure.DISTANCE->"${target?.targetDistanceMeters} m"
+                                    else->"${target?.targetSeconds} sec"
+                                }+" • ${saved.setRestSec}s serie / ${saved.exerciseRestSec}s esercizio",color=Accent,fontSize=12.sp)
+                                Text("Fatica esercizio (RPE): ${runnerEffort(saved.rpe)}/10",fontSize=12.sp)
+                                Slider(value=runnerEffort(saved.rpe).toFloat(),onValueChange={value->update(state.copy(exercises=state.exercises.mapIndexed{i,e->if(i==index)e.copy(rpe=value.toInt())else e}))},valueRange=1f..10f,steps=8)
+                                if(!done)TextButton(onClick={update(if(skipped)WorkoutRunnerEngine.unskip(state,index)else WorkoutRunnerEngine.skip(state,index))}){Text(if(skipped)"RIPRENDI ESERCIZIO" else "SALTA ESERCIZIO")}
+                                if(!done&&!skipped) {
+                                    key(state.id,index) {
+                                        ExerciseExecutionInputs(ex,!paused&&remaining==0,targetSet=requireNotNull(target)) { reps,seconds,distance,load,assistance ->
+                                            val setIndex=saved.sets.indexOfFirst{!it.completed}
+                                            if(setIndex>=0){
+                                                val completed=WorkoutRunnerEngine.completeSet(state,index,setIndex,reps,seconds,distance,load,assistance)
+                                                val exerciseDone=completed.exercises[index].sets.all{it.completed}
+                                                val rest=if(exerciseDone)saved.exerciseRestSec else saved.setRestSec
+                                                update(completed.copy(restKind=if(exerciseDone)"Esercizio"else "Serie",restEndsAtEpochMs=System.currentTimeMillis()+rest*1000L))
                                             }
                                         }
-                                        if(count>0) TextButton(onClick={
-                                            val undone=undoLastCompletedSet(executedSets[ex.name].orEmpty())
-                                            executedSets[ex.name]=undone
-                                            completedSets[ex.name]=undone.count{it.completed}
-                                            restEndsAt=null;restRemaining=0;currentExercise=ex.name
-                                        }){Text("ANNULLA ULTIMA SERIE")}
                                     }
                                 }
+                                if(count>0)TextButton(onClick={update(WorkoutRunnerEngine.undo(state,index))}){Text("ANNULLA ULTIMA SERIE")}
                             }
                         }
                     }
-                    if(started)item{Text("Fatica complessiva workout: $workoutRpe/10",fontWeight=FontWeight.Bold);Slider(value=workoutRpe.toFloat(),onValueChange={workoutRpe=it.toInt()},valueRange=1f..10f,steps=8)}
+                }
+                item {
+                    Text("Fatica complessiva workout: ${runnerEffort(state.workoutRpe)}/10",fontWeight=FontWeight.Bold)
+                    Slider(value=runnerEffort(state.workoutRpe).toFloat(),onValueChange={update(state.copy(workoutRpe=it.toInt()))},valueRange=1f..10f,steps=8)
                 }
             }
-        },
-        confirmButton = { Button(onClick={
-            if(!started){sessionStartedAt=System.currentTimeMillis();started=true;paused=false;currentExercise=compatible.firstOrNull{(completedSets[it.name]?:0)<prescriptionFor(it).sets}?.name}
-            else confirmFinish=true
-        }){Text(if(!started)"AVVIA WORKOUT" else if(totalSets>0&&doneSets==totalSets)"TERMINA E SALVA" else "SALVA WORKOUT PARZIALE")} },
-        dismissButton = { TextButton(onClick=onDismiss){Text("ANNULLA")} }
-    )
-    if(confirmFinish) AlertDialog(
-        onDismissRequest={confirmFinish=false},
-        title={Text("Terminare e salvare il workout?")},
-        text={Text("Serie completate: $doneSets/$totalSets. Il programma sarà aggiornato dopo il salvataggio.")},
-        confirmButton={Button(onClick={
-            val structured=compatible.mapIndexed { index,ex->recordedExerciseState(index,ex,executedSets[ex.name],exerciseRpe[ex.name],skipped[ex.name]==true,false) }
-            val historyProfileName=restored?.profileName?.takeIf{it.startsWith("Personalizzato")}?:profile.name
-            val saved=onSave(SessionRecord(System.currentTimeMillis(),historyProfileName,doneSets,totalSets,compatible.map{it.name},exerciseRpe.toMap(),workoutRpe,compatible.associate{it.name to (completedSets[it.name]?:0)},elapsedSeconds,structured,structured.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},plannedWorkoutId=restored?.plannedWorkoutId?:plannedWorkout?.id))
-            confirmFinish=false
-            if(saved)onDismiss()
-        }){Text("SALVA WORKOUT")}},
-        dismissButton={TextButton(onClick={confirmFinish=false}){Text("CONTINUA ALLENAMENTO")}}
-    )
+        }
+    },confirmButton={Button(onClick={confirmFinish=true},enabled=totalSets>0){Text(if(doneSets==totalSets)"TERMINA E SALVA"else "SALVA WORKOUT PARZIALE")}},
+        dismissButton={TextButton(onClick=::suspendRunner){Text("SOSPENDI")}})
+    if(confirmFinish)AlertDialog(onDismissRequest={confirmFinish=false},title={Text("Terminare e salvare il workout?")},
+        text={Text("Serie completate: $doneSets/$totalSets.")},
+        confirmButton={Button(onClick={if(onSave(runnerSessionRecord(state,System.currentTimeMillis()))){confirmFinish=false;onDismiss()}}){Text("SALVA WORKOUT")}},
+        dismissButton={TextButton(onClick={confirmFinish=false}){Text("CONTINUA ALLENAMENTO")}})
 }
 
 @Composable
@@ -1993,5 +1970,6 @@ private fun TrainingLocationDialog(current: TrainingLocation? = null, onDismiss:
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
 }
+
 
 

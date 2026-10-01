@@ -20,6 +20,50 @@ class AppStoreRecoveryTest {
 
     @Before fun clearStore() { prefs.edit().clear().commit() }
 
+    @Test fun allWorkoutOriginsPersistIdenticalOccurrenceSnapshotsAndHistoryOwnership() {
+        WorkoutOrigin.entries.forEach { origin ->
+            prefs.edit().clear().commit()
+            val store=AppStore(context)
+            val ex=Exercise("Same name","Petto","Corpo libero","Principiante",targetSets=2,targetValue=6.0)
+            val intent=WorkoutLaunchIntent(origin,sourceExerciseId=if(origin==WorkoutOrigin.SINGLE_EXERCISE)"same"else null,
+                plannedWorkoutId=if(origin==WorkoutOrigin.PLAN)"owner"else null)
+            val snapshot=WorkoutSessionState("same",1000,"Home",listOf(
+                plannedExerciseState(0,ex).copy(rpe=5,pinned=true),
+                plannedExerciseState(1,ex).copy(sets=listOf(WorkoutSetState(0,targetReps=9)),rpe=8)
+            ),trainingLocationId="home",plannedWorkoutId=intent.plannedWorkoutId)
+            val launch=materializeWorkoutLaunch(selectWorkoutLocation(beginWorkoutLaunch(intent),"home"),snapshot)
+            assertEquals(launch,workoutLaunchFromJson(launch.toLaunchJson()))
+            val running=WorkoutRunnerEngine.pause(WorkoutRunnerEngine.completeSet(requireNotNull(launch.workout),1,0,actualReps=7),9000)
+            assertTrue(store.saveActiveWorkout(running))
+            val recovered=requireNotNull(AppStore(context).loadActiveWorkout())
+            assertEquals(running,recovered)
+            assertEquals(origin.name,recovered.workoutOrigin)
+            val record=runnerSessionRecord(recovered,10000)
+            assertTrue(store.finishWorkout(record))
+            assertEquals(record,AppStore(context).loadSessions().single())
+            assertNull(AppStore(context).loadActiveWorkout())
+            assertEquals(1,record.structuredExercises[1].sets.count{it.completed})
+            assertEquals(0,record.structuredExercises[0].sets.count{it.completed})
+        }
+    }
+
+    @Test fun profileSelectionCannotOverwriteTheLastExecutedLocation() {
+        val store=AppStore(context)
+        assertNull(store.loadLastUsedTrainingLocationId())
+        assertTrue(store.startWorkout(WorkoutSessionState("used",1000,"Home",listOf(plannedExerciseState(0,exercises.first())),trainingLocationId="used")))
+        assertTrue(store.saveActiveTrainingLocationId("only-selected"))
+        assertEquals("used",AppStore(context).loadLastUsedTrainingLocationId())
+        assertEquals("only-selected",AppStore(context).loadActiveTrainingLocationId())
+    }
+    @Test fun aNewLaunchCannotOverwriteAnAlreadyRunningSnapshot() {
+        val store=AppStore(context)
+        val active=WorkoutSessionState("active",1000,"Home",listOf(plannedExerciseState(0,exercises.first())),trainingLocationId="home")
+        assertTrue(store.startWorkout(active))
+        assertFalse(store.startWorkout(active.copy(id="replacement",trainingLocationId="gym")))
+        assertEquals(active,AppStore(context).loadActiveWorkout())
+        assertEquals("home",AppStore(context).loadLastUsedTrainingLocationId())
+    }
+
     @Test fun rc2RescheduleAndPartialDeletionKeepSummaryConsistentAfterReload() {
         val store = AppStore(context)
         val original = TrainingPlanEngine.scheduleImmediately("rc2", 1000, 2, 3) { _, _ -> emptyList() }.let { plan ->

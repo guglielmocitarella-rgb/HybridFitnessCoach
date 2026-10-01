@@ -50,6 +50,23 @@ Still pending:
 
 P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `8ab66bc96955cb6249f7e90300dac572c78152f8`; Android APK #869 is **SUCCESS** on this exact SHA (unit tests, Android lint, PR debug APK build/upload). Single exercise, plan session, adaptive extra, custom, skill and library-filter origins share `WorkoutLaunchFlow`, the same preview and the existing `WorkoutDialog` Runner. Location selection, readiness/history/equipment filtering, generated prescriptions, RPE, actual sets, active-session recovery and `plannedWorkoutId` ownership use shared state/persistence. Release signing was skipped. The new interaction and visual behavior remain **DEVICE_PENDING**.
 
+## P01.2/P04 targeted hardening audit — 2026-10-01
+
+Audited upstream HEAD: `2164814bbec687f87393146107aacc3a4255c077`; PR #14 was open/draft/mergeable and Android APK #870 was SUCCESS before this increment. The previous single-exercise/ProfileHub bypass was already absent and was not rewritten. P00 ownership/storage contracts remain unchanged.
+
+Implemented in the current candidate:
+- every configured location is selectable; adaptation or an explicit empty/error preview occurs after selection;
+- last actually used location is separate from Profile selection and is committed atomically with workout start;
+- custom duration is selectable from 10–120 minutes in five-minute steps, with an explicitly APP_RULE duration estimate; regeneration respects the same budget and preserves pinned prescriptions, including skill workouts;
+- the sole Runner entry requires a materialized state and never generates exercises or calls `prescriptionFor`; per-set targets, load/assistance, recovery, pins, order, origin and planned ownership remain authoritative;
+- Runner state uses occurrence indexes within the persisted session, allowing repeated exercise names/catalog IDs without map collisions; previous/next, skip/resume, undo after completion, RPE default 5 and pause/rest restoration share deterministic state transitions;
+- preview/configuration snapshots survive saved-state restoration; active recovery uses the current persisted snapshot, and a new launch cannot overwrite a running workout;
+- actual structured occurrences, location and origin reach history; history detail and recovery inputs include all executed occurrences.
+
+Local evidence: `gradle :app:clean :app:testDebugUnitTest :app:assembleDebug :app:lintDebug` — SUCCESS; **362 tests, 0 failures/errors/skips**, debug APK built, lint 0 errors (4 warnings and 1 hint). Local proxy/JDK/SDK bootstrap settings are outside the repository. CI must be read on the exact newly published HEAD; the older #870 run does not verify these changes.
+
+Status remains **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** for the complete P01.2/P04 scope. **DEVICE_PENDING:** location/adaptation UX for every origin, duration/regeneration/pins, preview → Runner, back/cancel/suspend/resume, repeated exercises, input retention, timers in background and physical process recreation. Runner and custom builder remain dialog-based; technique access, preparation countdown and post-workout summary belong to P05/P01 acceptance and are not claimed complete here.
+
 ## Active roadmap
 
 The binding scope is `V0_9_5_DOD.md`.
@@ -82,3 +99,4 @@ A green build never substitutes for physical-device behavior where interaction, 
 ## PR hygiene
 
 #14 is the active development PR. #13 is superseded/closed; historical PRs #1, #8, #9, #10 and #12 were closed on 2026-10-01 as housekeeping; their Git history remains available for audit. PR #11 (v0.9.4) was already closed.
+

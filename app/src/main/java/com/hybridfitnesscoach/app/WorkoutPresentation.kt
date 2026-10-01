@@ -17,8 +17,8 @@ internal fun loadedVolumeKg(exercise:WorkoutExerciseState):Double =
 
 /** Display persisted performance only. Legacy counters cannot reconstruct actual sets. */
 internal fun historyExerciseDetails(session:SessionRecord):List<HistoryExerciseDetail> =
-    (session.exerciseNames + session.structuredExercises.map{it.exerciseName}).distinct().map { name ->
-        val saved=session.structuredExercises.firstOrNull{it.exerciseName==name}
+    (session.structuredExercises.map{it.exerciseName to it} +
+        session.exerciseNames.distinct().filter{name->session.structuredExercises.none{it.exerciseName==name}}.map{it to null}).map { (name,saved) ->
         if(saved==null) HistoryExerciseDetail(name,session.completedByExercise[name],null,
             listOfNotNull("Dati effettivi per serie non disponibili per questo allenamento storico.",
                 session.exerciseRpe[name]?.let{"RPE esercizio: $it"}))
@@ -44,3 +44,4 @@ internal fun historyExerciseDetails(session:SessionRecord):List<HistoryExerciseD
             else add("RPE mancante: la prestazione non può validare una progressione che richiede RPE.")
         })
     }
+

@@ -111,7 +111,7 @@ class WorkoutLaunchFlowTest {
     }
 
     private fun materialized(locationId:String, plannedWorkoutId:String?=null)=WorkoutSessionState(
-        id="session",startedAtEpochMs=100L,profileName="Test",exercises=emptyList(),
+        id="session",startedAtEpochMs=100L,profileName="Test",exercises=listOf(plannedExerciseState(0,Exercise("Test","Petto","Corpo libero","Principiante"))),
         plannedWorkoutId=plannedWorkoutId,trainingLocationId=locationId
     )
 
@@ -193,3 +193,4 @@ class WorkoutLocationPreferenceTest {
         assertNull(preferredWorkoutLocation(emptyList(),"deleted"))
     }
 }
+

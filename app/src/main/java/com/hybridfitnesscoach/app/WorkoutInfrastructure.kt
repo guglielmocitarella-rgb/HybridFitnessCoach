@@ -22,8 +22,25 @@ object WorkoutRunnerEngine {
     }
     fun unskip(state:WorkoutSessionState,index:Int):WorkoutSessionState {
         if(index !in state.exercises.indices)return state
-        val xs=state.exercises.toMutableList();if(xs[index].status==WorkoutExerciseStatus.SKIPPED)xs[index]=xs[index].copy(status=WorkoutExerciseStatus.PENDING)
+        val xs=state.exercises.toMutableList();if(xs[index].status==WorkoutExerciseStatus.SKIPPED)xs[index]=xs[index].copy(status=if(xs[index].sets.any{it.completed})WorkoutExerciseStatus.PARTIAL else WorkoutExerciseStatus.PENDING)
         return state.copy(exercises=xs,currentExerciseIndex=index)
+    }
+    fun undo(state:WorkoutSessionState,index:Int):WorkoutSessionState {
+        if(index !in state.exercises.indices)return state
+        val xs=state.exercises.toMutableList()
+        val sets=undoLastCompletedSet(xs[index].sets)
+        xs[index]=xs[index].copy(sets=sets,status=if(sets.any{it.completed})WorkoutExerciseStatus.PARTIAL else WorkoutExerciseStatus.PENDING)
+        return state.copy(exercises=xs,currentExerciseIndex=index,restEndsAtEpochMs=null,pausedRestRemainingSec=null)
+    }
+    fun pause(state:WorkoutSessionState,now:Long):WorkoutSessionState {
+        if(state.pausedAtEpochMs!=null)return state
+        return state.copy(elapsedBeforePauseMs=elapsedWorkoutSeconds(state,now)*1000L,
+            pausedAtEpochMs=now,pausedRestRemainingSec=remainingSeconds(state.restEndsAtEpochMs,now),restEndsAtEpochMs=null)
+    }
+    fun resume(state:WorkoutSessionState,now:Long):WorkoutSessionState {
+        if(state.pausedAtEpochMs==null)return state
+        return state.copy(startedAtEpochMs=now-state.elapsedBeforePauseMs,pausedAtEpochMs=null,
+            restEndsAtEpochMs=state.pausedRestRemainingSec?.takeIf{it>0}?.let{now+it*1000L},pausedRestRemainingSec=null)
     }
     fun addSet(state:WorkoutSessionState,index:Int):WorkoutSessionState {
         if(index !in state.exercises.indices)return state
@@ -36,8 +53,9 @@ object WorkoutRunnerEngine {
         if(from !in state.exercises.indices||to !in state.exercises.indices||from==to)return state
         val xs=state.exercises.toMutableList();val item=xs.removeAt(from);xs.add(to,item)
         val reordered=xs.mapIndexed{i,e->e.copy(currentOrder=i)}
-        val currentName=state.exercises.getOrNull(state.currentExerciseIndex)?.exerciseName
-        return state.copy(exercises=reordered,currentExerciseIndex=reordered.indexOfFirst{it.exerciseName==currentName}.coerceAtLeast(0))
+        val current=state.currentExerciseIndex
+        val selected=when { current==from->to; from<current && to>=current->current-1; from>current && to<=current->current+1; else->current }
+        return state.copy(exercises=reordered,currentExerciseIndex=selected)
     }
 
     fun completeSet(state:WorkoutSessionState, exerciseIndex:Int, setIndex:Int, actualReps:Int?=null, actualSeconds:Int?=null, actualDistanceMeters:Double?=null, actualLoadKg:Double?=null, actualAssistanceKg:Double?=null, restUsedSec:Int?=null):WorkoutSessionState {
@@ -290,7 +308,8 @@ internal fun regenerateSkillWorkout(
             else if(regenerated.isEmpty()) regenerated.add(focus)
         }
     }
-    return enforceSkillMasteryPrescription(regenerated,selectedSkills,sessions)
+    val enforced=enforceSkillMasteryPrescription(regenerated,selectedSkills,sessions)
+    return enforced.mapIndexed{index,ex->if(regenerated[index].name in pinned)regenerated[index]else ex}
 }
 
 internal data class EffectiveRunnerPrescription(
@@ -387,7 +406,8 @@ internal data class WorkoutLaunchFlow(
     val intent:WorkoutLaunchIntent,
     val stage:WorkoutLaunchStage=WorkoutLaunchStage.CHOOSE_LOCATION,
     val locationId:String?=null,
-    val workout:WorkoutSessionState?=null
+    val workout:WorkoutSessionState?=null,
+    val errorMessage:String?=null
 )
 
 internal fun beginWorkoutLaunch(intent:WorkoutLaunchIntent)=WorkoutLaunchFlow(intent)
@@ -405,7 +425,7 @@ internal fun materializeWorkoutLaunch(flow:WorkoutLaunchFlow,workout:WorkoutSess
     require(flow.stage==WorkoutLaunchStage.MATERIALIZE)
     require(workout.trainingLocationId==flow.locationId) { "Workout must be materialized for the selected location" }
     require(workout.plannedWorkoutId==flow.intent.plannedWorkoutId) { "Planned workout ownership must be preserved" }
-    return flow.copy(stage=WorkoutLaunchStage.PREVIEW,workout=workout)
+    return flow.copy(stage=WorkoutLaunchStage.PREVIEW,workout=workout.copy(workoutOrigin=flow.intent.origin.name))
 }
 
 
@@ -427,6 +447,7 @@ internal fun generatedWorkoutSessionState(
 
 internal fun startWorkoutRunner(flow:WorkoutLaunchFlow):WorkoutLaunchFlow {
     require(flow.stage==WorkoutLaunchStage.PREVIEW && flow.workout!=null)
+    require(flow.workout.exercises.isNotEmpty() && flow.workout.exercises.all{it.sets.isNotEmpty() && it.exerciseSnapshot!=null})
     return flow.copy(stage=WorkoutLaunchStage.RUNNER)
 }
 
@@ -540,3 +561,44 @@ internal fun singleExerciseWorkoutState(
         trainingLocationId=trainingLocationId
     )
 }
+
+
+/** Structured occurrences are authoritative; name maps aggregate their evidence for coaching. */
+internal fun runnerSessionRecord(state:WorkoutSessionState,now:Long):SessionRecord {
+    val grouped=state.exercises.groupBy{it.exerciseName}
+    return SessionRecord(now,state.profileName,state.exercises.sumOf{e->e.sets.count{it.completed}},
+        state.exercises.sumOf{it.sets.size},state.exercises.map{it.exerciseName},
+        grouped.mapValues{(_,items)->items.map{runnerEffort(it.rpe)}.average().toInt()},runnerEffort(state.workoutRpe),
+        grouped.mapValues{(_,items)->items.sumOf{e->e.sets.count{it.completed}}},elapsedWorkoutSeconds(state,now),
+        state.exercises,state.exercises.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},
+        state.modifications,state.plannedWorkoutId,state.trainingLocationId,state.workoutOrigin)
+}
+
+/** APP_RULE estimate: four seconds per rep; distance at one metre/second. Includes prescribed rest. */
+internal fun estimatedExerciseSeconds(ex:Exercise):Int {
+    val p=prescriptionFor(ex)
+    val effort=when(ex.measure){ExerciseMeasure.REPS->p.value*4;else->p.value}.toInt().coerceAtLeast(1)
+    return p.sets*effort+(p.sets-1).coerceAtLeast(0)*runnerSetRestSeconds(ex)+ex.exerciseRestSec
+}
+internal fun fitCustomWorkoutDuration(candidates:List<Exercise>,minutes:Int,pinnedNames:Set<String> = emptySet()):List<Exercise> {
+    require(minutes in 10..120)
+    var remaining=minutes*60-candidates.filter{it.name in pinnedNames}.sumOf(::estimatedExerciseSeconds)
+    val selected=mutableListOf<Exercise>()
+    for(ex in candidates){
+        if(ex.name in pinnedNames){selected.add(ex);continue}
+        val fitting=(ex.targetSets downTo 1).asSequence().map{ex.copy(targetSets=it)}.firstOrNull{estimatedExerciseSeconds(it)<=remaining} ?: continue
+        selected.add(fitting);remaining-=estimatedExerciseSeconds(fitting)
+    }
+    return selected
+}
+
+/** Freeze load/assistance and effective rest at materialization, never on Runner recomposition. */
+internal fun freezeWorkoutTargets(state:WorkoutSessionState,sessions:List<SessionRecord>,readiness:Int?):WorkoutSessionState =
+    state.copy(exercises=state.exercises.map { saved ->
+        val ex=requireNotNull(saved.exerciseSnapshot)
+        val rec=loadRecommendationForExercise(ex,sessions,minOf(exerciseRecovery(ex,recoveryScores(sessions)),readiness?:100))
+        saved.copy(rpe=runnerEffort(saved.rpe),setRestSec=runnerSetRestSeconds(ex,saved.setRestSec),sets=saved.sets.map { set ->
+            set.copy(targetLoadKg=set.targetLoadKg?:rec.loadKg?.takeIf{ex.resistanceMode==ResistanceMode.EXTERNAL_LOAD},
+                targetAssistanceKg=set.targetAssistanceKg?:rec.assistanceKg?.takeIf{ex.resistanceMode==ResistanceMode.ASSISTED})
+        })
+    })
