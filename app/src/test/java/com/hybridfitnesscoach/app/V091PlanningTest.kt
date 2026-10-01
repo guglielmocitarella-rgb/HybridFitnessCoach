@@ -240,22 +240,13 @@ class V091PlanningTest {
   assertTrue(plan.workouts.all{java.time.LocalDate.ofEpochDay(it.epochDay).dayOfWeek.value in config.trainingDays})
   assertTrue(plan.workouts.all{it.exercises.isEmpty() && it.intent!=null})
  }
- @Test fun suggestedWorkoutIdentifiesTodaysIntentPlanWithoutEmbeddingExercises(){
-  val fallback=Exercise("Fallback","Core","Corpo libero","Principiante")
+ @Test fun aggregateTodayLookupKeepsIntentPlansDistinct(){
   val today=2000L
-  val intent=PlannedSessionIntent("Forza")
-  val plan=TrainingPlan("p",today,1,1,listOf(PlannedWorkout("today",today,0,0,emptyList(),intent=intent)))
-  val resolved=resolveSuggestedWorkout(plan,today){listOf(fallback)}
-  assertEquals("today",resolved.plannedWorkout?.id)
-  assertTrue(resolved.exercises.isEmpty())
- }
-
- @Test fun suggestedWorkoutFallsBackWhenNoRunnablePlanSessionExistsToday(){
-  val fallback=Exercise("Fallback","Core","Corpo libero","Principiante")
-  val today=2000L
-  val done=PlannedWorkout("done",today,0,0,listOf(fallback),state=PlannedWorkoutState.COMPLETED)
-  val resolved=resolveSuggestedWorkout(TrainingPlan("p",today,1,1,listOf(done)),today){listOf(fallback)}
-  assertNull(resolved.plannedWorkout);assertEquals(listOf("Fallback"),resolved.exercises.map{it.name})
+  val a=TrainingPlan("a",today,1,1,listOf(PlannedWorkout("a-today",today,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))),goal="Forza")
+  val b=TrainingPlan("b",today,1,1,listOf(PlannedWorkout("b-today",today,0,0,emptyList(),intent=PlannedSessionIntent("Calisthenics"))),goal="Calisthenics")
+  val resolved=todayPlannedWorkouts(listOf(a,b),today)
+  assertEquals(2,resolved.size)
+  assertEquals(setOf("a-today","b-today"),resolved.map{it.second.id}.toSet())
  }
 
  @Test fun fitnessLevelAssessmentHasStableBoundaries(){
