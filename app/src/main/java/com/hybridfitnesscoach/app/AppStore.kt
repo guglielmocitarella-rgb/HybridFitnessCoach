@@ -292,35 +292,46 @@ class AppStore(context: Context) {
         return write { putString("training_plans_v095",root.toString()) }
     }
 
-    fun loadActiveTrainingPlanId():String? = string("active_training_plan_id_v095")?.takeIf{it.isNotBlank()}
-
-    fun saveActiveTrainingPlanId(id:String?):Boolean = write {
-        if(id==null) remove("active_training_plan_id_v095") else putString("active_training_plan_id_v095",id)
+    fun loadEnabledTrainingPlanIds():Set<String> {
+        val raw=string("enabled_training_plan_ids_v095") ?: return emptySet()
+        return recovery.read("enabled_training_plan_ids_v095", emptySet()) {
+            val a=JSONArray(raw);(0 until a.length()).map{a.getString(it)}.toSet()
+        }
     }
 
-    fun loadTrainingPlan():TrainingPlan? {
-        val plans=loadTrainingPlans()
-        val activeId=loadActiveTrainingPlanId()
-        return plans.firstOrNull{it.id==activeId}
+    fun saveEnabledTrainingPlanIds(ids:Set<String>):Boolean {
+        val existing=loadTrainingPlans().map{it.id}.toSet()
+        require(ids.all{it in existing}) { "Enabled plan must exist" }
+        return write { putString("enabled_training_plan_ids_v095",JSONArray(ids.sorted()).toString()) }
     }
+
+    fun loadEnabledTrainingPlans():List<TrainingPlan> {
+        val enabled=loadEnabledTrainingPlanIds()
+        return loadTrainingPlans().filter{it.id in enabled}
+    }
+
+    /** Temporary single-plan view for call sites not yet migrated to aggregate scheduling. */
+    fun loadTrainingPlan():TrainingPlan? = loadEnabledTrainingPlans().firstOrNull()
 
     fun saveTrainingPlan(plan:TrainingPlan):Boolean {
         val plans=loadTrainingPlans().toMutableList()
         val index=plans.indexOfFirst{it.id==plan.id}
         if(index>=0)plans[index]=plan else plans.add(plan)
-        if(!saveTrainingPlans(plans))return false
-        return if(loadActiveTrainingPlanId()==null)saveActiveTrainingPlanId(plan.id) else true
+        return saveTrainingPlans(plans)
     }
 
-    fun activateTrainingPlan(id:String):Boolean {
+    fun setTrainingPlanEnabled(id:String,enabled:Boolean):Boolean {
         if(loadTrainingPlans().none{it.id==id})return false
-        return saveActiveTrainingPlanId(id)
+        val ids=loadEnabledTrainingPlanIds().toMutableSet()
+        if(enabled)ids.add(id) else ids.remove(id)
+        return saveEnabledTrainingPlanIds(ids)
     }
 
     fun deleteTrainingPlan(id:String):Boolean {
         val remaining=loadTrainingPlans().filterNot{it.id==id}
         if(!saveTrainingPlans(remaining))return false
-        return if(loadActiveTrainingPlanId()==id)saveActiveTrainingPlanId(null) else true
+        val enabled=loadEnabledTrainingPlanIds()-id
+        return saveEnabledTrainingPlanIds(enabled)
     }
 
 
