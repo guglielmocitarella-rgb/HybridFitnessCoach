@@ -1033,7 +1033,8 @@ internal fun calendarStateMarker(state:PlannedWorkoutState):String=when(state){
 private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->Unit) {
     val today=java.time.LocalDate.now().toEpochDay()
     var plans by remember { mutableStateOf(store.loadTrainingPlans()) }
-    var plan by remember { mutableStateOf(store.loadTrainingPlan()) }
+    var plan by remember { mutableStateOf(store.loadEnabledTrainingPlans().firstOrNull()) }
+    var enabledPlanIds by remember { mutableStateOf(store.loadEnabledTrainingPlanIds()) }
     var showPlans by remember { mutableStateOf(false) }
     var confirmDelete by remember { mutableStateOf<TrainingPlan?>(null) }
     val todayDate=java.time.LocalDate.ofEpochDay(today)
@@ -1138,7 +1139,7 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
                 val candidate=PlanConfiguration(goal,current.weeks,days,weekdays.toSet(),skills.toList()).validated()
                 if(plan==null){
                     val created=generateTrainingPlan("plan-"+today,today,candidate)
-                    if(store.saveTrainingPlan(created) && store.activateTrainingPlan(created.id)){plans=store.loadTrainingPlans();plan=created;planSaveError=false;editPlan=false}else planSaveError=true
+                    if(store.saveTrainingPlan(created) && store.setTrainingPlanEnabled(created.id,true)){plans=store.loadTrainingPlans();enabledPlanIds=store.loadEnabledTrainingPlanIds();plan=created;planSaveError=false;editPlan=false}else planSaveError=true
                 } else { confirmRegeneration=candidate;editPlan=false }
             }
         },enabled=weekdays.size==days){Text(if(plan==null)"CREA PIANO" else "RIVEDI MODIFICHE")}},dismissButton={TextButton(onClick={editPlan=false}){Text("ANNULLA")}})
@@ -1219,13 +1220,20 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             LazyColumn(Modifier.heightIn(max=480.dp)) {
                 if(plans.isEmpty())item{Text("Nessun piano salvato.",color=Color.Gray)}
                 items(plans){saved->
-                    Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{
-                        if(store.activateTrainingPlan(saved.id)){plan=saved;showPlans=false}
-                    }) {
-                        Column(Modifier.padding(14.dp)) {
-                            Text(saved.goal,fontWeight=FontWeight.Bold)
-                            Text(saved.weeks.toString()+" settimane • "+saved.daysPerWeek+" sessioni/settimana",fontSize=12.sp,color=Color.Gray)
-                            if(saved.id==plan?.id)Text("ATTIVO",color=Accent,fontSize=11.sp,fontWeight=FontWeight.Bold)
+                    Card(Modifier.fillMaxWidth().padding(vertical=4.dp).clickable{plan=saved;showPlans=false}) {
+                        Row(Modifier.padding(14.dp),verticalAlignment=Alignment.CenterVertically) {
+                            Column(Modifier.weight(1f)) {
+                                Text(saved.goal,fontWeight=FontWeight.Bold)
+                                Text(saved.weeks.toString()+" settimane • "+saved.daysPerWeek+" sessioni/settimana",fontSize=12.sp,color=Color.Gray)
+                                Text(if(saved.id in enabledPlanIds)"ATTIVO • influenza Coach" else "DISATTIVATO",color=if(saved.id in enabledPlanIds)Accent else Color.Gray,fontSize=11.sp,fontWeight=FontWeight.Bold)
+                            }
+                            Switch(checked=saved.id in enabledPlanIds,onCheckedChange={enabled->
+                                if(store.setTrainingPlanEnabled(saved.id,enabled)){
+                                    enabledPlanIds=store.loadEnabledTrainingPlanIds()
+                                    if(!enabled && plan?.id==saved.id)plan=store.loadEnabledTrainingPlans().firstOrNull()
+                                    if(enabled)plan=saved
+                                }
+                            })
                         }
                     }
                 }
@@ -1238,7 +1246,8 @@ private fun TrainingPlanScreen(store:AppStore,onStartWorkout:(PlannedWorkout)->U
             confirmButton={Button(onClick={
                 if(store.deleteTrainingPlan(doomed.id)){
                     plans=store.loadTrainingPlans()
-                    plan=store.loadTrainingPlan()
+                    enabledPlanIds=store.loadEnabledTrainingPlanIds()
+                    plan=store.loadEnabledTrainingPlans().firstOrNull()
                     confirmDelete=null
                 } else planSaveError=true
             }){Text("ELIMINA PIANO")}},
