@@ -8,6 +8,7 @@ ALLOWED_TYPES={"STRENGTH","HYPERTROPHY","CALISTHENICS","SKILL","POWER","PLYOMETR
 ALLOWED_MEASURES={"REPS","SECONDS","DURATION","DISTANCE","INTERVALS"}
 ALLOWED_CONF={"HIGH","MEDIUM","LOW"}
 ALLOWED_REL={"MAIN_PROGRESSION","REGRESSION","PREREQUISITE","PREPARATORY_DRILL","ASSISTANCE","ADVANCED_VARIANT","RELATED"}
+ALLOWED_EXEC_EVIDENCE={"SPECIFIC_SOURCE","FAMILY_GUIDANCE","UNKNOWN"}
 
 def load(p): return json.loads(p.read_text(encoding="utf-8"))
 def norm(s): return " ".join(str(s or "").casefold().replace("-"," ").split())
@@ -52,13 +53,20 @@ def main():
         for prereq in x.get("prerequisites") or []:
             ref=prereq if isinstance(prereq,str) else prereq.get("id") or prereq.get("exercise_id")
             if not ref or ref not in set(ids): errors.append(f"{x.get('id')}: unknown prerequisite {ref}")
-        # F01 execution contract: every selectable canonical movement must carry
-        # source-reviewed execution content. Programming guidance remains separate.
+        evidence=x.get("executionEvidence")
+        if evidence not in ALLOWED_EXEC_EVIDENCE: errors.append(f"{x.get('id')}: invalid executionEvidence {evidence!r}")
+        # F01 execution contract: content may be specific-source or explicitly
+        # family-level guidance. The evidence tier prevents generic guidance from
+        # being misrepresented as exercise-specific source material.
         for field in ("descriptionIt","setupIt"):
             if not str(x.get(field) or "").strip(): errors.append(f"{x.get('id')}: missing required F01 {field}")
         steps=x.get("executionStepsIt") or []
         if not isinstance(steps,list) or not steps or any(not str(step).strip() for step in steps):
             errors.append(f"{x.get('id')}: missing required F01 executionStepsIt")
+        if evidence=="SPECIFIC_SOURCE":
+            specific_types={"EXERCISE_HEADING","EXERCISE_SECTION","SOURCE_HEADING","CHAPTER_HEADING"}
+            if not any(ref.get("evidence_type") in specific_types for ref in refs):
+                errors.append(f"{x.get('id')}: SPECIFIC_SOURCE without specific provenance")
         for field in ("primaryMuscles","equipment","prescription","restGuidance"):
             if not x.get(field): warnings.append(f"{x.get('id')}: missing {field}")
     used_sources=set()

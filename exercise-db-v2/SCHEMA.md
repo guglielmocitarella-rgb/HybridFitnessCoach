@@ -21,6 +21,7 @@ Each canonical movement should support:
 - `descriptionIt`
 - `setupIt`
 - `executionStepsIt[]`
+- `executionEvidence`: SPECIFIC_SOURCE | FAMILY_GUIDANCE | UNKNOWN. SPECIFIC_SOURCE means the execution contract is supported by exercise/section/chapter-level provenance; FAMILY_GUIDANCE is reusable biomechanical guidance and must not be presented as source-specific technique; UNKNOWN means no reviewed execution contract is available.
 - `techniqueCuesIt[]`
 - `commonErrorsIt[]` only when supported
 - `primaryMuscles[]`

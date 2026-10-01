@@ -37,6 +37,15 @@ class ExerciseDbV2Test(unittest.TestCase):
         self.assertTrue(all(str(x.get("setupIt") or "").strip() for x in data))
         self.assertTrue(all(x.get("executionStepsIt") and all(str(s).strip() for s in x["executionStepsIt"]) for x in data))
 
+    def test_execution_evidence_tiers_are_explicit_and_consistent(self):
+        data=json.loads((DB/"exercises.json").read_text(encoding="utf-8"))
+        allowed={"SPECIFIC_SOURCE","FAMILY_GUIDANCE","UNKNOWN"}
+        self.assertTrue(all(x.get("executionEvidence") in allowed for x in data))
+        specific={"EXERCISE_HEADING","EXERCISE_SECTION","SOURCE_HEADING","CHAPTER_HEADING"}
+        for x in data:
+            if x["executionEvidence"]=="SPECIFIC_SOURCE":
+                self.assertTrue(any(ref.get("evidence_type") in specific for ref in x.get("sources",[])),x["id"])
+
     def test_validator_rejects_unknown_progression_source(self):
         original=(DB/"progressions.json").read_text(encoding="utf-8")
         data=json.loads(original); data[0]["sources"][0]["source_id"]="NOT_REGISTERED"

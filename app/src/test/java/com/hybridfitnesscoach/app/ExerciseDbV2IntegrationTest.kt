@@ -29,6 +29,16 @@ class ExerciseDbV2IntegrationTest {
         assertTrue(db.all{it.executionStepsIt.isNotEmpty() && it.executionStepsIt.all(String::isNotBlank)})
     }
 
+    @Test fun executionEvidenceIsExplicitAndSpecificTierHasSpecificProvenance() {
+        val specificTypes=setOf("EXERCISE_HEADING","EXERCISE_SECTION","SOURCE_HEADING","CHAPTER_HEADING")
+        records().forEach { record ->
+            assertTrue(record.executionEvidence in setOf("SPECIFIC_SOURCE","FAMILY_GUIDANCE","UNKNOWN"))
+            if(record.executionEvidence=="SPECIFIC_SOURCE") {
+                assertTrue(record.sourceRefs.any { it.evidenceType in specificTypes })
+            }
+        }
+    }
+
     @Test fun canonicalRecordsMapToExecutableAppExercises() {
         val mapped=records().map{ExerciseDbV2.toLegacyExercise(it)}
         assertEquals(587,mapped.size)

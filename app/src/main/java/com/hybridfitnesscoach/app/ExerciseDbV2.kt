@@ -19,7 +19,8 @@ internal data class ExerciseV2Record(
     val sourceRefs:List<ExerciseV2EvidenceRef> = emptyList(),
     val descriptionIt:String="",
     val setupIt:String="",
-    val executionStepsIt:List<String> = emptyList()
+    val executionStepsIt:List<String> = emptyList(),
+    val executionEvidence:String="UNKNOWN"
 ) {
     fun lookupNames():Set<String> =
         (listOf(canonicalNameEn,nameIt)+aliases)
@@ -83,6 +84,7 @@ internal object ExerciseDbV2 {
                 descriptionIt=if(o.isNull("descriptionIt")) "" else o.optString("descriptionIt"),
                 setupIt=if(o.isNull("setupIt")) "" else o.optString("setupIt"),
                 executionStepsIt=o.optJSONArray("executionStepsIt").strings(),
+                executionEvidence=o.optString("executionEvidence","UNKNOWN"),
                 sources=o.optJSONArray("sources").objects().mapNotNull{it.optString("source_id").takeIf(String::isNotBlank)},
                 sourceRefs=o.optJSONArray("sources").objects().mapNotNull { source ->
                     source.optString("source_id").takeIf(String::isNotBlank)?.let { id ->
