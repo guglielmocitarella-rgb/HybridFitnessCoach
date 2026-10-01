@@ -738,11 +738,6 @@ internal fun materializePlannedSession(
  return PlannedSessionRealization(realized,planned.id)
 }
 
-data class SuggestedWorkout(val exercises:List<Exercise>,val plannedWorkout:PlannedWorkout?)
-internal fun resolveSuggestedWorkout(plan:TrainingPlan?,today:Long,adaptive:()->List<Exercise>):SuggestedWorkout {
- val planned=todayPlannedWorkout(plan,today)
- return if(planned!=null) SuggestedWorkout(emptyList(),planned) else SuggestedWorkout(adaptive(),null)
-}
 internal fun generateTrainingPlan(planId:String,startEpochDay:Long,configuration:PlanConfiguration):TrainingPlan {
  val valid=configuration.validated()
  val scheduled=TrainingPlanEngine.scheduleImmediately(planId,startEpochDay,valid.weeks,valid.daysPerWeek,valid.trainingDays){_,_->emptyList()}
@@ -969,8 +964,7 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
                     Text("Oggi", fontWeight = FontWeight.SemiBold)
                     val today=java.time.LocalDate.now().toEpochDay()
-                    val todaySessions=enabledPlans.flatMap{plan->plan.workouts.filter{w->w.epochDay==today && w.state !in setOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED)}.map{w->plan to w}}
-                        .sortedWith(compareBy<Pair<TrainingPlan,PlannedWorkout>>{it.first.goal}.thenBy{it.second.sequenceInWeek})
+                    val todaySessions=todayPlannedWorkouts(enabledPlans,today)
                     val nextSession=enabledPlans.flatMap{plan->plan.workouts.filter{w->w.epochDay>today && w.state==PlannedWorkoutState.PLANNED}.map{w->plan to w}}
                         .minByOrNull{it.second.epochDay}
                     val combinedSkills=enabledPlans.flatMap{it.prioritySkills}.distinct()
