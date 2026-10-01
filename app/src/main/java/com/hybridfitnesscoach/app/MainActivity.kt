@@ -944,13 +944,6 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
     var treePicker by remember { mutableStateOf(false) }
     var customSkill by remember { mutableStateOf("Nessuna") }
     var trainingPlan by remember { mutableStateOf(store.loadTrainingPlan()) }
-    var planSaveError by remember { mutableStateOf(false) }
-    val initialPlanConfiguration = remember(trainingPlan) { trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults() }
-    var requestedWeeks by remember(trainingPlan?.id) { mutableIntStateOf(initialPlanConfiguration.weeks) }
-    var planGoal by remember(trainingPlan?.id) { mutableStateOf(initialPlanConfiguration.goal) }
-    var planDaysPerWeek by remember(trainingPlan?.id) { mutableIntStateOf(initialPlanConfiguration.daysPerWeek) }
-    val planWeekdays = remember(trainingPlan?.id) { mutableStateListOf<Int>().apply { addAll(initialPlanConfiguration.trainingDays.sorted()) } }
-    val planSkills = remember(trainingPlan?.id) { mutableStateListOf<String>().apply { addAll(initialPlanConfiguration.prioritySkills) } }
     var plannedWorkoutToRun by remember { mutableStateOf<PlannedWorkout?>(null) }
     LaunchedEffect(calendarWorkout?.id) {
         calendarWorkout?.let { requested ->
@@ -959,19 +952,6 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
             workoutOpen=launch.resumeActive || plannedWorkoutToRun?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore).exercises.isNotEmpty()}==true
             onCalendarWorkoutConsumed()
         }
-    }
-    fun ensurePlan():TrainingPlan {
-        trainingPlan?.let { return it }
-        val today=java.time.LocalDate.now().toEpochDay()
-        val configuration=PlanConfiguration(planGoal,requestedWeeks,planDaysPerWeek,planWeekdays.toSet(),planSkills.toList()).validated()
-        val created=generateTrainingPlan("plan-"+today,today,configuration)
-        if (!store.saveTrainingPlan(created)) {
-            planSaveError = true
-            return created
-        }
-        planSaveError = false
-        trainingPlan = created
-        return created
     }
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         item {
@@ -987,47 +967,24 @@ private fun Home(profile: TrainingLocation, athlete: AthleteProfile, sessions: L
                         TextButton(onClick = changeProfile) { Text("CAMBIA") }
                     }
                     HorizontalDivider(Modifier.padding(vertical = 16.dp))
-                    Text("Allenamento suggerito", fontWeight = FontWeight.SemiBold)
+                    Text("Oggi", fontWeight = FontWeight.SemiBold)
                     val today=java.time.LocalDate.now().toEpochDay()
                     val homePlanState=deriveHomePlanState(trainingPlan,today)
                     val todayPlan=homePlanState.todayWorkout
                     val realizedTodayPlan=todayPlan?.let{materializePlannedSession(it,profile,athlete,sessions,readinessScore)}
-                    val suggested=realizedTodayPlan?.exercises ?: generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore)
-                    Text(if(homePlanState.status==HomePlanStatus.TODAY)"Sessione del programma" else "Allenamento adattivo", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
-                    Text(suggested.size.toString()+" esercizi"+if(todayPlan!=null)" • "+calendarDate(todayPlan.epochDay) else "", color = Color.Gray)
-                    Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen = true }, enabled=todayPlan==null || suggested.isNotEmpty(), modifier = Modifier.fillMaxWidth().padding(top = 18.dp), shape = RoundedCornerShape(14.dp)) { Text(if(todayPlan!=null)"INIZIA SESSIONE PIANIFICATA" else "INIZIA ALLENAMENTO SUGGERITO") }
-                    OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
-                }
-            }
-        }
-        item {
-            val plan=trainingPlan
-            Card(Modifier.padding(horizontal=20.dp,vertical=10.dp).fillMaxWidth(),shape=RoundedCornerShape(18.dp)) {
-                Column(Modifier.padding(18.dp)) {
-                    Text("Programma multi-settimana",fontWeight=FontWeight.Bold,fontSize=18.sp)
-                    if(plan==null) {
-                        Text("Obiettivo",fontWeight=FontWeight.SemiBold)
-                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(6.dp)){listOf("Forza","Ipertrofia","Calisthenics","Fitness generale").forEach{g->FilterChip(selected=planGoal==g,onClick={planGoal=g},label={Text(g,fontSize=11.sp)})}}
-                        Text("Durata del piano: $requestedWeeks settimane",fontSize=13.sp,color=Color.Gray)
-                        Slider(value=requestedWeeks.toFloat(),onValueChange={requestedWeeks=it.toInt().coerceIn(2,52)},valueRange=2f..52f,steps=49)
-                        Text("Allenamenti a settimana: $planDaysPerWeek",fontWeight=FontWeight.SemiBold)
-                        Row(verticalAlignment=Alignment.CenterVertically){OutlinedButton(onClick={if(planDaysPerWeek>1){planDaysPerWeek--;while(planWeekdays.size>planDaysPerWeek)planWeekdays.removeAt(planWeekdays.lastIndex)}}){Text("−")};Spacer(Modifier.width(12.dp));Button(onClick={if(planDaysPerWeek<7)planDaysPerWeek++}){Text("+")}}
-                        Text("Giorni",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp))
-                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(4.dp)){listOf("L","M","M","G","V","S","D").forEachIndexed{idx,label->val day=idx+1;FilterChip(selected=day in planWeekdays,onClick={if(day in planWeekdays)planWeekdays.remove(day) else if(planWeekdays.size<planDaysPerWeek)planWeekdays.add(day)},label={Text(label)})}}
-                        if(planGoal=="Calisthenics"){Text("Skill prioritarie",fontWeight=FontWeight.SemiBold,modifier=Modifier.padding(top=8.dp));calisthenicsSkills.take(12).forEach{s->FilterChip(selected=s.name in planSkills,onClick={if(s.name in planSkills)planSkills.remove(s.name)else planSkills.add(s.name)},label={Text(s.name)})}}
-                        Button(onClick={ensurePlan()},enabled=planWeekdays.size==planDaysPerWeek,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("CREA PROGRAMMA")}
-                        if (planSaveError) Text("Impossibile salvare il programma. Controlla i dati e riprova.", color=MaterialTheme.colorScheme.error, fontSize=13.sp)
+                    val extra=if(todayPlan==null)generateWorkout(profile,athlete.forPlan(trainingPlan?.let(PlanConfiguration::fromPlan) ?: PlanConfiguration.defaults()),sessions,readinessScore) else emptyList()
+                    if(todayPlan!=null) {
+                        Text("Allenamento del piano", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+                        Text((realizedTodayPlan?.exercises?.size ?: 0).toString()+" esercizi • "+calendarDate(todayPlan.epochDay), color = Color.Gray)
+                        Button(onClick = { plannedWorkoutToRun=todayPlan; workoutOpen=true }, enabled=realizedTodayPlan?.exercises?.isNotEmpty()==true, modifier=Modifier.fillMaxWidth().padding(top=18.dp), shape=RoundedCornerShape(14.dp)){Text("INIZIA")}
                     } else {
-                        val homePlanState=deriveHomePlanState(plan,java.time.LocalDate.now().toEpochDay())
-                        Text(plan.goal,fontWeight=FontWeight.SemiBold,color=Accent)
-                        Text(plan.weeks.toString()+" settimane • "+plan.daysPerWeek+" sessioni/settimana",fontSize=13.sp,color=Color.Gray)
-                        homePlanState.todayWorkout?.let{
-                            Text(homePlanState.primaryLabel+" • Sessione "+(it.sequenceInWeek+1),fontWeight=FontWeight.Bold,modifier=Modifier.padding(top=10.dp))
-                            Text("Sessione da materializzare • "+calendarDate(it.epochDay),fontSize=13.sp,color=Color.Gray)
-                        } ?: Text(homePlanState.primaryLabel,modifier=Modifier.padding(top=10.dp),fontSize=13.sp,color=Color.Gray)
-                        homePlanState.nextWorkout?.let{Text((homePlanState.secondaryLabel?:"Prossima")+": "+calendarDate(it.epochDay)+" • esercizi definiti all’avvio",modifier=Modifier.padding(top=6.dp))}
-                        OutlinedButton(onClick=managePlan,modifier=Modifier.fillMaxWidth().padding(top=10.dp)){Text("GESTISCI PROGRAMMA")}
+                        Text("Nessuna sessione programmata", fontSize = 22.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+                        homePlanState.nextWorkout?.let { Text("Prossimo allenamento: "+calendarDate(it.epochDay),color=Color.Gray) }
+                        Text("Puoi recuperare oppure aggiungere una sessione extra adattata al tuo stato e al programma.",fontSize=13.sp,color=Color.Gray,modifier=Modifier.padding(top=8.dp))
+                        Button(onClick={plannedWorkoutToRun=null;workoutOpen=true},enabled=extra.isNotEmpty(),modifier=Modifier.fillMaxWidth().padding(top=18.dp),shape=RoundedCornerShape(14.dp)){Text("ALLENAMENTO EXTRA")}
                     }
+                    OutlinedButton(onClick = { customWorkoutOpen = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp), shape = RoundedCornerShape(14.dp)) { Text("CREA WORKOUT PERSONALIZZATO") }
+                    TextButton(onClick=managePlan,modifier=Modifier.fillMaxWidth()){Text(if(trainingPlan==null)"CREA PIANO" else "VEDI PIANO")}
                 }
             }
         }
