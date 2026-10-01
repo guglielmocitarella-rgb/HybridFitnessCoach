@@ -223,4 +223,30 @@ class Rc2PlanningRegressionTest {
         assertNull(todayPlannedWorkout(original,today+1))
     }
 
+    @Test fun aggregateCoachCountsAllEnabledPlanSessionsAndSameDayCollisions() {
+        fun intentPlan(id:String,workoutId:String,state:PlannedWorkoutState=PlannedWorkoutState.PLANNED)=
+            TrainingPlan(id,1000,1,1,listOf(PlannedWorkout(workoutId,1000,0,0,emptyList(),state=state,intent=PlannedSessionIntent("Forza"))))
+        val strength=intentPlan("strength","s")
+        val calisthenics=intentPlan("calisthenics","c")
+        val context=coachingContext(emptyList(),80,listOf(strength,calisthenics),1000)
+
+        assertEquals(2,context.plannedEvidence)
+        assertEquals(2,context.upcomingSessions)
+        assertEquals(0,context.planDisruptions)
+        assertTrue(context.plan.notes.any{it.contains("Piani attivi: 2")})
+        assertTrue(context.plan.notes.any{it.contains("1 giorni con sessioni multiple")})
+    }
+
+    @Test fun aggregateCoachCountsDisruptionsAcrossDifferentPlans() {
+        val partial=TrainingPlan("a",1000,1,1,listOf(
+            PlannedWorkout("a-w",1000,0,0,emptyList(),state=PlannedWorkoutState.PARTIAL,intent=PlannedSessionIntent("Forza"))))
+        val skipped=TrainingPlan("b",1000,1,1,listOf(
+            PlannedWorkout("b-w",999,0,0,emptyList(),state=PlannedWorkoutState.SKIPPED,intent=PlannedSessionIntent("Calisthenics"))))
+        val context=coachingContext(emptyList(),80,listOf(partial,skipped),1000)
+
+        assertEquals(2,context.plannedEvidence)
+        assertEquals(2,context.planDisruptions)
+        assertEquals(0,context.upcomingSessions)
+    }
+
 }
