@@ -764,7 +764,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class Tab { HOME, PLAN, LIBRARY, EQUIPMENT, PROGRESS }
+enum class Tab { HOME, PLAN, PROGRESS, PROFILE }
 
 private val italianCalendarDate = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy", java.util.Locale.ITALY)
 private fun calendarDate(epochDay:Long):String = java.time.LocalDate.ofEpochDay(epochDay).format(italianCalendarDate)
@@ -800,9 +800,8 @@ fun HybridFitnessApp() {
                     listOf(
                         Triple(Tab.HOME, Icons.Default.Home, "Oggi"),
                         Triple(Tab.PLAN, Icons.Default.DateRange, "Piano"),
-                        Triple(Tab.LIBRARY, Icons.Default.Search, "Esercizi"),
-                        Triple(Tab.EQUIPMENT, Icons.Default.FitnessCenter, "Attrezzatura"),
-                        Triple(Tab.PROGRESS, Icons.Default.TrendingUp, "Progressi")
+                        Triple(Tab.PROGRESS, Icons.Default.TrendingUp, "Progressi"),
+                        Triple(Tab.PROFILE, Icons.Default.Person, "Profilo")
                     ).forEach { (item, icon, label) ->
                         NavigationBarItem(selected = tab == item, onClick = { tab = item }, icon = { Icon(icon, label) }, label = { Text(label) })
                     }
@@ -811,23 +810,19 @@ fun HybridFitnessApp() {
         ) { pad ->
             Box(Modifier.padding(pad).fillMaxSize()) {
                 when (tab) {
-                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.EQUIPMENT }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> saveFinishedWorkout(record) }
+                    Tab.HOME -> Home(activeProfile, athlete, sessions, store, { tab = Tab.PROFILE }, { tab = Tab.PLAN }, calendarWorkout, { calendarWorkout=null }) { record -> saveFinishedWorkout(record) }
                     Tab.PLAN -> TrainingPlanScreen(store) { workout -> calendarWorkout=workout;tab=Tab.HOME }
-                    Tab.LIBRARY -> Library(activeProfile, athlete, sessions, store, onExecuteExercise = { exercise ->
-                        libraryExerciseWorkout=singleExerciseWorkoutState(
-                            exercise=exercise,
-                            profileName=activeProfile.name,
-                            athlete=athlete,
-                            sessions=sessions
-                        )
-                    }) { record -> saveFinishedWorkout(record) }
-                    Tab.EQUIPMENT -> Equipment(activeProfile, customProfiles,
- { selected -> activeProfile=selected; store.saveActiveTrainingLocationId(selected.id) },
- { created -> customProfiles.add(created); store.saveTrainingLocations(customProfiles); activeProfile=created; store.saveActiveTrainingLocationId(created.id) },
- { old, updated -> val i=customProfiles.indexOfFirst{it.id==old.id}; if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.id==old.id){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}} },
- { doomed -> customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)} }
-)
                     Tab.PROGRESS -> Progress(athlete, sessions, { updated -> athlete = updated; store.saveAthlete(updated) }, { timestamp -> store.deleteSession(timestamp); sessions = store.loadSessions() })
+                    Tab.PROFILE -> ProfileHub(
+                        active=activeProfile, athlete=athlete, sessions=sessions, store=store, customProfiles=customProfiles,
+                        onAthleteSave={ updated -> athlete=updated; store.saveAthlete(updated) },
+                        selectLocation={ selected -> activeProfile=selected; store.saveActiveTrainingLocationId(selected.id) },
+                        addLocation={ created -> customProfiles.add(created); store.saveTrainingLocations(customProfiles); activeProfile=created; store.saveActiveTrainingLocationId(created.id) },
+                        editLocation={ old, updated -> val i=customProfiles.indexOfFirst{it.id==old.id}; if(i>=0){customProfiles[i]=updated;store.saveTrainingLocations(customProfiles);if(activeProfile.id==old.id){activeProfile=updated;store.saveActiveTrainingLocationId(updated.id)}} },
+                        deleteLocation={ doomed -> customProfiles.removeAll{it.id==doomed.id};store.saveTrainingLocations(customProfiles);if(activeProfile.id==doomed.id){activeProfile=customProfiles.firstOrNull()?:trainingLocations.first();store.saveActiveTrainingLocationId(activeProfile.id)} },
+                        onExecuteExercise={ exercise -> libraryExerciseWorkout=singleExerciseWorkoutState(exercise=exercise,profileName=activeProfile.name,athlete=athlete,sessions=sessions) },
+                        onSessionSaved={ record -> saveFinishedWorkout(record) }
+                    )
                 }
             }
         }
@@ -848,6 +843,53 @@ fun HybridFitnessApp() {
         }
     }
 }
+}
+
+@Composable
+private fun ProfileHub(
+    active:TrainingLocation, athlete:AthleteProfile, sessions:List<SessionRecord>, store:AppStore,
+    customProfiles:List<TrainingLocation>, onAthleteSave:(AthleteProfile)->Unit,
+    selectLocation:(TrainingLocation)->Unit, addLocation:(TrainingLocation)->Unit,
+    editLocation:(TrainingLocation,TrainingLocation)->Unit, deleteLocation:(TrainingLocation)->Unit,
+    onExecuteExercise:(Exercise)->Unit, onSessionSaved:(SessionRecord)->Boolean
+) {
+    var section by remember { mutableStateOf("Profilo") }
+    var editAthlete by remember { mutableStateOf(false) }
+    Column(Modifier.fillMaxSize()) {
+        Header("Profilo","Atleta, luoghi e libreria")
+        LazyRow(Modifier.padding(horizontal=20.dp,vertical=4.dp),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
+            items(listOf("Profilo","Luoghi","Esercizi")) { item ->
+                FilterChip(selected=section==item,onClick={section=item},label={Text(item)})
+            }
+        }
+        when(section) {
+            "Profilo" -> LazyColumn(Modifier.fillMaxSize(),contentPadding=PaddingValues(20.dp)) {
+                item {
+                    Card(Modifier.fillMaxWidth().clickable{editAthlete=true}) {
+                        Column(Modifier.padding(18.dp)) {
+                            Text(if(athlete.name.isBlank())"Configura profilo atleta" else athlete.name,fontSize=20.sp,fontWeight=FontWeight.Bold)
+                            val capability=athlete.toCapabilityProfile()
+                            Text(if(capability.assessed)"Capability Profile • esperienza ${capability.trainingExperience}/3 • push ${capability.pushCapacity}/3 • pull ${capability.pullCapacity}/3" else "Capability Profile: valutazione da completare",color=Color.Gray)
+                            Text("MODIFICA PROFILO",color=Accent,fontSize=12.sp,modifier=Modifier.padding(top=8.dp))
+                        }
+                    }
+                }
+                item {
+                    Card(Modifier.fillMaxWidth().padding(top=12.dp).clickable{section="Luoghi"}) {
+                        Row(Modifier.padding(18.dp),verticalAlignment=Alignment.CenterVertically) {
+                            Text(active.icon,fontSize=28.sp);Spacer(Modifier.width(12.dp))
+                            Column(Modifier.weight(1f)){Text("Luogo attivo",color=Color.Gray);Text(active.name,fontWeight=FontWeight.Bold)}
+                            Text("GESTISCI",color=Accent,fontSize=12.sp)
+                        }
+                    }
+                }
+                item { Box(Modifier.padding(top=12.dp)){HealthConnectCard()} }
+            }
+            "Luoghi" -> Equipment(active,customProfiles,selectLocation,addLocation,editLocation,deleteLocation)
+            else -> Library(active,athlete,sessions,store,onExecuteExercise,onSessionSaved)
+        }
+    }
+    if(editAthlete) AthleteDialog(athlete,{editAthlete=false}){updated->onAthleteSave(updated);editAthlete=false}
 }
 
 @Composable private fun Header(title: String, subtitle: String? = null) {
