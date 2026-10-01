@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 internal fun StoreRecoveryScreen(store: AppStore) {
     val athlete = store.loadAthlete()
     val sessions = store.loadSessions()
-    val plan = store.loadTrainingPlan()
+    val plans = store.loadTrainingPlans()
     val active = store.loadActiveWorkout()
     val equipment = store.loadTrainingLocations()
     val progression = store.loadProgressionNodes()
@@ -33,9 +33,9 @@ internal fun StoreRecoveryScreen(store: AppStore) {
                 Text("Atleta: ${athlete.name}")
                 equipment.forEach { Text("${it.name}: ${it.capabilities.map(EquipmentCatalog::displayName).sortedBy { name -> name.lowercase() }.joinToString()}") }
                 progression.forEach { (skill, node) -> Text("${skill.removePrefix("skill_node_")}: $node") }
-                plan?.let {
-                    Text("Piano: ${it.id}")
-                    it.workouts.forEach { workout ->
+                plans.forEach { plan ->
+                    Text("Piano: ${plan.id}")
+                    plan.workouts.forEach { workout ->
                         Text("${workout.id}: ${workout.state} · ${java.time.LocalDate.ofEpochDay(workout.epochDay)}")
                         Text(workout.exercises.joinToString { exercise -> exercise.name })
                     }
