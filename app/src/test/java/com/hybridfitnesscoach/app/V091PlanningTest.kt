@@ -249,28 +249,18 @@ class V091PlanningTest {
   assertEquals(setOf("a-today","b-today"),resolved.map{it.second.id}.toSet())
  }
 
- @Test fun fitnessLevelAssessmentHasStableBoundaries(){
-  assertEquals("Principiante",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,0,0)).exerciseLevel))
-  assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(6,10,0)).exerciseLevel))
-  assertEquals("Avanzato",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,30,10)).exerciseLevel))
-  assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,0,0)).exerciseLevel))
+ @Test fun capabilitySelectionHasIndependentStableLevels(){
+CapabilityDimension.entries.forEach{d->(1..3).forEach{n->assertEquals(n,AthleteProfile().withCapability(d,n).toCapabilityProfile().levelFor(d))}}
  }
  @Test fun assessedLevelConstrainsGeneratedPlanDifficulty(){
-  val profile=trainingLocations.first{it.name=="Palestra"}
-  val capability=capabilityFromAssessment(FitnessLevelAssessment(0,5,0))
-  val athlete=AthleteProfile(goal="Forza",daysPerWeek=2,
-   assessedTrainingExperience=capability.trainingExperience,
-   assessedPushCapacity=capability.pushCapacity,
-   assessedPullCapacity=capability.pullCapacity)
-  val config=PlanConfiguration("Forza",1,2,setOf(1,4),emptyList()).validated()
-  val plan=generateTrainingPlan("assessment",20_000,config)
-  assertEquals(1,capability.exerciseLevel)
-  val location=trainingLocations.first{it.name=="Palestra"}
-  val realized=materializePlannedSession(plan.workouts.first(),location,athlete,emptyList(),80)
-  assertTrue(realized.exercises.all{levelScore(it.level)<=capabilityLevelFor(it,capability)})
+val athlete=AthleteProfile(assessedPushCapacity=1,assessedPullCapacity=1)
+ val plan=generateTrainingPlan("assessment",20_000,PlanConfiguration("Forza",1,2,setOf(1,4),emptyList()))
+ val realized=materializePlannedSession(plan.workouts.first(),trainingLocations.first{it.name=="Palestra"},athlete,emptyList(),80)
+ assertTrue(realized.exercises.isNotEmpty())
+ assertTrue(realized.exercises.all{levelScore(it.level)<=capabilityLevelFor(it,athlete.toCapabilityProfile())})
  }
- @Test fun fitnessLevelAssessmentRejectsNegativeInputs(){
-  assertThrows(IllegalArgumentException::class.java){capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(-1,0,0)).exerciseLevel)}
+ @Test fun capabilityAssessmentRejectsNegativeLevels(){
+CapabilityDimension.entries.forEach{d->assertThrows(IllegalArgumentException::class.java){AthleteProfile().withCapability(d,-1)}}
  }
 
 
@@ -303,7 +293,7 @@ class V091PlanningTest {
   val body=Exercise("Location body","Gambe","Corpo libero","Intermedio",role="Forza",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.BODYWEIGHT)
   val planned=PlannedWorkout("p",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza",emptyList(),emptySet(),0))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine,body))
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedSquatCapacity=2),emptyList(),80,listOf(machine,body))
   assertTrue(realized.exercises.isNotEmpty())
   assertTrue(realized.exercises.all{locationCompatible(it,outdoor)})
   assertFalse(realized.exercises.any{it.name==machine.name})
@@ -320,7 +310,7 @@ class V091PlanningTest {
   val machine=Exercise("Only machine","Gambe","Macchine","Intermedio",role="Forza")
   val planned=PlannedWorkout("intent",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza"))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(machine))
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedSquatCapacity=2),emptyList(),80,listOf(machine))
   assertTrue(realized.exercises.isEmpty())
  }
 
@@ -338,7 +328,7 @@ class V091PlanningTest {
   val body=Exercise("Body new","Gambe","Corpo libero","Intermedio",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
   val planned=PlannedWorkout("identity",20_000,1,2,emptyList(),intent=PlannedSessionIntent("Forza",sequenceInWeek=2))
   val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
-  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(body))
+  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedSquatCapacity=2),emptyList(),80,listOf(body))
   assertEquals(planned.id,realization.plannedWorkoutId)
   assertTrue(planned.exercises.isEmpty())
   assertEquals(listOf(body.name),realization.exercises.map{it.name})
@@ -402,44 +392,40 @@ class V091PlanningTest {
  }
 
  @Test fun capabilityProfileFailsClosedWithoutAssessmentAndUsesAssessedDimensions(){
-  assertEquals(1,AthleteProfile().toCapabilityProfile().exerciseLevel)
-  assertFalse(AthleteProfile().toCapabilityProfile().assessed)
-  assertEquals(2,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2).toCapabilityProfile().exerciseLevel)
-  assertEquals(3,AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3).toCapabilityProfile().exerciseLevel)
+val empty=AthleteProfile().toCapabilityProfile();assertTrue(CapabilityDimension.entries.all{empty.levelFor(it)==null})
+ val c=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=1,assessedPullCapacity=2).toCapabilityProfile()
+ assertEquals(3,c.trainingExperience);assertEquals(1,c.pushCapacity);assertEquals(2,c.pullCapacity);assertNull(c.verticalPushCapacity)
  }
  @Test fun canonicalGeneratorRequiresLocationCapabilityAndAthleteCapability(){
   val easy=Exercise("Capability easy","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
   val hard=Exercise("Capability hard","Core","Corpo libero","Avanzato",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
   val dumbbell=Exercise("Capability dumbbell","Spalle","Manubri","Principiante",role="Forza")
   val home=TrainingLocation("test:body","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
-  val generated=generateWorkoutFromCatalogue(listOf(easy,hard,dumbbell),home,AthleteProfile(assessedTrainingExperience=1,assessedPushCapacity=1,assessedPullCapacity=1),CapabilityProfile(1),emptyList())
+  val generated=generateWorkoutFromCatalogue(listOf(easy,hard,dumbbell),home,AthleteProfile(assessedTrainingExperience=1,assessedPushCapacity=1,assessedPullCapacity=1),CapabilityProfile(),emptyList())
   assertTrue(generated.any{it.name==easy.name})
   assertFalse(generated.any{it.name==hard.name})
   assertFalse(generated.any{it.name==dumbbell.name})
  }
 
- @Test fun fitnessAssessmentProducesIndependentCapabilitiesAtBoundaries(){
-  assertEquals(CapabilityProfile(1,1,1,1,true),capabilityFromAssessment(FitnessLevelAssessment(5,9,2)))
-  assertEquals(CapabilityProfile(2,2,2,2,true),capabilityFromAssessment(FitnessLevelAssessment(6,10,3)))
-  assertEquals(CapabilityProfile(3,3,3,3,true),capabilityFromAssessment(FitnessLevelAssessment(24,30,10)))
-  val mixed=capabilityFromAssessment(FitnessLevelAssessment(24,9,10))
-  assertEquals(3,mixed.trainingExperience)
-  assertEquals(1,mixed.pushCapacity)
-  assertEquals(3,mixed.pullCapacity)
-  assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,9,10)).exerciseLevel))
+ @Test fun capabilityAssessmentChangesOnlyTheChosenDimension(){
+CapabilityDimension.entries.forEach{d->
+ val profile=AthleteProfile().withCapability(d,3)
+ assertEquals(3,profile.toCapabilityProfile().levelFor(d))
+ assertTrue(CapabilityDimension.entries.filter{it!=d}.all{profile.toCapabilityProfile().levelFor(it)==null})
+ }
  }
  @Test fun assessedBodyweightCapabilityCanDifferBetweenPushAndPull(){
   val push=Exercise("Push-up avanzato","Petto","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.BODYWEIGHT)
   val pull=Exercise("Pull-up avanzato","Dorso","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PULL,resistanceMode=ResistanceMode.BODYWEIGHT)
   val body=TrainingLocation("test:body-cap","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
-  val capability=CapabilityProfile(exerciseLevel=3,trainingExperience=3,pushCapacity=1,pullCapacity=3,assessed=true)
+  val capability=CapabilityProfile(trainingExperience=3,pushCapacity=1,pullCapacity=3)
   val generated=generateWorkoutFromCatalogue(listOf(push,pull),body,AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3),capability,emptyList())
   assertFalse(generated.any{it.name==push.name})
   assertTrue(generated.any{it.name==pull.name})
  }
  @Test fun unassessedCapabilityFailsClosedForBodyweightFamilies(){
   val push=Exercise("Push-up unassessed","Petto","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.BODYWEIGHT)
-  assertEquals(1,capabilityLevelFor(push,CapabilityProfile(3)))
+  assertEquals(1,capabilityLevelFor(push,CapabilityProfile(trainingExperience=3)))
  }
 
 

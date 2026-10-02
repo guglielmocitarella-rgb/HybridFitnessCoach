@@ -73,11 +73,11 @@ class WorkoutInfrastructureTest {
     @Test fun frontLeverCatalogueHasTimedProgression(){val linked=exercises.filter{"Front lever" in it.skills};assertTrue(linked.isNotEmpty());assertTrue(linked.any{it.measure==ExerciseMeasure.SECONDS})}
     @Test fun catalogueContainsDurationDistanceAndIntervals(){assertTrue(exercises.any{it.measure==ExerciseMeasure.DURATION});assertTrue(exercises.any{it.measure==ExerciseMeasure.DISTANCE});assertTrue(exercises.any{it.measure==ExerciseMeasure.INTERVALS})}
     @Test fun recoveryRisesWithTime(){val s=SessionRecord(1_000_000_000L,"P",3,3,listOf("Squat"),completedByExercise=mapOf("Squat" to 3));val fresh=recoveryScores(listOf(s),1_000_000_000L)["Gambe"]!!;val later=recoveryScores(listOf(s),1_000_000_000L+72*3_600_000L)["Gambe"]!!;assertTrue(later>fresh)}
-    @Test fun generatorHonorsEquipmentLevelAndRecovery(){val gym=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza + Skill Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,prioritySkills=listOf("Front lever"));val base=generateWorkout(gym,athlete,emptyList());assertTrue(base.all{locationCompatible(it,gym)});assertTrue(base.all{it.level!="Avanzato"});assertTrue(base.any{"Front lever" in it.skills});val tired=SessionRecord(1_000_000_000L,"P",12,12,listOf("Tuck front lever","Australian pull-up"),completedByExercise=mapOf("Tuck front lever" to 6,"Australian pull-up" to 6));val adapted=generateWorkout(gym,athlete,listOf(tired));assertEquals(6,adapted.size)}
+    @Test fun generatorHonorsEquipmentLevelAndRecovery(){val gym=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza + Skill Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedCoreCapacity=2,assessedIsometricCapacity=2,assessedSkillCapacity=2,prioritySkills=listOf("Front lever"));val base=generateWorkout(gym,athlete,emptyList());assertTrue(base.all{locationCompatible(it,gym)});assertTrue(base.all{it.level!="Avanzato"});assertTrue(base.any{"Front lever" in it.skills});val tired=SessionRecord(1_000_000_000L,"P",12,12,listOf("Tuck front lever","Australian pull-up"),completedByExercise=mapOf("Tuck front lever" to 6,"Australian pull-up" to 6));val adapted=generateWorkout(gym,athlete,listOf(tired));assertEquals(6,adapted.size)}
 
     @Test fun recoveryUsesStructuredPartialInsteadOfDeclaredDone(){val now=2_000_000_000L;val e=WorkoutExerciseState("Squat",sets=listOf(WorkoutSetState(0,targetReps=8,actualReps=8,completed=true),WorkoutSetState(1,targetReps=8),WorkoutSetState(2,targetReps=8)));val structured=SessionRecord(now,"P",3,3,listOf("Squat"),completedByExercise=mapOf("Squat" to 3),structuredExercises=listOf(e));val actual=recoveryScores(listOf(structured),now)["Gambe"]!!;val full=recoveryScores(listOf(SessionRecord(now,"P",3,3,listOf("Squat"),completedByExercise=mapOf("Squat" to 3))),now)["Gambe"]!!;assertTrue(actual>full)}
 
-    @Test fun calisthenicsFrontLeverGuaranteesSkillWork(){val gym=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,prioritySkills=listOf("Front lever"));val w=generateWorkout(gym,athlete,emptyList());assertTrue(w.take(3).all{"Front lever" in it.skills});assertTrue(w.any{it.name=="Tuck front lever"})}
+    @Test fun calisthenicsFrontLeverGuaranteesSkillWork(){val gym=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedCoreCapacity=2,assessedIsometricCapacity=2,assessedSkillCapacity=2,prioritySkills=listOf("Front lever"));val w=generateWorkout(gym,athlete,emptyList());assertTrue(w.take(3).all{"Front lever" in it.skills});assertTrue(w.any{it.name=="Tuck front lever"})}
     @Test fun strengthGoalRemainsSupported(){val gym=trainingLocations.first{it.name=="Palestra"};val w=generateWorkout(gym,AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList());assertEquals(6,w.size);assertTrue(w.all{locationCompatible(it,gym)})}
     @Test fun intervalCatalogueIsExplicitActivity(){val ex=exercises.first{it.measure==ExerciseMeasure.INTERVALS};assertTrue(ex.name.contains("Corsa",ignoreCase=true));assertEquals(60,ex.intervalRestSec)}
 
@@ -105,8 +105,8 @@ class WorkoutLaunchFlowTest {
     private fun intent(origin:WorkoutOrigin):WorkoutLaunchIntent = when(origin) {
         WorkoutOrigin.PLAN -> WorkoutLaunchIntent(origin,plannedWorkoutId="planned-42")
         WorkoutOrigin.SINGLE_EXERCISE -> WorkoutLaunchIntent(origin,sourceExerciseId="bench-press")
-        WorkoutOrigin.SKILL -> WorkoutLaunchIntent(origin,focusSkill="Handstand")
-        WorkoutOrigin.LIBRARY -> WorkoutLaunchIntent(origin,focusSkill="Handstand",groupFilters=listOf("Core"),lockFilters=true)
+        WorkoutOrigin.SKILL -> WorkoutLaunchIntent(origin,focusSkills=listOf("Handstand"))
+        WorkoutOrigin.LIBRARY -> WorkoutLaunchIntent(origin,focusSkills=listOf("Handstand"),groupFilters=listOf("Core"),lockFilters=true)
         else -> WorkoutLaunchIntent(origin)
     }
 
@@ -115,18 +115,18 @@ class WorkoutLaunchFlowTest {
         plannedWorkoutId=plannedWorkoutId,trainingLocationId=locationId
     )
 
-    @Test fun everyOriginBeginsByChoosingALocation() {
+    @Test fun allGeneratedOriginsChooseLocationAndSingleSkipsIt() {
         WorkoutOrigin.entries.forEach { origin ->
-            assertEquals(WorkoutLaunchStage.CHOOSE_LOCATION,beginWorkoutLaunch(intent(origin)).stage)
+            assertEquals(if(origin==WorkoutOrigin.SINGLE_EXERCISE)WorkoutLaunchStage.MATERIALIZE else WorkoutLaunchStage.CHOOSE_LOCATION,beginWorkoutLaunch(intent(origin)).stage)
         }
     }
 
-    @Test fun singleExerciseFlowsThroughLocationMaterializationPreviewAndRunner() {
-        val location=selectWorkoutLocation(beginWorkoutLaunch(intent(WorkoutOrigin.SINGLE_EXERCISE)),"home")
+    @Test fun singleExerciseFlowsThroughMaterializationPreviewAndRunner() {
+        val location=beginWorkoutLaunch(intent(WorkoutOrigin.SINGLE_EXERCISE))
         assertEquals(WorkoutLaunchStage.MATERIALIZE,location.stage)
-        assertEquals("home",location.locationId)
+        assertNull(location.locationId)
 
-        val preview=materializeWorkoutLaunch(location,materialized("home"))
+        val preview=materializeWorkoutLaunch(location,materialized("home").copy(trainingLocationId=null))
         assertEquals(WorkoutLaunchStage.PREVIEW,preview.stage)
         assertEquals(WorkoutLaunchStage.RUNNER,startWorkoutRunner(preview).stage)
     }
@@ -161,7 +161,7 @@ class WorkoutLaunchFlowTest {
     }
 
     @Test fun generatedSkillHistoryLabelRetainsFocusAndLocation() {
-        val intent=WorkoutLaunchIntent(WorkoutOrigin.SKILL,focusSkill="Handstand")
+        val intent=WorkoutLaunchIntent(WorkoutOrigin.SKILL,focusSkills=listOf("Handstand"))
         val state=generatedWorkoutSessionState(intent,"outdoor",
             listOf(Exercise("Wall handstand","Core","Corpo libero","Principiante",measure=ExerciseMeasure.SECONDS,targetValue=20.0)),700L)
         assertEquals("Personalizzato • Handstand",state.profileName)
@@ -169,7 +169,7 @@ class WorkoutLaunchFlowTest {
     }
 
     @Test fun launchRejectsMaterializationForAtADifferentLocation() {
-        val selected=selectWorkoutLocation(beginWorkoutLaunch(intent(WorkoutOrigin.SINGLE_EXERCISE)),"home")
+        val selected=selectWorkoutLocation(beginWorkoutLaunch(intent(WorkoutOrigin.ADAPTIVE_EXTRA)),"home")
         assertThrows(IllegalArgumentException::class.java) {
             materializeWorkoutLaunch(selected,materialized("gym"))
         }

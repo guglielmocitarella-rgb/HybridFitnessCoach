@@ -29,28 +29,19 @@ class V09RegressionAuditTest {
     }
     @Test fun readinessBandsAreStableAtUxBoundaries(){assertEquals("RECUPERO",readinessBand(44));assertEquals("CAUTELA",readinessBand(45));assertEquals("BUONO",readinessBand(60));assertEquals("PRONTO",readinessBand(80))}
     @Test fun homeNextUnlockIsExplicitAndEvidenceBased(){val states=SkillCatalog.progress("Front lever",emptyList());val label=nextUnlockLabel(states);assertTrue(label.startsWith("Prossimo sblocco:"));assertTrue(label.contains("sessioni"));assertTrue(label.contains("Tuck front lever"))}
-    @Test fun fitnessAssessmentHasDeterministicBoundariesAndRejectsInvalidInputs() {
-        assertEquals("Principiante",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,0,0)).exerciseLevel))
-        assertEquals("Intermedio",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(6,10,0)).exerciseLevel))
-        assertEquals("Avanzato",capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,30,10)).exerciseLevel))
-        assertThrows(IllegalArgumentException::class.java){capabilityFromAssessment(FitnessLevelAssessment(-1,10,3))}
-    }
+    @Test fun capabilityDimensionsHaveValidatedIndependentBounds() {
+CapabilityDimension.entries.forEach{d->
+ assertEquals(1,AthleteProfile().withCapability(d,1).toCapabilityProfile().levelFor(d))
+ assertEquals(3,AthleteProfile().withCapability(d,3).toCapabilityProfile().levelFor(d))
+ assertThrows(IllegalArgumentException::class.java){AthleteProfile().withCapability(d,4)}
+ }
+ }
 
-    @Test fun assessedLevelMapsToTheDifficultyCeilingUsedByWorkoutGeneration() {
-        val beginner=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(0,0,0)).exerciseLevel)
-        val intermediate=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(6,10,0)).exerciseLevel)
-        val advanced=capabilityLevelName(capabilityFromAssessment(FitnessLevelAssessment(24,30,10)).exerciseLevel)
-
-        assertTrue(levelScore("Principiante")<=levelScore(beginner))
-        assertFalse(levelScore("Intermedio")<=levelScore(beginner))
-        assertFalse(levelScore("Avanzato")<=levelScore(beginner))
-
-        assertTrue(levelScore("Principiante")<=levelScore(intermediate))
-        assertTrue(levelScore("Intermedio")<=levelScore(intermediate))
-        assertFalse(levelScore("Avanzato")<=levelScore(intermediate))
-
-        assertTrue(levelScore("Avanzato")<=levelScore(advanced))
-    }
+    @Test fun movementAssessmentMapsToItsDifficultyCeiling() {
+val ex=Exercise("Push test","Petto","Corpo libero","Avanzato",category=ExerciseCategory.PUSH,movementPattern="horizontal-push")
+ (1..3).forEach{level->val c=AthleteProfile(assessedPushCapacity=level).toCapabilityProfile();assertEquals(level,capabilityLevelFor(ex,c))}
+ assertEquals(1,capabilityLevelFor(ex,AthleteProfile(assessedTrainingExperience=3).toCapabilityProfile()))
+ }
 
 }
 

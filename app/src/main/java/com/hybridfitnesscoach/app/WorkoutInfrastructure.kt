@@ -1,11 +1,11 @@
 package com.hybridfitnesscoach.app
 
 /** The persisted set is authoritative, including after process recreation. */
-internal fun runnerInputTarget(exercise:Exercise,set:WorkoutSetState?):Double = when(exercise.measure) {
-    ExerciseMeasure.REPS -> set?.targetReps?.toDouble()
-    ExerciseMeasure.SECONDS, ExerciseMeasure.DURATION, ExerciseMeasure.INTERVALS -> set?.targetSeconds?.toDouble()
-    ExerciseMeasure.DISTANCE -> set?.targetDistanceMeters
-} ?: prescriptionFor(exercise).value
+internal fun runnerInputTarget(exercise:Exercise,set:WorkoutSetState):Double = when(exercise.measure) {
+    ExerciseMeasure.REPS -> set.targetReps?.toDouble()
+    ExerciseMeasure.SECONDS, ExerciseMeasure.DURATION, ExerciseMeasure.INTERVALS -> set.targetSeconds?.toDouble()
+    ExerciseMeasure.DISTANCE -> set.targetDistanceMeters
+}.let{requireNotNull(it){"Materialized set is missing its target"}}
 
 /**
  * Pure state transitions for the v0.8 runner. UI layers can dispatch these operations
@@ -18,7 +18,7 @@ object WorkoutRunnerEngine {
         val xs=state.exercises.toMutableList();xs[index]=xs[index].copy(status=WorkoutExerciseStatus.SKIPPED)
         val next=xs.indices.firstOrNull{it>index&&xs[it].status!=WorkoutExerciseStatus.COMPLETED&&xs[it].status!=WorkoutExerciseStatus.SKIPPED}
             ?:xs.indices.firstOrNull{xs[it].status==WorkoutExerciseStatus.PENDING||xs[it].status==WorkoutExerciseStatus.PARTIAL}?:index
-        return state.copy(exercises=xs,currentExerciseIndex=next)
+        return state.copy(exercises=xs,currentExerciseIndex=next,timedSet=state.timedSet?.takeUnless{it.exerciseIndex==index})
     }
     fun unskip(state:WorkoutSessionState,index:Int):WorkoutSessionState {
         if(index !in state.exercises.indices)return state
@@ -30,7 +30,7 @@ object WorkoutRunnerEngine {
         val xs=state.exercises.toMutableList()
         val sets=undoLastCompletedSet(xs[index].sets)
         xs[index]=xs[index].copy(sets=sets,status=if(sets.any{it.completed})WorkoutExerciseStatus.PARTIAL else WorkoutExerciseStatus.PENDING)
-        return state.copy(exercises=xs,currentExerciseIndex=index,restEndsAtEpochMs=null,pausedRestRemainingSec=null)
+        return state.copy(exercises=xs,currentExerciseIndex=index,restEndsAtEpochMs=null,pausedRestRemainingSec=null,timedSet=null,restStartedAtEpochMs=null)
     }
     fun pause(state:WorkoutSessionState,now:Long):WorkoutSessionState {
         if(state.pausedAtEpochMs!=null)return state
@@ -40,12 +40,14 @@ object WorkoutRunnerEngine {
     fun resume(state:WorkoutSessionState,now:Long):WorkoutSessionState {
         if(state.pausedAtEpochMs==null)return state
         return state.copy(startedAtEpochMs=now-state.elapsedBeforePauseMs,pausedAtEpochMs=null,
-            restEndsAtEpochMs=state.pausedRestRemainingSec?.takeIf{it>0}?.let{now+it*1000L},pausedRestRemainingSec=null)
+            restEndsAtEpochMs=state.pausedRestRemainingSec?.takeIf{it>0 || state.restStartedAtEpochMs!=null}?.let{now+it*1000L},pausedRestRemainingSec=null,
+            timedSet=state.timedSet?.let{it.copy(startsAtEpochMs=it.startsAtEpochMs+(now-state.pausedAtEpochMs))},
+            restStartedAtEpochMs=state.restStartedAtEpochMs?.let{it+(now-state.pausedAtEpochMs)})
     }
     fun addSet(state:WorkoutSessionState,index:Int):WorkoutSessionState {
         if(index !in state.exercises.indices)return state
         val xs=state.exercises.toMutableList();val e=xs[index];val template=e.sets.lastOrNull()
-        val added=(template?:WorkoutSetState(0)).copy(index=e.sets.size,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null,completed=false,restUsedSec=null)
+        val added=(template?:WorkoutSetState(0)).copy(index=e.sets.size,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null,completed=false,restUsedSec=null,actualRpe=null,actualStartedAtEpochMs=null,actualFinishedAtEpochMs=null)
         xs[index]=e.copy(sets=e.sets+added,status=if(e.status==WorkoutExerciseStatus.COMPLETED)WorkoutExerciseStatus.PARTIAL else e.status)
         return state.copy(exercises=xs)
     }
@@ -62,7 +64,14 @@ object WorkoutRunnerEngine {
         if(exerciseIndex !in state.exercises.indices)return state
         val xs=state.exercises.toMutableList();val e=xs[exerciseIndex];if(setIndex !in e.sets.indices)return state
         val sets=e.sets.toMutableList();val s=sets[setIndex]
-        sets[setIndex]=s.copy(actualReps=actualReps?:s.targetReps,actualSeconds=actualSeconds?:s.targetSeconds,actualDistanceMeters=actualDistanceMeters?:s.targetDistanceMeters,actualLoadKg=actualLoadKg?:s.targetLoadKg,actualAssistanceKg=actualAssistanceKg?:s.targetAssistanceKg,completed=true,restUsedSec=restUsedSec)
+        if(s.completed || e.status==WorkoutExerciseStatus.SKIPPED || state.pausedAtEpochMs!=null)return state
+        val observed=when(e.measure){
+            ExerciseMeasure.REPS -> actualReps?.let{it>0}==true
+            ExerciseMeasure.DISTANCE -> actualDistanceMeters?.let{it.isFinite()&&it>0}==true
+            else -> actualSeconds?.let{it>0}==true
+        }
+        if(!observed || actualLoadKg?.let{!it.isFinite()||it<0}==true || actualAssistanceKg?.let{!it.isFinite()||it<0}==true)return state
+        sets[setIndex]=s.copy(actualReps=actualReps,actualSeconds=actualSeconds,actualDistanceMeters=actualDistanceMeters,actualLoadKg=actualLoadKg,actualAssistanceKg=actualAssistanceKg,completed=true,restUsedSec=restUsedSec,actualRpe=runnerEffort(e.rpe))
         val completed=sets.count{it.completed};val status=if(completed==sets.size)WorkoutExerciseStatus.COMPLETED else WorkoutExerciseStatus.PARTIAL
         xs[exerciseIndex]=e.copy(sets=sets,status=status)
         val next=if(status==WorkoutExerciseStatus.COMPLETED) xs.indices.firstOrNull{it>exerciseIndex&&xs[it].status!=WorkoutExerciseStatus.COMPLETED&&xs[it].status!=WorkoutExerciseStatus.SKIPPED}?:exerciseIndex else exerciseIndex
@@ -71,7 +80,7 @@ object WorkoutRunnerEngine {
     fun reopenSet(state:WorkoutSessionState,exerciseIndex:Int,setIndex:Int):WorkoutSessionState {
         if(exerciseIndex !in state.exercises.indices)return state
         val xs=state.exercises.toMutableList();val e=xs[exerciseIndex];if(setIndex !in e.sets.indices)return state
-        val sets=e.sets.toMutableList();sets[setIndex]=sets[setIndex].copy(completed=false)
+        val sets=e.sets.toMutableList();sets[setIndex]=sets[setIndex].copy(completed=false,actualReps=null,actualSeconds=null,actualDistanceMeters=null,actualLoadKg=null,actualAssistanceKg=null,restUsedSec=null,actualRpe=null,actualStartedAtEpochMs=null,actualFinishedAtEpochMs=null)
         xs[exerciseIndex]=e.copy(sets=sets,status=if(sets.any{it.completed})WorkoutExerciseStatus.PARTIAL else WorkoutExerciseStatus.PENDING)
         return state.copy(exercises=xs,currentExerciseIndex=exerciseIndex)
     }
@@ -148,7 +157,6 @@ data class SkillNode(
     val exerciseAliases:Set<String> = emptySet()
 )
 data class SkillNodeProgress(val node:SkillNode,val status:ProgressionStatus,val completion:Double)
-data class LoadSuggestion(val loadKg:Double?,val calibrationRequired:Boolean,val reason:String)
 
 object ProgressionEngine {
     fun evaluate(node:SkillNode, mastered:Set<String>, sessions:List<SessionRecord>):SkillNodeProgress {
@@ -174,23 +182,6 @@ object ProgressionEngine {
         if(nodes.isEmpty()) return 0
         val achieved=nodes.sumOf{when(it.status){ProgressionStatus.MASTERED->1.0;ProgressionStatus.IN_PROGRESS->0.5*it.completion;else->0.0}}
         return (100.0*achieved/nodes.size).toInt().coerceIn(0,100)
-    }
-}
-
-object LoadRecommendationEngine {
-    fun suggest(exerciseName:String,sessions:List<SessionRecord>,incrementKg:Double=2.5,targetRpe:Int=8):LoadSuggestion {
-        val observations=sessions.asSequence().flatMap{it.structuredExercises.asSequence()}
-            .filter{it.exerciseName==exerciseName}.flatMap{it.sets.asSequence()}
-            .filter{it.completed&&it.actualLoadKg!=null}.toList()
-        if(observations.isEmpty()) return LoadSuggestion(null,true,"Carico da calibrare")
-        val last=observations.last();val load=last.actualLoadKg!!
-        val repsOk=(last.targetReps==null)||(last.actualReps?:0)>=last.targetReps
-        val exerciseRpe=sessions.asSequence().flatMap{it.structuredExercises.asSequence()}.lastOrNull{it.exerciseName==exerciseName}?.rpe
-        val raw=when { !repsOk || (exerciseRpe?:targetRpe)>targetRpe+1 -> load-incrementKg
-            (exerciseRpe?:targetRpe)<=targetRpe-1 -> load+incrementKg
-            else -> load }
-        val rounded=(kotlin.math.round(raw.coerceAtLeast(incrementKg)/incrementKg)*incrementKg)
-        return LoadSuggestion(rounded,false,when{rounded>load->"Progressione da storico e margine";rounded<load->"Riduzione per performance/fatica";else->"Mantieni il carico"})
     }
 }
 
@@ -383,22 +374,24 @@ internal data class WorkoutLaunchIntent(
     val origin:WorkoutOrigin,
     val sourceExerciseId:String?=null,
     val plannedWorkoutId:String?=null,
-    val focusSkill:String?=null,
+    val focusSkills:List<String> = emptyList(),
     val equipmentFilters:List<String> = emptyList(),
     val groupFilters:List<String> = emptyList(),
-    val lockFilters:Boolean=false
+    val lockFilters:Boolean=false,
+    val durationMinutes:Int=45
 ) {
     init {
         require(sourceExerciseId==null || sourceExerciseId.isNotBlank())
         require(plannedWorkoutId==null || (origin==WorkoutOrigin.PLAN && plannedWorkoutId.isNotBlank()))
         require(origin!=WorkoutOrigin.PLAN || plannedWorkoutId!=null)
         require(origin!=WorkoutOrigin.SINGLE_EXERCISE || sourceExerciseId!=null)
-        require(focusSkill==null || focusSkill.isNotBlank())
-        require(focusSkill==null || origin in setOf(WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY))
-        require((equipmentFilters.isEmpty() && groupFilters.isEmpty() && !lockFilters) || origin==WorkoutOrigin.LIBRARY)
+        require(focusSkills.all{it.isNotBlank()})
+        require(durationMinutes in 10..120 && durationMinutes%5==0)
+        require(focusSkills.isEmpty() || origin in setOf(WorkoutOrigin.CUSTOM,WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY))
+        require((equipmentFilters.isEmpty() && groupFilters.isEmpty() && !lockFilters) || origin in setOf(WorkoutOrigin.CUSTOM,WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY))
         require(!lockFilters || origin==WorkoutOrigin.LIBRARY)
         require(origin in setOf(WorkoutOrigin.CUSTOM,WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY) ||
-            (focusSkill==null && equipmentFilters.isEmpty() && groupFilters.isEmpty() && !lockFilters))
+            (focusSkills.isEmpty() && equipmentFilters.isEmpty() && groupFilters.isEmpty() && !lockFilters))
     }
 }
 
@@ -410,7 +403,8 @@ internal data class WorkoutLaunchFlow(
     val errorMessage:String?=null
 )
 
-internal fun beginWorkoutLaunch(intent:WorkoutLaunchIntent)=WorkoutLaunchFlow(intent)
+internal fun beginWorkoutLaunch(intent:WorkoutLaunchIntent)=WorkoutLaunchFlow(intent,
+    stage=if(intent.origin==WorkoutOrigin.SINGLE_EXERCISE)WorkoutLaunchStage.MATERIALIZE else WorkoutLaunchStage.CHOOSE_LOCATION)
 
 internal fun preferredWorkoutLocation(locations:List<TrainingLocation>,lastUsedLocationId:String?):TrainingLocation? =
     locations.firstOrNull{it.id==lastUsedLocationId} ?: locations.firstOrNull()
@@ -436,7 +430,7 @@ internal fun generatedWorkoutSessionState(
     require(intent.origin in setOf(WorkoutOrigin.CUSTOM,WorkoutOrigin.SKILL,WorkoutOrigin.LIBRARY))
     require(locationId.isNotBlank() && exercises.isNotEmpty())
     require(setRestOverridesSec.values.all{it>0})
-    val suffix=intent.focusSkill?.let{" • $it"}.orEmpty()
+    val suffix=intent.focusSkills.takeIf{it.isNotEmpty()}?.joinToString(prefix=" • ").orEmpty()
     val states=exercises.mapIndexed{index,ex->
         val effective=setRestOverridesSec[ex.name]?.let{ex.copy(setRestSec=it)}?:ex
         plannedExerciseState(index,effective).copy(rpe=5,pinned=ex.name in pinnedExerciseNames)
@@ -515,7 +509,7 @@ internal fun undoLastCompletedSet(sets:List<WorkoutSetState>):List<WorkoutSetSta
     return sets.toMutableList().also { xs ->
         xs[last]=xs[last].copy(
             actualReps=null,actualSeconds=null,actualDistanceMeters=null,
-            actualLoadKg=null,actualAssistanceKg=null,completed=false,restUsedSec=null
+            actualLoadKg=null,actualAssistanceKg=null,completed=false,restUsedSec=null,actualRpe=null,actualStartedAtEpochMs=null,actualFinishedAtEpochMs=null
         )
     }
 }
@@ -565,12 +559,17 @@ internal fun singleExerciseWorkoutState(
 
 /** Structured occurrences are authoritative; name maps aggregate their evidence for coaching. */
 internal fun runnerSessionRecord(state:WorkoutSessionState,now:Long):SessionRecord {
-    val grouped=state.exercises.groupBy{it.exerciseName}
+    val observed=state.exercises.map{e->
+        val done=e.sets.filter{it.completed}
+        val efforts=done.mapNotNull{it.actualRpe}
+        e.copy(rpe=if(done.isEmpty())null else if(efforts.isNotEmpty())efforts.average().toInt() else e.rpe)
+    }
+    val grouped=observed.groupBy{it.exerciseName}
     return SessionRecord(now,state.profileName,state.exercises.sumOf{e->e.sets.count{it.completed}},
         state.exercises.sumOf{it.sets.size},state.exercises.map{it.exerciseName},
-        grouped.mapValues{(_,items)->items.map{runnerEffort(it.rpe)}.average().toInt()},runnerEffort(state.workoutRpe),
+        grouped.mapNotNull{(name,items)->items.mapNotNull{it.rpe}.takeIf{it.isNotEmpty()}?.let{name to it.average().toInt()}}.toMap(),runnerEffort(state.workoutRpe),
         grouped.mapValues{(_,items)->items.sumOf{e->e.sets.count{it.completed}}},elapsedWorkoutSeconds(state,now),
-        state.exercises,state.exercises.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},
+        observed,state.exercises.filter{it.status==WorkoutExerciseStatus.SKIPPED}.map{it.exerciseName},
         state.modifications,state.plannedWorkoutId,state.trainingLocationId,state.workoutOrigin)
 }
 

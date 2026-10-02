@@ -12,8 +12,8 @@ android {
         applicationId = "com.hybridfitnesscoach.app"
         minSdk = 26
         targetSdk = 37
-        versionCode = 94
-        versionName = "0.9.4"
+        versionCode = 95
+        versionName = "0.9.5"
     }
 
     signingConfigs {

@@ -20,6 +20,82 @@ class AppStoreRecoveryTest {
 
     @Before fun clearStore() { prefs.edit().clear().commit() }
 
+    @Test fun onboardingDraftResumesAndCompletionDoesNotDeletePlans() {
+        val store=AppStore(context)
+        assertEquals(0,store.loadOnboardingDraft().step)
+        val plan=generateTrainingPlan("existing",20000,PlanConfiguration.defaults())
+        assertTrue(store.saveTrainingPlan(plan))
+        val draft=OnboardingDraft(3,setOf(1,3,5),"first-plan")
+        assertTrue(store.saveOnboardingDraft(draft))
+        assertEquals(draft,AppStore(context).loadOnboardingDraft())
+        assertTrue(store.saveOnboardingDraft(draft.copy(step=6)))
+        assertEquals(6,AppStore(context).loadOnboardingDraft().step)
+        assertEquals(listOf(plan),store.loadTrainingPlans())
+    }
+    @Test fun onboardingCompletionCanRetryWithoutDuplicatingOrReplacingThePlan() {
+        val store=AppStore(context)
+        val profile=AthleteProfile(name="Ada",goal="Calisthenics",prioritySkills=listOf("Front lever"))
+        val draft=OnboardingDraft(step=5,trainingDays=setOf(1,3),weeks=2)
+        assertTrue(completeOnboarding(store,profile,draft,true))
+        val plan=store.loadTrainingPlans().single()
+        assertTrue(completeOnboarding(AppStore(context),profile,draft,true))
+        assertEquals(listOf(plan),store.loadTrainingPlans())
+        assertEquals(setOf(plan.id),store.loadEnabledTrainingPlanIds())
+        assertEquals(profile,store.loadAthlete())
+        assertNull(profile.toCapabilityProfile().squatCapacity)
+    }
+    @Test fun extraGoalAndFrequencyPersistSeparatelyFromPlanConfiguration() {
+        val store=AppStore(context)
+        val profile=AthleteProfile(goal="Ipertrofia",daysPerWeek=4)
+        store.saveAthlete(profile)
+        assertEquals(profile,AppStore(context).loadAthlete())
+        assertTrue(store.loadTrainingPlans().isEmpty())
+    }
+
+    @Test fun independentCapabilityAxesSurviveProfileReload() {
+        val profile=AthleteProfile(assessedHorizontalPullCapacity=3,assessedVerticalPushCapacity=2,assessedSquatCapacity=1,assessedHingeCapacity=2,assessedCoreCapacity=3,assessedIsometricCapacity=1,assessedSkillCapacity=2)
+        val store=AppStore(context)
+        store.saveAthlete(profile)
+        assertEquals(profile,AppStore(context).loadAthlete())
+    }
+
+    @Test fun customConfigurationPreservesAllSelectedSkillsAndDuration() {
+        val intent=WorkoutLaunchIntent(WorkoutOrigin.CUSTOM,focusSkills=listOf("Handstand","Muscle-up"),durationMinutes=15)
+        val flow=beginWorkoutLaunch(intent)
+        val restored=workoutLaunchFromJson(flow.toLaunchJson())
+        assertEquals(intent,restored.intent)
+        assertEquals(listOf("Handstand","Muscle-up"),restored.intent.focusSkills)
+        assertEquals(15,restored.intent.durationMinutes)
+    }
+
+    @Test fun timedPreparationPerformanceAndPauseRoundTripWithoutRegeneration() {
+        val store=AppStore(context)
+        val ex=Exercise("Hold","Core","Corpo libero","Principiante",measure=ExerciseMeasure.SECONDS,targetValue=30.0)
+        val state=WorkoutSessionState("timer",1000,"Home",listOf(plannedExerciseState(0,ex)),trainingLocationId="home")
+        val paused=WorkoutRunnerEngine.pause(TimedRunner.start(state,1000),8000)
+        assertTrue(store.saveActiveWorkout(paused))
+        val restored=AppStore(context).loadActiveWorkout()!!
+        assertEquals(paused,restored)
+        val done=TimedRunner.stop(WorkoutRunnerEngine.resume(restored,20000),22000)
+        val record=runnerSessionRecord(done,22000)
+        assertEquals(4,record.structuredExercises.single().sets.first().actualSeconds)
+        assertEquals(5,record.structuredExercises.single().sets.first().actualRpe)
+        assertTrue(store.finishWorkout(record))
+        assertEquals(record,AppStore(context).loadSessions().single())
+    }
+
+    @Test fun singleExerciseUsesSharedStorageWithoutChangingLastLocation() {
+        val store=AppStore(context)
+        val ex=Exercise("Chosen","Petto","Bilanciere","Principiante")
+        val state=singleExerciseWorkoutState(ex,"Singolo esercizio",1000).copy(workoutOrigin=WorkoutOrigin.SINGLE_EXERCISE.name)
+        assertTrue(store.startWorkout(state))
+        assertEquals(state,AppStore(context).loadActiveWorkout())
+        assertNull(store.loadLastUsedTrainingLocationId())
+        assertTrue(store.finishWorkout(runnerSessionRecord(WorkoutRunnerEngine.completeSet(state,0,0,actualReps=6),2000)))
+        assertNull(store.loadActiveWorkout())
+        assertEquals(WorkoutOrigin.SINGLE_EXERCISE.name,store.loadSessions().single().workoutOrigin)
+    }
+
     @Test fun allWorkoutOriginsPersistIdenticalOccurrenceSnapshotsAndHistoryOwnership() {
         WorkoutOrigin.entries.forEach { origin ->
             prefs.edit().clear().commit()
@@ -31,7 +107,7 @@ class AppStoreRecoveryTest {
                 plannedExerciseState(0,ex).copy(rpe=5,pinned=true),
                 plannedExerciseState(1,ex).copy(sets=listOf(WorkoutSetState(0,targetReps=9)),rpe=8)
             ),trainingLocationId="home",plannedWorkoutId=intent.plannedWorkoutId)
-            val launch=materializeWorkoutLaunch(selectWorkoutLocation(beginWorkoutLaunch(intent),"home"),snapshot)
+            val launch=materializeWorkoutLaunch(if(origin==WorkoutOrigin.SINGLE_EXERCISE)beginWorkoutLaunch(intent) else selectWorkoutLocation(beginWorkoutLaunch(intent),"home"),snapshot.copy(trainingLocationId=if(origin==WorkoutOrigin.SINGLE_EXERCISE)null else "home"))
             assertEquals(launch,workoutLaunchFromJson(launch.toLaunchJson()))
             val running=WorkoutRunnerEngine.pause(WorkoutRunnerEngine.completeSet(requireNotNull(launch.workout),1,0,actualReps=7),9000)
             assertTrue(store.saveActiveWorkout(running))
@@ -265,11 +341,11 @@ class AppStoreRecoveryTest {
         assertEquals(3, loaded.assessedTrainingExperience)
         assertEquals(1, loaded.assessedPushCapacity)
         assertEquals(2, loaded.assessedPullCapacity)
-        assertTrue(loaded.toCapabilityProfile().assessed)
+        assertEquals(3,CapabilityDimension.entries.count{loaded.toCapabilityProfile().levelFor(it)!=null})
 
     }
 
-    @Test fun athletePersistenceOwnsOnlyStableAthleteFields() {
+    @Test fun athletePersistenceKeepsExtraConfigurationInCurrentKeys() {
         val store = AppStore(context)
         store.saveAthlete(AthleteProfile(
             name = "Ada",
@@ -290,9 +366,9 @@ class AppStoreRecoveryTest {
         assertEquals(170f, loaded.heightCm)
         assertEquals(65f, loaded.weightKg)
         assertEquals("Donna", loaded.sex)
-        assertEquals(AthleteProfile().goal, loaded.goal)
-        assertEquals(AthleteProfile().daysPerWeek, loaded.daysPerWeek)
-        assertTrue(loaded.prioritySkills.isEmpty())
+        assertEquals("Calisthenics", loaded.goal)
+        assertEquals(6, loaded.daysPerWeek)
+        assertEquals(listOf("Front lever"),loaded.prioritySkills)
     }
 
     @Test fun malformedAthleteFieldDoesNotHideValidProfileFields() {

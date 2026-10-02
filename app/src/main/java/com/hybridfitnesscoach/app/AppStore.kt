@@ -65,7 +65,7 @@ private fun WorkoutSetState.toJson() = JSONObject()
     .put("targetAssistanceKg", targetAssistanceKg).put("actualReps", actualReps)
     .put("actualSeconds", actualSeconds).put("actualDistanceMeters", actualDistanceMeters)
     .put("actualLoadKg", actualLoadKg).put("actualAssistanceKg", actualAssistanceKg)
-    .put("completed", completed).put("restUsedSec", restUsedSec)
+    .put("completed", completed).put("restUsedSec", restUsedSec).put("actualRpe",actualRpe).put("actualStartedAt",actualStartedAtEpochMs).put("actualFinishedAt",actualFinishedAtEpochMs)
 private fun JSONObject.optNullableInt(key:String):Int? = if(has(key)&&!isNull(key)) storedInt(key) else null
 private fun JSONObject.optNullableLong(key:String):Long? = if(has(key)&&!isNull(key)) storedLong(key) else null
 private fun JSONObject.optNullableDouble(key:String):Double? = if(has(key)&&!isNull(key)) strictNumber(key).toDouble() else null
@@ -73,7 +73,7 @@ private fun workoutSetFromJson(o:JSONObject)=WorkoutSetState(
     o.storedInt("index"),o.optNullableInt("targetReps"),o.optNullableInt("targetSeconds"),
     o.optNullableDouble("targetDistanceMeters"),o.optNullableDouble("targetLoadKg"),o.optNullableDouble("targetAssistanceKg"),
     o.optNullableInt("actualReps"),o.optNullableInt("actualSeconds"),o.optNullableDouble("actualDistanceMeters"),
-    o.optNullableDouble("actualLoadKg"),o.optNullableDouble("actualAssistanceKg"),o.storedBoolean("completed"),o.optNullableInt("restUsedSec"))
+    o.optNullableDouble("actualLoadKg"),o.optNullableDouble("actualAssistanceKg"),o.storedBoolean("completed"),o.optNullableInt("restUsedSec"),o.optNullableInt("actualRpe"),o.optNullableLong("actualStartedAt"),o.optNullableLong("actualFinishedAt"))
 private fun WorkoutExerciseState.toJson():JSONObject { val a=JSONArray();sets.forEach{a.put(it.toJson())};return JSONObject()
     .put("exerciseName",exerciseName).put("measure",measure.name).put("sets",a).put("status",status.name)
     .put("rpe",rpe).put("pinned",pinned).put("setRestSec",setRestSec).put("exerciseRestSec",exerciseRestSec)
@@ -90,13 +90,15 @@ internal fun WorkoutSessionState.toJson():JSONObject { val a=JSONArray();exercis
     .put("schemaVersion",2).put("id",id).put("startedAtEpochMs",startedAtEpochMs).put("profileName",profileName)
     .put("exercises",a).put("currentExerciseIndex",currentExerciseIndex).put("elapsedBeforePauseMs",elapsedBeforePauseMs)
     .put("pausedAtEpochMs",pausedAtEpochMs).put("restEndsAtEpochMs",restEndsAtEpochMs).put("workoutRpe",workoutRpe).put("finishedAtEpochMs",finishedAtEpochMs)
-    .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId).put("pausedRestRemainingSec",pausedRestRemainingSec).put("trainingLocationId",trainingLocationId).put("workoutOrigin",workoutOrigin) }
+    .put("runnerKind",runnerKind).put("restKind",restKind).put("modifications",JSONArray().apply{modifications.forEach{put(it)}}).put("plannedWorkoutId",plannedWorkoutId).put("pausedRestRemainingSec",pausedRestRemainingSec).put("trainingLocationId",trainingLocationId).put("workoutOrigin",workoutOrigin).put("restStartedAt",restStartedAtEpochMs)
+    .put("timedSet",timedSet?.let{JSONObject().put("exercise",it.exerciseIndex).put("set",it.setIndex).put("starts",it.startsAtEpochMs).put("target",it.targetSeconds).put("load",it.loadKg).put("assistance",it.assistanceKg)}) }
 internal fun workoutSessionFromJson(o:JSONObject, recovery:StoreRecovery):WorkoutSessionState { o.requireVersion(2); val a=o.getJSONArray("exercises");return WorkoutSessionState(
     o.getString("id"),o.getLong("startedAtEpochMs"),o.storedString("profileName",""),
     recovery.records(a,"active_workout_v1.exercises") { exercise, path -> workoutExerciseFromJson(exercise,recovery,path) },o.storedInt("currentExerciseIndex"),
     o.storedLong("elapsedBeforePauseMs",0L),o.optNullableLong("pausedAtEpochMs"),o.optNullableLong("restEndsAtEpochMs"),
     o.optNullableInt("workoutRpe"),o.optNullableLong("finishedAtEpochMs"),o.storedString("runnerKind","automatic"),if(o.has("restKind")&&!o.isNull("restKind"))o.getString("restKind") else null,
-    (o.storedArray("modifications")?:JSONArray()).let{a->(0 until a.length()).map{a.getString(it)}},o.storedString("plannedWorkoutId").takeIf{it.isNotBlank()},o.optNullableInt("pausedRestRemainingSec"),o.storedString("trainingLocationId").takeIf{it.isNotBlank()},o.storedString("workoutOrigin","ADAPTIVE_EXTRA")) }
+    (o.storedArray("modifications")?:JSONArray()).let{a->(0 until a.length()).map{a.getString(it)}},o.storedString("plannedWorkoutId").takeIf{it.isNotBlank()},o.optNullableInt("pausedRestRemainingSec"),o.storedString("trainingLocationId").takeIf{it.isNotBlank()},o.storedString("workoutOrigin","ADAPTIVE_EXTRA"),
+    if(o.isNull("timedSet"))null else o.getJSONObject("timedSet").let{TimedSetState(it.getInt("exercise"),it.getInt("set"),it.getLong("starts"),it.getInt("target"),it.optNullableDouble("load"),it.optNullableDouble("assistance"))},o.optNullableLong("restStartedAt")) }
 
 private fun Exercise.toPlanSnapshotJson():JSONObject = JSONObject()
     .put("name",name).put("group",group).put("equipment",equipment).put("level",level)
@@ -150,6 +152,7 @@ class AppStore(context: Context) {
 
     private fun validateStore() {
         loadAthlete()
+        loadOnboardingDraft()
         loadActiveTrainingLocationId()
         loadLastUsedTrainingLocationId()
         loadTrainingLocations()
@@ -170,31 +173,63 @@ class AppStore(context: Context) {
         return committed
     }
 
+    internal fun loadOnboardingDraft():OnboardingDraft {
+        val raw=string("onboarding_draft") ?: return OnboardingDraft()
+        return recovery.read("onboarding_draft",OnboardingDraft()) {
+            val o=JSONObject(raw)
+            val days=o.getJSONArray("days")
+            OnboardingDraft(o.getInt("step"),(0 until days.length()).map{days.getInt(it)}.toSet(),o.getString("planId"),o.getInt("weeks")).validated()
+        }
+    }
+    internal fun saveOnboardingDraft(draft:OnboardingDraft):Boolean {
+        val valid=draft.validated()
+        return write {putString("onboarding_draft",JSONObject().put("step",valid.step).put("days",JSONArray(valid.trainingDays.sorted())).put("planId",valid.planId).put("weeks",valid.weeks).toString())}
+    }
+
     fun loadAthlete(): AthleteProfile =
         AthleteProfile(
             name = string("athlete_name", "") ?: "",
+            goal = string("athlete_current_goal", "Forza + skill") ?: "Forza + skill",
+            daysPerWeek = int("athlete_current_days",3).takeIf{it in 1..7} ?: 3,
+            prioritySkills = recovery.read("athlete_current_skills",emptyList()) { val a=JSONArray(string("athlete_current_skills","[]"));(0 until a.length()).map{a.getString(it)} },
             age = int("athlete_age"),
             heightCm = float("athlete_height"),
             weightKg = float("athlete_weight"),
             sex = string("athlete_sex", "Non specificato") ?: "Non specificato",
             assessedTrainingExperience = int("athlete_assessed_experience").takeIf{it in 1..3},
             assessedPushCapacity = int("athlete_assessed_push").takeIf{it in 1..3},
-            assessedPullCapacity = int("athlete_assessed_pull").takeIf{it in 1..3}
+            assessedPullCapacity = int("athlete_assessed_pull").takeIf{it in 1..3},
+            assessedHorizontalPullCapacity = int("capability_horizontalpull").takeIf{it in 1..3},
+            assessedVerticalPushCapacity = int("capability_verticalpush").takeIf{it in 1..3},
+            assessedSquatCapacity = int("capability_squat").takeIf{it in 1..3},
+            assessedHingeCapacity = int("capability_hinge").takeIf{it in 1..3},
+            assessedCoreCapacity = int("capability_core").takeIf{it in 1..3},
+            assessedIsometricCapacity = int("capability_isometric").takeIf{it in 1..3},
+            assessedSkillCapacity = int("capability_skill").takeIf{it in 1..3}
         )
 
-    fun saveAthlete(p: AthleteProfile) {
+    fun saveAthlete(p: AthleteProfile):Boolean {
         val history = string("weight_history", "") ?: ""
-        write {
+        val previousWeight=float("athlete_weight")
+        return write {
             putString("athlete_name", p.name)
+                .putString("athlete_current_goal",p.goal).putInt("athlete_current_days",p.daysPerWeek.coerceIn(1,7)).putString("athlete_current_skills",JSONArray(p.prioritySkills).toString())
                 .putInt("athlete_age", p.age).putFloat("athlete_height", p.heightCm)
                 .putFloat("athlete_weight", p.weightKg).putString("athlete_sex", p.sex)
                 .apply {
                     p.assessedTrainingExperience?.let{putInt("athlete_assessed_experience",it)} ?: remove("athlete_assessed_experience")
                     p.assessedPushCapacity?.let{putInt("athlete_assessed_push",it)} ?: remove("athlete_assessed_push")
                     p.assessedPullCapacity?.let{putInt("athlete_assessed_pull",it)} ?: remove("athlete_assessed_pull")
+                    p.assessedHorizontalPullCapacity?.let{putInt("capability_horizontalpull",it)} ?: remove("capability_horizontalpull")
+                    p.assessedVerticalPushCapacity?.let{putInt("capability_verticalpush",it)} ?: remove("capability_verticalpush")
+                    p.assessedSquatCapacity?.let{putInt("capability_squat",it)} ?: remove("capability_squat")
+                    p.assessedHingeCapacity?.let{putInt("capability_hinge",it)} ?: remove("capability_hinge")
+                    p.assessedCoreCapacity?.let{putInt("capability_core",it)} ?: remove("capability_core")
+                    p.assessedIsometricCapacity?.let{putInt("capability_isometric",it)} ?: remove("capability_isometric")
+                    p.assessedSkillCapacity?.let{putInt("capability_skill",it)} ?: remove("capability_skill")
                 }
                 .remove("athlete_goal").remove("athlete_days").remove("athlete_priority_skills")
-            if (p.weightKg > 0) putString("weight_history", ("${System.currentTimeMillis()}:${p.weightKg};" + history).take(4000))
+            if (p.weightKg > 0 && (previousWeight!=p.weightKg || history.isBlank())) putString("weight_history", ("${System.currentTimeMillis()}:${p.weightKg};" + history).take(4000))
         }
     }
 
@@ -213,7 +248,7 @@ class AppStore(context: Context) {
         }
     }
 
-    internal fun saveTrainingLocations(items: List<TrainingLocation>) {
+    internal fun saveTrainingLocations(items: List<TrainingLocation>):Boolean {
         val array = JSONArray()
         items.forEach { location ->
             array.put(JSONObject()
@@ -223,17 +258,20 @@ class AppStore(context: Context) {
                 .put("kind",location.kind.stableId)
                 .put("capabilities",JSONArray(location.capabilities.map { it.name }.sorted())))
         }
-        write { putString("training_locations", array.toString()) }
+        return write { putString("training_locations", array.toString()) }
     }
 
     internal fun startWorkout(state:WorkoutSessionState):Boolean {
         if(loadActiveWorkout()!=null)return false
-        val location=requireNotNull(state.trainingLocationId)
+        val location=state.trainingLocationId
+        require(location!=null || state.workoutOrigin==WorkoutOrigin.SINGLE_EXERCISE.name)
         require(state.exercises.isNotEmpty())
         return write {
             putString("active_workout_v1",state.toJson().toString())
-            putString("last_used_training_location",location)
-            putString("active_training_location",location)
+            if(location!=null){
+                putString("last_used_training_location",location)
+                putString("active_training_location",location)
+            }
         }
     }
     fun saveActiveWorkout(state: WorkoutSessionState) = write { putString("active_workout_v1", state.toJson().toString()) }
@@ -473,5 +511,3 @@ private fun validatePreferenceFile(context: Context) {
         require(closed) { "Truncated preference XML" }
     }
 }
-
-

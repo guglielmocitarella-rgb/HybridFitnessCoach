@@ -44,7 +44,7 @@ class UniversalRunnerLifecycleTest {
         WorkoutOrigin.entries.forEach { origin ->
             val intent=WorkoutLaunchIntent(origin,sourceExerciseId=if(origin==WorkoutOrigin.SINGLE_EXERCISE)"same" else null,plannedWorkoutId=if(origin==WorkoutOrigin.PLAN)"owner" else null)
             val snapshot=state().copy(plannedWorkoutId=intent.plannedWorkoutId)
-            val flow=materializeWorkoutLaunch(selectWorkoutLocation(beginWorkoutLaunch(intent),"home"),snapshot)
+            val flow=materializeWorkoutLaunch(if(origin==WorkoutOrigin.SINGLE_EXERCISE)beginWorkoutLaunch(intent) else selectWorkoutLocation(beginWorkoutLaunch(intent),"home"),snapshot.copy(trainingLocationId=if(origin==WorkoutOrigin.SINGLE_EXERCISE)null else "home"))
             val runner=requireNotNull(startWorkoutRunner(flow).workout)
             assertEquals(snapshot.exercises,runner.exercises)
             assertEquals(origin.name,runner.workoutOrigin)
@@ -107,6 +107,9 @@ class UniversalRunnerLifecycleTest {
         val frozen=freezeWorkoutTargets(source,emptyList(),100)
         assertTrue(frozen.exercises.all{it.rpe==5})
         assertEquals(source.exercises.map{it.sets},frozen.exercises.map{it.sets})
-        assertTrue(runnerSessionRecord(frozen,9000).structuredExercises.all{it.rpe==5})
+        // v0.9.5: default input effort is not actual effort until a set is executed.
+        assertTrue(runnerSessionRecord(frozen,9000).structuredExercises.all{it.rpe==null})
+        val executed=WorkoutRunnerEngine.completeSet(frozen,0,0,actualReps=4)
+        assertEquals(5,runnerSessionRecord(executed,9000).structuredExercises.first().rpe)
     }
 }

@@ -55,7 +55,7 @@ class SkillIntegrationTest {
 
     @Test fun skillWorkoutCandidatePoolKeepsSkillPriorityAndCompatibleSupportExercises() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3,assessedCoreCapacity=3,assessedIsometricCapacity=3,assessedSkillCapacity=3)
         val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Front lever"),emptyList())
         assertTrue(pool.isNotEmpty())
         assertTrue(pool.any{"Front lever" in it.skills})
@@ -65,7 +65,7 @@ class SkillIntegrationTest {
     }
     @Test fun lockedSkillNodesNeverEnterCustomCandidatePoolForNewAthlete() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3,assessedCoreCapacity=3,assessedIsometricCapacity=3,assessedSkillCapacity=3)
         val pool=customWorkoutCandidatePool(gym,athlete,emptyList(),"Skill",listOf("Front lever"),emptyList())
         val locked=SkillCatalog.progress("Front lever",emptyList()).filter{it.status==ProgressionStatus.LOCKED}
             .flatMap{it.node.exerciseAliases+it.node.exerciseName}.map{it.lowercase()}.toSet()
@@ -128,7 +128,7 @@ class SkillIntegrationTest {
 
     @Test fun skillWorkoutTargetsCurrentUnlockedProgressionInsteadOfMasteredOrLockedNodes() {
         val gym=trainingLocations.first{it.name=="Palestra"}
-        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3)
+        val athlete=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3,assessedCoreCapacity=3,assessedIsometricCapacity=3,assessedSkillCapacity=3)
         val first=SkillCatalog.forSkill("Muscle-up").first{it.id=="pullup_strict"}
         fun qualifyingSession(ts:Long)=SessionRecord(
             timestamp=ts,profileName="Palestra",completedSets=3,totalSets=3,

@@ -1,5 +1,19 @@
 # Hybrid Fitness Coach — v0.9.5 Roadmap / Definition of Done
 
+## Candidato consolidato — 2026-10-02
+
+L'audit parte da `58e085b5b9f8bc2d909777d6a98ecd7970f80ce5`, Android APK #871 SUCCESS. Lo stato corrente è [PROJECT_STATUS.md](PROJECT_STATUS.md); le annotazioni dei checkpoint precedenti sotto sono evidenza storica, non descrivono più le schermate correnti.
+
+P01–P11 sono implementati a livello repository, con device acceptance ancora DEVICE_PENDING. P12 è PARTIAL (cleanup implementato, verifiche fisiche ereditate pendenti). P13 è PARTIAL: gate locali test/build/lint/DB verdi, CI da verificare sull'esatto commit contenente questo documento prima della consegna; release signing BLOCKED per credenziali non disponibili; accettazione fisica DEVICE_PENDING. Nessun freeze completo è dichiarato.
+
+Il singolo esercizio è l'eccezione UX autorizzata: salta LOCATION, conserva l'esercizio scelto e converge su materializzazione, preview, Runner, storage e storico comuni. Offre serie aggiuntive libere. Le serie non eseguite non hanno actual/RPE; timer e durata realmente eseguita restano separati dai target.
+
+Le schermate complesse sono normali superfici Compose full-screen; Custom ha una sola preview. Le capacità sono dieci dimensioni indipendenti opzionali, senza livello globale. La configurazione guidata salva il punto raggiunto e riusa l'identità del piano quando viene completata nuovamente.
+
+La suite locale aggiornata comprende 403 test JVM, 9 test Python, build debug e lint senza errori (2 warning). DB: 587 movimenti, 113 archi, 14 fonti; 0 errori, 2.117 warning preesistenti. La provenienza tecnica specifica/famiglia è visibile e non viene promossa a evidenza scientifica individuale.
+
+Le condizioni fisiche sono raggruppate in [un'unica checklist](docs/V0_9_5_DEVICE_ACCEPTANCE.md). Il report di consegna deve indicare HEAD pubblicato, run CI esatto, artifact APK, firma e hash; il successo del vecchio #871 non verifica questo candidato.
+
 ## Missione della release
 
 La v0.9.5 parte dalla baseline v0.9.4 congelata. La v0.9.4 resta immutata come riferimento repository-level verificato; la v0.9.5 recupera le clausole DEVICE_PENDING e porta l'app da motore funzionale a prodotto comprensibile, coerente e verificato su dispositivo.
@@ -65,7 +79,7 @@ Ogni origine:
 
 deve convergere su:
 
-`origine -> scegli luogo -> materializza/genera -> anteprima -> Runner universale -> salva -> storico/progressi -> Adaptive Coach`.
+`origine -> eventuale luogo (eccetto singolo) -> materializza/genera -> anteprima -> Runner universale -> salva -> storico/progressi -> Adaptive Coach`.
 
 Non creare Runner o persistenze separate per origine.
 

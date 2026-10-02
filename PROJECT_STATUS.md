@@ -1,102 +1,54 @@
 # Hybrid Fitness Coach — Project Status
 
-**Version:** v0.9.5  
-**Branch:** `feature/v0.9.5`  
-**Pull request:** #14 — `v0.9.5 — multi-plan checkpoint`  
-**Repository-verified P00 checkpoint:** `7dc3de6da7931173550618d7f63da34f5bfa4861`  
-**Source of truth:** current GitHub HEAD + this file + `V0_9_5_DOD.md`.
+**Version:** v0.9.5 (versionCode 95)
+**Branch:** `feature/v0.9.5` — PR #14, draft pending physical acceptance
+**Revision:** the commit containing this file; read its exact HEAD/Actions SHA before installing its APK.
+**Audited input HEAD:** `58e085b5b9f8bc2d909777d6a98ecd7970f80ce5` — Android APK #871 SUCCESS.
+**Updated:** 2026-10-02
 
-## Frozen predecessor
+## Preserved foundation
 
-v0.9.4 runtime is frozen at `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07`, checkpoint `checkpoint/v0.9.4-f01-f11-green`.
+v0.9.4 remains frozen at `cfacd7e3cc06a1db4ee4f8ec5f0518474e52ce07` (Exercise DB #292 / Android #845 SUCCESS).
+P00 remains repository VERIFIED on `7dc3de6da7931173550618d7f63da34f5bfa4861` and regression protected here: independently enabled plans, same-day collisions, plannedWorkoutId ownership, history preservation and disabled-plan exclusion.
+Existing equipment/materialization, prescription/coaching engines, progression graphs, current-schema corruption recovery and optional Health Connect were preserved. The canonical exercise DB was audited, not rewritten.
 
-Repository evidence:
-- Exercise DB v2 #292 — SUCCESS
-- Android APK #845 — SUCCESS
-- F01–F11 repository-level gates closed
-- signed release and physical-device clauses intentionally transferred to v0.9.5
+## Candidate scope
 
-No new product work belongs on v0.9.4.
+| Area | Implemented behavior | Acceptance state |
+|---|---|---|
+| P01 | Oggi/Piano/Progressi/Profilo; normal full-screen Compose flows; secondary library/location configuration | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P02 | Extra always offered, including scheduled days; no Home place/configuration duplication; refresh after saving | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P03 | Week/month calendar; readable weekdays/goals; 1–52 weeks; conditional Calisthenics skills; review before plan generation/regeneration | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P04 | Common origin → optional location → materialize → preview → Runner → history; single skips location and retains exact chosen exercise | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P05 | Actual-only completion; persisted timed preparation/execution/rest/pause; set RPE distinct from session effort; technique access; voluntary recovery; saved-session summary | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P06 | One common editable preview; pin/replace/delete/regenerate; unchanged occurrences preserved; duration and filters retained | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P07 | Ten independent optional assessment dimensions; pertinent movement gating; no aggregate difficulty or general-experience promotion | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P08 | DB-owned technique from library/preview/Runner; easier/current/harder neighbors; specific-source versus family-guidance label | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P09 | Actual history including assistance/rest/set RPE; weekly frequency/volume; chronological load/reps/time comparisons; skill progress | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P10 | Profile goal/frequency/skills and independent capability persisted; locations/library/Health Connect remain in Profile | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P11 | Resumable six-step optional onboarding; saved draft/profile; optional Health Connect; idempotent plan proposal/completion | IMPLEMENTED_NOT_DEVICE_VERIFIED |
+| P12 | Replaced dialog screens, duplicate Custom preview, unused load engine, old global assessment and Runner fallback removed; build/secret artifacts ignored | PARTIAL — cleanup implemented; DEVICE_PENDING inherited acceptance |
+| P13 | Local test/build/lint/DB gates; exact-SHA Actions required before final APK delivery | PARTIAL — signed release BLOCKED; physical acceptance DEVICE_PENDING |
 
-## Current v0.9.5 candidate
+These implementation states describe repository/local evidence. Before the containing commit's exact Actions run succeeds, its CI state is IMPLEMENTED_NOT_CI_VERIFIED. A successful exact-SHA run changes that CI state only; it cannot verify physical behavior.
 
-P00 multi-plan foundation is **VERIFIED at repository level** on `7dc3de6da7931173550618d7f63da34f5bfa4861`.
+## Validation and provenance
 
-Evidence:
-- Android APK #857 — **SUCCESS** on that exact SHA; the workflow includes JVM unit tests, Android lint and PR debug APK build.
-- deterministic tests cover persistent independent enable/disable across reload;
-- disabled plans are excluded from enabled-plan loading and active coaching inputs;
-- Adaptive Coach aggregates enabled plans;
-- same-day workouts from distinct plans remain distinct;
-- finished sessions update only the owning plan through `plannedWorkoutId`;
-- deleting one plan preserves other plans and already-recorded history;
-- plan IDs are unique and obsolete single-plan Home resolution contracts were removed.
+Local JDK 17 / Gradle 9.6.0 / SDK 37:
+- `:app:testDebugUnitTest :app:assembleDebug :app:lintDebug`: 403 tests, 0 failures/errors/skips; debug APK built; lint 0 errors, 2 warnings.
+- Python DB tests: 9/9 pass.
+- Canonical DB validation: OK, 587 movements, 113 progression edges, 14 sources, 0 errors. The 2,117 existing warnings remain disclosed; they concern coverage/metadata and were not hidden or converted into invented evidence.
+- 423 movement records contain FAMILY_GUIDANCE and 164 SPECIFIC_SOURCE; this does not claim source-specific technique for every movement.
+- Final review found and corrected timed skip leakage, paused recovery skipping, resistance entry during automatic timers, preview filter bypass and onboarding exit loss; additional cancellation/ownership boundaries are regression protected.
+- Earlier tests requiring single-location selection, target→actual completion, pending exercise RPE, overall capability or discarded Extra configuration were explicitly replaced because the owner's v0.9.5 requirements supersede them. Skill/location test fixtures now assess the relevant independent axes; eligibility assertions were retained.
+- Local bootstrap/proxy/JDK/SDK data and all build outputs stay outside committed source.
 
-Exercise DB v2 was not changed by the P00 closure commits; its workflow is now path-filtered and remains independently validated when DB inputs change.
+Assessment is an **APP_RULE**: optional self-reported controlled execution of catalog difficulty examples, with unknown axes conservatively limited. It is not a validated physiological test. No new physiological thresholds were invented. The old aggregate/rep-count assessment is removed.
+Extra uses existing recovery/readiness/coaching ranking. Avoiding exact exercises planned today/tomorrow is an **APP_RULE** ranking penalty, not a claim of measured recovery or guaranteed noninterference.
+Custom duration remains the existing **APP_RULE** estimate. Existing source-backed prescriptions/progression provenance were preserved. Supplied books were not used to invent new numeric rules.
 
-Physical interaction/visual acceptance is **not** implied by P00 repository verification and remains under the v0.9.5 device gates.
+## Release/device gate
 
-## P01 differential audit
+No HFC release signing credentials are available in the local environment. PR Actions deliberately skips release signing. The best deliverable is a signature-verified **debug device-test APK**, not a production signed release. Signed release remains BLOCKED until authorized credentials are available.
 
-P01.1 is **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED**:
-- top-level navigation already is Oggi / Piano / Progressi / Profilo;
-- Luoghi/attrezzatura and Libreria are secondary sections under Profilo;
-- athlete profile is no longer hidden in Progressi;
-- plan creation/configuration belongs to Piano rather than Home.
-
-Still pending:
-- physical verification of accessibility, scroll, back navigation, empty/error states and destructive actions;
-- complex dialog-based flows still exist and must be reduced where they are acting as screens.
-
-P01.2/P04 are **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** at `8ab66bc96955cb6249f7e90300dac572c78152f8`; Android APK #869 is **SUCCESS** on this exact SHA (unit tests, Android lint, PR debug APK build/upload). Single exercise, plan session, adaptive extra, custom, skill and library-filter origins share `WorkoutLaunchFlow`, the same preview and the existing `WorkoutDialog` Runner. Location selection, readiness/history/equipment filtering, generated prescriptions, RPE, actual sets, active-session recovery and `plannedWorkoutId` ownership use shared state/persistence. Release signing was skipped. The new interaction and visual behavior remain **DEVICE_PENDING**.
-
-## P01.2/P04 targeted hardening audit — 2026-10-01
-
-Audited upstream HEAD: `2164814bbec687f87393146107aacc3a4255c077`; PR #14 was open/draft/mergeable and Android APK #870 was SUCCESS before this increment. The previous single-exercise/ProfileHub bypass was already absent and was not rewritten. P00 ownership/storage contracts remain unchanged.
-
-Implemented in the current candidate:
-- every configured location is selectable; adaptation or an explicit empty/error preview occurs after selection;
-- last actually used location is separate from Profile selection and is committed atomically with workout start;
-- custom duration is selectable from 10–120 minutes in five-minute steps, with an explicitly APP_RULE duration estimate; regeneration respects the same budget and preserves pinned prescriptions, including skill workouts;
-- the sole Runner entry requires a materialized state and never generates exercises or calls `prescriptionFor`; per-set targets, load/assistance, recovery, pins, order, origin and planned ownership remain authoritative;
-- Runner state uses occurrence indexes within the persisted session, allowing repeated exercise names/catalog IDs without map collisions; previous/next, skip/resume, undo after completion, RPE default 5 and pause/rest restoration share deterministic state transitions;
-- preview/configuration snapshots survive saved-state restoration; active recovery uses the current persisted snapshot, and a new launch cannot overwrite a running workout;
-- actual structured occurrences, location and origin reach history; history detail and recovery inputs include all executed occurrences.
-
-Local evidence: `gradle :app:clean :app:testDebugUnitTest :app:assembleDebug :app:lintDebug` — SUCCESS; **362 tests, 0 failures/errors/skips**, debug APK built, lint 0 errors (4 warnings and 1 hint). Local proxy/JDK/SDK bootstrap settings are outside the repository. CI must be read on the exact newly published HEAD; the older #870 run does not verify these changes.
-
-Status remains **PARTIAL / IMPLEMENTED_NOT_DEVICE_VERIFIED** for the complete P01.2/P04 scope. **DEVICE_PENDING:** location/adaptation UX for every origin, duration/regeneration/pins, preview → Runner, back/cancel/suspend/resume, repeated exercises, input retention, timers in background and physical process recreation. Runner and custom builder remain dialog-based; technique access, preparation countdown and post-workout summary belong to P05/P01 acceptance and are not claimed complete here.
-
-## Active roadmap
-
-The binding scope is `V0_9_5_DOD.md`.
-
-Execution order from the current checkpoint:
-1. P01.2/P04 universal workout-start pipeline; all workout origins share location selection, materialization, preview, Runner and persistence; physical acceptance remains pending;
-2. complete P01 interaction/device acceptance as flows become screen-based;
-3. P02/P03 Home + Plan/calendar UX;
-4. P05 universal Runner, exercise technique access and timed-exercise preparation countdown;
-5. P06 custom workout on the common pipeline;
-6. P07 Capability Profile 2.0;
-7. P08 Exercise Detail/database/progressions;
-8. P09/P10 Progress/History/Profile;
-9. P11 onboarding;
-10. P12 cleanup + inherited device acceptance;
-11. P13 signed release/device acceptance/freeze.
-
-## Status vocabulary
-
-Use only:
-- **VERIFIED** — supported by the required repository/device evidence for the stated scope;
-- **IMPLEMENTED_NOT_CI_VERIFIED** — code exists but the exact candidate has not passed required CI;
-- **IMPLEMENTED_NOT_DEVICE_VERIFIED** — repository gates pass, physical interaction still pending;
-- **PARTIAL** — requirement only partly implemented;
-- **BLOCKED** — cannot currently progress;
-- **DEVICE_PENDING** — explicitly awaiting physical-device acceptance.
-
-A green build never substitutes for physical-device behavior where interaction, lifecycle, timers, Health Connect or visual presentation matters.
-
-## PR hygiene
-
-#14 is the active development PR. #13 is superseded/closed; historical PRs #1, #8, #9, #10 and #12 were closed on 2026-10-01 as housekeeping; their Git history remains available for audit. PR #11 (v0.9.4) was already closed.
-
+The sole grouped physical checklist is in [docs/V0_9_5_DEVICE_ACCEPTANCE.md](docs/V0_9_5_DEVICE_ACCEPTANCE.md). P01–P12 physical checks and inherited F01–F11 checks remain DEVICE_PENDING. v0.9.5 is not fully VERIFIED or frozen.
