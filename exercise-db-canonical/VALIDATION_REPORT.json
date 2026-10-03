@@ -2,11 +2,11 @@
   "ok": true,
   "errors": [],
   "warnings": [
-    "292 exercises still have unknown equipment requirements",
-    "255 exercises still lack an explicit movement pattern",
+    "294 exercises still have unknown equipment requirements",
+    "257 exercises still lack an explicit movement pattern",
     "500 exercises lack supported execution instructions",
-    "504 exercises have unknown level",
-    "336 exercises have unknown resistance mode",
+    "506 exercises have unknown level",
+    "338 exercises have unknown resistance mode",
     "143 skill exercises lack a stable SkillCatalog link"
   ],
   "releaseReady": false,
@@ -16,11 +16,11 @@
     "progression_edges": 113
   },
   "blockers": {
-    "equipment_unknown": 292,
-    "movement_pattern_missing": 255,
+    "equipment_unknown": 294,
+    "movement_pattern_missing": 257,
     "instruction_incomplete": 500,
-    "level_unknown": 504,
-    "resistance_mode_unknown": 336,
+    "level_unknown": 506,
+    "resistance_mode_unknown": 338,
     "skill_links_missing": 143
   }
 }

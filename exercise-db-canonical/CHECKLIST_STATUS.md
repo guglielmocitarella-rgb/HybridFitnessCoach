@@ -10,16 +10,16 @@ The code at this baseline has 587 V2 records and 583 distinct current-model entr
 
 The canonical candidate has 1,087 identities after preserving three unique punctuation-normalized links to V2 IDs and merging the two current-model labels `Straight arm pulldown` / `Straight-arm pulldown`. The merged record retains both labels, both source locations, and the `Front lever` skill label. This is a documented identity decision based on the identical exercise label apart from punctuation and matching app-model fields.
 
-`Muscle-Up` and `Normal Muscle-Up` remain separate V2 records. The `Muscle-Up` lookup alias points to both, so the candidate marks that app-model relationship ambiguous and does not merge the records. Their shared runtime label remains an unresolved naming issue.
+`Muscle-Up` and `Normal Muscle-Up` remain separate V2 records. The `Muscle-Up` lookup alias points to both, so the candidate marks that app-model relationship ambiguous and does not merge the records or copy selection metadata from either app match. The candidate uses their distinct canonical names as runtime labels; the source app's shared alias remains explicitly recorded as ambiguous.
 
 ## Checklist
 
 | Checkpoint item | Status | Evidence / remaining work |
 |---|---|---|
 | 1. Materialize one candidate catalog | **Partial** | Candidate contains 1,087 records with stable unique IDs, original V2 content, current-model metadata, source references, and field provenance. Several required fields remain unknown. |
-| 2. Resolve identity and variants | **Partial** | Three unique V2/current-model name variants were linked; the straight-arm duplicate was merged with provenance retained. Muscle-Up ambiguity remains unresolved. No progression edge was invented. |
-| 3. Complete equipment and provenance | **Partial** | Equipment tokens are normalized and unknown is distinct from known-empty. A conservative, provenance-marked name rule resolves 11 explicitly named implements; 292 records still have unknown equipment requirements. |
-| 4. Complete selection-critical fields | **Not complete** | Unknowns remain: equipment 292, movement pattern 255, level 504, resistance mode 336, SkillCatalog links 143. App-rule-derived values are labeled as rules, not source facts. |
+| 2. Resolve identity and variants | **Partial** | Three unique V2/current-model name variants were linked; the straight-arm duplicate was merged with provenance retained. Muscle-Up identities stay separate with ambiguous app provenance and distinct candidate runtime labels. No progression edge was invented. |
+| 3. Complete equipment and provenance | **Partial** | Equipment tokens are normalized and unknown is distinct from known-empty. A conservative, provenance-marked name rule resolves 11 explicitly named implements; 294 records still have unknown equipment requirements. |
+| 4. Complete selection-critical fields | **Not complete** | Unknowns remain: equipment 294, movement pattern 257, level 506, resistance mode 338, SkillCatalog links 143. Ambiguous Muscle-Up app metadata is kept unknown. App-rule-derived values are labeled as rules, not source facts. |
 | 5. Complete movement-pattern taxonomy | **Partial** | Direct V2 movement types resolve 75 broad patterns. A whitelisted V2-family rule resolves another 174, with explicit exceptions for mixed pull-up/push-up families. 255 still need more specific supported patterns. |
 | 6. Link skills and progressions by stable IDs | **Partial** | All 113 V2 progression edges have valid endpoints and registered sources. The builder reads active legacy `SkillProgressionNode` entries and both positional and mapped aliases as the app does; 60/60 active SkillCatalog nodes resolve to a runtime exercise label or alias. 143 candidate skill exercises still lack a specific node link. |
 | 7. Complete training and instruction metadata | **Not complete** | 500 current-model-only identities have no supported description, setup, or execution steps. Missing muscle, laterality, and exercise-level prescription data also remain. |
@@ -42,17 +42,17 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Unique stable IDs | 1,087 |
 | Progression edges | 113 |
 | Dangling progression edges | 0 |
-| Unknown equipment | 292 |
-| Missing movement patterns | 255 |
-| Unknown level | 504 |
-| Unknown resistance mode | 336 |
+| Unknown equipment | 294 |
+| Missing movement patterns | 257 |
+| Unknown level | 506 |
+| Unknown resistance mode | 338 |
 | Skill exercises without a stable node link | 143 |
 | Missing supported exercise instructions | 500 |
-| Remaining duplicate runtime labels | 1 (`Muscle-Up`) |
+| Remaining duplicate runtime labels in candidate | 0 |
 
 The structural validator passes with zero errors. The candidate is not release-ready because selection-critical and instruction-critical evidence remains incomplete. The explicit-name equipment rule resolves only `High-/Low-Pulley`, `Rings`, `Bench`, `Bar Pull-Up`, `Parallel Bar`, `Box`, and `Band` terms; generic names such as `Ball Bridge` remain unknown. The movement-type rule fills only broad categories whose V2 type has a direct top-level pattern mapping; it does not infer strength, skill, core, or limb mechanics. The family rule maps whitelisted families to the app's broad pattern taxonomy and handles `PULL_UP` rows and headstand/handstand `PUSH_UP` variants explicitly; mixed families without a reliable mapping remain unknown. All inference rules have registered provenance sources and validator checks. The existing V2 database's own Python tests and deterministic build are separate regression gates and should be run alongside the candidate tests.
 
-Latest local verification on the reconstructed baseline snapshot plus equipment, movement-type, whitelisted family, and complete active SkillCatalog parsing: all 17 exercise-DB Python tests passed; the existing V2 deterministic builder/validator passed with artifact SHA-256 `fbf3d0cd4dc14d8156a3203f9f71d59a2a00f9856ccb20125ad986af4e69a430`; the candidate structural validator passed with zero errors and `releaseReady: false`. All 60 active skill nodes map to runtime exercise names or aliases. The candidate remains at 1,087 identities and 113 valid progression edges.
+Latest local verification on the reconstructed baseline snapshot plus equipment, movement-type, whitelisted family, complete active SkillCatalog parsing, and ambiguous-alias handling: all 18 exercise-DB Python tests passed; the existing V2 deterministic builder/validator passed with artifact SHA-256 `fbf3d0cd4dc14d8156a3203f9f71d59a2a00f9856ccb20125ad986af4e69a430`; the candidate structural validator passed with zero errors and `releaseReady: false`. All 60 active skill nodes map to runtime exercise names or aliases. The candidate remains at 1,087 identities and 113 valid progression edges.
 
 ## Reproduce
 

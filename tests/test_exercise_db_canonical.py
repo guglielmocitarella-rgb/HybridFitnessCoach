@@ -170,6 +170,26 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             node = by_id[node_id]
             self.assertIn(norm(exercise_name), runtime_names)
             self.assertIn(norm(exercise_name), {norm(node["exerciseName"]), *(norm(a) for a in node["aliases"])})
+        for node in nodes:
+            eligible_names = {norm(node["exerciseName"]), *(norm(alias) for alias in node["aliases"])}
+            self.assertTrue(eligible_names & runtime_names, f'{node["id"]} has no runtime exercise label or alias')
+
+    def test_ambiguous_muscle_up_runtime_alias_does_not_copy_selection_metadata(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+        by_id = {record["id"]: record for record in records}
+
+        for exercise_id in ("ex-muscle-up", "ex-normal-muscle-up"):
+            record = by_id[exercise_id]
+            self.assertEqual(record["identityResolution"], "AMBIGUOUS_CURRENT_MODEL_LINK")
+            self.assertEqual(record["equipmentStatus"], "UNKNOWN")
+            self.assertEqual(record["levelStatus"], "UNKNOWN")
+            self.assertEqual(record["movementPatternStatus"], "UNKNOWN")
+            self.assertEqual(record["resistanceMode"], "UNKNOWN")
+        self.assertEqual(by_id["ex-muscle-up"]["runtimeName"], "Muscle-Up")
+        self.assertEqual(by_id["ex-normal-muscle-up"]["runtimeName"], "Normal Muscle-Up")
+        self.assertNotEqual(by_id["ex-muscle-up"]["runtimeName"], by_id["ex-normal-muscle-up"]["runtimeName"])
 
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:

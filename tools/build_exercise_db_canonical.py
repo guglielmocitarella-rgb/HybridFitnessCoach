@@ -408,22 +408,28 @@ def build_database(root, output_dir):
                     if normalized_name:
                         hit = normalized_name
                         break
-        display_name = hit["name"] if hit else record.get("nameIt") or record["canonicalNameEn"]
+        display_name = (
+            record.get("canonicalNameEn") or record.get("nameIt")
+            if ambiguous_current_link
+            else (hit["name"] if hit else record.get("nameIt") or record["canonicalNameEn"])
+        )
         runtime_names[record["id"]] = display_name
         if hit:
             matched_legacy_names.add(hit["name"].strip().lower())
             if exact_hit:
                 exact_runtime_matches.add(hit["name"].strip().lower())
-        effective = effective_legacy_metadata(hit) if hit else None
+        # An app label that resolves to multiple V2 IDs is not safe evidence for
+        # copying app metadata onto any one of those identities.
+        effective = effective_legacy_metadata(hit) if hit and not ambiguous_current_link else None
         equipment = list(record.get("equipment") or [])
         if equipment:
             eq = list(dict.fromkeys(EQUIPMENT_ALIASES.get(str(x).casefold(), str(x)) for x in equipment))
             eq_status = "KNOWN" if all(token in RECOGNIZED_EQUIPMENT for token in eq) else "UNKNOWN"
-        elif hit:
+        elif effective:
             eq, eq_status = effective["equipmentRequired"], effective["equipmentStatus"]
         else:
             eq, eq_status = [], "UNKNOWN"
-        equipment_origin = "V2_DIRECT" if equipment else ("APP_MODEL_DIRECT" if hit and eq_status == "KNOWN" else "UNKNOWN")
+        equipment_origin = "V2_DIRECT" if equipment else ("APP_MODEL_DIRECT" if effective and eq_status == "KNOWN" else "UNKNOWN")
         if eq_status != "KNOWN":
             named_equipment = explicit_equipment_from_name(record.get("canonicalNameEn"))
             if named_equipment:
@@ -456,10 +462,9 @@ def build_database(root, output_dir):
         else:
             mode, mode_status = "UNKNOWN", "UNKNOWN"
         category = _runtime_category(record, effective)
-        role = hit.get("role") if hit else "Base"
-        role_status = "APP_MODEL_DIRECT" if hit else "APP_RULE_RUNTIME_DEFAULT"
-        level = record.get("level") or (hit.get("level") if hit else None)
-        skill_labels = hit.get("skills", []) if hit else []
+        role = hit.get("role") if effective else "Base"
+        role_status = "APP_MODEL_DIRECT" if effective else "APP_RULE_RUNTIME_DEFAULT"
+        level = record.get("level") or (hit.get("level") if effective else None)
         matching_skills = [] if ambiguous_current_link else _skill_ids(root, [display_name, record.get("canonicalNameEn"), record.get("nameIt"), *record.get("aliases", [])])
         copy = dict(record)
         model_ref = None
@@ -505,9 +510,9 @@ def build_database(root, output_dir):
                     ),
                 },
                 "resistanceMode": {"status": mode_status, "source": "ExerciseMetadata.kt" if mode_status.startswith("APP_RULE") else record["sources"]},
-                "level": {"status": "V2_DIRECT" if record.get("level") else ("APP_MODEL_DIRECT" if hit else "UNKNOWN"), "source": record["sources"]},
-                "category": {"status": "APP_MODEL_DIRECT" if effective else "APP_RULE_RUNTIME_CONVERSION", "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if hit else "ExerciseDbV2.toLegacyExercise"},
-                "role": {"status": role_status, "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if hit else "ExerciseDbV2.toLegacyExercise"},
+                "level": {"status": "V2_DIRECT" if record.get("level") else ("APP_MODEL_DIRECT" if effective else "UNKNOWN"), "source": record["sources"]},
+                "category": {"status": "APP_MODEL_DIRECT" if effective else "APP_RULE_RUNTIME_CONVERSION", "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if effective else "ExerciseDbV2.toLegacyExercise"},
+                "role": {"status": role_status, "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if effective else "ExerciseDbV2.toLegacyExercise"},
                 "skillIds": {"status": "APP_MODEL_DIRECT" if matching_skills else ("AMBIGUOUS_IDENTITY" if ambiguous_current_link else "UNKNOWN"), "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if hit else None},
                 "instructions": {"status": "V2_EVIDENCE_TIER", "executionEvidence": record.get("executionEvidence", "UNKNOWN"), "sources": record.get("sources", [])},
             },
