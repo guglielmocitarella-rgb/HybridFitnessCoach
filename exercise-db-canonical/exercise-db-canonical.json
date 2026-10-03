@@ -52054,13 +52054,13 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [
-      "resistance_band"
+      "foam_roller"
     ],
     "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "EXTERNAL_LOAD",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -52089,18 +52089,18 @@
         }
       },
       "resistanceMode": {
-        "status": "EQUIPMENT_DETERMINISTIC",
+        "status": "EXERCISE_SPECIFIC_SOURCE",
         "confidence": "HIGH",
-        "source": {
-          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
-          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
-          "locator": {
-            "equipment": [
-              "resistance_band"
-            ]
+        "source": [
+          {
+            "source_id": "ACE_IT_BAND_SELF_CARE",
+            "source_name": "ACE — How to Self-Care for the IT Band",
+            "evidence_type": "EXERCISE_SPECIFIC_TECHNIQUE",
+            "url": "https://www.acefitness.org/resources/pros/expert-articles/5043/how-to-self-care-for-the-it-band/",
+            "locator": "IT Band Foam Rolling: soft-surface foam roller; lie on side and roll the IT band"
           }
-        },
-        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
+        ],
+        "derivation": "ACE describes this as foam rolling/self-care rather than resisted exercise; the foam roller is an SMR tool, not an external resistance source."
       },
       "level": {
         "status": "UNKNOWN",
@@ -52151,6 +52151,20 @@
             "locator": "Complete Calisthenics 2e index"
           }
         ]
+      },
+      "equipment": {
+        "status": "EXERCISE_SPECIFIC_SOURCE",
+        "confidence": "HIGH",
+        "source": [
+          {
+            "source_id": "ACE_IT_BAND_SELF_CARE",
+            "source_name": "ACE — How to Self-Care for the IT Band",
+            "evidence_type": "EXERCISE_SPECIFIC_TECHNIQUE",
+            "url": "https://www.acefitness.org/resources/pros/expert-articles/5043/how-to-self-care-for-the-it-band/",
+            "locator": "IT Band Foam Rolling: soft-surface foam roller; lie on side and roll the IT band"
+          }
+        ],
+        "derivation": "ACE explicitly specifies a foam roller for IT Band Foam Rolling; the prior resistance_band token was a lexical false positive on 'IT band'."
       }
     }
   },

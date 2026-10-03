@@ -419,11 +419,20 @@
       ],
       "resolvedFields": [
         {
-          "field": "resistanceMode",
-          "value": "EXTERNAL_LOAD",
+          "field": "equipment",
+          "value": [
+            "foam_roller"
+          ],
           "confidence": "HIGH",
-          "evidence": "verified resistance_band equipment",
-          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+          "evidence": "ACE exercise-specific IT Band Foam Rolling technique",
+          "source": "ACE_IT_BAND_SELF_CARE"
+        },
+        {
+          "field": "resistanceMode",
+          "value": "NONE",
+          "confidence": "HIGH",
+          "evidence": "ACE exercise-specific foam rolling/SMR technique",
+          "source": "ACE_IT_BAND_SELF_CARE"
         }
       ],
       "remainingIncompleteFields": [
@@ -510,7 +519,7 @@
   "summary": {
     "recordsAnalyzed": 15,
     "recordsFullyComplete": 0,
-    "fieldsResolvedTotal": 26,
+    "fieldsResolvedTotal": 27,
     "resistanceModeResolved": 15,
     "movementPatternResolved": 11,
     "recordsStillPartial": 15
