@@ -3564,6 +3564,242 @@
         "url": "https://www.crossfit.com/workout/2024/05",
         "mapping": "Exact eccentric phase documented in wall-assisted handstand/headstand progression; no catalog fitness implement required"
       }
+    },
+    "ex-trap-bar-deadlift": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Trap bar",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "NSCA Coach — Trap Bar Deadlift",
+        "url": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf",
+        "mapping": "exact exercise; canonical schema has no trap-bar token, so mapped minimally to barbell family without adding a new unsupported token"
+      }
+    },
+    "ex-ball-bridge": {
+      "equipmentRequired": {
+        "value": [
+          "stability_ball"
+        ],
+        "observed_value": "Stability ball",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Stability Ball Bridge",
+        "url": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/",
+        "mapping": "exact exercise-specific stability-ball bridge"
+      }
+    },
+    "ex-rotator-cuff-stabilization-with-theraband": {
+      "equipmentRequired": {
+        "value": [
+          "resistance_band"
+        ],
+        "observed_value": "Tubing / resistance band",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+        "url": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/",
+        "mapping": "canonical explicitly specifies TheraBand; source establishes tubing as resistance-band apparatus; equipment only"
+      }
+    },
+    "ex-reverse-pushdown": {
+      "equipmentRequired": {
+        "value": [
+          "cable"
+        ],
+        "observed_value": "Bar/rope push-down performed on cable resistance apparatus",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Triceps Push-down technical research",
+        "url": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/",
+        "mapping": "reverse grip changes grip, not cable apparatus; equipment only"
+      }
+    },
+    "ex-standing-unilateral-leg-curl": {
+      "equipmentRequired": {
+        "value": [
+          "machine"
+        ],
+        "observed_value": "Weight-stack machine",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Standing Leg Curl",
+        "url": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf",
+        "mapping": "standing unilateral leg curl described against machine weight stack"
+      }
+    },
+    "ex-unilateral-leg-extension": {
+      "equipmentRequired": {
+        "value": [
+          "machine"
+        ],
+        "observed_value": "Weight Machines / Selectorized",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Seated Leg Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/",
+        "mapping": "unilateral execution retains the same selectorized leg-extension apparatus; equipment only"
+      }
+    },
+    "ex-unilateral-cuffed-leg-extension": {
+      "equipmentRequired": {
+        "value": [
+          "cable"
+        ],
+        "observed_value": "Single cable handle / weight-stack cable station",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Cable resistance training",
+        "url": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf",
+        "mapping": "cuffed unilateral extension uses cable attachment; equipment only, no technique promoted"
+      }
+    },
+    "ex-back-extension-apparatus": {
+      "equipmentRequired": {
+        "value": [
+          "machine"
+        ],
+        "observed_value": "Seated back extension/flexion performed on machines",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — machine resistance-training program",
+        "url": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/",
+        "mapping": "canonical explicitly identifies apparatus; source identifies back-extension machine family"
+      }
+    },
+    "ex-burpees": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Bodyweight movement; no equipment required",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Burpee",
+        "url": "https://www.crossfit.com/essentials/the-burpee",
+        "mapping": "exact exercise-specific source"
+      }
+    },
+    "ex-pistols": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Body-weight movement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Single-Leg Squat",
+        "url": "https://www.crossfit.com/essentials/the-single-leg-squat",
+        "mapping": "source explicitly identifies pistol/single-leg squat as body-weight"
+      }
+    },
+    "ex-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Freestanding bodyweight handstand",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Handstand",
+        "url": "https://www.crossfit.com/essentials/freestanding-handstand",
+        "mapping": "exact exercise-specific source; no external training implement"
+      }
+    },
+    "ex-freestanding-handstand-shoulder-taps": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Handstand shoulder taps / freestanding inversion practice",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — Handstand Walking Progressions",
+        "url": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan",
+        "mapping": "source explicitly documents handstand shoulder-tap progression without external implement"
+      }
+    },
+    "ex-one-arm-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Freestanding handstand skill family",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit Gymnastics Training Guide",
+        "url": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+        "mapping": "one-arm handstand is a freestanding hand-balance skill; equipment only, no technique promoted"
+      }
+    },
+    "ex-back-clap-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Clap/chest-slap/behind-the-back clap push-up on floor",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "url": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf",
+        "mapping": "source explicitly documents behind-back clapping as push-up progression"
+      }
+    },
+    "ex-double-clap-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Dynamic clap push-up on floor",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "url": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf",
+        "mapping": "multiple-clap progression changes airborne action, not apparatus; equipment only"
+      }
+    },
+    "ex-triple-clap-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Dynamic clap push-up on floor",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "url": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf",
+        "mapping": "multiple-clap progression changes airborne action, not apparatus; equipment only"
+      }
+    },
+    "ex-fingertip-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Body-weight push-up on floor",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — Push-up technical standard",
+        "url": "https://www.crossfit.com/essentials/the-push-up",
+        "mapping": "fingertip hand contact changes support surface, not external apparatus; equipment only"
+      }
+    },
+    "ex-one-arm-one-leg-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Push-up with Single-leg Raise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/",
+        "mapping": "single-leg push-up family is explicitly no-equipment; one-arm progression does not add apparatus; equipment only"
+      }
+    },
+    "ex-straight-body-one-arm-pushup": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "One-arm push-up from prone/deck position",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit developmental gymnastics — One-arm push-up",
+        "url": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf",
+        "mapping": "source explicitly documents one-arm push-up as floor bodyweight skill"
+      }
+    },
+    "ex-superman-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Dynamic bodyweight push-up family on floor",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "url": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf",
+        "mapping": "airborne push-up progression; no external implement introduced; equipment only"
+      }
     }
   },
   "unresolved_conflicts": [
