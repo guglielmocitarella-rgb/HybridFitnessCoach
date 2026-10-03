@@ -919,7 +919,7 @@ def build_database(root, output_dir):
         for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
             if not record.get(field): missing_before.append(field)
         resolved = []
-        if record.get("resistanceMode") in {None, "UNKNOWN"}:
+        if mode and record.get("resistanceMode") in {None, "UNKNOWN"}:
             source_ids = sorted({s.get("source_id") for s in record.get("sources", []) if s.get("source_id")})
             record["resistanceMode"] = mode
             record.setdefault("fieldProvenance", {})["resistanceMode"] = {
@@ -979,15 +979,28 @@ def build_database(root, output_dir):
         "ex-half-lever-extensions": "BODYWEIGHT",
         "ex-box-jumps": "BODYWEIGHT",
         "ex-hamstring-ball-curl": "BODYWEIGHT",
-        "ex-medicine-ball-clean": "EXTERNAL_LOAD",
         "ex-stability-ball-bridge-to-curl": "BODYWEIGHT",
         "ex-stability-ball-reverse-back-extension": "BODYWEIGHT",
         "ex-stability-ball-pike": "BODYWEIGHT",
         "ex-stability-ball-abdominal-crunch": "BODYWEIGHT",
-        "ex-weighted-dip": "EXTERNAL_LOAD",
-        "ex-muscle-up": "BODYWEIGHT",
-        "ex-normal-muscle-up": "BODYWEIGHT",
     }
+    record_first_batch03_selection = [
+        "ex-angled-half-lever",
+        "ex-floor-half-lever",
+        "ex-half-lever",
+        "ex-half-lever-bicycles",
+        "ex-half-lever-extensions",
+        "ex-box-jumps",
+        "ex-hamstring-ball-curl",
+        "ex-medicine-ball-clean",
+        "ex-stability-ball-bridge-to-curl",
+        "ex-stability-ball-reverse-back-extension",
+        "ex-stability-ball-pike",
+        "ex-stability-ball-abdominal-crunch",
+        "ex-weighted-dip",
+        "ex-muscle-up",
+        "ex-normal-muscle-up",
+    ]
     record_first_batch03_patterns = {
         "ex-angled-half-lever": "core-control",
         "ex-floor-half-lever": "core-control",
@@ -1028,7 +1041,8 @@ def build_database(root, output_dir):
         },
     }
     record_first_batch03 = []
-    for exercise_id, mode in record_first_batch03_modes.items():
+    for exercise_id in record_first_batch03_selection:
+        mode = record_first_batch03_modes.get(exercise_id)
         record = records_by_id[exercise_id]
         missing_before = []
         if record.get("equipmentStatus") != "KNOWN": missing_before.append("equipment")
