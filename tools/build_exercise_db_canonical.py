@@ -986,6 +986,49 @@ def build_database(root, output_dir):
             }
     none_candidates.sort(key=lambda item: item["id"])
 
+    # BODYWEIGHT-general tranche: expand only to reviewed general/core/conditioning
+    # families whose canonical record has known zero equipment. No apparatus is
+    # admitted here: stability balls, suspension trainers, bands, bars, rings,
+    # machines/cables and all external loads remain outside this rule.
+    bodyweight_general_families = {"CORE", "CONDITIONING", "GENERAL", "LOCOMOTION"}
+    bodyweight_general_types = {"CORE", "CONDITIONING", "CALISTHENICS"}
+    bodyweight_general_exclusion_terms = ("weighted", "assisted", "band", "resisted", "machine", "cable")
+    bodyweight_general_candidates = []
+    for record in all_records:
+        equipment = record.get("equipmentRequired") or []
+        name_key = str(record.get("canonicalNameEn") or "").lower()
+        exclusions_verified = {
+            "equipmentKnown": record.get("equipmentStatus") == "KNOWN",
+            "zeroEquipment": not equipment,
+            "reviewedSelfLoadedGeneralFamily": record.get("family") in bodyweight_general_families,
+            "reviewedMovementType": record.get("movementType") in bodyweight_general_types,
+            "noWeightedAssistedBandOrMachineName": not any(term in name_key for term in bodyweight_general_exclusion_terms),
+            "unambiguousCanonicalIdentity": record.get("identityResolution") != "AMBIGUOUS_CURRENT_MODEL_LINK",
+        }
+        if record.get("resistanceMode") in {None, "UNKNOWN"} and all(exclusions_verified.values()):
+            bodyweight_general_candidates.append({
+                "id": record["id"],
+                "canonicalNameEn": record.get("canonicalNameEn"),
+                "family": record.get("family"),
+                "movementType": record.get("movementType"),
+                "equipmentRequired": equipment,
+                "reason": "Reviewed CORE/CONDITIONING/GENERAL/LOCOMOTION self-loaded movement with known zero equipment and no alternate resistance qualifier.",
+                "exclusionsVerified": exclusions_verified,
+                "confidence": "HIGH",
+            })
+            record["resistanceMode"] = "BODYWEIGHT"
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    equipment_resistance_source["source_id"],
+                    "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+                    {"family": record.get("family"), "type": record.get("movementType"), "equipment": equipment},
+                ),
+                "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded.",
+            }
+    bodyweight_general_candidates.sort(key=lambda item: item["id"])
+
     from tools.validate_exercise_db_canonical import APP_SUPPORTED_EQUIPMENT, validate_database
     all_sources = sources + [
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
@@ -1139,6 +1182,14 @@ def build_database(root, output_dir):
         "records": resistance_unknown_records,
     }
 
+    bodyweight_general_candidate_report = {
+        "schemaVersion": 1,
+        "screenedResistanceUnknown": 187,
+        "rule": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+        "count": len(bodyweight_general_candidates),
+        "candidates": bodyweight_general_candidates,
+    }
+    (output_dir / "RESISTANCE_MODE_BODYWEIGHT_GENERAL_CANDIDATES.json").write_text(json.dumps(bodyweight_general_candidate_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     none_candidate_report = {
         "schemaVersion": 1,
         "screenedResistanceUnknown": 214,
