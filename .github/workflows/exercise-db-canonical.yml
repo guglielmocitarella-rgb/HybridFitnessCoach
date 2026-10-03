@@ -27,7 +27,7 @@ on:
       - 'tools/validate_exercise_db_canonical.py'
       - 'tests/test_exercise_db_canonical.py'
       - '.github/workflows/exercise-db-canonical.yml'
-  workflow_dispatch:
+  pull_request:\n    branches:\n      - main\n    paths:\n      - 'exercise-db-canonical/**'\n      - 'tools/build_exercise_db_canonical.py'\n      - 'tools/validate_exercise_db_canonical.py'\n      - 'tests/test_exercise_db_canonical.py'\n      - '.github/workflows/exercise-db-canonical.yml'\n  workflow_dispatch:
 
 permissions:
   contents: write
@@ -38,7 +38,7 @@ concurrency:
 
 jobs:
   validate-and-regenerate:
-    if: github.ref == 'refs/heads/feature/v0.9.5'
+    if: github.ref == 'refs/heads/feature/v0.9.5' || github.head_ref == 'feature/v0.9.5'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact branch head
