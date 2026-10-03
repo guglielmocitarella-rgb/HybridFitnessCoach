@@ -12,6 +12,7 @@ on:
       - 'exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json'
       - 'exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json'
       - 'exercise-db-canonical/RESISTANCE_MODE_NONE_CANDIDATES.json'
+      - 'exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_GENERAL_CANDIDATES.json'
       - 'tools/build_exercise_db_canonical.py'
       - 'tools/validate_exercise_db_canonical.py'
       - 'tests/test_exercise_db_canonical.py'
@@ -78,7 +79,7 @@ jobs:
             exit 1
           fi
 
-          git add --             exercise-db-canonical/exercise-db-canonical.json             exercise-db-canonical/exercise-db-canonical-audit.json             exercise-db-canonical/VALIDATION_REPORT.json             exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json             exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json             exercise-db-canonical/RESISTANCE_MODE_NONE_CANDIDATES.json             exercise-db-canonical/sources.json             exercise-db-canonical/exercise-db-canonical.json.gz             exercise-db-canonical/exercise-db-canonical-audit.json.gz
+          git add --             exercise-db-canonical/exercise-db-canonical.json             exercise-db-canonical/exercise-db-canonical-audit.json             exercise-db-canonical/VALIDATION_REPORT.json             exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json             exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json             exercise-db-canonical/RESISTANCE_MODE_NONE_CANDIDATES.json             exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_GENERAL_CANDIDATES.json             exercise-db-canonical/sources.json             exercise-db-canonical/exercise-db-canonical.json.gz             exercise-db-canonical/exercise-db-canonical-audit.json.gz
 
           if git diff --cached --quiet; then
             echo "Generated artifacts already match inputs."
