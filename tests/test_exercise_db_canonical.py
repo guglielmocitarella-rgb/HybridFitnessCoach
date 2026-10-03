@@ -510,6 +510,42 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(by_id["ex-banded-biceps-curl"]["fieldProvenance"]["movementPattern"]["status"], "REVIEWED_CANONICAL_MECHANICS_RULE")
         self.assertIsNone(by_id["ex-banded-biceps-curl"]["level"])
 
+    def test_record_first_batch02_resolves_reviewed_records_without_cross_field_confidence(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+            batch = json.loads((output / "RECORD_FIRST_ENRICHMENT_BATCH_02.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(batch["strategy"], "RECORD_FIRST_ENRICHMENT")
+        self.assertEqual(batch["screenedResistanceUnknown"], 150)
+        self.assertEqual(batch["count"], 23)
+        self.assertEqual(batch["summary"]["resistanceModeResolved"], 23)
+        self.assertGreaterEqual(batch["summary"]["recordsFullyComplete"], 4)
+        self.assertLessEqual(result["counts"]["resistance_mode_unknown"], 127)
+        expected_modes = {
+            "ex-assisted-dip": "ASSISTED",
+            "ex-assisted-single-leg-squat": "ASSISTED",
+            "ex-seated-ez-bar-triceps-extension": "EXTERNAL_LOAD",
+            "ex-seated-side-stretch-on-ball": "NONE",
+            "ex-tuck-jump": "BODYWEIGHT",
+            "ex-prone-walkout": "BODYWEIGHT",
+        }
+        for exercise_id, expected in expected_modes.items():
+            self.assertEqual(by_id[exercise_id]["resistanceMode"], expected)
+            provenance = by_id[exercise_id]["fieldProvenance"]["resistanceMode"]
+            self.assertEqual(provenance["status"], "RECORD_FIRST_EXERCISE_REVIEW")
+            self.assertEqual(provenance["confidence"], "HIGH")
+        for item in batch["records"]:
+            for resolved in item["resolvedFields"]:
+                self.assertEqual(resolved["confidence"], "HIGH")
+            if "level" in item["remainingIncompleteFields"]:
+                self.assertFalse(by_id[item["id"]].get("level"))
+            for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+                report_field = field
+                if report_field in item["remainingIncompleteFields"]:
+                    self.assertFalse(by_id[item["id"]].get(field))
+
     def test_generates_deterministic_resistance_unknown_operational_report(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)

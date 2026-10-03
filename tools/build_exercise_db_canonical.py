@@ -874,6 +874,98 @@ def build_database(root, output_dir):
             if source_ref not in record.setdefault("sources", []):
                 record["sources"].append(source_ref)
             external_fields_applied[field] += 1
+    # RECORD-FIRST ENRICHMENT batch 02: prioritize records with reusable
+    # exercise-specific provenance and multi-field closure potential. Each field
+    # keeps independent provenance/confidence; no confidence is transferred.
+    record_first_batch02_modes = {
+        "ex-forward-step-lunge": "BODYWEIGHT",
+        "ex-tuck-jump": "BODYWEIGHT",
+        "ex-prone-walkout": "BODYWEIGHT",
+        "ex-standing-jump-and-reach": "BODYWEIGHT",
+        "ex-prone-back-extension-on-ball": "BODYWEIGHT",
+        "ex-assisted-single-leg-squat": "ASSISTED",
+        "ex-bridge": "BODYWEIGHT",
+        "ex-triceps-push-up": "BODYWEIGHT",
+        "ex-assisted-dip": "ASSISTED",
+        "ex-seated-ez-bar-triceps-extension": "EXTERNAL_LOAD",
+        "ex-iron-cross": "BODYWEIGHT",
+        "ex-iron-cross-pullouts": "BODYWEIGHT",
+        "ex-ball-bridge": "BODYWEIGHT",
+        "ex-hang-pull-to-inverted-hang": "BODYWEIGHT",
+        "ex-alternate-arm-and-leg-raises-on-ball": "BODYWEIGHT",
+        "ex-parallel-knee-raise": "BODYWEIGHT",
+        "ex-seated-side-stretch-on-ball": "NONE",
+        "ex-decline-abdominal-crunch": "BODYWEIGHT",
+        "ex-ab-wheel-eccentrics": "BODYWEIGHT",
+        "ex-full-ab-wheel": "BODYWEIGHT",
+        "ex-knees-ab-wheel": "BODYWEIGHT",
+        "ex-one-arm-ab-wheel": "BODYWEIGHT",
+        "ex-ramp-ab-wheel": "BODYWEIGHT",
+    }
+    record_first_batch02_patterns = {
+        "ex-prone-back-extension-on-ball": "hinge",
+        "ex-seated-ez-bar-triceps-extension": "push-accessory",
+        "ex-hang-pull-to-inverted-hang": "vertical-pull",
+    }
+    record_first_batch02 = []
+    for exercise_id, mode in record_first_batch02_modes.items():
+        record = records_by_id[exercise_id]
+        missing_before = []
+        if record.get("equipmentStatus") != "KNOWN": missing_before.append("equipment")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing_before.append("resistanceMode")
+        if not record.get("movementPattern"): missing_before.append("movementPattern")
+        if not record.get("level"): missing_before.append("level")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing_before.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing_before.append(field)
+        resolved = []
+        if record.get("resistanceMode") in {None, "UNKNOWN"}:
+            source_ids = sorted({s.get("source_id") for s in record.get("sources", []) if s.get("source_id")})
+            record["resistanceMode"] = mode
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "RECORD_FIRST_EXERCISE_REVIEW",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    equipment_resistance_source["source_id"],
+                    "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+                    {"id": exercise_id, "mode": mode, "supportingSourceIds": source_ids},
+                ),
+                "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode.",
+            }
+            resolved.append({"field": "resistanceMode", "value": mode, "confidence": "HIGH", "source": equipment_resistance_source["source_id"]})
+        pattern = record_first_batch02_patterns.get(exercise_id)
+        if pattern and not record.get("movementPattern"):
+            record["movementPattern"] = [pattern]
+            record["movementPatternStatus"] = "KNOWN"
+            record.setdefault("fieldProvenance", {})["movementPattern"] = {
+                "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    family_pattern_source["source_id"],
+                    "RECORD_FIRST_EXERCISE_MECHANICS",
+                    {"id": exercise_id, "family": record.get("family"), "canonicalNameEn": record.get("canonicalNameEn")},
+                ),
+                "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern.",
+            }
+            resolved.append({"field": "movementPattern", "value": [pattern], "confidence": "HIGH", "source": family_pattern_source["source_id"]})
+        missing_after = []
+        if record.get("equipmentStatus") != "KNOWN": missing_after.append("equipment")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing_after.append("resistanceMode")
+        if not record.get("movementPattern"): missing_after.append("movementPattern")
+        if not record.get("level"): missing_after.append("level")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing_after.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing_after.append(field)
+        record_first_batch02.append({
+            "id": exercise_id,
+            "canonicalNameEn": record.get("canonicalNameEn"),
+            "missingFieldsBefore": missing_before,
+            "resolvedFields": resolved,
+            "remainingIncompleteFields": missing_after,
+            "fullyComplete": not missing_after,
+        })
+    record_first_batch02.sort(key=lambda item: item["id"])
+
     # Resistance-mode tranche: after reviewed enrichment has finalized equipment,
     # promote only deterministic external-load cases. This deliberately excludes
     # bands, assistance, bodyweight apparatus and ambiguous implements.
@@ -1317,6 +1409,33 @@ def build_database(root, output_dir):
         },
     }
     (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_01.json").write_text(json.dumps(record_first_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    record_first_batch02_report = {
+        "schemaVersion": 1,
+        "strategy": "RECORD_FIRST_ENRICHMENT",
+        "selectionBlocker": "resistanceMode UNKNOWN",
+        "batch": "multi-field-high-confidence-02",
+        "screenedResistanceUnknown": 150,
+        "count": len(record_first_batch02),
+        "records": record_first_batch02,
+        "summary": {
+            "recordsAnalyzed": len(record_first_batch02),
+            "recordsFullyComplete": sum(item["fullyComplete"] for item in record_first_batch02),
+            "fieldsResolvedTotal": sum(len(item["resolvedFields"]) for item in record_first_batch02),
+            "equipmentResolved": sum(any(field["field"] == "equipment" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "resistanceModeResolved": sum(any(field["field"] == "resistanceMode" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "movementPatternResolved": sum(any(field["field"] == "movementPattern" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "levelResolved": sum(any(field["field"] == "level" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "skillLinkResolved": sum(any(field["field"] == "skillLink" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "descriptionResolved": sum(any(field["field"] == "descriptionIt" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "setupResolved": sum(any(field["field"] == "setupIt" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "executionResolved": sum(any(field["field"] == "executionStepsIt" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "techniqueCuesResolved": sum(any(field["field"] == "techniqueCuesIt" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "commonErrorsResolved": sum(any(field["field"] == "commonErrorsIt" for field in item["resolvedFields"]) for item in record_first_batch02),
+            "recordsStillPartial": sum(not item["fullyComplete"] for item in record_first_batch02),
+        },
+    }
+    (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_02.json").write_text(json.dumps(record_first_batch02_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     bodyweight_general_candidate_report = {
         "schemaVersion": 1,

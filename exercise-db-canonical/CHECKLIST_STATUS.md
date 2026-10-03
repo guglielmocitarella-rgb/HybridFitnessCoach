@@ -104,3 +104,12 @@ Screen all 187 residual resistance-mode UNKNOWN records. Rule `KNOWN_SELF_LOADED
 ### Record-first enrichment — batch 01
 
 Selection starts from the 165 residual resistance-mode UNKNOWN records. Batch 01 audits the complete records with verified resistance-band equipment. Each field is promoted independently: resistance mode uses verified equipment semantics; movement pattern is filled only for reviewed unambiguous canonical mechanics; level, skill links and instruction fields remain UNKNOWN/incomplete unless independently evidenced. Report: `RECORD_FIRST_ENRICHMENT_BATCH_01.json`. `releaseReady` remains false.
+
+
+## Record-first enrichment batch 02 — input checkpoint
+
+- Baseline remote HEAD: `b01759e7106f51fa3c37fe2cd3397e7d16c3ae2b`.
+- Selection: 23 records from the 150 residual `resistanceMode UNKNOWN`, prioritized for reusable exercise-specific/technical provenance and multi-field closure potential.
+- Method: full record audit; field-level confidence/provenance remain independent; no forced level, skill-link, or instruction promotion.
+- Expected direct resistance-mode reduction from this reviewed batch: 23 records; generated validator remains authoritative after CI.
+- PR #14 remains Draft; `releaseReady: false`; no runtime integration, merge, force-push, or main write.
