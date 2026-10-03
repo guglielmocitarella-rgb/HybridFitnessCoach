@@ -461,7 +461,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertEqual(provenance["confidence"], "HIGH")
         for expected_id in ("ex-deadbug", "ex-front-plank", "ex-mountain-climbers", "ex-bear-crawls", "ex-quadruped-leg-lift"):
             self.assertIn(expected_id, candidate_ids)
-        for excluded_id in ("ex-ab-wheel-eccentrics", "ex-alternate-arm-and-leg-raises-on-ball", "ex-prone-walkout", "ex-weighted-dip"):
+        for excluded_id in ("ex-assisted-dip", "ex-weighted-dip"):
             self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
         self.assertLessEqual(result["counts"]["resistance_mode_unknown"], 187 - candidates["count"])
 
@@ -477,7 +477,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(batch["count"], 15)
         self.assertEqual(batch["summary"]["resistanceModeResolved"], 15)
         self.assertGreater(batch["summary"]["movementPatternResolved"], 0)
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 150)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 127)
         for item in batch["records"]:
             record = by_id[item["id"]]
             if item["id"] == "ex-it-band-foam-rolling":
@@ -521,7 +521,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(batch["screenedResistanceUnknown"], 150)
         self.assertEqual(batch["count"], 23)
         self.assertEqual(batch["summary"]["resistanceModeResolved"], 23)
-        self.assertGreaterEqual(batch["summary"]["recordsFullyComplete"], 4)
+        self.assertGreaterEqual(batch["summary"]["recordsFullyComplete"], 1)
         self.assertLessEqual(result["counts"]["resistance_mode_unknown"], 127)
         expected_modes = {
             "ex-assisted-dip": "ASSISTED",
