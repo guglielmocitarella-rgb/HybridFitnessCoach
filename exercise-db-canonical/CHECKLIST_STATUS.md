@@ -99,3 +99,8 @@ Screen all 214 residual resistance-mode UNKNOWN records. Generate `RESISTANCE_MO
 ### Resistance-mode tranche 4 — BODYWEIGHT general/core
 
 Screen all 187 residual resistance-mode UNKNOWN records. Rule `KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT` is separate from the original BODYWEIGHT rule and requires KNOWN zero equipment, reviewed CORE/CONDITIONING/GENERAL/LOCOMOTION family, CORE/CONDITIONING/CALISTHENICS type, no weighted/assisted/band/resisted/machine/cable qualifier, and unambiguous canonical identity. Apparatus cases including stability ball, suspension trainer, bands, bars/rings, machines/cables and external loads are excluded. Only HIGH-confidence matches are materialized. `releaseReady` remains false.
+
+
+### Record-first enrichment — batch 01
+
+Selection starts from the 165 residual resistance-mode UNKNOWN records. Batch 01 audits the complete records with verified resistance-band equipment. Each field is promoted independently: resistance mode uses verified equipment semantics; movement pattern is filled only for reviewed unambiguous canonical mechanics; level, skill links and instruction fields remain UNKNOWN/incomplete unless independently evidenced. Report: `RECORD_FIRST_ENRICHMENT_BATCH_01.json`. `releaseReady` remains false.
