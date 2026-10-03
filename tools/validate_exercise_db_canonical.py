@@ -15,7 +15,24 @@ from tools.build_exercise_db_canonical import RECOGNIZED_EQUIPMENT, _skill_nodes
 
 EQUIPMENT_CATALOG_PATH = PROJECT_ROOT / "app/src/main/java/com/hybridfitnesscoach/app/EquipmentCatalog.kt"
 _EQUIPMENT_CATALOG_TEXT = EQUIPMENT_CATALOG_PATH.read_text(encoding="utf-8")
-APP_SUPPORTED_EQUIPMENT = set(re.findall(r'\b[A-Z][A-Z0-9_]*\("([a-z0-9_]+)"\s*,', _EQUIPMENT_CATALOG_TEXT))
+APP_SUPPORTED_EQUIPMENT = set(re.findall(r'\\b[A-Z][A-Z0-9_]*\\("([a-z0-9_]+)"\\s*,', _EQUIPMENT_CATALOG_TEXT))
+
+
+def equipment_semantic_state(record):
+    """V3.1A equipment state: no-equipment is explicit and never aliases UNKNOWN."""
+    status = record.get("equipmentStatus")
+    equipment = list(record.get("equipmentRequired") or [])
+    if status == "UNKNOWN":
+        return "UNKNOWN"
+    if status != "KNOWN":
+        return "INVALID_EQUIPMENT"
+    if any(token not in RECOGNIZED_EQUIPMENT for token in equipment):
+        return "INVALID_EQUIPMENT"
+    if any(token not in APP_SUPPORTED_EQUIPMENT for token in equipment):
+        return "UNSUPPORTED_EQUIPMENT"
+    if not equipment:
+        return "KNOWN_NO_EQUIPMENT"
+    return "SUPPORTED_EQUIPMENT"
 
 
 def validate_database(records, progressions, sources):
@@ -122,11 +139,12 @@ def validate_database(records, progressions, sources):
             if source_id not in source_ids:
                 errors.append(f"progression edge {key[0]}->{key[1]}: unregistered source {source_id}")
 
-    equipment_unknown = sum(record.get("equipmentStatus") != "KNOWN" for record in records)
-    equipment_unsupported_by_app = sum(
-        any(token in RECOGNIZED_EQUIPMENT and token not in APP_SUPPORTED_EQUIPMENT for token in (record.get("equipmentRequired") or []))
-        for record in records
-    )
+    equipment_states = Counter(equipment_semantic_state(record) for record in records)
+    equipment_unknown = equipment_states["UNKNOWN"]
+    equipment_known_no_equipment = equipment_states["KNOWN_NO_EQUIPMENT"]
+    equipment_supported = equipment_states["SUPPORTED_EQUIPMENT"]
+    equipment_unsupported_by_app = equipment_states["UNSUPPORTED_EQUIPMENT"]
+    equipment_invalid = equipment_states["INVALID_EQUIPMENT"]
     pattern_missing = sum(not (record.get("movementPattern") or []) for record in records)
     instruction_incomplete = sum(
         not str(record.get("descriptionIt") or "").strip()
@@ -157,7 +175,18 @@ def validate_database(records, progressions, sources):
         "errors": errors,
         "warnings": warnings,
         "releaseReady": not errors and not selection_unknown and not instruction_incomplete,
-        "counts": {"records": len(records), "unique_ids": len(id_set), "progression_edges": len(progressions)},
+        "counts": {
+            "records": len(records),
+            "unique_ids": len(id_set),
+            "progression_edges": len(progressions),
+            "equipment_semantics": {
+                "KNOWN_NO_EQUIPMENT": equipment_known_no_equipment,
+                "UNKNOWN": equipment_unknown,
+                "SUPPORTED_EQUIPMENT": equipment_supported,
+                "UNSUPPORTED_EQUIPMENT": equipment_unsupported_by_app,
+                "INVALID_EQUIPMENT": equipment_invalid,
+            },
+        },
         "blockers": {
             "equipment_unknown": equipment_unknown,
             "equipment_unsupported_by_app": equipment_unsupported_by_app,
