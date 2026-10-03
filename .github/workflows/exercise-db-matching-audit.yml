@@ -28,6 +28,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Reconstruct pinned audit inputs
         shell: bash
         run: |
@@ -44,53 +45,127 @@ jobs:
           def blob(repo, sha, dest):
               subprocess.run(["git","clone","--quiet","--filter=blob:none","--no-checkout","https://github.com/"+repo+".git",str(dest.parent/(dest.stem+"-repo"))],check=True)
               r=dest.parent/(dest.stem+"-repo")
-              data=subprocess.check_output(["git","-C",str(r),"cat-file","blob",sha])
-              dest.write_bytes(data)
+              dest.write_bytes(subprocess.check_output(["git","-C",str(r),"cat-file","blob",sha]))
           (work/"canonical.json").write_bytes(subprocess.check_output(["git","cat-file","blob",m["canonicalBlob"]]))
           for i,s in enumerate(m["sources"]):
               f=next(x for x in s["files"] if x["path"].endswith("exercises.json"))
               blob(s["repository"],f["sha"],work/f"source{i}.json")
           PY
+
       - name: Validate matcher
         working-directory: exercise-db-canonical/matching-audit-2026-10-03
         run: python -m unittest test_matcher.py
-      - name: Complete remaining checkpoints
+
+      - name: Configure checkpoint persistence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Checkpoint 0800-0869
         shell: bash
         run: |
           set -euo pipefail
-          M="exercise-db-canonical/matching-audit-2026-10-03/matcher.py"
-          python "$M" --start 800 --count 100
-          python "$M" --start 900 --count 100
-          python "$M" --start 1000 --count 87
-      - name: Validate complete coverage and update status
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          python "$A/matcher.py" --start 800 --count 70
+          python - "$A/checkpoints/0800-0869.json" 800 869 70 <<'PY'
+          import json,sys
+          p,start,end,count=sys.argv[1],int(sys.argv[2]),int(sys.argv[3]),int(sys.argv[4])
+          d=json.load(open(p)); ids=d["ids"]
+          assert d["start_index"]==start and d["end_index"]==end and len(ids)==count
+          assert len(set(ids))==count and d.get("digest") and d.get("snapshot") and d.get("matcher_version")=="1.0"
+          assert all(r.get("canonical_id") in set(ids) for r in d["rows"])
+          assert all("source_dataset" in r for r in d["rows"])
+          print({"validated":p,"ids":len(ids),"rows":len(d["rows"])})
+          PY
+          git add "$A/checkpoints/0800-0869.json"
+          git commit -m "audit(db): checkpoint matching 870 of 1087 [skip ci]"
+          git push origin HEAD:feature/v0.9.5
+
+      - name: Checkpoint 0870-0939
         shell: bash
         run: |
+          set -euo pipefail
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          python "$A/matcher.py" --start 870 --count 70
+          python - "$A/checkpoints/0870-0939.json" 870 939 70 <<'PY'
+          import json,sys
+          p,start,end,count=sys.argv[1],int(sys.argv[2]),int(sys.argv[3]),int(sys.argv[4])
+          d=json.load(open(p)); ids=d["ids"]
+          assert d["start_index"]==start and d["end_index"]==end and len(ids)==count
+          assert len(set(ids))==count and d.get("digest") and d.get("snapshot") and d.get("matcher_version")=="1.0"
+          assert all(r.get("canonical_id") in set(ids) for r in d["rows"])
+          assert all("source_dataset" in r for r in d["rows"])
+          print({"validated":p,"ids":len(ids),"rows":len(d["rows"])})
+          PY
+          git add "$A/checkpoints/0870-0939.json"
+          git commit -m "audit(db): checkpoint matching 940 of 1087 [skip ci]"
+          git push origin HEAD:feature/v0.9.5
+
+      - name: Checkpoint 0940-1009
+        shell: bash
+        run: |
+          set -euo pipefail
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          python "$A/matcher.py" --start 940 --count 70
+          python - "$A/checkpoints/0940-1009.json" 940 1009 70 <<'PY'
+          import json,sys
+          p,start,end,count=sys.argv[1],int(sys.argv[2]),int(sys.argv[3]),int(sys.argv[4])
+          d=json.load(open(p)); ids=d["ids"]
+          assert d["start_index"]==start and d["end_index"]==end and len(ids)==count
+          assert len(set(ids))==count and d.get("digest") and d.get("snapshot") and d.get("matcher_version")=="1.0"
+          assert all(r.get("canonical_id") in set(ids) for r in d["rows"])
+          assert all("source_dataset" in r for r in d["rows"])
+          print({"validated":p,"ids":len(ids),"rows":len(d["rows"])})
+          PY
+          git add "$A/checkpoints/0940-1009.json"
+          git commit -m "audit(db): checkpoint matching 1010 of 1087 [skip ci]"
+          git push origin HEAD:feature/v0.9.5
+
+      - name: Checkpoint 1010-1086
+        shell: bash
+        run: |
+          set -euo pipefail
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          python "$A/matcher.py" --start 1010 --count 77
+          python - "$A/checkpoints/1010-1086.json" 1010 1086 77 <<'PY'
+          import json,sys
+          p,start,end,count=sys.argv[1],int(sys.argv[2]),int(sys.argv[3]),int(sys.argv[4])
+          d=json.load(open(p)); ids=d["ids"]
+          assert d["start_index"]==start and d["end_index"]==end and len(ids)==count
+          assert len(set(ids))==count and d.get("digest") and d.get("snapshot") and d.get("matcher_version")=="1.0"
+          assert all(r.get("canonical_id") in set(ids) for r in d["rows"])
+          assert all("source_dataset" in r for r in d["rows"])
+          print({"validated":p,"ids":len(ids),"rows":len(d["rows"])})
+          PY
+          git add "$A/checkpoints/1010-1086.json"
+          git commit -m "audit(db): checkpoint matching 1087 of 1087 [skip ci]"
+          git push origin HEAD:feature/v0.9.5
+
+      - name: Validate complete mixed-size coverage and update status
+        shell: bash
+        run: |
+          set -euo pipefail
           python - <<'PY'
-          import json, pathlib
+          import gzip,json,pathlib
           root=pathlib.Path("exercise-db-canonical/matching-audit-2026-10-03")
-          cps=sorted((root/"checkpoints").glob("*.json"))
-          ids=[]
-          summaries=[]
-          for p in cps:
-              d=json.loads(p.read_text())
+          files=sorted((root/"checkpoints").glob("*.json.gz"))+sorted((root/"checkpoints").glob("*.json"))
+          ids=[]; summaries=[]
+          for p in files:
+              opener=gzip.open if p.suffix==".gz" else open
+              with opener(p,"rt") as f: d=json.load(f)
               ids.extend(d["ids"])
               summaries.append({"file":p.name,"start":d["start_index"],"end":d["end_index"],"count":len(d["ids"]),"digest":d["digest"],"statistics":d["statistics"]})
-          if len(ids)!=1087 or len(set(ids))!=1087:
-              raise SystemExit(f"coverage invalid: rows={len(ids)} unique={len(set(ids))}")
-          status={"audit":"matching-audit-2026-10-03","state":"MATCHING_COMPLETE","processed":1087,"total":1087,"checkpoint_count":len(cps),"checkpoints":summaries}
+          canonical=json.loads((root.parent/"work"/"canonical.json").read_text())
+          canonical_ids={x["id"] for x in canonical}
+          seen=set(ids)
+          assert len(ids)==1087, f"processed={len(ids)}"
+          assert len(seen)==1087, f"unique={len(seen)}"
+          assert seen==canonical_ids, f"missing={len(canonical_ids-seen)} extra={len(seen-canonical_ids)}"
+          status={"audit":"matching-audit-2026-10-03","state":"MATCHING_COMPLETE","processed":1087,"unique":1087,"missing":0,"duplicates":0,"total":1087,"checkpoint_count":len(files),"checkpoints":summaries}
           (root/"STATUS.json").write_text(json.dumps(status,indent=2,ensure_ascii=False)+"\n")
           print(json.dumps(status))
           PY
-      - name: Persist checkpoints
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add exercise-db-canonical/matching-audit-2026-10-03/checkpoints exercise-db-canonical/matching-audit-2026-10-03/STATUS.json
-          if git diff --cached --quiet; then
-            echo "Nothing new to commit"
-            exit 0
-          fi
-          git commit -m "audit(db): complete matching 1087 of 1087 [skip ci]"
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          git add "$A/STATUS.json"
+          git commit -m "audit(db): verify complete matching coverage [skip ci]"
           git push origin HEAD:feature/v0.9.5
