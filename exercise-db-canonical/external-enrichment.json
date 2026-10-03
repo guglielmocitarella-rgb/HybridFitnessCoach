@@ -4493,6 +4493,116 @@
         "url": "https://gym.com/exercises/knee-raise-parallel-bars",
         "mapping": "exact knee-raise parallel-bars exercise; canonical dip_bars"
       }
+    },
+    "ex-90-degree-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "90 Degree Pushup in Handstand Pushups progression; Rings Handstand Pushups are separately named",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact non-rings handstand-pushup progression; no external apparatus required"
+      }
+    },
+    "ex-planche-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Planche Pushups — Parallel Bars and Floor; Rings Planche Pushups separately named",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "generic non-rings planche-pushup identity; floor is explicitly supported"
+      }
+    },
+    "ex-elevated-straddle-stand-straddle-press-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Elevated Straddle Stand Press to Handstand in Press Handstands progression",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact progression identity; elevation is setup geometry, no unique external apparatus token established"
+      }
+    },
+    "ex-half-lever": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+      }
+    },
+    "ex-half-lever-bicycles": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+      }
+    },
+    "ex-half-lever-extensions": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+      }
+    },
+    "ex-half-lever-swimmers": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+      }
+    },
+    "ex-angled-half-lever": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+      }
+    },
+    "ex-floor-half-lever": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+      }
+    },
+    "ex-tuck-half-lever": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+      }
     }
   },
   "unresolved_conflicts": [
