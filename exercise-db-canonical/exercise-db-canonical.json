@@ -7911,7 +7911,9 @@
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "pull-accessory"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -7966,8 +7968,8 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -7987,26 +7989,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Biceps Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-biceps-curl",
+            "family": "ARM",
+            "canonicalNameEn": "Banded Biceps Curl"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Biceps Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -8126,7 +8134,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -8155,15 +8163,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Chest Press",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -8226,7 +8237,9 @@
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "hinge"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -8281,8 +8294,8 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -8302,26 +8315,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Deadlift",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-deadlift",
+            "family": "LEG",
+            "canonicalNameEn": "Banded Deadlift"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Deadlift",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -8384,7 +8403,9 @@
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "horizontal-pull"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -8439,8 +8460,8 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -8460,26 +8481,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Deltoid Row",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-deltoid-row",
+            "family": "SHOULDER",
+            "canonicalNameEn": "Banded Deltoid Row"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Deltoid Row",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -8599,7 +8626,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -8628,15 +8655,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded External Rotation",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -8699,7 +8729,9 @@
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "push-accessory"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -8754,8 +8786,8 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -8775,26 +8807,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Front Raise",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-front-raise",
+            "family": "SHOULDER",
+            "canonicalNameEn": "Banded Front Raise"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Front Raise",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -8857,7 +8895,9 @@
     "family": "SHOULDER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "push-accessory"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -8912,8 +8952,8 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -8933,26 +8973,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Lateral Raise",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-lateral-raise",
+            "family": "SHOULDER",
+            "canonicalNameEn": "Banded Lateral Raise"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Lateral Raise",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -9015,7 +9061,9 @@
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "knee-dominant"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -9070,8 +9118,8 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -9091,26 +9139,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Lying Leg Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-lying-leg-extension",
+            "family": "LEG",
+            "canonicalNameEn": "Banded Lying Leg Extension"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Lying Leg Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -9173,7 +9227,9 @@
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "push-accessory"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -9228,8 +9284,8 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -9249,26 +9305,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Triceps Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-triceps-extension",
+            "family": "ARM",
+            "canonicalNameEn": "Banded Triceps Extension"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Triceps Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -9331,7 +9393,9 @@
     "family": "ARM",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "push-accessory"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -9386,8 +9450,8 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -9407,26 +9471,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Unilateral Triceps Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-unilateral-triceps-extension",
+            "family": "ARM",
+            "canonicalNameEn": "Banded Unilateral Triceps Extension"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Unilateral Triceps Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -9489,7 +9559,9 @@
     "family": "BACK",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "vertical-pull"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -9544,8 +9616,8 @@
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -9565,26 +9637,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Upright Row",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-banded-upright-row",
+            "family": "BACK",
+            "canonicalNameEn": "Banded Upright Row"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Banded Upright Row",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -48346,7 +48424,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -48375,15 +48453,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "High-Low Banded Chest Fly",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -51979,7 +52060,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -52008,15 +52089,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "IT-Band Foam Rolling",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -84432,7 +84516,9 @@
     "family": "ROTATOR_CUFF",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "mobility"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -84493,8 +84579,8 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -84515,38 +84601,32 @@
         "mapping": "canonical explicitly specifies TheraBand; source establishes tubing as resistance-band apparatus; equipment only"
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Rotator Cuff Stabilization with TheraBand",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 60"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-rotator-cuff-stabilization-with-theraband",
+            "family": "ROTATOR_CUFF",
+            "canonicalNameEn": "Rotator Cuff Stabilization with TheraBand"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Rotator Cuff Stabilization with TheraBand",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 60"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
@@ -88702,7 +88782,9 @@
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "knee-dominant"
+    ],
     "equipment": [
       "resistance_band"
     ],
@@ -88757,8 +88839,8 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -88778,26 +88860,32 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Seated Unilateral Banded Leg Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+          "locator": {
+            "id": "ex-seated-unilateral-banded-leg-curl",
+            "family": "LEG",
+            "canonicalNameEn": "Seated Unilateral Banded Leg Curl"
           }
-        ]
+        },
+        "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Seated Unilateral Banded Leg Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+          "locator": {
+            "equipment": [
+              "resistance_band"
+            ]
           }
-        ]
+        },
+        "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields."
       },
       "level": {
         "status": "UNKNOWN",
