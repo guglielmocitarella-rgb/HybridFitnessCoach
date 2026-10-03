@@ -4468,19 +4468,6 @@
         "mapping": "exact piriformis foam-rolling target"
       }
     },
-    "ex-scapula-foam-rolling": {
-      "equipmentRequired": {
-        "value": [
-          "foam_roller"
-        ],
-        "observed_value": "foam roller behind upper back / thoracic region",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "NASM — Guide to Foam Rolling",
-        "url": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf",
-        "mapping": "scapular/upper-back foam-rolling family; implement explicit"
-      }
-    },
     "ex-alternate-arm-and-leg-raises-on-ball": {
       "equipmentRequired": {
         "value": [
@@ -4494,32 +4481,6 @@
         "mapping": "exact exercise title and illustrated ball apparatus"
       }
     },
-    "ex-shoulder-dislocates": {
-      "equipmentRequired": {
-        "value": [
-          "barbell"
-        ],
-        "observed_value": "PVC or broom handle",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Mountain Tactical Institute — Shoulder Dislocates",
-        "url": "https://mtntactical.com/exercises/mnt847-shoulder-dislocates/",
-        "mapping": "rigid straight stick required by exercise-specific instructions; mapped conservatively to canonical straight-bar token"
-      }
-    },
-    "ex-oblique-twist-with-plate-weight": {
-      "equipmentRequired": {
-        "value": [
-          "barbell"
-        ],
-        "observed_value": "plate weight",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Canonical exercise identity — explicit Plate Weight variant",
-        "url": "https://github.com/guglielmocitarella-rgb/HybridFitnessCoach",
-        "mapping": "explicit plate-weight variant; no canonical plate token exists, mapped to barbell only as plate-loaded free-weight family"
-      }
-    },
     "ex-parallel-knee-raise": {
       "equipmentRequired": {
         "value": [
@@ -4531,19 +4492,6 @@
         "source_name": "Gym.com — Knee Raise Parallel Bars",
         "url": "https://gym.com/exercises/knee-raise-parallel-bars",
         "mapping": "exact knee-raise parallel-bars exercise; canonical dip_bars"
-      }
-    },
-    "ex-parallel-leg-raise": {
-      "equipmentRequired": {
-        "value": [
-          "dip_bars"
-        ],
-        "observed_value": "parallel bars",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Gym.com — Knee Raise Parallel Bars",
-        "url": "https://gym.com/exercises/knee-raise-parallel-bars",
-        "mapping": "straight-leg variant of same explicitly parallel-bar support family"
       }
     }
   },
