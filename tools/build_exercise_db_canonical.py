@@ -330,8 +330,9 @@ def _skill_nodes(root):
     nodes = []
     for m in re.finditer(r'SkillNode\(\s*"([^"]+)"\s*,\s*"([^"]+)"\s*,\s*"([^"]+)"', text):
         body, _ = _balanced_body(text, text.find("(", m.start()))
+        args = _split_args(body)
         alias_match = re.search(r'exerciseAliases\s*=\s*setOf\(([^)]*)\)', body)
-        aliases = _value("setOf(" + alias_match.group(1) + ")") if alias_match else []
+        aliases = _value("setOf(" + alias_match.group(1) + ")") if alias_match else (_value(args[5]) if len(args) > 5 and args[5].startswith("setOf(") else [])
         nodes.append({"id": m.group(1), "exerciseName": m.group(2), "skill": m.group(3), "aliases": aliases})
     initial_skills = {node["skill"].casefold() for node in nodes}
     main_text = (root / APP_REL / "MainActivity.kt").read_text(encoding="utf-8")
@@ -340,6 +341,16 @@ def _skill_nodes(root):
         if skill.casefold() in initial_skills or skill.casefold() in {"l-sit", "v-sit"}:
             continue
         nodes.append({"id": node_id, "exerciseName": label, "skill": skill, "aliases": []})
+    alias_map_match = re.search(r'\baliases\s*=\s*mapOf\s*\(', text)
+    if alias_map_match:
+        alias_body, _ = _balanced_body(text, text.find("(", alias_map_match.start()))
+        alias_map = {}
+        for item in _split_args(alias_body):
+            pair = re.match(r'\s*("(?:\\.|[^"])*")\s+to\s+setOf\(([^)]*)\)\s*$', item)
+            if pair:
+                alias_map[json.loads(pair.group(1))] = _value("setOf(" + pair.group(2) + ")")
+        for node in nodes:
+            node["aliases"] = list(dict.fromkeys(node["aliases"] + alias_map.get(node["exerciseName"], [])))
     return nodes
 
 

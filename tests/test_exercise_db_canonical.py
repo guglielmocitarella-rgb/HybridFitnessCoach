@@ -3,7 +3,7 @@ import pathlib
 import tempfile
 import unittest
 
-from tools.build_exercise_db_canonical import build_database
+from tools.build_exercise_db_canonical import _skill_nodes, build_database, norm, parse_runtime_catalogue
 from tools.validate_exercise_db_canonical import validate_database
 
 
@@ -146,6 +146,30 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertIn("planche_adv_tuck", by_id["ex-advanced-tuck-planche"]["skillIds"])
         self.assertIn("backlever_full", by_id["ex-back-lever"]["skillIds"])
         self.assertNotIn("back_5", by_id["ex-back-lever"]["skillIds"])
+
+    def test_skill_catalog_positional_and_alias_map_names_match_real_runtime_exercises(self):
+        nodes = _skill_nodes(ROOT)
+        by_id = {node["id"]: node for node in nodes}
+        runtime_names = {norm(entry["name"]) for entry in parse_runtime_catalogue(ROOT)}
+        expected = {
+            "muscleup_negative": "Muscle-up negativo",
+            "handstand_wall_shoulder_tap": "Handstand shoulder taps",
+            "handstand_freestanding": "Freestanding handstand hold",
+            "backlever_tuck": "Back lever tuck",
+            "backlever_advanced_tuck": "Back lever advanced tuck",
+            "flag_tuck": "Human flag tuck",
+            "vsit_compression": "Compression lift",
+            "pistol_assisted": "Pistol squat assistito",
+            "pull_3": "Chest to bar pull-up",
+            "dip_2": "Dip alle parallele",
+            "hspu_3": "Wall handstand push-up",
+            "dragon_2": "Dragon flag negativa",
+            "shrimp_2": "Shrimp squat assistito",
+        }
+        for node_id, exercise_name in expected.items():
+            node = by_id[node_id]
+            self.assertIn(norm(exercise_name), runtime_names)
+            self.assertIn(norm(exercise_name), {norm(node["exerciseName"]), *(norm(a) for a in node["aliases"])})
 
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:
