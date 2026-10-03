@@ -1092,7 +1092,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Advanced Tuck Back Lever è un esercizio della famiglia back lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -1120,6 +1122,12 @@
         "source_name": "Advanced Tuck Back Lever",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -1137,8 +1145,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -1181,15 +1191,16 @@
         "source": "ex-advanced-tuck-back-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Advanced Tuck Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "advanced tuck back-lever progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -1199,6 +1210,12 @@
             "source_name": "Advanced Tuck Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -1210,6 +1227,12 @@
             "source_name": "Advanced Tuck Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -1221,6 +1244,12 @@
             "source_name": "Advanced Tuck Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -1257,6 +1286,12 @@
             "source_name": "Advanced Tuck Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -1596,7 +1631,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Advanced Tuck Front Lever Rows è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -1624,6 +1661,12 @@
         "source_name": "Advanced Tuck Front Lever Rows",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -1641,8 +1684,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -1683,15 +1728,16 @@
         "source": "ex-advanced-tuck-front-lever-rows"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Advanced Tuck Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "advanced tuck front-lever row on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -1701,6 +1747,12 @@
             "source_name": "Advanced Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -1712,6 +1764,12 @@
             "source_name": "Advanced Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -1723,6 +1781,12 @@
             "source_name": "Advanced Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -1750,6 +1814,12 @@
             "source_name": "Advanced Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -1762,6 +1832,12 @@
             "source_name": "Advanced Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -2427,7 +2503,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Alternating Front Lever è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -2455,6 +2533,12 @@
         "source_name": "Alternating Front Lever",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 35"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -2472,8 +2556,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -2487,15 +2573,16 @@
         "source": "ex-alternating-front-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Alternating Front Lever",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 35"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "front-lever progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -2505,6 +2592,12 @@
             "source_name": "Alternating Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 35"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -2516,6 +2609,12 @@
             "source_name": "Alternating Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 35"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -2527,6 +2626,12 @@
             "source_name": "Alternating Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 35"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -2554,6 +2659,12 @@
             "source_name": "Alternating Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 35"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -2566,6 +2677,12 @@
             "source_name": "Alternating Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 35"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -6766,7 +6883,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Back Lever Pullout è un esercizio della famiglia back lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -6794,6 +6913,12 @@
         "source_name": "Back Lever Pullout",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -6811,8 +6936,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -6840,15 +6967,16 @@
         "source": "ex-back-lever-pullout"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Back Lever Pullout",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "back-lever pullout on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -6858,6 +6986,12 @@
             "source_name": "Back Lever Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -6869,6 +7003,12 @@
             "source_name": "Back Lever Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -6880,6 +7020,12 @@
             "source_name": "Back Lever Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -6907,6 +7053,12 @@
             "source_name": "Back Lever Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -6919,6 +7071,12 @@
             "source_name": "Back Lever Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -13018,7 +13176,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Bent-Arm Pull-Up to Back Lever è un esercizio della famiglia back lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -13046,6 +13206,12 @@
         "source_name": "Bent-Arm Pull-Up to Back Lever",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -13063,8 +13229,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -13078,15 +13246,16 @@
         "source": "ex-bent-arm-pull-up-to-back-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Bent-Arm Pull-Up to Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "canonical transition explicitly begins with pull-up and continues to lever on bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -13096,6 +13265,12 @@
             "source_name": "Bent-Arm Pull-Up to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -13107,6 +13282,12 @@
             "source_name": "Bent-Arm Pull-Up to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -13118,6 +13299,12 @@
             "source_name": "Bent-Arm Pull-Up to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -13145,6 +13332,12 @@
             "source_name": "Bent-Arm Pull-Up to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -13157,6 +13350,12 @@
             "source_name": "Bent-Arm Pull-Up to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -22043,7 +22242,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Circle Front Levers è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -22071,6 +22272,12 @@
         "source_name": "Circle Front Levers",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -22088,8 +22295,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -22103,15 +22312,16 @@
         "source": "ex-circle-front-levers"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Circle Front Levers",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "front-lever circle progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -22121,6 +22331,12 @@
             "source_name": "Circle Front Levers",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -22132,6 +22348,12 @@
             "source_name": "Circle Front Levers",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -22143,6 +22365,12 @@
             "source_name": "Circle Front Levers",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -22170,6 +22398,12 @@
             "source_name": "Circle Front Levers",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -22182,6 +22416,12 @@
             "source_name": "Circle Front Levers",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -32218,7 +32458,9 @@
     "movementPattern": [
       "vertical-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Explosive Pull-Up è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -32246,6 +32488,12 @@
         "source_name": "Explosive Pull-Up",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 6"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -32263,8 +32511,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
@@ -32278,15 +32528,16 @@
         "source": "ex-explosive-pull-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Explosive Pull-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 6"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "explosive pull-up progression performed on pull-up bar"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -32304,6 +32555,12 @@
             "source_name": "Explosive Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -32315,6 +32572,12 @@
             "source_name": "Explosive Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -32342,6 +32605,12 @@
             "source_name": "Explosive Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -32354,6 +32623,12 @@
             "source_name": "Explosive Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -38636,7 +38911,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Front Lever Pull to Inverted Hang è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -38664,6 +38941,12 @@
         "source_name": "Front Lever Pull to Inverted Hang",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -38681,8 +38964,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -38710,15 +38995,16 @@
         "source": "ex-front-lever-pull-to-inverted-hang"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Front Lever Pull to Inverted Hang",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "front-lever/inverted-hang progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -38728,6 +39014,12 @@
             "source_name": "Front Lever Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -38739,6 +39031,12 @@
             "source_name": "Front Lever Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -38750,6 +39048,12 @@
             "source_name": "Front Lever Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -38777,6 +39081,12 @@
             "source_name": "Front Lever Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -38789,6 +39099,12 @@
             "source_name": "Front Lever Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -40817,7 +41133,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Full Front Lever Rows è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -40845,6 +41163,12 @@
         "source_name": "Full Front Lever Rows",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -40862,8 +41186,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -40891,15 +41217,16 @@
         "source": "ex-full-front-lever-rows"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "full front-lever row on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -40909,6 +41236,12 @@
             "source_name": "Full Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -40920,6 +41253,12 @@
             "source_name": "Full Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -40931,6 +41270,12 @@
             "source_name": "Full Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -40958,6 +41303,12 @@
             "source_name": "Full Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -40970,6 +41321,12 @@
             "source_name": "Full Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -42012,7 +42369,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "German Hang Pullout è un esercizio della famiglia back lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -42040,6 +42399,12 @@
         "source_name": "German Hang Pullout",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -42057,8 +42422,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -42072,15 +42439,16 @@
         "source": "ex-german-hang-pullout"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "German Hang Pullout",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "German-hang/back-lever progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -42090,6 +42458,12 @@
             "source_name": "German Hang Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -42101,6 +42475,12 @@
             "source_name": "German Hang Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -42112,6 +42492,12 @@
             "source_name": "German Hang Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -42139,6 +42525,12 @@
             "source_name": "German Hang Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -42151,6 +42543,12 @@
             "source_name": "German Hang Pullout",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -43207,7 +43605,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Half Layout One-Leg-Out Front Lever è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -43235,6 +43635,12 @@
         "source_name": "Half Layout One-Leg-Out Front Lever",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -43252,8 +43658,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -43267,15 +43675,16 @@
         "source": "ex-half-layout-one-leg-out-front-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Half Layout One-Leg-Out Front Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "one-leg front-lever progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -43285,6 +43694,12 @@
             "source_name": "Half Layout One-Leg-Out Front Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -43296,6 +43711,12 @@
             "source_name": "Half Layout One-Leg-Out Front Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -43307,6 +43728,12 @@
             "source_name": "Half Layout One-Leg-Out Front Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -43334,6 +43761,12 @@
             "source_name": "Half Layout One-Leg-Out Front Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -43346,6 +43779,12 @@
             "source_name": "Half Layout One-Leg-Out Front Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -45598,7 +46037,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Handstand Lower to Back Lever è un esercizio della famiglia handstand. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -45626,6 +46067,12 @@
         "source_name": "Handstand Lower to Back Lever",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -45643,8 +46090,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -45658,15 +46107,16 @@
         "source": "ex-handstand-lower-to-back-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Handstand Lower to Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "bar transition requiring horizontal bar support"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -45676,6 +46126,12 @@
             "source_name": "Handstand Lower to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -45687,6 +46143,12 @@
             "source_name": "Handstand Lower to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -45698,6 +46160,12 @@
             "source_name": "Handstand Lower to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -45725,6 +46193,12 @@
             "source_name": "Handstand Lower to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -45737,6 +46211,12 @@
             "source_name": "Handstand Lower to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -46790,7 +47270,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Hang Pull to Inverted Hang è un esercizio della famiglia skill. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -46818,6 +47300,12 @@
         "source_name": "Hang Pull to Inverted Hang",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -46835,8 +47323,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -46850,15 +47340,16 @@
         "source": "ex-hang-pull-to-inverted-hang"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Hang Pull to Inverted Hang",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "hang-to-inverted-hang progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -46868,6 +47359,12 @@
             "source_name": "Hang Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -46879,6 +47376,12 @@
             "source_name": "Hang Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -46890,6 +47393,12 @@
             "source_name": "Hang Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -46917,6 +47426,12 @@
             "source_name": "Hang Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -46929,6 +47444,12 @@
             "source_name": "Hang Pull to Inverted Hang",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -46945,7 +47466,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Hang to Front Lever Row è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -46973,6 +47496,12 @@
         "source_name": "Hang to Front Lever Row",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -46990,8 +47519,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -47005,15 +47536,16 @@
         "source": "ex-hang-to-front-lever-row"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Hang to Front Lever Row",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "front-lever row progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -47023,6 +47555,12 @@
             "source_name": "Hang to Front Lever Row",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -47034,6 +47572,12 @@
             "source_name": "Hang to Front Lever Row",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -47045,6 +47589,12 @@
             "source_name": "Hang to Front Lever Row",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -47072,6 +47622,12 @@
             "source_name": "Hang to Front Lever Row",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -47084,6 +47640,12 @@
             "source_name": "Hang to Front Lever Row",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -53559,7 +54121,9 @@
     "movementPattern": [
       "vertical-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Kipping Clapping Pull-Ups è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -53587,6 +54151,12 @@
         "source_name": "Kipping Clapping Pull-Ups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -53604,8 +54174,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -53646,15 +54218,16 @@
         "source": "ex-kipping-clapping-pull-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Kipping Clapping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "kipping/clapping pull-up remains a bar pull-up apparatus"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -53672,6 +54245,12 @@
             "source_name": "Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -53683,6 +54262,12 @@
             "source_name": "Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -53710,6 +54295,12 @@
             "source_name": "Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -53722,6 +54313,12 @@
             "source_name": "Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -55495,7 +56092,9 @@
     "movementPattern": [
       "vertical-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "L-Sit Clapping Pull-Ups è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -55523,6 +56122,12 @@
         "source_name": "L-Sit Clapping Pull-Ups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -55540,8 +56145,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -55569,15 +56176,16 @@
         "source": "ex-l-sit-clapping-pull-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Clapping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "L-sit clapping pull-up is a pull-up-bar skill"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -55595,6 +56203,12 @@
             "source_name": "L-Sit Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -55606,6 +56220,12 @@
             "source_name": "L-Sit Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -55633,6 +56253,12 @@
             "source_name": "L-Sit Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -55645,6 +56271,12 @@
             "source_name": "L-Sit Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -55907,7 +56539,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "L-Sit Muscle-Up è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -55935,6 +56569,12 @@
         "source_name": "L-Sit Muscle-Up",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Journal — The Muscle-up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -55952,8 +56592,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -55994,15 +56636,16 @@
         "source": "ex-l-sit-muscle-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Muscle-Up",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Journal — The Muscle-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        },
+        "observedValue": "Rings",
+        "mapping": "L-sit variation of documented ring muscle-up family"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -56012,6 +56655,12 @@
             "source_name": "L-Sit Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — The Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -56023,6 +56672,12 @@
             "source_name": "L-Sit Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — The Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -56034,6 +56689,12 @@
             "source_name": "L-Sit Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — The Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -56061,6 +56722,12 @@
             "source_name": "L-Sit Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — The Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -56073,6 +56740,12 @@
             "source_name": "L-Sit Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — The Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       }
@@ -63624,7 +64297,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Negative Tuck Front Lever è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -63652,6 +64327,12 @@
         "source_name": "Negative Tuck Front Lever",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 41"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -63669,8 +64350,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -63684,15 +64367,16 @@
         "source": "ex-negative-tuck-front-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Negative Tuck Front Lever",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 41"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "eccentric tuck front-lever progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -63702,6 +64386,12 @@
             "source_name": "Negative Tuck Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 41"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -63713,6 +64403,12 @@
             "source_name": "Negative Tuck Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 41"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -63724,6 +64420,12 @@
             "source_name": "Negative Tuck Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 41"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -63751,6 +64453,12 @@
             "source_name": "Negative Tuck Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 41"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -63763,6 +64471,12 @@
             "source_name": "Negative Tuck Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 41"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -64130,7 +64844,9 @@
     "movementPattern": [
       "vertical-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Non-Kipping Clapping Pull-Ups è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -64158,6 +64874,12 @@
         "source_name": "Non-Kipping Clapping Pull-Ups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -64175,8 +64897,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -64217,15 +64941,16 @@
         "source": "ex-non-kipping-clapping-pull-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Non-Kipping Clapping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "strict/non-kipping clapping pull-up remains pull-up-bar apparatus"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -64243,6 +64968,12 @@
             "source_name": "Non-Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -64254,6 +64985,12 @@
             "source_name": "Non-Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -64281,6 +65018,12 @@
             "source_name": "Non-Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -64293,6 +65036,12 @@
             "source_name": "Non-Kipping Clapping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -67706,7 +68455,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "One-Arm-Straight Muscle-Up è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -67734,6 +68485,12 @@
         "source_name": "One-Arm-Straight Muscle-Up",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -67751,8 +68508,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -67780,15 +68539,16 @@
         "source": "ex-one-arm-straight-muscle-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm-Straight Muscle-Up",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "straight-bar muscle-up family; apparatus explicit in canonical movement"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -67798,6 +68558,12 @@
             "source_name": "One-Arm-Straight Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -67809,6 +68575,12 @@
             "source_name": "One-Arm-Straight Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -67820,6 +68592,12 @@
             "source_name": "One-Arm-Straight Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -67847,6 +68625,12 @@
             "source_name": "One-Arm-Straight Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -67859,6 +68643,12 @@
             "source_name": "One-Arm-Straight Muscle-Up",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -100941,7 +101731,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Straddle Front Lever Rows è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -100969,6 +101761,12 @@
         "source_name": "Straddle Front Lever Rows",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -100986,8 +101784,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -101028,15 +101828,16 @@
         "source": "ex-straddle-front-lever-rows"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "straddle front-lever row on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -101046,6 +101847,12 @@
             "source_name": "Straddle Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -101057,6 +101864,12 @@
             "source_name": "Straddle Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -101068,6 +101881,12 @@
             "source_name": "Straddle Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -101095,6 +101914,12 @@
             "source_name": "Straddle Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -101107,6 +101932,12 @@
             "source_name": "Straddle Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -107154,7 +107985,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Tuck Front Lever Hold è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -107182,6 +108015,12 @@
         "source_name": "Tuck Front Lever Hold",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 33"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -107199,8 +108038,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -107214,15 +108055,16 @@
         "source": "ex-tuck-front-lever-hold"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Tuck Front Lever Hold",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 33"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "tuck front-lever hold on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -107232,6 +108074,12 @@
             "source_name": "Tuck Front Lever Hold",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 33"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107243,6 +108091,12 @@
             "source_name": "Tuck Front Lever Hold",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 33"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107254,6 +108108,12 @@
             "source_name": "Tuck Front Lever Hold",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 33"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107281,6 +108141,12 @@
             "source_name": "Tuck Front Lever Hold",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 33"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107293,6 +108159,12 @@
             "source_name": "Tuck Front Lever Hold",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 33"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -107309,7 +108181,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Tuck Front Lever Raise è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -107337,6 +108211,12 @@
         "source_name": "Tuck Front Lever Raise",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 42"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -107354,8 +108234,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -107369,15 +108251,16 @@
         "source": "ex-tuck-front-lever-raise"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Tuck Front Lever Raise",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 42"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "tuck front-lever raise on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -107387,6 +108270,12 @@
             "source_name": "Tuck Front Lever Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 42"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107398,6 +108287,12 @@
             "source_name": "Tuck Front Lever Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 42"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107409,6 +108304,12 @@
             "source_name": "Tuck Front Lever Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 42"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107436,6 +108337,12 @@
             "source_name": "Tuck Front Lever Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 42"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107448,6 +108355,12 @@
             "source_name": "Tuck Front Lever Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 42"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -107464,7 +108377,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Tuck Front Lever Rows è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -107492,6 +108407,12 @@
         "source_name": "Tuck Front Lever Rows",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -107509,8 +108430,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -107538,15 +108461,16 @@
         "source": "ex-tuck-front-lever-rows"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Tuck Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "tuck front-lever row on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -107556,6 +108480,12 @@
             "source_name": "Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107567,6 +108497,12 @@
             "source_name": "Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107578,6 +108514,12 @@
             "source_name": "Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107605,6 +108547,12 @@
             "source_name": "Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -107617,6 +108565,12 @@
             "source_name": "Tuck Front Lever Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -108358,7 +109312,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Tuck One-Leg Front Lever è un esercizio della famiglia front lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -108386,6 +109342,12 @@
         "source_name": "Tuck One-Leg Front Lever",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 34"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Course Seminar Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -108403,8 +109365,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -108418,15 +109382,16 @@
         "source": "ex-tuck-one-leg-front-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Tuck One-Leg Front Lever",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 34"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Course Seminar Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Pull-up bar",
+        "mapping": "one-leg/tuck front-lever progression on horizontal bar"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -108436,6 +109401,12 @@
             "source_name": "Tuck One-Leg Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 34"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -108447,6 +109418,12 @@
             "source_name": "Tuck One-Leg Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 34"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -108458,6 +109435,12 @@
             "source_name": "Tuck One-Leg Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 34"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -108485,6 +109468,12 @@
             "source_name": "Tuck One-Leg Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 34"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -108497,6 +109486,12 @@
             "source_name": "Tuck One-Leg Front Lever",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 34"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Course Seminar Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
