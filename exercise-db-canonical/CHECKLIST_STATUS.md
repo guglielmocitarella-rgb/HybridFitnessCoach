@@ -18,8 +18,8 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 |---|---|---|
 | 1. Materialize one candidate catalog | **Partial** | Candidate contains 1,087 records with stable unique IDs, original V2 content, current-model metadata, source references, and field provenance. A separate `applicationMetadata` snapshot now preserves all 583 runtime entries' effective direct values/defaults/rules; several exercise-science fields remain unknown. |
 | 2. Resolve identity and variants | **Partial** | Three unique V2/current-model name variants were linked; the straight-arm duplicate was merged with provenance retained. Muscle-Up identities stay separate with ambiguous app provenance and distinct candidate runtime labels. No progression edge was invented. |
-| 3. Complete equipment and provenance | **Partial** | Equipment tokens are normalized and unknown is distinct from known-empty. The internal audit found 18 records with known `suspension_trainer`, which current `EquipmentCatalog.kt` does not support; this remains a compatibility blocker. Externally reviewed exercise-specific/progression evidence has resolved equipment for 177 records; 117 still have unknown equipment. |
-| 4. Complete selection-critical fields | **Not complete** | Remaining unknowns: equipment 117, movement pattern 201, level 443, resistance mode 338, SkillCatalog links 143. Another 18 records use known equipment not currently supported by the app catalog. Ambiguous Muscle-Up metadata stays unassigned. App-rule-derived values are labeled separately from exercise-science evidence. |
+| 3. Complete equipment and provenance | **Partial** | Equipment tokens are normalized and unknown is distinct from known-empty. The internal audit found 18 records with known `suspension_trainer`, which current `EquipmentCatalog.kt` does not support; this remains a compatibility blocker. Externally reviewed exercise-specific/progression evidence has resolved equipment for 189 records; 105 still have unknown equipment. |
+| 4. Complete selection-critical fields | **Not complete** | Remaining unknowns: equipment 105, movement pattern 201, level 443, resistance mode 338, SkillCatalog links 143. Another 18 records use known equipment not currently supported by the app catalog. Ambiguous Muscle-Up metadata stays unassigned. App-rule-derived values are labeled separately from exercise-science evidence. |
 | 5. Complete movement-pattern taxonomy | **Partial** | Direct V2 movement types resolve 75 broad patterns. Whitelisted V2-family rules resolve 230, including the coherent `CORE` family and explicit exceptions for mixed pull-up/push-up families. 201 remain unknown; internal raw inventories contain no explicit movement-pattern column. |
 | 6. Link skills and progressions by stable IDs | **Partial** | All 113 V2 progression edges have valid endpoints and registered sources. The builder reads active legacy `SkillProgressionNode` entries and both positional and mapped aliases as the app does; 60/60 active SkillCatalog nodes resolve to a runtime exercise label or alias. 143 candidate skill exercises still lack a specific node link. |
 | 7. Complete training and instruction metadata | **Not complete** | 500 current-model-only identities have no instructions. Thirty-one V2 records now have exercise-specific ACE descriptions, setup, execution, cues, and common errors; one additional reviewed record has ACE equipment/level evidence only. Other missing cues, anatomy, and prescriptions still require individual evidence. |
@@ -43,7 +43,7 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Unique stable IDs | 1,087 |
 | Progression edges | 113 |
 | Dangling progression edges | 0 |
-| Unknown equipment | 117 |
+| Unknown equipment | 105 |
 | Equipment tokens unsupported by current app | 18 (`suspension_trainer`) |
 | Missing movement patterns | 201 |
 | Unknown level | 443 |
@@ -52,7 +52,7 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Missing supported exercise instructions | 500 |
 | Remaining duplicate runtime labels in candidate | 0 |
 | Runtime application entries audited/preserved | 583 |
-| External reviewed records enriched | 177 equipment resolutions; 63 level resolutions; technique evidence retained for 31 |
+| External reviewed records enriched | 189 equipment resolutions; 63 level resolutions; technique evidence retained for 31 |
 
 The structural validator passes with zero errors. The candidate is not release-ready because selection-critical and instruction-critical evidence remains incomplete. The repository-wide internal audit found no further per-exercise technical fields for unresolved V2-only records: the raw TSVs contain inventory names/families/locators, not equipment, level, resistance, movement pattern, or technique. Runtime-only metadata is now preserved separately; it is not promoted into exercise-science claims. Eighteen otherwise known suspension-trainer records remain unsupported by the current app equipment enum. All rule-derived values have registered provenance, and the validator keeps these unresolved/app-compatibility blockers visible. The existing V2 deterministic build and tests remain separate regression gates.
 
@@ -69,3 +69,8 @@ python3 tools/validate_exercise_db_canonical.py
 ```
 
 The candidate is written only under `exercise-db-canonical/`; the runtime asset and V2 database inputs are not replaced.
+
+
+### Residual equipment tranche — 117-ID full screening
+
+All 117 equipment-UNKNOWN records at checkpoint `570027b` were screened. Twelve HIGH-confidence assignments were retained: eight non-rings planche/planche-pushup identities whose official Overcoming Gravity taxonomy explicitly places them in the `Parallel Bars and Floor` branch while listing Rings variants separately, two NASM foam-rolling identities with explicit foam-roller setup, one exact stability-ball exercise, and one exact parallel-bar knee raise. Four initially considered mappings were explicitly excluded before artifact publication because their canonical token equivalence or exercise identity was not unique enough. Equipment UNKNOWN is now 105. The residual set is substantially more heterogeneous; equipment-first remains barely productive at the accepted 10–19 threshold, but another full screening should stop this phase if it cannot produce at least 10 HIGH-confidence assignments.
