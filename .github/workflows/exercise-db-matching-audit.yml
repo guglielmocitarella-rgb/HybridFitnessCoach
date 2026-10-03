@@ -46,14 +46,14 @@ jobs:
               r=dest.parent/(dest.stem+"-repo")
               data=subprocess.check_output(["git","-C",str(r),"cat-file","blob",sha])
               dest.write_bytes(data)
-          # canonical blob is in this repository and can be read directly by SHA.
           (work/"canonical.json").write_bytes(subprocess.check_output(["git","cat-file","blob",m["canonicalBlob"]]))
           for i,s in enumerate(m["sources"]):
               f=next(x for x in s["files"] if x["path"].endswith("exercises.json"))
               blob(s["repository"],f["sha"],work/f"source{i}.json")
           PY
       - name: Validate matcher
-        run: python -m unittest exercise-db-canonical/matching-audit-2026-10-03/test_matcher.py
+        working-directory: exercise-db-canonical/matching-audit-2026-10-03
+        run: python -m unittest test_matcher.py
       - name: Complete remaining checkpoints
         shell: bash
         run: |
