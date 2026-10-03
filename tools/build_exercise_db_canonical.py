@@ -909,6 +909,7 @@ def build_database(root, output_dir):
             "noWeightedAssistedBandName": not any(term in name_key for term in bodyweight_exclusion_terms),
             "supportEquipmentOnly": not equipment or all(token in bodyweight_support_equipment for token in equipment),
             "reviewedSelfLoadedFamily": record.get("family") in bodyweight_families,
+            "unambiguousCanonicalIdentity": record.get("identityResolution") != "AMBIGUOUS_CURRENT_MODEL_LINK",
         }
         if record.get("resistanceMode") in {None, "UNKNOWN"} and all(exclusions_verified.values()):
             bodyweight_candidates.append({
