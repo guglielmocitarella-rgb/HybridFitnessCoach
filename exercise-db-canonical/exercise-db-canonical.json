@@ -11241,7 +11241,7 @@
       "conditioning"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Bear Crawls è un esercizio della famiglia conditioning. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Prepara spazio e attrezzatura necessari e parti da un'intensità che consenta controllo del gesto.",
@@ -11268,6 +11268,18 @@
         "source_name": "Bear Crawls",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bear Crawl Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bear Crawl Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
       }
     ],
     "confidence": "MEDIUM",
@@ -11286,8 +11298,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -11300,15 +11312,15 @@
         "source": "ex-bear-crawls"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Bear Crawls",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -11326,19 +11338,32 @@
             "source_name": "Bear Crawls",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Bear Crawls",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -11364,6 +11389,18 @@
             "source_name": "Bear Crawls",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
           }
         ]
       },
@@ -11376,6 +11413,18 @@
             "source_name": "Bear Crawls",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
           }
         ]
       }
@@ -12873,7 +12922,7 @@
       "horizontal-push"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Bent-Knee Push-Up è un esercizio della famiglia push up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza tronco e cintura scapolare e posiziona mani o attrezzo secondo la variante.",
@@ -12900,6 +12949,18 @@
         "source_name": "Bent-Knee Push-Up",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 10"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
       }
     ],
     "confidence": "MEDIUM",
@@ -12918,8 +12979,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -12932,15 +12993,15 @@
         "source": "ex-bent-knee-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Bent-Knee Push-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 10"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -12958,19 +13019,32 @@
             "source_name": "Bent-Knee Push-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Bent-Knee Push-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 10"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -12996,6 +13070,18 @@
             "source_name": "Bent-Knee Push-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
           }
         ]
       },
@@ -13008,6 +13094,18 @@
             "source_name": "Bent-Knee Push-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
           }
         ]
       }
@@ -14418,7 +14516,7 @@
       "core-control"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Bodyweight Crunches è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
@@ -14445,6 +14543,18 @@
         "source_name": "Bodyweight Crunches",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 15"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Crunch",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Crunch",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
       }
     ],
     "confidence": "MEDIUM",
@@ -14463,8 +14573,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -14477,15 +14587,15 @@
         "source": "ex-bodyweight-crunches"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Crunches",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 15"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -14503,19 +14613,32 @@
             "source_name": "Bodyweight Crunches",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 15"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Crunches",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 15"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -14541,6 +14664,18 @@
             "source_name": "Bodyweight Crunches",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 15"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
           }
         ]
       },
@@ -14553,6 +14688,18 @@
             "source_name": "Bodyweight Crunches",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 15"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
           }
         ]
       }
@@ -15030,7 +15177,7 @@
       "knee-dominant"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Bodyweight/Air Squat è un esercizio della famiglia squat. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilisci l'appoggio dei piedi, mantieni il tronco attivo e prepara anche e ginocchia a muoversi in modo coordinato.",
@@ -15057,6 +15204,18 @@
         "source_name": "Bodyweight/Air Squat",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 20"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
       }
     ],
     "confidence": "MEDIUM",
@@ -15075,8 +15234,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -15089,15 +15248,15 @@
         "source": "ex-bodyweightair-squat"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight/Air Squat",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 20"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -15115,19 +15274,32 @@
             "source_name": "Bodyweight/Air Squat",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight/Air Squat",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 20"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -15153,6 +15325,18 @@
             "source_name": "Bodyweight/Air Squat",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
           }
         ]
       },
@@ -15165,6 +15349,18 @@
             "source_name": "Bodyweight/Air Squat",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
           }
         ]
       }
@@ -19743,7 +19939,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Child's Pose è un esercizio della famiglia mobility. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una base stabile e prepara l'articolazione interessata con un range confortevole.",
@@ -19770,6 +19966,18 @@
         "source_name": "Child's Pose",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
       }
     ],
     "confidence": "MEDIUM",
@@ -19788,8 +19996,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -19802,15 +20010,15 @@
         "source": "ex-childs-pose"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Child's Pose",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -19828,19 +20036,32 @@
             "source_name": "Child's Pose",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Child's Pose",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -19866,6 +20087,18 @@
             "source_name": "Child's Pose",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
           }
         ]
       },
@@ -19878,6 +20111,18 @@
             "source_name": "Child's Pose",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
           }
         ]
       }
@@ -21551,7 +21796,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Cobra Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -21578,6 +21823,18 @@
         "source_name": "Cobra Stretch",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cobra Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cobra Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
       }
     ],
     "confidence": "MEDIUM",
@@ -21596,8 +21853,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -21610,15 +21867,15 @@
         "source": "ex-cobra-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Cobra Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -21636,19 +21893,32 @@
             "source_name": "Cobra Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Cobra Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -21674,6 +21944,18 @@
             "source_name": "Cobra Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
           }
         ]
       },
@@ -21686,6 +21968,18 @@
             "source_name": "Cobra Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
           }
         ]
       }
@@ -21985,7 +22279,7 @@
     "variantOf": null,
     "movementPattern": [],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Contralateral Limb Raises è un esercizio della famiglia general. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
@@ -22012,6 +22306,18 @@
         "source_name": "Contralateral Limb Raises",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 18"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Contralateral Limb Raises",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Contralateral Limb Raises",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
       }
     ],
     "confidence": "MEDIUM",
@@ -22030,8 +22336,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -22044,15 +22350,15 @@
         "source": "ex-contralateral-limb-raises"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -22062,6 +22368,18 @@
             "source_name": "Contralateral Limb Raises",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
           }
         ]
       },
@@ -22073,19 +22391,32 @@
             "source_name": "Contralateral Limb Raises",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -22111,6 +22442,18 @@
             "source_name": "Contralateral Limb Raises",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
           }
         ]
       },
@@ -22123,6 +22466,18 @@
             "source_name": "Contralateral Limb Raises",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
           }
         ]
       }

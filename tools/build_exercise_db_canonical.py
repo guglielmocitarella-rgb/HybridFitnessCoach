@@ -19,6 +19,12 @@ if str(PROJECT_ROOT) not in sys.path:
 BASELINE = "9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
 DB_REL = pathlib.Path("app/src/main/assets/exercise-db-v2")
 APP_REL = pathlib.Path("app/src/main/java/com/hybridfitnesscoach/app")
+EXTERNAL_ENRICHMENT_REL = pathlib.Path("exercise-db-canonical/external-enrichment.json")
+ACE_EXERCISE_LIBRARY_SOURCE = {
+    "source_id": "ACE_EXERCISE_LIBRARY",
+    "title": "ACE Fitness Exercise Library",
+    "primary_use": "Exercise-specific equipment, difficulty, and technique descriptions from the American Council on Exercise exercise library.",
+}
 # Explicitly reviewed name-only duplicate. Both entries have matching group,
 # equipment, level, role, measure, and effective movement metadata. Preserve the
 # skill label and both source locations when materializing their single identity.
@@ -802,6 +808,48 @@ def build_database(root, output_dir):
         })
 
     all_records = v2_records + current_records
+    external_enrichment = json.loads((root / EXTERNAL_ENRICHMENT_REL).read_text(encoding="utf-8"))
+    records_by_id = {record["id"]: record for record in all_records}
+    external_fields_applied = Counter()
+    for exercise_id, field_values in external_enrichment.get("exercises", {}).items():
+        if exercise_id not in records_by_id:
+            raise ValueError(f"external enrichment targets unknown canonical ID: {exercise_id}")
+        record = records_by_id[exercise_id]
+        provenance = record.setdefault("fieldProvenance", {})
+        for field, evidence in field_values.items():
+            value = evidence["value"]
+            source_ref = {
+                "source_id": ACE_EXERCISE_LIBRARY_SOURCE["source_id"],
+                "source_name": evidence["source_name"],
+                "evidence_type": evidence["evidence_type"],
+                "locator": evidence["url"],
+            }
+            if field == "equipmentRequired":
+                value = list(dict.fromkeys(value))
+                if any(token not in RECOGNIZED_EQUIPMENT for token in value):
+                    raise ValueError(f"external enrichment has unrecognized equipment for {exercise_id}: {value}")
+                record["equipmentRequired"] = value
+                record["equipment"] = value
+                record["equipmentStatus"] = "KNOWN"
+            elif field == "level":
+                if value not in {"Principiante", "Intermedio", "Avanzato"}:
+                    raise ValueError(f"external enrichment has invalid level for {exercise_id}: {value}")
+                record["level"] = value
+                record["levelStatus"] = "KNOWN"
+            else:
+                raise ValueError(f"external enrichment field is not yet supported: {field}")
+            provenance[field] = {
+                "status": "EXTERNAL_SOURCE_DIRECT",
+                "confidence": evidence["confidence"],
+                "source": source_ref,
+            }
+            if "observed_value" in evidence:
+                provenance[field]["observedValue"] = evidence["observed_value"]
+            if "mapping" in evidence:
+                provenance[field]["mapping"] = evidence["mapping"]
+            if source_ref not in record.setdefault("sources", []):
+                record["sources"].append(source_ref)
+            external_fields_applied[field] += 1
     from tools.validate_exercise_db_canonical import APP_SUPPORTED_EQUIPMENT, validate_database
     all_sources = sources + [
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
@@ -809,6 +857,8 @@ def build_database(root, output_dir):
         equipment_resistance_source, type_resistance_source,
         equipment_label_source,
     ]
+    if external_enrichment.get("exercises"):
+        all_sources.append(ACE_EXERCISE_LIBRARY_SOURCE)
     structural_validation = validate_database(all_records, progressions, all_sources)
     ids = [record["id"] for record in all_records]
     runtime_duplicate_names = defaultdict(list)
@@ -887,6 +937,11 @@ def build_database(root, output_dir):
             "snapshot_fields": application_metadata_fields,
             "source_ids": [app_source["source_id"], exercise_metadata_source["source_id"]],
             "interpretation": "Snapshots preserve current app defaults and rules separately from exercise-science evidence and canonical prescriptions.",
+        },
+        "externalEnrichmentAudit": {
+            "source_ids": [ACE_EXERCISE_LIBRARY_SOURCE["source_id"]] if external_fields_applied else [],
+            "fields_applied": dict(sorted(external_fields_applied.items())),
+            "exercise_ids": sorted(external_enrichment.get("exercises", {})),
         },
         "acceptance": {
             "stable_unique_ids": len(id_counts) == len(all_records) and all(count == 1 for count in id_counts.values()),

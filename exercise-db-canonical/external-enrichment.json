@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "policy": "Only direct, exercise-specific ACE library entries are applied. Difficulty labels are translated to the candidate's Italian level vocabulary; equipment 'No Equipment' maps to a known empty equipment list. No variants are generalized from these records.",
+  "exercises": {
+    "ex-bear-crawls": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Bear Crawl Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Bear Crawl Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      }
+    },
+    "ex-bent-knee-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Bent Knee Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Bent Knee Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      }
+    },
+    "ex-bodyweightair-squat": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      }
+    },
+    "ex-childs-pose": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Childs Pose",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Childs Pose",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      }
+    },
+    "ex-cobra-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Cobra Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Cobra Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      }
+    },
+    "ex-contralateral-limb-raises": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Contralateral Limb Raises",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Contralateral Limb Raises",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      }
+    },
+    "ex-bodyweight-crunches": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Crunch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Crunch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      }
+    }
+  }
+}

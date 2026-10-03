@@ -72,6 +72,14 @@ def validate_database(records, progressions, sources):
             for source_id in provenance_source_ids(provenance.get("source")):
                 if source_id not in source_ids:
                     errors.append(f"{exercise_id}: unregistered field provenance source {source_id}")
+            if provenance.get("status") == "EXTERNAL_SOURCE_DIRECT":
+                source = provenance.get("source") or {}
+                if source.get("source_id") not in source_ids or not source.get("evidence_type"):
+                    errors.append(f"{exercise_id}: external field provenance lacks a registered typed source")
+                if not str(source.get("locator") or "").startswith("https://"):
+                    errors.append(f"{exercise_id}: external field provenance lacks a source URL")
+                if provenance.get("confidence") not in {"HIGH", "MEDIUM", "LOW"}:
+                    errors.append(f"{exercise_id}: external field provenance lacks a valid confidence")
         app_metadata = record.get("applicationMetadata") or {}
         for app_entry in (app_metadata.get("sourceEntries") or []) + (app_metadata.get("ambiguousSourceEntries") or []):
             source_id = (app_entry.get("source") or {}).get("source_id")

@@ -90,6 +90,48 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(parallel_dip["snapshot"]["secondaryGroups"], ["Tricipiti"])
         self.assertEqual(parallel_dip["fieldProvenance"]["secondaryGroups"]["status"], "APP_EXERCISE_METADATA_RULE")
 
+    def test_applies_external_ace_equipment_and_level_enrichment_with_per_field_evidence(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+            sources = json.loads((pathlib.Path(temporary) / "sources.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        expected = {
+            "ex-bear-crawls": ([], "Intermedio"),
+            "ex-bent-knee-push-up": ([], "Principiante"),
+            "ex-bodyweightair-squat": ([], "Principiante"),
+            "ex-childs-pose": ([], "Principiante"),
+            "ex-cobra-stretch": ([], "Principiante"),
+            "ex-contralateral-limb-raises": ([], "Principiante"),
+            "ex-bodyweight-crunches": ([], "Principiante"),
+        }
+        self.assertIn("ACE_EXERCISE_LIBRARY", {source["source_id"] for source in sources})
+        for exercise_id, (equipment, level) in expected.items():
+            record = by_id[exercise_id]
+            self.assertEqual(record["equipmentRequired"], equipment)
+            self.assertEqual(record["equipmentStatus"], "KNOWN")
+            self.assertEqual(record["level"], level)
+            self.assertEqual(record["levelStatus"], "KNOWN")
+            for field in ("equipmentRequired", "level"):
+                provenance = record["fieldProvenance"][field]
+                self.assertEqual(provenance["status"], "EXTERNAL_SOURCE_DIRECT")
+                self.assertEqual(provenance["source"]["source_id"], "ACE_EXERCISE_LIBRARY")
+                self.assertTrue(provenance["source"]["locator"].startswith("https://www.acefitness.org/"))
+                self.assertTrue(provenance["source"]["evidence_type"])
+
+    def test_validator_rejects_external_field_provenance_without_url_or_confidence(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+            sources = json.loads((pathlib.Path(temporary) / "sources.json").read_text())
+            progressions = json.loads((ROOT / "app/src/main/assets/exercise-db-v2/progressions.json").read_text())
+        record = next(item for item in records if item["id"] == "ex-bent-knee-push-up")
+        record["fieldProvenance"]["equipmentRequired"]["source"]["locator"] = ""
+        record["fieldProvenance"]["level"].pop("confidence")
+        report = validate_database(records, progressions, sources)
+        self.assertTrue(any("external field provenance lacks a source URL" in error for error in report["errors"]))
+        self.assertTrue(any("external field provenance lacks a valid confidence" in error for error in report["errors"]))
+
     def test_validator_rejects_unregistered_runtime_metadata_provenance(self):
         with tempfile.TemporaryDirectory() as temporary:
             build_database(ROOT, pathlib.Path(temporary))

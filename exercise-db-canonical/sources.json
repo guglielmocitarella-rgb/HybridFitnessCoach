@@ -118,5 +118,10 @@
     "source_id": "APP_EQUIPMENT_LABEL_RULE",
     "title": "Runtime equipment display-label to canonical token mapping",
     "primary_use": "Maps explicit runtime EquipmentCatalog labels and documented aliases to stable equipment tokens; the app equipment catalog remains the source of supported capabilities."
+  },
+  {
+    "source_id": "ACE_EXERCISE_LIBRARY",
+    "title": "ACE Fitness Exercise Library",
+    "primary_use": "Exercise-specific equipment, difficulty, and technique descriptions from the American Council on Exercise exercise library."
   }
 ]
