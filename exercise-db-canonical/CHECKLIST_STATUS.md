@@ -89,3 +89,8 @@ The generated `RESISTANCE_MODE_UNKNOWN.json` operational report established a co
 ### Resistance-mode tranche 2 — deterministic BODYWEIGHT
 
 Screened all 309 residual records from `RESISTANCE_MODE_UNKNOWN.json`. The generated candidate report `RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json` records canonical ID/name, family, equipment, type, reason, verified exclusions and confidence before the mapping is materialized. The deterministic rule requires KNOWN equipment, a reviewed self-loaded family, only no equipment or support/anchor equipment (`pull_up_bar`, `dip_bars`, `rings`), and excludes names containing weighted/assisted/band. External-load equipment and every equipment-UNKNOWN record are excluded. 95 HIGH-confidence candidates map to `BODYWEIGHT`; the two ambiguous canonical Muscle-Up identities are explicitly excluded. Expected resistance-mode UNKNOWN after regeneration: 214. `releaseReady` remains false.
+
+
+### Resistance-mode tranche 3 — deterministic NONE
+
+Screen all 214 residual resistance-mode UNKNOWN records. Generate `RESISTANCE_MODE_NONE_CANDIDATES.json` before materializing matches. Rule `KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE` requires KNOWN equipment; explicit MOBILITY/FLEXIBILITY/SMR semantics; mobility/recovery family or pattern; no weighted/assisted/resisted/band variant; no bodyweight-strength family; and no equipment except no equipment or `foam_roller`. Foam roller is explicitly modeled as an SMR/mobility tool rather than a resistance source. Stability ball, suspension trainer, resistance band, rings, pull-up/dip bars, machines/cables, external loads and equipment UNKNOWN are excluded. Only HIGH-confidence matches are applied. `releaseReady` remains false.
