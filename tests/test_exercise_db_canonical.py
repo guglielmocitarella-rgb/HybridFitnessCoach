@@ -438,6 +438,33 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "NONE")
         self.assertEqual(result["counts"]["resistance_mode_unknown"], 214 - candidates["count"])
 
+    def test_resolves_general_core_conditioning_self_loaded_as_bodyweight(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+            candidates = json.loads((output / "RESISTANCE_MODE_BODYWEIGHT_GENERAL_CANDIDATES.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(candidates["screenedResistanceUnknown"], 187)
+        self.assertGreaterEqual(candidates["count"], 20)
+        self.assertLessEqual(candidates["count"], 50)
+        candidate_ids = [item["id"] for item in candidates["candidates"]]
+        self.assertEqual(candidate_ids, sorted(candidate_ids))
+        self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
+        for item in candidates["candidates"]:
+            self.assertEqual(item["confidence"], "HIGH")
+            self.assertTrue(all(item["exclusionsVerified"].values()))
+            record = by_id[item["id"]]
+            self.assertEqual(record["resistanceMode"], "BODYWEIGHT")
+            provenance = record["fieldProvenance"]["resistanceMode"]
+            self.assertEqual(provenance["status"], "GENERAL_SELF_LOADED_DETERMINISTIC")
+            self.assertEqual(provenance["confidence"], "HIGH")
+        for expected_id in ("ex-deadbug", "ex-front-plank", "ex-mountain-climbers", "ex-bear-crawls", "ex-quadruped-leg-lift"):
+            self.assertIn(expected_id, candidate_ids)
+        for excluded_id in ("ex-ab-wheel-eccentrics", "ex-alternate-arm-and-leg-raises-on-ball", "ex-prone-walkout", "ex-weighted-dip"):
+            self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 187 - candidates["count"])
+
     def test_generates_deterministic_resistance_unknown_operational_report(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)
