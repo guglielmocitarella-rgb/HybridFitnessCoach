@@ -6451,7 +6451,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -6490,21 +6490,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Back Extension Apparatus",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 56"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — machine resistance-training program",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "machine"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -43061,7 +43056,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -43100,21 +43095,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Glute Ham Raise",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 19"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Macros Inc — Glute Ham Raise",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "machine"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -45192,7 +45182,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -45278,69 +45268,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 47"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Hammer Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "dumbbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -47491,7 +47428,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -47530,21 +47467,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hang Power Clean",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 6"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hang Power Clean",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -47686,7 +47618,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -47725,21 +47657,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hang Power Snatch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 2"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Hang Power Snatch",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -58226,7 +58153,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -58271,27 +58198,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Lateral Shoulder Raise",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 44"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Lateral Raise",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Lateral Raise",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "dumbbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -59349,7 +59265,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -59388,21 +59304,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Leg Press Calf Raise",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "NASM — Leg Press Calf Raise",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "leg_press"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -63158,7 +63069,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -63197,21 +63108,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Muscle Snatch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 4"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Muscle Snatch",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -65332,7 +65238,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -65371,21 +65277,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Neutral-Grip Vertical Pulldown",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Seated Lat Pulldown",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "machine"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -68658,7 +68559,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -68697,21 +68598,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "One-Arm Reverse Pushdown",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 13"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "cable"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -69799,7 +69695,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -69829,21 +69725,16 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Overhead Squat",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 23"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Squat",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-overhead-squat"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -74835,7 +74726,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -74880,27 +74771,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Power Snatch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 30"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Power Snatch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 1"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Power Snatch",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-power-snatch"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -76786,7 +76666,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -76825,21 +76705,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Push Jerk",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 9"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Push Jerk",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-push-jerk"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -77169,7 +77044,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -77199,21 +77074,16 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Push Press/Push Jerk",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 25"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Push Press / Push Jerk",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/workout-tips-for-210824"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -77700,7 +77570,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -77739,21 +77609,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Pushdown",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 11"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Triceps Pressdown",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "cable"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -79569,7 +79434,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -79608,21 +79473,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Reverse Pushdown",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 12"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Triceps Push-down technical research",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "cable"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -79811,7 +79671,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -79886,57 +79746,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Reverse Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Extension",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Extension",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Extension",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Extension",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Extension",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Extension",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Extension",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "bench",
+            "dumbbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -95821,7 +95641,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -95860,21 +95680,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Split Jerk",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 10"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Split Jerk",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-split-jerk"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -96644,7 +96459,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -96683,21 +96498,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Squat Push Press",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 1"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Thruster",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -100490,7 +100300,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -100529,21 +100339,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Standing Unilateral Leg Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Standing Leg Curl",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "machine"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -101443,7 +101248,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -101473,21 +101278,16 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stiff-Leg Deadlift",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 20"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Barbell Stiff-leg Deadlift",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6906/from-fragile-to-agile/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -105217,7 +105017,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -105256,21 +105056,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Sumo Dead Lift High Pull",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 28"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Sumo Deadlift High Pull",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -107321,7 +107116,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -107360,21 +107155,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Trap Bar Deadlift",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "NSCA Coach — Trap Bar Deadlift",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -107776,7 +107566,7 @@
     "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -107850,57 +107640,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 18"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "dumbbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -112934,7 +112683,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -112973,21 +112722,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Unilateral Cuffed Leg Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Cable resistance training",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "cable"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -113285,7 +113029,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -113324,21 +113068,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Unilateral Leg Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Seated Leg Extension",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "machine"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -113683,7 +113422,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -113722,21 +113461,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Upright Row",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 43"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Barbell Upright Rows",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/continuing-education/prosource/september-2013/3459/is-your-exercise-selection-helping-or-hurting-your-clients/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "barbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -119185,7 +118919,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -119224,21 +118958,16 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Wide-Grip Vertical Pulldown",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "machine"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "UNKNOWN",
@@ -119825,7 +119554,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -119906,63 +119635,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Wrist Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 50"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 9"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Flexion",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Flexion",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Flexion",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Flexion",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Flexion",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Flexion",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wrist Curl - Flexion",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
-          }
-        ]
+        "status": "EQUIPMENT_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+          "locator": [
+            "bench",
+            "dumbbell"
+          ]
+        },
+        "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
