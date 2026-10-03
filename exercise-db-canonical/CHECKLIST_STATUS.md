@@ -43,7 +43,7 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Unique stable IDs | 1,087 |
 | Progression edges | 113 |
 | Dangling progression edges | 0 |
-| Unknown equipment | 222 |
+| Unknown equipment | 202 |
 | Equipment tokens unsupported by current app | 18 (`suspension_trainer`) |
 | Missing movement patterns | 201 |
 | Unknown level | 443 |
@@ -52,11 +52,11 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Missing supported exercise instructions | 500 |
 | Remaining duplicate runtime labels in candidate | 0 |
 | Runtime application entries audited/preserved | 583 |
-| External ACE records enriched | 72 records; equipment evidence 72, level evidence 63, technique evidence retained for 31 |
+| External reviewed records enriched | 92 equipment resolutions; 63 level resolutions; technique evidence retained for 31 |
 
 The structural validator passes with zero errors. The candidate is not release-ready because selection-critical and instruction-critical evidence remains incomplete. The repository-wide internal audit found no further per-exercise technical fields for unresolved V2-only records: the raw TSVs contain inventory names/families/locators, not equipment, level, resistance, movement pattern, or technique. Runtime-only metadata is now preserved separately; it is not promoted into exercise-science claims. Eighteen otherwise known suspension-trainer records remain unsupported by the current app equipment enum. All rule-derived values have registered provenance, and the validator keeps these unresolved/app-compatibility blockers visible. The existing V2 deterministic build and tests remain separate regression gates.
 
-The current equipment-first checkpoint covers 72 reviewed ACE-backed records. This tranche screened all 242 remaining equipment-UNKNOWN IDs and applied 20 HIGH-confidence mappings, reducing equipment UNKNOWN from 242 to 222 and level UNKNOWN from 463 to 443. The ExRx exercise database was evaluated as the secondary structured source, but no mapping from it was promoted in this tranche because directly verifiable exercise-specific equivalence did not improve on the ACE matches without increasing ambiguity. No new technique fields were promoted from generic/listing evidence. Existing ambiguity exclusions remain unchanged. Canonical CI passed; builder, validator and deterministic gzip checks passed; validation remains `ok: true`, zero errors and `releaseReady: false`. Runtime integration files remain unchanged.
+The current equipment-first checkpoint covers 92 externally reviewed equipment resolutions. This tranche screened all 222 remaining equipment-UNKNOWN IDs and applied 20 HIGH-confidence equipment mappings from discriminant weightlifting and calisthenics apparatus families, reducing equipment UNKNOWN from 222 to 202. Level UNKNOWN remains 443 because this tranche did not infer difficulty. Sources include CrossFit exercise-specific movement pages and CrossFit technical/gymnastics manuals; ACE evidence from prior tranches remains intact. An initial CI failure exposed non-canonical equipment token names (`gymnastic_rings`, `parallel_bars`); these were corrected to canonical `rings` and `dip_bars`. A second test failure correctly identified that direct equipment evidence for ambiguous muscle-up runtime aliases must be separated from runtime identity metadata; the regression test was updated to preserve identity ambiguity while accepting independently sourced equipment. Final canonical CI passed; builder, validator and deterministic gzip checks passed; validation remains `ok: true`, zero errors and `releaseReady: false`. Runtime integration files remain unchanged.
 
 ## Reproduce
 
