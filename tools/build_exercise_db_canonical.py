@@ -1058,22 +1058,52 @@ def build_database(root, output_dir):
         for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
             if not record.get(field): missing_before.append(field)
         resolved = []
-        record["resistanceMode"] = "EXTERNAL_LOAD"
-        record.setdefault("fieldProvenance", {})["resistanceMode"] = {
-            "status": "EQUIPMENT_DETERMINISTIC",
-            "confidence": "HIGH",
-            "source": _rule_source(
-                equipment_resistance_source["source_id"],
-                "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
-                {"equipment": equipment},
-            ),
-            "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields.",
-        }
-        resolved.append({
-            "field": "resistanceMode", "value": "EXTERNAL_LOAD", "confidence": "HIGH",
-            "evidence": "verified resistance_band equipment",
-            "source": equipment_resistance_source["source_id"],
-        })
+        if record["id"] == "ex-it-band-foam-rolling":
+            # Record-first audit exposed a legacy equipment false positive:
+            # "IT band" describes the anatomical target, not resistance-band equipment.
+            ace_foam_source = {
+                "source_id": "ACE_IT_BAND_SELF_CARE",
+                "source_name": "ACE — How to Self-Care for the IT Band",
+                "evidence_type": "EXERCISE_SPECIFIC_TECHNIQUE",
+                "url": "https://www.acefitness.org/resources/pros/expert-articles/5043/how-to-self-care-for-the-it-band/",
+                "locator": "IT Band Foam Rolling: soft-surface foam roller; lie on side and roll the IT band",
+            }
+            record["equipmentRequired"] = ["foam_roller"]
+            record["equipmentStatus"] = "KNOWN"
+            record.setdefault("fieldProvenance", {})["equipment"] = {
+                "status": "EXERCISE_SPECIFIC_SOURCE",
+                "confidence": "HIGH",
+                "source": [ace_foam_source],
+                "derivation": "ACE explicitly specifies a foam roller for IT Band Foam Rolling; the prior resistance_band token was a lexical false positive on 'IT band'.",
+            }
+            record["resistanceMode"] = "NONE"
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "EXERCISE_SPECIFIC_SOURCE",
+                "confidence": "HIGH",
+                "source": [ace_foam_source],
+                "derivation": "ACE describes this as foam rolling/self-care rather than resisted exercise; the foam roller is an SMR tool, not an external resistance source.",
+            }
+            resolved.extend([
+                {"field": "equipment", "value": ["foam_roller"], "confidence": "HIGH", "evidence": "ACE exercise-specific IT Band Foam Rolling technique", "source": "ACE_IT_BAND_SELF_CARE"},
+                {"field": "resistanceMode", "value": "NONE", "confidence": "HIGH", "evidence": "ACE exercise-specific foam rolling/SMR technique", "source": "ACE_IT_BAND_SELF_CARE"},
+            ])
+        else:
+            record["resistanceMode"] = "EXTERNAL_LOAD"
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "EQUIPMENT_DETERMINISTIC",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    equipment_resistance_source["source_id"],
+                    "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+                    {"equipment": equipment},
+                ),
+                "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields.",
+            }
+            resolved.append({
+                "field": "resistanceMode", "value": "EXTERNAL_LOAD", "confidence": "HIGH",
+                "evidence": "verified resistance_band equipment",
+                "source": equipment_resistance_source["source_id"],
+            })
         pattern = band_pattern_by_name.get(record["id"])
         if pattern and not record.get("movementPattern"):
             record["movementPattern"] = [pattern]
