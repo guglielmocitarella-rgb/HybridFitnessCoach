@@ -2330,6 +2330,337 @@
         "url": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/",
         "mapping": "ACE Difficulty -> canonical Italian level; no technique promoted from listing"
       }
+    },
+    "ex-jump-squat": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Squat Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/?page=6",
+        "mapping": "canonical Jump Squat -> ACE Squat Jump; same movement"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Squat Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/?page=6",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical Jump Squat -> ACE Squat Jump; same movement"
+      }
+    },
+    "ex-jumping-lunge": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Cycled Split-Squat Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/234/cycled-split-squat-jump/",
+        "mapping": "canonical Jumping Lunge -> ACE alternating/cycled split-squat jump; same alternating airborne lunge mechanics"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Cycled Split-Squat Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/234/cycled-split-squat-jump/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical Jumping Lunge -> ACE alternating/cycled split-squat jump; same alternating airborne lunge mechanics"
+      }
+    },
+    "ex-front-plank-with-rotation": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "High Plank T-spine Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/330/high-plank-t-spine-rotation/",
+        "mapping": "canonical front plank with rotation -> ACE high-plank T-spine rotation; same high-plank alternating trunk rotation"
+      },
+      "level": {
+        "value": "Avanzato",
+        "observed_value": "Advanced",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "High Plank T-spine Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/330/high-plank-t-spine-rotation/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical front plank with rotation -> ACE high-plank T-spine rotation; same high-plank alternating trunk rotation"
+      }
+    },
+    "ex-chest-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "canonical generic chest stretch matched to ACE standard standing chest stretch"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical generic chest stretch matched to ACE standard standing chest stretch"
+      }
+    },
+    "ex-straddle-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Seated Straddle Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/210/seated-straddle-stretch/",
+        "mapping": "canonical straddle stretch -> ACE seated straddle stretch; same straddle adductor/hamstring stretch"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Seated Straddle Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/210/seated-straddle-stretch/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical straddle stretch -> ACE seated straddle stretch; same straddle adductor/hamstring stretch"
+      }
+    },
+    "ex-prone-back-extension-on-ball": {
+      "equipmentRequired": {
+        "value": [
+          "stability_ball"
+        ],
+        "observed_value": "Stability ball",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Back Extension Over Ball",
+        "url": "https://www.acefitness.org/resources/pros/expert-articles/5123/core-strengthening-stability-ball-workout/",
+        "mapping": "canonical explicitly specifies prone back extension on ball; ACE describes back extension over stability ball"
+      }
+    },
+    "ex-adductor-foam-rolling": {
+      "equipmentRequired": {
+        "value": [
+          "foam_roller"
+        ],
+        "observed_value": "Foam roller",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Foam Roll Adductors",
+        "url": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/",
+        "mapping": "exact region and modality"
+      }
+    },
+    "ex-spine-foam-rolling": {
+      "equipmentRequired": {
+        "value": [
+          "foam_roller"
+        ],
+        "observed_value": "Foam roller",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Foam Roll Thoracic Spine",
+        "url": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/",
+        "mapping": "canonical spine foam rolling resolved conservatively to ACE thoracic-spine foam-roll technique"
+      }
+    },
+    "ex-quad-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No external implement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Standing Quadriceps Stretch",
+        "url": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/",
+        "mapping": "canonical quad stretch -> ACE standing quadriceps stretch"
+      }
+    },
+    "ex-wall-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Wall/body weight; no training implement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Wall Push-up",
+        "url": "https://www.acefitness.org/resources/pros/expert-articles/6314/5-essential-rotator-cuff-exercises/",
+        "mapping": "ACE explicitly describes wall push-ups as the regression"
+      }
+    },
+    "ex-bent-knee-sit-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Body weight / home exercise; no implement specified",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Bent-Knee Sit-up / Crunches",
+        "url": "https://www.acefitness.org/resources/everyone/blog/6593/top-25-at-home-exercises/",
+        "mapping": "exact ACE exercise label"
+      }
+    },
+    "ex-multidirectional-lunges": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Glute Activation Lunges",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/96/glute-activation-lunges/",
+        "mapping": "ACE detail explicitly describes the series as multi-directional/multi-planar lunges"
+      },
+      "level": {
+        "value": "Avanzato",
+        "observed_value": "Advanced",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Glute Activation Lunges",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/96/glute-activation-lunges/",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE detail explicitly describes the series as multi-directional/multi-planar lunges"
+      }
+    },
+    "ex-upright-row": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Barbell Upright Rows",
+        "url": "https://www.acefitness.org/continuing-education/prosource/september-2013/3459/is-your-exercise-selection-helping-or-hurting-your-clients/",
+        "mapping": "ACE technical article explicitly names barbell upright row"
+      }
+    },
+    "ex-stiff-leg-deadlift": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Barbell Stiff-leg Deadlift",
+        "url": "https://www.acefitness.org/resources/pros/expert-articles/6906/from-fragile-to-agile/",
+        "mapping": "exact ACE technical-program exercise label"
+      }
+    },
+    "ex-lateral-shoulder-raise": {
+      "equipmentRequired": {
+        "value": [
+          "dumbbell"
+        ],
+        "observed_value": "Dumbbells",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Lateral Raise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/",
+        "mapping": "canonical lateral shoulder raise -> ACE lateral raise; same shoulder-abduction exercise"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Lateral Raise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical lateral shoulder raise -> ACE lateral raise; same shoulder-abduction exercise"
+      }
+    },
+    "ex-assisted-single-leg-squat": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Partner Assisted Bodyweight Squats — single-leg variation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/265/partner-assisted-bodyweight-squats/",
+        "mapping": "ACE detail explicitly provides partner-assisted single-leg squat variation"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Partner Assisted Bodyweight Squats — single-leg variation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/265/partner-assisted-bodyweight-squats/",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE detail explicitly provides partner-assisted single-leg squat variation"
+      }
+    },
+    "ex-alternating-v-up-crunch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "V-ups — alternating single-leg progression",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/242/v-ups/",
+        "mapping": "ACE detail explicitly includes alternating single-leg V-up progressions"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "V-ups — alternating single-leg progression",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/242/v-ups/",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE detail explicitly includes alternating single-leg V-up progressions"
+      }
+    },
+    "ex-shoulder-bridge": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Glute Bridge Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/",
+        "mapping": "shoulder bridge/glute bridge identity: supine bent-knee hip extension"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Glute Bridge Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/",
+        "mapping": "ACE Difficulty -> canonical Italian level; shoulder bridge/glute bridge identity: supine bent-knee hip extension"
+      }
+    },
+    "ex-bridge": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Glute Bridge Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/",
+        "mapping": "canonical generic bridge matched only to standard supine glute bridge record"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Glute Bridge Exercise",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical generic bridge matched only to standard supine glute bridge record"
+      }
+    },
+    "ex-standing-torso-rotations": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No implement stated in ACE Function table",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Standing Trunk Rotation",
+        "url": "https://www.acefitness.org/continuing-education/certified/may-2024/8630/mastering-the-art-of-the-split-routine/",
+        "mapping": "canonical standing torso rotations -> ACE standing trunk rotation; same standing rotation pattern"
+      }
     }
   },
   "unresolved_conflicts": [
