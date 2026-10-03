@@ -94,3 +94,8 @@ Screened all 309 residual records from `RESISTANCE_MODE_UNKNOWN.json`. The gener
 ### Resistance-mode tranche 3 — deterministic NONE
 
 Screen all 214 residual resistance-mode UNKNOWN records. Generate `RESISTANCE_MODE_NONE_CANDIDATES.json` before materializing matches. Rule `KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE` requires KNOWN equipment; explicit MOBILITY/FLEXIBILITY/SMR semantics; mobility/recovery family or pattern; no weighted/assisted/resisted/band variant; no bodyweight-strength family; and no equipment except no equipment or `foam_roller`. Foam roller is explicitly modeled as an SMR/mobility tool rather than a resistance source. Stability ball, suspension trainer, resistance band, rings, pull-up/dip bars, machines/cables, external loads and equipment UNKNOWN are excluded. Only HIGH-confidence matches are applied. `releaseReady` remains false.
+
+
+### Resistance-mode tranche 4 — BODYWEIGHT general/core
+
+Screen all 187 residual resistance-mode UNKNOWN records. Rule `KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT` is separate from the original BODYWEIGHT rule and requires KNOWN zero equipment, reviewed CORE/CONDITIONING/GENERAL/LOCOMOTION family, CORE/CONDITIONING/CALISTHENICS type, no weighted/assisted/band/resisted/machine/cable qualifier, and unambiguous canonical identity. Apparatus cases including stability ball, suspension trainer, bands, bars/rings, machines/cables and external loads are excluded. Only HIGH-confidence matches are materialized. `releaseReady` remains false.
