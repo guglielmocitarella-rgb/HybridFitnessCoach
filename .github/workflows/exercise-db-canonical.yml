@@ -28,15 +28,6 @@ on:
       - 'tools/validate_exercise_db_canonical.py'
       - 'tests/test_exercise_db_canonical.py'
       - '.github/workflows/exercise-db-canonical.yml'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'exercise-db-canonical/**'
-      - 'tools/build_exercise_db_canonical.py'
-      - 'tools/validate_exercise_db_canonical.py'
-      - 'tests/test_exercise_db_canonical.py'
-      - '.github/workflows/exercise-db-canonical.yml'
   workflow_dispatch:
 
 permissions:
@@ -48,7 +39,7 @@ concurrency:
 
 jobs:
   validate-and-regenerate:
-    if: github.ref == 'refs/heads/feature/v0.9.5' || github.head_ref == 'feature/v0.9.5'
+    if: github.ref == 'refs/heads/feature/v0.9.5'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact branch head
