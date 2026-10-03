@@ -43,7 +43,7 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Unique stable IDs | 1,087 |
 | Progression edges | 113 |
 | Dangling progression edges | 0 |
-| Unknown equipment | 162 |
+| Unknown equipment | 137 |
 | Equipment tokens unsupported by current app | 18 (`suspension_trainer`) |
 | Missing movement patterns | 201 |
 | Unknown level | 443 |
@@ -52,11 +52,11 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Missing supported exercise instructions | 500 |
 | Remaining duplicate runtime labels in candidate | 0 |
 | Runtime application entries audited/preserved | 583 |
-| External reviewed records enriched | 132 equipment resolutions; 63 level resolutions; technique evidence retained for 31 |
+| External reviewed records enriched | 157 equipment resolutions; 63 level resolutions; technique evidence retained for 31 |
 
 The structural validator passes with zero errors. The candidate is not release-ready because selection-critical and instruction-critical evidence remains incomplete. The repository-wide internal audit found no further per-exercise technical fields for unresolved V2-only records: the raw TSVs contain inventory names/families/locators, not equipment, level, resistance, movement pattern, or technique. Runtime-only metadata is now preserved separately; it is not promoted into exercise-science claims. Eighteen otherwise known suspension-trainer records remain unsupported by the current app equipment enum. All rule-derived values have registered provenance, and the validator keeps these unresolved/app-compatibility blockers visible. The existing V2 deterministic build and tests remain separate regression gates.
 
-The current equipment-first checkpoint covers 132 externally reviewed equipment resolutions. This tranche screened all 182 remaining equipment-UNKNOWN IDs and applied 20 HIGH-confidence equipment mappings across machine/cable, stability-ball, resistance-band, specialty-bar and bodyweight/gymnastics families, reducing equipment UNKNOWN from 182 to 162. Level UNKNOWN remains 443 because no difficulty was inferred. Sources used were ACE, CrossFit technical/exercise-specific material, and NSCA for the trap-bar deadlift. The trap bar was mapped minimally to the existing canonical `barbell` family rather than introducing an unsupported token. The first canonical run correctly caught an obsolete test expectation for Ball Bridge; the regression test was updated to require direct external stability-ball evidence. A superseded intermediate workflow then passed tests/build/validator/gzip but could not push generated artifacts because the branch had advanced; the workflow on the latest enrichment commit completed successfully and generated artifacts at `98321bc`. Validation is `ok: true`, zero errors, `releaseReady: false`; runtime integration remains unchanged.
+The current equipment-first checkpoint covers 157 externally reviewed equipment resolutions. This tranche screened all 162 remaining equipment-UNKNOWN IDs and applied 25 HIGH-confidence gymnastics/calisthenics apparatus mappings, primarily pull-up-bar/front-lever/back-lever progressions plus one ring muscle-up variant, reducing equipment UNKNOWN from 162 to 137. Level UNKNOWN remains 443 because no difficulty was inferred. Evidence is from CrossFit exercise-specific/technical gymnastics material; apparatus-ambiguous skills were left UNKNOWN. An initial enrichment commit used a non-canonical `gymnastic_rings` token for one record; it was corrected immediately to canonical `rings`. The superseded CI run failed on that token as designed; the corrected run passed all tests, builder, validator, release-gate assertion and deterministic gzip generation, then committed generated artifacts at `ac0f92e`. Validation is `ok: true`, zero errors and `releaseReady: false`; runtime integration remains unchanged.
 
 ## Reproduce
 
