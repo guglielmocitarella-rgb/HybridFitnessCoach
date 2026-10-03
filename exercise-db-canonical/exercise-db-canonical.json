@@ -4561,7 +4561,9 @@
     "movementPattern": [
       "vertical-push"
     ],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Assisted Dip è un esercizio della famiglia dip. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -4589,6 +4591,12 @@
         "source_name": "Assisted Dip",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 19"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Parallel-bar Dip progression",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -4606,8 +4614,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dip_bars"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -4621,15 +4631,16 @@
         "source": "ex-assisted-dip"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Assisted Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 19"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Parallel-bar Dip progression",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Parallel bars; assistance by spotter",
+        "mapping": "canonical assisted dip resolved to fixed-bar dip progression, not ring dip"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -4647,6 +4658,12 @@
             "source_name": "Assisted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -4658,6 +4675,12 @@
             "source_name": "Assisted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -4685,6 +4708,12 @@
             "source_name": "Assisted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -4697,6 +4726,12 @@
             "source_name": "Assisted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -32805,7 +32840,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "False-Grip Muscle-Up è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -32833,6 +32870,12 @@
         "source_name": "False-Grip Muscle-Up",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Ring Muscle-up with False Grip",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -32850,8 +32893,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -32865,15 +32910,16 @@
         "source": "ex-false-grip-muscle-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "False-Grip Muscle-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Ring Muscle-up with False Grip",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        },
+        "observedValue": "Rings",
+        "mapping": "source explicitly requires false grip on rings"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -32883,6 +32929,12 @@
             "source_name": "False-Grip Muscle-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up with False Grip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -32894,6 +32946,12 @@
             "source_name": "False-Grip Muscle-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up with False Grip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -32905,6 +32963,12 @@
             "source_name": "False-Grip Muscle-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up with False Grip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -32932,6 +32996,12 @@
             "source_name": "False-Grip Muscle-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up with False Grip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -32944,6 +33014,12 @@
             "source_name": "False-Grip Muscle-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up with False Grip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       }
@@ -45900,7 +45976,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Hang Power Clean è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -45928,6 +46006,12 @@
         "source_name": "Hang Power Clean",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 6"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hang Power Clean",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
       }
     ],
     "confidence": "HIGH",
@@ -45945,8 +46029,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -45960,15 +46046,16 @@
         "source": "ex-hang-power-clean"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hang Power Clean",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 6"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hang Power Clean",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
+        },
+        "observedValue": "Barbell; PVC only as learning implement",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -45978,6 +46065,12 @@
             "source_name": "Hang Power Clean",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Clean",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
           }
         ]
       },
@@ -45989,6 +46082,12 @@
             "source_name": "Hang Power Clean",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Clean",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
           }
         ]
       },
@@ -46000,6 +46099,12 @@
             "source_name": "Hang Power Clean",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Clean",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
           }
         ]
       },
@@ -46027,6 +46132,12 @@
             "source_name": "Hang Power Clean",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Clean",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
           }
         ]
       },
@@ -46039,6 +46150,12 @@
             "source_name": "Hang Power Clean",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Clean",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-clean"
           }
         ]
       }
@@ -46054,7 +46171,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Hang Power Snatch è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -46082,6 +46201,12 @@
         "source_name": "Hang Power Snatch",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 2"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hang Power Snatch",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
       }
     ],
     "confidence": "HIGH",
@@ -46099,8 +46224,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -46114,15 +46241,16 @@
         "source": "ex-hang-power-snatch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hang Power Snatch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 2"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hang Power Snatch",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
+        },
+        "observedValue": "Barbell; PVC only as learning implement",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -46132,6 +46260,12 @@
             "source_name": "Hang Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
           }
         ]
       },
@@ -46143,6 +46277,12 @@
             "source_name": "Hang Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
           }
         ]
       },
@@ -46154,6 +46294,12 @@
             "source_name": "Hang Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
           }
         ]
       },
@@ -46181,6 +46327,12 @@
             "source_name": "Hang Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
           }
         ]
       },
@@ -46193,6 +46345,12 @@
             "source_name": "Hang Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hang Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch"
           }
         ]
       }
@@ -51828,7 +51986,9 @@
     "movementPattern": [
       "vertical-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Jumping Pull-Ups è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -51862,6 +52022,12 @@
         "source_name": "Jumping Pull-Up",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 3"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Jumping Pull-up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
       }
     ],
     "confidence": "HIGH",
@@ -51879,8 +52045,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -51908,21 +52076,16 @@
         "source": "ex-jumping-pull-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Jumping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Jumping Pull-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 3"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Jumping Pull-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
+        },
+        "observedValue": "Pull-up bar plus optional box",
+        "mapping": "CrossFit progression explicitly uses jumping pull-up at pull-up bar"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -51946,6 +52109,12 @@
             "source_name": "Jumping Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 3"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Jumping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       },
@@ -51963,6 +52132,12 @@
             "source_name": "Jumping Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 3"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Jumping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       },
@@ -51996,6 +52171,12 @@
             "source_name": "Jumping Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 3"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Jumping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       },
@@ -52014,6 +52195,12 @@
             "source_name": "Jumping Pull-Up",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 3"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Jumping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       }
@@ -53189,7 +53376,9 @@
     "movementPattern": [
       "vertical-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Kipping Pull-Ups è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -53217,6 +53406,12 @@
         "source_name": "Kipping Pull-Ups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kipping Pull-up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
       }
     ],
     "confidence": "HIGH",
@@ -53234,8 +53429,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -53263,15 +53460,16 @@
         "source": "ex-kipping-pull-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Kipping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kipping Pull-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
+        },
+        "observedValue": "Fixed stable pull-up bar",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -53289,6 +53487,12 @@
             "source_name": "Kipping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kipping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       },
@@ -53300,6 +53504,12 @@
             "source_name": "Kipping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kipping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       },
@@ -53327,6 +53537,12 @@
             "source_name": "Kipping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kipping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       },
@@ -53339,6 +53555,12 @@
             "source_name": "Kipping Pull-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kipping Pull-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
           }
         ]
       }
@@ -54854,7 +55076,9 @@
     "movementPattern": [
       "vertical-push"
     ],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "L-Sit Dips è un esercizio della famiglia dip. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -54888,6 +55112,12 @@
         "source_name": "L-Sit Dip",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 21"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Parallel-bar Dip / L-sit support apparatus",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -54905,8 +55135,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dip_bars"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -54947,21 +55179,16 @@
         "source": "ex-l-sit-dips"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Dips",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "L-Sit Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 21"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Parallel-bar Dip / L-sit support apparatus",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Parallel bars",
+        "mapping": "canonical L-sit dip family requires fixed parallel support; ring dip kept distinct in source"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -54985,6 +55212,12 @@
             "source_name": "L-Sit Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 21"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip / L-sit support apparatus",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -55002,6 +55235,12 @@
             "source_name": "L-Sit Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 21"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip / L-sit support apparatus",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -55035,6 +55274,12 @@
             "source_name": "L-Sit Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 21"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip / L-sit support apparatus",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -55053,6 +55298,12 @@
             "source_name": "L-Sit Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 21"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip / L-sit support apparatus",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -60920,7 +61171,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Muscle Snatch è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -60948,6 +61201,12 @@
         "source_name": "Muscle Snatch",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 4"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Muscle Snatch",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
       }
     ],
     "confidence": "HIGH",
@@ -60965,8 +61224,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -60980,15 +61241,16 @@
         "source": "ex-muscle-snatch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Muscle Snatch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 4"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Muscle Snatch",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
+        },
+        "observedValue": "Barbell",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -60998,6 +61260,12 @@
             "source_name": "Muscle Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
           }
         ]
       },
@@ -61009,6 +61277,12 @@
             "source_name": "Muscle Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
           }
         ]
       },
@@ -61020,6 +61294,12 @@
             "source_name": "Muscle Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
           }
         ]
       },
@@ -61047,6 +61327,12 @@
             "source_name": "Muscle Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
           }
         ]
       },
@@ -61059,6 +61345,12 @@
             "source_name": "Muscle Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-snatch"
           }
         ]
       }
@@ -61077,7 +61369,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Muscle-Up è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -61111,6 +61405,12 @@
         "source_name": "Muscle-Up",
         "evidence_type": "INDEX_HEADING",
         "locator": "Index exercise 11"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Muscle-up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -61288,8 +61588,10 @@
         }
       ]
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -61303,21 +61605,16 @@
         "source": "ex-muscle-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Muscle-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 39"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Muscle-Up",
-            "evidence_type": "INDEX_HEADING",
-            "locator": "Index exercise 11"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Muscle-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        },
+        "observedValue": "Rings",
+        "mapping": "canonical generic muscle-up matched conservatively to source explicitly teaching ring muscle-up"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -61333,6 +61630,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "INDEX_HEADING",
             "locator": "Index exercise 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -61350,6 +61653,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "INDEX_HEADING",
             "locator": "Index exercise 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -61367,6 +61676,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "INDEX_HEADING",
             "locator": "Index exercise 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -61405,6 +61720,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "INDEX_HEADING",
             "locator": "Index exercise 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       }
@@ -61421,7 +61742,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Muscle-Up Negatives è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -61449,6 +61772,12 @@
         "source_name": "Muscle-Up Negatives",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Ring Muscle-up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -61466,8 +61795,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -61495,15 +61826,16 @@
         "source": "ex-muscle-up-negatives"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Muscle-Up Negatives",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Ring Muscle-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        },
+        "observedValue": "Rings",
+        "mapping": "negative is eccentric of explicitly ring-based canonical muscle-up family"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -61513,6 +61845,12 @@
             "source_name": "Muscle-Up Negatives",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -61524,6 +61862,12 @@
             "source_name": "Muscle-Up Negatives",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -61535,6 +61879,12 @@
             "source_name": "Muscle-Up Negatives",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -61562,6 +61912,12 @@
             "source_name": "Muscle-Up Negatives",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -61574,6 +61930,12 @@
             "source_name": "Muscle-Up Negatives",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Ring Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       }
@@ -61899,7 +62261,9 @@
     "movementPattern": [
       "vertical-push"
     ],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Negative Dip è un esercizio della famiglia dip. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -61927,6 +62291,12 @@
         "source_name": "Negative Dip",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 18"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Parallel-bar Dip progression",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -61944,8 +62314,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dip_bars"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -61959,15 +62331,16 @@
         "source": "ex-negative-dip"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Negative Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Parallel-bar Dip progression",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Parallel bars",
+        "mapping": "eccentric/negative fixed dip family; rings are separately named apparatus in source"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -61985,6 +62358,12 @@
             "source_name": "Negative Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -61996,6 +62375,12 @@
             "source_name": "Negative Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -62023,6 +62408,12 @@
             "source_name": "Negative Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -62035,6 +62426,12 @@
             "source_name": "Negative Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -63244,7 +63641,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Normal Muscle-Up è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -63278,6 +63677,12 @@
         "source_name": "Muscle-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 2"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Muscle-up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -63455,8 +63860,10 @@
         }
       ]
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -63497,21 +63904,16 @@
         "source": "ex-normal-muscle-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Normal Muscle-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Muscle-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 2"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Muscle-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        },
+        "observedValue": "Rings",
+        "mapping": "canonical normal muscle-up is kept identity-ambiguous for runtime linkage, while the cited source independently establishes rings as equipment"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -63527,6 +63929,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -63544,6 +63952,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -63561,6 +63975,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       },
@@ -63599,6 +64019,12 @@
             "source_name": "Muscle-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
           }
         ]
       }
@@ -67018,7 +67444,9 @@
     "movementPattern": [
       "knee-dominant"
     ],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Overhead Squat è un esercizio della famiglia squat. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -67046,6 +67474,12 @@
         "source_name": "Overhead Squat",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 23"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Squat",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-overhead-squat"
       }
     ],
     "confidence": "MEDIUM",
@@ -67063,8 +67497,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -67078,15 +67514,16 @@
         "source": "ex-overhead-squat"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Overhead Squat",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 23"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Squat",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-overhead-squat"
+        },
+        "observedValue": "Barbell; PVC is learning variation",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -67104,6 +67541,12 @@
             "source_name": "Overhead Squat",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-overhead-squat"
           }
         ]
       },
@@ -67115,6 +67558,12 @@
             "source_name": "Overhead Squat",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-overhead-squat"
           }
         ]
       },
@@ -67142,6 +67591,12 @@
             "source_name": "Overhead Squat",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-overhead-squat"
           }
         ]
       },
@@ -67154,6 +67609,12 @@
             "source_name": "Overhead Squat",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-overhead-squat"
           }
         ]
       }
@@ -71831,7 +72292,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Power Snatch è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -71865,6 +72328,12 @@
         "source_name": "Power Snatch",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 1"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Power Snatch",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-power-snatch"
       }
     ],
     "confidence": "MEDIUM",
@@ -71882,8 +72351,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -71897,21 +72368,16 @@
         "source": "ex-power-snatch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Power Snatch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 30"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Power Snatch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 1"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Power Snatch",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-power-snatch"
+        },
+        "observedValue": "Barbell",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -71927,6 +72393,12 @@
             "source_name": "Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-power-snatch"
           }
         ]
       },
@@ -71944,6 +72416,12 @@
             "source_name": "Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-power-snatch"
           }
         ]
       },
@@ -71961,6 +72439,12 @@
             "source_name": "Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-power-snatch"
           }
         ]
       },
@@ -71994,6 +72478,12 @@
             "source_name": "Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-power-snatch"
           }
         ]
       },
@@ -72012,6 +72502,12 @@
             "source_name": "Power Snatch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Power Snatch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-power-snatch"
           }
         ]
       }
@@ -73753,7 +74249,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Push Jerk è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -73781,6 +74279,12 @@
         "source_name": "Push Jerk",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 9"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Push Jerk",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-push-jerk"
       }
     ],
     "confidence": "HIGH",
@@ -73798,8 +74302,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -73813,15 +74319,16 @@
         "source": "ex-push-jerk"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Push Jerk",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Push Jerk",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-push-jerk"
+        },
+        "observedValue": "Barbell; PVC only as learning implement",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -73831,6 +74338,12 @@
             "source_name": "Push Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-jerk"
           }
         ]
       },
@@ -73842,6 +74355,12 @@
             "source_name": "Push Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-jerk"
           }
         ]
       },
@@ -73853,6 +74372,12 @@
             "source_name": "Push Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-jerk"
           }
         ]
       },
@@ -73880,6 +74405,12 @@
             "source_name": "Push Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-jerk"
           }
         ]
       },
@@ -73892,6 +74423,12 @@
             "source_name": "Push Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-jerk"
           }
         ]
       }
@@ -74095,7 +74632,9 @@
     "movementPattern": [
       "vertical-push"
     ],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Push Press/Push Jerk è un esercizio della famiglia vertical push. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -74123,6 +74662,12 @@
         "source_name": "Push Press/Push Jerk",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 25"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Push Press / Push Jerk",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/workout-tips-for-210824"
       }
     ],
     "confidence": "MEDIUM",
@@ -74140,8 +74685,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -74155,15 +74702,16 @@
         "source": "ex-push-presspush-jerk"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Push Press/Push Jerk",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 25"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Push Press / Push Jerk",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/workout-tips-for-210824"
+        },
+        "observedValue": "Barbell load prescribed",
+        "mapping": "canonical compound label explicitly names push press/push jerk; CrossFit source uses barbell-loaded jerk complex"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -74181,6 +74729,12 @@
             "source_name": "Push Press/Push Jerk",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 25"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Press / Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/workout-tips-for-210824"
           }
         ]
       },
@@ -74192,6 +74746,12 @@
             "source_name": "Push Press/Push Jerk",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 25"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Press / Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/workout-tips-for-210824"
           }
         ]
       },
@@ -74219,6 +74779,12 @@
             "source_name": "Push Press/Push Jerk",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 25"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Press / Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/workout-tips-for-210824"
           }
         ]
       },
@@ -74231,6 +74797,12 @@
             "source_name": "Push Press/Push Jerk",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 25"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push Press / Push Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/workout-tips-for-210824"
           }
         ]
       }
@@ -92439,7 +93011,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Split Jerk è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -92467,6 +93041,12 @@
         "source_name": "Split Jerk",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 10"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Split Jerk",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-split-jerk"
       }
     ],
     "confidence": "HIGH",
@@ -92484,8 +93064,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -92499,15 +93081,16 @@
         "source": "ex-split-jerk"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Split Jerk",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 10"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Split Jerk",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-split-jerk"
+        },
+        "observedValue": "Barbell",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -92517,6 +93100,12 @@
             "source_name": "Split Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Split Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-split-jerk"
           }
         ]
       },
@@ -92528,6 +93117,12 @@
             "source_name": "Split Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Split Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-split-jerk"
           }
         ]
       },
@@ -92539,6 +93134,12 @@
             "source_name": "Split Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Split Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-split-jerk"
           }
         ]
       },
@@ -92566,6 +93167,12 @@
             "source_name": "Split Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Split Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-split-jerk"
           }
         ]
       },
@@ -92578,6 +93185,12 @@
             "source_name": "Split Jerk",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 10"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Split Jerk",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-split-jerk"
           }
         ]
       }
@@ -93221,7 +93834,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Squat Push Press è un esercizio della famiglia total body. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -93249,6 +93864,12 @@
         "source_name": "Squat Push Press",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 1"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Thruster",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -93266,8 +93887,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -93281,15 +93904,16 @@
         "source": "ex-squat-push-press"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Squat Push Press",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 1"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Thruster",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
+        },
+        "observedValue": "Barbell",
+        "mapping": "canonical squat + push press corresponds to CrossFit thruster sequence"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -93299,6 +93923,12 @@
             "source_name": "Squat Push Press",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Thruster",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
           }
         ]
       },
@@ -93310,6 +93940,12 @@
             "source_name": "Squat Push Press",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Thruster",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
           }
         ]
       },
@@ -93321,6 +93957,12 @@
             "source_name": "Squat Push Press",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Thruster",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
           }
         ]
       },
@@ -93348,6 +93990,12 @@
             "source_name": "Squat Push Press",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Thruster",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
           }
         ]
       },
@@ -93360,6 +94008,12 @@
             "source_name": "Squat Push Press",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 1"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Thruster",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf"
           }
         ]
       }
@@ -101397,7 +102051,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Sumo Dead Lift High Pull è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -101425,6 +102081,12 @@
         "source_name": "Sumo Dead Lift High Pull",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 28"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Sumo Deadlift High Pull",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
       }
     ],
     "confidence": "MEDIUM",
@@ -101442,8 +102104,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -101457,15 +102121,16 @@
         "source": "ex-sumo-dead-lift-high-pull"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Sumo Dead Lift High Pull",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 28"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Sumo Deadlift High Pull",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
+        },
+        "observedValue": "Standard barbell; other implements documented as modifications",
+        "mapping": "exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -101475,6 +102140,12 @@
             "source_name": "Sumo Dead Lift High Pull",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 28"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Sumo Deadlift High Pull",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
           }
         ]
       },
@@ -101486,6 +102157,12 @@
             "source_name": "Sumo Dead Lift High Pull",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 28"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Sumo Deadlift High Pull",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
           }
         ]
       },
@@ -101497,6 +102174,12 @@
             "source_name": "Sumo Dead Lift High Pull",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 28"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Sumo Deadlift High Pull",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
           }
         ]
       },
@@ -101524,6 +102207,12 @@
             "source_name": "Sumo Dead Lift High Pull",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 28"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Sumo Deadlift High Pull",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
           }
         ]
       },
@@ -101536,6 +102225,12 @@
             "source_name": "Sumo Dead Lift High Pull",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 28"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Sumo Deadlift High Pull",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull"
           }
         ]
       }
@@ -113556,7 +114251,9 @@
     "movementPattern": [
       "vertical-push"
     ],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Weighted Dip è un esercizio della famiglia dip. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -113584,6 +114281,12 @@
         "source_name": "Weighted Dip",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 20"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Parallel-bar Dip",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -113601,8 +114304,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dip_bars"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -113616,15 +114321,16 @@
         "source": "ex-weighted-dip"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Weighted Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 20"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Parallel-bar Dip",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Parallel bars plus external load",
+        "mapping": "canonical weighted dip retained in fixed-bar dip family; source distinguishes ring dip"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -113642,6 +114348,12 @@
             "source_name": "Weighted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -113653,6 +114365,12 @@
             "source_name": "Weighted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -113680,6 +114398,12 @@
             "source_name": "Weighted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -113692,6 +114416,12 @@
             "source_name": "Weighted Dip",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
