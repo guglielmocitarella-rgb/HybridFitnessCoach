@@ -5,6 +5,7 @@ on:
     paths:
       - 'exercise-db-canonical/equipment-*-v3-1c.json'
       - 'tests/test_equipment_v31c.py'
+      - 'tools/validate_exercise_db_canonical.py'
       - '.github/workflows/exercise-db-v31c-validation.yml'
 permissions:
   contents: read
