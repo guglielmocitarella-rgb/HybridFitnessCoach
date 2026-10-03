@@ -84,6 +84,7 @@ def v2_family_pattern(family, name):
         "STEP_UP": "knee-dominant", "LUNGE": "knee-dominant", "DIP": "vertical-push",
         "HANDSTAND_PUSH_UP": "vertical-push", "PLANCHE": "horizontal-push",
         "CHEST": "horizontal-push", "CHEST_FLY": "horizontal-push", "BICEPS": "pull-accessory",
+        "CORE": "core-control",
     }
     if family == "PULL_UP":
         return "horizontal-pull" if re.search(r"\brows?\b|horizontal pull", name, re.IGNORECASE) else "vertical-pull"

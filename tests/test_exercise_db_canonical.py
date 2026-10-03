@@ -114,6 +114,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         by_id = {record["id"]: record for record in records}
 
         expected = {
+            "ex-abdominal-crunch": ["core-control"],
             "ex-barbell-row": ["horizontal-pull"],
             "ex-lat-pulldown-machine": ["vertical-pull"],
             "ex-barbell-standing-shoulder-press": ["vertical-push"],
