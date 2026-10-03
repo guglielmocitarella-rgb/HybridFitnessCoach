@@ -889,6 +889,51 @@ def build_database(root, output_dir):
                 "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD.",
             }
 
+    # BODYWEIGHT tranche: classify only reviewed self-loaded movement families.
+    # Empty equipment means no apparatus; the three allowed apparatus tokens are
+    # supports/anchors rather than an external resistance source for these families.
+    bodyweight_families = {
+        "PUSH_UP", "HANDSTAND", "HANDSTAND_PUSH_UP", "PLANCHE", "FRONT_LEVER",
+        "BACK_LEVER", "L_SIT", "MUSCLE_UP", "PULL_UP", "DIP", "SQUAT",
+        "SINGLE_LEG_SQUAT",
+    }
+    bodyweight_support_equipment = {"pull_up_bar", "dip_bars", "rings"}
+    bodyweight_exclusion_terms = ("weighted", "assisted", "band")
+    bodyweight_candidates = []
+    for record in all_records:
+        equipment = record.get("equipmentRequired") or []
+        name_key = str(record.get("canonicalNameEn") or "").lower()
+        exclusions_verified = {
+            "equipmentKnown": record.get("equipmentStatus") == "KNOWN",
+            "noExternalLoadEquipment": not any(token in external_load_tokens for token in equipment),
+            "noWeightedAssistedBandName": not any(term in name_key for term in bodyweight_exclusion_terms),
+            "supportEquipmentOnly": not equipment or all(token in bodyweight_support_equipment for token in equipment),
+            "reviewedSelfLoadedFamily": record.get("family") in bodyweight_families,
+        }
+        if record.get("resistanceMode") in {None, "UNKNOWN"} and all(exclusions_verified.values()):
+            bodyweight_candidates.append({
+                "id": record["id"],
+                "canonicalNameEn": record.get("canonicalNameEn"),
+                "family": record.get("family"),
+                "equipmentRequired": equipment,
+                "movementType": record.get("movementType"),
+                "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+                "exclusionsVerified": exclusions_verified,
+                "confidence": "HIGH",
+            })
+            record["resistanceMode"] = "BODYWEIGHT"
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    equipment_resistance_source["source_id"],
+                    "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+                    {"family": record.get("family"), "equipment": equipment},
+                ),
+                "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded.",
+            }
+    bodyweight_candidates.sort(key=lambda item: item["id"])
+
     from tools.validate_exercise_db_canonical import APP_SUPPORTED_EQUIPMENT, validate_database
     all_sources = sources + [
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
@@ -1042,6 +1087,14 @@ def build_database(root, output_dir):
         "records": resistance_unknown_records,
     }
 
+    bodyweight_candidate_report = {
+        "schemaVersion": 1,
+        "screenedResistanceUnknown": 309,
+        "rule": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+        "count": len(bodyweight_candidates),
+        "candidates": bodyweight_candidates,
+    }
+    (output_dir / "RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json").write_text(json.dumps(bodyweight_candidate_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "exercise-db-canonical.json").write_text(json.dumps(all_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "exercise-db-canonical-audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "RESISTANCE_MODE_UNKNOWN.json").write_text(json.dumps(resistance_unknown_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

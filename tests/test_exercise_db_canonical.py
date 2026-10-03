@@ -377,7 +377,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             "ex-unilateral-cuffed-leg-extension", "ex-unilateral-leg-extension",
             "ex-upright-row", "ex-wide-grip-vertical-pulldown", "ex-wrist-curl",
         }
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 309)
+        self.assertEqual(len(expected_ids), 29)
         for exercise_id in expected_ids:
             record = by_id[exercise_id]
             self.assertEqual(record["resistanceMode"], "EXTERNAL_LOAD")
@@ -385,6 +385,32 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertEqual(provenance["status"], "EQUIPMENT_DETERMINISTIC")
             self.assertEqual(provenance["confidence"], "HIGH")
             self.assertEqual(provenance["source"]["source_id"], "V2_EQUIPMENT_RESISTANCE_RULE")
+
+    def test_resolves_reviewed_self_loaded_families_as_bodyweight(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+            candidates = json.loads((output / "RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(candidates["screenedResistanceUnknown"], 309)
+        self.assertEqual(candidates["count"], 97)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 212)
+        candidate_ids = [item["id"] for item in candidates["candidates"]]
+        self.assertEqual(candidate_ids, sorted(candidate_ids))
+        self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
+        for item in candidates["candidates"]:
+            self.assertEqual(item["confidence"], "HIGH")
+            self.assertTrue(all(item["exclusionsVerified"].values()))
+            record = by_id[item["id"]]
+            self.assertEqual(record["resistanceMode"], "BODYWEIGHT")
+            provenance = record["fieldProvenance"]["resistanceMode"]
+            self.assertEqual(provenance["status"], "EQUIPMENT_FAMILY_DETERMINISTIC")
+            self.assertEqual(provenance["confidence"], "HIGH")
+            self.assertEqual(provenance["source"]["source_id"], "V2_EQUIPMENT_RESISTANCE_RULE")
+
+        for excluded_id in ("ex-assisted-dip", "ex-weighted-dip", "ex-banded-biceps-curl"):
+            self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
 
     def test_generates_deterministic_resistance_unknown_operational_report(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -84,3 +84,8 @@ All 105 residual equipment-UNKNOWN records at checkpoint `5c1bd88` were screened
 ### Resistance-mode tranche 1 — deterministic known external equipment
 
 The generated `RESISTANCE_MODE_UNKNOWN.json` operational report established a complete 338-record baseline. Full grouping identified 29 HIGH-confidence records whose already-reviewed canonical equipment contains an unambiguous external-load token (`barbell`, `dumbbell`, `cable`, `machine`, or `leg_press`). These records are promoted from `UNKNOWN` to `EXTERNAL_LOAD` only after equipment enrichment has finalized, with explicit `EQUIPMENT_DETERMINISTIC` provenance through the registered `V2_EQUIPMENT_RESISTANCE_RULE`. Bands, assistance, bodyweight apparatus, stability/suspension implements, and ambiguous/unknown equipment are intentionally excluded from this tranche. Expected resistance-mode UNKNOWN after regeneration: 309. `releaseReady` remains false.
+
+
+### Resistance-mode tranche 2 — deterministic BODYWEIGHT
+
+Screened all 309 residual records from `RESISTANCE_MODE_UNKNOWN.json`. The generated candidate report `RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json` records canonical ID/name, family, equipment, type, reason, verified exclusions and confidence before the mapping is materialized. The deterministic rule requires KNOWN equipment, a reviewed self-loaded family, only no equipment or support/anchor equipment (`pull_up_bar`, `dip_bars`, `rings`), and excludes names containing weighted/assisted/band. External-load equipment and every equipment-UNKNOWN record are excluded. 97 HIGH-confidence candidates map to `BODYWEIGHT`; expected resistance-mode UNKNOWN after regeneration: 212. `releaseReady` remains false.
