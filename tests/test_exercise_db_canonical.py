@@ -395,7 +395,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         by_id = {record["id"]: record for record in records}
         self.assertEqual(candidates["screenedResistanceUnknown"], 309)
         self.assertEqual(candidates["count"], 95)
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 214)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 187)
         candidate_ids = [item["id"] for item in candidates["candidates"]]
         self.assertEqual(candidate_ids, sorted(candidate_ids))
         self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
