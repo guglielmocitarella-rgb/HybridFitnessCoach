@@ -35,3 +35,16 @@ Human-flag/dragon-flag cases are not lossy-remapped to `pull_up_bar` or `bench` 
 
 ## Preservation
 No runtime DB, selection engine, matching checkpoint, prior V3.1A/V3.1B patch, or prior provenance is modified. V3.1C is additive.
+
+## Executed validation
+GitHub Actions DB-only validation run: 37150227664 on commit `9cc28486d65518e1679da2cdce26007438ead726`.
+
+- JSON syntax validation: PASS.
+- V3 canonical validator: PASS after repairing a pre-existing double-escaped regex in `tools/validate_exercise_db_canonical.py`; validation strictness was not reduced.
+- Canonical regression suite / V3.1A semantics: PASS — 26 tests.
+- V3.1C equipment regression suite: PASS — 4 tests.
+- Explicit integrity: canonical 1087, unique 1087, duplicates 0.
+- Persisted baseline validator remains `releaseReady=false`, with 97 equipment UNKNOWN and 18 equipment tokens unsupported by the current app, because V3.1C is patch-only and intentionally does not rewrite the runtime/canonical DB in place.
+
+### Domain gate
+Equipment evidence review is sufficiently closed to move to the next domain **as an audited patch layer**, not as an integration-ready runtime state. The 88 terminal unresolved records remain fail-closed and must not be silently treated as NONE; schema/identity cases remain explicit debt for later integration design.
