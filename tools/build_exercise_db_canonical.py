@@ -19,7 +19,8 @@ if str(PROJECT_ROOT) not in sys.path:
 BASELINE = "9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
 DB_REL = pathlib.Path("app/src/main/assets/exercise-db-v2")
 APP_REL = pathlib.Path("app/src/main/java/com/hybridfitnesscoach/app")
-EXTERNAL_ENRICHMENT_REL = pathlib.Path("exercise-db-canonical/external-enrichment.json")\nRECORD_FIRST_BATCH04_REL = pathlib.Path("exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_04_SOURCE.json")
+EXTERNAL_ENRICHMENT_REL = pathlib.Path("exercise-db-canonical/external-enrichment.json")
+RECORD_FIRST_BATCH04_REL = pathlib.Path("exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_04_SOURCE.json")
 ACE_EXERCISE_LIBRARY_SOURCE = {
     "source_id": "ACE_EXERCISE_LIBRARY",
     "title": "ACE Fitness Exercise Library",
