@@ -25,6 +25,13 @@ ACE_EXERCISE_LIBRARY_SOURCE = {
     "title": "ACE Fitness Exercise Library",
     "primary_use": "Exercise-specific equipment, difficulty, and technique descriptions from the American Council on Exercise exercise library.",
 }
+
+ACE_IT_BAND_SELF_CARE_SOURCE = {
+    "source_id": "ACE_IT_BAND_SELF_CARE",
+    "title": "ACE — How to Self-Care for the IT Band",
+    "primary_use": "Exercise-specific evidence for IT Band Foam Rolling equipment and SMR semantics.",
+    "url": "https://www.acefitness.org/resources/pros/expert-articles/5043/how-to-self-care-for-the-it-band/",
+}
 # Explicitly reviewed name-only duplicate. Both entries have matching group,
 # equipment, level, role, measure, and effective movement metadata. Preserve the
 # skill label and both source locations when materializing their single identity.
@@ -1144,7 +1151,7 @@ def build_database(root, output_dir):
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
         exercise_metadata_source, adapter_source, skill_catalog_source,
         equipment_resistance_source, type_resistance_source,
-        equipment_label_source,
+        equipment_label_source, ACE_IT_BAND_SELF_CARE_SOURCE,
     ]
     if external_enrichment.get("exercises"):
         all_sources.append(ACE_EXERCISE_LIBRARY_SOURCE)
