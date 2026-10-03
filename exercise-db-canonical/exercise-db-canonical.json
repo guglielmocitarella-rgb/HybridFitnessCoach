@@ -5935,6 +5935,12 @@
         "source_name": "Back-Clap Push-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 7"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -5953,7 +5959,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -5967,21 +5973,16 @@
         "source": "ex-back-clap-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Back-Clap Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Back-Clap Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 7"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Journal — Calisthenics",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        },
+        "observedValue": "Clap/chest-slap/behind-the-back clap push-up on floor",
+        "mapping": "source explicitly documents behind-back clapping as push-up progression"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -6005,6 +6006,12 @@
             "source_name": "Back-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 7"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -6022,6 +6029,12 @@
             "source_name": "Back-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 7"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -6055,6 +6068,12 @@
             "source_name": "Back-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 7"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -6073,6 +6092,12 @@
             "source_name": "Back-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 7"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       }
@@ -6088,7 +6113,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Back Extension Apparatus è un esercizio della famiglia back extension. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -6116,6 +6143,12 @@
         "source_name": "Back Extension Apparatus",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 56"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — machine resistance-training program",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
       }
     ],
     "confidence": "MEDIUM",
@@ -6133,8 +6166,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "machine"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -6148,15 +6183,16 @@
         "source": "ex-back-extension-apparatus"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Back Extension Apparatus",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 56"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — machine resistance-training program",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
+        },
+        "observedValue": "Seated back extension/flexion performed on machines",
+        "mapping": "canonical explicitly identifies apparatus; source identifies back-extension machine family"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -6166,6 +6202,12 @@
             "source_name": "Back Extension Apparatus",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 56"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — machine resistance-training program",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
           }
         ]
       },
@@ -6177,6 +6219,12 @@
             "source_name": "Back Extension Apparatus",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 56"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — machine resistance-training program",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
           }
         ]
       },
@@ -6188,6 +6236,12 @@
             "source_name": "Back Extension Apparatus",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 56"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — machine resistance-training program",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
           }
         ]
       },
@@ -6215,6 +6269,12 @@
             "source_name": "Back Extension Apparatus",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 56"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — machine resistance-training program",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
           }
         ]
       },
@@ -6227,6 +6287,12 @@
             "source_name": "Back Extension Apparatus",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 56"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — machine resistance-training program",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/continuing-education/certified/the-research-special-issue/8282/ace-supported-research-does-the-ace-integrated-fitness-training-model-really-work-year-2-study/"
           }
         ]
       }
@@ -7088,7 +7154,9 @@
     "movementPattern": [
       "core-control"
     ],
-    "equipment": [],
+    "equipment": [
+      "stability_ball"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Ball Bridge è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -7116,6 +7184,12 @@
         "source_name": "Ball Bridge",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 14"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Stability Ball Bridge",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/"
       }
     ],
     "confidence": "MEDIUM",
@@ -7133,8 +7207,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "stability_ball"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -7148,15 +7224,16 @@
         "source": "ex-ball-bridge"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Ball Bridge",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 14"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Stability Ball Bridge",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/"
+        },
+        "observedValue": "Stability ball",
+        "mapping": "exact ACE stability-ball bridge; external evidence supersedes the conservative name-only UNKNOWN test case"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -7174,6 +7251,12 @@
             "source_name": "Ball Bridge",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 14"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Stability Ball Bridge",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/"
           }
         ]
       },
@@ -7185,6 +7268,12 @@
             "source_name": "Ball Bridge",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 14"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Stability Ball Bridge",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/"
           }
         ]
       },
@@ -7212,6 +7301,12 @@
             "source_name": "Ball Bridge",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 14"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Stability Ball Bridge",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/"
           }
         ]
       },
@@ -7224,6 +7319,12 @@
             "source_name": "Ball Bridge",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 14"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Stability Ball Bridge",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/"
           }
         ]
       }
@@ -17129,6 +17230,12 @@
         "source_name": "Burpee",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 15"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Burpee",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-burpee"
       }
     ],
     "confidence": "MEDIUM",
@@ -17147,7 +17254,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CARDIO",
     "role": "Base",
@@ -17186,21 +17293,16 @@
         "source": "ex-burpees"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Burpees",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Burpee",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 15"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Burpee",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-burpee"
+        },
+        "observedValue": "Bodyweight movement; no equipment required",
+        "mapping": "exact exercise-specific source"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -17224,6 +17326,12 @@
             "source_name": "Burpee",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 15"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Burpee",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-burpee"
           }
         ]
       },
@@ -17241,6 +17349,12 @@
             "source_name": "Burpee",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 15"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Burpee",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-burpee"
           }
         ]
       },
@@ -17274,6 +17388,12 @@
             "source_name": "Burpee",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 15"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Burpee",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-burpee"
           }
         ]
       },
@@ -17292,6 +17412,12 @@
             "source_name": "Burpee",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 15"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Burpee",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-burpee"
           }
         ]
       }
@@ -27386,6 +27512,12 @@
         "source_name": "Double-Clap Push-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 8"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -27404,7 +27536,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -27418,21 +27550,16 @@
         "source": "ex-double-clap-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Double-Clap Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Double-Clap Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Journal — Calisthenics",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        },
+        "observedValue": "Dynamic clap push-up on floor",
+        "mapping": "multiple-clap progression changes airborne action, not apparatus; equipment only"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -27456,6 +27583,12 @@
             "source_name": "Double-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -27473,6 +27606,12 @@
             "source_name": "Double-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -27506,6 +27645,12 @@
             "source_name": "Double-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -27524,6 +27669,12 @@
             "source_name": "Double-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       }
@@ -33379,6 +33530,12 @@
         "source_name": "Fingertip Push-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 4"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — Push-up technical standard",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-push-up"
       }
     ],
     "confidence": "MEDIUM",
@@ -33397,7 +33554,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -33411,21 +33568,16 @@
         "source": "ex-fingertip-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Fingertip Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Fingertip Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — Push-up technical standard",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-push-up"
+        },
+        "observedValue": "Body-weight push-up on floor",
+        "mapping": "fingertip hand contact changes support surface, not external apparatus; equipment only"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -33449,6 +33601,12 @@
             "source_name": "Fingertip Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Push-up technical standard",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-up"
           }
         ]
       },
@@ -33466,6 +33624,12 @@
             "source_name": "Fingertip Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Push-up technical standard",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-up"
           }
         ]
       },
@@ -33499,6 +33663,12 @@
             "source_name": "Fingertip Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Push-up technical standard",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-up"
           }
         ]
       },
@@ -33517,6 +33687,12 @@
             "source_name": "Fingertip Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Push-up technical standard",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-push-up"
           }
         ]
       }
@@ -36455,6 +36631,12 @@
         "source_name": "Freestanding Handstand Shoulder Taps",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — Handstand Walking Progressions",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
       }
     ],
     "confidence": "HIGH",
@@ -36473,7 +36655,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -36487,15 +36669,16 @@
         "source": "ex-freestanding-handstand-shoulder-taps"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand Shoulder Taps",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — Handstand Walking Progressions",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
+        },
+        "observedValue": "Handstand shoulder taps / freestanding inversion practice",
+        "mapping": "source explicitly documents handstand shoulder-tap progression without external implement"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -36505,6 +36688,12 @@
             "source_name": "Freestanding Handstand Shoulder Taps",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking Progressions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -36516,6 +36705,12 @@
             "source_name": "Freestanding Handstand Shoulder Taps",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking Progressions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -36527,6 +36722,12 @@
             "source_name": "Freestanding Handstand Shoulder Taps",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking Progressions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -36554,6 +36755,12 @@
             "source_name": "Freestanding Handstand Shoulder Taps",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking Progressions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -36566,6 +36773,12 @@
             "source_name": "Freestanding Handstand Shoulder Taps",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking Progressions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       }
@@ -45221,6 +45434,12 @@
         "source_name": "Handstand",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 4"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Handstand",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
       }
     ],
     "confidence": "MEDIUM",
@@ -45239,7 +45458,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -45253,15 +45472,16 @@
         "source": "ex-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Handstand",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Handstand",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
+        },
+        "observedValue": "Freestanding bodyweight handstand",
+        "mapping": "exact exercise-specific source; no external training implement"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -45271,6 +45491,12 @@
             "source_name": "Handstand",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -45282,6 +45508,12 @@
             "source_name": "Handstand",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -45293,6 +45525,12 @@
             "source_name": "Handstand",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -45320,6 +45558,12 @@
             "source_name": "Handstand",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -45332,6 +45576,12 @@
             "source_name": "Handstand",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       }
@@ -65450,6 +65700,12 @@
         "source_name": "One-Arm Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Gymnastics Training Guide",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -65468,7 +65724,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -65496,15 +65752,16 @@
         "source": "ex-one-arm-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Gymnastics Training Guide",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Freestanding handstand skill family",
+        "mapping": "one-arm handstand is a freestanding hand-balance skill; equipment only, no technique promoted"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -65514,6 +65771,12 @@
             "source_name": "One-Arm Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Training Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -65525,6 +65788,12 @@
             "source_name": "One-Arm Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Training Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -65536,6 +65805,12 @@
             "source_name": "One-Arm Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Training Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -65563,6 +65838,12 @@
             "source_name": "One-Arm Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Training Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       },
@@ -65575,6 +65856,12 @@
             "source_name": "One-Arm Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Gymnastics Training Guide",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
           }
         ]
       }
@@ -65939,6 +66226,12 @@
         "source_name": "One-Arm One-Leg Push-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 6"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Push-up with Single-leg Raise",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/"
       }
     ],
     "confidence": "MEDIUM",
@@ -65957,7 +66250,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -65971,21 +66264,16 @@
         "source": "ex-one-arm-one-leg-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "One-Arm One-Leg Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "One-Arm One-Leg Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 6"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Push-up with Single-leg Raise",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "single-leg push-up family is explicitly no-equipment; one-arm progression does not add apparatus; equipment only"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -66009,6 +66297,12 @@
             "source_name": "One-Arm One-Leg Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Push-up with Single-leg Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/"
           }
         ]
       },
@@ -66026,6 +66320,12 @@
             "source_name": "One-Arm One-Leg Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Push-up with Single-leg Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/"
           }
         ]
       },
@@ -66059,6 +66359,12 @@
             "source_name": "One-Arm One-Leg Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Push-up with Single-leg Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/"
           }
         ]
       },
@@ -66077,6 +66383,12 @@
             "source_name": "One-Arm One-Leg Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 6"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Push-up with Single-leg Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/"
           }
         ]
       }
@@ -70676,6 +70988,12 @@
         "source_name": "Pistols",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Single-Leg Squat",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-single-leg-squat"
       }
     ],
     "confidence": "HIGH",
@@ -70694,7 +71012,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -70735,15 +71053,16 @@
         "source": "ex-pistols"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Pistols",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Single-Leg Squat",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-single-leg-squat"
+        },
+        "observedValue": "Body-weight movement",
+        "mapping": "source explicitly identifies pistol/single-leg squat as body-weight"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -70761,6 +71080,12 @@
             "source_name": "Pistols",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Single-Leg Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-single-leg-squat"
           }
         ]
       },
@@ -70772,6 +71097,12 @@
             "source_name": "Pistols",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Single-Leg Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-single-leg-squat"
           }
         ]
       },
@@ -70799,6 +71130,12 @@
             "source_name": "Pistols",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Single-Leg Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-single-leg-squat"
           }
         ]
       },
@@ -70811,6 +71148,12 @@
             "source_name": "Pistols",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Single-Leg Squat",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-single-leg-squat"
           }
         ]
       }
@@ -77492,7 +77835,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Reverse Pushdown è un esercizio della famiglia triceps. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -77520,6 +77865,12 @@
         "source_name": "Reverse Pushdown",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 12"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Triceps Push-down technical research",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
       }
     ],
     "confidence": "MEDIUM",
@@ -77537,8 +77888,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "cable"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -77552,15 +77905,16 @@
         "source": "ex-reverse-pushdown"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Reverse Pushdown",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 12"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Triceps Push-down technical research",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
+        },
+        "observedValue": "Bar/rope push-down performed on cable resistance apparatus",
+        "mapping": "reverse grip changes grip, not cable apparatus; equipment only"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -77570,6 +77924,12 @@
             "source_name": "Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 12"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Push-down technical research",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
           }
         ]
       },
@@ -77581,6 +77941,12 @@
             "source_name": "Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 12"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Push-down technical research",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
           }
         ]
       },
@@ -77592,6 +77958,12 @@
             "source_name": "Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 12"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Push-down technical research",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
           }
         ]
       },
@@ -77619,6 +77991,12 @@
             "source_name": "Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 12"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Push-down technical research",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
           }
         ]
       },
@@ -77631,6 +78009,12 @@
             "source_name": "Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 12"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Push-down technical research",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/1562/ace-sponsored-research-best-triceps-exercises/"
           }
         ]
       }
@@ -83684,7 +84068,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "resistance_band"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Rotator Cuff Stabilization with TheraBand è un esercizio della famiglia rotator cuff. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -83712,6 +84098,12 @@
         "source_name": "Rotator Cuff Stabilization with TheraBand",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 60"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
       }
     ],
     "confidence": "MEDIUM",
@@ -83729,8 +84121,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "resistance_band"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
@@ -83744,15 +84138,16 @@
         "source": "ex-rotator-cuff-stabilization-with-theraband"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Rotator Cuff Stabilization with TheraBand",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 60"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
+        },
+        "observedValue": "Tubing / resistance band",
+        "mapping": "canonical explicitly specifies TheraBand; source establishes tubing as resistance-band apparatus; equipment only"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -83762,6 +84157,12 @@
             "source_name": "Rotator Cuff Stabilization with TheraBand",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
           }
         ]
       },
@@ -83773,6 +84174,12 @@
             "source_name": "Rotator Cuff Stabilization with TheraBand",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
           }
         ]
       },
@@ -83784,6 +84191,12 @@
             "source_name": "Rotator Cuff Stabilization with TheraBand",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
           }
         ]
       },
@@ -83811,6 +84224,12 @@
             "source_name": "Rotator Cuff Stabilization with TheraBand",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
           }
         ]
       },
@@ -83823,6 +84242,12 @@
             "source_name": "Rotator Cuff Stabilization with TheraBand",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — tubing/band shoulder rehabilitation guidance",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/certifiednewsarticle/2359/six-essential-steps-to-strengthening-the-lower-body-following-recovery-from-a-knee-injury/"
           }
         ]
       }
@@ -98224,7 +98649,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Standing Unilateral Leg Curl è un esercizio della famiglia leg. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -98252,6 +98679,12 @@
         "source_name": "Standing Unilateral Leg Curl",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Standing Leg Curl",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -98269,8 +98702,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "machine"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -98284,15 +98719,16 @@
         "source": "ex-standing-unilateral-leg-curl"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Standing Unilateral Leg Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Standing Leg Curl",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
+        },
+        "observedValue": "Weight-stack machine",
+        "mapping": "standing unilateral leg curl described against machine weight stack"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -98302,6 +98738,12 @@
             "source_name": "Standing Unilateral Leg Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Standing Leg Curl",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -98313,6 +98755,12 @@
             "source_name": "Standing Unilateral Leg Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Standing Leg Curl",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -98324,6 +98772,12 @@
             "source_name": "Standing Unilateral Leg Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Standing Leg Curl",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -98351,6 +98805,12 @@
             "source_name": "Standing Unilateral Leg Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Standing Leg Curl",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -98363,6 +98823,12 @@
             "source_name": "Standing Unilateral Leg Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Standing Leg Curl",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       }
@@ -102276,6 +102742,12 @@
         "source_name": "Straight-Body One-Arm Pushup",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit developmental gymnastics — One-arm push-up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -102294,7 +102766,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -102322,15 +102794,16 @@
         "source": "ex-straight-body-one-arm-pushup"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straight-Body One-Arm Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit developmental gymnastics — One-arm push-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf"
+        },
+        "observedValue": "One-arm push-up from prone/deck position",
+        "mapping": "source explicitly documents one-arm push-up as floor bodyweight skill"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -102348,6 +102821,12 @@
             "source_name": "Straight-Body One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit developmental gymnastics — One-arm push-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf"
           }
         ]
       },
@@ -102359,6 +102838,12 @@
             "source_name": "Straight-Body One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit developmental gymnastics — One-arm push-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf"
           }
         ]
       },
@@ -102386,6 +102871,12 @@
             "source_name": "Straight-Body One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit developmental gymnastics — One-arm push-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf"
           }
         ]
       },
@@ -102398,6 +102889,12 @@
             "source_name": "Straight-Body One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit developmental gymnastics — One-arm push-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf"
           }
         ]
       }
@@ -103257,6 +103754,12 @@
         "source_name": "Superman Push-Up",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -103275,7 +103778,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -103289,15 +103792,16 @@
         "source": "ex-superman-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Superman Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Journal — Calisthenics",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        },
+        "observedValue": "Dynamic bodyweight push-up family on floor",
+        "mapping": "airborne push-up progression; no external implement introduced; equipment only"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -103315,6 +103819,12 @@
             "source_name": "Superman Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -103326,6 +103836,12 @@
             "source_name": "Superman Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -103353,6 +103869,12 @@
             "source_name": "Superman Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -103365,6 +103887,12 @@
             "source_name": "Superman Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       }
@@ -104709,7 +105237,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "barbell"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Trap Bar Deadlift è un esercizio della famiglia leg. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -104737,6 +105267,12 @@
         "source_name": "Trap Bar Deadlift",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "NSCA Coach — Trap Bar Deadlift",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -104754,8 +105290,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "barbell"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -104769,15 +105307,16 @@
         "source": "ex-trap-bar-deadlift"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Trap Bar Deadlift",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "NSCA Coach — Trap Bar Deadlift",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
+        },
+        "observedValue": "Trap bar",
+        "mapping": "exact exercise; canonical schema has no trap-bar token, so mapped minimally to barbell family without adding a new unsupported token"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -104787,6 +105326,12 @@
             "source_name": "Trap Bar Deadlift",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NSCA Coach — Trap Bar Deadlift",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
           }
         ]
       },
@@ -104798,6 +105343,12 @@
             "source_name": "Trap Bar Deadlift",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NSCA Coach — Trap Bar Deadlift",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
           }
         ]
       },
@@ -104809,6 +105360,12 @@
             "source_name": "Trap Bar Deadlift",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NSCA Coach — Trap Bar Deadlift",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
           }
         ]
       },
@@ -104836,6 +105393,12 @@
             "source_name": "Trap Bar Deadlift",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NSCA Coach — Trap Bar Deadlift",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
           }
         ]
       },
@@ -104848,6 +105411,12 @@
             "source_name": "Trap Bar Deadlift",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NSCA Coach — Trap Bar Deadlift",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nsca.com/contentassets/9dab08fc28274f3ba1d76af31bbbe40b/coach3.1-screening_and_preventing_common_injuries_in_division_i_basketball_players.pdf"
           }
         ]
       }
@@ -105878,6 +106447,12 @@
         "source_name": "Triple-Clap Push-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 9"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit Journal — Calisthenics",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -105896,7 +106471,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -105910,21 +106485,16 @@
         "source": "ex-triple-clap-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Triple-Clap Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Triple-Clap Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit Journal — Calisthenics",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        },
+        "observedValue": "Dynamic clap push-up on floor",
+        "mapping": "multiple-clap progression changes airborne action, not apparatus; equipment only"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -105948,6 +106518,12 @@
             "source_name": "Triple-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -105965,6 +106541,12 @@
             "source_name": "Triple-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -105998,6 +106580,12 @@
             "source_name": "Triple-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       },
@@ -106016,6 +106604,12 @@
             "source_name": "Triple-Clap Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit Journal — Calisthenics",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
           }
         ]
       }
@@ -110030,7 +110624,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Unilateral Cuffed Leg Extension è un esercizio della famiglia leg. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -110058,6 +110654,12 @@
         "source_name": "Unilateral Cuffed Leg Extension",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Cable resistance training",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -110075,8 +110677,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "cable"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -110090,15 +110694,16 @@
         "source": "ex-unilateral-cuffed-leg-extension"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Unilateral Cuffed Leg Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Cable resistance training",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
+        },
+        "observedValue": "Single cable handle / weight-stack cable station",
+        "mapping": "cuffed unilateral extension uses cable attachment; equipment only, no technique promoted"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -110108,6 +110713,12 @@
             "source_name": "Unilateral Cuffed Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Cable resistance training",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -110119,6 +110730,12 @@
             "source_name": "Unilateral Cuffed Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Cable resistance training",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -110130,6 +110747,12 @@
             "source_name": "Unilateral Cuffed Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Cable resistance training",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -110157,6 +110780,12 @@
             "source_name": "Unilateral Cuffed Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Cable resistance training",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       },
@@ -110169,6 +110798,12 @@
             "source_name": "Unilateral Cuffed Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Cable resistance training",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf"
           }
         ]
       }
@@ -110340,7 +110975,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Unilateral Leg Extension è un esercizio della famiglia leg. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -110368,6 +111005,12 @@
         "source_name": "Unilateral Leg Extension",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Seated Leg Extension",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
       }
     ],
     "confidence": "MEDIUM",
@@ -110385,8 +111028,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "machine"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -110400,15 +111045,16 @@
         "source": "ex-unilateral-leg-extension"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Unilateral Leg Extension",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Seated Leg Extension",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
+        },
+        "observedValue": "Weight Machines / Selectorized",
+        "mapping": "unilateral execution retains the same selectorized leg-extension apparatus; equipment only"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -110418,6 +111064,12 @@
             "source_name": "Unilateral Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Leg Extension",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
           }
         ]
       },
@@ -110429,6 +111081,12 @@
             "source_name": "Unilateral Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Leg Extension",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
           }
         ]
       },
@@ -110440,6 +111098,12 @@
             "source_name": "Unilateral Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Leg Extension",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
           }
         ]
       },
@@ -110467,6 +111131,12 @@
             "source_name": "Unilateral Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Leg Extension",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
           }
         ]
       },
@@ -110479,6 +111149,12 @@
             "source_name": "Unilateral Leg Extension",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Leg Extension",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/183/seated-leg-extension/"
           }
         ]
       }
