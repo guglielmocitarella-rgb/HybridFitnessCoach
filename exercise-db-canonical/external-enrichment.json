@@ -4516,92 +4516,56 @@
         "mapping": "generic non-rings planche-pushup identity; floor is explicitly supported"
       }
     },
-    "ex-elevated-straddle-stand-straddle-press-to-handstand": {
+    "ex-seated-side-stretch-on-ball": {
       "equipmentRequired": {
-        "value": [],
-        "observed_value": "Elevated Straddle Stand Press to Handstand in Press Handstands progression",
+        "value": [
+          "stability_ball"
+        ],
+        "observed_value": "Seated Side Stretch on Ball illustrated seated on a large exercise ball",
         "confidence": "HIGH",
         "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact progression identity; elevation is setup geometry, no unique external apparatus token established"
+        "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
+        "url": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf",
+        "mapping": "exact exercise title and illustrated ball apparatus; canonical stability_ball"
       }
     },
-    "ex-half-lever": {
+    "ex-decline-abdominal-crunch": {
       "equipmentRequired": {
-        "value": [],
-        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "value": [
+          "bench"
+        ],
+        "observed_value": "decline abdominal crunch performed on a dedicated decline/abdominal bench",
         "confidence": "HIGH",
         "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
+        "url": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch",
+        "mapping": "exact exercise/apparatus pairing; canonical bench"
       }
     },
-    "ex-half-lever-bicycles": {
+    "ex-glute-ham-raise": {
       "equipmentRequired": {
-        "value": [],
-        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "value": [
+          "machine"
+        ],
+        "observed_value": "Glute-Ham Raise performed on a GHD machine",
         "confidence": "HIGH",
         "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "source_name": "Macros Inc — Glute Ham Raise",
+        "url": "https://macrosinc.net/exercises/legs/glute-ham-raise/",
+        "mapping": "exact exercise specifies GHD machine; canonical machine"
       }
     },
-    "ex-half-lever-extensions": {
+    "ex-seesaw-with-ball": {
       "equipmentRequired": {
-        "value": [],
-        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
+        "value": [
+          "stability_ball"
+        ],
+        "observed_value": "Seesaw with ball in illustrated strength/fitness exercise reference",
         "confidence": "HIGH",
         "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
-      }
-    },
-    "ex-half-lever-swimmers": {
-      "equipmentRequired": {
-        "value": [],
-        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
-      }
-    },
-    "ex-angled-half-lever": {
-      "equipmentRequired": {
-        "value": [],
-        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
-      }
-    },
-    "ex-floor-half-lever": {
-      "equipmentRequired": {
-        "value": [],
-        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
-      }
-    },
-    "ex-tuck-half-lever": {
-      "equipmentRequired": {
-        "value": [],
-        "observed_value": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "confidence": "HIGH",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "url": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+        "url": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ",
+        "mapping": "exact named ball exercise; canonical stability_ball"
       }
     }
   },
