@@ -19,11 +19,22 @@ if str(PROJECT_ROOT) not in sys.path:
 BASELINE = "9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
 DB_REL = pathlib.Path("app/src/main/assets/exercise-db-v2")
 APP_REL = pathlib.Path("app/src/main/java/com/hybridfitnesscoach/app")
-EXTERNAL_ENRICHMENT_REL = pathlib.Path("exercise-db-canonical/external-enrichment.json")
+EXTERNAL_ENRICHMENT_REL = pathlib.Path("exercise-db-canonical/external-enrichment.json")\nRECORD_FIRST_BATCH04_REL = pathlib.Path("exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_04_SOURCE.json")
 ACE_EXERCISE_LIBRARY_SOURCE = {
     "source_id": "ACE_EXERCISE_LIBRARY",
     "title": "ACE Fitness Exercise Library",
     "primary_use": "Exercise-specific equipment, difficulty, and technique descriptions from the American Council on Exercise exercise library.",
+}
+
+CROSSFIT_TECHNICAL_SOURCE = {
+    "source_id": "CROSSFIT_TECHNICAL",
+    "title": "CrossFit movement and technical guides",
+    "primary_use": "Exercise-specific setup, execution, coaching cues, common faults, equipment and load semantics.",
+}
+ACE_TECHNICAL_SOURCE = {
+    "source_id": "ACE_TECHNICAL",
+    "title": "ACE exercise-specific technical articles",
+    "primary_use": "Exercise-specific setup, execution, coaching cues, equipment and movement semantics when directly described.",
 }
 
 ACE_IT_BAND_SELF_CARE_SOURCE = {
@@ -1124,6 +1135,130 @@ def build_database(root, output_dir):
         })
     record_first_batch03.sort(key=lambda item: item["id"])
 
+    # RECORD-FIRST ENRICHMENT batch 04: source-first scoring. The selected set
+    # is fixed after screening all 116 residual resistance-mode UNKNOWN records.
+    # Only fields with direct exercise-specific evidence are promoted.
+    batch04_source = json.loads((root / RECORD_FIRST_BATCH04_REL).read_text(encoding="utf-8"))
+    batch04_selection = batch04_source.get("selection", [])
+    batch04_before = {}
+    for selected in batch04_selection:
+        exercise_id = selected["id"]
+        record = records_by_id[exercise_id]
+        missing = []
+        if record.get("equipmentStatus") != "KNOWN": missing.append("equipment")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing.append("resistanceMode")
+        if not record.get("movementPattern"): missing.append("movementPattern")
+        if not record.get("level"): missing.append("level")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing.append(field)
+        batch04_before[exercise_id] = missing
+
+    batch04_resolved = defaultdict(list)
+    batch04_instruction_fields = {"descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"}
+    for exercise_id, field_values in batch04_source.get("exercises", {}).items():
+        record = records_by_id[exercise_id]
+        provenance = record.setdefault("fieldProvenance", {})
+        for field, evidence in field_values.items():
+            value = evidence["value"]
+            source_ref = {
+                "source_id": evidence["source_id"],
+                "source_name": evidence["source_name"],
+                "evidence_type": evidence["evidence_type"],
+                "locator": evidence["url"],
+            }
+            if field == "equipmentRequired":
+                value = list(dict.fromkeys(value))
+                if any(token not in RECOGNIZED_EQUIPMENT for token in value):
+                    raise ValueError(f"batch04 has unrecognized equipment for {exercise_id}: {value}")
+                record["equipmentRequired"] = value
+                record["equipment"] = value
+                record["equipmentStatus"] = "KNOWN"
+                report_field = "equipment"
+            elif field == "resistanceMode":
+                if value not in {"BODYWEIGHT", "EXTERNAL_LOAD", "ASSISTED", "NONE"}:
+                    raise ValueError(f"batch04 has invalid resistance mode for {exercise_id}: {value}")
+                record["resistanceMode"] = value
+                report_field = field
+            elif field == "movementPattern":
+                if not isinstance(value, list) or not value:
+                    raise ValueError(f"batch04 expects non-empty movementPattern for {exercise_id}")
+                record["movementPattern"] = value
+                record["movementPatternStatus"] = "EXTERNAL_SOURCE_DIRECT"
+                report_field = field
+            elif field == "level":
+                if value not in {"Principiante", "Intermedio", "Avanzato"}:
+                    raise ValueError(f"batch04 has invalid level for {exercise_id}: {value}")
+                record["level"] = value
+                record["levelStatus"] = "KNOWN"
+                report_field = field
+            elif field in batch04_instruction_fields:
+                if field in {"executionStepsIt", "techniqueCuesIt", "commonErrorsIt"} and not isinstance(value, list):
+                    raise ValueError(f"batch04 expects list for {exercise_id}.{field}")
+                if field in {"descriptionIt", "setupIt"} and not isinstance(value, str):
+                    raise ValueError(f"batch04 expects text for {exercise_id}.{field}")
+                record[field] = value
+                record["executionEvidence"] = "EXTERNAL_TECHNICAL_REFERENCE"
+                report_field = field
+            else:
+                raise ValueError(f"batch04 unsupported field: {field}")
+            provenance[field] = {
+                "status": "EXTERNAL_SOURCE_DIRECT",
+                "confidence": evidence["confidence"],
+                "source": source_ref,
+            }
+            if "observed_value" in evidence:
+                provenance[field]["observedValue"] = evidence["observed_value"]
+            if "mapping" in evidence:
+                provenance[field]["mapping"] = evidence["mapping"]
+            if source_ref not in record.setdefault("sources", []):
+                record["sources"].append(source_ref)
+            batch04_resolved[exercise_id].append({
+                "field": report_field, "value": value,
+                "confidence": evidence["confidence"], "source": evidence["source_id"],
+            })
+        if all(
+            str(record.get(field) or "").strip() if field in {"descriptionIt", "setupIt"}
+            else bool(record.get(field))
+            for field in batch04_instruction_fields
+        ):
+            record["instructionCompleteness"] = "SUPPORTED_EXTERNAL_REFERENCE"
+            record.setdefault("fieldProvenance", {})["instructions"] = {
+                "status": "EXTERNAL_SOURCE_DIRECT",
+                "confidence": "HIGH",
+                "source": [
+                    (record.get("fieldProvenance") or {}).get(field, {}).get("source")
+                    for field in batch04_instruction_fields
+                    if (record.get("fieldProvenance") or {}).get(field, {}).get("source")
+                ],
+            }
+
+    record_first_batch04 = []
+    for selected in batch04_selection:
+        exercise_id = selected["id"]
+        record = records_by_id[exercise_id]
+        missing_after = []
+        if record.get("equipmentStatus") != "KNOWN": missing_after.append("equipment")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing_after.append("resistanceMode")
+        if not record.get("movementPattern"): missing_after.append("movementPattern")
+        if not record.get("level"): missing_after.append("level")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing_after.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing_after.append(field)
+        record_first_batch04.append({
+            "id": exercise_id,
+            "canonicalNameEn": record.get("canonicalNameEn"),
+            "score": selected.get("score"),
+            "decision": selected.get("decision"),
+            "selectionReason": selected.get("reason"),
+            "missingFieldsBefore": batch04_before[exercise_id],
+            "resolvedFields": batch04_resolved.get(exercise_id, []),
+            "remainingIncompleteFields": missing_after,
+            "instructionBlockComplete": all(field not in missing_after for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt")),
+            "fullyComplete": not missing_after,
+        })
+    record_first_batch04.sort(key=lambda item: item["id"])
+
     # Resistance-mode tranche: after reviewed enrichment has finalized equipment,
     # promote only deterministic external-load cases. This deliberately excludes
     # bands, assistance, bodyweight apparatus and ambiguous implements.
@@ -1401,7 +1536,7 @@ def build_database(root, output_dir):
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
         exercise_metadata_source, adapter_source, skill_catalog_source,
         equipment_resistance_source, type_resistance_source,
-        equipment_label_source, ACE_IT_BAND_SELF_CARE_SOURCE,
+        equipment_label_source, ACE_IT_BAND_SELF_CARE_SOURCE, CROSSFIT_TECHNICAL_SOURCE, ACE_TECHNICAL_SOURCE,
     ]
     if external_enrichment.get("exercises"):
         all_sources.append(ACE_EXERCISE_LIBRARY_SOURCE)
@@ -1622,6 +1757,35 @@ def build_database(root, output_dir):
         },
     }
     (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_03.json").write_text(json.dumps(record_first_batch03_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    record_first_batch04_report = {
+        "schemaVersion": 1,
+        "strategy": "RECORD_FIRST_ENRICHMENT",
+        "selectionBlocker": "resistanceMode UNKNOWN",
+        "selectionMethod": batch04_source.get("selectionMethod"),
+        "screenedResistanceUnknown": batch04_source.get("screenedResistanceUnknown"),
+        "batch": batch04_source.get("batch"),
+        "count": len(record_first_batch04),
+        "records": record_first_batch04,
+        "summary": {
+            "recordsAnalyzed": len(record_first_batch04),
+            "recordsFullyComplete": sum(item["fullyComplete"] for item in record_first_batch04),
+            "fieldsResolvedTotal": sum(len(item["resolvedFields"]) for item in record_first_batch04),
+            "equipmentResolved": sum(any(field["field"] == "equipment" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "resistanceModeResolved": sum(any(field["field"] == "resistanceMode" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "movementPatternResolved": sum(any(field["field"] == "movementPattern" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "levelResolved": sum(any(field["field"] == "level" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "skillLinkResolved": sum(any(field["field"] == "skillLink" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "descriptionResolved": sum(any(field["field"] == "descriptionIt" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "setupResolved": sum(any(field["field"] == "setupIt" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "executionResolved": sum(any(field["field"] == "executionStepsIt" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "techniqueCuesResolved": sum(any(field["field"] == "techniqueCuesIt" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "commonErrorsResolved": sum(any(field["field"] == "commonErrorsIt" for field in item["resolvedFields"]) for item in record_first_batch04),
+            "instructionBlocksCompleted": sum(item["instructionBlockComplete"] for item in record_first_batch04),
+            "recordsStillPartial": sum(not item["fullyComplete"] for item in record_first_batch04),
+        },
+    }
+    (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_04.json").write_text(json.dumps(record_first_batch04_report, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
 
     bodyweight_general_candidate_report = {
         "schemaVersion": 1,
