@@ -96535,17 +96535,28 @@
     "variantOf": null,
     "movementPattern": [],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
-    "descriptionIt": "Superman è un esercizio della famiglia general. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
+    "descriptionIt": "Estensione del tronco e delle anche in posizione prona, con sollevamento simultaneo e controllato di braccia e gambe mantenendo testa e colonna stabili.",
+    "setupIt": "Sdraiati prono con le gambe distese e le braccia estese sopra la testa, palmi rivolti uno verso l’altro; mantieni la testa rilassata e allineata con la colonna.",
     "executionStepsIt": [
-      "Avvia il movimento dalla posizione preparatoria mantenendo controllo e allineamento.",
-      "Completa l'escursione prevista senza usare slanci non richiesti dalla variante.",
-      "Ritorna alla posizione iniziale in controllo e interrompi la serie se perdi l'assetto tecnico."
+      "Attiva addome e core per stabilizzare la colonna.",
+      "Solleva lentamente entrambe le gambe e le braccia di pochi centimetri mantenendole distese e senza ruotare.",
+      "Mantieni brevemente la posizione senza sollevare la testa o accentuare l’arco lombare.",
+      "Abbassa con controllo braccia e gambe alla posizione iniziale senza muovere inutilmente zona lombare e bacino."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni testa e collo in linea con la colonna.",
+      "Solleva braccia e gambe in modo simmetrico senza rotazioni.",
+      "Usa il core per stabilizzare il tratto lombare.",
+      "Mantieni il movimento lento e controllato."
+    ],
+    "commonErrorsIt": [
+      "Inarcare eccessivamente la zona lombare durante il sollevamento.",
+      "Sollevare la testa perdendo l’allineamento cervicale.",
+      "Ruotare braccia, gambe o tronco invece di mantenere un sollevamento simmetrico.",
+      "Muovere il bacino o la zona lombare durante la fase di discesa."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -96562,13 +96573,55 @@
         "source_name": "Superman",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 21"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supermans",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supermans",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supermans",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supermans",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supermans",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supermans",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supermans",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Superman",
     "runtimeModelNames": [],
@@ -96580,8 +96633,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -96594,15 +96647,16 @@
         "source": "ex-superman"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Superman",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 21"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise."
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -96612,6 +96666,48 @@
             "source_name": "Superman",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 21"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
           }
         ]
       },
@@ -96623,19 +96719,62 @@
             "source_name": "Superman",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 21"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Superman",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 21"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -96661,22 +96800,124 @@
             "source_name": "Superman",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 21"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supermans",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Superman",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 21"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supermans",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-superman-push-up",
@@ -100123,17 +100364,28 @@
     "variantOf": null,
     "movementPattern": [],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
-    "descriptionIt": "Tuck Jump è un esercizio della famiglia general. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
+    "descriptionIt": "Salto pliometrico verticale in cui, dopo una breve fase di caricamento, anche, ginocchia e caviglie si estendono in modo esplosivo e le ginocchia vengono portate verso il petto prima dell’atterraggio.",
+    "setupIt": "Parti in piedi con i piedi alla larghezza delle anche e le braccia lungo i fianchi; porta le spalle indietro e in basso senza inarcare la zona lombare e attiva il core per stabilizzare la colonna.",
     "executionStepsIt": [
-      "Avvia il movimento dalla posizione preparatoria mantenendo controllo e allineamento.",
-      "Completa l'escursione prevista senza usare slanci non richiesti dalla variante.",
-      "Ritorna alla posizione iniziale in controllo e interrompi la serie se perdi l'assetto tecnico."
+      "Porta il bacino indietro e scendi flettendo anche e ginocchia, mantenendo la schiena piatta e il controllo dell’appoggio.",
+      "Con una pausa minima in basso, spingi esplosivamente a terra estendendo caviglie, ginocchia e anche.",
+      "Durante il volo porta le ginocchia verso il petto e mantieni i piedi il più possibile paralleli al pavimento.",
+      "Atterra in modo morbido sul mesopiede, accompagna il carico verso i talloni e porta il bacino indietro per assorbire l’impatto."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni il core attivo e la schiena piatta durante il caricamento.",
+      "Cerca una tripla estensione esplosiva di caviglie, ginocchia e anche.",
+      "Porta le ginocchia verso il petto senza perdere il controllo del tronco.",
+      "Atterra silenziosamente e con ginocchia morbide."
+    ],
+    "commonErrorsIt": [
+      "Inarcare la zona lombare o perdere la stabilità del tronco.",
+      "Atterrare spostando eccessivamente le ginocchia in avanti.",
+      "Bloccare le ginocchia all’atterraggio invece di assorbire l’impatto.",
+      "Atterrare in modo rigido senza portare il bacino indietro."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -100150,13 +100402,55 @@
         "source_name": "Tuck Jump",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 9"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Tuck Jump",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Tuck Jump",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Tuck Jump",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Tuck Jump",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Tuck Jump",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Tuck Jump",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Tuck Jump",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Tuck Jump",
     "runtimeModelNames": [],
@@ -100168,8 +100462,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -100182,15 +100476,15 @@
         "source": "ex-tuck-jump"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Tuck Jump",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -100200,6 +100494,48 @@
             "source_name": "Tuck Jump",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
           }
         ]
       },
@@ -100211,19 +100547,62 @@
             "source_name": "Tuck Jump",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Tuck Jump",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -100249,22 +100628,119 @@
             "source_name": "Tuck Jump",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Tuck Jump",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Tuck Jump",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Tuck Jump",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-tuck-l-sit",

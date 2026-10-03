@@ -15,12 +15,12 @@
     "canonical_records": 1087,
     "progression_edges": 113,
     "unique_ids": 1087,
-    "equipment_unknown": 284,
+    "equipment_unknown": 282,
     "movement_pattern_missing": 201,
     "equipment_unsupported_by_app": 18,
     "instruction_incomplete": 500,
     "runtime_duplicate_labels": 0,
-    "level_unknown": 496,
+    "level_unknown": 494,
     "resistance_mode_unknown": 338,
     "skill_links_missing": 143,
     "runtime_application_entries": 583,
@@ -112,13 +112,13 @@
       "ACE_EXERCISE_LIBRARY"
     ],
     "fields_applied": {
-      "commonErrorsIt": 10,
-      "descriptionIt": 10,
-      "equipmentRequired": 10,
-      "executionStepsIt": 10,
-      "level": 10,
-      "setupIt": 10,
-      "techniqueCuesIt": 10
+      "commonErrorsIt": 12,
+      "descriptionIt": 12,
+      "equipmentRequired": 12,
+      "executionStepsIt": 12,
+      "level": 12,
+      "setupIt": 12,
+      "techniqueCuesIt": 12
     },
     "exercise_ids": [
       "ex-bear-crawls",
@@ -130,7 +130,9 @@
       "ex-contralateral-limb-raises",
       "ex-forward-step-lunge",
       "ex-front-plank",
-      "ex-mountain-climbers"
+      "ex-mountain-climbers",
+      "ex-superman",
+      "ex-tuck-jump"
     ],
     "unresolved_conflicts": [
       {
@@ -402,7 +404,6 @@
       "ex-straight-body-one-arm-pushup",
       "ex-strict-bar-muscle-ups",
       "ex-sumo-dead-lift-high-pull",
-      "ex-superman",
       "ex-superman-push-up",
       "ex-supine-gluteal-stretch",
       "ex-supine-legs-to-chest",
@@ -416,7 +417,6 @@
       "ex-tuck-front-lever-raise",
       "ex-tuck-front-lever-rows",
       "ex-tuck-half-lever",
-      "ex-tuck-jump",
       "ex-tuck-l-sit",
       "ex-tuck-one-leg-front-lever",
       "ex-tuck-planche-pushups",
@@ -1609,7 +1609,6 @@
       "ex-straight-body-one-arm-pushup",
       "ex-strict-bar-muscle-ups",
       "ex-sumo-dead-lift-high-pull",
-      "ex-superman",
       "ex-superman-push-up",
       "ex-supine-barbell-french-curl",
       "ex-supine-gluteal-stretch",
@@ -1629,7 +1628,6 @@
       "ex-tuck-front-lever-raise",
       "ex-tuck-front-lever-rows",
       "ex-tuck-half-lever",
-      "ex-tuck-jump",
       "ex-tuck-l-sit",
       "ex-tuck-one-leg-front-lever",
       "ex-tuck-planche-pushups",
@@ -2163,11 +2161,11 @@
     "ok": true,
     "errors": [],
     "warnings": [
-      "284 exercises still have unknown equipment requirements",
+      "282 exercises still have unknown equipment requirements",
       "18 exercises use equipment tokens not supported by the current app catalog",
       "201 exercises still lack an explicit movement pattern",
       "500 exercises lack supported execution instructions",
-      "496 exercises have unknown level",
+      "494 exercises have unknown level",
       "338 exercises have unknown resistance mode",
       "143 skill exercises lack a stable SkillCatalog link"
     ],
@@ -2178,11 +2176,11 @@
       "progression_edges": 113
     },
     "blockers": {
-      "equipment_unknown": 284,
+      "equipment_unknown": 282,
       "equipment_unsupported_by_app": 18,
       "movement_pattern_missing": 201,
       "instruction_incomplete": 500,
-      "level_unknown": 496,
+      "level_unknown": 494,
       "resistance_mode_unknown": 338,
       "skill_links_missing": 143
     }
