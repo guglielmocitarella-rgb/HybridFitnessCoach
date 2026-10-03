@@ -1,0 +1,38 @@
+name: Exercise DB V3.1C validation
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths:
+      - 'exercise-db-canonical/equipment-*-v3-1c.json'
+      - 'tests/test_equipment_v31c.py'
+      - '.github/workflows/exercise-db-v31c-validation.yml'
+permissions:
+  contents: read
+jobs:
+  validate-db-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: JSON syntax validation
+        run: |
+          python -m json.tool exercise-db-canonical/equipment-residual-resolution-v3-1c.json >/dev/null
+          python -m json.tool exercise-db-canonical/equipment-field-patch-v3-1c.json >/dev/null
+          python -m json.tool exercise-db-canonical/equipment-provenance-v3-1c.json >/dev/null
+      - name: V3 canonical validator
+        run: python tools/validate_exercise_db_canonical.py
+      - name: Canonical regression tests including V3.1A semantics
+        run: python -m unittest tests/test_exercise_db_canonical.py -v
+      - name: V3.1C equipment regression tests
+        run: python -m unittest tests/test_equipment_v31c.py -v
+      - name: Explicit integrity check
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('exercise-db-canonical/exercise-db-canonical.json'))
+          ids=[r['id'] for r in d]
+          assert len(d)==1087 and len(set(ids))==1087
+          print({'canonical':len(d),'unique':len(set(ids)),'duplicates':len(ids)-len(set(ids))})
+          PY

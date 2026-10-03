@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "3.1C",
+  "sourceHead": "ee6b41710f93f20a7325319639aae8f776785365",
+  "historyPreserved": [
+    "equipment-field-patch-v3-1b.json",
+    "equipment-provenance-v3-1b.json"
+  ],
+  "applyTarget": "future isolated V3 candidate only",
+  "runtimeDatabaseModified": false,
+  "selectionEngineModified": false,
+  "mutations": [
+    {
+      "canonicalId": "ex-asian-squat",
+      "source": "Harvard Health — Get low with deep squats",
+      "sourceRecordId_url": "https://www.health.harvard.edu/exercise-and-fitness/try-this-get-low-with-deep-squats",
+      "evidence": "Harvard Health identifies the deep low squat as the posture commonly known as the Asian squat and describes dropping into, holding, and rising from the squat without apparatus.",
+      "confidence": "HIGH",
+      "reason": "The identified exercise is a self-supported deep squat; apparatus is not structurally required.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN"
+    },
+    {
+      "canonicalId": "ex-asian-squat",
+      "source": "Harvard Health — Get low with deep squats",
+      "sourceRecordId_url": "https://www.health.harvard.edu/exercise-and-fitness/try-this-get-low-with-deep-squats",
+      "evidence": "Harvard Health identifies the deep low squat as the posture commonly known as the Asian squat and describes dropping into, holding, and rising from the squat without apparatus.",
+      "confidence": "HIGH",
+      "reason": "The identified exercise is a self-supported deep squat; apparatus is not structurally required.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "requirementMode": "NONE"
+    },
+    {
+      "canonicalId": "ex-bend-and-reach",
+      "source": "U.S. Army ATP 7-22.01 — Bend and Reach",
+      "sourceRecordId_url": "https://h2f.army.mil/Portals/141/pdfs/physical/ATP%207-22.01.pdf",
+      "evidence": "Official Army doctrine defines the complete Bend and Reach starting position and movement using only the body and ground; no apparatus is part of the standardized exercise.",
+      "confidence": "CERTAIN",
+      "reason": "The official standardized movement is equipment-independent.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN"
+    },
+    {
+      "canonicalId": "ex-bend-and-reach",
+      "source": "U.S. Army ATP 7-22.01 — Bend and Reach",
+      "sourceRecordId_url": "https://h2f.army.mil/Portals/141/pdfs/physical/ATP%207-22.01.pdf",
+      "evidence": "Official Army doctrine defines the complete Bend and Reach starting position and movement using only the body and ground; no apparatus is part of the standardized exercise.",
+      "confidence": "CERTAIN",
+      "reason": "The official standardized movement is equipment-independent.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "requirementMode": "NONE"
+    },
+    {
+      "canonicalId": "ex-chair-pose-squat",
+      "source": "ACE — A Beginner's Guide to Sun Salutations",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/everyone/blog/6835/a-beginner-s-guide-to-sun-salutations/",
+      "evidence": "ACE describes Chair by lowering the hips with body weight in the heels and placing the hands on thighs, in prayer, or reaching forward; a physical chair is not part of the movement.",
+      "confidence": "HIGH",
+      "reason": "The canonical wording denotes the yoga chair-position squat, not use of chair apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN"
+    },
+    {
+      "canonicalId": "ex-chair-pose-squat",
+      "source": "ACE — A Beginner's Guide to Sun Salutations",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/everyone/blog/6835/a-beginner-s-guide-to-sun-salutations/",
+      "evidence": "ACE describes Chair by lowering the hips with body weight in the heels and placing the hands on thighs, in prayer, or reaching forward; a physical chair is not part of the movement.",
+      "confidence": "HIGH",
+      "reason": "The canonical wording denotes the yoga chair-position squat, not use of chair apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "requirementMode": "NONE"
+    },
+    {
+      "canonicalId": "ex-forward-fold",
+      "source": "ACE — A Beginner's Guide to Sun Salutations",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/everyone/blog/6835/a-beginner-s-guide-to-sun-salutations/",
+      "evidence": "ACE describes Forward Fold using body position and optional hand placement on the floor, shins or thighs, with no implement required.",
+      "confidence": "HIGH",
+      "reason": "The technical description establishes a floor/body-position movement without required apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN"
+    },
+    {
+      "canonicalId": "ex-forward-fold",
+      "source": "ACE — A Beginner's Guide to Sun Salutations",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/everyone/blog/6835/a-beginner-s-guide-to-sun-salutations/",
+      "evidence": "ACE describes Forward Fold using body position and optional hand placement on the floor, shins or thighs, with no implement required.",
+      "confidence": "HIGH",
+      "reason": "The technical description establishes a floor/body-position movement without required apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "requirementMode": "NONE"
+    },
+    {
+      "canonicalId": "ex-jogging-and-running",
+      "source": "American Heart Association — Endurance Exercise (Aerobic)",
+      "sourceRecordId_url": "https://www.heart.org/en/healthy-living/exercise-and-physical-activity/fitness-basics/endurance-exercise-aerobic",
+      "evidence": "AHA lists walking and jogging as endurance activities themselves, distinct from equipment-dependent examples such as biking and jumping rope.",
+      "confidence": "HIGH",
+      "reason": "Jogging/running is locomotion and does not structurally require exercise apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN"
+    },
+    {
+      "canonicalId": "ex-jogging-and-running",
+      "source": "American Heart Association — Endurance Exercise (Aerobic)",
+      "sourceRecordId_url": "https://www.heart.org/en/healthy-living/exercise-and-physical-activity/fitness-basics/endurance-exercise-aerobic",
+      "evidence": "AHA lists walking and jogging as endurance activities themselves, distinct from equipment-dependent examples such as biking and jumping rope.",
+      "confidence": "HIGH",
+      "reason": "Jogging/running is locomotion and does not structurally require exercise apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "requirementMode": "NONE"
+    },
+    {
+      "canonicalId": "ex-sprints",
+      "source": "NSCA — Basics of Strength and Conditioning Manual",
+      "sourceRecordId_url": "https://www.nsca.com/contentassets/116c55d64e1343d2b264e05aaf158a91/basics_of_strength_and_conditioning_manual.pdf",
+      "evidence": "NSCA prescribes 50-yard and hollow sprint drills as running intervals over distance; the sprint itself requires no exercise implement.",
+      "confidence": "HIGH",
+      "reason": "The canonical locomotion movement is equipment-independent; timing or distance markers are not structural exercise apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN"
+    },
+    {
+      "canonicalId": "ex-sprints",
+      "source": "NSCA — Basics of Strength and Conditioning Manual",
+      "sourceRecordId_url": "https://www.nsca.com/contentassets/116c55d64e1343d2b264e05aaf158a91/basics_of_strength_and_conditioning_manual.pdf",
+      "evidence": "NSCA prescribes 50-yard and hollow sprint drills as running intervals over distance; the sprint itself requires no exercise implement.",
+      "confidence": "HIGH",
+      "reason": "The canonical locomotion movement is equipment-independent; timing or distance markers are not structural exercise apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "requirementMode": "NONE"
+    },
+    {
+      "canonicalId": "ex-star-jumps",
+      "source": "American Heart Association — Create a Circuit Home Workout",
+      "sourceRecordId_url": "https://www.heart.org/en/healthy-living/exercise-and-physical-activity/getting-active/create-a-circuit-home-workout",
+      "evidence": "AHA explicitly presents Star jumps in a home circuit that can be performed without any special equipment.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific inclusion in a no-special-equipment circuit establishes no required apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN"
+    },
+    {
+      "canonicalId": "ex-star-jumps",
+      "source": "American Heart Association — Create a Circuit Home Workout",
+      "sourceRecordId_url": "https://www.heart.org/en/healthy-living/exercise-and-physical-activity/getting-active/create-a-circuit-home-workout",
+      "evidence": "AHA explicitly presents Star jumps in a home circuit that can be performed without any special equipment.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific inclusion in a no-special-equipment circuit establishes no required apparatus.",
+      "provenance": "V3.1C targeted external evidence resolution",
+      "version": "V3.1C",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "requirementMode": "NONE"
+    }
+  ]
+}
