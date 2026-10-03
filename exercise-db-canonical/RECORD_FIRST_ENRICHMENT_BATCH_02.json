@@ -1,0 +1,594 @@
+{
+  "schemaVersion": 1,
+  "strategy": "RECORD_FIRST_ENRICHMENT",
+  "selectionBlocker": "resistanceMode UNKNOWN",
+  "batch": "multi-field-high-confidence-02",
+  "screenedResistanceUnknown": 150,
+  "count": 23,
+  "records": [
+    {
+      "id": "ex-ab-wheel-eccentrics",
+      "canonicalNameEn": "Ab Wheel Eccentrics",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-alternate-arm-and-leg-raises-on-ball",
+      "canonicalNameEn": "Alternate Arm and Leg Raises on Ball",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-assisted-dip",
+      "canonicalNameEn": "Assisted Dip",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "ASSISTED",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-assisted-single-leg-squat",
+      "canonicalNameEn": "Assisted Single-Leg Squat",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "ASSISTED",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-ball-bridge",
+      "canonicalNameEn": "Ball Bridge",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-bridge",
+      "canonicalNameEn": "Bridge",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "movementPattern",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-decline-abdominal-crunch",
+      "canonicalNameEn": "Decline Abdominal Crunch",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-forward-step-lunge",
+      "canonicalNameEn": "Forward Step Lunge",
+      "missingFieldsBefore": [
+        "resistanceMode"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [],
+      "fullyComplete": true
+    },
+    {
+      "id": "ex-full-ab-wheel",
+      "canonicalNameEn": "Full Ab Wheel",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-hang-pull-to-inverted-hang",
+      "canonicalNameEn": "Hang Pull to Inverted Hang",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "vertical-pull"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-iron-cross",
+      "canonicalNameEn": "Iron Cross",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-iron-cross-pullouts",
+      "canonicalNameEn": "Iron Cross Pullouts",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-knees-ab-wheel",
+      "canonicalNameEn": "Knees Ab Wheel",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-one-arm-ab-wheel",
+      "canonicalNameEn": "One-Arm Ab Wheel",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-parallel-knee-raise",
+      "canonicalNameEn": "Parallel Knee Raise",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-prone-back-extension-on-ball",
+      "canonicalNameEn": "Prone Back Extension on Ball",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "hinge"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-prone-walkout",
+      "canonicalNameEn": "Prone Walkout",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "movementPattern"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-ramp-ab-wheel",
+      "canonicalNameEn": "Ramp Ab Wheel",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-seated-ez-bar-triceps-extension",
+      "canonicalNameEn": "Seated EZ-Bar Triceps Extension",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "push-accessory"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-seated-side-stretch-on-ball",
+      "canonicalNameEn": "Seated Side Stretch on Ball",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "NONE",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-standing-jump-and-reach",
+      "canonicalNameEn": "Standing Jump and Reach",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "movementPattern"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-triceps-push-up",
+      "canonicalNameEn": "Triceps Push-Up",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "movementPattern",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-tuck-jump",
+      "canonicalNameEn": "Tuck Jump",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "movementPattern"
+      ],
+      "fullyComplete": false
+    }
+  ],
+  "summary": {
+    "recordsAnalyzed": 23,
+    "recordsFullyComplete": 1,
+    "fieldsResolvedTotal": 26,
+    "equipmentResolved": 0,
+    "resistanceModeResolved": 23,
+    "movementPatternResolved": 3,
+    "levelResolved": 0,
+    "skillLinkResolved": 0,
+    "descriptionResolved": 0,
+    "setupResolved": 0,
+    "executionResolved": 0,
+    "techniqueCuesResolved": 0,
+    "commonErrorsResolved": 0,
+    "recordsStillPartial": 22
+  }
+}

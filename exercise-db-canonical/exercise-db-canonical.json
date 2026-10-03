@@ -637,7 +637,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -693,15 +693,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Ab Wheel Eccentrics",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-ab-wheel-eccentrics",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -2481,7 +2486,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -2511,21 +2516,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Alternate Arm and Leg Raises on Ball",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 55"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Anyang University/KOCW exercise material — Alternate Arm and Leg Raises on Ball",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-alternate-arm-and-leg-raises-on-ball",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "VELLA_ANATOMY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -4866,7 +4871,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "ASSISTED",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -4896,21 +4901,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Assisted Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 19"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Parallel-bar Dip progression",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-assisted-dip",
+            "mode": "ASSISTED",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "ULTIMATE_CAL_COLLECTION"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -5697,7 +5702,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "ASSISTED",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -5740,27 +5745,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Assisted Single-Leg Squat",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Partner Assisted Bodyweight Squats — single-leg variation",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/265/partner-assisted-bodyweight-squats/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Partner Assisted Bodyweight Squats — single-leg variation",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/265/partner-assisted-bodyweight-squats/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-assisted-single-leg-squat",
+            "mode": "ASSISTED",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "COMPLETE_CAL2"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -7483,7 +7482,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -7513,21 +7512,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Ball Bridge",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 14"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Stability Ball Bridge",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-ball-bridge",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "VELLA_ANATOMY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -17312,7 +17311,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -17357,27 +17356,21 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Bridge",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Glute Bridge Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Glute Bridge Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-bridge",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "COMPLETE_CAL2"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -25892,7 +25885,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -25922,21 +25915,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Decline Abdominal Crunch",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-decline-abdominal-crunch",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "SCIENCE_STRENGTH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -35725,7 +35718,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -35754,57 +35747,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Forward Step Lunge",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 18"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forward Lunge",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forward Lunge",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forward Lunge",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forward Lunge",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forward Lunge",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forward Lunge",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forward Lunge",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-forward-step-lunge",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "NSCA_TECH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -40100,7 +40057,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -40162,21 +40119,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Ab Wheel",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "AB Roller Wheel",
-            "evidence_type": "INDEX_HEADING",
-            "locator": "Index exercise 9"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-full-ab-wheel",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "CAL_BEGINNER_150",
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -47141,7 +47098,9 @@
     "family": "SKILL",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "vertical-pull"
+    ],
     "equipment": [
       "pull_up_bar"
     ],
@@ -47202,8 +47161,8 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -47224,38 +47183,35 @@
         "mapping": "hang-to-inverted-hang progression on horizontal bar"
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Hang Pull to Inverted Hang",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-hang-pull-to-inverted-hang",
+            "family": "SKILL",
+            "canonicalNameEn": "Hang Pull to Inverted Hang"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Hang Pull to Inverted Hang",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-hang-pull-to-inverted-hang",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -51479,7 +51435,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -51518,21 +51474,21 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Iron Cross",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-iron-cross",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -51675,7 +51631,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -51714,21 +51670,21 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Iron Cross Pullouts",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-iron-cross-pullouts",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -55164,7 +55120,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -55207,15 +55163,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Knees Ab Wheel",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-knees-ab-wheel",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -65480,7 +65441,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -65523,15 +65484,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm Ab Wheel",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-one-arm-ab-wheel",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -69325,7 +69291,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -69355,21 +69321,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Parallel Knee Raise",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 29"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Gym.com — Knee Raise Parallel Bars",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://gym.com/exercises/knee-raise-parallel-bars"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-parallel-knee-raise",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "ULTIMATE_CAL_COLLECTION"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -74348,7 +74314,9 @@
     "family": "BACK_EXTENSION",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "hinge"
+    ],
     "equipment": [
       "stability_ball"
     ],
@@ -74409,8 +74377,8 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -74431,38 +74399,35 @@
         "mapping": "canonical explicitly specifies prone back extension on ball; ACE describes back extension over stability ball"
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Prone Back Extension on Ball",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 57"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Back Extension Over Ball",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5123/core-strengthening-stability-ball-workout/"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-prone-back-extension-on-ball",
+            "family": "BACK_EXTENSION",
+            "canonicalNameEn": "Prone Back Extension on Ball"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Prone Back Extension on Ball",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 57"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Back Extension Over Ball",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5123/core-strengthening-stability-ball-workout/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-prone-back-extension-on-ball",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "VELLA_ANATOMY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -74804,7 +74769,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -74879,57 +74844,21 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Prone Walkout",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 13"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Stability Ball Prone Walkout",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Stability Ball Prone Walkout",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Stability Ball Prone Walkout",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Stability Ball Prone Walkout",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Stability Ball Prone Walkout",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Stability Ball Prone Walkout",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Stability Ball Prone Walkout",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-prone-walkout",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "CAL_BEGINNER_50"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -77626,7 +77555,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -77682,15 +77611,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Ramp Ab Wheel",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-ramp-ab-wheel",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "OVERCOMING_GRAVITY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -87299,7 +87233,9 @@
     "family": "TRICEPS",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "push-accessory"
+    ],
     "equipment": [
       "ez_bar",
       "bench"
@@ -87362,8 +87298,8 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -87384,38 +87320,35 @@
         "mapping": "Exact named exercise in technical anatomy manual"
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Seated EZ-Bar Triceps Extension",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 20"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-seated-ez-bar-triceps-extension",
+            "family": "TRICEPS",
+            "canonicalNameEn": "Seated EZ-Bar Triceps Extension"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Seated EZ-Bar Triceps Extension",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 20"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-seated-ez-bar-triceps-extension",
+            "mode": "EXTERNAL_LOAD",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "DELAVIER3"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -88518,7 +88451,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -88548,21 +88481,21 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Seated Side Stretch on Ball",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 77"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-seated-side-stretch-on-ball",
+            "mode": "NONE",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "VELLA_ANATOMY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -97872,7 +97805,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -97947,57 +97880,21 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Standing Jump and Reach",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 38"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jump and Reach",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jump and Reach",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jump and Reach",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jump and Reach",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jump and Reach",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jump and Reach",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jump and Reach",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-standing-jump-and-reach",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "VELLA_ANATOMY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -106509,7 +106406,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -106554,27 +106451,21 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Triceps Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Push-up",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Triceps Push-up",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-triceps-push-up",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "SCIENCE_STRENGTH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -108419,7 +108310,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -108493,57 +108384,21 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Tuck Jump",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 9"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Tuck Jump",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Tuck Jump",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Tuck Jump",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Tuck Jump",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Tuck Jump",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Tuck Jump",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Tuck Jump",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-tuck-jump",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "ACE_EXERCISE_LIBRARY",
+              "CAL_BEGINNER_50"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used the canonical exercise identity, verified apparatus/no-equipment evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
