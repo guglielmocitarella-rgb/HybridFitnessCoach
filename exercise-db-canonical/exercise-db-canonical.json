@@ -1013,7 +1013,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -1043,21 +1043,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Adductor Foam Rolling",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Foam Roll Adductors",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "SMR",
+            "type": "SMR",
+            "equipment": [
+              "foam_roller"
+            ]
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -4520,7 +4519,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -4550,21 +4549,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Armpit Foam Rolling",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "NASM — Guide to Foam Rolling",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "SMR",
+            "type": "SMR",
+            "equipment": [
+              "foam_roller"
+            ]
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -19829,7 +19827,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -19859,57 +19857,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Calf Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -20459,7 +20418,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -20489,27 +20448,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Cat Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cat-Cow",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cat-Cow",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -21351,7 +21301,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -21381,27 +21331,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Chest Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -21554,7 +21495,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -21584,27 +21525,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Child Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 82"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -21791,7 +21723,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -21820,57 +21752,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Child's Pose",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "MOBILITY",
+            "type": "MOBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -23825,7 +23718,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -23854,57 +23747,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Cobra Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -26767,7 +26621,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -26797,27 +26651,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Deep-Squat Position",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "LOWER_BODY_MOBILITY",
+            "type": "MOBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -35261,7 +35106,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -35291,27 +35136,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Forearm and Wrist Stretch 1",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forearm/Wrist Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forearm/Wrist Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -35464,7 +35300,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -35494,27 +35330,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Forearm and Wrist Stretch 2",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forearm/Wrist Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Forearm/Wrist Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -40841,7 +40668,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -40871,27 +40698,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Full-Body Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 79"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Full-body Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Full-body Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -49592,7 +49410,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -49622,27 +49440,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Hip-Flexor Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "LOWER_BODY_MOBILITY",
+            "type": "MOBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -55361,7 +55170,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -55391,57 +55200,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Kneeling Iliopsoas Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 73"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kneeling Hip-flexor Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -62562,7 +62332,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -62592,27 +62362,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Multidirectional Lunges",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 4"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Glute Activation Lunges",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/96/glute-activation-lunges/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Glute Activation Lunges",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/96/glute-activation-lunges/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "LOWER_BODY_MOBILITY",
+            "type": "MOBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -71692,7 +71453,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -71722,21 +71483,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Piriformis Foam Rolling",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "NASM — Guide to Foam Rolling",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "SMR",
+            "type": "SMR",
+            "equipment": [
+              "foam_roller"
+            ]
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -77356,7 +77116,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -77386,27 +77146,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Quad Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Quad Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Quadriceps Stretch",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -88787,7 +88538,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -88817,27 +88568,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Seated Rotation",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 72"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Seated Rotation",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Seated Rotation",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "TRUNK_MOBILITY",
+            "type": "MOBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -94834,7 +94576,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -94864,21 +94606,20 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Spine Foam Rolling",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Foam Roll Thoracic Spine",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "SMR",
+            "type": "SMR",
+            "equipment": [
+              "foam_roller"
+            ]
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -98240,7 +97981,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -98270,57 +98011,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Standing Chest and Anterior Shoulder Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 74"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Chest Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -98943,7 +98645,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -98973,27 +98675,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Standing Side Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Side Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Side Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -99297,7 +98990,7 @@
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -99327,21 +99020,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Standing Torso Rotations",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 2"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Standing Trunk Rotation",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/continuing-education/certified/may-2024/8630/mastering-the-art-of-the-split-routine/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "TRUNK_MOBILITY",
+            "type": "MOBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -99525,7 +99215,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -99555,57 +99245,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Standing Triceps Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 76"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Triceps Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Triceps Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Triceps Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Triceps Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Triceps Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Triceps Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overhead Triceps Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -103696,7 +103347,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -103726,27 +103377,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Straddle Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Seated Straddle Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/210/seated-straddle-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Seated Straddle Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/210/seated-straddle-stretch/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -105446,7 +105088,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -105476,27 +105118,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Supine Gluteal Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 69"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Glute Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Glute Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -105840,7 +105473,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -105870,57 +105503,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Supine Lying Deep External Rotators Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 71"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine 90-90 Hip Rotator Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine 90-90 Hip Rotator Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine 90-90 Hip Rotator Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine 90-90 Hip Rotator Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine 90-90 Hip Rotator Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine 90-90 Hip Rotator Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine 90-90 Hip Rotator Stretch",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -112695,7 +112289,7 @@
     "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -112725,27 +112319,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Upper-Back Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Upper Back Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Upper Back Stretch",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+          "locator": {
+            "family": "STRETCH",
+            "type": "FLEXIBILITY",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
