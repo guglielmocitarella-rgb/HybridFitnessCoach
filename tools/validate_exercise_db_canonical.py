@@ -53,7 +53,7 @@ def validate_database(records, progressions, sources):
                 errors.append(f"{exercise_id}: unrecognized equipment token {token}")
         if record.get("resistanceMode") == "EXTERNAL_LOAD":
             equipment = set(record.get("equipmentRequired") or [])
-            external_equipment = {"barbell", "cable", "dumbbell", "ez_bar", "kettlebell", "leg_press", "machine", "resistance_band"}
+            external_equipment = {"barbell", "cable", "dumbbell", "ez_bar", "kettlebell", "leg_press", "machine", "medicine_ball", "resistance_band"}
             if record.get("equipmentStatus") != "KNOWN" or not equipment.intersection(external_equipment):
                 errors.append(f"{exercise_id}: EXTERNAL_LOAD requires known external-load equipment")
         if not record.get("movementPatternStatus"):
