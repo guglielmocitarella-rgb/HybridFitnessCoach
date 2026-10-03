@@ -69,6 +69,13 @@ CERTAIN remains zero deliberately: current evidence does not establish certainty
 
 817 canonical exercises require review.
 
+
+## Qualitative validation sample
+
+A representative persisted-checkpoint sample was reviewed after aggregation. HIGH_PROBABILITY examples included Pseudo-Planche Push-Up, Pull-Up, Push Jerk and Push Press with normalized exact name/alias plus compatible equipment and no recorded conflict. AMBIGUOUS examples correctly retained equipment-disjoint exact names and lexical near-neighbours such as Pause Pull-Up rather than promoting them. NO_MATCH rows were also sampled to confirm the absence of an above-threshold candidate in the relevant source.
+
+No systematic error was found in this sample that justified changing matcher v1.0. One semantic edge case remains worth manual review: source aliases can collapse closely related named variants (for example Push Jerk / Power Jerk). Because matcher v1.0 never promotes these results to CERTAIN and the final enrichment policy requires field-level review, this remains in the review process rather than being used to relax or inflate confidence.
+
 ## Next phase
 
 Use HIGH_PROBABILITY only as a field-by-field enrichment candidate queue; do not auto-import AMBIGUOUS. Review media rights separately. Keep the canonical database unchanged until reviewed enrichment goes through the existing builder/provenance path.
