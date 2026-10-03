@@ -1,0 +1,96 @@
+name: Exercise DB matching audit continuation
+
+on:
+  push:
+    branches:
+      - feature/v0.9.5
+    paths:
+      - '.github/workflows/exercise-db-matching-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: exercise-db-matching-audit-v095
+  cancel-in-progress: false
+
+jobs:
+  continue-audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.9.5
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reconstruct pinned audit inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          AUDIT="exercise-db-canonical/matching-audit-2026-10-03"
+          WORK="exercise-db-canonical/work"
+          mkdir -p "$WORK"
+          cp "$AUDIT/source-manifest.json" "$WORK/manifest.json"
+          python - <<'PY'
+          import json, pathlib, subprocess
+          audit=pathlib.Path("exercise-db-canonical/matching-audit-2026-10-03")
+          work=pathlib.Path("exercise-db-canonical/work")
+          m=json.loads((audit/"source-manifest.json").read_text())
+          def blob(repo, sha, dest):
+              subprocess.run(["git","clone","--quiet","--filter=blob:none","--no-checkout","https://github.com/"+repo+".git",str(dest.parent/(dest.stem+"-repo"))],check=True)
+              r=dest.parent/(dest.stem+"-repo")
+              data=subprocess.check_output(["git","-C",str(r),"cat-file","blob",sha])
+              dest.write_bytes(data)
+          # canonical blob is in this repository and can be read directly by SHA.
+          (work/"canonical.json").write_bytes(subprocess.check_output(["git","cat-file","blob",m["canonicalBlob"]]))
+          for i,s in enumerate(m["sources"]):
+              f=next(x for x in s["files"] if x["path"].endswith("exercises.json"))
+              blob(s["repository"],f["sha"],work/f"source{i}.json")
+          PY
+      - name: Validate matcher
+        run: python -m unittest exercise-db-canonical/matching-audit-2026-10-03/test_matcher.py
+      - name: Complete remaining checkpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          M="exercise-db-canonical/matching-audit-2026-10-03/matcher.py"
+          python "$M" --start 800 --count 100
+          python "$M" --start 900 --count 100
+          python "$M" --start 1000 --count 87
+      - name: Validate complete coverage and update status
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path("exercise-db-canonical/matching-audit-2026-10-03")
+          cps=sorted((root/"checkpoints").glob("*.json"))
+          ids=[]
+          summaries=[]
+          for p in cps:
+              d=json.loads(p.read_text())
+              ids.extend(d["ids"])
+              summaries.append({"file":p.name,"start":d["start_index"],"end":d["end_index"],"count":len(d["ids"]),"digest":d["digest"],"statistics":d["statistics"]})
+          if len(ids)!=1087 or len(set(ids))!=1087:
+              raise SystemExit(f"coverage invalid: rows={len(ids)} unique={len(set(ids))}")
+          status={"audit":"matching-audit-2026-10-03","state":"MATCHING_COMPLETE","processed":1087,"total":1087,"checkpoint_count":len(cps),"checkpoints":summaries}
+          (root/"STATUS.json").write_text(json.dumps(status,indent=2,ensure_ascii=False)+"\n")
+          print(json.dumps(status))
+          PY
+      - name: Persist checkpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exercise-db-canonical/matching-audit-2026-10-03/checkpoints exercise-db-canonical/matching-audit-2026-10-03/STATUS.json
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit"
+            exit 0
+          fi
+          git commit -m "audit(db): complete matching 1087 of 1087 [skip ci]"
+          git push origin HEAD:feature/v0.9.5
