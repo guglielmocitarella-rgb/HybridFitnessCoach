@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 from tools.build_exercise_db_canonical import _skill_nodes, build_database, norm, parse_runtime_catalogue
-from tools.validate_exercise_db_canonical import validate_database
+from tools.validate_exercise_db_canonical import equipment_semantic_state, validate_database
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -651,6 +651,15 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         invalid = validate_database(broken, progressions, sources)
         self.assertTrue(any("duplicate id" in error for error in invalid["errors"]))
 
+
+
+    def test_v31a_equipment_semantics_distinguish_none_unknown_supported_unsupported_invalid(self):
+        base = {"equipmentStatus": "KNOWN", "equipmentRequired": []}
+        self.assertEqual(equipment_semantic_state(base), "KNOWN_NO_EQUIPMENT")
+        self.assertEqual(equipment_semantic_state({"equipmentStatus": "UNKNOWN", "equipmentRequired": []}), "UNKNOWN")
+        self.assertEqual(equipment_semantic_state({"equipmentStatus": "KNOWN", "equipmentRequired": ["barbell"]}), "SUPPORTED_EQUIPMENT")
+        self.assertEqual(equipment_semantic_state({"equipmentStatus": "KNOWN", "equipmentRequired": ["suspension_trainer"]}), "UNSUPPORTED_EQUIPMENT")
+        self.assertEqual(equipment_semantic_state({"equipmentStatus": "KNOWN", "equipmentRequired": ["not_a_real_token"]}), "INVALID_EQUIPMENT")
 
 if __name__ == "__main__":
     unittest.main()
