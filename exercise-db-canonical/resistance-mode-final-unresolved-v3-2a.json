@@ -1,0 +1,1531 @@
+{
+  "schemaVersion": "3.2A",
+  "sourceHead": "12b5b23185213f75a712c97fb76a23355aa06032",
+  "count": 33,
+  "records": [
+    {
+      "canonicalId": "ex-arm-circling",
+      "canonicalName": "Arm Circling",
+      "cluster": "J_insufficient_evidence",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Persisted evidence does not establish a single resistance interpretation at the required confidence, and no value is inferred solely from an empty equipment list or name.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "GENERAL",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Arm Circling",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 28"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "CAL_BEGINNER_50",
+              "source_name": "Arm Circling",
+              "evidence_type": "TOC_EXERCISE",
+              "locator": "Exercise list; item 28"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-assisted-leg-raise",
+      "canonicalName": "Assisted Leg Raise",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current ASSISTED means kg-valued assistance in Runner, but this identity can use band/manual/support assistance that is not safely representable as kilograms.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CORE",
+        "movementType": "CORE",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 28"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "ULTIMATE_CAL_COLLECTION",
+              "source_name": "Assisted Leg Raise",
+              "evidence_type": "EXERCISE_SECTION",
+              "locator": "The Gym-Less Workout exercise/progression section 28"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-assisted-pistol-squat",
+      "canonicalName": "Assisted Pistol Squat",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current ASSISTED means kg-valued assistance in Runner, but this identity can use band/manual/support assistance that is not safely representable as kilograms.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "SINGLE_LEG_SQUAT",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Pistol Squat",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 25"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "ULTIMATE_CAL_COLLECTION",
+              "source_name": "Assisted Pistol Squat",
+              "evidence_type": "EXERCISE_SECTION",
+              "locator": "The Gym-Less Workout exercise/progression section 25"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-assisted-pull-up",
+      "canonicalName": "Assisted Pull-Up",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current ASSISTED means kg-valued assistance in Runner, but this identity can use band/manual/support assistance that is not safely representable as kilograms.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": null
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "PULL_UP",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Pull-Up",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 4"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "ULTIMATE_CAL_COLLECTION",
+              "source_name": "Assisted Pull-Up",
+              "evidence_type": "EXERCISE_SECTION",
+              "locator": "The Gym-Less Workout exercise/progression section 4"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-back-foot-elevated-split-squat",
+      "canonicalName": "Back Foot Elevated Split Squat",
+      "cluster": "H_mixed_variable_resistance",
+      "classification": "UNRESOLVED_INTRINSICALLY_VARIABLE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity admits materially valid bodyweight and externally resisted implementations; one scalar resistanceMode would over-constrain the exercise.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": null
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "LEG",
+        "movementType": "STRENGTH",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Back Foot Elevated Split Squat",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "SCIENCE_STRENGTH",
+              "source_name": "Back Foot Elevated Split Squat",
+              "evidence_type": "INDEX",
+              "locator": "Science of Strength Training index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-bastards",
+      "canonicalName": "Bastards",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Bastards",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Bastards",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-bent-leg-good-morning",
+      "canonicalName": "Bent Leg Good Morning",
+      "cluster": "H_mixed_variable_resistance",
+      "classification": "UNRESOLVED_INTRINSICALLY_VARIABLE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity admits materially valid bodyweight and externally resisted implementations; one scalar resistanceMode would over-constrain the exercise.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "HINGE",
+        "movementType": "STRENGTH",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bent Leg Good Morning",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 19"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "VELLA_ANATOMY",
+              "source_name": "Bent Leg Good Morning",
+              "evidence_type": "TOC_HEADING",
+              "locator": "Part 2: Exercises; item 19"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-boxer",
+      "canonicalName": "Boxer",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "GENERAL",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Boxer",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 26"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "CAL_BEGINNER_50",
+              "source_name": "Boxer",
+              "evidence_type": "TOC_EXERCISE",
+              "locator": "Exercise list; item 26"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-butterfly-mount",
+      "canonicalName": "Butterfly Mount",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "SKILL",
+        "movementType": "SKILL",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Butterfly Mount",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "OVERCOMING_GRAVITY",
+              "source_name": "Butterfly Mount",
+              "evidence_type": "LEVEL_HEADING",
+              "locator": "Chapters 24-27 progression charts"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-dragon-flag-swimmers",
+      "canonicalName": "Dragon-Flag Swimmers",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CORE",
+        "movementType": "CORE",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Dragon-Flag Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Dragon-Flag Swimmers",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-facing-away-standing-crunch",
+      "canonicalName": "Facing-Away Standing Crunch",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CORE",
+        "movementType": "CORE",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Facing-Away Standing Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "SCIENCE_STRENGTH",
+              "source_name": "Facing-Away Standing Crunch",
+              "evidence_type": "INDEX",
+              "locator": "Science of Strength Training index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-freestanding-lateral-lunge",
+      "canonicalName": "Freestanding Lateral Lunge",
+      "cluster": "J_insufficient_evidence",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Persisted evidence does not establish a single resistance interpretation at the required confidence, and no value is inferred solely from an empty equipment list or name.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "LUNGE",
+        "movementType": "STRENGTH",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Freestanding Lateral Lunge",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 34"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "VELLA_ANATOMY",
+              "source_name": "Freestanding Lateral Lunge",
+              "evidence_type": "TOC_HEADING",
+              "locator": "Part 2: Exercises; item 34"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-frog-hop",
+      "canonicalName": "Frog Hop",
+      "cluster": "J_insufficient_evidence",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Persisted evidence does not establish a single resistance interpretation at the required confidence, and no value is inferred solely from an empty equipment list or name.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "LOWER_BODY_MOBILITY",
+        "movementType": "MOBILITY",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Frog Hop",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Frog Hop",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-front-deltoid-shoulder-press",
+      "canonicalName": "Front Deltoid Shoulder Press",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "SHOULDER",
+        "movementType": "STRENGTH",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Deltoid Shoulder Press",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "SCIENCE_STRENGTH",
+              "source_name": "Front Deltoid Shoulder Press",
+              "evidence_type": "INDEX",
+              "locator": "Science of Strength Training index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-front-foot-elevated-split-squat",
+      "canonicalName": "Front Foot Elevated Split Squat",
+      "cluster": "H_mixed_variable_resistance",
+      "classification": "UNRESOLVED_INTRINSICALLY_VARIABLE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity admits materially valid bodyweight and externally resisted implementations; one scalar resistanceMode would over-constrain the exercise.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "LEG",
+        "movementType": "STRENGTH",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Foot Elevated Split Squat",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "SCIENCE_STRENGTH",
+              "source_name": "Front Foot Elevated Split Squat",
+              "evidence_type": "INDEX",
+              "locator": "Science of Strength Training index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-half-lever-swimmers",
+      "canonicalName": "Half-Lever Swimmers",
+      "cluster": "J_insufficient_evidence",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Persisted evidence does not establish a single resistance interpretation at the required confidence, and no value is inferred solely from an empty equipment list or name.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Half-Lever Swimmers",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-knee-ups",
+      "canonicalName": "Knee-Ups",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Knee-Ups",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 7"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "VELLA_ANATOMY",
+              "source_name": "Knee-Ups",
+              "evidence_type": "TOC_HEADING",
+              "locator": "Part 2: Exercises; item 7"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-low-alternating-wave-with-battle-ropes",
+      "canonicalName": "Low Alternating Wave with Battle Ropes",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "battle_ropes",
+          "rope"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Low Alternating Wave with Battle Ropes",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 31"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "VELLA_ANATOMY",
+              "source_name": "Low Alternating Wave with Battle Ropes",
+              "evidence_type": "TOC_HEADING",
+              "locator": "Part 2: Exercises; item 31"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-lunge-to-row",
+      "canonicalName": "Lunge to Row",
+      "cluster": "H_mixed_variable_resistance",
+      "classification": "UNRESOLVED_INTRINSICALLY_VARIABLE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity admits materially valid bodyweight and externally resisted implementations; one scalar resistanceMode would over-constrain the exercise.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "LUNGE",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Lunge to Row",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 6"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "CAL_BEGINNER_50",
+              "source_name": "Lunge to Row",
+              "evidence_type": "TOC_EXERCISE",
+              "locator": "Exercise list; item 6"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-negative-dragon-flag",
+      "canonicalName": "Negative Dragon Flag",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CORE",
+        "movementType": "CORE",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 14"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Negative Dragon Flag",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            },
+            {
+              "source_id": "COMPLETE_CAL1",
+              "source_name": "Negative Dragon Flag",
+              "evidence_type": "SOURCE_HEADING",
+              "locator": "Source exercise heading 14"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-neutral-grip-horizontal-row",
+      "canonicalName": "Neutral-Grip Horizontal Row",
+      "cluster": "H_mixed_variable_resistance",
+      "classification": "UNRESOLVED_INTRINSICALLY_VARIABLE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity admits materially valid bodyweight and externally resisted implementations; one scalar resistanceMode would over-constrain the exercise.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "BACK",
+        "movementType": "STRENGTH",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Neutral-Grip Horizontal Row",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "SCIENCE_STRENGTH",
+              "source_name": "Neutral-Grip Horizontal Row",
+              "evidence_type": "INDEX",
+              "locator": "Science of Strength Training index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-parallel-leg-raise",
+      "canonicalName": "Parallel Leg Raise",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CORE",
+        "movementType": "CORE",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Parallel Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 30"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "ULTIMATE_CAL_COLLECTION",
+              "source_name": "Parallel Leg Raise",
+              "evidence_type": "EXERCISE_SECTION",
+              "locator": "The Gym-Less Workout exercise/progression section 30"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-parallel-squat",
+      "canonicalName": "Parallel Squat",
+      "cluster": "J_insufficient_evidence",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Persisted evidence does not establish a single resistance interpretation at the required confidence, and no value is inferred solely from an empty equipment list or name.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "SQUAT",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Parallel Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "OVERCOMING_GRAVITY",
+              "source_name": "Parallel Squat",
+              "evidence_type": "LEVEL_HEADING",
+              "locator": "Chapters 24-27 progression charts"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-rows",
+      "canonicalName": "Rows",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "PULL_UP",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rows",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Rows",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-russian-twist",
+      "canonicalName": "Russian Twist",
+      "cluster": "H_mixed_variable_resistance",
+      "classification": "UNRESOLVED_INTRINSICALLY_VARIABLE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity admits materially valid bodyweight and externally resisted implementations; one scalar resistanceMode would over-constrain the exercise.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "GENERAL",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Russian Twist",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 37"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "CAL_BEGINNER_50",
+              "source_name": "Russian Twist",
+              "evidence_type": "TOC_EXERCISE",
+              "locator": "Exercise list; item 37"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-side-to-side-squat",
+      "canonicalName": "Side-to-Side Squat",
+      "cluster": "H_mixed_variable_resistance",
+      "classification": "UNRESOLVED_INTRINSICALLY_VARIABLE",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity admits materially valid bodyweight and externally resisted implementations; one scalar resistanceMode would over-constrain the exercise.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "SQUAT",
+        "movementType": "CALISTHENICS",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Side-to-Side Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "OVERCOMING_GRAVITY",
+              "source_name": "Side-to-Side Squat",
+              "evidence_type": "LEVEL_HEADING",
+              "locator": "Chapters 24-27 progression charts"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-single-leg-dragon-flag",
+      "canonicalName": "Single-Leg Dragon Flag",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CORE",
+        "movementType": "CORE",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 13"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Single-Leg Dragon Flag",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            },
+            {
+              "source_id": "COMPLETE_CAL1",
+              "source_name": "Single-Leg Dragon Flag",
+              "evidence_type": "SOURCE_HEADING",
+              "locator": "Source exercise heading 13"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-straddle-flag",
+      "canonicalName": "Straddle Flag",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Straddle Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Straddle Flag",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-tucked-dragon-flag",
+      "canonicalName": "Tucked Dragon Flag",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "CORE",
+        "movementType": "CORE",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 12"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Tucked Dragon Flag",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            },
+            {
+              "source_id": "COMPLETE_CAL1",
+              "source_name": "Tucked Dragon Flag",
+              "evidence_type": "SOURCE_HEADING",
+              "locator": "Source exercise heading 12"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-tucked-flag",
+      "canonicalName": "Tucked Flag",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Tucked Flag",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-vertical-flag",
+      "canonicalName": "Vertical Flag",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Vertical Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "COMPLETE_CAL2",
+              "source_name": "Vertical Flag",
+              "evidence_type": "INDEX",
+              "locator": "Complete Calisthenics 2e index"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-vertical-human-flag",
+      "canonicalName": "Vertical Human Flag",
+      "cluster": "K_schema_model_ambiguity",
+      "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Current resistanceMode cannot represent this resistance/support modality without implying an incorrect kg load/assistance input.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Vertical Human Flag",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 37"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "ULTIMATE_CAL_COLLECTION",
+              "source_name": "Vertical Human Flag",
+              "evidence_type": "EXERCISE_SECTION",
+              "locator": "The Gym-Less Workout exercise/progression section 37"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-wrist-extension",
+      "canonicalName": "Wrist Extension",
+      "cluster": "I_unclear_canonical_identity",
+      "classification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "oldValue": "UNKNOWN",
+      "newValue": null,
+      "confidence": null,
+      "reason": "Canonical identity is overloaded/insufficiently bound in the preserved V3.1C audit; resistance semantics cannot be certified before identity is fixed.",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM"
+      },
+      "source": {
+        "tier": 1,
+        "name": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+        "sourceRecordId_url": null
+      },
+      "evidence": {
+        "family": "FOREARM",
+        "movementType": "STRENGTH",
+        "measure": null,
+        "sourceRefs": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Wrist Extension",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 51"
+          }
+        ],
+        "resistanceModeProvenance": {
+          "status": "UNKNOWN",
+          "source": [
+            {
+              "source_id": "NSCA_TECH",
+              "source_name": "Wrist Extension",
+              "evidence_type": "EXERCISE_HEADING",
+              "locator": "Exercise Technique Manual; exercise heading 51"
+            }
+          ]
+        }
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+name: Exercise DB V3.2A validation
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths:
+      - 'exercise-db-canonical/*v3-2a*'
+      - 'exercise-db-canonical/RESISTANCE_MODE_*V3_2A.md'
+      - 'tests/test_resistance_mode_v32a.py'
+      - '.github/workflows/exercise-db-v32a-validation.yml'
+permissions:
+  contents: read
+jobs:
+  validate-db-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: JSON schema/syntax
+        run: |
+          python -m json.tool exercise-db-canonical/resistance-mode-audit-v3-2a.json >/dev/null
+          python -m json.tool exercise-db-canonical/resistance-mode-field-patch-v3-2a.json >/dev/null
+          python -m json.tool exercise-db-canonical/resistance-mode-provenance-v3-2a.json >/dev/null
+          python -m json.tool exercise-db-canonical/resistance-mode-final-unresolved-v3-2a.json >/dev/null
+          python -m json.tool exercise-db-canonical/resistance-mode-validation-v3-2a.json >/dev/null
+      - name: V3 canonical validator
+        run: python tools/validate_exercise_db_canonical.py
+      - name: Canonical + equipment + resistance regressions
+        run: python -m unittest tests/test_exercise_db_canonical.py tests/test_equipment_v31c.py tests/test_resistance_mode_v32a.py -v
+      - name: Integrity
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('exercise-db-canonical/exercise-db-canonical.json')); ids=[r['id'] for r in d]
+          assert len(d)==1087 and len(set(ids))==1087
+          a=json.load(open('exercise-db-canonical/resistance-mode-audit-v3-2a.json'))
+          assert len(a['records'])==111 and len({r['canonicalId'] for r in a['records']})==111
+          print({'canonical':len(d),'unique':len(set(ids)),'auditedResistanceUnknown':len(a['records'])})
+          PY

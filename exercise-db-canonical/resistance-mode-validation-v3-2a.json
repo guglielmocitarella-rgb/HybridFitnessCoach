@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "3.2A",
+  "sourceHead": "12b5b23185213f75a712c97fb76a23355aa06032",
+  "status": "PENDING_EXECUTED_CI",
+  "integrity": {
+    "canonical": 1087,
+    "unique": 1087,
+    "missing": 0,
+    "duplicates": 0,
+    "matchingProcessed": "1087/1087"
+  },
+  "unknown": {
+    "before": 111,
+    "afterAuditPatchLayer": 33,
+    "audited": 111
+  },
+  "classification": {
+    "RESOLVED_HIGH_CONFIDENCE": 48,
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 5,
+    "UNRESOLVED_SCHEMA_DECISION_REQUIRED": 12,
+    "UNRESOLVED_INTRINSICALLY_VARIABLE": 7,
+    "RESOLVED_NOT_APPLICABLE": 24,
+    "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM": 9,
+    "RESOLVED_CERTAIN": 6
+  },
+  "schemaSufficient": false,
+  "validatorCommand": "python tools/validate_exercise_db_canonical.py",
+  "regressionCommand": "python -m unittest tests/test_exercise_db_canonical.py tests/test_equipment_v31c.py tests/test_resistance_mode_v32a.py -v",
+  "note": "Canonical DB remains intentionally unchanged; afterAuditPatchLayer means unresolved terminal cases after applying isolated V3.2A patch semantics."
+}

@@ -1,0 +1,1212 @@
+{
+  "schemaVersion": "3.2A",
+  "sourceHead": "12b5b23185213f75a712c97fb76a23355aa06032",
+  "entries": [
+    {
+      "canonicalId": "ex-4-point-burpee",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-arch",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-asian-squat",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "RESOLVED_BODYWEIGHT"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-ball-shoulder-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-bench-step",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "bench"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-bend-and-reach",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "RESOLVED_NO_EQUIPMENT"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-bodyweight-leaning-side-abdominal",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Canonical identity explicitly specifies bodyweight resistance.",
+      "confidence": "CERTAIN",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-bodyweight-sit-ups",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Canonical identity explicitly specifies bodyweight resistance.",
+      "confidence": "CERTAIN",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-candlestick",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-cat-cow-kneeling-crunch",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-chair-pose-squat",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "RESOLVED_BODYWEIGHT"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-chest-and-shoulder-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-deep-push-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-dish",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-double-leg-abdominal-press",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-double-leg-bridge-with-shoulder-flexion",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-dynamic-prone-plank",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-extended-plank",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-forward-fold",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "RESOLVED_NO_EQUIPMENT"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-forward-stability-ball-roll",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "stability_ball"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-glute-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-groin-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-hamstring-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "rings"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-hands-elevated-one-arm-pushup",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-heel-kicks",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-jogging-and-running",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "RESOLVED_NO_EQUIPMENT"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-judo-push-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-knee-circles",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-lalanne-push-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-lying-leg-extension",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-lying-leg-raise",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-lying-triceps-extension",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Exercise identity is a loaded resistance movement and the current runtime load-input semantics are applicable; exact equipment remains a separate field.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-neck-and-shoulder-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-normal-muscle-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "rings"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-oblique-twist-with-plate-weight",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Canonical identity explicitly specifies added external load; kg-valued load semantics are applicable.",
+      "confidence": "CERTAIN",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-one-arm-straddle-elbow-lever",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-prone-bench-rear-deltoid-raise",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Exercise identity is a loaded resistance movement and the current runtime load-input semantics are applicable; exact equipment remains a separate field.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "bench"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-rear-support",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-rollovers-into-straddle-sit",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-rope-triceps-pushdown",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Exercise identity is a loaded resistance movement and the current runtime load-input semantics are applicable; exact equipment remains a separate field.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "rope"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-rotator-cuff-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-scalene-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-scapula-dip",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "dip_bars"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-scapula-foam-rolling",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-scapula-one-arm-pull-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "pull_up_bar"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-scapula-pull-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "pull_up_bar"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-seated-stride-into-saw-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-seesaw-with-ball",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "stability_ball"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-segmental-rotation",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-shoulder-dislocates",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-side-leans",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-side-to-side-hip-rolls",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-skippingjump-rope",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "rope"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-spider-push-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-spine-roll",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-sprinter-sit-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-sprints",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "RESOLVED_NO_EQUIPMENT"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-stability-ball-jackknife",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "stability_ball"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-stability-ball-rollout",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "stability_ball"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-stair-climb-with-biceps-curl",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Exercise identity is a loaded resistance movement and the current runtime load-input semantics are applicable; exact equipment remains a separate field.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-standing-squat-bosu-balance-trainer",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "bosu"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-star-jumps",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "RESOLVED_BODYWEIGHT"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-stir-the-pot-swiss-ball",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "stability_ball"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-supine-legs-to-chest",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-supine-lying-single-leg-hamstring-stretch",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "rings"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-transverse-abdominal-ball-crunch",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "stability_ball"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-transverse-activation-in-4-point-kneeling",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-tuck-half-lever",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-two-arm-elbow-lever",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-unilateral-cross-body-triceps-extension",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Exercise identity is a loaded resistance movement and the current runtime load-input semantics are applicable; exact equipment remains a separate field.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-vertical-pulls",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-walking-arm-swings",
+      "field": "resistanceMode",
+      "resultingValue": "NONE",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "This is mobility/flexibility/SMR/locomotion rather than a load-prescribed resistance exercise. NONE is formalized here as NOT_APPLICABLE, not as UNKNOWN.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-weighted-dip",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Canonical identity explicitly specifies added external load; kg-valued load semantics are applicable.",
+      "confidence": "CERTAIN",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [
+          "dip_bars"
+        ],
+        "equipmentStatus": "KNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-weighted-pistols",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Canonical identity explicitly specifies added external load; kg-valued load semantics are applicable.",
+      "confidence": "CERTAIN",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-weighted-single-leg-squat",
+      "field": "resistanceMode",
+      "resultingValue": "EXTERNAL_LOAD",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "Canonical identity explicitly specifies added external load; kg-valued load semantics are applicable.",
+      "confidence": "CERTAIN",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": null
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-window-wipers",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    },
+    {
+      "canonicalId": "ex-wrist-push-up",
+      "field": "resistanceMode",
+      "resultingValue": "BODYWEIGHT",
+      "source": "Exercise DB V3 persisted canonical/matching/equipment evidence + audited runtime contract",
+      "sourceRecordId_url": null,
+      "evidence": "The movement is self-loaded; listed apparatus, where present, is support/stability equipment rather than a kg-valued external load.",
+      "confidence": "HIGH",
+      "relatedEquipmentSemantics": {
+        "canonicalEquipmentRequired": [],
+        "equipmentStatus": "UNKNOWN",
+        "equipmentAuditClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS"
+      },
+      "provenance": "V3.2A field-level resistanceMode audit; no runtime DB mutation"
+    }
+  ]
+}
