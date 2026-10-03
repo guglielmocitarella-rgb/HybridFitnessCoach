@@ -843,6 +843,786 @@
         "source_name": "Supermans",
         "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
       }
+    },
+    "ex-deadbug": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Supine Dead Bug",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Supine Dead Bug",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      },
+      "descriptionIt": {
+        "value": "Esercizio di controllo del core in posizione supina che coordina il movimento degli arti mantenendo stabile il tratto lombopelvico.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Supine Dead Bug",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "setupIt": {
+        "value": "Sdraiati supino con ginocchia piegate e piedi inizialmente a terra; porta le braccia in posizione comoda e stabilizza scapole, bacino e colonna prima di iniziare.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Supine Dead Bug",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Attiva il core e appiattisci in modo controllato la zona lombare senza trattenere il respiro.",
+          "Solleva gli arti nella posizione di lavoro mantenendo il bacino stabile.",
+          "Muovi lentamente gli arti previsti dalla ripetizione senza perdere il controllo lombopelvico.",
+          "Ritorna alla posizione iniziale mantenendo la tensione del core."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Supine Dead Bug",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il bacino fermo durante il movimento degli arti.",
+          "Respira normalmente mentre stabilizzi il tronco.",
+          "Muovi gli arti solo nel range in cui la zona lombare resta controllata."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Supine Dead Bug",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Inarcare la zona lombare durante il movimento.",
+          "Muovere gli arti troppo velocemente perdendo il controllo del bacino.",
+          "Trattenere il respiro durante la stabilizzazione."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Supine Dead Bug",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      }
+    },
+    "ex-inchworm": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Inchworms",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "level": {
+        "value": "Avanzato",
+        "observed_value": "Advanced",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Inchworms",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+      },
+      "descriptionIt": {
+        "value": "Esercizio dinamico a corpo libero che alterna una flessione d'anca, una camminata delle mani verso una posizione di plank e il ritorno in avanti dei piedi.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Inchworms",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "setupIt": {
+        "value": "Parti in piedi con i piedi uniti o leggermente separati e attiva l'addome per stabilizzare la colonna.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Inchworms",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Fletti il busto dalle anche e porta le mani verso il pavimento mantenendo la schiena controllata.",
+          "Cammina lentamente in avanti con le mani fino a raggiungere una posizione di plank stabile.",
+          "Esegui la fase prevista in plank mantenendo tronco e testa allineati.",
+          "Avanza con i piedi verso le mani e ripeti la sequenza mantenendo il controllo della colonna."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Inchworms",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni la colonna il più possibile neutra durante gli spostamenti.",
+          "Usa passi piccoli con mani e piedi per conservare il controllo.",
+          "Evita di lasciare cedere la zona lombare nella posizione di plank."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Inchworms",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Arrotondare eccessivamente la zona lombare durante la flessione.",
+          "Allungare troppo i passi delle mani sovraccaricando le spalle.",
+          "Lasciare cedere il bacino o sollevarlo eccessivamente nella fase di plank."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Inchworms",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      }
+    },
+    "ex-hammer-curl": {
+      "equipmentRequired": {
+        "value": [
+          "dumbbell"
+        ],
+        "observed_value": "Dumbbells",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Hammer Curl",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Hammer Curl",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "descriptionIt": {
+        "value": "Flessione del gomito eseguita con manubri mantenendo una presa neutra durante salita e discesa.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Hammer Curl",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "setupIt": {
+        "value": "Parti in piedi in posizione stabile con un manubrio per mano, presa neutra, gomiti estesi lungo i fianchi, tronco attivo e scapole controllate.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Hammer Curl",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Fletti uno o entrambi i gomiti portando i manubri verso le spalle senza spostare i gomiti in avanti.",
+          "Mantieni i polsi neutri e il tronco stabile durante la salita.",
+          "Abbassa lentamente i manubri fino alla completa estensione dei gomiti mantenendo la presa neutra."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Hammer Curl",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni i polsi in linea con gli avambracci.",
+          "Tieni i gomiti vicino al tronco senza portarli in avanti.",
+          "Evita di usare slancio o di inarcare la zona lombare."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Hammer Curl",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Flettere o estendere i polsi durante il curl.",
+          "Portare i gomiti in avanti per facilitare la salita.",
+          "Inarcare la schiena o usare oscillazioni del tronco.",
+          "Sollevare le spalle durante il movimento."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Hammer Curl",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      }
+    },
+    "ex-triceps-kickback": {
+      "equipmentRequired": {
+        "value": [
+          "dumbbell"
+        ],
+        "observed_value": "Dumbbells",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Triceps Kickback",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Triceps Kickback",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      "descriptionIt": {
+        "value": "Estensione del gomito con manubrio eseguita a busto inclinato mantenendo il braccio superiore vicino e parallelo al tronco.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Triceps Kickback",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      "setupIt": {
+        "value": "Assumi una posizione stabile con un manubrio in una mano, inclina il busto in avanti mantenendo la colonna neutra e porta il braccio superiore vicino al tronco con il gomito flesso.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Triceps Kickback",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Mantieni fermo il braccio superiore accanto al tronco.",
+          "Estendi lentamente il gomito fino a raddrizzare il braccio senza ruotare il busto.",
+          "Ritorna in controllo alla posizione iniziale mantenendo invariato l'assetto del tronco e del braccio superiore."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Triceps Kickback",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il braccio superiore fermo e vicino al busto.",
+          "Tieni testa e colonna allineate.",
+          "Estendi il gomito senza usare slancio."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Triceps Kickback",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Sollevare il braccio superiore durante l'estensione.",
+          "Inarcare la zona lombare.",
+          "Ruotare il tronco per completare il movimento.",
+          "Perdere l'allineamento della testa con la colonna."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Triceps Kickback",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      }
+    },
+    "ex-single-leg-squat": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Single Leg Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Single Leg Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      "descriptionIt": {
+        "value": "Squat monopodalico a corpo libero eseguito mantenendo il carico sulla gamba di appoggio e controllando bacino, ginocchio e tronco.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Single Leg Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "setupIt": {
+        "value": "Parti in piedi con il peso sulla gamba di lavoro, l'altra gamba usata solo per equilibrio nella variante iniziale, core attivo e colonna stabile.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Single Leg Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Sposta il bacino indietro e fletti anca e ginocchio della gamba di appoggio mantenendo il piede stabile.",
+          "Scendi nel range controllabile mantenendo il bacino il più possibile livellato.",
+          "Spingi il piede a terra ed estendi anca e ginocchio per tornare in piedi.",
+          "Completa le ripetizioni previste e ripeti sull'altro lato."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Single Leg Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il piede di appoggio stabile a terra.",
+          "Controlla l'allineamento del ginocchio durante discesa e risalita.",
+          "Mantieni il bacino livellato e il core attivo."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Single Leg Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Perdere il contatto stabile del piede con il suolo.",
+          "Lasciare collassare il ginocchio verso l'interno.",
+          "Ruotare o inclinare eccessivamente il bacino.",
+          "Perdere il controllo del tronco durante la discesa."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Single Leg Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      }
+    },
+    "ex-wrist-curl": {
+      "equipmentRequired": {
+        "value": [
+          "bench",
+          "dumbbell"
+        ],
+        "observed_value": "Bench, Dumbbells",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Wrist Curl - Flexion",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Wrist Curl - Flexion",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+      },
+      "descriptionIt": {
+        "value": "Flessione del polso con manubri eseguita con gli avambracci appoggiati e i palmi rivolti verso l'alto.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Wrist Curl - Flexion",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "setupIt": {
+        "value": "Inginocchiati davanti a una panca, impugna due manubri e appoggia gli avambracci con i palmi verso l'alto lasciando i polsi liberi oltre il bordo.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Wrist Curl - Flexion",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Lascia scendere lentamente i manubri estendendo i polsi senza perdere la presa.",
+          "Mantieni avambracci e gomiti stabili sull'appoggio.",
+          "Contrai i flessori dell'avambraccio e fletti i polsi per riportare i manubri verso la posizione iniziale."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Wrist Curl - Flexion",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni gli avambracci fermi sulla panca.",
+          "Conserva una presa sicura sui manubri durante tutta la ripetizione.",
+          "Muovi il carico con il polso senza coinvolgere il gomito."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Wrist Curl - Flexion",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Lasciare scivolare i manubri verso le dita perdendo una presa sicura.",
+          "Sollevare gli avambracci dalla panca.",
+          "Usare movimento del gomito o del corpo per aiutare la flessione."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Wrist Curl - Flexion",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      }
+    },
+    "ex-reverse-wrist-curl": {
+      "equipmentRequired": {
+        "value": [
+          "bench",
+          "dumbbell"
+        ],
+        "observed_value": "Bench, Dumbbells",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Wrist Curl - Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Wrist Curl - Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+      },
+      "descriptionIt": {
+        "value": "Estensione del polso con manubri eseguita con gli avambracci appoggiati e i palmi rivolti verso il basso.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Wrist Curl - Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "setupIt": {
+        "value": "Inginocchiati davanti a una panca, impugna due manubri e appoggia gli avambracci in pronazione lasciando i polsi liberi oltre il bordo.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Wrist Curl - Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Lascia scendere lentamente i manubri flettendo i polsi senza muovere gli avambracci.",
+          "Mantieni gomiti e avambracci stabili sull'appoggio.",
+          "Contrai gli estensori dell'avambraccio ed estendi i polsi per riportare i manubri alla posizione iniziale."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Wrist Curl - Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni gli avambracci fermi sulla panca.",
+          "Conserva una presa stabile sui manubri.",
+          "Isola il movimento al polso senza estendere i gomiti."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Wrist Curl - Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Sollevare gli avambracci dalla panca.",
+          "Perdere la presa o lasciare oscillare i manubri.",
+          "Usare movimento del gomito o del tronco per completare l'estensione."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Wrist Curl - Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      }
+    },
+    "ex-kneeling-iliopsoas-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+      },
+      "descriptionIt": {
+        "value": "Stretch in ginocchio dei flessori dell'anca ottenuto avanzando il bacino in modo controllato mantenendo stabile il bacino e la colonna.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "setupIt": {
+        "value": "Posiziona un ginocchio a terra sotto l'anca e il piede opposto davanti con il ginocchio sopra la caviglia; mantieni il tronco alto e il core attivo.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Mantieni il bacino livellato e stabile.",
+          "Avanza lentamente il bacino verso la gamba anteriore senza inarcare la zona lombare.",
+          "Contrai il gluteo della gamba posteriore per aumentare l'allungamento dei flessori dell'anca.",
+          "Mantieni la posizione per il tempo previsto e ripeti dall'altro lato."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il core attivo durante tutto lo stretch.",
+          "Evita l'antiversione del bacino.",
+          "Mantieni il ginocchio anteriore in controllo sopra la caviglia."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Inarcare la zona lombare per cercare più ampiezza.",
+          "Ruotare o inclinare il bacino.",
+          "Spostare eccessivamente in avanti il ginocchio anteriore.",
+          "Rilassare completamente il core perdendo la posizione del bacino."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      }
+    },
+    "ex-standing-triceps-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Overhead Triceps Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Overhead Triceps Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+      },
+      "descriptionIt": {
+        "value": "Stretch in piedi del tricipite con il braccio portato sopra la testa e il gomito flesso dietro il capo.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Overhead Triceps Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "setupIt": {
+        "value": "Parti in piedi con i piedi alla larghezza delle anche, spalle abbassate e retratte, quindi porta un braccio sopra la testa e fletti il gomito lasciando la mano scendere dietro la schiena.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Overhead Triceps Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Mantieni la spalla del braccio in allungamento lontana dall'orecchio.",
+          "Usa l'altra mano per applicare una lieve pressione sopra il gomito e approfondire gradualmente lo stretch.",
+          "Mantieni la posizione per il tempo previsto senza forzare e ripeti sull'altro lato."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Overhead Triceps Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni le spalle basse e controllate.",
+          "Applica solo una pressione lieve e progressiva.",
+          "Mantieni il tronco stabile durante lo stretch."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Overhead Triceps Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Sollevare la spalla verso l'orecchio.",
+          "Forzare il gomito oltre un range confortevole.",
+          "Inarcare il tronco per aumentare artificialmente lo stretch."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Overhead Triceps Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      }
+    },
+    "ex-prone-walkout": {
+      "equipmentRequired": {
+        "value": [
+          "stability_ball"
+        ],
+        "observed_value": "Stability Ball",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Stability Ball Prone Walkout",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Stability Ball Prone Walkout",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+      },
+      "descriptionIt": {
+        "value": "Walkout in posizione prona su stability ball in cui le mani avanzano a terra mentre il corpo scorre sul pallone mantenendo il tronco rigido.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Stability Ball Prone Walkout",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "setupIt": {
+        "value": "Sdraiati prono sopra una stability ball correttamente gonfiata con mani e piedi a terra, quindi attiva addome e glutei per stabilizzare il tronco.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Stability Ball Prone Walkout",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "executionStepsIt": {
+        "value": [
+          "Cammina lentamente in avanti con le mani sollevando progressivamente le gambe da terra.",
+          "Continua finché cosce o ginocchia appoggiano sulla palla mantenendo una linea stabile tra gambe e tronco.",
+          "Mantieni brevemente la posizione con le mani sotto le spalle.",
+          "Cammina indietro con le mani e ritorna in controllo alla posizione iniziale."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Stability Ball Prone Walkout",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni addome, schiena e glutei attivi durante il walkout.",
+          "Tieni il tronco rigido e parallelo al pavimento nella posizione finale.",
+          "Mantieni le spalle stabili con le mani sotto di esse."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Stability Ball Prone Walkout",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Inarcare la zona lombare durante l'avanzamento.",
+          "Sollevare eccessivamente il bacino.",
+          "Perdere la stabilità delle spalle nella posizione finale.",
+          "Avanzare oltre il punto in cui è possibile mantenere il tronco rigido."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Stability Ball Prone Walkout",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      }
     }
   },
   "unresolved_conflicts": [
