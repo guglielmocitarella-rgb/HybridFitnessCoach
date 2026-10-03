@@ -6,7 +6,8 @@ on:
       - feature/v0.9.5
     paths:
       - 'exercise-db-canonical/external-enrichment.json'
-      - 'exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json'\n      - 'exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json'
+      - 'exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json'
+      - 'exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json'
       - 'tools/build_exercise_db_canonical.py'
       - 'tools/validate_exercise_db_canonical.py'
       - 'tests/test_exercise_db_canonical.py'
