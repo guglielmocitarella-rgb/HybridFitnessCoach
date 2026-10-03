@@ -966,6 +966,150 @@ def build_database(root, output_dir):
         })
     record_first_batch02.sort(key=lambda item: item["id"])
 
+    # RECORD-FIRST ENRICHMENT batch 03: score the residual resistanceMode UNKNOWN
+    # set for multi-field yield. This reviewed batch intentionally mixes exact
+    # exercise-specific difficulty evidence with conservative mechanics review.
+    # Field provenance/confidence remains independent: no source confidence is
+    # propagated from one field to another.
+    record_first_batch03_modes = {
+        "ex-angled-half-lever": "BODYWEIGHT",
+        "ex-floor-half-lever": "BODYWEIGHT",
+        "ex-half-lever": "BODYWEIGHT",
+        "ex-half-lever-bicycles": "BODYWEIGHT",
+        "ex-half-lever-extensions": "BODYWEIGHT",
+        "ex-box-jumps": "BODYWEIGHT",
+        "ex-hamstring-ball-curl": "BODYWEIGHT",
+        "ex-medicine-ball-clean": "EXTERNAL_LOAD",
+        "ex-stability-ball-bridge-to-curl": "BODYWEIGHT",
+        "ex-stability-ball-reverse-back-extension": "BODYWEIGHT",
+        "ex-stability-ball-pike": "BODYWEIGHT",
+        "ex-stability-ball-abdominal-crunch": "BODYWEIGHT",
+        "ex-weighted-dip": "EXTERNAL_LOAD",
+        "ex-muscle-up": "BODYWEIGHT",
+        "ex-normal-muscle-up": "BODYWEIGHT",
+    }
+    record_first_batch03_patterns = {
+        "ex-angled-half-lever": "core-control",
+        "ex-floor-half-lever": "core-control",
+        "ex-half-lever": "core-control",
+        "ex-half-lever-bicycles": "core-control",
+        "ex-half-lever-extensions": "core-control",
+        "ex-box-jumps": "knee-dominant",
+        "ex-hamstring-ball-curl": "hinge",
+        "ex-medicine-ball-clean": "hinge",
+        "ex-stability-ball-bridge-to-curl": "hinge",
+        "ex-stability-ball-reverse-back-extension": "hinge",
+    }
+    record_first_batch03_levels = {
+        "ex-box-jumps": {
+            "value": "Intermedio", "observed": "Intermediate",
+            "url": "https://www.acefitness.org/resources/everyone/exercise-library/115/box-jumps/",
+            "source_name": "Box Jumps",
+        },
+        "ex-hamstring-ball-curl": {
+            "value": "Intermedio", "observed": "Intermediate",
+            "url": "https://www.acefitness.org/resources/everyone/exercise-library/59/stability-ball-hamstring-curl/",
+            "source_name": "Stability Ball Hamstring Curl",
+        },
+        "ex-stability-ball-reverse-back-extension": {
+            "value": "Avanzato", "observed": "Advanced",
+            "url": "https://www.acefitness.org/resources/everyone/exercise-library/64/stability-ball-reverse-extensions/",
+            "source_name": "Stability Ball Reverse Extensions",
+        },
+        "ex-stability-ball-pike": {
+            "value": "Avanzato", "observed": "Advanced",
+            "url": "https://www.acefitness.org/resources/everyone/exercise-library/61/stability-ball-pikes/",
+            "source_name": "Stability Ball Pikes",
+        },
+        "ex-stability-ball-abdominal-crunch": {
+            "value": "Principiante", "observed": "Beginner",
+            "url": "https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/",
+            "source_name": "Stability Ball Sit-ups / Crunches",
+        },
+    }
+    record_first_batch03 = []
+    for exercise_id, mode in record_first_batch03_modes.items():
+        record = records_by_id[exercise_id]
+        missing_before = []
+        if record.get("equipmentStatus") != "KNOWN": missing_before.append("equipment")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing_before.append("resistanceMode")
+        if not record.get("movementPattern"): missing_before.append("movementPattern")
+        if not record.get("level"): missing_before.append("level")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing_before.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing_before.append(field)
+        resolved = []
+
+        if record.get("resistanceMode") in {None, "UNKNOWN"}:
+            source_ids = sorted({s.get("source_id") for s in record.get("sources", []) if s.get("source_id")})
+            record["resistanceMode"] = mode
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "RECORD_FIRST_EXERCISE_REVIEW",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    equipment_resistance_source["source_id"],
+                    "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+                    {"id": exercise_id, "mode": mode, "supportingSourceIds": source_ids},
+                ),
+                "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode.",
+            }
+            resolved.append({"field": "resistanceMode", "value": mode, "confidence": "HIGH", "source": equipment_resistance_source["source_id"]})
+
+        pattern = record_first_batch03_patterns.get(exercise_id)
+        if pattern and not record.get("movementPattern"):
+            record["movementPattern"] = [pattern]
+            record["movementPatternStatus"] = "KNOWN"
+            record.setdefault("fieldProvenance", {})["movementPattern"] = {
+                "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    family_pattern_source["source_id"],
+                    "RECORD_FIRST_EXERCISE_MECHANICS",
+                    {"id": exercise_id, "family": record.get("family"), "canonicalNameEn": record.get("canonicalNameEn")},
+                ),
+                "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern.",
+            }
+            resolved.append({"field": "movementPattern", "value": [pattern], "confidence": "HIGH", "source": family_pattern_source["source_id"]})
+
+        level_evidence = record_first_batch03_levels.get(exercise_id)
+        if level_evidence and not record.get("level"):
+            record["level"] = level_evidence["value"]
+            record["levelStatus"] = "KNOWN"
+            source_ref = {
+                "source_id": ACE_EXERCISE_LIBRARY_SOURCE["source_id"],
+                "source_name": level_evidence["source_name"],
+                "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+                "locator": level_evidence["url"],
+            }
+            record.setdefault("fieldProvenance", {})["level"] = {
+                "status": "EXTERNAL_SOURCE_DIRECT",
+                "confidence": "HIGH",
+                "source": source_ref,
+                "observedValue": level_evidence["observed"],
+                "mapping": "ACE Difficulty -> canonical Italian level",
+            }
+            if source_ref not in record.setdefault("sources", []):
+                record["sources"].append(source_ref)
+            resolved.append({"field": "level", "value": level_evidence["value"], "confidence": "HIGH", "source": ACE_EXERCISE_LIBRARY_SOURCE["source_id"]})
+
+        missing_after = []
+        if record.get("equipmentStatus") != "KNOWN": missing_after.append("equipment")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing_after.append("resistanceMode")
+        if not record.get("movementPattern"): missing_after.append("movementPattern")
+        if not record.get("level"): missing_after.append("level")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing_after.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing_after.append(field)
+        record_first_batch03.append({
+            "id": exercise_id,
+            "canonicalNameEn": record.get("canonicalNameEn"),
+            "missingFieldsBefore": missing_before,
+            "resolvedFields": resolved,
+            "remainingIncompleteFields": missing_after,
+            "fullyComplete": not missing_after,
+        })
+    record_first_batch03.sort(key=lambda item: item["id"])
+
     # Resistance-mode tranche: after reviewed enrichment has finalized equipment,
     # promote only deterministic external-load cases. This deliberately excludes
     # bands, assistance, bodyweight apparatus and ambiguous implements.
@@ -1436,6 +1580,34 @@ def build_database(root, output_dir):
         },
     }
     (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_02.json").write_text(json.dumps(record_first_batch02_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    record_first_batch03_report = {
+        "schemaVersion": 1,
+        "strategy": "RECORD_FIRST_ENRICHMENT",
+        "selectionBlocker": "resistanceMode UNKNOWN",
+        "selectionMethod": "temporary multi-field score over all 127 residual candidates",
+        "screenedResistanceUnknown": 127,
+        "batch": "multi-field-scored-03",
+        "count": len(record_first_batch03),
+        "records": record_first_batch03,
+        "summary": {
+            "recordsAnalyzed": len(record_first_batch03),
+            "recordsFullyComplete": sum(item["fullyComplete"] for item in record_first_batch03),
+            "fieldsResolvedTotal": sum(len(item["resolvedFields"]) for item in record_first_batch03),
+            "equipmentResolved": sum(any(field["field"] == "equipment" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "resistanceModeResolved": sum(any(field["field"] == "resistanceMode" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "movementPatternResolved": sum(any(field["field"] == "movementPattern" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "levelResolved": sum(any(field["field"] == "level" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "skillLinkResolved": sum(any(field["field"] == "skillLink" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "descriptionResolved": sum(any(field["field"] == "descriptionIt" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "setupResolved": sum(any(field["field"] == "setupIt" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "executionResolved": sum(any(field["field"] == "executionStepsIt" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "techniqueCuesResolved": sum(any(field["field"] == "techniqueCuesIt" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "commonErrorsResolved": sum(any(field["field"] == "commonErrorsIt" for field in item["resolvedFields"]) for item in record_first_batch03),
+            "recordsStillPartial": sum(not item["fullyComplete"] for item in record_first_batch03),
+        },
+    }
+    (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_03.json").write_text(json.dumps(record_first_batch03_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     bodyweight_general_candidate_report = {
         "schemaVersion": 1,
