@@ -34082,17 +34082,25 @@
       "knee-dominant"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
-    "descriptionIt": "Forward Step Lunge è un esercizio della famiglia lunge. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilisci gli appoggi e mantieni bacino e tronco controllati prima di caricare la gamba di lavoro.",
+    "descriptionIt": "Affondo in avanti eseguito da stazione eretta con trasferimento controllato del peso sulla gamba anteriore e ritorno alla posizione iniziale.",
+    "setupIt": "Parti in piedi con i piedi uniti, tronco stabile e addome attivo; prepara il passo mantenendo il corpo controllato sulla gamba di appoggio.",
     "executionStepsIt": [
-      "Esegui la fase di discesa o salita mantenendo il ginocchio allineato con il piede.",
-      "Completa il range previsto distribuendo il carico sulla gamba di lavoro.",
-      "Torna alla posizione iniziale in controllo e ripeti sul lato previsto."
+      "Solleva un piede e fai un passo avanti appoggiando prima il tallone, trasferendo gradualmente il peso sulla gamba anteriore.",
+      "Abbassa il bacino verso il pavimento fino a un range confortevole, mantenendo la schiena piatta e il ginocchio in controllo.",
+      "Spingi con la gamba anteriore per tornare in modo stabile alla posizione eretta iniziale."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni il tronco stabile senza oscillazioni laterali.",
+      "Pensa a scendere con il bacino invece di spingere eccessivamente il ginocchio in avanti.",
+      "Mantieni la schiena piatta durante la discesa."
+    ],
+    "commonErrorsIt": [
+      "Oscillare lateralmente con il tronco o perdere la stabilità della gamba di appoggio.",
+      "Spingere il bacino e il ginocchio troppo in avanti invece di controllare la discesa.",
+      "Arrotondare la schiena durante l'affondo."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -34109,13 +34117,55 @@
         "source_name": "Forward Step Lunge",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 18"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forward Lunge",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forward Lunge",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forward Lunge",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forward Lunge",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forward Lunge",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forward Lunge",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forward Lunge",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
       }
     ],
     "confidence": "HIGH",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Forward Step Lunge",
     "runtimeModelNames": [],
@@ -34127,8 +34177,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -34141,15 +34191,15 @@
         "source": "ex-forward-step-lunge"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Forward Step Lunge",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -34167,19 +34217,62 @@
             "source_name": "Forward Step Lunge",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Forward Step Lunge",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -34205,22 +34298,119 @@
             "source_name": "Forward Step Lunge",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forward Lunge",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Forward Step Lunge",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forward Lunge",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-freestanding-barbell-plie-squats",
@@ -57685,17 +57875,25 @@
       "conditioning"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Avanzato",
     "measure": "REPS",
-    "descriptionIt": "Mountain Climbers è un esercizio della famiglia conditioning. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Prepara spazio e attrezzatura necessari e parti da un'intensità che consenta controllo del gesto.",
+    "descriptionIt": "Esercizio dinamico in appoggio sulle mani in cui le gambe si alternano rapidamente portando un ginocchio in avanti mentre l'altra gamba si estende.",
+    "setupIt": "Posiziona le mani a terra leggermente davanti alle spalle, attiva l'addome e stabilizza le spalle; porta una gamba avanti e distendi l'altra dietro di te.",
     "executionStepsIt": [
-      "Avvia il gesto con ritmo regolare e postura stabile.",
-      "Mantieni la cadenza prevista senza sacrificare la qualità del movimento.",
-      "Riduci progressivamente l'intensità al termine dell'intervallo o della durata prescritta."
+      "Mantieni le mani ferme a terra, il tronco attivo e le spalle stabili.",
+      "Scambia simultaneamente la posizione delle gambe: porta un ginocchio avanti mentre estendi l'altra gamba dietro.",
+      "Continua ad alternare mantenendo il controllo del bacino e distribuendo il peso senza proiettarti eccessivamente in avanti."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni addome attivo e spalle forti durante gli scambi.",
+      "Tieni le mani ben piantate e il tronco stabile.",
+      "Distribuisci il peso senza caricarlo tutto sulla gamba anteriore."
+    ],
+    "commonErrorsIt": [
+      "Perdere la stabilità del tronco durante il cambio delle gambe.",
+      "Spostare eccessivamente il peso in avanti sulla gamba anteriore.",
+      "Lasciare cedere la stabilità delle spalle o delle mani durante gli appoggi."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -57718,13 +57916,55 @@
         "source_name": "Mountain Climber",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 11"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mountain Climbers",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mountain Climbers",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mountain Climbers",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mountain Climbers",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mountain Climbers",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mountain Climbers",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mountain Climbers",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Mountain Climbers",
     "runtimeModelNames": [],
@@ -57736,8 +57976,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -57750,21 +57990,15 @@
         "source": "ex-mountain-climbers"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Mountain Climber",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 11"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -57788,25 +58022,62 @@
             "source_name": "Mountain Climber",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Mountain Climber",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 11"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "Advanced",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -57838,28 +58109,119 @@
             "source_name": "Mountain Climber",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mountain Climbers",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Mountain Climber",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 11"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mountain Climbers",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-multidirectional-lunges",
