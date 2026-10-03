@@ -14528,7 +14528,7 @@
       "core-control"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Bicycle è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
@@ -14555,6 +14555,18 @@
         "source_name": "Bicycle",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 30"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Bicycle",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Bicycle",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -14573,8 +14585,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -14587,15 +14599,16 @@
         "source": "ex-bicycle"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Bicycle",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 30"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Bicycle",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical bicycle -> ACE supine bicycle abdominal exercise"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -14613,19 +14626,32 @@
             "source_name": "Bicycle",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 30"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Bicycle",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Bicycle",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Bicycle",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 30"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Bicycle",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "source difficulty -> canonical Italian level; canonical bicycle -> ACE supine bicycle abdominal exercise"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -14651,6 +14677,18 @@
             "source_name": "Bicycle",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 30"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Bicycle",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Bicycle",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -14663,6 +14701,18 @@
             "source_name": "Bicycle",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 30"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Bicycle",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Bicycle",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -15451,7 +15501,7 @@
       "horizontal-push"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Bodyweight Modified Push-Ups è un esercizio della famiglia push up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza tronco e cintura scapolare e posiziona mani o attrezzo secondo la variante.",
@@ -15478,6 +15528,18 @@
         "source_name": "Bodyweight Modified Push-Ups",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 43"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -15496,8 +15558,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -15510,15 +15572,16 @@
         "source": "ex-bodyweight-modified-push-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Modified Push-Ups",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 43"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical modified push-up -> ACE bent-knee push-up"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -15536,19 +15599,32 @@
             "source_name": "Bodyweight Modified Push-Ups",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 43"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Modified Push-Ups",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 43"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical modified push-up -> ACE bent-knee push-up"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -15574,6 +15650,18 @@
             "source_name": "Bodyweight Modified Push-Ups",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 43"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -15586,6 +15674,18 @@
             "source_name": "Bodyweight Modified Push-Ups",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 43"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -19842,7 +19942,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Cat Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -19869,6 +19969,18 @@
         "source_name": "Cat Stretch",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cat-Cow",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cat-Cow",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -19887,8 +19999,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -19901,15 +20013,16 @@
         "source": "ex-cat-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Cat Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cat-Cow",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical cat stretch -> cat phase of ACE Cat-Cow"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -19927,19 +20040,32 @@
             "source_name": "Cat Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cat-Cow",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cat-Cow",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Cat Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cat-Cow",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical cat stretch -> cat phase of ACE Cat-Cow"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -19965,6 +20091,18 @@
             "source_name": "Cat Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cat-Cow",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cat-Cow",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -19977,6 +20115,18 @@
             "source_name": "Cat Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cat-Cow",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cat-Cow",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -20150,7 +20300,7 @@
       "knee-dominant"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Chair Squat è un esercizio della famiglia squat. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilisci l'appoggio dei piedi, mantieni il tronco attivo e prepara anche e ginocchia a muoversi in modo coordinato.",
@@ -20177,6 +20327,18 @@
         "source_name": "Chair Squat",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 23"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -20195,8 +20357,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -20209,15 +20371,16 @@
         "source": "ex-chair-squat"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Chair Squat",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 23"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "chair squat bodyweight regression; no external training implement"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -20235,19 +20398,32 @@
             "source_name": "Chair Squat",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Chair Squat",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 23"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; chair squat bodyweight regression; no external training implement"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -20273,6 +20449,18 @@
             "source_name": "Chair Squat",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -20285,6 +20473,18 @@
             "source_name": "Chair Squat",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -20814,7 +21014,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Child Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -20841,6 +21041,18 @@
         "source_name": "Child Stretch",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 82"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -20859,8 +21071,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -20873,15 +21085,16 @@
         "source": "ex-child-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Child Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 82"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical child stretch -> ACE Childs Pose"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -20899,19 +21112,32 @@
             "source_name": "Child Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 82"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Child Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 82"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical child stretch -> ACE Childs Pose"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -20937,6 +21163,18 @@
             "source_name": "Child Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 82"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -20949,6 +21187,18 @@
             "source_name": "Child Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 82"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -25903,7 +26153,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Deep-Squat Position è un esercizio della famiglia lower body mobility. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una base stabile e prepara l'articolazione interessata con un range confortevole.",
@@ -25930,6 +26180,18 @@
         "source_name": "Deep-Squat Position",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -25948,8 +26210,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -25962,15 +26224,16 @@
         "source": "ex-deep-squat-position"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Deep-Squat Position",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical deep squat position -> bodyweight squat bottom-position family; equipment only would be sufficient"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -25988,19 +26251,32 @@
             "source_name": "Deep-Squat Position",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Deep-Squat Position",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical deep squat position -> bodyweight squat bottom-position family; equipment only would be sufficient"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -26026,6 +26302,18 @@
             "source_name": "Deep-Squat Position",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -26038,6 +26326,18 @@
             "source_name": "Deep-Squat Position",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -26800,7 +27100,7 @@
     "variantOf": null,
     "movementPattern": [],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Donkey Kick è un esercizio della famiglia general. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
@@ -26827,6 +27127,18 @@
         "source_name": "Donkey Kick",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 23"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Quadruped Bent-knee Hip Extension",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Quadruped Bent-knee Hip Extension",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -26845,8 +27157,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -26859,15 +27171,16 @@
         "source": "ex-donkey-kick"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Donkey Kick",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 23"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Quadruped Bent-knee Hip Extension",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical donkey kick -> quadruped bent-knee hip extension"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -26877,6 +27190,18 @@
             "source_name": "Donkey Kick",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -26888,19 +27213,32 @@
             "source_name": "Donkey Kick",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Donkey Kick",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 23"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Quadruped Bent-knee Hip Extension",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical donkey kick -> quadruped bent-knee hip extension"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -26926,6 +27264,18 @@
             "source_name": "Donkey Kick",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -26938,6 +27288,18 @@
             "source_name": "Donkey Kick",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 23"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Quadruped Bent-knee Hip Extension",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -34137,7 +34499,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Forearm and Wrist Stretch 1 è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -34164,6 +34526,18 @@
         "source_name": "Forearm and Wrist Stretch 1",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forearm/Wrist Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forearm/Wrist Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -34182,8 +34556,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -34196,15 +34570,16 @@
         "source": "ex-forearm-and-wrist-stretch-1"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Forearm and Wrist Stretch 1",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forearm/Wrist Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical numbered stretch matched only at equipment level"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -34222,19 +34597,32 @@
             "source_name": "Forearm and Wrist Stretch 1",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Forearm and Wrist Stretch 1",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forearm/Wrist Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical numbered stretch matched only at equipment level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -34260,6 +34648,18 @@
             "source_name": "Forearm and Wrist Stretch 1",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -34272,6 +34672,18 @@
             "source_name": "Forearm and Wrist Stretch 1",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -34290,7 +34702,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Forearm and Wrist Stretch 2 è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -34317,6 +34729,18 @@
         "source_name": "Forearm and Wrist Stretch 2",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forearm/Wrist Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Forearm/Wrist Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -34335,8 +34759,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -34349,15 +34773,16 @@
         "source": "ex-forearm-and-wrist-stretch-2"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Forearm and Wrist Stretch 2",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forearm/Wrist Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical numbered stretch matched only at equipment level"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -34375,19 +34800,32 @@
             "source_name": "Forearm and Wrist Stretch 2",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Forearm and Wrist Stretch 2",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Forearm/Wrist Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical numbered stretch matched only at equipment level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -34413,6 +34851,18 @@
             "source_name": "Forearm and Wrist Stretch 2",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -34425,6 +34875,18 @@
             "source_name": "Forearm and Wrist Stretch 2",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Forearm/Wrist Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -39398,7 +39860,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Full-Body Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -39425,6 +39887,18 @@
         "source_name": "Full-Body Stretch",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 79"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Full-body Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Full-body Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -39443,8 +39917,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -39457,15 +39931,16 @@
         "source": "ex-full-body-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Full-Body Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 79"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Full-body Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "exercise identity generic but equipment explicit"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -39483,19 +39958,32 @@
             "source_name": "Full-Body Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 79"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Full-body Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Full-body Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Full-Body Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 79"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Full-body Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity generic but equipment explicit"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -39521,6 +40009,18 @@
             "source_name": "Full-Body Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 79"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Full-body Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Full-body Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -39533,6 +40033,18 @@
             "source_name": "Full-Body Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 79"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Full-body Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Full-body Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -40532,7 +41044,7 @@
       "knee-dominant"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Full Squat è un esercizio della famiglia squat. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilisci l'appoggio dei piedi, mantieni il tronco attivo e prepara anche e ginocchia a muoversi in modo coordinato.",
@@ -40559,6 +41071,18 @@
         "source_name": "Full Squat",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "HIGH",
@@ -40577,8 +41101,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -40618,15 +41142,16 @@
         "source": "ex-full-squat"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Squat",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical full squat -> standard bodyweight squat"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -40644,19 +41169,32 @@
             "source_name": "Full Squat",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Squat",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; canonical full squat -> standard bodyweight squat"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -40682,6 +41220,18 @@
             "source_name": "Full Squat",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -40694,6 +41244,18 @@
             "source_name": "Full Squat",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -70340,7 +70902,7 @@
       "core-control"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Plank Pose Stabilization è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
@@ -70367,6 +70929,18 @@
         "source_name": "Plank Pose Stabilization",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 11"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -70385,8 +70959,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -70399,15 +70973,16 @@
         "source": "ex-plank-pose-stabilization"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Plank Pose Stabilization",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 11"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical plank stabilization -> ACE front plank"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -70425,19 +71000,32 @@
             "source_name": "Plank Pose Stabilization",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Plank Pose Stabilization",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 11"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "source difficulty -> canonical Italian level; canonical plank stabilization -> ACE front plank"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -70463,6 +71051,18 @@
             "source_name": "Plank Pose Stabilization",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -70475,6 +71075,18 @@
             "source_name": "Plank Pose Stabilization",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -81799,7 +82411,7 @@
       "horizontal-push"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Rotational Push-Up è un esercizio della famiglia push up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza tronco e cintura scapolare e posiziona mani o attrezzo secondo la variante.",
@@ -81826,6 +82438,18 @@
         "source_name": "Rotational Push-Up",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 24"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Push-up with Rotation",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Push-up with Rotation",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -81844,8 +82468,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -81858,15 +82482,16 @@
         "source": "ex-rotational-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Rotational Push-Up",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 24"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Push-up with Rotation",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical rotational push-up -> ACE push-up rotation family"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -81884,19 +82509,32 @@
             "source_name": "Rotational Push-Up",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 24"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push-up with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push-up with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Rotational Push-Up",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 24"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Push-up with Rotation",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "source difficulty -> canonical Italian level; canonical rotational push-up -> ACE push-up rotation family"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -81922,6 +82560,18 @@
             "source_name": "Rotational Push-Up",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 24"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push-up with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push-up with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -81934,6 +82584,18 @@
             "source_name": "Rotational Push-Up",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 24"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push-up with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Push-up with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -85447,7 +86109,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Seated Rotation è un esercizio della famiglia trunk mobility. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una base stabile e prepara l'articolazione interessata con un range confortevole.",
@@ -85474,6 +86136,18 @@
         "source_name": "Seated Rotation",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 72"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Seated Rotation",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Seated Rotation",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -85492,8 +86166,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -85506,15 +86180,16 @@
         "source": "ex-seated-rotation"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Seated Rotation",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 72"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Seated Rotation",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "exercise identity exact"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -85532,19 +86207,32 @@
             "source_name": "Seated Rotation",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 72"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Seated Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Seated Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Seated Rotation",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 72"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Seated Rotation",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -85570,6 +86258,18 @@
             "source_name": "Seated Rotation",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 72"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Seated Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Seated Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -85582,6 +86282,18 @@
             "source_name": "Seated Rotation",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 72"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Seated Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Seated Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -87499,7 +88211,7 @@
       "core-control"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Avanzato",
     "measure": "REPS",
     "descriptionIt": "Side Plank with Rotation è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
@@ -87526,6 +88238,18 @@
         "source_name": "Side Plank with Rotation",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Side Plank with Rotation",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Side Plank with Rotation",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -87544,8 +88268,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -87558,15 +88282,16 @@
         "source": "ex-side-plank-with-rotation"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Side Plank with Rotation",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Side Plank with Rotation",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "exercise identity exact/narrow"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -87584,19 +88309,32 @@
             "source_name": "Side Plank with Rotation",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Side Plank with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Side Plank with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Side Plank with Rotation",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Side Plank with Rotation",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Advanced",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact/narrow"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -87622,6 +88360,18 @@
             "source_name": "Side Plank with Rotation",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Side Plank with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Side Plank with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -87634,6 +88384,18 @@
             "source_name": "Side Plank with Rotation",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Side Plank with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Side Plank with Rotation",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -95374,7 +96136,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Standing Side Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -95401,6 +96163,18 @@
         "source_name": "Standing Side Stretch",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Standing Side Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Standing Side Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -95419,8 +96193,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -95433,15 +96207,16 @@
         "source": "ex-standing-side-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Standing Side Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Standing Side Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "exercise identity exact"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -95459,19 +96234,32 @@
             "source_name": "Standing Side Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Standing Side Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Standing Side Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Standing Side Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Standing Side Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -95497,6 +96285,18 @@
             "source_name": "Standing Side Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Standing Side Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Standing Side Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -95509,6 +96309,18 @@
             "source_name": "Standing Side Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Standing Side Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Standing Side Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -101448,7 +102260,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Supine Gluteal Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -101475,6 +102287,18 @@
         "source_name": "Supine Gluteal Stretch",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 69"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Glute Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Glute Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -101493,8 +102317,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -101507,15 +102331,16 @@
         "source": "ex-supine-gluteal-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Supine Gluteal Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 69"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Glute Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "exercise identity exact/narrow"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -101533,19 +102358,32 @@
             "source_name": "Supine Gluteal Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 69"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Glute Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Glute Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Supine Gluteal Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 69"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Glute Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact/narrow"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -101571,6 +102409,18 @@
             "source_name": "Supine Gluteal Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 69"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Glute Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Glute Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -101583,6 +102433,18 @@
             "source_name": "Supine Gluteal Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 69"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Glute Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Glute Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -103328,7 +104190,7 @@
     "variantOf": null,
     "movementPattern": [],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Triceps Push-Up è un esercizio della famiglia arm. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
@@ -103355,6 +104217,18 @@
         "source_name": "Triceps Push-Up",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Push-up",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Push-up",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -103373,8 +104247,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -103387,15 +104261,16 @@
         "source": "ex-triceps-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Triceps Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Push-up",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "exercise identity exact/narrow"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -103405,6 +104280,18 @@
             "source_name": "Triceps Push-Up",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -103416,19 +104303,32 @@
             "source_name": "Triceps Push-Up",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Triceps Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Push-up",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact/narrow"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -103454,6 +104354,18 @@
             "source_name": "Triceps Push-Up",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -103466,6 +104378,18 @@
             "source_name": "Triceps Push-Up",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -108293,7 +109217,7 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
     "descriptionIt": "Upper-Back Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
@@ -108320,6 +109244,18 @@
         "source_name": "Upper-Back Stretch",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Upper Back Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Upper Back Stretch",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -108338,8 +109274,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -108352,15 +109288,16 @@
         "source": "ex-upper-back-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Upper-Back Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Upper Back Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "exercise identity exact"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -108378,19 +109315,32 @@
             "source_name": "Upper-Back Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Upper Back Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Upper Back Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Upper-Back Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Upper Back Stretch",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -108416,6 +109366,18 @@
             "source_name": "Upper-Back Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Upper Back Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Upper Back Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -108428,6 +109390,18 @@
             "source_name": "Upper-Back Stretch",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Upper Back Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Upper Back Stretch",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
@@ -113537,7 +114511,7 @@
       "horizontal-push"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Wide-Grip Push-Up è un esercizio della famiglia push up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza tronco e cintura scapolare e posiziona mani o attrezzo secondo la variante.",
@@ -113564,6 +114538,18 @@
         "source_name": "Wide-Grip Push-Up",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wide Push-up",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wide Push-up",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
       }
     ],
     "confidence": "MEDIUM",
@@ -113582,8 +114568,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -113596,15 +114582,16 @@
         "source": "ex-wide-grip-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Wide-Grip Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wide Push-up",
+          "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "canonical wide-grip push-up -> ACE wide push-up"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -113622,19 +114609,32 @@
             "source_name": "Wide-Grip Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wide Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wide Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Wide-Grip Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wide Push-up",
+          "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "source difficulty -> canonical Italian level; canonical wide-grip push-up -> ACE wide push-up"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -113660,6 +114660,18 @@
             "source_name": "Wide-Grip Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wide Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wide Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       },
@@ -113672,6 +114684,18 @@
             "source_name": "Wide-Grip Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wide Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wide Push-up",
+            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
           }
         ]
       }
