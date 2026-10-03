@@ -43,20 +43,20 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Unique stable IDs | 1,087 |
 | Progression edges | 113 |
 | Dangling progression edges | 0 |
-| Unknown equipment | 242 |
+| Unknown equipment | 222 |
 | Equipment tokens unsupported by current app | 18 (`suspension_trainer`) |
 | Missing movement patterns | 201 |
-| Unknown level | 463 |
+| Unknown level | 443 |
 | Unknown resistance mode | 338 |
 | Skill exercises without a stable node link | 143 |
 | Missing supported exercise instructions | 500 |
 | Remaining duplicate runtime labels in candidate | 0 |
 | Runtime application entries audited/preserved | 583 |
-| External ACE records enriched | 52 records / 250 field values (31 with technique; 21 equipment/level-only or equipment-only) |
+| External ACE records enriched | 72 records; equipment evidence 72, level evidence 63, technique evidence retained for 31 |
 
 The structural validator passes with zero errors. The candidate is not release-ready because selection-critical and instruction-critical evidence remains incomplete. The repository-wide internal audit found no further per-exercise technical fields for unresolved V2-only records: the raw TSVs contain inventory names/families/locators, not equipment, level, resistance, movement pattern, or technique. Runtime-only metadata is now preserved separately; it is not promoted into exercise-science claims. Eighteen otherwise known suspension-trainer records remain unsupported by the current app equipment enum. All rule-derived values have registered provenance, and the validator keeps these unresolved/app-compatibility blockers visible. The existing V2 deterministic build and tests remain separate regression gates.
 
-The current equipment-first checkpoint covers 52 reviewed ACE-backed records and 250 external field values. This tranche screened all 262 remaining equipment-UNKNOWN IDs and applied 20 HIGH-confidence matches, reducing equipment UNKNOWN from 262 to 242 and level UNKNOWN from 474 to 463. Technique was not promoted for this tranche unless already supported by prior exercise-specific evidence; generic or variant-mismatched cases remain unresolved. Side Plank (Modified), Burpee/BOSU, Russian Twist/stability ball, Spider Push-Up/Spider Walks, and Cat-Cow/Cat-Cow Kneeling Crunch remain excluded. Canonical CI passed; builder, validator and deterministic gzip checks passed; validation remains `ok: true`, zero errors and `releaseReady: false`. Runtime integration files remain unchanged.
+The current equipment-first checkpoint covers 72 reviewed ACE-backed records. This tranche screened all 242 remaining equipment-UNKNOWN IDs and applied 20 HIGH-confidence mappings, reducing equipment UNKNOWN from 242 to 222 and level UNKNOWN from 463 to 443. The ExRx exercise database was evaluated as the secondary structured source, but no mapping from it was promoted in this tranche because directly verifiable exercise-specific equivalence did not improve on the ACE matches without increasing ambiguity. No new technique fields were promoted from generic/listing evidence. Existing ambiguity exclusions remain unchanged. Canonical CI passed; builder, validator and deterministic gzip checks passed; validation remains `ok: true`, zero errors and `releaseReady: false`. Runtime integration files remain unchanged.
 
 ## Reproduce
 
