@@ -85,6 +85,28 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
 
         self.assertEqual(by_id["ex-ball-bridge"]["equipmentStatus"], "UNKNOWN")
 
+    def test_broad_movement_types_fill_only_their_unambiguous_top_level_patterns(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+        by_id = {record["id"]: record for record in records}
+
+        expected = {
+            "ex-calf-stretch": ["mobility"],
+            "ex-banded-external-rotation": ["mobility"],
+            "ex-adductor-foam-rolling": ["recovery"],
+            "ex-4-point-burpee": ["conditioning"],
+            "ex-jogging-and-running": ["conditioning"],
+        }
+        for exercise_id, pattern in expected.items():
+            self.assertEqual(by_id[exercise_id]["movementPattern"], pattern)
+            self.assertEqual(
+                by_id[exercise_id]["fieldProvenance"]["movementPattern"]["status"],
+                "V2_MOVEMENT_TYPE_RULE",
+            )
+
+        self.assertEqual(by_id["ex-front-lever"]["movementPatternStatus"], "UNKNOWN")
+
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)

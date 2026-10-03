@@ -47,6 +47,11 @@ CANONICAL_NAME_EQUIPMENT_SOURCE = {
     "title": "Explicit equipment terms in canonical exercise names",
     "primary_use": "Conservative equipment inference only when a name explicitly identifies a recognized implement; does not establish technique or instructions.",
 }
+MOVEMENT_TYPE_PATTERN_SOURCE = {
+    "source_id": "V2_MOVEMENT_TYPE_PATTERN_RULE",
+    "title": "Top-level pattern from explicit Exercise DB V2 movement type",
+    "primary_use": "Conservative high-level classification only: flexibility/mobility to mobility, SMR to recovery, and aerobic/conditioning to conditioning.",
+}
 
 
 def explicit_equipment_from_name(name):
@@ -336,6 +341,7 @@ def build_database(root, output_dir):
         "primary_use": "Provenance for the app's runtime labels and explicitly stored programming metadata; not exercise-science or technique evidence.",
     }
     equipment_rule_source = CANONICAL_NAME_EQUIPMENT_SOURCE
+    pattern_rule_source = MOVEMENT_TYPE_PATTERN_SOURCE
 
     v2_records = []
     matched_legacy_names = set()
@@ -384,6 +390,14 @@ def build_database(root, output_dir):
         if not movement_pattern and effective:
             movement_pattern = [effective["movementPattern"]]
             pattern_origin = effective["movementPatternOrigin"]
+        if not movement_pattern:
+            broad_pattern = {
+                "FLEXIBILITY": "mobility", "MOBILITY": "mobility", "SMR": "recovery",
+                "CONDITIONING": "conditioning", "AEROBIC": "conditioning",
+            }.get(record.get("movementType"))
+            if broad_pattern:
+                movement_pattern = [broad_pattern]
+                pattern_origin = "V2_MOVEMENT_TYPE_RULE"
         if effective:
             mode, mode_status = effective["resistanceMode"], effective["resistanceModeOrigin"]
         elif any(token in eq for token in {"barbell", "dumbbell", "cable", "machine", "kettlebell", "leg_press"}):
@@ -433,7 +447,10 @@ def build_database(root, output_dir):
                     "status": equipment_origin,
                     "source": ({"source_id": equipment_rule_source["source_id"], "evidence_type": "EXPLICIT_NAME_TOKEN", "locator": record.get("canonicalNameEn")} if equipment_origin == "NAME_EXPLICIT_EQUIPMENT_RULE" else record["sources"]),
                 },
-                "movementPattern": {"status": pattern_origin, "source": "ExerciseMetadata.kt" if pattern_origin.startswith("APP_RULE") else record["sources"]},
+                "movementPattern": {
+                    "status": pattern_origin,
+                    "source": ({"source_id": pattern_rule_source["source_id"], "evidence_type": "V2_MOVEMENT_TYPE_RULE", "locator": record.get("movementType")} if pattern_origin == "V2_MOVEMENT_TYPE_RULE" else ("ExerciseMetadata.kt" if pattern_origin.startswith("APP_RULE") else record["sources"])),
+                },
                 "resistanceMode": {"status": mode_status, "source": "ExerciseMetadata.kt" if mode_status.startswith("APP_RULE") else record["sources"]},
                 "level": {"status": "V2_DIRECT" if record.get("level") else ("APP_MODEL_DIRECT" if hit else "UNKNOWN"), "source": record["sources"]},
                 "category": {"status": "APP_MODEL_DIRECT" if effective else "APP_RULE_RUNTIME_CONVERSION", "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if hit else "ExerciseDbV2.toLegacyExercise"},
@@ -557,7 +574,7 @@ def build_database(root, output_dir):
 
     all_records = v2_records + current_records
     from tools.validate_exercise_db_canonical import validate_database
-    structural_validation = validate_database(all_records, progressions, sources + [app_source, equipment_rule_source])
+    structural_validation = validate_database(all_records, progressions, sources + [app_source, equipment_rule_source, pattern_rule_source])
     ids = [record["id"] for record in all_records]
     runtime_duplicate_names = defaultdict(list)
     for record in all_records:
@@ -626,7 +643,7 @@ def build_database(root, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "exercise-db-canonical.json").write_text(json.dumps(all_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "exercise-db-canonical-audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (output_dir / "sources.json").write_text(json.dumps(sources + [app_source, equipment_rule_source], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "sources.json").write_text(json.dumps(sources + [app_source, equipment_rule_source, pattern_rule_source], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
 
 
