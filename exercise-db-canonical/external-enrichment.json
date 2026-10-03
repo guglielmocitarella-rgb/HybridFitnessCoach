@@ -2661,6 +2661,406 @@
         "url": "https://www.acefitness.org/continuing-education/certified/may-2024/8630/mastering-the-art-of-the-split-routine/",
         "mapping": "canonical standing torso rotations -> ACE standing trunk rotation; same standing rotation pattern"
       }
+    },
+    "ex-bodyweight-modified-push-ups": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Bent Knee Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical modified push-up -> ACE bent-knee push-up"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Bent Knee Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical modified push-up -> ACE bent-knee push-up"
+      }
+    },
+    "ex-full-squat": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical full squat -> standard bodyweight squat"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical full squat -> standard bodyweight squat"
+      }
+    },
+    "ex-deep-squat-position": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical deep squat position -> bodyweight squat bottom-position family; equipment only would be sufficient"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical deep squat position -> bodyweight squat bottom-position family; equipment only would be sufficient"
+      }
+    },
+    "ex-chair-squat": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "chair squat bodyweight regression; no external training implement"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Bodyweight Squat",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; chair squat bodyweight regression; no external training implement"
+      }
+    },
+    "ex-cat-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Cat-Cow",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical cat stretch -> cat phase of ACE Cat-Cow"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Cat-Cow",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical cat stretch -> cat phase of ACE Cat-Cow"
+      }
+    },
+    "ex-child-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Childs Pose",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical child stretch -> ACE Childs Pose"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Childs Pose",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical child stretch -> ACE Childs Pose"
+      }
+    },
+    "ex-plank-pose-stabilization": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Front Plank",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical plank stabilization -> ACE front plank"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Front Plank",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical plank stabilization -> ACE front plank"
+      }
+    },
+    "ex-rotational-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Push-up with Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical rotational push-up -> ACE push-up rotation family"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Push-up with Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical rotational push-up -> ACE push-up rotation family"
+      }
+    },
+    "ex-side-plank-with-rotation": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Side Plank with Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "exercise identity exact/narrow"
+      },
+      "level": {
+        "value": "Avanzato",
+        "observed_value": "Advanced",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Side Plank with Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact/narrow"
+      }
+    },
+    "ex-triceps-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Triceps Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "exercise identity exact/narrow"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Triceps Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact/narrow"
+      }
+    },
+    "ex-wide-grip-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Wide Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical wide-grip push-up -> ACE wide push-up"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Wide Push-up",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical wide-grip push-up -> ACE wide push-up"
+      }
+    },
+    "ex-bicycle": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Supine Bicycle",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical bicycle -> ACE supine bicycle abdominal exercise"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Supine Bicycle",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical bicycle -> ACE supine bicycle abdominal exercise"
+      }
+    },
+    "ex-donkey-kick": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Quadruped Bent-knee Hip Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical donkey kick -> quadruped bent-knee hip extension"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Quadruped Bent-knee Hip Extension",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical donkey kick -> quadruped bent-knee hip extension"
+      }
+    },
+    "ex-supine-gluteal-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Supine Glute Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "exercise identity exact/narrow"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Supine Glute Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact/narrow"
+      }
+    },
+    "ex-upper-back-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Upper Back Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "exercise identity exact"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Upper Back Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact"
+      }
+    },
+    "ex-standing-side-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Standing Side Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "exercise identity exact"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Standing Side Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact"
+      }
+    },
+    "ex-seated-rotation": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Seated Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "exercise identity exact"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Seated Rotation",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity exact"
+      }
+    },
+    "ex-forearm-and-wrist-stretch-1": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Forearm/Wrist Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical numbered stretch matched only at equipment level"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Forearm/Wrist Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical numbered stretch matched only at equipment level"
+      }
+    },
+    "ex-forearm-and-wrist-stretch-2": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Forearm/Wrist Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "canonical numbered stretch matched only at equipment level"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Forearm/Wrist Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; canonical numbered stretch matched only at equipment level"
+      }
+    },
+    "ex-full-body-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
+        "source_name": "Full-body Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "exercise identity generic but equipment explicit"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
+        "source_name": "Full-body Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "mapping": "source difficulty -> canonical Italian level; exercise identity generic but equipment explicit"
+      }
     }
   },
   "unresolved_conflicts": [
