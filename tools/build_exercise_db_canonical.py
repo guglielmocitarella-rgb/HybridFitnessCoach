@@ -1054,7 +1054,7 @@ def build_database(root, output_dir):
             if not record.get(field): missing_before.append(field)
         resolved = []
 
-        if record.get("resistanceMode") in {None, "UNKNOWN"}:
+        if mode and record.get("resistanceMode") in {None, "UNKNOWN"}:
             source_ids = sorted({s.get("source_id") for s in record.get("sources", []) if s.get("source_id")})
             record["resistanceMode"] = mode
             record.setdefault("fieldProvenance", {})["resistanceMode"] = {
