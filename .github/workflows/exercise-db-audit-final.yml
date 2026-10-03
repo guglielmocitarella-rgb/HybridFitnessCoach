@@ -1,0 +1,63 @@
+name: Exercise DB final audit
+on:
+  push:
+    branches: [feature/v0.9.5]
+    paths: ['.github/workflows/exercise-db-audit-final.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/v0.9.5
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reconstruct pinned canonical input
+        shell: bash
+        run: |
+          set -euo pipefail
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          W="exercise-db-canonical/work"
+          mkdir -p "$W"
+          cp "$A/source-manifest.json" "$W/manifest.json"
+          python - <<'PY'
+          import json,pathlib,subprocess
+          a=pathlib.Path("exercise-db-canonical/matching-audit-2026-10-03"); w=pathlib.Path("exercise-db-canonical/work")
+          m=json.loads((a/"source-manifest.json").read_text())
+          (w/"canonical.json").write_bytes(subprocess.check_output(["git","cat-file","blob",m["canonicalBlob"]]))
+          PY
+      - name: Run final audit
+        run: python exercise-db-canonical/matching-audit-2026-10-03/audit_generator.py
+      - name: Validate final outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          python - <<'PY'
+          import gzip,json,pathlib
+          a=pathlib.Path("exercise-db-canonical/matching-audit-2026-10-03")
+          s=json.loads((a/"audit-summary.json").read_text())
+          assert s["integrity"]=={"canonical":1087,"processed":1087,"unique":1087,"missing":0,"duplicates":0,"checkpoint_count":12}
+          assert sum(s["matching"].values())==1087
+          q=json.loads((a/"manual-review-queue.json").read_text()); m=json.loads((a/"media-provenance-report.json").read_text())
+          with gzip.open(a/"aggregated-matches.json.gz","rt") as f: agg=json.load(f)
+          assert len(agg["records"])==1087 and len({x["canonical_id"] for x in agg["records"]})==1087
+          assert len(m)==6
+          print(json.dumps({"matching":s["matching"],"review_queue":len(q),"datasets":list(m)}))
+          PY
+      - name: Persist final audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          A="exercise-db-canonical/matching-audit-2026-10-03"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$A/aggregated-matches.json.gz" "$A/audit-summary.json" "$A/AUDIT_REPORT.md" "$A/manual-review-queue.json" "$A/media-provenance-report.json" "$A/audit_generator.py"
+          git rm .github/workflows/exercise-db-audit-final.yml
+          git commit -m "audit(db): persist final 1087 exercise matching audit [skip ci]"
+          git push origin HEAD:feature/v0.9.5
