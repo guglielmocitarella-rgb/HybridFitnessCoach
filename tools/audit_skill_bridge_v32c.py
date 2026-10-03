@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-import json,re,pathlib,collections
-ROOT=pathlib.Path(__file__).resolve().parents[1]; OUT=ROOT/"exercise-db-canonical"
+import json,re,pathlib,collections,sys
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
+OUT=ROOT/"exercise-db-canonical"
 REL_TYPES={"SKILL_ITSELF","DIRECT_PROGRESSION","DIRECT_REGRESSION","PREREQUISITE_EXERCISE","ACCESSORY","STRENGTH_BUILDER","MOBILITY_PREPARATION","TECHNIQUE_DRILL","TRANSFER_EXERCISE","RELATED_ONLY"}
 def norm(s): return re.sub(r"[^a-z0-9]+"," ",str(s).casefold()).strip()
 def catalog():
