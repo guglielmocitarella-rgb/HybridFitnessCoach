@@ -867,6 +867,28 @@ def build_database(root, output_dir):
             if source_ref not in record.setdefault("sources", []):
                 record["sources"].append(source_ref)
             external_fields_applied[field] += 1
+    # Resistance-mode tranche: after reviewed enrichment has finalized equipment,
+    # promote only deterministic external-load cases. This deliberately excludes
+    # bands, assistance, bodyweight apparatus and ambiguous implements.
+    external_load_tokens = {"barbell", "dumbbell", "cable", "machine", "kettlebell", "leg_press"}
+    for record in all_records:
+        if (
+            record.get("resistanceMode") in {None, "UNKNOWN"}
+            and record.get("equipmentStatus") == "KNOWN"
+            and any(token in external_load_tokens for token in (record.get("equipmentRequired") or []))
+        ):
+            record["resistanceMode"] = "EXTERNAL_LOAD"
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "EQUIPMENT_DETERMINISTIC",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    equipment_resistance_source["source_id"],
+                    "KNOWN_EXTERNAL_EQUIPMENT_TO_RESISTANCE_MODE",
+                    record.get("equipmentRequired") or [],
+                ),
+                "derivation": "Known canonical external-load equipment deterministically maps to EXTERNAL_LOAD.",
+            }
+
     from tools.validate_exercise_db_canonical import APP_SUPPORTED_EQUIPMENT, validate_database
     all_sources = sources + [
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
@@ -1001,6 +1023,7 @@ def build_database(root, output_dir):
             "movementPattern": record.get("movementPattern", []),
             "resistanceMode": "UNKNOWN",
             "resistanceModeProvenance": (record.get("fieldProvenance") or {}).get("resistanceMode"),
+            "equipmentProvenance": (record.get("fieldProvenance") or {}).get("equipmentRequired"),
             "identitySource": record.get("identitySource"),
             "modelSourceRefs": record.get("modelSourceRefs", []),
             "sources": record.get("sources", []),

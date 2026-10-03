@@ -359,6 +359,33 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertGreater(report["blockers"]["equipment_unsupported_by_app"], 0)
         self.assertFalse(report["releaseReady"])
 
+    def test_resolves_high_confidence_external_load_after_equipment_enrichment(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        expected_ids = {
+            "ex-back-extension-apparatus", "ex-glute-ham-raise", "ex-hammer-curl",
+            "ex-hang-power-clean", "ex-hang-power-snatch", "ex-lateral-shoulder-raise",
+            "ex-leg-press-calf-raise", "ex-muscle-snatch", "ex-neutral-grip-vertical-pulldown",
+            "ex-one-arm-reverse-pushdown", "ex-overhead-squat", "ex-power-snatch",
+            "ex-push-jerk", "ex-push-presspush-jerk", "ex-pushdown", "ex-reverse-pushdown",
+            "ex-reverse-wrist-curl", "ex-split-jerk", "ex-squat-push-press",
+            "ex-standing-unilateral-leg-curl", "ex-stiff-leg-deadlift",
+            "ex-sumo-dead-lift-high-pull", "ex-trap-bar-deadlift", "ex-triceps-kickback",
+            "ex-unilateral-cuffed-leg-extension", "ex-unilateral-leg-extension",
+            "ex-upright-row", "ex-wide-grip-vertical-pulldown", "ex-wrist-curl",
+        }
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 309)
+        for exercise_id in expected_ids:
+            record = by_id[exercise_id]
+            self.assertEqual(record["resistanceMode"], "EXTERNAL_LOAD")
+            provenance = record["fieldProvenance"]["resistanceMode"]
+            self.assertEqual(provenance["status"], "EQUIPMENT_DETERMINISTIC")
+            self.assertEqual(provenance["confidence"], "HIGH")
+            self.assertEqual(provenance["source"]["source_id"], "V2_EQUIPMENT_RESISTANCE_RULE")
+
     def test_generates_deterministic_resistance_unknown_operational_report(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)
