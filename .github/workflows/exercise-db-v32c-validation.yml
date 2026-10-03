@@ -1,0 +1,33 @@
+name: Exercise DB V3.2C validation and audit
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths: ['tools/audit_skill_bridge_v32c.py','tests/test_skill_bridge_v32c.py','.github/workflows/exercise-db-v32c-validation.yml']
+permissions: {contents: write}
+jobs:
+  audit-validate-persist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Generate V3.2C artifacts
+        run: python tools/audit_skill_bridge_v32c.py
+      - name: JSON syntax
+        run: for f in exercise-db-canonical/skill-*-v3-2c.json; do python -m json.tool "$f" >/dev/null; done
+      - name: Canonical validator
+        run: python tools/validate_exercise_db_canonical.py
+      - name: Regression suite
+        run: python -m unittest tests/test_exercise_db_canonical.py tests/test_equipment_v31c.py tests/test_resistance_mode_v32a.py tests/test_level_capability_v32b.py tests/test_skill_bridge_v32c.py -v
+      - name: Referential and integrity gate
+        run: |
+          python - <<'PY'
+          import json
+          a=json.load(open('exercise-db-canonical/skill-bridge-audit-v3-2c.json'))
+          assert a['integrity']=={'canonical':1087,'unique':1087,'missingIds':0,'duplicates':0}
+          assert a['skillCatalog']['verifiedSkillCount']==15
+          assert a['missingUnstableWorkset']['verifiedCount']==143
+          assert not a['invalidReferences']
+          print(a['existingLinks'])
+          PY
