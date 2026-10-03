@@ -1,9 +1,9 @@
 {
   "status": "PARTIAL",
-  "completed": 500,
+  "completed": 600,
   "total": 1087,
-  "last_id": "cm-zottman-curl",
-  "next_start_index": 500,
+  "last_id": "ex-calf-raise",
+  "next_start_index": 600,
   "order": "canonical id lexicographic",
   "baseline": "8c19744f32008d25fbe1b821359b51a7f0256dcb",
   "completed_checkpoints": [
@@ -11,7 +11,8 @@
     "0100-0199.json.gz",
     "0200-0299.json.gz",
     "0300-0399.json.gz",
-    "0400-0499.json.gz"
+    "0400-0499.json.gz",
+    "0500-0599.json.gz"
   ],
-  "restart": "Fetch source-manifest.json and each pinned data blob using github_fetch_blob (large content files API returns empty). Fetch canonical blob 8786eaf73f4c1bf8cd623243f43312dd62db96f9. Place canonical.json, manifest.json, source0.json..source5.json in work/ sibling to audit/. Decompress checkpoint into audit/checkpoints/. Run python audit/matcher.py --start 500 --count 100. Persist each checkpoint before next tranche. Never replace canonical."
+  "restart": "Fetch source-manifest.json and each pinned data blob using github_fetch_blob (large content files API returns empty). Fetch canonical blob 8786eaf73f4c1bf8cd623243f43312dd62db96f9. Place canonical.json, manifest.json, source0.json..source5.json in work/ sibling to audit/. Decompress checkpoint into audit/checkpoints/. Run python audit/matcher.py --start 600 --count 100. Persist each checkpoint before next tranche. Never replace canonical."
 }
