@@ -3061,6 +3061,266 @@
         "url": "https://www.acefitness.org/resources/everyone/exercise-library/",
         "mapping": "source difficulty -> canonical Italian level; exercise identity generic but equipment explicit"
       }
+    },
+    "ex-hang-power-clean": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell; PVC only as learning implement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Hang Power Clean",
+        "url": "https://www.crossfit.com/essentials/the-hang-power-clean",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-hang-power-snatch": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell; PVC only as learning implement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Hang Power Snatch",
+        "url": "https://www.crossfit.com/essentials/the-hang-power-snatch",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-power-snatch": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Power Snatch",
+        "url": "https://www.crossfit.com/essentials/the-power-snatch",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-muscle-snatch": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Muscle Snatch",
+        "url": "https://www.crossfit.com/essentials/the-muscle-snatch",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-overhead-squat": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell; PVC is learning variation",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overhead Squat",
+        "url": "https://www.crossfit.com/essentials/the-overhead-squat",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-push-jerk": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell; PVC only as learning implement",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Push Jerk",
+        "url": "https://www.crossfit.com/essentials/the-push-jerk",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-split-jerk": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Split Jerk",
+        "url": "https://www.crossfit.com/essentials/the-split-jerk",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-sumo-dead-lift-high-pull": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Standard barbell; other implements documented as modifications",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Sumo Deadlift High Pull",
+        "url": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-squat-push-press": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Thruster",
+        "url": "https://library.crossfit.com/free/pdf/cfjissue20_ey.pdf",
+        "mapping": "canonical squat + push press corresponds to CrossFit thruster sequence"
+      }
+    },
+    "ex-push-presspush-jerk": {
+      "equipmentRequired": {
+        "value": [
+          "barbell"
+        ],
+        "observed_value": "Barbell load prescribed",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Push Press / Push Jerk",
+        "url": "https://www.crossfit.com/essentials/workout-tips-for-210824",
+        "mapping": "canonical compound label explicitly names push press/push jerk; CrossFit source uses barbell-loaded jerk complex"
+      }
+    },
+    "ex-jumping-pull-ups": {
+      "equipmentRequired": {
+        "value": [
+          "pull_up_bar"
+        ],
+        "observed_value": "Pull-up bar plus optional box",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Jumping Pull-up",
+        "url": "https://www.crossfit.com/essentials/the-kipping-pull-up",
+        "mapping": "CrossFit progression explicitly uses jumping pull-up at pull-up bar"
+      }
+    },
+    "ex-kipping-pull-ups": {
+      "equipmentRequired": {
+        "value": [
+          "pull_up_bar"
+        ],
+        "observed_value": "Fixed stable pull-up bar",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Kipping Pull-up",
+        "url": "https://www.crossfit.com/essentials/the-kipping-pull-up",
+        "mapping": "exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-muscle-up": {
+      "equipmentRequired": {
+        "value": [
+          "gymnastic_rings"
+        ],
+        "observed_value": "Rings",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Muscle-up",
+        "url": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf",
+        "mapping": "canonical generic muscle-up matched conservatively to source explicitly teaching ring muscle-up"
+      }
+    },
+    "ex-normal-muscle-up": {
+      "equipmentRequired": {
+        "value": [
+          "gymnastic_rings"
+        ],
+        "observed_value": "Rings",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Muscle-up",
+        "url": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf",
+        "mapping": "canonical normal muscle-up source family resolved to standard ring muscle-up"
+      }
+    },
+    "ex-false-grip-muscle-up": {
+      "equipmentRequired": {
+        "value": [
+          "gymnastic_rings"
+        ],
+        "observed_value": "Rings",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Ring Muscle-up with False Grip",
+        "url": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf",
+        "mapping": "source explicitly requires false grip on rings"
+      }
+    },
+    "ex-muscle-up-negatives": {
+      "equipmentRequired": {
+        "value": [
+          "gymnastic_rings"
+        ],
+        "observed_value": "Rings",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Ring Muscle-up",
+        "url": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf",
+        "mapping": "negative is eccentric of explicitly ring-based canonical muscle-up family"
+      }
+    },
+    "ex-l-sit-dips": {
+      "equipmentRequired": {
+        "value": [
+          "parallel_bars"
+        ],
+        "observed_value": "Parallel bars",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Parallel-bar Dip / L-sit support apparatus",
+        "url": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+        "mapping": "canonical L-sit dip family requires fixed parallel support; ring dip kept distinct in source"
+      }
+    },
+    "ex-assisted-dip": {
+      "equipmentRequired": {
+        "value": [
+          "parallel_bars"
+        ],
+        "observed_value": "Parallel bars; assistance by spotter",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Parallel-bar Dip progression",
+        "url": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+        "mapping": "canonical assisted dip resolved to fixed-bar dip progression, not ring dip"
+      }
+    },
+    "ex-negative-dip": {
+      "equipmentRequired": {
+        "value": [
+          "parallel_bars"
+        ],
+        "observed_value": "Parallel bars",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Parallel-bar Dip progression",
+        "url": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+        "mapping": "eccentric/negative fixed dip family; rings are separately named apparatus in source"
+      }
+    },
+    "ex-weighted-dip": {
+      "equipmentRequired": {
+        "value": [
+          "parallel_bars"
+        ],
+        "observed_value": "Parallel bars plus external load",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Parallel-bar Dip",
+        "url": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+        "mapping": "canonical weighted dip retained in fixed-bar dip family; source distinguishes ring dip"
+      }
     }
   },
   "unresolved_conflicts": [
