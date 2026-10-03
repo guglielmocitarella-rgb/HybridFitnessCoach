@@ -57,6 +57,10 @@ def validate_database(records, progressions, sources):
             source_id = (pattern_provenance.get("source") or {}).get("source_id")
             if source_id not in source_ids:
                 errors.append(f"{exercise_id}: unregistered movement-type pattern rule source {source_id}")
+        if pattern_provenance.get("status") == "V2_FAMILY_PATTERN_RULE":
+            source_id = (pattern_provenance.get("source") or {}).get("source_id")
+            if source_id not in source_ids:
+                errors.append(f"{exercise_id}: unregistered family-pattern rule source {source_id}")
         for skill_id in record.get("skillIds") or []:
             if not str(skill_id).strip():
                 errors.append(f"{exercise_id}: empty skill link")

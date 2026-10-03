@@ -3,7 +3,7 @@
   "errors": [],
   "warnings": [
     "292 exercises still have unknown equipment requirements",
-    "429 exercises still lack an explicit movement pattern",
+    "255 exercises still lack an explicit movement pattern",
     "500 exercises lack supported execution instructions",
     "504 exercises have unknown level",
     "336 exercises have unknown resistance mode",
@@ -17,7 +17,7 @@
   },
   "blockers": {
     "equipment_unknown": 292,
-    "movement_pattern_missing": 429,
+    "movement_pattern_missing": 255,
     "instruction_incomplete": 500,
     "level_unknown": 504,
     "resistance_mode_unknown": 336,

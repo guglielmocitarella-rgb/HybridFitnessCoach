@@ -83,5 +83,10 @@
     "source_id": "V2_MOVEMENT_TYPE_PATTERN_RULE",
     "title": "Top-level pattern from explicit Exercise DB V2 movement type",
     "primary_use": "Conservative high-level classification only: flexibility/mobility to mobility, SMR to recovery, and aerobic/conditioning to conditioning."
+  },
+  {
+    "source_id": "V2_FAMILY_PATTERN_RULE",
+    "title": "Whitelisted Exercise DB V2 family-to-pattern rules",
+    "primary_use": "Infer broad movement patterns from selected movement families, with name-based exceptions for mixed pull-up/push-up families and explicit vertical chest press labels."
   }
 ]

@@ -52,6 +52,11 @@ MOVEMENT_TYPE_PATTERN_SOURCE = {
     "title": "Top-level pattern from explicit Exercise DB V2 movement type",
     "primary_use": "Conservative high-level classification only: flexibility/mobility to mobility, SMR to recovery, and aerobic/conditioning to conditioning.",
 }
+V2_FAMILY_PATTERN_SOURCE = {
+    "source_id": "V2_FAMILY_PATTERN_RULE",
+    "title": "Whitelisted Exercise DB V2 family-to-pattern rules",
+    "primary_use": "Infer broad movement patterns from selected movement families, with name-based exceptions for mixed pull-up/push-up families and explicit vertical chest press labels.",
+}
 
 
 def explicit_equipment_from_name(name):
@@ -67,6 +72,26 @@ def explicit_equipment_from_name(name):
         (r"\bbands?\b", "resistance_band"),
     )
     return list(dict.fromkeys(token for pattern, token in patterns if re.search(pattern, name, re.IGNORECASE)))
+
+
+def v2_family_pattern(family, name):
+    """Map only whitelisted V2 families whose broad mechanics are coherent."""
+    family, name = str(family or "").upper(), str(name or "")
+    mapping = {
+        "HORIZONTAL_PULL": "horizontal-pull", "VERTICAL_PULL": "vertical-pull",
+        "HORIZONTAL_PUSH": "horizontal-push", "VERTICAL_PUSH": "vertical-push",
+        "HINGE": "hinge", "SQUAT": "knee-dominant", "SINGLE_LEG_SQUAT": "knee-dominant",
+        "STEP_UP": "knee-dominant", "LUNGE": "knee-dominant", "DIP": "vertical-push",
+        "HANDSTAND_PUSH_UP": "vertical-push", "PLANCHE": "horizontal-push",
+        "CHEST": "horizontal-push", "CHEST_FLY": "horizontal-push", "BICEPS": "pull-accessory",
+    }
+    if family == "PULL_UP":
+        return "horizontal-pull" if re.search(r"\brows?\b|horizontal pull", name, re.IGNORECASE) else "vertical-pull"
+    if family == "PUSH_UP":
+        return "vertical-push" if re.search(r"\b(?:headstand|handstand|pike)\b", name, re.IGNORECASE) else "horizontal-push"
+    if family == "HORIZONTAL_PUSH" and re.search(r"\bvertical\b", name, re.IGNORECASE):
+        return "vertical-push"
+    return mapping.get(family)
 
 
 def norm(value):
@@ -342,6 +367,7 @@ def build_database(root, output_dir):
     }
     equipment_rule_source = CANONICAL_NAME_EQUIPMENT_SOURCE
     pattern_rule_source = MOVEMENT_TYPE_PATTERN_SOURCE
+    family_pattern_source = V2_FAMILY_PATTERN_SOURCE
 
     v2_records = []
     matched_legacy_names = set()
@@ -398,6 +424,11 @@ def build_database(root, output_dir):
             if broad_pattern:
                 movement_pattern = [broad_pattern]
                 pattern_origin = "V2_MOVEMENT_TYPE_RULE"
+        if not movement_pattern:
+            family_pattern = v2_family_pattern(record.get("family"), record.get("canonicalNameEn"))
+            if family_pattern:
+                movement_pattern = [family_pattern]
+                pattern_origin = "V2_FAMILY_PATTERN_RULE"
         if effective:
             mode, mode_status = effective["resistanceMode"], effective["resistanceModeOrigin"]
         elif any(token in eq for token in {"barbell", "dumbbell", "cable", "machine", "kettlebell", "leg_press"}):
@@ -449,7 +480,11 @@ def build_database(root, output_dir):
                 },
                 "movementPattern": {
                     "status": pattern_origin,
-                    "source": ({"source_id": pattern_rule_source["source_id"], "evidence_type": "V2_MOVEMENT_TYPE_RULE", "locator": record.get("movementType")} if pattern_origin == "V2_MOVEMENT_TYPE_RULE" else ("ExerciseMetadata.kt" if pattern_origin.startswith("APP_RULE") else record["sources"])),
+                    "source": (
+                        {"source_id": pattern_rule_source["source_id"], "evidence_type": "V2_MOVEMENT_TYPE_RULE", "locator": record.get("movementType")} if pattern_origin == "V2_MOVEMENT_TYPE_RULE" else
+                        {"source_id": family_pattern_source["source_id"], "evidence_type": "V2_FAMILY_PATTERN_RULE", "locator": record.get("family")} if pattern_origin == "V2_FAMILY_PATTERN_RULE" else
+                        ("ExerciseMetadata.kt" if pattern_origin.startswith("APP_RULE") else record["sources"])
+                    ),
                 },
                 "resistanceMode": {"status": mode_status, "source": "ExerciseMetadata.kt" if mode_status.startswith("APP_RULE") else record["sources"]},
                 "level": {"status": "V2_DIRECT" if record.get("level") else ("APP_MODEL_DIRECT" if hit else "UNKNOWN"), "source": record["sources"]},
@@ -574,7 +609,7 @@ def build_database(root, output_dir):
 
     all_records = v2_records + current_records
     from tools.validate_exercise_db_canonical import validate_database
-    structural_validation = validate_database(all_records, progressions, sources + [app_source, equipment_rule_source, pattern_rule_source])
+    structural_validation = validate_database(all_records, progressions, sources + [app_source, equipment_rule_source, pattern_rule_source, family_pattern_source])
     ids = [record["id"] for record in all_records]
     runtime_duplicate_names = defaultdict(list)
     for record in all_records:
@@ -643,7 +678,7 @@ def build_database(root, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "exercise-db-canonical.json").write_text(json.dumps(all_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "exercise-db-canonical-audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (output_dir / "sources.json").write_text(json.dumps(sources + [app_source, equipment_rule_source, pattern_rule_source], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "sources.json").write_text(json.dumps(sources + [app_source, equipment_rule_source, pattern_rule_source, family_pattern_source], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
 
 

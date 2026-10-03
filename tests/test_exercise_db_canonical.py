@@ -107,6 +107,34 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
 
         self.assertEqual(by_id["ex-front-lever"]["movementPatternStatus"], "UNKNOWN")
 
+    def test_v2_pattern_families_resolve_known_mechanics_and_preserve_mixed_families(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+        by_id = {record["id"]: record for record in records}
+
+        expected = {
+            "ex-barbell-row": ["horizontal-pull"],
+            "ex-lat-pulldown-machine": ["vertical-pull"],
+            "ex-barbell-standing-shoulder-press": ["vertical-push"],
+            "ex-back-squat": ["knee-dominant"],
+            "ex-deadlift": ["hinge"],
+            "ex-dip": ["vertical-push"],
+            "ex-pull-up": ["vertical-pull"],
+            "ex-one-arm-rows": ["horizontal-pull"],
+            "ex-box-headstand-pushup": ["vertical-push"],
+            "ex-wide-grip-push-up": ["horizontal-push"],
+            "ex-vertical-chest-press-machine": ["vertical-push"],
+        }
+        for exercise_id, pattern in expected.items():
+            self.assertEqual(by_id[exercise_id]["movementPattern"], pattern)
+            self.assertEqual(
+                by_id[exercise_id]["fieldProvenance"]["movementPattern"]["status"],
+                "V2_FAMILY_PATTERN_RULE",
+            )
+
+        self.assertEqual(by_id["ex-front-lever"]["movementPatternStatus"], "UNKNOWN")
+
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)
