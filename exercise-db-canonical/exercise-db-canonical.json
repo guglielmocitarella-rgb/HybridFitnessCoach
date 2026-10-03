@@ -2865,7 +2865,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -2895,27 +2895,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Alternating V-Up Crunch",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "V-ups — alternating single-leg progression",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/242/v-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "V-ups — alternating single-leg progression",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/242/v-ups/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -11886,7 +11877,7 @@
     "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -11915,57 +11906,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Bear Crawls",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CONDITIONING",
+            "type": "CONDITIONING",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -14069,7 +14021,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -14099,21 +14051,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Bent-Knee Sit-Up",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 52"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent-Knee Sit-up / Crunches",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/blog/6593/top-25-at-home-exercises/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -15068,7 +15017,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -15098,27 +15047,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Bicycle",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 30"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Bicycle",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Bicycle",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -15583,7 +15523,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -15612,57 +15552,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Crunches",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 15"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -17551,7 +17452,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CARDIO",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -17606,27 +17507,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Burpees",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Burpee",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 15"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Burpee",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-burpee"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CONDITIONING",
+            "type": "CONDITIONING",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -24300,7 +24192,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -24374,57 +24266,18 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 18"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "GENERAL",
+            "type": "CALISTHENICS",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -25317,7 +25170,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -25347,57 +25200,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Deadbug",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Dead Bug",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Dead Bug",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Dead Bug",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Dead Bug",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Dead Bug",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Dead Bug",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supine Dead Bug",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -27545,7 +27359,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -27590,27 +27404,18 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Donkey Kick",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 23"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extension",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extension",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "GENERAL",
+            "type": "CALISTHENICS",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -39430,7 +39235,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -39459,57 +39264,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 54"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -39735,7 +39501,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -39765,27 +39531,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Front Plank with Rotation",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "High Plank T-spine Rotation",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/330/high-plank-t-spine-rotation/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "High Plank T-spine Rotation",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/330/high-plank-t-spine-rotation/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -49099,7 +48856,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -49129,57 +48886,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "High-to-Low Plank",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 12"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -50447,7 +50165,7 @@
     "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -50477,57 +50195,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Inchworm",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 12"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Inchworms",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Inchworms",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Inchworms",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Inchworms",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Inchworms",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Inchworms",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Inchworms",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CONDITIONING",
+            "type": "CONDITIONING",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -52966,7 +52645,7 @@
     "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -52996,27 +52675,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Jumping Lunge",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cycled Split-Squat Jump",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/234/cycled-split-squat-jump/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cycled Split-Squat Jump",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/234/cycled-split-squat-jump/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CONDITIONING",
+            "type": "CONDITIONING",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -53432,7 +53102,7 @@
     "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -53462,57 +53132,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Jumping Squat",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jumps",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jumps",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jumps",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jumps",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jumps",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jumps",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jumps",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CONDITIONING",
+            "type": "CONDITIONING",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -62015,7 +61646,7 @@
     "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -62044,63 +61675,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Mountain Climber",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 11"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Mountain Climbers",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CONDITIONING",
+            "type": "CONDITIONING",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -73184,7 +72770,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -73214,27 +72800,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Plank Pose Stabilization",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 11"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Front Plank",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -77358,7 +76935,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -77433,57 +77010,18 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Quadruped Leg Lift",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 8"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extensions",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extensions",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extensions",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extensions",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extensions",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extensions",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Quadruped Bent-knee Hip Extensions",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "GENERAL",
+            "type": "CALISTHENICS",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -89737,7 +89275,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -89767,27 +89305,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Shoulder Bridge",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 32"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Glute Bridge Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Glute Bridge Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -90707,7 +90236,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -90737,27 +90266,18 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Side Plank with Rotation",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Side Plank with Rotation",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Side Plank with Rotation",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "CORE",
+            "type": "CORE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -91917,7 +91437,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -91992,57 +91512,18 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Single-Leg Deadlift",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 1"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single-leg Romanian Deadlift",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single-leg Romanian Deadlift",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single-leg Romanian Deadlift",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single-leg Romanian Deadlift",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single-leg Romanian Deadlift",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single-leg Romanian Deadlift",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single-leg Romanian Deadlift",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "GENERAL",
+            "type": "CALISTHENICS",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -104395,7 +103876,7 @@
     "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -104470,57 +103951,18 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Superman",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 21"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supermans",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supermans",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supermans",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supermans",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supermans",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supermans",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Supermans",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+        "status": "GENERAL_SELF_LOADED_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SELF_LOADED_GENERAL_OR_CORE_TO_BODYWEIGHT",
+          "locator": {
+            "family": "GENERAL",
+            "type": "CALISTHENICS",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known zero-equipment CORE/CONDITIONING/GENERAL/LOCOMOTION movement in a reviewed self-loaded type deterministically maps to BODYWEIGHT; weighted, assisted, band/resisted, machine/cable, apparatus and ambiguous identities are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
