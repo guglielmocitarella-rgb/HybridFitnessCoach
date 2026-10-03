@@ -394,8 +394,8 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             candidates = json.loads((output / "RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json").read_text())
         by_id = {record["id"]: record for record in records}
         self.assertEqual(candidates["screenedResistanceUnknown"], 309)
-        self.assertEqual(candidates["count"], 97)
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 212)
+        self.assertEqual(candidates["count"], 95)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 214)
         candidate_ids = [item["id"] for item in candidates["candidates"]]
         self.assertEqual(candidate_ids, sorted(candidate_ids))
         self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
@@ -409,7 +409,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertEqual(provenance["confidence"], "HIGH")
             self.assertEqual(provenance["source"]["source_id"], "V2_EQUIPMENT_RESISTANCE_RULE")
 
-        for excluded_id in ("ex-assisted-dip", "ex-weighted-dip", "ex-banded-biceps-curl"):
+        for excluded_id in ("ex-assisted-dip", "ex-weighted-dip", "ex-banded-biceps-curl", "ex-muscle-up", "ex-normal-muscle-up"):
             self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
 
     def test_generates_deterministic_resistance_unknown_operational_report(self):
