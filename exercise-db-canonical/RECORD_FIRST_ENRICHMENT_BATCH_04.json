@@ -1,0 +1,492 @@
+{
+  "schemaVersion": 1,
+  "strategy": "RECORD_FIRST_ENRICHMENT",
+  "selectionBlocker": "resistanceMode UNKNOWN",
+  "selectionMethod": "temporary score: +3 complete exercise-specific source, +2 incomplete instruction block, +1 resistanceMode UNKNOWN, +1 movementPattern missing, +1 level UNKNOWN, +1 equipment KNOWN, +1 reusable provenance",
+  "screenedResistanceUnknown": 116,
+  "batch": "exercise-specific-complete-source-04",
+  "count": 10,
+  "records": [
+    {
+      "id": "ex-medicine-ball-clean",
+      "canonicalNameEn": "Medicine Ball Clean",
+      "score": 8,
+      "decision": "ENRICH",
+      "selectionReason": "CrossFit exercise-specific guide has equipment/load semantics, setup, execution, coaching points and explicit common faults.",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "descriptionIt",
+          "value": "Clean con palla medica dal pavimento alle spalle, ricevuto in accosciata e completato tornando in piedi.",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "setupIt",
+          "value": "Posiziona la palla medica a terra tra i piedi. Scendi in posizione di stacco con petto alto e mani ai lati della palla.",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "executionStepsIt",
+          "value": [
+            "Estendi gambe e anche portando la palla verso l’alto con le braccia inizialmente distese.",
+            "Completa l’estensione e subito esegui una scrollata di spalle.",
+            "Tirati rapidamente sotto la palla e ricevila alle spalle nel fondo di un front squat.",
+            "Rialzati fino alla completa estensione di anche e ginocchia."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "techniqueCuesIt",
+          "value": [
+            "Completa l’estensione di anche e gambe prima della scrollata e del piegamento delle braccia.",
+            "Mantieni il petto alto e la curva lombare stabile.",
+            "Tieni la palla vicina e ricevi con gomiti alti, ginocchia in linea con le punte."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "commonErrorsIt",
+          "value": [
+            "Interrompere l’estensione di anche e gambe prima di scrollare o tirarsi sotto.",
+            "Piegare presto le braccia o trasformare il movimento in un curl/lancio della palla.",
+            "Perdere la curva lombare o spostare eccessivamente il peso sulle punte.",
+            "Ricevere la palla con petto chiuso, schiena arrotondata o gomiti bassi."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level"
+      ],
+      "instructionBlockComplete": true,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-muscle-up",
+      "canonicalNameEn": "Muscle-Up",
+      "score": 9,
+      "decision": "ENRICH",
+      "selectionReason": "CrossFit ring muscle-up technical material plus Level 1 guide support setup, execution, cues and a documented common fault.",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "vertical-pull",
+            "vertical-push"
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "descriptionIt",
+          "value": "Skill agli anelli che porta dalla sospensione sotto gli anelli alla posizione di supporto sopra gli anelli combinando tirata, transizione e dip.",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "setupIt",
+          "value": "Appenditi agli anelli impostando una false grip stabile e mantieni gli anelli vicini al corpo.",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "executionStepsIt",
+          "value": [
+            "Tira gli anelli verso il petto mantenendoli vicini al corpo.",
+            "Porta il petto sopra la parte inferiore degli anelli attraversando la transizione.",
+            "Spingi sugli anelli fino alla posizione di supporto con le braccia estese."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "techniqueCuesIt",
+          "value": [
+            "Mantieni la false grip durante la tirata e la transizione.",
+            "Tieni gli anelli il più vicino possibile al corpo.",
+            "Inclina il busto in avanti durante la transizione prima della spinta finale."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "commonErrorsIt",
+          "value": [
+            "Perdere la false grip durante la ripetizione."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "skillLink"
+      ],
+      "instructionBlockComplete": true,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-normal-muscle-up",
+      "canonicalNameEn": "Normal Muscle-Up",
+      "score": 9,
+      "decision": "NO_CHANGE",
+      "selectionReason": "Generic/normal identity remains ambiguous relative to ring/bar variants; do not propagate complete-source evidence across identities.",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "instructionBlockComplete": false,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-plank-to-downward-facing-dog",
+      "canonicalNameEn": "Plank to Downward-Facing Dog",
+      "score": 7,
+      "decision": "ENRICH_PARTIAL",
+      "selectionReason": "ACE exercise-specific sequence supports setup/execution/cues and no-equipment mechanics, but does not explicitly enumerate common errors.",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "equipment",
+          "value": [],
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "resistanceMode",
+          "value": "NONE",
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "descriptionIt",
+          "value": "Transizione controllata dalla plank alla posizione di downward-facing dog, coordinata con la respirazione.",
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "setupIt",
+          "value": "Assumi una plank con polsi sotto le spalle, gambe completamente estese e dita dei piedi a terra, mantenendo la colonna allungata.",
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "executionStepsIt",
+          "value": [
+            "Inspira lentamente mantenendo stabile la plank e la colonna allungata.",
+            "Espira spingendo i fianchi verso l’alto, il petto verso le cosce e i talloni verso il tappetino fino a formare una V rovesciata.",
+            "Ritorna con controllo alla plank e ripeti coordinando il movimento con il respiro."
+          ],
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "techniqueCuesIt",
+          "value": [
+            "Mantieni i polsi allineati sotto le spalle nella plank.",
+            "Conserva una colonna allungata e muoviti lentamente con il respiro.",
+            "Nella V rovesciata guida il petto verso le cosce senza perdere controllo."
+          ],
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "commonErrorsIt"
+      ],
+      "instructionBlockComplete": false,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-scapula-push-up",
+      "canonicalNameEn": "Scapula Push-Up",
+      "score": 7,
+      "decision": "ENRICH_PARTIAL",
+      "selectionReason": "ACE exercise-specific section supports setup/execution/cues and bodyweight mechanics, but does not explicitly enumerate common errors.",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "equipment",
+          "value": [],
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "descriptionIt",
+          "value": "Movimento di controllo scapolare in plank in cui il torace scende e risale attraverso retrazione e protrazione delle scapole senza piegare i gomiti.",
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "setupIt",
+          "value": "Assumi una plank prona sugli avambracci, con il corpo in linea dalla testa ai piedi e le spalle organizzate in posizione stabile.",
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "executionStepsIt",
+          "value": [
+            "Lascia scendere il torace permettendo alle scapole di avvicinarsi dietro la schiena senza perdere la linea del corpo.",
+            "Spingi il torace verso l’alto allontanando le scapole tra loro e mantenendo stabile la posizione delle spalle.",
+            "Ripeti con controllo; se necessario esegui la variante in appoggio sulle ginocchia."
+          ],
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        },
+        {
+          "field": "techniqueCuesIt",
+          "value": [
+            "Mantieni una linea continua dalla testa ai piedi.",
+            "Muovi il torace attraverso le scapole senza perdere la stabilità delle spalle.",
+            "Usa la variante sulle ginocchia se serve per conservare il controllo."
+          ],
+          "confidence": "HIGH",
+          "source": "ACE_TECHNICAL"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "commonErrorsIt"
+      ],
+      "instructionBlockComplete": false,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-stability-ball-jackknife",
+      "canonicalNameEn": "Stability Ball Jackknife",
+      "score": 7,
+      "decision": "NO_CHANGE",
+      "selectionReason": "Available ACE page describes a jackknife push-up combination, not the exact canonical stability-ball jackknife identity.",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "instructionBlockComplete": false,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-stability-ball-rollout",
+      "canonicalNameEn": "Stability Ball Rollout",
+      "score": 7,
+      "decision": "NO_CHANGE",
+      "selectionReason": "No sufficiently complete primary exercise-specific source was verified for all requested technique fields in this pass.",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "instructionBlockComplete": false,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-wall-balls",
+      "canonicalNameEn": "Wall Balls",
+      "score": 8,
+      "decision": "ENRICH",
+      "selectionReason": "CrossFit exercise-specific guide has setup, execution, coaching points and explicit common mistakes.",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "descriptionIt",
+          "value": "Movimento ciclico che combina front squat e spinta/lancio di una palla medica verso un bersaglio alto.",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "setupIt",
+          "value": "Parti nel fondo di un front squat con piedi completamente appoggiati, palla sostenuta davanti al petto e bersaglio davanti a te.",
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "executionStepsIt",
+          "value": [
+            "Spingi con le gambe e risali dal front squat fino alla completa estensione di anche e ginocchia.",
+            "Trasferisci la spinta a spalle e braccia e lancia la palla verso il bersaglio.",
+            "Ricevi il rimbalzo con le braccia distese, assorbilo nella posizione front-rack e scendi subito nel front squat successivo."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "techniqueCuesIt",
+          "value": [
+            "Raggiungi la profondità prevista del front squat mantenendo il piede ben appoggiato.",
+            "Completa l’estensione di anche e gambe prima di affidare il lancio alle braccia.",
+            "Mantieni il tronco stabile e indirizza la palla per un contatto controllato con il bersaglio."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        },
+        {
+          "field": "commonErrorsIt",
+          "value": [
+            "Scendere troppo poco nel front squat.",
+            "Usare le braccia prima di aver completato l’estensione di anche e gambe.",
+            "Colpire il bersaglio in modo improprio o mancarlo."
+          ],
+          "confidence": "HIGH",
+          "source": "CROSSFIT_TECHNICAL"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level"
+      ],
+      "instructionBlockComplete": true,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-weighted-dip",
+      "canonicalNameEn": "Weighted Dip",
+      "score": 7,
+      "decision": "NO_CHANGE",
+      "selectionReason": "Available sources do not independently establish the canonical external-loading implementation and full instruction block.",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "instructionBlockComplete": false,
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-weighted-pistols",
+      "canonicalNameEn": "Weighted Pistols",
+      "score": 7,
+      "decision": "NO_CHANGE",
+      "selectionReason": "CrossFit single-leg squat source is bodyweight and cannot be propagated to the weighted variant's load semantics.",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "equipment",
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "instructionBlockComplete": false,
+      "fullyComplete": false
+    }
+  ],
+  "summary": {
+    "recordsAnalyzed": 10,
+    "recordsFullyComplete": 0,
+    "fieldsResolvedTotal": 31,
+    "equipmentResolved": 2,
+    "resistanceModeResolved": 5,
+    "movementPatternResolved": 1,
+    "levelResolved": 0,
+    "skillLinkResolved": 0,
+    "descriptionResolved": 5,
+    "setupResolved": 5,
+    "executionResolved": 5,
+    "techniqueCuesResolved": 5,
+    "commonErrorsResolved": 3,
+    "instructionBlocksCompleted": 3,
+    "recordsStillPartial": 10
+  }
+}

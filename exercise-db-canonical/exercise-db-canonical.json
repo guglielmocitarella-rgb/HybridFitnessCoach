@@ -61409,15 +61409,25 @@
     ],
     "level": null,
     "measure": "REPS",
-    "descriptionIt": "Medicine Ball Clean è un esercizio della famiglia olympic. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Posiziona l'attrezzo e gli appoggi secondo la variante, crea tensione nel tronco e prepara anche, ginocchia e spalle a produrre forza in sequenza.",
+    "descriptionIt": "Clean con palla medica dal pavimento alle spalle, ricevuto in accosciata e completato tornando in piedi.",
+    "setupIt": "Posiziona la palla medica a terra tra i piedi. Scendi in posizione di stacco con petto alto e mani ai lati della palla.",
     "executionStepsIt": [
-      "Avvia la tirata mantenendo l'attrezzo vicino al corpo e il tronco stabile.",
-      "Accelera con un'estensione coordinata di anche e ginocchia; le braccia guidano l'attrezzo senza anticipare la spinta delle gambe.",
-      "Ricevi o completa la variante nella posizione prevista, stabilizza il carico e ritorna alla posizione iniziale in controllo."
+      "Estendi gambe e anche portando la palla verso l’alto con le braccia inizialmente distese.",
+      "Completa l’estensione e subito esegui una scrollata di spalle.",
+      "Tirati rapidamente sotto la palla e ricevila alle spalle nel fondo di un front squat.",
+      "Rialzati fino alla completa estensione di anche e ginocchia."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Completa l’estensione di anche e gambe prima della scrollata e del piegamento delle braccia.",
+      "Mantieni il petto alto e la curva lombare stabile.",
+      "Tieni la palla vicina e ricevi con gomiti alti, ginocchia in linea con le punte."
+    ],
+    "commonErrorsIt": [
+      "Interrompere l’estensione di anche e gambe prima di scrollare o tirarsi sotto.",
+      "Piegare presto le braccia o trasformare il movimento in un curl/lancio della palla.",
+      "Perdere la curva lombare o spostare eccessivamente il peso sulle punte.",
+      "Ricevere la palla con petto chiuso, schiena arrotondata o gomiti bassi."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -61434,13 +61444,49 @@
         "source_name": "Medicine Ball Clean",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 27"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Medicine-Ball Clean",
+        "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Medicine-Ball Clean",
+        "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Medicine-Ball Clean",
+        "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Medicine-Ball Clean",
+        "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Medicine-Ball Clean",
+        "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Medicine-Ball Clean",
+        "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Medicine Ball Clean",
     "runtimeModelNames": [],
@@ -61458,7 +61504,7 @@
     "levelStatus": "UNKNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -61475,6 +61521,42 @@
             "source_name": "Medicine Ball Clean",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 27"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
           }
         ]
       },
@@ -61493,15 +61575,15 @@
         "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Medicine Ball Clean",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 27"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Medicine-Ball Clean",
+          "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+          "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+        },
+        "observedValue": "Weighted medicine ball is lifted from floor to shoulders and received in a squat."
       },
       "level": {
         "status": "UNKNOWN",
@@ -61511,6 +61593,42 @@
             "source_name": "Medicine Ball Clean",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 27"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
           }
         ]
       },
@@ -61538,22 +61656,139 @@
             "source_name": "Medicine Ball Clean",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 27"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Medicine-Ball Clean",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+        },
         "sources": [
           {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Medicine Ball Clean",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 27"
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Medicine-Ball Clean",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
           }
         ]
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Medicine-Ball Clean",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+        }
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Medicine-Ball Clean",
+          "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+        }
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Medicine-Ball Clean",
+          "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+        }
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Medicine-Ball Clean",
+          "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+        }
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Medicine-Ball Clean",
+          "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+        }
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-mid-cable-chest-fly",
@@ -62424,21 +62659,30 @@
     "family": "MUSCLE_UP",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "vertical-pull",
+      "vertical-push"
+    ],
     "equipment": [
       "rings"
     ],
     "level": null,
     "measure": "REPS",
-    "descriptionIt": "Muscle-Up è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi la progressione prevista solo se riesci a mantenere articolazioni e tronco sotto controllo; prepara appoggi e prese prima di caricare la posizione.",
+    "descriptionIt": "Skill agli anelli che porta dalla sospensione sotto gli anelli alla posizione di supporto sopra gli anelli combinando tirata, transizione e dip.",
+    "setupIt": "Appenditi agli anelli impostando una false grip stabile e mantieni gli anelli vicini al corpo.",
     "executionStepsIt": [
-      "Entra nella posizione o nella transizione in modo progressivo.",
-      "Mantieni tensione globale e allineamento richiesto evitando compensi.",
-      "Esci dalla posizione in controllo prima del cedimento tecnico."
+      "Tira gli anelli verso il petto mantenendoli vicini al corpo.",
+      "Porta il petto sopra la parte inferiore degli anelli attraversando la transizione.",
+      "Spingi sugli anelli fino alla posizione di supporto con le braccia estese."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni la false grip durante la tirata e la transizione.",
+      "Tieni gli anelli il più vicino possibile al corpo.",
+      "Inclina il busto in avanti durante la transizione prima della spinta finale."
+    ],
+    "commonErrorsIt": [
+      "Perdere la false grip durante la ripetizione."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -62467,13 +62711,55 @@
         "source_name": "Muscle-up",
         "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
         "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Muscle-Up",
+        "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Muscle-Up",
+        "evidence_type": "EXERCISE_SPECIFIC_COMPOUND_PATTERN",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Muscle-Up",
+        "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Muscle-Up",
+        "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Muscle-Up",
+        "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Muscle-Up",
+        "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit Level 1 Training Guide — Muscle-Up Common Faults and Corrections",
+        "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+        "locator": "https://library.crossfit.com/free/pdf/CFJ_English_Level1_TrainingGuide.pdf"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Muscle-Up",
     "runtimeModelNames": [
@@ -62651,8 +62937,8 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "EXTERNAL_SOURCE_DIRECT",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -62673,50 +62959,25 @@
         "mapping": "canonical generic muscle-up matched conservatively to source explicitly teaching ring muscle-up"
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Muscle-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 39"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Muscle-Up",
-            "evidence_type": "INDEX_HEADING",
-            "locator": "Index exercise 11"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Muscle-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Muscle-Up",
+          "evidence_type": "EXERCISE_SPECIFIC_COMPOUND_PATTERN",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+        },
+        "observedValue": "Combination of pull-up, transition and dip."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Muscle-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 39"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Muscle-Up",
-            "evidence_type": "INDEX_HEADING",
-            "locator": "Index exercise 11"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Muscle-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Muscle-Up",
+          "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+        }
       },
       "level": {
         "status": "UNKNOWN",
@@ -62738,6 +62999,48 @@
             "source_name": "Muscle-up",
             "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
             "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_COMPOUND_PATTERN",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit Level 1 Training Guide — Muscle-Up Common Faults and Corrections",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://library.crossfit.com/free/pdf/CFJ_English_Level1_TrainingGuide.pdf"
           }
         ]
       },
@@ -62762,30 +63065,99 @@
         "source": null
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Muscle-Up",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+        },
         "sources": [
           {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Muscle-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 39"
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
           },
           {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Muscle-Up",
-            "evidence_type": "INDEX_HEADING",
-            "locator": "Index exercise 11"
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
           },
           {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Muscle-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Muscle-Up",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit Level 1 Training Guide — Muscle-Up Common Faults and Corrections",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://library.crossfit.com/free/pdf/CFJ_English_Level1_TrainingGuide.pdf"
           }
         ]
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Muscle-Up",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+        }
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Muscle-Up",
+          "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+        }
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Muscle-Up",
+          "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+        }
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Muscle-Up",
+          "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-muscle-up-journal-classic"
+        }
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit Level 1 Training Guide — Muscle-Up Common Faults and Corrections",
+          "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+          "locator": "https://library.crossfit.com/free/pdf/CFJ_English_Level1_TrainingGuide.pdf"
+        }
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-muscle-up-negatives",
@@ -73094,14 +73466,18 @@
     "equipment": [],
     "level": null,
     "measure": "SECONDS",
-    "descriptionIt": "Plank to Downward-Facing Dog è un esercizio della famiglia total body mobility. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una base stabile e prepara l'articolazione interessata con un range confortevole.",
+    "descriptionIt": "Transizione controllata dalla plank alla posizione di downward-facing dog, coordinata con la respirazione.",
+    "setupIt": "Assumi una plank con polsi sotto le spalle, gambe completamente estese e dita dei piedi a terra, mantenendo la colonna allungata.",
     "executionStepsIt": [
-      "Esegui il movimento articolare lentamente nel range controllabile.",
-      "Mantieni il tronco stabile evitando compensi delle articolazioni vicine.",
-      "Ritorna al punto di partenza con lo stesso controllo."
+      "Inspira lentamente mantenendo stabile la plank e la colonna allungata.",
+      "Espira spingendo i fianchi verso l’alto, il petto verso le cosce e i talloni verso il tappetino fino a formare una V rovesciata.",
+      "Ritorna con controllo alla plank e ripeti coordinando il movimento con il respiro."
     ],
-    "techniqueCuesIt": [],
+    "techniqueCuesIt": [
+      "Mantieni i polsi allineati sotto le spalle nella plank.",
+      "Conserva una colonna allungata e muoviti lentamente con il respiro.",
+      "Nella V rovesciata guida il petto verso le cosce senza perdere controllo."
+    ],
     "commonErrorsIt": [],
     "primaryMuscles": [],
     "secondaryMuscles": [],
@@ -73119,13 +73495,49 @@
         "source_name": "Plank to Downward-Facing Dog",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 81"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Plank-to-downward Facing Dog",
+        "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Plank-to-downward Facing Dog",
+        "evidence_type": "EXERCISE_SPECIFIC_MOBILITY_TECHNIQUE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Plank-to-downward Facing Dog",
+        "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Plank-to-downward Facing Dog",
+        "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Plank-to-downward Facing Dog",
+        "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Plank-to-downward Facing Dog",
+        "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Plank to Downward-Facing Dog",
     "runtimeModelNames": [],
@@ -73137,11 +73549,11 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "NONE",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -73151,15 +73563,14 @@
         "source": "ex-plank-to-downward-facing-dog"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Plank to Downward-Facing Dog",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 81"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Plank-to-downward Facing Dog",
+          "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+        }
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -73170,15 +73581,14 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Plank to Downward-Facing Dog",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 81"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Plank-to-downward Facing Dog",
+          "evidence_type": "EXERCISE_SPECIFIC_MOBILITY_TECHNIQUE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+        }
       },
       "level": {
         "status": "UNKNOWN",
@@ -73188,6 +73598,42 @@
             "source_name": "Plank to Downward-Facing Dog",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 81"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_MOBILITY_TECHNIQUE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
           }
         ]
       },
@@ -73215,6 +73661,42 @@
             "source_name": "Plank to Downward-Facing Dog",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 81"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_MOBILITY_TECHNIQUE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
           }
         ]
       },
@@ -73227,8 +73709,84 @@
             "source_name": "Plank to Downward-Facing Dog",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 81"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_MOBILITY_TECHNIQUE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Plank-to-downward Facing Dog",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
           }
         ]
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Plank-to-downward Facing Dog",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+        }
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Plank-to-downward Facing Dog",
+          "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+        }
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Plank-to-downward Facing Dog",
+          "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+        }
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Plank-to-downward Facing Dog",
+          "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/6106/a-yoga-routine-to-energize-your-morning-no-coffee-needed/"
+        }
       }
     }
   },
@@ -86096,14 +86654,18 @@
     "equipment": [],
     "level": null,
     "measure": "REPS",
-    "descriptionIt": "Scapula Push-Up è un esercizio della famiglia scapular control. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una base stabile e prepara l'articolazione interessata con un range confortevole.",
+    "descriptionIt": "Movimento di controllo scapolare in plank in cui il torace scende e risale attraverso retrazione e protrazione delle scapole senza piegare i gomiti.",
+    "setupIt": "Assumi una plank prona sugli avambracci, con il corpo in linea dalla testa ai piedi e le spalle organizzate in posizione stabile.",
     "executionStepsIt": [
-      "Esegui il movimento articolare lentamente nel range controllabile.",
-      "Mantieni il tronco stabile evitando compensi delle articolazioni vicine.",
-      "Ritorna al punto di partenza con lo stesso controllo."
+      "Lascia scendere il torace permettendo alle scapole di avvicinarsi dietro la schiena senza perdere la linea del corpo.",
+      "Spingi il torace verso l’alto allontanando le scapole tra loro e mantenendo stabile la posizione delle spalle.",
+      "Ripeti con controllo; se necessario esegui la variante in appoggio sulle ginocchia."
     ],
-    "techniqueCuesIt": [],
+    "techniqueCuesIt": [
+      "Mantieni una linea continua dalla testa ai piedi.",
+      "Muovi il torace attraverso le scapole senza perdere la stabilità delle spalle.",
+      "Usa la variante sulle ginocchia se serve per conservare il controllo."
+    ],
     "commonErrorsIt": [],
     "primaryMuscles": [],
     "secondaryMuscles": [],
@@ -86127,13 +86689,49 @@
         "source_name": "Scapula Push-Up",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 1"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Scapular Push-ups",
+        "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Scapular Push-ups",
+        "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Scapular Push-ups",
+        "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Scapular Push-ups",
+        "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Scapular Push-ups",
+        "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+      },
+      {
+        "source_id": "ACE_TECHNICAL",
+        "source_name": "ACE — Scapular Push-ups",
+        "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Scapula Push-Up",
     "runtimeModelNames": [],
@@ -86145,11 +86743,11 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -86159,21 +86757,14 @@
         "source": "ex-scapula-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Scapula Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Scapula Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 1"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Scapular Push-ups",
+          "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+        }
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -86184,21 +86775,14 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Scapula Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Scapula Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 1"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Scapular Push-ups",
+          "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+        }
       },
       "level": {
         "status": "UNKNOWN",
@@ -86214,6 +86798,42 @@
             "source_name": "Scapula Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 1"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
           }
         ]
       },
@@ -86247,6 +86867,42 @@
             "source_name": "Scapula Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 1"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
           }
         ]
       },
@@ -86265,8 +86921,84 @@
             "source_name": "Scapula Push-Up",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 1"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_NO_EQUIPMENT_SETUP",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_BODYWEIGHT_TECHNIQUE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+          },
+          {
+            "source_id": "ACE_TECHNICAL",
+            "source_name": "ACE — Scapular Push-ups",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
           }
         ]
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Scapular Push-ups",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+        }
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Scapular Push-ups",
+          "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+        }
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Scapular Push-ups",
+          "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+        }
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_TECHNICAL",
+          "source_name": "ACE — Scapular Push-ups",
+          "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5007/improve-your-stability-and-mobility-with-these-functional-exercises/"
+        }
       }
     }
   },
@@ -113624,15 +114356,23 @@
     ],
     "level": null,
     "measure": "REPS",
-    "descriptionIt": "Wall Balls è un esercizio della famiglia total body. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Prepara spazio e attrezzatura necessari e parti da un'intensità che consenta controllo del gesto.",
+    "descriptionIt": "Movimento ciclico che combina front squat e spinta/lancio di una palla medica verso un bersaglio alto.",
+    "setupIt": "Parti nel fondo di un front squat con piedi completamente appoggiati, palla sostenuta davanti al petto e bersaglio davanti a te.",
     "executionStepsIt": [
-      "Avvia il gesto con ritmo regolare e postura stabile.",
-      "Mantieni la cadenza prevista senza sacrificare la qualità del movimento.",
-      "Riduci progressivamente l'intensità al termine dell'intervallo o della durata prescritta."
+      "Spingi con le gambe e risali dal front squat fino alla completa estensione di anche e ginocchia.",
+      "Trasferisci la spinta a spalle e braccia e lancia la palla verso il bersaglio.",
+      "Ricevi il rimbalzo con le braccia distese, assorbilo nella posizione front-rack e scendi subito nel front squat successivo."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Raggiungi la profondità prevista del front squat mantenendo il piede ben appoggiato.",
+      "Completa l’estensione di anche e gambe prima di affidare il lancio alle braccia.",
+      "Mantieni il tronco stabile e indirizza la palla per un contatto controllato con il bersaglio."
+    ],
+    "commonErrorsIt": [
+      "Scendere troppo poco nel front squat.",
+      "Usare le braccia prima di aver completato l’estensione di anche e gambe.",
+      "Colpire il bersaglio in modo improprio o mancarlo."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -113649,13 +114389,49 @@
         "source_name": "Wall Balls",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 40"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Wall-Ball Shot",
+        "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+        "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Wall-Ball Shot",
+        "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Wall-Ball Shot",
+        "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Wall-Ball Shot",
+        "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Wall-Ball Shot",
+        "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+      },
+      {
+        "source_id": "CROSSFIT_TECHNICAL",
+        "source_name": "CrossFit — The Wall-Ball Shot",
+        "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+        "locator": "https://www.crossfit.com/essentials/the-wall-ball"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Wall Balls",
     "runtimeModelNames": [],
@@ -113673,7 +114449,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CARDIO",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "EXTERNAL_LOAD",
     "movementPatternStatus": "V2_MOVEMENT_TYPE_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -113690,6 +114466,42 @@
             "source_name": "Wall Balls",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 40"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
           }
         ]
       },
@@ -113702,15 +114514,15 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Wall Balls",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 40"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Wall-Ball Shot",
+          "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+          "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+        },
+        "observedValue": "Medicine ball of selectable weight is thrown to a wall/target."
       },
       "level": {
         "status": "UNKNOWN",
@@ -113720,6 +114532,42 @@
             "source_name": "Wall Balls",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 40"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
           }
         ]
       },
@@ -113747,22 +114595,139 @@
             "source_name": "Wall Balls",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 40"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_LOAD_AND_TECHNIQUE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Wall-Ball Shot",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+        },
         "sources": [
           {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Wall Balls",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 40"
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+          },
+          {
+            "source_id": "CROSSFIT_TECHNICAL",
+            "source_name": "CrossFit — The Wall-Ball Shot",
+            "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+            "locator": "https://www.crossfit.com/essentials/the-wall-ball"
           }
         ]
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Wall-Ball Shot",
+          "evidence_type": "EXERCISE_SPECIFIC_DESCRIPTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+        }
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Wall-Ball Shot",
+          "evidence_type": "EXERCISE_SPECIFIC_SETUP_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+        }
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Wall-Ball Shot",
+          "evidence_type": "EXERCISE_SPECIFIC_EXECUTION_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+        }
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Wall-Ball Shot",
+          "evidence_type": "EXERCISE_SPECIFIC_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+        }
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "CROSSFIT_TECHNICAL",
+          "source_name": "CrossFit — The Wall-Ball Shot",
+          "evidence_type": "EXERCISE_SPECIFIC_COMMON_FAULTS_PARAPHRASE",
+          "locator": "https://www.crossfit.com/essentials/the-wall-ball"
+        }
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-wall-handstand",

@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "warnings": [
-    "99 exercises still have unknown equipment requirements",
+    "97 exercises still have unknown equipment requirements",
     "18 exercises use equipment tokens not supported by the current app catalog",
-    "177 exercises still lack an explicit movement pattern",
+    "176 exercises still lack an explicit movement pattern",
     "500 exercises lack supported execution instructions",
     "438 exercises have unknown level",
-    "116 exercises have unknown resistance mode",
+    "111 exercises have unknown resistance mode",
     "143 skill exercises lack a stable SkillCatalog link"
   ],
   "releaseReady": false,
@@ -17,12 +17,12 @@
     "progression_edges": 113
   },
   "blockers": {
-    "equipment_unknown": 99,
+    "equipment_unknown": 97,
     "equipment_unsupported_by_app": 18,
-    "movement_pattern_missing": 177,
+    "movement_pattern_missing": 176,
     "instruction_incomplete": 500,
     "level_unknown": 438,
-    "resistance_mode_unknown": 116,
+    "resistance_mode_unknown": 111,
     "skill_links_missing": 143
   }
 }
