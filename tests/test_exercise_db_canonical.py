@@ -409,7 +409,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertEqual(provenance["confidence"], "HIGH")
             self.assertEqual(provenance["source"]["source_id"], "V2_EQUIPMENT_RESISTANCE_RULE")
 
-        for excluded_id in ("ex-assisted-dip", "ex-weighted-dip", "ex-banded-biceps-curl", "ex-muscle-up", "ex-normal-muscle-up"):
+        for excluded_id in ("ex-assisted-dip", "ex-weighted-dip", "ex-banded-biceps-curl", "ex-normal-muscle-up"):
             self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
 
     def test_resolves_non_resistance_mobility_and_smr_as_none(self):
@@ -477,7 +477,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(batch["count"], 15)
         self.assertEqual(batch["summary"]["resistanceModeResolved"], 15)
         self.assertGreater(batch["summary"]["movementPatternResolved"], 0)
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 116)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 111)
         for item in batch["records"]:
             record = by_id[item["id"]]
             if item["id"] == "ex-it-band-foam-rolling":
@@ -532,6 +532,41 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertEqual(provenance["status"], "EXTERNAL_SOURCE_DIRECT")
             self.assertEqual(provenance["confidence"], "HIGH")
             self.assertEqual(provenance["source"]["source_id"], "ACE_EXERCISE_LIBRARY")
+
+    def test_record_first_batch04_prefers_complete_exercise_specific_sources_without_cross_field_propagation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+            batch = json.loads((output / "RECORD_FIRST_ENRICHMENT_BATCH_04.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(batch["strategy"], "RECORD_FIRST_ENRICHMENT")
+        self.assertEqual(batch["screenedResistanceUnknown"], 116)
+        self.assertEqual(batch["count"], 10)
+        self.assertEqual(batch["summary"]["fieldsResolvedTotal"], 31)
+        self.assertEqual(batch["summary"]["equipmentResolved"], 2)
+        self.assertEqual(batch["summary"]["resistanceModeResolved"], 5)
+        self.assertEqual(batch["summary"]["movementPatternResolved"], 1)
+        self.assertEqual(batch["summary"]["levelResolved"], 0)
+        self.assertEqual(batch["summary"]["descriptionResolved"], 5)
+        self.assertEqual(batch["summary"]["setupResolved"], 5)
+        self.assertEqual(batch["summary"]["executionResolved"], 5)
+        self.assertEqual(batch["summary"]["techniqueCuesResolved"], 5)
+        self.assertEqual(batch["summary"]["commonErrorsResolved"], 3)
+        self.assertEqual(batch["summary"]["instructionBlocksCompleted"], 3)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 111)
+        for exercise_id in ("ex-medicine-ball-clean", "ex-wall-balls", "ex-muscle-up"):
+            record = by_id[exercise_id]
+            for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+                self.assertTrue(record[field])
+                self.assertEqual(record["fieldProvenance"][field]["status"], "EXTERNAL_SOURCE_DIRECT")
+                self.assertEqual(record["fieldProvenance"][field]["confidence"], "HIGH")
+        for exercise_id in ("ex-normal-muscle-up", "ex-stability-ball-jackknife", "ex-stability-ball-rollout", "ex-weighted-dip", "ex-weighted-pistols"):
+            item = next(item for item in batch["records"] if item["id"] == exercise_id)
+            self.assertEqual(item["resolvedFields"], [])
+        self.assertEqual(by_id["ex-normal-muscle-up"]["resistanceMode"], "UNKNOWN")
+        self.assertEqual(by_id["ex-weighted-dip"]["resistanceMode"], "UNKNOWN")
+        self.assertEqual(by_id["ex-weighted-pistols"]["resistanceMode"], "UNKNOWN")
 
     def test_record_first_batch02_resolves_reviewed_records_without_cross_field_confidence(self):
         with tempfile.TemporaryDirectory() as temporary:
