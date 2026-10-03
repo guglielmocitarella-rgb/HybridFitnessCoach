@@ -2999,7 +2999,9 @@
     "family": "HALF_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "core-control"
+    ],
     "equipment": [],
     "level": null,
     "measure": "SECONDS",
@@ -3050,8 +3052,8 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [
       {
@@ -3096,26 +3098,34 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Angled Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-angled-half-lever",
+            "family": "HALF_LEVER",
+            "canonicalNameEn": "Angled Half Lever"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Angled Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-angled-half-lever",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "COMPLETE_CAL2"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -16935,11 +16945,13 @@
     "family": "JUMP",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "knee-dominant"
+    ],
     "equipment": [
       "box"
     ],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Box Jumps è un esercizio della famiglia jump. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
@@ -16966,6 +16978,12 @@
         "source_name": "Box Jumps",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 39"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Box Jumps",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/115/box-jumps/"
       }
     ],
     "confidence": "MEDIUM",
@@ -16987,11 +17005,11 @@
       "box"
     ],
     "equipmentStatus": "KNOWN",
-    "levelStatus": "UNKNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -17007,41 +17025,56 @@
             "source_name": "Box Jumps",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 39"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Box Jumps",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/115/box-jumps/"
           }
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Box Jumps",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 39"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-box-jumps",
+            "family": "JUMP",
+            "canonicalNameEn": "Box Jumps"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Box Jumps",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 39"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-box-jumps",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "VELLA_ANATOMY"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Box Jumps",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 39"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Box Jumps",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/115/box-jumps/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -17067,6 +17100,12 @@
             "source_name": "Box Jumps",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 39"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Box Jumps",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/115/box-jumps/"
           }
         ]
       },
@@ -17079,6 +17118,12 @@
             "source_name": "Box Jumps",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 39"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Box Jumps",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/115/box-jumps/"
           }
         ]
       }
@@ -34538,7 +34583,9 @@
     "family": "HALF_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "core-control"
+    ],
     "equipment": [],
     "level": null,
     "measure": "SECONDS",
@@ -34589,8 +34636,8 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [
       {
@@ -34623,26 +34670,34 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Floor Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-floor-half-lever",
+            "family": "HALF_LEVER",
+            "canonicalNameEn": "Floor Half Lever"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Floor Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-floor-half-lever",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "COMPLETE_CAL2"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -43635,7 +43690,9 @@
     "family": "HALF_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "core-control"
+    ],
     "equipment": [],
     "level": null,
     "measure": "SECONDS",
@@ -43686,8 +43743,8 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [
       {
@@ -43732,26 +43789,34 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-half-lever",
+            "family": "HALF_LEVER",
+            "canonicalNameEn": "Half Lever"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-half-lever",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "COMPLETE_CAL2"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -43814,7 +43879,9 @@
     "family": "HALF_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "core-control"
+    ],
     "equipment": [],
     "level": null,
     "measure": "REPS",
@@ -43865,8 +43932,8 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -43886,26 +43953,34 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Bicycles",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-half-lever-bicycles",
+            "family": "HALF_LEVER",
+            "canonicalNameEn": "Half-Lever Bicycles"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Bicycles",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-half-lever-bicycles",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "COMPLETE_CAL2"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -43968,7 +44043,9 @@
     "family": "HALF_LEVER",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "core-control"
+    ],
     "equipment": [],
     "level": null,
     "measure": "REPS",
@@ -44019,8 +44096,8 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -44040,26 +44117,34 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Extensions",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-half-lever-extensions",
+            "family": "HALF_LEVER",
+            "canonicalNameEn": "Half-Lever Extensions"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Extensions",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-half-lever-extensions",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "COMPLETE_CAL2"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -44818,12 +44903,14 @@
     "family": "LEG",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "hinge"
+    ],
     "equipment": [
       "rings",
       "stability_ball"
     ],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
     "descriptionIt": "Hamstring Ball Curl è un esercizio della famiglia leg. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilisci gli appoggi e mantieni bacino e tronco controllati prima di caricare la gamba di lavoro.",
@@ -44850,6 +44937,12 @@
         "source_name": "Hamstring Ball Curl",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Hamstring Curl",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/59/stability-ball-hamstring-curl/"
       }
     ],
     "confidence": "MEDIUM",
@@ -44872,11 +44965,11 @@
       "stability_ball"
     ],
     "equipmentStatus": "KNOWN",
-    "levelStatus": "UNKNOWN",
+    "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -44892,41 +44985,56 @@
             "source_name": "Hamstring Ball Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Hamstring Curl",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/59/stability-ball-hamstring-curl/"
           }
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hamstring Ball Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-hamstring-ball-curl",
+            "family": "LEG",
+            "canonicalNameEn": "Hamstring Ball Curl"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hamstring Ball Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-hamstring-ball-curl",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "SCIENCE_STRENGTH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hamstring Ball Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Hamstring Curl",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/59/stability-ball-hamstring-curl/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -44952,6 +45060,12 @@
             "source_name": "Hamstring Ball Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Hamstring Curl",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/59/stability-ball-hamstring-curl/"
           }
         ]
       },
@@ -44964,6 +45078,12 @@
             "source_name": "Hamstring Ball Curl",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Hamstring Curl",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/59/stability-ball-hamstring-curl/"
           }
         ]
       }
@@ -61281,7 +61401,9 @@
     "family": "OLYMPIC",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "hinge"
+    ],
     "equipment": [
       "medicine_ball"
     ],
@@ -61337,7 +61459,7 @@
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -61357,15 +61479,18 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Medicine Ball Clean",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 27"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-medicine-ball-clean",
+            "family": "OLYMPIC",
+            "canonicalNameEn": "Medicine Ball Clean"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
         "status": "UNKNOWN",
@@ -95673,7 +95798,7 @@
     "equipment": [
       "stability_ball"
     ],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
     "descriptionIt": "Stability Ball Abdominal Crunch è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
@@ -95700,6 +95825,12 @@
         "source_name": "Stability Ball Abdominal Crunch",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 60"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Sit-ups / Crunches",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/"
       }
     ],
     "confidence": "HIGH",
@@ -95721,10 +95852,10 @@
       "stability_ball"
     ],
     "equipmentStatus": "KNOWN",
-    "levelStatus": "UNKNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -95741,6 +95872,12 @@
             "source_name": "Stability Ball Abdominal Crunch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Sit-ups / Crunches",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/"
           }
         ]
       },
@@ -95753,26 +95890,32 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Abdominal Crunch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 60"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-stability-ball-abdominal-crunch",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "NSCA_TECH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Abdominal Crunch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 60"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Sit-ups / Crunches",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -95798,6 +95941,12 @@
             "source_name": "Stability Ball Abdominal Crunch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Sit-ups / Crunches",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/"
           }
         ]
       },
@@ -95810,6 +95959,12 @@
             "source_name": "Stability Ball Abdominal Crunch",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 60"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Sit-ups / Crunches",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/"
           }
         ]
       }
@@ -95824,7 +95979,9 @@
     "family": "POSTERIOR_CHAIN",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "hinge"
+    ],
     "equipment": [
       "stability_ball"
     ],
@@ -95879,8 +96036,8 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -95900,26 +96057,34 @@
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Bridge to Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 69"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-stability-ball-bridge-to-curl",
+            "family": "POSTERIOR_CHAIN",
+            "canonicalNameEn": "Stability Ball Bridge to Curl"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Bridge to Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 69"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-stability-ball-bridge-to-curl",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "NSCA_TECH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
         "status": "UNKNOWN",
@@ -96145,7 +96310,7 @@
     "equipment": [
       "stability_ball"
     ],
-    "level": null,
+    "level": "Avanzato",
     "measure": "REPS",
     "descriptionIt": "Stability Ball Pike è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
@@ -96172,6 +96337,12 @@
         "source_name": "Stability Ball Pike",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 57"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Pikes",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/61/stability-ball-pikes/"
       }
     ],
     "confidence": "HIGH",
@@ -96193,10 +96364,10 @@
       "stability_ball"
     ],
     "equipmentStatus": "KNOWN",
-    "levelStatus": "UNKNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -96213,6 +96384,12 @@
             "source_name": "Stability Ball Pike",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 57"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Pikes",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/61/stability-ball-pikes/"
           }
         ]
       },
@@ -96225,26 +96402,32 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Pike",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 57"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-stability-ball-pike",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "NSCA_TECH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Pike",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 57"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Pikes",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/61/stability-ball-pikes/"
+        },
+        "observedValue": "Advanced",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -96270,6 +96453,12 @@
             "source_name": "Stability Ball Pike",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 57"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Pikes",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/61/stability-ball-pikes/"
           }
         ]
       },
@@ -96282,6 +96471,12 @@
             "source_name": "Stability Ball Pike",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 57"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Pikes",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/61/stability-ball-pikes/"
           }
         ]
       }
@@ -96296,11 +96491,13 @@
     "family": "BACK_EXTENSION",
     "relatedFamilies": [],
     "variantOf": null,
-    "movementPattern": [],
+    "movementPattern": [
+      "hinge"
+    ],
     "equipment": [
       "stability_ball"
     ],
-    "level": null,
+    "level": "Avanzato",
     "measure": "REPS",
     "descriptionIt": "Stability Ball Reverse Back Extension è un esercizio della famiglia back extension. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
     "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
@@ -96327,6 +96524,12 @@
         "source_name": "Stability Ball Reverse Back Extension",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 61"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Reverse Extensions",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/64/stability-ball-reverse-extensions/"
       }
     ],
     "confidence": "HIGH",
@@ -96348,11 +96551,11 @@
       "stability_ball"
     ],
     "equipmentStatus": "KNOWN",
-    "levelStatus": "UNKNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
-    "movementPatternStatus": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
+    "movementPatternStatus": "KNOWN",
     "skillIds": [],
     "progressionRelations": [],
     "fieldProvenance": {
@@ -96368,41 +96571,56 @@
             "source_name": "Stability Ball Reverse Back Extension",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 61"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Reverse Extensions",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/64/stability-ball-reverse-extensions/"
           }
         ]
       },
       "movementPattern": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Reverse Back Extension",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 61"
+        "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_FAMILY_PATTERN_RULE",
+          "evidence_type": "RECORD_FIRST_EXERCISE_MECHANICS",
+          "locator": {
+            "id": "ex-stability-ball-reverse-back-extension",
+            "family": "BACK_EXTENSION",
+            "canonicalNameEn": "Stability Ball Reverse Back Extension"
           }
-        ]
+        },
+        "derivation": "Reviewed canonical identity and exercise mechanics determine only the broad movement pattern."
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Reverse Back Extension",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 61"
+        "status": "RECORD_FIRST_EXERCISE_REVIEW",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "REVIEWED_EXERCISE_IDENTITY_EQUIPMENT_AND_MECHANICS",
+          "locator": {
+            "id": "ex-stability-ball-reverse-back-extension",
+            "mode": "BODYWEIGHT",
+            "supportingSourceIds": [
+              "NSCA_TECH"
+            ]
           }
-        ]
+        },
+        "derivation": "Record-first review used only the canonical identity, available apparatus evidence, and exercise mechanics. The conclusion applies only to resistanceMode."
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Reverse Back Extension",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 61"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Reverse Extensions",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/64/stability-ball-reverse-extensions/"
+        },
+        "observedValue": "Advanced",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -96428,6 +96646,12 @@
             "source_name": "Stability Ball Reverse Back Extension",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 61"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Reverse Extensions",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/64/stability-ball-reverse-extensions/"
           }
         ]
       },
@@ -96440,6 +96664,12 @@
             "source_name": "Stability Ball Reverse Back Extension",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 61"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Reverse Extensions",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/64/stability-ball-reverse-extensions/"
           }
         ]
       }

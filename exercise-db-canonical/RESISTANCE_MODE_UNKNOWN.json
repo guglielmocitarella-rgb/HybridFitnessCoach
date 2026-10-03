@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "exercise-db-canonical.json",
   "filter": "resistanceMode == UNKNOWN",
-  "count": 127,
+  "count": 116,
   "records": [
     {
       "id": "ex-4-point-burpee",
@@ -46,53 +46,6 @@
           "source_name": "4-Point Burpee",
           "evidence_type": "TOC_HEADING",
           "locator": "Part 2: Exercises; item 41"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-angled-half-lever",
-      "canonicalNameEn": "Angled Half Lever",
-      "family": "HALF_LEVER",
-      "movementType": "SKILL",
-      "equipmentRequired": [],
-      "equipmentStatus": "UNKNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Angled Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Angled Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "COMPLETE_CAL2",
-          "source_name": "Angled Half Lever",
-          "evidence_type": "INDEX",
-          "locator": "Complete Calisthenics 2e index"
         }
       ],
       "applicationMetadata": {
@@ -774,55 +727,6 @@
           "source_name": "Bodyweight Sit-Ups",
           "evidence_type": "TOC_HEADING",
           "locator": "Part 2: Exercises; item 16"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-box-jumps",
-      "canonicalNameEn": "Box Jumps",
-      "family": "JUMP",
-      "movementType": "PLYOMETRIC",
-      "equipmentRequired": [
-        "box"
-      ],
-      "equipmentStatus": "KNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Box Jumps",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 39"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "V2_DIRECT",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Box Jumps",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 39"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "VELLA_ANATOMY",
-          "source_name": "Box Jumps",
-          "evidence_type": "TOC_HEADING",
-          "locator": "Part 2: Exercises; item 39"
         }
       ],
       "applicationMetadata": {
@@ -1560,53 +1464,6 @@
       }
     },
     {
-      "id": "ex-floor-half-lever",
-      "canonicalNameEn": "Floor Half Lever",
-      "family": "HALF_LEVER",
-      "movementType": "SKILL",
-      "equipmentRequired": [],
-      "equipmentStatus": "UNKNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Floor Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Floor Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "COMPLETE_CAL2",
-          "source_name": "Floor Half Lever",
-          "evidence_type": "INDEX",
-          "locator": "Complete Calisthenics 2e index"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
       "id": "ex-forward-fold",
       "canonicalNameEn": "Forward Fold",
       "family": "MOBILITY",
@@ -1997,147 +1854,6 @@
       }
     },
     {
-      "id": "ex-half-lever",
-      "canonicalNameEn": "Half Lever",
-      "family": "HALF_LEVER",
-      "movementType": "SKILL",
-      "equipmentRequired": [],
-      "equipmentStatus": "UNKNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half Lever",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "COMPLETE_CAL2",
-          "source_name": "Half Lever",
-          "evidence_type": "INDEX",
-          "locator": "Complete Calisthenics 2e index"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-half-lever-bicycles",
-      "canonicalNameEn": "Half-Lever Bicycles",
-      "family": "HALF_LEVER",
-      "movementType": "SKILL",
-      "equipmentRequired": [],
-      "equipmentStatus": "UNKNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Bicycles",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Bicycles",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "COMPLETE_CAL2",
-          "source_name": "Half-Lever Bicycles",
-          "evidence_type": "INDEX",
-          "locator": "Complete Calisthenics 2e index"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-half-lever-extensions",
-      "canonicalNameEn": "Half-Lever Extensions",
-      "family": "HALF_LEVER",
-      "movementType": "SKILL",
-      "equipmentRequired": [],
-      "equipmentStatus": "UNKNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Extensions",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Half-Lever Extensions",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "COMPLETE_CAL2",
-          "source_name": "Half-Lever Extensions",
-          "evidence_type": "INDEX",
-          "locator": "Complete Calisthenics 2e index"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
       "id": "ex-half-lever-swimmers",
       "canonicalNameEn": "Half-Lever Swimmers",
       "family": "HALF_LEVER",
@@ -2177,56 +1893,6 @@
           "source_name": "Half-Lever Swimmers",
           "evidence_type": "INDEX",
           "locator": "Complete Calisthenics 2e index"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-hamstring-ball-curl",
-      "canonicalNameEn": "Hamstring Ball Curl",
-      "family": "LEG",
-      "movementType": "STRENGTH",
-      "equipmentRequired": [
-        "rings",
-        "stability_ball"
-      ],
-      "equipmentStatus": "KNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hamstring Ball Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "V2_DIRECT",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hamstring Ball Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "SCIENCE_STRENGTH",
-          "source_name": "Hamstring Ball Curl",
-          "evidence_type": "INDEX",
-          "locator": "Science of Strength Training index"
         }
       ],
       "applicationMetadata": {
@@ -2902,7 +2568,9 @@
       ],
       "equipmentStatus": "KNOWN",
       "level": null,
-      "movementPattern": [],
+      "movementPattern": [
+        "hinge"
+      ],
       "resistanceMode": "UNKNOWN",
       "resistanceModeProvenance": {
         "status": "UNKNOWN",
@@ -5176,106 +4844,6 @@
       }
     },
     {
-      "id": "ex-stability-ball-abdominal-crunch",
-      "canonicalNameEn": "Stability Ball Abdominal Crunch",
-      "family": "CORE",
-      "movementType": "CORE",
-      "equipmentRequired": [
-        "stability_ball"
-      ],
-      "equipmentStatus": "KNOWN",
-      "level": null,
-      "movementPattern": [
-        "core-control"
-      ],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Abdominal Crunch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 60"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "V2_DIRECT",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Abdominal Crunch",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 60"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "NSCA_TECH",
-          "source_name": "Stability Ball Abdominal Crunch",
-          "evidence_type": "EXERCISE_HEADING",
-          "locator": "Exercise Technique Manual; exercise heading 60"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-stability-ball-bridge-to-curl",
-      "canonicalNameEn": "Stability Ball Bridge to Curl",
-      "family": "POSTERIOR_CHAIN",
-      "movementType": "STRENGTH",
-      "equipmentRequired": [
-        "stability_ball"
-      ],
-      "equipmentStatus": "KNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Bridge to Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 69"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "V2_DIRECT",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Bridge to Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 69"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "NSCA_TECH",
-          "source_name": "Stability Ball Bridge to Curl",
-          "evidence_type": "EXERCISE_HEADING",
-          "locator": "Exercise Technique Manual; exercise heading 69"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
       "id": "ex-stability-ball-jackknife",
       "canonicalNameEn": "Stability Ball Jackknife",
       "family": "CORE",
@@ -5319,106 +4887,6 @@
           "source_name": "Stability Ball Jackknife",
           "evidence_type": "EXERCISE_HEADING",
           "locator": "Exercise Technique Manual; exercise heading 58"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-stability-ball-pike",
-      "canonicalNameEn": "Stability Ball Pike",
-      "family": "CORE",
-      "movementType": "CORE",
-      "equipmentRequired": [
-        "stability_ball"
-      ],
-      "equipmentStatus": "KNOWN",
-      "level": null,
-      "movementPattern": [
-        "core-control"
-      ],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Pike",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 57"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "V2_DIRECT",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Pike",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 57"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "NSCA_TECH",
-          "source_name": "Stability Ball Pike",
-          "evidence_type": "EXERCISE_HEADING",
-          "locator": "Exercise Technique Manual; exercise heading 57"
-        }
-      ],
-      "applicationMetadata": {
-        "sourceEntries": [],
-        "ambiguousSourceEntries": []
-      }
-    },
-    {
-      "id": "ex-stability-ball-reverse-back-extension",
-      "canonicalNameEn": "Stability Ball Reverse Back Extension",
-      "family": "BACK_EXTENSION",
-      "movementType": "CORE",
-      "equipmentRequired": [
-        "stability_ball"
-      ],
-      "equipmentStatus": "KNOWN",
-      "level": null,
-      "movementPattern": [],
-      "resistanceMode": "UNKNOWN",
-      "resistanceModeProvenance": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Reverse Back Extension",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 61"
-          }
-        ]
-      },
-      "equipmentProvenance": {
-        "status": "V2_DIRECT",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Stability Ball Reverse Back Extension",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 61"
-          }
-        ]
-      },
-      "identitySource": "EXERCISE_DB_V2",
-      "modelSourceRefs": [],
-      "sources": [
-        {
-          "source_id": "NSCA_TECH",
-          "source_name": "Stability Ball Reverse Back Extension",
-          "evidence_type": "EXERCISE_HEADING",
-          "locator": "Exercise Technique Manual; exercise heading 61"
         }
       ],
       "applicationMetadata": {
