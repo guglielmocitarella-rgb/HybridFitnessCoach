@@ -1,20 +1,156 @@
 {
-  "status": "PARTIAL",
-  "completed": 800,
+  "audit": "matching-audit-2026-10-03",
+  "state": "MATCHING_COMPLETE",
+  "processed": 1087,
+  "unique": 1087,
+  "missing": 0,
+  "duplicates": 0,
   "total": 1087,
-  "last_id": "ex-machine-cable-front-lat-pulldown",
-  "next_start_index": 800,
-  "order": "canonical id lexicographic",
-  "baseline": "8c19744f32008d25fbe1b821359b51a7f0256dcb",
-  "completed_checkpoints": [
-    "0000-0099.json.gz",
-    "0100-0199.json.gz",
-    "0200-0299.json.gz",
-    "0300-0399.json.gz",
-    "0400-0499.json.gz",
-    "0500-0599.json.gz",
-    "0600-0699.json.gz",
-    "0700-0799.json.gz"
-  ],
-  "restart": "Fetch source-manifest.json and each pinned data blob using github_fetch_blob (large content files API returns empty). Fetch canonical blob 8786eaf73f4c1bf8cd623243f43312dd62db96f9. Place canonical.json, manifest.json, source0.json..source5.json in work/ sibling to audit/. Decompress checkpoint into audit/checkpoints/. Run python audit/matcher.py --start 800 --count 100. Persist each checkpoint before next tranche. Never replace canonical."
+  "checkpoint_count": 12,
+  "checkpoints": [
+    {
+      "file": "0000-0099.json.gz",
+      "start": 0,
+      "end": 99,
+      "count": 100,
+      "digest": "828024737377537e89751ee7ab61bced2cfdd4f64b2c1a8db57bda1c501ccde4",
+      "statistics": {
+        "NESSUN MATCH": 246,
+        "MATCH ALTAMENTE PROBABILE": 77,
+        "MATCH AMBIGUO": 808
+      }
+    },
+    {
+      "file": "0100-0199.json.gz",
+      "start": 100,
+      "end": 199,
+      "count": 100,
+      "digest": "607b7f5bbb621e6ac835cd774622e379ca7018f2bd6b90e28fda8d0bde00802c",
+      "statistics": {
+        "NESSUN MATCH": 308,
+        "MATCH ALTAMENTE PROBABILE": 95,
+        "MATCH AMBIGUO": 851
+      }
+    },
+    {
+      "file": "0200-0299.json.gz",
+      "start": 200,
+      "end": 299,
+      "count": 100,
+      "digest": "82c3ce01ef84e3a921a8144ea735b22aedf842cdb076c1f97c0ef255ed942867",
+      "statistics": {
+        "NESSUN MATCH": 289,
+        "MATCH AMBIGUO": 728,
+        "MATCH ALTAMENTE PROBABILE": 59
+      }
+    },
+    {
+      "file": "0300-0399.json.gz",
+      "start": 300,
+      "end": 399,
+      "count": 100,
+      "digest": "3f720d029d905d4c365f6d1bb7f601c2eadedbaf45451b552d3dbbe2b69ed457",
+      "statistics": {
+        "NESSUN MATCH": 317,
+        "MATCH AMBIGUO": 712,
+        "MATCH ALTAMENTE PROBABILE": 38
+      }
+    },
+    {
+      "file": "0400-0499.json.gz",
+      "start": 400,
+      "end": 499,
+      "count": 100,
+      "digest": "a3b04a79356515d85e94d1b00615e83ab3ab8ec8638d38820bf39c40bf627982",
+      "statistics": {
+        "MATCH AMBIGUO": 700,
+        "NESSUN MATCH": 283,
+        "MATCH ALTAMENTE PROBABILE": 88
+      }
+    },
+    {
+      "file": "0500-0599.json.gz",
+      "start": 500,
+      "end": 599,
+      "count": 100,
+      "digest": "fdd5b151f409fe9cc993af40bf58cbea7cd96721b3299712b8c105b844fcdf56",
+      "statistics": {
+        "NESSUN MATCH": 326,
+        "MATCH AMBIGUO": 659,
+        "MATCH ALTAMENTE PROBABILE": 51
+      }
+    },
+    {
+      "file": "0600-0699.json.gz",
+      "start": 600,
+      "end": 699,
+      "count": 100,
+      "digest": "b095c506e8ca0fc27ed420798598667e07e88f60a37a415f24eec68c44c661a5",
+      "statistics": {
+        "MATCH AMBIGUO": 839,
+        "NESSUN MATCH": 323,
+        "MATCH ALTAMENTE PROBABILE": 68
+      }
+    },
+    {
+      "file": "0700-0799.json.gz",
+      "start": 700,
+      "end": 799,
+      "count": 100,
+      "digest": "b1075cf39d415a75f4fa55cd72bce1ef9574a25653cd51098c3405deff1baac8",
+      "statistics": {
+        "MATCH AMBIGUO": 776,
+        "MATCH ALTAMENTE PROBABILE": 65,
+        "NESSUN MATCH": 313
+      }
+    },
+    {
+      "file": "0800-0869.json",
+      "start": 800,
+      "end": 869,
+      "count": 70,
+      "digest": "3ef54c9a4aaee7dd6a7aea53653e4e1d9f1f6931b8ac78188006e0e944e2938a",
+      "statistics": {
+        "NESSUN MATCH": 213,
+        "MATCH AMBIGUO": 591,
+        "MATCH ALTAMENTE PROBABILE": 43
+      }
+    },
+    {
+      "file": "0870-0939.json",
+      "start": 870,
+      "end": 939,
+      "count": 70,
+      "digest": "ce44ad22f30129aef50aed44228a8cbdbca2c63e8cdd2efe995028047b35eade",
+      "statistics": {
+        "NESSUN MATCH": 256,
+        "MATCH ALTAMENTE PROBABILE": 47,
+        "MATCH AMBIGUO": 425
+      }
+    },
+    {
+      "file": "0940-1009.json",
+      "start": 940,
+      "end": 1009,
+      "count": 70,
+      "digest": "02a37db655b08580df14814a9fc3861a42690420fb5fb6fd5b0b264341d9163b",
+      "statistics": {
+        "NESSUN MATCH": 231,
+        "MATCH AMBIGUO": 409,
+        "MATCH ALTAMENTE PROBABILE": 22
+      }
+    },
+    {
+      "file": "1010-1086.json",
+      "start": 1010,
+      "end": 1086,
+      "count": 77,
+      "digest": "3452a3e85a706ab6eac86ba8a56c1d2a2d6599f71dfbfb851b80c3a8ee7ddffc",
+      "statistics": {
+        "NESSUN MATCH": 262,
+        "MATCH AMBIGUO": 313,
+        "MATCH ALTAMENTE PROBABILE": 22
+      }
+    }
+  ]
 }
