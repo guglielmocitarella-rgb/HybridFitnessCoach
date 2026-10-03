@@ -24121,17 +24121,26 @@
       "core-control"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "REPS",
-    "descriptionIt": "Deadbug è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
+    "descriptionIt": "Esercizio di controllo del core in posizione supina che coordina il movimento degli arti mantenendo stabile il tratto lombopelvico.",
+    "setupIt": "Sdraiati supino con ginocchia piegate e piedi inizialmente a terra; porta le braccia in posizione comoda e stabilizza scapole, bacino e colonna prima di iniziare.",
     "executionStepsIt": [
-      "Attiva il tronco prima di muovere gli arti o il bacino.",
-      "Completa il movimento senza perdere il controllo lombopelvico.",
-      "Ritorna lentamente alla posizione iniziale mantenendo la tensione del core."
+      "Attiva il core e appiattisci in modo controllato la zona lombare senza trattenere il respiro.",
+      "Solleva gli arti nella posizione di lavoro mantenendo il bacino stabile.",
+      "Muovi lentamente gli arti previsti dalla ripetizione senza perdere il controllo lombopelvico.",
+      "Ritorna alla posizione iniziale mantenendo la tensione del core."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni il bacino fermo durante il movimento degli arti.",
+      "Respira normalmente mentre stabilizzi il tronco.",
+      "Muovi gli arti solo nel range in cui la zona lombare resta controllata."
+    ],
+    "commonErrorsIt": [
+      "Inarcare la zona lombare durante il movimento.",
+      "Muovere gli arti troppo velocemente perdendo il controllo del bacino.",
+      "Trattenere il respiro durante la stabilizzazione."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -24148,13 +24157,55 @@
         "source_name": "Deadbug",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Dead Bug",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Dead Bug",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Dead Bug",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Dead Bug",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Dead Bug",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Dead Bug",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Supine Dead Bug",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Deadbug",
     "runtimeModelNames": [],
@@ -24166,8 +24217,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -24180,15 +24231,16 @@
         "source": "ex-deadbug"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Deadbug",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -24206,19 +24258,62 @@
             "source_name": "Deadbug",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Deadbug",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -24244,22 +24339,124 @@
             "source_name": "Deadbug",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Supine Dead Bug",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Deadbug",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Supine Dead Bug",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/147/supine-dead-bug/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the positional qualifier 'Supine'; canonical Deadbug denotes the same supine dead-bug exercise."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-deadlift",
@@ -42450,18 +42647,29 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": "Hammer Curl è un esercizio della famiglia arm. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
-    "executionStepsIt": [
-      "Avvia il movimento dalla posizione preparatoria mantenendo controllo e allineamento.",
-      "Completa l'escursione prevista senza usare slanci non richiesti dalla variante.",
-      "Ritorna alla posizione iniziale in controllo e interrompi la serie se perdi l'assetto tecnico."
+    "equipment": [
+      "dumbbell"
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "level": "Intermedio",
+    "measure": "REPS",
+    "descriptionIt": "Flessione del gomito eseguita con manubri mantenendo una presa neutra durante salita e discesa.",
+    "setupIt": "Parti in piedi in posizione stabile con un manubrio per mano, presa neutra, gomiti estesi lungo i fianchi, tronco attivo e scapole controllate.",
+    "executionStepsIt": [
+      "Fletti uno o entrambi i gomiti portando i manubri verso le spalle senza spostare i gomiti in avanti.",
+      "Mantieni i polsi neutri e il tronco stabile durante la salita.",
+      "Abbassa lentamente i manubri fino alla completa estensione dei gomiti mantenendo la presa neutra."
+    ],
+    "techniqueCuesIt": [
+      "Mantieni i polsi in linea con gli avambracci.",
+      "Tieni i gomiti vicino al tronco senza portarli in avanti.",
+      "Evita di usare slancio o di inarcare la zona lombare."
+    ],
+    "commonErrorsIt": [
+      "Flettere o estendere i polsi durante il curl.",
+      "Portare i gomiti in avanti per facilitare la salita.",
+      "Inarcare la schiena o usare oscillazioni del tronco.",
+      "Sollevare le spalle durante il movimento."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -42490,13 +42698,55 @@
         "source_name": "Hammer Curl",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 4"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hammer Curl",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hammer Curl",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hammer Curl",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hammer Curl",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hammer Curl",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hammer Curl",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Hammer Curl",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Hammer Curl",
     "runtimeModelNames": [],
@@ -42507,9 +42757,11 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dumbbell"
+    ],
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -42522,27 +42774,15 @@
         "source": "ex-hammer-curl"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 47"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Hammer Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "Dumbbells"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -42564,6 +42804,48 @@
             "source_name": "Hammer Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
           }
         ]
       },
@@ -42587,31 +42869,62 @@
             "source_name": "Hammer Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 47"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Hammer Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -42649,34 +42962,119 @@
             "source_name": "Hammer Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 4"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Hammer Curl",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Hammer Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 47"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Hammer Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Hammer Curl",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-hamstring-ball-curl",
@@ -47451,17 +47849,26 @@
       "conditioning"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Avanzato",
     "measure": "REPS",
-    "descriptionIt": "Inchworm è un esercizio della famiglia conditioning. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Prepara spazio e attrezzatura necessari e parti da un'intensità che consenta controllo del gesto.",
+    "descriptionIt": "Esercizio dinamico a corpo libero che alterna una flessione d'anca, una camminata delle mani verso una posizione di plank e il ritorno in avanti dei piedi.",
+    "setupIt": "Parti in piedi con i piedi uniti o leggermente separati e attiva l'addome per stabilizzare la colonna.",
     "executionStepsIt": [
-      "Avvia il gesto con ritmo regolare e postura stabile.",
-      "Mantieni la cadenza prevista senza sacrificare la qualità del movimento.",
-      "Riduci progressivamente l'intensità al termine dell'intervallo o della durata prescritta."
+      "Fletti il busto dalle anche e porta le mani verso il pavimento mantenendo la schiena controllata.",
+      "Cammina lentamente in avanti con le mani fino a raggiungere una posizione di plank stabile.",
+      "Esegui la fase prevista in plank mantenendo tronco e testa allineati.",
+      "Avanza con i piedi verso le mani e ripeti la sequenza mantenendo il controllo della colonna."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni la colonna il più possibile neutra durante gli spostamenti.",
+      "Usa passi piccoli con mani e piedi per conservare il controllo.",
+      "Evita di lasciare cedere la zona lombare nella posizione di plank."
+    ],
+    "commonErrorsIt": [
+      "Arrotondare eccessivamente la zona lombare durante la flessione.",
+      "Allungare troppo i passi delle mani sovraccaricando le spalle.",
+      "Lasciare cedere il bacino o sollevarlo eccessivamente nella fase di plank."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -47478,13 +47885,55 @@
         "source_name": "Inchworm",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 12"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Inchworms",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Inchworms",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Inchworms",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Inchworms",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Inchworms",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Inchworms",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Inchworms",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Inchworm",
     "runtimeModelNames": [],
@@ -47496,8 +47945,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CARDIO",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -47510,15 +47959,16 @@
         "source": "ex-inchworm"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Inchworm",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 12"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -47536,19 +47986,62 @@
             "source_name": "Inchworm",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 12"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Inchworm",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 12"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "Advanced",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -47574,22 +48067,124 @@
             "source_name": "Inchworm",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 12"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Inchworms",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Inchworm",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 12"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Inchworms",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/254/inchworms/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE uses the plural label 'Inchworms'; canonical singular 'Inchworm' denotes the same exercise."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-incline-barbell-bench-press",
@@ -51443,17 +52038,27 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
-    "descriptionIt": "Kneeling Iliopsoas Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
+    "descriptionIt": "Stretch in ginocchio dei flessori dell'anca ottenuto avanzando il bacino in modo controllato mantenendo stabile il bacino e la colonna.",
+    "setupIt": "Posiziona un ginocchio a terra sotto l'anca e il piede opposto davanti con il ginocchio sopra la caviglia; mantieni il tronco alto e il core attivo.",
     "executionStepsIt": [
-      "Muoviti lentamente fino a percepire una tensione controllabile.",
-      "Mantieni l'allineamento della regione interessata senza forzare il range.",
-      "Rilascia gradualmente la posizione e torna al neutro."
+      "Mantieni il bacino livellato e stabile.",
+      "Avanza lentamente il bacino verso la gamba anteriore senza inarcare la zona lombare.",
+      "Contrai il gluteo della gamba posteriore per aumentare l'allungamento dei flessori dell'anca.",
+      "Mantieni la posizione per il tempo previsto e ripeti dall'altro lato."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni il core attivo durante tutto lo stretch.",
+      "Evita l'antiversione del bacino.",
+      "Mantieni il ginocchio anteriore in controllo sopra la caviglia."
+    ],
+    "commonErrorsIt": [
+      "Inarcare la zona lombare per cercare più ampiezza.",
+      "Ruotare o inclinare il bacino.",
+      "Spostare eccessivamente in avanti il ginocchio anteriore.",
+      "Rilassare completamente il core perdendo la posizione del bacino."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -51470,13 +52075,55 @@
         "source_name": "Kneeling Iliopsoas Stretch",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 73"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Kneeling Iliopsoas Stretch",
     "runtimeModelNames": [],
@@ -51488,8 +52135,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -51502,15 +52149,16 @@
         "source": "ex-kneeling-iliopsoas-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Kneeling Iliopsoas Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 73"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -51528,19 +52176,62 @@
             "source_name": "Kneeling Iliopsoas Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 73"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Kneeling Iliopsoas Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 73"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -51566,22 +52257,124 @@
             "source_name": "Kneeling Iliopsoas Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 73"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Kneeling Hip-flexor Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Kneeling Iliopsoas Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 73"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Kneeling Hip-flexor Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Kneeling Iliopsoas Stretch' is the kneeling hip-flexor stretch documented by ACE."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-knees-ab-wheel",
@@ -70000,18 +70793,30 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": "Prone Walkout è un esercizio della famiglia general. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
-    "executionStepsIt": [
-      "Avvia il movimento dalla posizione preparatoria mantenendo controllo e allineamento.",
-      "Completa l'escursione prevista senza usare slanci non richiesti dalla variante.",
-      "Ritorna alla posizione iniziale in controllo e interrompi la serie se perdi l'assetto tecnico."
+    "equipment": [
+      "stability_ball"
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "level": "Intermedio",
+    "measure": "REPS",
+    "descriptionIt": "Walkout in posizione prona su stability ball in cui le mani avanzano a terra mentre il corpo scorre sul pallone mantenendo il tronco rigido.",
+    "setupIt": "Sdraiati prono sopra una stability ball correttamente gonfiata con mani e piedi a terra, quindi attiva addome e glutei per stabilizzare il tronco.",
+    "executionStepsIt": [
+      "Cammina lentamente in avanti con le mani sollevando progressivamente le gambe da terra.",
+      "Continua finché cosce o ginocchia appoggiano sulla palla mantenendo una linea stabile tra gambe e tronco.",
+      "Mantieni brevemente la posizione con le mani sotto le spalle.",
+      "Cammina indietro con le mani e ritorna in controllo alla posizione iniziale."
+    ],
+    "techniqueCuesIt": [
+      "Mantieni addome, schiena e glutei attivi durante il walkout.",
+      "Tieni il tronco rigido e parallelo al pavimento nella posizione finale.",
+      "Mantieni le spalle stabili con le mani sotto di esse."
+    ],
+    "commonErrorsIt": [
+      "Inarcare la zona lombare durante l'avanzamento.",
+      "Sollevare eccessivamente il bacino.",
+      "Perdere la stabilità delle spalle nella posizione finale.",
+      "Avanzare oltre il punto in cui è possibile mantenere il tronco rigido."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -70028,13 +70833,55 @@
         "source_name": "Prone Walkout",
         "evidence_type": "TOC_EXERCISE",
         "locator": "Exercise list; item 13"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Prone Walkout",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Prone Walkout",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Prone Walkout",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Prone Walkout",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Prone Walkout",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Prone Walkout",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Stability Ball Prone Walkout",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Prone Walkout",
     "runtimeModelNames": [],
@@ -70045,9 +70892,11 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "stability_ball"
+    ],
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -70060,15 +70909,16 @@
         "source": "ex-prone-walkout"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Prone Walkout",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 13"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "Stability Ball",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -70078,6 +70928,48 @@
             "source_name": "Prone Walkout",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
           }
         ]
       },
@@ -70089,19 +70981,62 @@
             "source_name": "Prone Walkout",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Prone Walkout",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 13"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -70127,22 +71062,124 @@
             "source_name": "Prone Walkout",
             "evidence_type": "TOC_EXERCISE",
             "locator": "Exercise list; item 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Stability Ball Prone Walkout",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Prone Walkout",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 13"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Stability Ball Prone Walkout",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-pseudo-planche-push-up",
@@ -73249,18 +74286,29 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": "Reverse Wrist Curl è un esercizio della famiglia forearm. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
-    "executionStepsIt": [
-      "Avvia il movimento dalla posizione preparatoria mantenendo controllo e allineamento.",
-      "Completa l'escursione prevista senza usare slanci non richiesti dalla variante.",
-      "Ritorna alla posizione iniziale in controllo e interrompi la serie se perdi l'assetto tecnico."
+    "equipment": [
+      "bench",
+      "dumbbell"
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "level": "Principiante",
+    "measure": "REPS",
+    "descriptionIt": "Estensione del polso con manubri eseguita con gli avambracci appoggiati e i palmi rivolti verso il basso.",
+    "setupIt": "Inginocchiati davanti a una panca, impugna due manubri e appoggia gli avambracci in pronazione lasciando i polsi liberi oltre il bordo.",
+    "executionStepsIt": [
+      "Lascia scendere lentamente i manubri flettendo i polsi senza muovere gli avambracci.",
+      "Mantieni gomiti e avambracci stabili sull'appoggio.",
+      "Contrai gli estensori dell'avambraccio ed estendi i polsi per riportare i manubri alla posizione iniziale."
+    ],
+    "techniqueCuesIt": [
+      "Mantieni gli avambracci fermi sulla panca.",
+      "Conserva una presa stabile sui manubri.",
+      "Isola il movimento al polso senza estendere i gomiti."
+    ],
+    "commonErrorsIt": [
+      "Sollevare gli avambracci dalla panca.",
+      "Perdere la presa o lasciare oscillare i manubri.",
+      "Usare movimento del gomito o del tronco per completare l'estensione."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -73277,13 +74325,55 @@
         "source_name": "Reverse Wrist Curl",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 8"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Extension",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Extension",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Extension",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Extension",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Extension",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Extension",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Extension",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Reverse Wrist Curl",
     "runtimeModelNames": [],
@@ -73294,9 +74384,12 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "bench",
+      "dumbbell"
+    ],
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -73309,15 +74402,16 @@
         "source": "ex-reverse-wrist-curl"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Reverse Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "Bench, Dumbbells",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -73327,6 +74421,48 @@
             "source_name": "Reverse Wrist Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
           }
         ]
       },
@@ -73338,19 +74474,62 @@
             "source_name": "Reverse Wrist Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Reverse Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -73376,22 +74555,124 @@
             "source_name": "Reverse Wrist Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Extension",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Reverse Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Extension",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/29/wrist-curl-extension/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Reverse Wrist Curl' is mapped to the wrist-extension variant ACE labels 'Wrist Curl - Extension'."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-ring-row-eccentrics",
@@ -86775,17 +88056,27 @@
       "knee-dominant"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "REPS",
-    "descriptionIt": "Single-Leg Squat è un esercizio della famiglia single leg squat. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilisci l'appoggio dei piedi, mantieni il tronco attivo e prepara anche e ginocchia a muoversi in modo coordinato.",
+    "descriptionIt": "Squat monopodalico a corpo libero eseguito mantenendo il carico sulla gamba di appoggio e controllando bacino, ginocchio e tronco.",
+    "setupIt": "Parti in piedi con il peso sulla gamba di lavoro, l'altra gamba usata solo per equilibrio nella variante iniziale, core attivo e colonna stabile.",
     "executionStepsIt": [
-      "Scendi flettendo anche e ginocchia mantenendo i piedi stabili.",
-      "Raggiungi il range previsto senza perdere l'allineamento di ginocchia, bacino e tronco.",
-      "Spingi attraverso l'appoggio e torna alla posizione iniziale in controllo."
+      "Sposta il bacino indietro e fletti anca e ginocchio della gamba di appoggio mantenendo il piede stabile.",
+      "Scendi nel range controllabile mantenendo il bacino il più possibile livellato.",
+      "Spingi il piede a terra ed estendi anca e ginocchio per tornare in piedi.",
+      "Completa le ripetizioni previste e ripeti sull'altro lato."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni il piede di appoggio stabile a terra.",
+      "Controlla l'allineamento del ginocchio durante discesa e risalita.",
+      "Mantieni il bacino livellato e il core attivo."
+    ],
+    "commonErrorsIt": [
+      "Perdere il contatto stabile del piede con il suolo.",
+      "Lasciare collassare il ginocchio verso l'interno.",
+      "Ruotare o inclinare eccessivamente il bacino.",
+      "Perdere il controllo del tronco durante la discesa."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -86808,13 +88099,55 @@
         "source_name": "Single-Leg Squat",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 63"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Single Leg Squat",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Single Leg Squat",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Single Leg Squat",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Single Leg Squat",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Single Leg Squat",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Single Leg Squat",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Single Leg Squat",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Single-Leg Squat",
     "runtimeModelNames": [],
@@ -86826,8 +88159,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -86865,21 +88198,16 @@
         "source": "ex-single-leg-squat"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 63"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -86903,25 +88231,62 @@
             "source_name": "Single-Leg Squat",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 63"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 63"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -86953,28 +88318,124 @@
             "source_name": "Single-Leg Squat",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 63"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Single Leg Squat",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 63"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Single Leg Squat",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical hyphenated 'Single-Leg Squat' and ACE 'Single Leg Squat' are the same exercise label."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-sit-up",
@@ -91943,17 +93404,25 @@
       "mobility"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Principiante",
     "measure": "SECONDS",
-    "descriptionIt": "Standing Triceps Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
+    "descriptionIt": "Stretch in piedi del tricipite con il braccio portato sopra la testa e il gomito flesso dietro il capo.",
+    "setupIt": "Parti in piedi con i piedi alla larghezza delle anche, spalle abbassate e retratte, quindi porta un braccio sopra la testa e fletti il gomito lasciando la mano scendere dietro la schiena.",
     "executionStepsIt": [
-      "Muoviti lentamente fino a percepire una tensione controllabile.",
-      "Mantieni l'allineamento della regione interessata senza forzare il range.",
-      "Rilascia gradualmente la posizione e torna al neutro."
+      "Mantieni la spalla del braccio in allungamento lontana dall'orecchio.",
+      "Usa l'altra mano per applicare una lieve pressione sopra il gomito e approfondire gradualmente lo stretch.",
+      "Mantieni la posizione per il tempo previsto senza forzare e ripeti sull'altro lato."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni le spalle basse e controllate.",
+      "Applica solo una pressione lieve e progressiva.",
+      "Mantieni il tronco stabile durante lo stretch."
+    ],
+    "commonErrorsIt": [
+      "Sollevare la spalla verso l'orecchio.",
+      "Forzare il gomito oltre un range confortevole.",
+      "Inarcare il tronco per aumentare artificialmente lo stretch."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -91970,13 +93439,55 @@
         "source_name": "Standing Triceps Stretch",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 76"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Triceps Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Triceps Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Triceps Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Triceps Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Triceps Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Triceps Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overhead Triceps Stretch",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Standing Triceps Stretch",
     "runtimeModelNames": [],
@@ -91988,8 +93499,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "MOBILITY",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -92002,15 +93513,16 @@
         "source": "ex-standing-triceps-stretch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Standing Triceps Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 76"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "No Equipment",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -92028,19 +93540,62 @@
             "source_name": "Standing Triceps Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 76"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Standing Triceps Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 76"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -92066,22 +93621,124 @@
             "source_name": "Standing Triceps Stretch",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 76"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overhead Triceps Stretch",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Standing Triceps Stretch",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 76"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overhead Triceps Stretch",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/174/overhead-triceps-stretch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Standing Triceps Stretch' is mapped to ACE's standing overhead triceps stretch."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-standing-unilateral-leg-curl",
@@ -98534,18 +100191,29 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": "Triceps Kickback è un esercizio della famiglia triceps. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilizza tronco e cintura scapolare e posiziona mani o attrezzo secondo la variante.",
-    "executionStepsIt": [
-      "Avvia la fase di spinta mantenendo polsi, gomiti e spalle sotto controllo.",
-      "Completa l'estensione prevista senza perdere l'assetto del tronco.",
-      "Ritorna lentamente alla posizione iniziale mantenendo attive le spalle."
+    "equipment": [
+      "dumbbell"
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "level": "Principiante",
+    "measure": "REPS",
+    "descriptionIt": "Estensione del gomito con manubrio eseguita a busto inclinato mantenendo il braccio superiore vicino e parallelo al tronco.",
+    "setupIt": "Assumi una posizione stabile con un manubrio in una mano, inclina il busto in avanti mantenendo la colonna neutra e porta il braccio superiore vicino al tronco con il gomito flesso.",
+    "executionStepsIt": [
+      "Mantieni fermo il braccio superiore accanto al tronco.",
+      "Estendi lentamente il gomito fino a raddrizzare il braccio senza ruotare il busto.",
+      "Ritorna in controllo alla posizione iniziale mantenendo invariato l'assetto del tronco e del braccio superiore."
+    ],
+    "techniqueCuesIt": [
+      "Mantieni il braccio superiore fermo e vicino al busto.",
+      "Tieni testa e colonna allineate.",
+      "Estendi il gomito senza usare slancio."
+    ],
+    "commonErrorsIt": [
+      "Sollevare il braccio superiore durante l'estensione.",
+      "Inarcare la zona lombare.",
+      "Ruotare il tronco per completare il movimento.",
+      "Perdere l'allineamento della testa con la colonna."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -98562,13 +100230,55 @@
         "source_name": "Triceps Kickback",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 18"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Kickback",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Kickback",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Kickback",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Kickback",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Kickback",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Kickback",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Triceps Kickback",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Triceps Kickback",
     "runtimeModelNames": [],
@@ -98579,9 +100289,11 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dumbbell"
+    ],
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -98594,15 +100306,15 @@
         "source": "ex-triceps-kickback"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "Dumbbells"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -98612,6 +100324,48 @@
             "source_name": "Triceps Kickback",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
           }
         ]
       },
@@ -98623,19 +100377,62 @@
             "source_name": "Triceps Kickback",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -98661,22 +100458,119 @@
             "source_name": "Triceps Kickback",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 18"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Triceps Kickback",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Triceps Kickback",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 18"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Triceps Kickback",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/55/triceps-kickback/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-triceps-push-up",
@@ -109523,18 +111417,29 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
-    "level": null,
-    "measure": "REPS",
-    "descriptionIt": "Wrist Curl è un esercizio della famiglia forearm. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
-    "executionStepsIt": [
-      "Avvia il movimento dalla posizione preparatoria mantenendo controllo e allineamento.",
-      "Completa l'escursione prevista senza usare slanci non richiesti dalla variante.",
-      "Ritorna alla posizione iniziale in controllo e interrompi la serie se perdi l'assetto tecnico."
+    "equipment": [
+      "bench",
+      "dumbbell"
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "level": "Principiante",
+    "measure": "REPS",
+    "descriptionIt": "Flessione del polso con manubri eseguita con gli avambracci appoggiati e i palmi rivolti verso l'alto.",
+    "setupIt": "Inginocchiati davanti a una panca, impugna due manubri e appoggia gli avambracci con i palmi verso l'alto lasciando i polsi liberi oltre il bordo.",
+    "executionStepsIt": [
+      "Lascia scendere lentamente i manubri estendendo i polsi senza perdere la presa.",
+      "Mantieni avambracci e gomiti stabili sull'appoggio.",
+      "Contrai i flessori dell'avambraccio e fletti i polsi per riportare i manubri verso la posizione iniziale."
+    ],
+    "techniqueCuesIt": [
+      "Mantieni gli avambracci fermi sulla panca.",
+      "Conserva una presa sicura sui manubri durante tutta la ripetizione.",
+      "Muovi il carico con il polso senza coinvolgere il gomito."
+    ],
+    "commonErrorsIt": [
+      "Lasciare scivolare i manubri verso le dita perdendo una presa sicura.",
+      "Sollevare gli avambracci dalla panca.",
+      "Usare movimento del gomito o del corpo per aiutare la flessione."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -109557,13 +111462,55 @@
         "source_name": "Wrist Curl",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 9"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Flexion",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Flexion",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Flexion",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Flexion",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Flexion",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Flexion",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Wrist Curl - Flexion",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
       }
     ],
     "confidence": "HIGH",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Wrist Curl",
     "runtimeModelNames": [],
@@ -109574,9 +111521,12 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "bench",
+      "dumbbell"
+    ],
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "OTHER",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -109589,21 +111539,16 @@
         "source": "ex-wrist-curl"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Wrist Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 50"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "Bench, Dumbbells",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -109619,6 +111564,48 @@
             "source_name": "Wrist Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
           }
         ]
       },
@@ -109636,25 +111623,62 @@
             "source_name": "Wrist Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Wrist Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 50"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -109686,28 +111710,124 @@
             "source_name": "Wrist Curl",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 9"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Wrist Curl - Flexion",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Wrist Curl",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 50"
-          },
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Wrist Curl",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 9"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Wrist Curl - Flexion",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/30/wrist-curl-flexion/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "Canonical 'Wrist Curl' is mapped to ACE 'Wrist Curl - Flexion'; the reverse/extension variant exists separately in the canonical catalog."
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-wrist-extension",
