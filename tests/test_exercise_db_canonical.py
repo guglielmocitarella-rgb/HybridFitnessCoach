@@ -494,6 +494,11 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
                     self.assertIn(field, item["remainingIncompleteFields"])
             for resolved in item["resolvedFields"]:
                 self.assertEqual(resolved["confidence"], "HIGH")
+        self.assertEqual(by_id["ex-it-band-foam-rolling"]["equipmentRequired"], ["foam_roller"])
+        self.assertEqual(by_id["ex-it-band-foam-rolling"]["resistanceMode"], "NONE")
+        self.assertEqual(by_id["ex-it-band-foam-rolling"]["fieldProvenance"]["equipment"]["confidence"], "HIGH")
+        self.assertEqual(by_id["ex-it-band-foam-rolling"]["fieldProvenance"]["resistanceMode"]["confidence"], "HIGH")
+        self.assertNotEqual(by_id["ex-it-band-foam-rolling"]["fieldProvenance"]["equipment"]["source"][0]["source_id"], by_id["ex-banded-biceps-curl"]["fieldProvenance"]["resistanceMode"]["source"][0]["source_id"])
         self.assertEqual(by_id["ex-banded-biceps-curl"]["movementPattern"], ["pull-accessory"])
         self.assertEqual(by_id["ex-banded-biceps-curl"]["fieldProvenance"]["movementPattern"]["status"], "REVIEWED_CANONICAL_MECHANICS_RULE")
         self.assertIsNone(by_id["ex-banded-biceps-curl"]["level"])
