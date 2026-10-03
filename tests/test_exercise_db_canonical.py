@@ -305,7 +305,9 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         for exercise_id in ("ex-muscle-up", "ex-normal-muscle-up"):
             record = by_id[exercise_id]
             self.assertEqual(record["identityResolution"], "AMBIGUOUS_CURRENT_MODEL_LINK")
-            self.assertEqual(record["equipmentStatus"], "UNKNOWN")
+            self.assertEqual(record["equipmentStatus"], "KNOWN")
+            self.assertEqual(record["equipmentRequired"], ["rings"])
+            self.assertEqual(record["fieldProvenance"]["equipmentRequired"]["status"], "EXTERNAL_SOURCE_DIRECT")
             self.assertEqual(record["levelStatus"], "UNKNOWN")
             self.assertEqual(record["movementPatternStatus"], "UNKNOWN")
             self.assertEqual(record["resistanceMode"], "UNKNOWN")
