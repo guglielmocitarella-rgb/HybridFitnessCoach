@@ -412,6 +412,32 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         for excluded_id in ("ex-assisted-dip", "ex-weighted-dip", "ex-banded-biceps-curl", "ex-muscle-up", "ex-normal-muscle-up"):
             self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
 
+    def test_resolves_non_resistance_mobility_and_smr_as_none(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+            candidates = json.loads((output / "RESISTANCE_MODE_NONE_CANDIDATES.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(candidates["screenedResistanceUnknown"], 214)
+        self.assertGreater(candidates["count"], 0)
+        candidate_ids = [item["id"] for item in candidates["candidates"]]
+        self.assertEqual(candidate_ids, sorted(candidate_ids))
+        self.assertEqual(len(candidate_ids), len(set(candidate_ids)))
+        for item in candidates["candidates"]:
+            self.assertEqual(item["candidateResistanceMode"], "NONE")
+            self.assertEqual(item["confidence"], "HIGH")
+            self.assertTrue(all(item["exclusionsVerified"].values()))
+            record = by_id[item["id"]]
+            self.assertEqual(record["resistanceMode"], "NONE")
+            provenance = record["fieldProvenance"]["resistanceMode"]
+            self.assertEqual(provenance["status"], "MOBILITY_SEMANTICS_DETERMINISTIC")
+            self.assertEqual(provenance["confidence"], "HIGH")
+        self.assertEqual(by_id["ex-adductor-foam-rolling"]["resistanceMode"], "NONE")
+        for excluded_id in ("ex-ab-wheel-eccentrics", "ex-alternate-arm-and-leg-raises-on-ball"):
+            self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "NONE")
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 214 - candidates["count"])
+
     def test_generates_deterministic_resistance_unknown_operational_report(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)
