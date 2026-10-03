@@ -204,7 +204,9 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
                 "NAME_EXPLICIT_EQUIPMENT_RULE",
             )
 
-        self.assertEqual(by_id["ex-ball-bridge"]["equipmentStatus"], "UNKNOWN")
+        self.assertEqual(by_id["ex-ball-bridge"]["equipmentStatus"], "KNOWN")
+        self.assertEqual(by_id["ex-ball-bridge"]["equipmentRequired"], ["stability_ball"])
+        self.assertEqual(by_id["ex-ball-bridge"]["fieldProvenance"]["equipmentRequired"]["status"], "EXTERNAL_SOURCE_DIRECT")
 
     def test_broad_movement_types_fill_only_their_unambiguous_top_level_patterns(self):
         with tempfile.TemporaryDirectory() as temporary:
