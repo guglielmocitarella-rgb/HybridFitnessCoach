@@ -47,6 +47,11 @@ def validate_database(records, progressions, sources):
             source_id = ref.get("source_id") if isinstance(ref, dict) else ref
             if source_id not in source_ids:
                 errors.append(f"{exercise_id}: unregistered exercise source {source_id}")
+        equipment_provenance = (record.get("fieldProvenance") or {}).get("equipmentRequired") or {}
+        if equipment_provenance.get("status") == "NAME_EXPLICIT_EQUIPMENT_RULE":
+            source_id = (equipment_provenance.get("source") or {}).get("source_id")
+            if source_id not in source_ids:
+                errors.append(f"{exercise_id}: unregistered explicit-name equipment rule source {source_id}")
         for skill_id in record.get("skillIds") or []:
             if not str(skill_id).strip():
                 errors.append(f"{exercise_id}: empty skill link")

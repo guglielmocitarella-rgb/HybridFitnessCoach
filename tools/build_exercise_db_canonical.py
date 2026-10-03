@@ -42,6 +42,26 @@ EQUIPMENT_ALIASES = {
     "elastici": "resistance_band", "anelli": "rings", "corda": "rope",
     "fitball": "stability_ball", "asciugamano": "towel", "trx": "suspension_trainer",
 }
+CANONICAL_NAME_EQUIPMENT_SOURCE = {
+    "source_id": "CANONICAL_NAME_EQUIPMENT_RULE",
+    "title": "Explicit equipment terms in canonical exercise names",
+    "primary_use": "Conservative equipment inference only when a name explicitly identifies a recognized implement; does not establish technique or instructions.",
+}
+
+
+def explicit_equipment_from_name(name):
+    """Return only equipment named explicitly enough to identify its implement."""
+    name = str(name or "")
+    patterns = (
+        (r"\b(?:high|low)-pulley\b", "cable"),
+        (r"\brings?\b", "rings"),
+        (r"\bbench\b", "bench"),
+        (r"\bbar\s+pull-ups?\b|\b(?:pull-ups?|chin-ups?)\s+bar\b", "pull_up_bar"),
+        (r"\bparallel bars?\b", "dip_bars"),
+        (r"\bbox\b", "box"),
+        (r"\bbands?\b", "resistance_band"),
+    )
+    return list(dict.fromkeys(token for pattern, token in patterns if re.search(pattern, name, re.IGNORECASE)))
 
 
 def norm(value):
@@ -315,6 +335,7 @@ def build_database(root, output_dir):
         "title": "Hybrid Fitness Coach v0.9.5 current exercise model at baseline 9b8a41c",
         "primary_use": "Provenance for the app's runtime labels and explicitly stored programming metadata; not exercise-science or technique evidence.",
     }
+    equipment_rule_source = CANONICAL_NAME_EQUIPMENT_SOURCE
 
     v2_records = []
     matched_legacy_names = set()
@@ -352,6 +373,12 @@ def build_database(root, output_dir):
             eq, eq_status = effective["equipmentRequired"], effective["equipmentStatus"]
         else:
             eq, eq_status = [], "UNKNOWN"
+        equipment_origin = "V2_DIRECT" if equipment else ("APP_MODEL_DIRECT" if hit and eq_status == "KNOWN" else "UNKNOWN")
+        if eq_status != "KNOWN":
+            named_equipment = explicit_equipment_from_name(record.get("canonicalNameEn"))
+            if named_equipment:
+                eq, eq_status = named_equipment, "KNOWN"
+                equipment_origin = "NAME_EXPLICIT_EQUIPMENT_RULE"
         movement_pattern = list(record.get("movementPattern") or [])
         pattern_origin = "V2_DIRECT" if movement_pattern else "UNKNOWN"
         if not movement_pattern and effective:
@@ -402,7 +429,10 @@ def build_database(root, output_dir):
             "progressionRelations": [edge for edge in progressions if edge.get("from") == record["id"] or edge.get("to") == record["id"]],
             "fieldProvenance": {
                 "identity": {"status": "V2_STABLE_ID", "source": record["id"]},
-                "equipmentRequired": {"status": "V2_DIRECT" if equipment else ("APP_MODEL_DIRECT" if hit else "UNKNOWN"), "source": record["sources"]},
+                "equipmentRequired": {
+                    "status": equipment_origin,
+                    "source": ({"source_id": equipment_rule_source["source_id"], "evidence_type": "EXPLICIT_NAME_TOKEN", "locator": record.get("canonicalNameEn")} if equipment_origin == "NAME_EXPLICIT_EQUIPMENT_RULE" else record["sources"]),
+                },
                 "movementPattern": {"status": pattern_origin, "source": "ExerciseMetadata.kt" if pattern_origin.startswith("APP_RULE") else record["sources"]},
                 "resistanceMode": {"status": mode_status, "source": "ExerciseMetadata.kt" if mode_status.startswith("APP_RULE") else record["sources"]},
                 "level": {"status": "V2_DIRECT" if record.get("level") else ("APP_MODEL_DIRECT" if hit else "UNKNOWN"), "source": record["sources"]},
@@ -527,7 +557,7 @@ def build_database(root, output_dir):
 
     all_records = v2_records + current_records
     from tools.validate_exercise_db_canonical import validate_database
-    structural_validation = validate_database(all_records, progressions, sources + [app_source])
+    structural_validation = validate_database(all_records, progressions, sources + [app_source, equipment_rule_source])
     ids = [record["id"] for record in all_records]
     runtime_duplicate_names = defaultdict(list)
     for record in all_records:
@@ -596,7 +626,7 @@ def build_database(root, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "exercise-db-canonical.json").write_text(json.dumps(all_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "exercise-db-canonical-audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (output_dir / "sources.json").write_text(json.dumps(sources + [app_source], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "sources.json").write_text(json.dumps(sources + [app_source, equipment_rule_source], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
 
 

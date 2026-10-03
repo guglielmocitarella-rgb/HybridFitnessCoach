@@ -56,6 +56,35 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(legacy["instructionCompleteness"], "MISSING")
         self.assertTrue(legacy["fieldProvenance"])
 
+    def test_explicit_equipment_in_exercise_name_resolves_only_unambiguous_items(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+        by_id = {record["id"]: record for record in records}
+
+        expected = {
+            "ex-high-pulley-curl": ["cable"],
+            "ex-low-pulley-curl": ["cable"],
+            "ex-rings-muscle-up": ["rings"],
+            "ex-bench-dip": ["bench"],
+            "ex-bench-step": ["bench"],
+            "ex-prone-bench-rear-deltoid-raise": ["bench"],
+            "ex-bar-pull-up-eccentrics": ["pull_up_bar"],
+            "ex-parallel-bar-dip-eccentrics": ["dip_bars"],
+            "ex-parallel-bar-jumping-dips": ["dip_bars"],
+            "ex-box-headstand-pushup": ["box"],
+            "ex-band-assisted-planche": ["resistance_band"],
+        }
+        for exercise_id, equipment in expected.items():
+            self.assertEqual(by_id[exercise_id]["equipmentStatus"], "KNOWN")
+            self.assertEqual(by_id[exercise_id]["equipmentRequired"], equipment)
+            self.assertEqual(
+                by_id[exercise_id]["fieldProvenance"]["equipmentRequired"]["status"],
+                "NAME_EXPLICIT_EQUIPMENT_RULE",
+            )
+
+        self.assertEqual(by_id["ex-ball-bridge"]["equipmentStatus"], "UNKNOWN")
+
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)
