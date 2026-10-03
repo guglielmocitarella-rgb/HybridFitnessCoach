@@ -113,3 +113,12 @@ Selection starts from the 165 residual resistance-mode UNKNOWN records. Batch 01
 - Method: full record audit; field-level confidence/provenance remain independent; no forced level, skill-link, or instruction promotion.
 - Expected direct resistance-mode reduction from this reviewed batch: 23 records; generated validator remains authoritative after CI.
 - PR #14 remains Draft; `releaseReady: false`; no runtime integration, merge, force-push, or main write.
+
+
+### Record-first enrichment batch 03 — scored multi-field selection
+
+All 127 residual `resistanceMode UNKNOWN` records were scored before selection instead of taking the first available IDs. The score prioritized overlap with missing movement pattern/level, known equipment, exercise-specific evidence and reusable provenance. There is no overlap between these 127 records and the 500 current-model-only records with incomplete instruction blocks, so instruction enrichment could not contribute to this tranche.
+
+Fifteen high-yield candidates were audited field-by-field. The accepted changes resolve 26 fields: 11 resistance modes, 10 movement patterns and 5 ACE exercise-specific difficulty levels. Four tempting resistance assignments (Medicine Ball Clean, Weighted Dip, Muscle-Up and Normal Muscle-Up) were deliberately left unresolved after the regression/validator gates showed that the available canonical equipment or identity constraints were insufficient for a HIGH-confidence assignment. Final yield is 1.73 fields per analyzed record, below the >2.0 qualitative target but without forcing evidence. No record became fully complete because technique cues/common errors and, for several records, other blockers remain.
+
+Blockers changed as follows: equipment UNKNOWN 99 -> 99; unsupported equipment 18 -> 18; movement pattern 187 -> 177; instruction incomplete 500 -> 500; level UNKNOWN 443 -> 438; resistanceMode UNKNOWN 127 -> 116; skillLink missing 143 -> 143. Canonical tests, builder, validator, closed release gate and deterministic gzip generation all passed in workflow run #65; generated artifacts were committed by the workflow. Validation remains `ok: true`, zero errors and `releaseReady: false`. Runtime integration remains unchanged.
