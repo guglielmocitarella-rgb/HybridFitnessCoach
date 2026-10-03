@@ -1029,6 +1029,86 @@ def build_database(root, output_dir):
             }
     bodyweight_general_candidates.sort(key=lambda item: item["id"])
 
+    # RECORD-FIRST tranche 1: resistance-band records selected from the
+    # residual resistanceMode blocker. Audit the complete record, but promote
+    # only fields independently supported by deterministic canonical evidence.
+    record_first_band_candidates = []
+    band_pattern_by_name = {
+        "ex-banded-biceps-curl": "pull-accessory",
+        "ex-banded-deadlift": "hinge",
+        "ex-banded-deltoid-row": "horizontal-pull",
+        "ex-banded-front-raise": "push-accessory",
+        "ex-banded-lateral-raise": "push-accessory",
+        "ex-banded-lying-leg-extension": "knee-dominant",
+        "ex-banded-triceps-extension": "push-accessory",
+        "ex-banded-unilateral-triceps-extension": "push-accessory",
+        "ex-banded-upright-row": "vertical-pull",
+        "ex-rotator-cuff-stabilization-with-theraband": "mobility",
+        "ex-seated-unilateral-banded-leg-curl": "knee-dominant",
+    }
+    for record in all_records:
+        equipment = record.get("equipmentRequired") or []
+        if record.get("resistanceMode") not in {None, "UNKNOWN"} or record.get("equipmentStatus") != "KNOWN" or equipment != ["resistance_band"]:
+            continue
+        missing_before = []
+        if not record.get("level"): missing_before.append("level")
+        if not record.get("movementPattern"): missing_before.append("movementPattern")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing_before.append("resistanceMode")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing_before.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing_before.append(field)
+        resolved = []
+        record["resistanceMode"] = "EXTERNAL_LOAD"
+        record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+            "status": "EQUIPMENT_DETERMINISTIC",
+            "confidence": "HIGH",
+            "source": _rule_source(
+                equipment_resistance_source["source_id"],
+                "KNOWN_RESISTANCE_BAND_TO_EXTERNAL_LOAD",
+                {"equipment": equipment},
+            ),
+            "derivation": "A verified resistance_band is itself the external resistance source; no inference is made to level, instructions, or other fields.",
+        }
+        resolved.append({
+            "field": "resistanceMode", "value": "EXTERNAL_LOAD", "confidence": "HIGH",
+            "evidence": "verified resistance_band equipment",
+            "source": equipment_resistance_source["source_id"],
+        })
+        pattern = band_pattern_by_name.get(record["id"])
+        if pattern and not record.get("movementPattern"):
+            record["movementPattern"] = [pattern]
+            record["movementPatternStatus"] = "KNOWN"
+            record.setdefault("fieldProvenance", {})["movementPattern"] = {
+                "status": "REVIEWED_CANONICAL_MECHANICS_RULE",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    family_pattern_source["source_id"],
+                    "RECORD_FIRST_BAND_MOVEMENT_MECHANICS",
+                    {"id": record["id"], "family": record.get("family"), "canonicalNameEn": record.get("canonicalNameEn")},
+                ),
+                "derivation": "The canonical movement label and family uniquely identify the broad movement mechanic; resistance-band presence does not determine this field.",
+            }
+            resolved.append({
+                "field": "movementPattern", "value": [pattern], "confidence": "HIGH",
+                "evidence": "canonical movement identity plus reviewed family mechanics",
+                "source": family_pattern_source["source_id"],
+            })
+        missing_after = []
+        if not record.get("level"): missing_after.append("level")
+        if not record.get("movementPattern"): missing_after.append("movementPattern")
+        if record.get("resistanceMode") in {None, "UNKNOWN"}: missing_after.append("resistanceMode")
+        if record.get("movementType") == "SKILL" and not record.get("skillIds"): missing_after.append("skillLink")
+        for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+            if not record.get(field): missing_after.append(field)
+        record_first_band_candidates.append({
+            "id": record["id"], "canonicalNameEn": record.get("canonicalNameEn"),
+            "missingFieldsBefore": missing_before, "resolvedFields": resolved,
+            "remainingIncompleteFields": missing_after,
+            "fullyComplete": not missing_after,
+            "exclusionReason": None,
+        })
+    record_first_band_candidates.sort(key=lambda item: item["id"])
+
     from tools.validate_exercise_db_canonical import APP_SUPPORTED_EQUIPMENT, validate_database
     all_sources = sources + [
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
@@ -1181,6 +1261,25 @@ def build_database(root, output_dir):
         "count": len(resistance_unknown_records),
         "records": resistance_unknown_records,
     }
+
+    record_first_report = {
+        "schemaVersion": 1,
+        "strategy": "RECORD_FIRST_ENRICHMENT",
+        "selectionBlocker": "resistanceMode UNKNOWN",
+        "batch": "resistance-band-known-equipment",
+        "screenedResistanceUnknown": 165,
+        "count": len(record_first_band_candidates),
+        "records": record_first_band_candidates,
+        "summary": {
+            "recordsAnalyzed": len(record_first_band_candidates),
+            "recordsFullyComplete": sum(item["fullyComplete"] for item in record_first_band_candidates),
+            "fieldsResolvedTotal": sum(len(item["resolvedFields"]) for item in record_first_band_candidates),
+            "resistanceModeResolved": sum(any(field["field"] == "resistanceMode" for field in item["resolvedFields"]) for item in record_first_band_candidates),
+            "movementPatternResolved": sum(any(field["field"] == "movementPattern" for field in item["resolvedFields"]) for item in record_first_band_candidates),
+            "recordsStillPartial": sum(not item["fullyComplete"] for item in record_first_band_candidates),
+        },
+    }
+    (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_01.json").write_text(json.dumps(record_first_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     bodyweight_general_candidate_report = {
         "schemaVersion": 1,
