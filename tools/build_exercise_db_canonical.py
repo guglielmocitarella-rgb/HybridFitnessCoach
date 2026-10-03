@@ -1788,7 +1788,7 @@ def build_database(root, output_dir):
             "recordsStillPartial": sum(not item["fullyComplete"] for item in record_first_batch04),
         },
     }
-    (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_04.json").write_text(json.dumps(record_first_batch04_report, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    (output_dir / "RECORD_FIRST_ENRICHMENT_BATCH_04.json").write_text(json.dumps(record_first_batch04_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     bodyweight_general_candidate_report = {
         "schemaVersion": 1,
