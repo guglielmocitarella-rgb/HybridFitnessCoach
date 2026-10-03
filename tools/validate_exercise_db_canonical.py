@@ -15,7 +15,7 @@ from tools.build_exercise_db_canonical import RECOGNIZED_EQUIPMENT, _skill_nodes
 
 EQUIPMENT_CATALOG_PATH = PROJECT_ROOT / "app/src/main/java/com/hybridfitnesscoach/app/EquipmentCatalog.kt"
 _EQUIPMENT_CATALOG_TEXT = EQUIPMENT_CATALOG_PATH.read_text(encoding="utf-8")
-APP_SUPPORTED_EQUIPMENT = set(re.findall(r'\\b[A-Z][A-Z0-9_]*\\("([a-z0-9_]+)"\\s*,', _EQUIPMENT_CATALOG_TEXT))
+APP_SUPPORTED_EQUIPMENT = set(re.findall(r'\b[A-Z][A-Z0-9_]*\("([a-z0-9_]+)"\s*,', _EQUIPMENT_CATALOG_TEXT))
 
 
 def equipment_semantic_state(record):
