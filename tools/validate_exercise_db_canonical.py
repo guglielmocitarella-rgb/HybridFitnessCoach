@@ -4,6 +4,7 @@
 from collections import Counter
 import json
 import pathlib
+import re
 import sys
 
 PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -12,6 +13,10 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from tools.build_exercise_db_canonical import RECOGNIZED_EQUIPMENT, _skill_nodes
 
+EQUIPMENT_CATALOG_PATH = PROJECT_ROOT / "app/src/main/java/com/hybridfitnesscoach/app/EquipmentCatalog.kt"
+_EQUIPMENT_CATALOG_TEXT = EQUIPMENT_CATALOG_PATH.read_text(encoding="utf-8")
+APP_SUPPORTED_EQUIPMENT = set(re.findall(r'\b[A-Z][A-Z0-9_]*\("([a-z0-9_]+)"\s*,', _EQUIPMENT_CATALOG_TEXT))
+
 
 def validate_database(records, progressions, sources):
     errors, warnings = [], []
@@ -19,6 +24,16 @@ def validate_database(records, progressions, sources):
     ids = [record.get("id") for record in records]
     id_set = {value for value in ids if value}
     source_ids = {source.get("source_id") for source in sources}
+
+    def provenance_source_ids(value):
+        if isinstance(value, dict):
+            if value.get("source_id"):
+                yield value["source_id"]
+            for nested in value.values():
+                yield from provenance_source_ids(nested)
+        elif isinstance(value, list):
+            for nested in value:
+                yield from provenance_source_ids(nested)
     duplicates = [value for value, count in Counter(ids).items() if not value or count > 1]
     errors.extend(f"duplicate id or missing id: {value!r}" for value in duplicates)
 
@@ -53,6 +68,19 @@ def validate_database(records, progressions, sources):
             source_id = ref.get("source_id") if isinstance(ref, dict) else ref
             if source_id not in source_ids:
                 errors.append(f"{exercise_id}: unregistered exercise source {source_id}")
+        for provenance in (record.get("fieldProvenance") or {}).values():
+            for source_id in provenance_source_ids(provenance.get("source")):
+                if source_id not in source_ids:
+                    errors.append(f"{exercise_id}: unregistered field provenance source {source_id}")
+        app_metadata = record.get("applicationMetadata") or {}
+        for app_entry in (app_metadata.get("sourceEntries") or []) + (app_metadata.get("ambiguousSourceEntries") or []):
+            source_id = (app_entry.get("source") or {}).get("source_id")
+            if source_id not in source_ids:
+                errors.append(f"{exercise_id}: unregistered runtime metadata source {source_id}")
+            for provenance in (app_entry.get("fieldProvenance") or {}).values():
+                field_source_id = provenance.get("source_id")
+                if field_source_id not in source_ids:
+                    errors.append(f"{exercise_id}: unregistered runtime metadata source {field_source_id}")
         equipment_provenance = (record.get("fieldProvenance") or {}).get("equipmentRequired") or {}
         if equipment_provenance.get("status") == "NAME_EXPLICIT_EQUIPMENT_RULE":
             source_id = (equipment_provenance.get("source") or {}).get("source_id")
@@ -87,6 +115,10 @@ def validate_database(records, progressions, sources):
                 errors.append(f"progression edge {key[0]}->{key[1]}: unregistered source {source_id}")
 
     equipment_unknown = sum(record.get("equipmentStatus") != "KNOWN" for record in records)
+    equipment_unsupported_by_app = sum(
+        any(token in RECOGNIZED_EQUIPMENT and token not in APP_SUPPORTED_EQUIPMENT for token in (record.get("equipmentRequired") or []))
+        for record in records
+    )
     pattern_missing = sum(not (record.get("movementPattern") or []) for record in records)
     instruction_incomplete = sum(
         not str(record.get("descriptionIt") or "").strip()
@@ -99,6 +131,8 @@ def validate_database(records, progressions, sources):
     skill_links_missing = sum(record.get("movementType") == "SKILL" and not record.get("skillIds") for record in records)
     if equipment_unknown:
         warnings.append(f"{equipment_unknown} exercises still have unknown equipment requirements")
+    if equipment_unsupported_by_app:
+        warnings.append(f"{equipment_unsupported_by_app} exercises use equipment tokens not supported by the current app catalog")
     if pattern_missing:
         warnings.append(f"{pattern_missing} exercises still lack an explicit movement pattern")
     if instruction_incomplete:
@@ -109,7 +143,7 @@ def validate_database(records, progressions, sources):
         warnings.append(f"{resistance_unknown} exercises have unknown resistance mode")
     if skill_links_missing:
         warnings.append(f"{skill_links_missing} skill exercises lack a stable SkillCatalog link")
-    selection_unknown = equipment_unknown + pattern_missing + level_unknown + resistance_unknown + skill_links_missing
+    selection_unknown = equipment_unknown + equipment_unsupported_by_app + pattern_missing + level_unknown + resistance_unknown + skill_links_missing
     return {
         "ok": not errors,
         "errors": errors,
@@ -118,6 +152,7 @@ def validate_database(records, progressions, sources):
         "counts": {"records": len(records), "unique_ids": len(id_set), "progression_edges": len(progressions)},
         "blockers": {
             "equipment_unknown": equipment_unknown,
+            "equipment_unsupported_by_app": equipment_unsupported_by_app,
             "movement_pattern_missing": pattern_missing,
             "instruction_incomplete": instruction_incomplete,
             "level_unknown": level_unknown,

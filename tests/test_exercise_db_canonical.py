@@ -56,6 +56,53 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(legacy["instructionCompleteness"], "MISSING")
         self.assertTrue(legacy["fieldProvenance"])
 
+    def test_preserves_runtime_application_metadata_and_its_field_provenance(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+        by_id = {record["id"]: record for record in records}
+
+        carry = by_id["cm-suitcase-carry"]["applicationMetadata"]["sourceEntries"][0]
+        self.assertEqual(carry["snapshot"]["measure"], "DISTANCE")
+        self.assertEqual(carry["snapshot"]["targetSets"], 3)
+        self.assertEqual(carry["snapshot"]["targetValue"], 30.0)
+        self.assertEqual(carry["snapshot"]["movementPattern"], "loaded-carry")
+        self.assertEqual(carry["fieldProvenance"]["targetValue"]["status"], "APP_MODEL_ENTRY")
+        self.assertEqual(carry["source"]["source_id"], "APP_MODEL_9B8A41C")
+
+        one_arm_pull_up = by_id["ex-one-arm-pull-up"]["applicationMetadata"]["sourceEntries"][0]
+        self.assertEqual(one_arm_pull_up["snapshot"]["equipmentLabel"], "Sbarra")
+        self.assertEqual(one_arm_pull_up["snapshot"]["technicalComplexity"], 3)
+        self.assertEqual(
+            by_id["ex-one-arm-pull-up"]["fieldProvenance"]["movementPattern"]["source"]["source_id"],
+            "APP_EXERCISE_METADATA",
+        )
+        self.assertEqual(
+            by_id["ex-one-arm-pull-up"]["fieldProvenance"]["skillIds"]["source"]["source_id"],
+            "APP_SKILL_CATALOG",
+        )
+
+        parallel_dip = next(
+            record["applicationMetadata"]["sourceEntries"][0]
+            for record in records
+            if record.get("canonicalNameEn") == "Dip alle parallele"
+        )
+        self.assertEqual(parallel_dip["snapshot"]["secondaryGroups"], ["Tricipiti"])
+        self.assertEqual(parallel_dip["fieldProvenance"]["secondaryGroups"]["status"], "APP_EXERCISE_METADATA_RULE")
+
+    def test_validator_rejects_unregistered_runtime_metadata_provenance(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+            sources = json.loads((pathlib.Path(temporary) / "sources.json").read_text())
+            progressions = json.loads((ROOT / "app/src/main/assets/exercise-db-v2/progressions.json").read_text())
+        broken = [dict(record) for record in records]
+        source_entry = next(record["applicationMetadata"]["sourceEntries"] for record in broken if record.get("applicationMetadata", {}).get("sourceEntries"))
+        source_entry[0]["fieldProvenance"]["technicalComplexity"]["source_id"] = "UNREGISTERED_METADATA_RULE"
+
+        report = validate_database(broken, progressions, sources)
+        self.assertTrue(any("unregistered runtime metadata source" in error for error in report["errors"]))
+
     def test_explicit_equipment_in_exercise_name_resolves_only_unambiguous_items(self):
         with tempfile.TemporaryDirectory() as temporary:
             build_database(ROOT, pathlib.Path(temporary))
@@ -188,6 +235,8 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertEqual(record["levelStatus"], "UNKNOWN")
             self.assertEqual(record["movementPatternStatus"], "UNKNOWN")
             self.assertEqual(record["resistanceMode"], "UNKNOWN")
+            self.assertEqual(record["applicationMetadata"]["sourceEntries"], [])
+            self.assertEqual(len(record["applicationMetadata"]["ambiguousSourceEntries"]), 1)
         self.assertEqual(by_id["ex-muscle-up"]["runtimeName"], "Muscle-Up")
         self.assertEqual(by_id["ex-normal-muscle-up"]["runtimeName"], "Normal Muscle-Up")
         self.assertNotEqual(by_id["ex-muscle-up"]["runtimeName"], by_id["ex-normal-muscle-up"]["runtimeName"])
@@ -217,6 +266,20 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
 
         report = validate_database(broken, progressions, sources)
         self.assertTrue(any("EXTERNAL_LOAD" in error and "equipment" in error for error in report["errors"]))
+
+    def test_validator_blocks_equipment_tokens_not_supported_by_the_app_catalog(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+            sources = json.loads((pathlib.Path(temporary) / "sources.json").read_text())
+            progressions = json.loads((ROOT / "app/src/main/assets/exercise-db-v2/progressions.json").read_text())
+        exercise = next(record for record in records if record["id"] == "ex-front-lever")
+        exercise["equipmentRequired"] = ["suspension_trainer"]
+        exercise["equipmentStatus"] = "KNOWN"
+
+        report = validate_database(records, progressions, sources)
+        self.assertGreater(report["blockers"]["equipment_unsupported_by_app"], 0)
+        self.assertFalse(report["releaseReady"])
 
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -57,6 +57,40 @@ V2_FAMILY_PATTERN_SOURCE = {
     "title": "Whitelisted Exercise DB V2 family-to-pattern rules",
     "primary_use": "Infer broad movement patterns from selected movement families, with name-based exceptions for mixed pull-up/push-up families and explicit vertical chest press labels.",
 }
+EXERCISE_METADATA_SOURCE = {
+    "source_id": "APP_EXERCISE_METADATA",
+    "title": "Legacy runtime metadata completion rules",
+    "primary_use": "Records the exact withExerciseMetadata category, movement-pattern, resistance-mode, secondary-group, and technical-complexity rules. These are app-model metadata, not exercise-science evidence.",
+}
+APP_V2_ADAPTER_SOURCE = {
+    "source_id": "APP_V2_ADAPTER_RULE",
+    "title": "Exercise DB V2 to legacy runtime adapter",
+    "primary_use": "Documents app-model category, group, role, and fallback handling in ExerciseDbV2.toLegacyExercise; does not add exercise-science claims.",
+}
+APP_SKILL_CATALOG_SOURCE = {
+    "source_id": "APP_SKILL_CATALOG",
+    "title": "Active SkillCatalog node and alias mapping",
+    "primary_use": "Provenance for stable SkillCatalog IDs resolved from runtime exercise names and the active node/alias catalogue.",
+}
+APP_EQUIPMENT_LABEL_SOURCE = {
+    "source_id": "APP_EQUIPMENT_LABEL_RULE",
+    "title": "Runtime equipment display-label to canonical token mapping",
+    "primary_use": "Maps explicit runtime EquipmentCatalog labels and documented aliases to stable equipment tokens; the app equipment catalog remains the source of supported capabilities.",
+}
+V2_EQUIPMENT_RESISTANCE_SOURCE = {
+    "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+    "title": "V2 recognized external equipment to resistance mode",
+    "primary_use": "Maps an explicit recognized external-load equipment token to EXTERNAL_LOAD; it does not assign resistance mode when equipment is unknown.",
+}
+V2_TYPE_RESISTANCE_SOURCE = {
+    "source_id": "V2_TYPE_RESISTANCE_RULE",
+    "title": "V2 bodyweight movement-type resistance fallback",
+    "primary_use": "Maps CALISTHENICS or SKILL with known equipment requirements to BODYWEIGHT; unknown equipment does not satisfy the rule.",
+}
+
+
+def _rule_source(source_id, evidence_type, locator):
+    return {"source_id": source_id, "evidence_type": evidence_type, "locator": locator}
 
 
 def explicit_equipment_from_name(name):
@@ -203,6 +237,11 @@ def parse_exercise_entries(source, source_path):
             "role": positional[5] if len(positional) > 5 else named.get("role", "Base"),
             "sourceFile": source_path, "sourceLine": line,
         }
+        explicit_fields = {"name", "group", "equipmentLabel", "level"}
+        if len(positional) > 4:
+            explicit_fields.add("skills")
+        if len(positional) > 5 or "role" in named:
+            explicit_fields.add("role")
         for field in (
             "setRestSec", "exerciseRestSec", "secondaryGroups", "movementPattern", "category",
             "intensity", "systemicFatigue", "technicalComplexity", "measure", "laterality",
@@ -210,6 +249,8 @@ def parse_exercise_entries(source, source_path):
         ):
             if field in named:
                 entry[field] = named[field]
+                explicit_fields.add(field)
+        entry["_explicit_fields"] = explicit_fields
         entries.append(entry)
     return entries
 
@@ -284,8 +325,10 @@ def effective_legacy_metadata(entry):
         pattern_origin = "APP_MODEL_DIRECT"
     resistance = entry.get("resistanceMode", "NONE")
     tokens, equipment_status = equipment_tokens(entry["equipmentLabel"])
-    if resistance != "NONE" or category == "MOBILITY":
+    if resistance != "NONE":
         resistance_origin = "APP_MODEL_DIRECT"
+    elif category == "MOBILITY":
+        resistance_origin = "APP_EXERCISE_METADATA_RULE"
     elif "zavorrat" in name or any(t in tokens for t in {"barbell", "dumbbell", "cable", "machine", "kettlebell", "leg_press"}):
         resistance, resistance_origin = "EXTERNAL_LOAD", "APP_RULE_EQUIPMENT_OR_NAME"
     elif "assist" in name and "resistance_band" in tokens:
@@ -297,6 +340,78 @@ def effective_legacy_metadata(entry):
         "resistanceMode": resistance, "resistanceModeOrigin": resistance_origin,
         "equipmentRequired": tokens, "equipmentStatus": equipment_status,
     }
+
+
+def runtime_application_metadata(entry):
+    """Snapshot the effective legacy Exercise values without treating them as science evidence."""
+    effective = effective_legacy_metadata(entry)
+    explicit = entry.get("_explicit_fields", set())
+    role = entry.get("role", "Base")
+    category = effective["category"]
+    group = entry["group"]
+    secondary_groups = entry.get("secondaryGroups") or group.split(" / ")[1:]
+    default_rest = {"Forza": 150, "Progressione": 120, "Prerequisito": 90}.get(role, 90)
+    snapshot = {
+        "name": entry["name"],
+        "group": group,
+        "equipmentLabel": entry["equipmentLabel"],
+        "equipmentRequired": effective["equipmentRequired"],
+        "level": entry.get("level"),
+        "skills": entry.get("skills", []),
+        "role": role,
+        "setRestSec": entry.get("setRestSec", default_rest),
+        "exerciseRestSec": entry.get("exerciseRestSec", default_rest),
+        "secondaryGroups": secondary_groups,
+        "movementPattern": effective["movementPattern"],
+        "category": category,
+        "intensity": entry.get("intensity", 5),
+        "systemicFatigue": entry.get("systemicFatigue", 5),
+        "technicalComplexity": 3 if category == "SKILL" else (2 if role == "Forza" else 1),
+        "measure": entry.get("measure", "REPS"),
+        "laterality": entry.get("laterality", "BILATERAL"),
+        "resistanceMode": effective["resistanceMode"],
+        "progressionKey": entry.get("progressionKey"),
+        "targetSets": entry.get("targetSets", 3),
+        "targetValue": entry.get("targetValue"),
+        "intervalRestSec": entry.get("intervalRestSec"),
+    }
+    fields = {}
+    source = {
+        "source_id": "APP_MODEL_9B8A41C",
+        "source_name": entry["name"],
+        "evidence_type": "APP_MODEL_ENTRY",
+        "locator": f'{entry["sourceFile"]}:{entry["sourceLine"]}@{BASELINE}',
+    }
+    for field in snapshot:
+        if field == "equipmentRequired":
+            status, source_id = "APP_EQUIPMENT_LABEL_RULE", "APP_EQUIPMENT_LABEL_RULE"
+        elif field in {"category", "movementPattern", "resistanceMode", "secondaryGroups", "technicalComplexity"}:
+            direct = (
+                (field == "category" and field in explicit and entry.get("category") != "OTHER")
+                or (field == "movementPattern" and field in explicit and bool(entry.get("movementPattern")))
+                or (field == "resistanceMode" and field in explicit and (entry.get("resistanceMode") != "NONE" or category == "MOBILITY"))
+                or (field == "secondaryGroups" and field in explicit and bool(entry.get("secondaryGroups")))
+            )
+            status = "APP_MODEL_ENTRY" if direct else "APP_EXERCISE_METADATA_RULE"
+            source_id = "APP_MODEL_9B8A41C" if direct else "APP_EXERCISE_METADATA"
+        elif field in explicit:
+            status, source_id = "APP_MODEL_ENTRY", "APP_MODEL_9B8A41C"
+        elif field in {"setRestSec", "exerciseRestSec"}:
+            status, source_id = "APP_MODEL_DEFAULT_RULE", "APP_MODEL_9B8A41C"
+        else:
+            status, source_id = "APP_MODEL_DEFAULT", "APP_MODEL_9B8A41C"
+        if field == "equipmentRequired":
+            locator = f'app/src/main/java/com/hybridfitnesscoach/app/EquipmentCatalog.kt <- {entry["sourceFile"]}:{entry["sourceLine"]}'
+        elif status == "APP_EXERCISE_METADATA_RULE":
+            locator = "app/src/main/java/com/hybridfitnesscoach/app/ExerciseMetadata.kt@" + BASELINE
+        elif status == "APP_MODEL_DEFAULT_RULE":
+            locator = "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:recommendedSetRest"
+        elif status == "APP_MODEL_DEFAULT":
+            locator = f'app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:Exercise.{field}'
+        else:
+            locator = source["locator"]
+        fields[field] = {"status": status, "source_id": source_id, "locator": locator}
+    return {"source": source, "snapshot": snapshot, "fieldProvenance": fields}
 
 
 def _slug(name):
@@ -387,6 +502,12 @@ def build_database(root, output_dir):
     equipment_rule_source = CANONICAL_NAME_EQUIPMENT_SOURCE
     pattern_rule_source = MOVEMENT_TYPE_PATTERN_SOURCE
     family_pattern_source = V2_FAMILY_PATTERN_SOURCE
+    exercise_metadata_source = EXERCISE_METADATA_SOURCE
+    adapter_source = APP_V2_ADAPTER_SOURCE
+    skill_catalog_source = APP_SKILL_CATALOG_SOURCE
+    equipment_label_source = APP_EQUIPMENT_LABEL_SOURCE
+    equipment_resistance_source = V2_EQUIPMENT_RESISTANCE_SOURCE
+    type_resistance_source = V2_TYPE_RESISTANCE_SOURCE
 
     v2_records = []
     matched_legacy_names = set()
@@ -467,6 +588,36 @@ def build_database(root, output_dir):
         role_status = "APP_MODEL_DIRECT" if effective else "APP_RULE_RUNTIME_DEFAULT"
         level = record.get("level") or (hit.get("level") if effective else None)
         matching_skills = [] if ambiguous_current_link else _skill_ids(root, [display_name, record.get("canonicalNameEn"), record.get("nameIt"), *record.get("aliases", [])])
+        equipment_provenance_source = (
+            _rule_source(equipment_rule_source["source_id"], "EXPLICIT_NAME_TOKEN", record.get("canonicalNameEn"))
+            if equipment_origin == "NAME_EXPLICIT_EQUIPMENT_RULE" else
+            (_rule_source(equipment_label_source["source_id"], "APP_EQUIPMENT_LABEL_RULE", hit.get("equipmentLabel")) if effective else record["sources"])
+        )
+        if pattern_origin == "V2_MOVEMENT_TYPE_RULE":
+            pattern_provenance_source = _rule_source(pattern_rule_source["source_id"], "V2_MOVEMENT_TYPE_RULE", record.get("movementType"))
+        elif pattern_origin == "V2_FAMILY_PATTERN_RULE":
+            pattern_provenance_source = _rule_source(family_pattern_source["source_id"], "V2_FAMILY_PATTERN_RULE", record.get("family"))
+        elif pattern_origin.startswith("APP_RULE"):
+            pattern_provenance_source = _rule_source(exercise_metadata_source["source_id"], "APP_EXERCISE_METADATA_RULE", "ExerciseMetadata.kt")
+        else:
+            pattern_provenance_source = record["sources"]
+        if mode_status == "APP_RULE_EQUIPMENT_TOKEN":
+            resistance_provenance_source = _rule_source(equipment_resistance_source["source_id"], "V2_EQUIPMENT_RESISTANCE_RULE", eq)
+        elif mode_status == "APP_RULE_MOVEMENT_TYPE":
+            resistance_provenance_source = _rule_source(type_resistance_source["source_id"], "V2_TYPE_RESISTANCE_RULE", record.get("movementType"))
+        elif mode_status.startswith("APP_RULE"):
+            resistance_provenance_source = _rule_source(exercise_metadata_source["source_id"], "APP_EXERCISE_METADATA_RULE", "ExerciseMetadata.kt")
+        elif effective:
+            resistance_provenance_source = model_ref
+        else:
+            resistance_provenance_source = record["sources"]
+        level_provenance_source = record["sources"] if record.get("level") else (model_ref if effective else record["sources"])
+        category_provenance_source = model_ref if effective else _rule_source(adapter_source["source_id"], "APP_V2_ADAPTER_RULE", "ExerciseDbV2.kt:toLegacyExercise")
+        role_provenance_source = model_ref if effective else _rule_source(adapter_source["source_id"], "APP_V2_ADAPTER_RULE", "ExerciseDbV2.kt:toLegacyExercise")
+        skill_provenance_source = (
+            _rule_source(skill_catalog_source["source_id"], "SKILL_CATALOG_NAME_OR_ALIAS", "SkillCatalog.kt")
+            if matching_skills else (model_ref if hit else record["sources"])
+        )
         copy = dict(record)
         model_ref = None
         if hit:
@@ -485,6 +636,10 @@ def build_database(root, output_dir):
             "modelMatchType": "AMBIGUOUS_ALIAS" if ambiguous_current_link else ("EXACT_NAME_OR_ALIAS" if exact_hit else ("NORMALIZED_NAME" if hit else "NO_MATCH")),
             "identityResolution": "AMBIGUOUS_CURRENT_MODEL_LINK" if ambiguous_current_link else ("MERGED_V2_AND_CURRENT_MODEL" if model_ref else "V2_ONLY"),
             "modelSourceRefs": [model_ref] if model_ref else [],
+            "applicationMetadata": {
+                "sourceEntries": [runtime_application_metadata(hit)] if hit and not ambiguous_current_link else [],
+                "ambiguousSourceEntries": [runtime_application_metadata(hit)] if hit and ambiguous_current_link else [],
+            },
             "equipmentRequired": eq,
             "equipmentStatus": eq_status,
             "level": level,
@@ -500,21 +655,17 @@ def build_database(root, output_dir):
                 "identity": {"status": "V2_STABLE_ID", "source": record["id"]},
                 "equipmentRequired": {
                     "status": equipment_origin,
-                    "source": ({"source_id": equipment_rule_source["source_id"], "evidence_type": "EXPLICIT_NAME_TOKEN", "locator": record.get("canonicalNameEn")} if equipment_origin == "NAME_EXPLICIT_EQUIPMENT_RULE" else record["sources"]),
+                    "source": equipment_provenance_source,
                 },
                 "movementPattern": {
                     "status": pattern_origin,
-                    "source": (
-                        {"source_id": pattern_rule_source["source_id"], "evidence_type": "V2_MOVEMENT_TYPE_RULE", "locator": record.get("movementType")} if pattern_origin == "V2_MOVEMENT_TYPE_RULE" else
-                        {"source_id": family_pattern_source["source_id"], "evidence_type": "V2_FAMILY_PATTERN_RULE", "locator": record.get("family")} if pattern_origin == "V2_FAMILY_PATTERN_RULE" else
-                        ("ExerciseMetadata.kt" if pattern_origin.startswith("APP_RULE") else record["sources"])
-                    ),
+                    "source": pattern_provenance_source,
                 },
-                "resistanceMode": {"status": mode_status, "source": "ExerciseMetadata.kt" if mode_status.startswith("APP_RULE") else record["sources"]},
-                "level": {"status": "V2_DIRECT" if record.get("level") else ("APP_MODEL_DIRECT" if effective else "UNKNOWN"), "source": record["sources"]},
-                "category": {"status": "APP_MODEL_DIRECT" if effective else "APP_RULE_RUNTIME_CONVERSION", "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if effective else "ExerciseDbV2.toLegacyExercise"},
-                "role": {"status": role_status, "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if effective else "ExerciseDbV2.toLegacyExercise"},
-                "skillIds": {"status": "APP_MODEL_DIRECT" if matching_skills else ("AMBIGUOUS_IDENTITY" if ambiguous_current_link else "UNKNOWN"), "source": hit["sourceFile"] + ":" + str(hit["sourceLine"]) if hit else None},
+                "resistanceMode": {"status": mode_status, "source": resistance_provenance_source},
+                "level": {"status": "V2_DIRECT" if record.get("level") else ("APP_MODEL_DIRECT" if effective else "UNKNOWN"), "source": level_provenance_source},
+                "category": {"status": "APP_MODEL_DIRECT" if effective else "APP_RULE_RUNTIME_CONVERSION", "source": category_provenance_source},
+                "role": {"status": role_status, "source": role_provenance_source},
+                "skillIds": {"status": "APP_MODEL_DIRECT" if matching_skills else ("AMBIGUOUS_IDENTITY" if ambiguous_current_link else "UNKNOWN"), "source": skill_provenance_source},
                 "instructions": {"status": "V2_EVIDENCE_TIER", "executionEvidence": record.get("executionEvidence", "UNKNOWN"), "sources": record.get("sources", [])},
             },
         })
@@ -581,21 +732,36 @@ def build_database(root, output_dir):
         } for source_entry in source_entries]
         source_ref = source_refs[0]
         matching_skills = _skill_ids(root, [name, *entry.get("skills", [])])
+        equipment_rule_ref = _rule_source(equipment_label_source["source_id"], "APP_EQUIPMENT_LABEL_RULE", entry.get("equipmentLabel"))
+        category_direct = "category" in entry.get("_explicit_fields", set()) and entry.get("category") != "OTHER"
+        role_direct = "role" in entry.get("_explicit_fields", set())
+        pattern_direct = "movementPattern" in entry.get("_explicit_fields", set()) and bool(entry.get("movementPattern"))
+        resistance_direct = "resistanceMode" in entry.get("_explicit_fields", set()) and (entry.get("resistanceMode") != "NONE" or effective["category"] == "MOBILITY")
+        measure_direct = "measure" in entry.get("_explicit_fields", set())
+        skill_source = (
+            _rule_source(skill_catalog_source["source_id"], "SKILL_CATALOG_NAME_OR_ALIAS", "SkillCatalog.kt")
+            if matching_skills else source_ref
+        )
+        category_source = source_ref if category_direct else _rule_source(exercise_metadata_source["source_id"], "APP_EXERCISE_METADATA_RULE", "ExerciseMetadata.kt")
+        pattern_source = source_ref if pattern_direct else _rule_source(exercise_metadata_source["source_id"], "APP_EXERCISE_METADATA_RULE", "ExerciseMetadata.kt")
+        resistance_source = source_ref if resistance_direct else _rule_source(exercise_metadata_source["source_id"], "APP_EXERCISE_METADATA_RULE", "ExerciseMetadata.kt")
+        role_source = source_ref if role_direct else _rule_source(app_source["source_id"], "APP_MODEL_DEFAULT", "MainActivity.kt:Exercise.role")
+        measure_source = source_ref if measure_direct else _rule_source(app_source["source_id"], "APP_MODEL_DEFAULT", "MainActivity.kt:Exercise.measure")
         category_to_type = {
             "PUSH": "STRENGTH", "PULL": "STRENGTH", "LEGS": "STRENGTH", "CORE": "CORE",
             "CARDIO": "CONDITIONING", "MOBILITY": "MOBILITY", "SKILL": "SKILL", "OTHER": "STRENGTH",
         }
         field_provenance = {
-            "identity": {"status": "APP_MODEL_DIRECT", "source": source_ref["locator"]},
-            "name": {"status": "APP_MODEL_DIRECT", "source": source_ref["locator"]},
-            "equipmentRequired": {"status": effective["equipmentStatus"], "source": source_ref["locator"]},
-            "level": {"status": "APP_MODEL_DIRECT", "source": source_ref["locator"]},
-            "category": {"status": "APP_MODEL_DIRECT" if entry.get("category") not in {None, "OTHER"} else "APP_RULE_GROUP_OR_ROLE", "source": source_ref["locator"]},
-            "role": {"status": "APP_MODEL_DIRECT", "source": source_ref["locator"]},
-            "movementPattern": {"status": effective["movementPatternOrigin"], "source": "ExerciseMetadata.kt" if effective["movementPatternOrigin"].startswith("APP_RULE") else source_ref["locator"]},
-            "resistanceMode": {"status": effective["resistanceModeOrigin"], "source": "ExerciseMetadata.kt" if effective["resistanceModeOrigin"].startswith("APP_RULE") else source_ref["locator"]},
-            "measure": {"status": "APP_MODEL_DIRECT", "source": source_ref["locator"]},
-            "skillIds": {"status": "APP_MODEL_DIRECT" if matching_skills else "UNKNOWN", "source": source_ref["locator"]},
+            "identity": {"status": "APP_MODEL_DIRECT", "source": source_ref},
+            "name": {"status": "APP_MODEL_DIRECT", "source": source_ref},
+            "equipmentRequired": {"status": "APP_EQUIPMENT_LABEL_RULE" if effective["equipmentStatus"] == "KNOWN" else "UNKNOWN", "source": equipment_rule_ref},
+            "level": {"status": "APP_MODEL_DIRECT", "source": source_ref},
+            "category": {"status": "APP_MODEL_DIRECT" if category_direct else "APP_EXERCISE_METADATA_RULE", "source": category_source},
+            "role": {"status": "APP_MODEL_DIRECT" if role_direct else "APP_MODEL_DEFAULT", "source": role_source},
+            "movementPattern": {"status": "APP_MODEL_DIRECT" if pattern_direct else effective["movementPatternOrigin"], "source": pattern_source},
+            "resistanceMode": {"status": "APP_MODEL_DIRECT" if resistance_direct else effective["resistanceModeOrigin"], "source": resistance_source},
+            "measure": {"status": "APP_MODEL_DIRECT" if measure_direct else "APP_MODEL_DEFAULT", "source": measure_source},
+            "skillIds": {"status": "APP_MODEL_DIRECT" if matching_skills else "UNKNOWN", "source": skill_source},
             "instructions": {"status": "MISSING", "source": None},
             "muscles": {"status": "MISSING", "source": None},
         }
@@ -627,13 +793,23 @@ def build_database(root, output_dir):
                 "sets": entry.get("targetSets", 3), "targetValue": entry.get("targetValue"),
                 "measure": entry.get("measure", "REPS"), "sourceType": "APP_RULE",
             },
+            "applicationMetadata": {
+                "sourceEntries": [runtime_application_metadata(source_entry) for source_entry in source_entries],
+                "ambiguousSourceEntries": [],
+            },
             "equipmentLabel": entry["equipmentLabel"], "instructionCompleteness": "MISSING",
             "fieldProvenance": field_provenance,
         })
 
     all_records = v2_records + current_records
-    from tools.validate_exercise_db_canonical import validate_database
-    structural_validation = validate_database(all_records, progressions, sources + [app_source, equipment_rule_source, pattern_rule_source, family_pattern_source])
+    from tools.validate_exercise_db_canonical import APP_SUPPORTED_EQUIPMENT, validate_database
+    all_sources = sources + [
+        app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
+        exercise_metadata_source, adapter_source, skill_catalog_source,
+        equipment_resistance_source, type_resistance_source,
+        equipment_label_source,
+    ]
+    structural_validation = validate_database(all_records, progressions, all_sources)
     ids = [record["id"] for record in all_records]
     runtime_duplicate_names = defaultdict(list)
     for record in all_records:
@@ -642,11 +818,29 @@ def build_database(root, output_dir):
     id_counts = Counter(ids)
     dangling_edges = [edge for edge in progressions if edge.get("from") not in set(ids) or edge.get("to") not in set(ids)]
     equipment_unknown = [record["id"] for record in all_records if record.get("equipmentStatus") != "KNOWN"]
+    equipment_unsupported_by_app = [
+        record["id"] for record in all_records
+        if any(token in RECOGNIZED_EQUIPMENT and token not in APP_SUPPORTED_EQUIPMENT for token in record.get("equipmentRequired") or [])
+    ]
     pattern_unknown = [record["id"] for record in all_records if not record.get("movementPattern")]
     instruction_missing = [record["id"] for record in all_records if not record.get("descriptionIt") or not record.get("setupIt") or not record.get("executionStepsIt")]
     level_unknown = [record["id"] for record in all_records if not record.get("level")]
     resistance_unknown = [record["id"] for record in all_records if record.get("resistanceMode") in {None, "UNKNOWN"}]
     skill_link_missing = [record["id"] for record in all_records if record.get("movementType") == "SKILL" and not record.get("skillIds")]
+    app_metadata_entries = [
+        app_entry
+        for record in all_records
+        for app_entry in (record.get("applicationMetadata") or {}).get("sourceEntries", [])
+    ]
+    ambiguous_app_metadata_entries = [
+        app_entry
+        for record in all_records
+        for app_entry in (record.get("applicationMetadata") or {}).get("ambiguousSourceEntries", [])
+    ]
+    application_metadata_fields = sorted({
+        field for app_entry in app_metadata_entries
+        for field in (app_entry.get("snapshot") or {})
+    })
     normalized_merges = [
         {"targetId": record["id"], "canonicalName": record["canonicalNameEn"], "runtimeNames": record["runtimeModelNames"]}
         for record in v2_records if record.get("modelMatchType") == "NORMALIZED_NAME"
@@ -662,9 +856,13 @@ def build_database(root, output_dir):
             "canonical_records": len(all_records),
             "progression_edges": len(progressions), "unique_ids": len(set(ids)),
             "equipment_unknown": len(equipment_unknown), "movement_pattern_missing": len(pattern_unknown),
+            "equipment_unsupported_by_app": len(equipment_unsupported_by_app),
             "instruction_incomplete": len(instruction_missing), "runtime_duplicate_labels": len(duplicate_runtime_names),
             "level_unknown": len(level_unknown), "resistance_mode_unknown": len(resistance_unknown),
             "skill_links_missing": len(skill_link_missing),
+            "runtime_application_entries": len(runtime),
+            "application_metadata_snapshots": len(app_metadata_entries),
+            "ambiguous_application_metadata_candidates": len(ambiguous_app_metadata_entries),
         },
         "reconciliation": {
             "handoff_expected_total": 1091,
@@ -678,10 +876,23 @@ def build_database(root, output_dir):
             "runtime_duplicate_labels": duplicate_runtime_names,
             "ambiguous_v2_lookup_names": {name: sorted(ids) for name, ids in lookup.items() if len(ids) > 1},
         },
+        "internalApplicationMetadataAudit": {
+            "runtime_entries_parsed": len(runtime),
+            "canonical_records_with_unambiguous_runtime_metadata": len({
+                record["id"] for record in all_records
+                if (record.get("applicationMetadata") or {}).get("sourceEntries")
+            }),
+            "unambiguous_source_snapshots": len(app_metadata_entries),
+            "ambiguous_source_candidates": len(ambiguous_app_metadata_entries),
+            "snapshot_fields": application_metadata_fields,
+            "source_ids": [app_source["source_id"], exercise_metadata_source["source_id"]],
+            "interpretation": "Snapshots preserve current app defaults and rules separately from exercise-science evidence and canonical prescriptions.",
+        },
         "acceptance": {
             "stable_unique_ids": len(id_counts) == len(all_records) and all(count == 1 for count in id_counts.values()),
             "structural_integrity": structural_validation["ok"],
             "all_equipment_known": not equipment_unknown,
+            "app_equipment_compatibility": not equipment_unsupported_by_app,
             "no_missing_movement_patterns": not pattern_unknown,
             "all_instructions_supported": not instruction_missing,
             "all_selection_critical_known": not (equipment_unknown or pattern_unknown or level_unknown or resistance_unknown or skill_link_missing),
@@ -689,6 +900,7 @@ def build_database(root, output_dir):
         },
         "unresolved_ids": {
             "equipment_unknown": equipment_unknown,
+            "equipment_unsupported_by_app": equipment_unsupported_by_app,
             "movement_pattern_missing": pattern_unknown,
             "instruction_incomplete": instruction_missing,
             "level_unknown": level_unknown,
@@ -702,7 +914,7 @@ def build_database(root, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "exercise-db-canonical.json").write_text(json.dumps(all_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "exercise-db-canonical-audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (output_dir / "sources.json").write_text(json.dumps(sources + [app_source, equipment_rule_source, pattern_rule_source, family_pattern_source], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "sources.json").write_text(json.dumps(all_sources, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
 
 

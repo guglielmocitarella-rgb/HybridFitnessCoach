@@ -2,6 +2,10 @@
 
 This is a reproducible, structurally validated candidate. It is not release-ready: see `CHECKLIST_STATUS.md` and `VALIDATION_REPORT.json` for the remaining evidence and metadata blockers.
 
+`applicationMetadata.sourceEntries[]` preserves effective values from the current Kotlin exercise catalogue, including app defaults and `withExerciseMetadata` rules. It is a separate comparison snapshot with per-field provenance, not exercise-science evidence and not a canonical prescription. `ambiguousSourceEntries[]` retains runtime metadata that matches more than one V2 identity without assigning it to either record.
+
+The repository-wide source inventory and the fields found or still absent from internal sources are documented in `INTERNAL_SOURCE_AUDIT.md`.
+
 The exact generated candidate and audit are stored as gzip archives because the candidate JSON is 4.7 MB. Restore them with:
 
 ```sh

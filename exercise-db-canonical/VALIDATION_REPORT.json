@@ -3,6 +3,7 @@
   "errors": [],
   "warnings": [
     "294 exercises still have unknown equipment requirements",
+    "18 exercises use equipment tokens not supported by the current app catalog",
     "201 exercises still lack an explicit movement pattern",
     "500 exercises lack supported execution instructions",
     "506 exercises have unknown level",
@@ -17,6 +18,7 @@
   },
   "blockers": {
     "equipment_unknown": 294,
+    "equipment_unsupported_by_app": 18,
     "movement_pattern_missing": 201,
     "instruction_incomplete": 500,
     "level_unknown": 506,

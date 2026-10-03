@@ -88,5 +88,35 @@
     "source_id": "V2_FAMILY_PATTERN_RULE",
     "title": "Whitelisted Exercise DB V2 family-to-pattern rules",
     "primary_use": "Infer broad movement patterns from selected movement families, with name-based exceptions for mixed pull-up/push-up families and explicit vertical chest press labels."
+  },
+  {
+    "source_id": "APP_EXERCISE_METADATA",
+    "title": "Legacy runtime metadata completion rules",
+    "primary_use": "Records the exact withExerciseMetadata category, movement-pattern, resistance-mode, secondary-group, and technical-complexity rules. These are app-model metadata, not exercise-science evidence."
+  },
+  {
+    "source_id": "APP_V2_ADAPTER_RULE",
+    "title": "Exercise DB V2 to legacy runtime adapter",
+    "primary_use": "Documents app-model category, group, role, and fallback handling in ExerciseDbV2.toLegacyExercise; does not add exercise-science claims."
+  },
+  {
+    "source_id": "APP_SKILL_CATALOG",
+    "title": "Active SkillCatalog node and alias mapping",
+    "primary_use": "Provenance for stable SkillCatalog IDs resolved from runtime exercise names and the active node/alias catalogue."
+  },
+  {
+    "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+    "title": "V2 recognized external equipment to resistance mode",
+    "primary_use": "Maps an explicit recognized external-load equipment token to EXTERNAL_LOAD; it does not assign resistance mode when equipment is unknown."
+  },
+  {
+    "source_id": "V2_TYPE_RESISTANCE_RULE",
+    "title": "V2 bodyweight movement-type resistance fallback",
+    "primary_use": "Maps CALISTHENICS or SKILL with known equipment requirements to BODYWEIGHT; unknown equipment does not satisfy the rule."
+  },
+  {
+    "source_id": "APP_EQUIPMENT_LABEL_RULE",
+    "title": "Runtime equipment display-label to canonical token mapping",
+    "primary_use": "Maps explicit runtime EquipmentCatalog labels and documented aliases to stable equipment tokens; the app equipment catalog remains the source of supported capabilities."
   }
 ]

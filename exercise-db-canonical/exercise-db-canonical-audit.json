@@ -17,11 +17,15 @@
     "unique_ids": 1087,
     "equipment_unknown": 294,
     "movement_pattern_missing": 201,
+    "equipment_unsupported_by_app": 18,
     "instruction_incomplete": 500,
     "runtime_duplicate_labels": 0,
     "level_unknown": 506,
     "resistance_mode_unknown": 338,
-    "skill_links_missing": 143
+    "skill_links_missing": 143,
+    "runtime_application_entries": 583,
+    "application_metadata_snapshots": 582,
+    "ambiguous_application_metadata_candidates": 2
   },
   "reconciliation": {
     "handoff_expected_total": 1091,
@@ -68,10 +72,46 @@
       ]
     }
   },
+  "internalApplicationMetadataAudit": {
+    "runtime_entries_parsed": 583,
+    "canonical_records_with_unambiguous_runtime_metadata": 581,
+    "unambiguous_source_snapshots": 582,
+    "ambiguous_source_candidates": 2,
+    "snapshot_fields": [
+      "category",
+      "equipmentLabel",
+      "equipmentRequired",
+      "exerciseRestSec",
+      "group",
+      "intensity",
+      "intervalRestSec",
+      "laterality",
+      "level",
+      "measure",
+      "movementPattern",
+      "name",
+      "progressionKey",
+      "resistanceMode",
+      "role",
+      "secondaryGroups",
+      "setRestSec",
+      "skills",
+      "systemicFatigue",
+      "targetSets",
+      "targetValue",
+      "technicalComplexity"
+    ],
+    "source_ids": [
+      "APP_MODEL_9B8A41C",
+      "APP_EXERCISE_METADATA"
+    ],
+    "interpretation": "Snapshots preserve current app defaults and rules separately from exercise-science evidence and canonical prescriptions."
+  },
   "acceptance": {
     "stable_unique_ids": true,
     "structural_integrity": true,
     "all_equipment_known": false,
+    "app_equipment_compatibility": false,
     "no_missing_movement_patterns": false,
     "all_instructions_supported": false,
     "all_selection_critical_known": false,
@@ -373,6 +413,26 @@
       "ex-wrist-curl",
       "ex-wrist-extension",
       "ex-wrist-push-up"
+    ],
+    "equipment_unsupported_by_app": [
+      "cm-trx-row",
+      "cm-trx-push-up",
+      "cm-trx-face-pull",
+      "cm-trx-fallout",
+      "cm-trx-high-row",
+      "cm-trx-low-row",
+      "cm-trx-chest-press",
+      "cm-trx-triceps-extension",
+      "cm-trx-biceps-curl",
+      "cm-trx-squat",
+      "cm-trx-split-squat",
+      "cm-trx-reverse-lunge",
+      "cm-trx-hamstring-curl",
+      "cm-trx-hip-press",
+      "cm-trx-mountain-climber",
+      "cm-trx-pike",
+      "cm-trx-knee-tuck",
+      "cm-trx-body-saw"
     ],
     "movement_pattern_missing": [
       "ex-advanced-tuck-back-lever",
@@ -2080,6 +2140,7 @@
     "errors": [],
     "warnings": [
       "294 exercises still have unknown equipment requirements",
+      "18 exercises use equipment tokens not supported by the current app catalog",
       "201 exercises still lack an explicit movement pattern",
       "500 exercises lack supported execution instructions",
       "506 exercises have unknown level",
@@ -2094,6 +2155,7 @@
     },
     "blockers": {
       "equipment_unknown": 294,
+      "equipment_unsupported_by_app": 18,
       "movement_pattern_missing": 201,
       "instruction_incomplete": 500,
       "level_unknown": 506,
