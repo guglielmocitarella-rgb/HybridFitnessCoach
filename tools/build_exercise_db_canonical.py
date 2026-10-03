@@ -935,6 +935,57 @@ def build_database(root, output_dir):
             }
     bodyweight_candidates.sort(key=lambda item: item["id"])
 
+    # NONE tranche: only non-resistance mobility/flexibility/SMR work with
+    # known equipment. Foam rollers are explicitly treated as SMR tools, not
+    # resistance sources. All other equipment is excluded from this rule.
+    none_types = {"MOBILITY", "FLEXIBILITY", "SMR"}
+    none_families = {"STRETCH", "SMR", "MOBILITY", "LOWER_BODY_MOBILITY", "TRUNK_MOBILITY", "SHOULDER_MOBILITY"}
+    none_allowed_equipment = {"foam_roller"}
+    none_exclusion_terms = ("weighted", "assisted", "resisted", "band")
+    none_candidates = []
+    for record in all_records:
+        equipment = record.get("equipmentRequired") or []
+        name_key = str(record.get("canonicalNameEn") or "").lower()
+        mobility_semantics = record.get("movementType") in none_types and (
+            record.get("family") in none_families
+            or "mobility" in (record.get("movementPattern") or [])
+            or "recovery" in (record.get("movementPattern") or [])
+        )
+        exclusions_verified = {
+            "equipmentKnown": record.get("equipmentStatus") == "KNOWN",
+            "mobilityFlexibilityOrSmrSemantics": mobility_semantics,
+            "noResistanceVariantTerms": not any(term in name_key for term in none_exclusion_terms),
+            "noResistanceSourceEquipment": not equipment or all(token in none_allowed_equipment for token in equipment),
+            "notBodyweightStrengthFamily": record.get("family") not in bodyweight_families,
+            "unambiguousCanonicalIdentity": record.get("identityResolution") != "AMBIGUOUS_CURRENT_MODEL_LINK",
+        }
+        if record.get("resistanceMode") in {None, "UNKNOWN"} and all(exclusions_verified.values()):
+            none_candidates.append({
+                "id": record["id"],
+                "canonicalNameEn": record.get("canonicalNameEn"),
+                "family": record.get("family"),
+                "movementType": record.get("movementType"),
+                "equipmentRequired": equipment,
+                "movementPattern": record.get("movementPattern") or [],
+                "candidateResistanceMode": "NONE",
+                "reason": "Mobility/flexibility/SMR semantics with known no-resistance equipment; foam roller is modeled as an SMR tool, not a resistance source.",
+                "existingResistanceModeProvenance": (record.get("fieldProvenance") or {}).get("resistanceMode"),
+                "exclusionsVerified": exclusions_verified,
+                "confidence": "HIGH",
+            })
+            record["resistanceMode"] = "NONE"
+            record.setdefault("fieldProvenance", {})["resistanceMode"] = {
+                "status": "MOBILITY_SEMANTICS_DETERMINISTIC",
+                "confidence": "HIGH",
+                "source": _rule_source(
+                    equipment_resistance_source["source_id"],
+                    "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+                    {"family": record.get("family"), "type": record.get("movementType"), "equipment": equipment},
+                ),
+                "derivation": "Known mobility/flexibility/SMR record with no resistance-source equipment maps to NONE; foam roller is explicitly an SMR tool, while bands, stability balls, suspension trainers, rings, bars, machines/cables and external loads are excluded.",
+            }
+    none_candidates.sort(key=lambda item: item["id"])
+
     from tools.validate_exercise_db_canonical import APP_SUPPORTED_EQUIPMENT, validate_database
     all_sources = sources + [
         app_source, equipment_rule_source, pattern_rule_source, family_pattern_source,
@@ -1088,6 +1139,14 @@ def build_database(root, output_dir):
         "records": resistance_unknown_records,
     }
 
+    none_candidate_report = {
+        "schemaVersion": 1,
+        "screenedResistanceUnknown": 214,
+        "rule": "KNOWN_NON_RESISTANCE_MOBILITY_OR_SMR_TO_NONE",
+        "count": len(none_candidates),
+        "candidates": none_candidates,
+    }
+    (output_dir / "RESISTANCE_MODE_NONE_CANDIDATES.json").write_text(json.dumps(none_candidate_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     bodyweight_candidate_report = {
         "schemaVersion": 1,
         "screenedResistanceUnknown": 309,
