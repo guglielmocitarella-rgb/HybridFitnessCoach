@@ -985,8 +985,43 @@ def build_database(root, output_dir):
         "structuralValidation": structural_validation,
     }
     output_dir.mkdir(parents=True, exist_ok=True)
+    resistance_unknown_records = []
+    for record in sorted(
+        (record for record in all_records if record.get("resistanceMode") in {None, "UNKNOWN"}),
+        key=lambda record: record["id"],
+    ):
+        resistance_unknown_records.append({
+            "id": record["id"],
+            "canonicalNameEn": record.get("canonicalNameEn"),
+            "family": record.get("family"),
+            "movementType": record.get("movementType"),
+            "equipmentRequired": record.get("equipmentRequired", []),
+            "equipmentStatus": record.get("equipmentStatus"),
+            "level": record.get("level"),
+            "movementPattern": record.get("movementPattern", []),
+            "resistanceMode": "UNKNOWN",
+            "resistanceModeProvenance": (record.get("fieldProvenance") or {}).get("resistanceMode"),
+            "identitySource": record.get("identitySource"),
+            "modelSourceRefs": record.get("modelSourceRefs", []),
+            "sources": record.get("sources", []),
+            "applicationMetadata": record.get("applicationMetadata", {}),
+        })
+    if len(resistance_unknown_records) != report["counts"]["resistance_mode_unknown"]:
+        raise ValueError(
+            "resistance UNKNOWN operational report count disagrees with canonical audit: "
+            f"{len(resistance_unknown_records)} != {report['counts']['resistance_mode_unknown']}"
+        )
+    resistance_unknown_report = {
+        "schemaVersion": 1,
+        "generatedFrom": "exercise-db-canonical.json",
+        "filter": "resistanceMode == UNKNOWN",
+        "count": len(resistance_unknown_records),
+        "records": resistance_unknown_records,
+    }
+
     (output_dir / "exercise-db-canonical.json").write_text(json.dumps(all_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "exercise-db-canonical-audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "RESISTANCE_MODE_UNKNOWN.json").write_text(json.dumps(resistance_unknown_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "sources.json").write_text(json.dumps(all_sources, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
 

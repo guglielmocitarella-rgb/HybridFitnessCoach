@@ -359,6 +359,29 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertGreater(report["blockers"]["equipment_unsupported_by_app"], 0)
         self.assertFalse(report["releaseReady"])
 
+    def test_generates_deterministic_resistance_unknown_operational_report(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            report_path = output / "RESISTANCE_MODE_UNKNOWN.json"
+            first_bytes = report_path.read_bytes()
+            operational = json.loads(first_bytes)
+            validation = validate_database(
+                json.loads((output / "exercise-db-canonical.json").read_text()),
+                json.loads((ROOT / "app/src/main/assets/exercise-db-v2/progressions.json").read_text()),
+                json.loads((output / "sources.json").read_text()),
+            )
+
+            self.assertEqual(operational["count"], validation["blockers"]["resistance_mode_unknown"])
+            self.assertEqual(operational["count"], result["counts"]["resistance_mode_unknown"])
+            ids = [record["id"] for record in operational["records"]]
+            self.assertEqual(len(ids), len(set(ids)))
+            self.assertEqual(ids, sorted(ids))
+            self.assertTrue(all(record["resistanceMode"] == "UNKNOWN" for record in operational["records"]))
+
+            build_database(ROOT, output)
+            self.assertEqual(first_bytes, report_path.read_bytes())
+
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)

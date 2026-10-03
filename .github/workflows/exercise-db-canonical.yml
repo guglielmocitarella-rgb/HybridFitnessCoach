@@ -5,7 +5,7 @@ on:
     branches:
       - feature/v0.9.5
     paths:
-      - 'exercise-db-canonical/external-enrichment.json'
+      - 'exercise-db-canonical/external-enrichment.json'\n      - 'exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json'
       - 'tools/build_exercise_db_canonical.py'
       - 'tools/validate_exercise_db_canonical.py'
       - 'tests/test_exercise_db_canonical.py'
@@ -72,7 +72,7 @@ jobs:
             exit 1
           fi
 
-          git add --             exercise-db-canonical/exercise-db-canonical.json             exercise-db-canonical/exercise-db-canonical-audit.json             exercise-db-canonical/VALIDATION_REPORT.json             exercise-db-canonical/sources.json             exercise-db-canonical/exercise-db-canonical.json.gz             exercise-db-canonical/exercise-db-canonical-audit.json.gz
+          git add --             exercise-db-canonical/exercise-db-canonical.json             exercise-db-canonical/exercise-db-canonical-audit.json             exercise-db-canonical/VALIDATION_REPORT.json             exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json             exercise-db-canonical/sources.json             exercise-db-canonical/exercise-db-canonical.json.gz             exercise-db-canonical/exercise-db-canonical-audit.json.gz
 
           if git diff --cached --quiet; then
             echo "Generated artifacts already match inputs."
