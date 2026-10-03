@@ -1224,14 +1224,16 @@ def build_database(root, output_dir):
             for field in batch04_instruction_fields
         ):
             record["instructionCompleteness"] = "SUPPORTED_EXTERNAL_REFERENCE"
+            instruction_sources = [
+                (record.get("fieldProvenance") or {}).get(field, {}).get("source")
+                for field in batch04_instruction_fields
+                if (record.get("fieldProvenance") or {}).get(field, {}).get("source")
+            ]
             record.setdefault("fieldProvenance", {})["instructions"] = {
                 "status": "EXTERNAL_SOURCE_DIRECT",
                 "confidence": "HIGH",
-                "source": [
-                    (record.get("fieldProvenance") or {}).get(field, {}).get("source")
-                    for field in batch04_instruction_fields
-                    if (record.get("fieldProvenance") or {}).get(field, {}).get("source")
-                ],
+                "source": instruction_sources[0],
+                "sources": instruction_sources,
             }
 
     record_first_batch04 = []
