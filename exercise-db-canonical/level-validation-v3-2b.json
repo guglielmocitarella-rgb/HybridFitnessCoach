@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "3.2B",
+  "sourceHead": "3212e64b60da75fe1b136843b51e8aaaddfbb407",
+  "status": "PASS",
+  "integrity": {
+    "canonical": 1087,
+    "unique": 1087,
+    "missing": 0,
+    "duplicates": 0
+  },
+  "unknownBefore": 438,
+  "patched": 0,
+  "unknownAfterAuditPatchLayer": 438,
+  "audited": 438,
+  "validatorCommand": "python tools/validate_exercise_db_canonical.py",
+  "regressionCommand": "python -m unittest tests/test_exercise_db_canonical.py tests/test_equipment_v31c.py tests/test_resistance_mode_v32a.py tests/test_level_capability_v32b.py -v",
+  "modelStatus": "INSUFFICIENT_NEEDS_CAPABILITY_MODEL",
+  "domainDecision": "CLOSED_WITH_DOCUMENTED_UNRESOLVED",
+  "ciDbOnlyUsed": true,
+  "validatedCommit": "49f52dd3d41fb57acb8295fd93d7e1c2021918da",
+  "workflowRunId": 37151816179,
+  "workflowName": "Exercise DB V3.2B validation and audit",
+  "tempWorkflowRemoved": true,
+  "actualResults": {
+    "jsonSyntax": "PASS",
+    "canonicalValidator": "PASS",
+    "regressionSuite": "PASS",
+    "integrity": "PASS"
+  }
+}
