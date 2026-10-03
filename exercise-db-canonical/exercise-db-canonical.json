@@ -2234,6 +2234,12 @@
         "source_name": "Advanced Tuck Planche Pushups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -2252,7 +2258,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -2293,15 +2299,16 @@
         "source": "ex-advanced-tuck-planche-pushups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Advanced Tuck Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche Pushups — Parallel Bars and Floor; Rings Planche Pushups are a separately named progression",
+        "mapping": "exact non-rings planche-pushup progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -2319,6 +2326,12 @@
             "source_name": "Advanced Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -2330,6 +2343,12 @@
             "source_name": "Advanced Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -2357,6 +2376,12 @@
             "source_name": "Advanced Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -2369,6 +2394,12 @@
             "source_name": "Advanced Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -2386,7 +2417,9 @@
     "movementPattern": [
       "core-control"
     ],
-    "equipment": [],
+    "equipment": [
+      "stability_ball"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Alternate Arm and Leg Raises on Ball è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -2414,6 +2447,12 @@
         "source_name": "Alternate Arm and Leg Raises on Ball",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 55"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Anyang University/KOCW exercise material — Alternate Arm and Leg Raises on Ball",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -2431,8 +2470,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "stability_ball"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -2446,15 +2487,16 @@
         "source": "ex-alternate-arm-and-leg-raises-on-ball"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Alternate Arm and Leg Raises on Ball",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 55"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Anyang University/KOCW exercise material — Alternate Arm and Leg Raises on Ball",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf"
+        },
+        "observedValue": "gym ball / stability ball",
+        "mapping": "exact exercise title and illustrated ball apparatus"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -2472,6 +2514,12 @@
             "source_name": "Alternate Arm and Leg Raises on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 55"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW exercise material — Alternate Arm and Leg Raises on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf"
           }
         ]
       },
@@ -2483,6 +2531,12 @@
             "source_name": "Alternate Arm and Leg Raises on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 55"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW exercise material — Alternate Arm and Leg Raises on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf"
           }
         ]
       },
@@ -2510,6 +2564,12 @@
             "source_name": "Alternate Arm and Leg Raises on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 55"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW exercise material — Alternate Arm and Leg Raises on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf"
           }
         ]
       },
@@ -2522,6 +2582,12 @@
             "source_name": "Alternate Arm and Leg Raises on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 55"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW exercise material — Alternate Arm and Leg Raises on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf"
           }
         ]
       }
@@ -4391,7 +4457,9 @@
     "movementPattern": [
       "recovery"
     ],
-    "equipment": [],
+    "equipment": [
+      "foam_roller"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Armpit Foam Rolling è un esercizio della famiglia smr. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -4419,6 +4487,12 @@
         "source_name": "Armpit Foam Rolling",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "NASM — Guide to Foam Rolling",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -4436,8 +4510,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "foam_roller"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
@@ -4451,15 +4527,16 @@
         "source": "ex-armpit-foam-rolling"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Armpit Foam Rolling",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "NASM — Guide to Foam Rolling",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
+        },
+        "observedValue": "foam roller under the arm in the axillary region",
+        "mapping": "armpit/axillary latissimus-dorsi foam-roll position"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -4477,6 +4554,12 @@
             "source_name": "Armpit Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       },
@@ -4488,6 +4571,12 @@
             "source_name": "Armpit Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       },
@@ -4515,6 +4604,12 @@
             "source_name": "Armpit Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       },
@@ -4527,6 +4622,12 @@
             "source_name": "Armpit Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       }
@@ -34519,6 +34620,12 @@
         "source_name": "Flat-Back Planche",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -34537,7 +34644,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -34576,15 +34683,16 @@
         "source": "ex-flat-back-planche"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Flat-Back Planche",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche — Parallel Bars and Floor; Rings Planche is a separately named progression",
+        "mapping": "exact non-rings planche/frog-stand progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -34602,6 +34710,12 @@
             "source_name": "Flat-Back Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -34613,6 +34727,12 @@
             "source_name": "Flat-Back Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -34640,6 +34760,12 @@
             "source_name": "Flat-Back Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -34652,6 +34778,12 @@
             "source_name": "Flat-Back Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -41899,6 +42031,12 @@
         "source_name": "Full Planche Pushups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -41917,7 +42055,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -41945,15 +42083,16 @@
         "source": "ex-full-planche-pushups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche Pushups — Parallel Bars and Floor; Rings Planche Pushups are a separately named progression",
+        "mapping": "exact non-rings planche-pushup progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -41971,6 +42110,12 @@
             "source_name": "Full Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -41982,6 +42127,12 @@
             "source_name": "Full Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -42009,6 +42160,12 @@
             "source_name": "Full Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -42021,6 +42178,12 @@
             "source_name": "Full Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -70005,7 +70168,9 @@
     "movementPattern": [
       "core-control"
     ],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Parallel Knee Raise è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -70033,6 +70198,12 @@
         "source_name": "Parallel Knee Raise",
         "evidence_type": "EXERCISE_SECTION",
         "locator": "The Gym-Less Workout exercise/progression section 29"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Gym.com — Knee Raise Parallel Bars",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://gym.com/exercises/knee-raise-parallel-bars"
       }
     ],
     "confidence": "MEDIUM",
@@ -70050,8 +70221,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dip_bars"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -70065,15 +70238,16 @@
         "source": "ex-parallel-knee-raise"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Parallel Knee Raise",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 29"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Gym.com — Knee Raise Parallel Bars",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://gym.com/exercises/knee-raise-parallel-bars"
+        },
+        "observedValue": "parallel bars",
+        "mapping": "exact knee-raise parallel-bars exercise; canonical dip_bars"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -70091,6 +70265,12 @@
             "source_name": "Parallel Knee Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 29"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Gym.com — Knee Raise Parallel Bars",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://gym.com/exercises/knee-raise-parallel-bars"
           }
         ]
       },
@@ -70102,6 +70282,12 @@
             "source_name": "Parallel Knee Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 29"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Gym.com — Knee Raise Parallel Bars",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://gym.com/exercises/knee-raise-parallel-bars"
           }
         ]
       },
@@ -70129,6 +70315,12 @@
             "source_name": "Parallel Knee Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 29"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Gym.com — Knee Raise Parallel Bars",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://gym.com/exercises/knee-raise-parallel-bars"
           }
         ]
       },
@@ -70141,6 +70333,12 @@
             "source_name": "Parallel Knee Raise",
             "evidence_type": "EXERCISE_SECTION",
             "locator": "The Gym-Less Workout exercise/progression section 29"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Gym.com — Knee Raise Parallel Bars",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://gym.com/exercises/knee-raise-parallel-bars"
           }
         ]
       }
@@ -71786,7 +71984,9 @@
     "movementPattern": [
       "recovery"
     ],
-    "equipment": [],
+    "equipment": [
+      "foam_roller"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Piriformis Foam Rolling è un esercizio della famiglia smr. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -71814,6 +72014,12 @@
         "source_name": "Piriformis Foam Rolling",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "NASM — Guide to Foam Rolling",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -71831,8 +72037,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "foam_roller"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
@@ -71846,15 +72054,16 @@
         "source": "ex-piriformis-foam-rolling"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Piriformis Foam Rolling",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "NASM — Guide to Foam Rolling",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
+        },
+        "observedValue": "sit on top of the foam roller at posterior hip/piriformis",
+        "mapping": "exact piriformis foam-rolling target"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -71872,6 +72081,12 @@
             "source_name": "Piriformis Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       },
@@ -71883,6 +72098,12 @@
             "source_name": "Piriformis Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       },
@@ -71910,6 +72131,12 @@
             "source_name": "Piriformis Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       },
@@ -71922,6 +72149,12 @@
             "source_name": "Piriformis Foam Rolling",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Guide to Foam Rolling",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf"
           }
         ]
       }
@@ -72495,6 +72728,12 @@
         "source_name": "Planche",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 8"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -72513,7 +72752,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -72527,21 +72766,16 @@
         "source": "ex-planche"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Planche",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Planche",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche — Parallel Bars and Floor; Rings Planche is a separately named progression",
+        "mapping": "exact non-rings planche/frog-stand progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -72565,6 +72799,12 @@
             "source_name": "Planche",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -72582,6 +72822,12 @@
             "source_name": "Planche",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -72615,6 +72861,12 @@
             "source_name": "Planche",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -72633,6 +72885,12 @@
             "source_name": "Planche",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 8"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -93462,6 +93720,12 @@
         "source_name": "Single-Leg Planche",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -93480,7 +93744,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -93519,15 +93783,16 @@
         "source": "ex-single-leg-planche"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Single-Leg Planche",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche — Parallel Bars and Floor; Rings Planche is a separately named progression",
+        "mapping": "exact non-rings planche/frog-stand progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -93545,6 +93810,12 @@
             "source_name": "Single-Leg Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -93556,6 +93827,12 @@
             "source_name": "Single-Leg Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -93583,6 +93860,12 @@
             "source_name": "Single-Leg Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -93595,6 +93878,12 @@
             "source_name": "Single-Leg Planche",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -103648,6 +103937,12 @@
         "source_name": "Straddle Planche Pushups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -103666,7 +103961,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -103707,15 +104002,16 @@
         "source": "ex-straddle-planche-pushups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche Pushups — Parallel Bars and Floor; Rings Planche Pushups are a separately named progression",
+        "mapping": "exact non-rings planche-pushup progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -103733,6 +104029,12 @@
             "source_name": "Straddle Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -103744,6 +104046,12 @@
             "source_name": "Straddle Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -103771,6 +104079,12 @@
             "source_name": "Straddle Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -103783,6 +104097,12 @@
             "source_name": "Straddle Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -104032,6 +104352,12 @@
         "source_name": "Straight-Arm Frog Stand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -104050,7 +104376,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -104091,15 +104417,16 @@
         "source": "ex-straight-arm-frog-stand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straight-Arm Frog Stand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche — Parallel Bars and Floor; Rings Planche is a separately named progression",
+        "mapping": "exact non-rings planche/frog-stand progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -104117,6 +104444,12 @@
             "source_name": "Straight-Arm Frog Stand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -104128,6 +104461,12 @@
             "source_name": "Straight-Arm Frog Stand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -104155,6 +104494,12 @@
             "source_name": "Straight-Arm Frog Stand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -104167,6 +104512,12 @@
             "source_name": "Straight-Arm Frog Stand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -110555,6 +110906,12 @@
         "source_name": "Tuck Planche Pushups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -110573,7 +110930,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -110601,15 +110958,16 @@
         "source": "ex-tuck-planche-pushups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Tuck Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        },
+        "observedValue": "Planche Pushups — Parallel Bars and Floor; Rings Planche Pushups are a separately named progression",
+        "mapping": "exact non-rings planche-pushup progression; floor execution is explicitly part of source branch, so no external apparatus is required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -110627,6 +110985,12 @@
             "source_name": "Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -110638,6 +111002,12 @@
             "source_name": "Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -110665,6 +111035,12 @@
             "source_name": "Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -110677,6 +111053,12 @@
             "source_name": "Tuck Planche Pushups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
