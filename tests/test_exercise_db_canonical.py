@@ -311,10 +311,14 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertEqual(record["equipmentRequired"], ["rings"])
             self.assertEqual(record["fieldProvenance"]["equipmentRequired"]["status"], "EXTERNAL_SOURCE_DIRECT")
             self.assertEqual(record["levelStatus"], "UNKNOWN")
-            self.assertEqual(record["movementPatternStatus"], "UNKNOWN")
-            self.assertEqual(record["resistanceMode"], "UNKNOWN")
             self.assertEqual(record["applicationMetadata"]["sourceEntries"], [])
             self.assertEqual(len(record["applicationMetadata"]["ambiguousSourceEntries"]), 1)
+        self.assertEqual(by_id["ex-muscle-up"]["movementPattern"], ["vertical-pull", "vertical-push"])
+        self.assertEqual(by_id["ex-muscle-up"]["movementPatternStatus"], "EXTERNAL_SOURCE_DIRECT")
+        self.assertEqual(by_id["ex-muscle-up"]["resistanceMode"], "BODYWEIGHT")
+        self.assertEqual(by_id["ex-muscle-up"]["fieldProvenance"]["resistanceMode"]["status"], "EXTERNAL_SOURCE_DIRECT")
+        self.assertEqual(by_id["ex-normal-muscle-up"]["movementPatternStatus"], "UNKNOWN")
+        self.assertEqual(by_id["ex-normal-muscle-up"]["resistanceMode"], "UNKNOWN")
         self.assertEqual(by_id["ex-muscle-up"]["runtimeName"], "Muscle-Up")
         self.assertEqual(by_id["ex-normal-muscle-up"]["runtimeName"], "Normal Muscle-Up")
         self.assertNotEqual(by_id["ex-muscle-up"]["runtimeName"], by_id["ex-normal-muscle-up"]["runtimeName"])
@@ -524,9 +528,11 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(batch["summary"]["movementPatternResolved"], 10)
         self.assertEqual(batch["summary"]["levelResolved"], 5)
         self.assertEqual(batch["summary"]["fieldsResolvedTotal"], 26)
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 116)
-        for excluded_id in ("ex-muscle-up", "ex-normal-muscle-up", "ex-weighted-dip", "ex-medicine-ball-clean"):
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 111)
+        for excluded_id in ("ex-normal-muscle-up", "ex-weighted-dip"):
             self.assertEqual(by_id[excluded_id]["resistanceMode"], "UNKNOWN")
+        self.assertEqual(by_id["ex-muscle-up"]["resistanceMode"], "BODYWEIGHT")
+        self.assertEqual(by_id["ex-medicine-ball-clean"]["resistanceMode"], "EXTERNAL_LOAD")
         for exercise_id in ("ex-box-jumps", "ex-hamstring-ball-curl", "ex-stability-ball-reverse-back-extension", "ex-stability-ball-pike", "ex-stability-ball-abdominal-crunch"):
             provenance = by_id[exercise_id]["fieldProvenance"]["level"]
             self.assertEqual(provenance["status"], "EXTERNAL_SOURCE_DIRECT")
