@@ -689,6 +689,160 @@
         "source_name": "Mountain Climbers",
         "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
       }
+    },
+    "ex-tuck-jump": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Tuck Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Tuck Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      "descriptionIt": {
+        "value": "Salto pliometrico verticale in cui, dopo una breve fase di caricamento, anche, ginocchia e caviglie si estendono in modo esplosivo e le ginocchia vengono portate verso il petto prima dell’atterraggio.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Tuck Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      "setupIt": {
+        "value": "Parti in piedi con i piedi alla larghezza delle anche e le braccia lungo i fianchi; porta le spalle indietro e in basso senza inarcare la zona lombare e attiva il core per stabilizzare la colonna.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Tuck Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Porta il bacino indietro e scendi flettendo anche e ginocchia, mantenendo la schiena piatta e il controllo dell’appoggio.",
+          "Con una pausa minima in basso, spingi esplosivamente a terra estendendo caviglie, ginocchia e anche.",
+          "Durante il volo porta le ginocchia verso il petto e mantieni i piedi il più possibile paralleli al pavimento.",
+          "Atterra in modo morbido sul mesopiede, accompagna il carico verso i talloni e porta il bacino indietro per assorbire l’impatto."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Tuck Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il core attivo e la schiena piatta durante il caricamento.",
+          "Cerca una tripla estensione esplosiva di caviglie, ginocchia e anche.",
+          "Porta le ginocchia verso il petto senza perdere il controllo del tronco.",
+          "Atterra silenziosamente e con ginocchia morbide."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Tuck Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Inarcare la zona lombare o perdere la stabilità del tronco.",
+          "Atterrare spostando eccessivamente le ginocchia in avanti.",
+          "Bloccare le ginocchia all’atterraggio invece di assorbire l’impatto.",
+          "Atterrare in modo rigido senza portare il bacino indietro."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Tuck Jump",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/180/tuck-jump/"
+      }
+    },
+    "ex-superman": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Supermans",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Supermans",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      "descriptionIt": {
+        "value": "Estensione del tronco e delle anche in posizione prona, con sollevamento simultaneo e controllato di braccia e gambe mantenendo testa e colonna stabili.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Supermans",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      "setupIt": {
+        "value": "Sdraiati prono con le gambe distese e le braccia estese sopra la testa, palmi rivolti uno verso l’altro; mantieni la testa rilassata e allineata con la colonna.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Supermans",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Attiva addome e core per stabilizzare la colonna.",
+          "Solleva lentamente entrambe le gambe e le braccia di pochi centimetri mantenendole distese e senza ruotare.",
+          "Mantieni brevemente la posizione senza sollevare la testa o accentuare l’arco lombare.",
+          "Abbassa con controllo braccia e gambe alla posizione iniziale senza muovere inutilmente zona lombare e bacino."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Supermans",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni testa e collo in linea con la colonna.",
+          "Solleva braccia e gambe in modo simmetrico senza rotazioni.",
+          "Usa il core per stabilizzare il tratto lombare.",
+          "Mantieni il movimento lento e controllato."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Supermans",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Inarcare eccessivamente la zona lombare durante il sollevamento.",
+          "Sollevare la testa perdendo l’allineamento cervicale.",
+          "Ruotare braccia, gambe o tronco invece di mantenere un sollevamento simmetrico.",
+          "Muovere il bacino o la zona lombare durante la fase di discesa."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "mapping": "ACE page title 'Supermans' -> canonical singular label 'Superman'; movement description is the same exercise.",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Supermans",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/"
+      }
     }
   },
   "unresolved_conflicts": [

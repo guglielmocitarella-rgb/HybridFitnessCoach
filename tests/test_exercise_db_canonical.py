@@ -107,6 +107,8 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             "ex-front-plank": ([], "Intermedio"),
             "ex-forward-step-lunge": ([], "Intermedio"),
             "ex-mountain-climbers": ([], "Avanzato"),
+            "ex-superman": ([], "Principiante"),
+            "ex-tuck-jump": ([], "Intermedio"),
         }
         self.assertIn("ACE_EXERCISE_LIBRARY", {source["source_id"] for source in sources})
         for exercise_id, (equipment, level) in expected.items():
@@ -126,7 +128,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertGreaterEqual(len(plank["executionStepsIt"]), 3)
         self.assertEqual(plank["fieldProvenance"]["executionStepsIt"]["status"], "EXTERNAL_SOURCE_DIRECT")
         self.assertEqual(plank["fieldProvenance"]["instructions"]["source"]["source_id"], "ACE_EXERCISE_LIBRARY")
-        self.assertEqual(result["externalEnrichmentAudit"]["fields_applied"]["executionStepsIt"], 10)
+        self.assertEqual(result["externalEnrichmentAudit"]["fields_applied"]["executionStepsIt"], 12)
         self.assertEqual(len(result["externalEnrichmentAudit"]["unresolved_conflicts"]), 1)
 
     def test_validator_rejects_external_field_provenance_without_url_or_confidence(self):
