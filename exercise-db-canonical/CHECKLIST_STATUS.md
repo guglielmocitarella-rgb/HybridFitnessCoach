@@ -43,7 +43,7 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Unique stable IDs | 1,087 |
 | Progression edges | 113 |
 | Dangling progression edges | 0 |
-| Unknown equipment | 95 |
+| Unknown equipment | 99 |
 | Equipment tokens unsupported by current app | 18 (`suspension_trainer`) |
 | Missing movement patterns | 201 |
 | Unknown level | 443 |
@@ -52,7 +52,7 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Missing supported exercise instructions | 500 |
 | Remaining duplicate runtime labels in candidate | 0 |
 | Runtime application entries audited/preserved | 583 |
-| External reviewed records enriched | 199 equipment resolutions; 63 level resolutions; technique evidence retained for 31 |
+| External reviewed records enriched | 195 equipment resolutions; 63 level resolutions; technique evidence retained for 31 |
 
 The structural validator passes with zero errors. The candidate is not release-ready because selection-critical and instruction-critical evidence remains incomplete. The repository-wide internal audit found no further per-exercise technical fields for unresolved V2-only records: the raw TSVs contain inventory names/families/locators, not equipment, level, resistance, movement pattern, or technique. Runtime-only metadata is now preserved separately; it is not promoted into exercise-science claims. Eighteen otherwise known suspension-trainer records remain unsupported by the current app equipment enum. All rule-derived values have registered provenance, and the validator keeps these unresolved/app-compatibility blockers visible. The existing V2 deterministic build and tests remain separate regression gates.
 
@@ -78,4 +78,4 @@ All 117 equipment-UNKNOWN records at checkpoint `570027b` were screened. Twelve 
 
 ### Final equipment-first decision tranche — 105-ID full screening
 
-All 105 residual equipment-UNKNOWN records at checkpoint `5c1bd88` were screened. Exactly ten HIGH-confidence assignments were retained from the official Overcoming Gravity 2nd Edition progression taxonomy: 90 Degree Pushup, generic Planche Push-Up, Elevated Straddle Stand Press to Handstand, and seven half-lever/manna floor-family identities. The source explicitly separates rings-specific branches where relevant and supports floor/non-apparatus execution for the retained identities. Previously rejected mappings (including shoulder dislocates, plate-weight twist, scapula foam rolling and parallel leg raise) remain unresolved; no variant substitution or token invention was used. Equipment UNKNOWN is now 95. Because this tranche only just met the >=10 threshold and the remaining set is predominantly heterogeneous/variant-ambiguous, equipment-first is still technically productive under the requested rule, but no further equipment batch is recommended unless a clearly new evidence family is found. Resistance mode UNKNOWN (338) is the next major blocker after this checkpoint.
+All 105 residual equipment-UNKNOWN records at checkpoint `5c1bd88` were screened. A provisional checkpoint had counted ten mappings, but the final confidence audit rejected eight of those because half-lever identities were not uniquely equivalent to the cited floor/manna family and the elevated press-to-handstand did not establish a unique canonical apparatus. Two exact Overcoming Gravity mappings were retained (90 Degree Push-Up and generic non-rings Planche Push-Up), and four additional exercise-specific mappings were accepted: Seated Side Stretch on Ball (`stability_ball`), Seesaw with Ball (`stability_ball`), Decline Abdominal Crunch (`bench`), and Glute-Ham Raise (`machine`). Final HIGH-confidence yield is therefore six, below the required threshold of ten. Equipment UNKNOWN is 99. Previously rejected mappings including shoulder dislocates, plate-weight twist, scapula foam rolling, parallel leg raise and variant-ambiguous bench/box/bar/pole cases remain unresolved. Equipment-first is now considered residual/ambiguous backlog rather than the active blocker. The next blocker is resistance mode UNKNOWN (338); it must be handled in a separate tranche.
