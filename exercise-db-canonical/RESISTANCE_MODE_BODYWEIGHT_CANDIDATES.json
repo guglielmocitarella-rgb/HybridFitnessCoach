@@ -1,0 +1,1699 @@
+{
+  "schemaVersion": 1,
+  "screenedResistanceUnknown": 309,
+  "rule": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+  "count": 95,
+  "candidates": [
+    {
+      "id": "ex-45-degree-forward-lean-dips",
+      "canonicalNameEn": "45-Degree Forward-Lean Dips",
+      "family": "DIP",
+      "equipmentRequired": [
+        "dip_bars"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-90-degree-push-up",
+      "canonicalNameEn": "90-Degree Push-Up",
+      "family": "HANDSTAND_PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-advanced-tuck-back-lever",
+      "canonicalNameEn": "Advanced Tuck Back Lever",
+      "family": "BACK_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-advanced-tuck-front-lever-rows",
+      "canonicalNameEn": "Advanced Tuck Front Lever Rows",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-advanced-tuck-planche-pushups",
+      "canonicalNameEn": "Advanced Tuck Planche Pushups",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-alternating-front-lever",
+      "canonicalNameEn": "Alternating Front Lever",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-back-clap-push-up",
+      "canonicalNameEn": "Back-Clap Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-back-lever-pullout",
+      "canonicalNameEn": "Back Lever Pullout",
+      "family": "BACK_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-bent-arm-bent-body-press-to-handstand",
+      "canonicalNameEn": "Bent-Arm Bent-Body Press to Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-bent-arm-pull-up-to-back-lever",
+      "canonicalNameEn": "Bent-Arm Pull-Up to Back Lever",
+      "family": "BACK_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-bent-arm-straight-body-press-to-handstand",
+      "canonicalNameEn": "Bent-Arm Straight-Body Press to Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-bent-knee-push-up",
+      "canonicalNameEn": "Bent-Knee Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-bodyweight-modified-push-ups",
+      "canonicalNameEn": "Bodyweight Modified Push-Ups",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-bodyweightair-squat",
+      "canonicalNameEn": "Bodyweight/Air Squat",
+      "family": "SQUAT",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-chair-squat",
+      "canonicalNameEn": "Chair Squat",
+      "family": "SQUAT",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-chest-roll-straight-body-press-to-handstand",
+      "canonicalNameEn": "Chest Roll Straight-Body Press to Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-circle-front-levers",
+      "canonicalNameEn": "Circle Front Levers",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-dip",
+      "canonicalNameEn": "Dip",
+      "family": "DIP",
+      "equipmentRequired": [
+        "dip_bars"
+      ],
+      "movementType": "STRENGTH",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-double-clap-push-up",
+      "canonicalNameEn": "Double-Clap Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-explosive-pull-up",
+      "canonicalNameEn": "Explosive Pull-Up",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-false-grip-muscle-up",
+      "canonicalNameEn": "False-Grip Muscle-Up",
+      "family": "MUSCLE_UP",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-fingertip-push-up",
+      "canonicalNameEn": "Fingertip Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-flat-back-planche",
+      "canonicalNameEn": "Flat-Back Planche",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-floor-handstand",
+      "canonicalNameEn": "Floor Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-freestanding-handstand",
+      "canonicalNameEn": "Freestanding Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-freestanding-handstand-push-up",
+      "canonicalNameEn": "Freestanding Handstand Push-Up",
+      "family": "HANDSTAND_PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-freestanding-handstand-pushup",
+      "canonicalNameEn": "Freestanding Handstand Pushup",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-freestanding-handstand-shoulder-taps",
+      "canonicalNameEn": "Freestanding Handstand Shoulder Taps",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-freestanding-handstand-with-one-arm-support",
+      "canonicalNameEn": "Freestanding Handstand with One-Arm Support",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-freestanding-headstand-pushup",
+      "canonicalNameEn": "Freestanding Headstand Pushup",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-front-lever-pull-to-inverted-hang",
+      "canonicalNameEn": "Front Lever Pull to Inverted Hang",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-full-front-lever-rows",
+      "canonicalNameEn": "Full Front Lever Rows",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-full-planche-pushups",
+      "canonicalNameEn": "Full Planche Pushups",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-full-squat",
+      "canonicalNameEn": "Full Squat",
+      "family": "SQUAT",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-german-hang-pullout",
+      "canonicalNameEn": "German Hang Pullout",
+      "family": "BACK_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-half-layout-one-leg-out-front-lever",
+      "canonicalNameEn": "Half Layout One-Leg-Out Front Lever",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-hands-close-together-handstand",
+      "canonicalNameEn": "Hands-Close-Together Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-handstand",
+      "canonicalNameEn": "Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-handstand-lower-to-back-lever",
+      "canonicalNameEn": "Handstand Lower to Back Lever",
+      "family": "HANDSTAND",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-handstand-to-elbow-lever-to-handstand",
+      "canonicalNameEn": "Handstand to Elbow Lever to Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "CORE",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-handstand-walking",
+      "canonicalNameEn": "Handstand Walking",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-hang-to-front-lever-row",
+      "canonicalNameEn": "Hang to Front Lever Row",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-iron-cross-to-back-lever",
+      "canonicalNameEn": "Iron Cross to Back Lever",
+      "family": "BACK_LEVER",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-jump-squat",
+      "canonicalNameEn": "Jump Squat",
+      "family": "SQUAT",
+      "equipmentRequired": [],
+      "movementType": "PLYOMETRIC",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-jumping-pull-ups",
+      "canonicalNameEn": "Jumping Pull-Ups",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-kipping-clapping-pull-ups",
+      "canonicalNameEn": "Kipping Clapping Pull-Ups",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-kipping-muscle-ups",
+      "canonicalNameEn": "Kipping Muscle-Ups",
+      "family": "MUSCLE_UP",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-kipping-pull-ups",
+      "canonicalNameEn": "Kipping Pull-Ups",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-l-sit-bent-arm-bent-body-press-to-handstand",
+      "canonicalNameEn": "L-Sit Bent-Arm Bent-Body Press to Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-l-sit-clapping-pull-ups",
+      "canonicalNameEn": "L-Sit Clapping Pull-Ups",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-l-sit-dips",
+      "canonicalNameEn": "L-Sit Dips",
+      "family": "DIP",
+      "equipmentRequired": [
+        "dip_bars"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-l-sit-muscle-up",
+      "canonicalNameEn": "L-Sit Muscle-Up",
+      "family": "MUSCLE_UP",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-l-sit-straddle-press-to-handstand",
+      "canonicalNameEn": "L-Sit Straddle Press to Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-muscle-up-negatives",
+      "canonicalNameEn": "Muscle-Up Negatives",
+      "family": "MUSCLE_UP",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-negative-dip",
+      "canonicalNameEn": "Negative Dip",
+      "family": "DIP",
+      "equipmentRequired": [
+        "dip_bars"
+      ],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-negative-tuck-front-lever",
+      "canonicalNameEn": "Negative Tuck Front Lever",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-non-kipping-clapping-pull-ups",
+      "canonicalNameEn": "Non-Kipping Clapping Pull-Ups",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-one-arm-dip",
+      "canonicalNameEn": "One-Arm Dip",
+      "family": "DIP",
+      "equipmentRequired": [
+        "dip_bars"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-one-arm-handstand",
+      "canonicalNameEn": "One-Arm Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-one-arm-one-leg-push-up",
+      "canonicalNameEn": "One-Arm One-Leg Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-one-arm-rows",
+      "canonicalNameEn": "One-Arm Rows",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-one-arm-straight-muscle-up",
+      "canonicalNameEn": "One-Arm-Straight Muscle-Up",
+      "family": "MUSCLE_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-one-leg-bent-l-sit",
+      "canonicalNameEn": "One-Leg-Bent L-Sit",
+      "family": "L_SIT",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-pike-headstand-pushup",
+      "canonicalNameEn": "Pike Headstand Pushup",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-pistols",
+      "canonicalNameEn": "Pistols",
+      "family": "SQUAT",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-planche",
+      "canonicalNameEn": "Planche",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-planche-push-up",
+      "canonicalNameEn": "Planche Push-Up",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-plank-to-push-up",
+      "canonicalNameEn": "Plank to Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CORE",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-rotational-push-up",
+      "canonicalNameEn": "Rotational Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CORE",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-single-leg-planche",
+      "canonicalNameEn": "Single-Leg Planche",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-single-leg-squat",
+      "canonicalNameEn": "Single-Leg Squat",
+      "family": "SINGLE_LEG_SQUAT",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straddle-front-lever-rows",
+      "canonicalNameEn": "Straddle Front Lever Rows",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straddle-l-sit",
+      "canonicalNameEn": "Straddle L-Sit",
+      "family": "L_SIT",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straddle-one-arm-pushup",
+      "canonicalNameEn": "Straddle One-Arm Pushup",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straddle-one-arm-rows",
+      "canonicalNameEn": "Straddle One-Arm Rows",
+      "family": "PULL_UP",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straddle-or-pike-stand-press-to-handstand",
+      "canonicalNameEn": "Straddle or Pike Stand Press to Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straddle-planche-pushups",
+      "canonicalNameEn": "Straddle Planche Pushups",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straight-arm-frog-stand",
+      "canonicalNameEn": "Straight-Arm Frog Stand",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-straight-body-one-arm-pushup",
+      "canonicalNameEn": "Straight-Body One-Arm Pushup",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-strict-bar-muscle-ups",
+      "canonicalNameEn": "Strict Bar Muscle-Ups",
+      "family": "MUSCLE_UP",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-superman-push-up",
+      "canonicalNameEn": "Superman Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-triple-clap-push-up",
+      "canonicalNameEn": "Triple-Clap Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-tuck-front-lever-hold",
+      "canonicalNameEn": "Tuck Front Lever Hold",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-tuck-front-lever-raise",
+      "canonicalNameEn": "Tuck Front Lever Raise",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-tuck-front-lever-rows",
+      "canonicalNameEn": "Tuck Front Lever Rows",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-tuck-l-sit",
+      "canonicalNameEn": "Tuck L-Sit",
+      "family": "L_SIT",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-tuck-one-leg-front-lever",
+      "canonicalNameEn": "Tuck One-Leg Front Lever",
+      "family": "FRONT_LEVER",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-tuck-planche-pushups",
+      "canonicalNameEn": "Tuck Planche Pushups",
+      "family": "PLANCHE",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-wall-handstand-pushup",
+      "canonicalNameEn": "Wall Handstand Pushup",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-wall-headstand-pushup",
+      "canonicalNameEn": "Wall Headstand Pushup",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-wall-headstand-pushup-eccentric",
+      "canonicalNameEn": "Wall Headstand Pushup Eccentric",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-wall-push-up",
+      "canonicalNameEn": "Wall Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-wall-straddle-press-to-handstand-eccentrics",
+      "canonicalNameEn": "Wall Straddle Press to Handstand Eccentrics",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-wall-supported-handstand",
+      "canonicalNameEn": "Wall-Supported Handstand",
+      "family": "HANDSTAND",
+      "equipmentRequired": [],
+      "movementType": "SKILL",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    },
+    {
+      "id": "ex-wide-grip-push-up",
+      "canonicalNameEn": "Wide-Grip Push-Up",
+      "family": "PUSH_UP",
+      "equipmentRequired": [],
+      "movementType": "CALISTHENICS",
+      "reason": "Reviewed self-loaded family with known no-load/support-only equipment.",
+      "exclusionsVerified": {
+        "equipmentKnown": true,
+        "noExternalLoadEquipment": true,
+        "noWeightedAssistedBandName": true,
+        "supportEquipmentOnly": true,
+        "reviewedSelfLoadedFamily": true,
+        "unambiguousCanonicalIdentity": true
+      },
+      "confidence": "HIGH"
+    }
+  ]
+}

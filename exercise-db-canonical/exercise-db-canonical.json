@@ -225,7 +225,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -282,21 +282,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "45-Degree Forward-Lean Dips",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "DIP",
+            "equipment": [
+              "dip_bars"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -442,7 +440,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -472,27 +470,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "90-Degree Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "90-Degree Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND_PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -1212,7 +1200,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [
       "backlever_advanced_tuck"
@@ -1280,21 +1268,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Advanced Tuck Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "BACK_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -1751,7 +1737,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -1817,21 +1803,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Advanced Tuck Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -2287,7 +2271,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -2344,21 +2328,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Advanced Tuck Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -2689,7 +2669,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -2728,21 +2708,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Alternating Front Lever",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 35"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -6241,7 +6219,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -6271,27 +6249,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Back-Clap Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Back-Clap Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 7"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Journal — Calisthenics",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -7099,7 +7067,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -7152,21 +7120,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Back Lever Pullout",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "BACK_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -13233,7 +13199,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -13272,21 +13238,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Bent-Arm Bent-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -13429,7 +13391,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -13468,21 +13430,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Bent-Arm Pull-Up to Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "BACK_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -13621,7 +13581,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -13660,21 +13620,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Bent-Arm Straight-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -13856,7 +13812,7 @@
     "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -13885,57 +13841,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Bent-Knee Push-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 10"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -16127,7 +16043,7 @@
     "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -16157,27 +16073,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Modified Push-Ups",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 43"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -16520,7 +16426,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -16549,57 +16455,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight/Air Squat",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 20"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "SQUAT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -20951,7 +20817,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -20981,27 +20847,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Chair Squat",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 23"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "SQUAT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -21300,7 +21156,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -21339,21 +21195,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Chest Roll Straight-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -22569,7 +22421,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -22608,21 +22460,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Circle Front Levers",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -27430,7 +27280,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -27504,33 +27354,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "STARTING_STRENGTH3",
-            "source_name": "Dip",
-            "evidence_type": "CHAPTER_HEADING",
-            "locator": "CHAPTER_7"
-          },
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Dips",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 47"
-          },
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 16"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Dip",
-            "evidence_type": "INDEX_HEADING",
-            "locator": "Index exercise 2"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "DIP",
+            "equipment": [
+              "dip_bars"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -28082,7 +27918,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -28112,27 +27948,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Double-Clap Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Double-Clap Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Journal — Calisthenics",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -32820,7 +32646,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -32850,21 +32676,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Explosive Pull-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 6"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -33628,7 +33452,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -33667,21 +33491,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "False-Grip Muscle-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Ring Muscle-up with False Grip",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "MUSCLE_UP",
+            "equipment": [
+              "rings"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -34135,7 +33957,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -34165,27 +33987,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Fingertip Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Fingertip Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — Push-up technical standard",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-push-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -34703,7 +34515,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -34758,21 +34570,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Flat-Back Planche",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -35233,7 +35041,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -35297,21 +35105,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Floor Handstand",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Handstand",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -36665,7 +36469,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [
       "handstand_freestanding"
@@ -36733,21 +36537,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Handstand",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -36878,7 +36678,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -36908,21 +36708,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Freestanding Handstand Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND_PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -37061,7 +36857,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -37114,21 +36910,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -37267,7 +37059,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -37306,21 +37098,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand Shoulder Taps",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — Handstand Walking Progressions",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -37459,7 +37247,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -37525,21 +37313,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand with One-Arm Support",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -37680,7 +37464,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -37737,21 +37521,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Headstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -39372,7 +39152,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -39425,21 +39205,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Front Lever Pull to Inverted Hang",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -41594,7 +41372,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -41647,21 +41425,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -42114,7 +41890,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -42158,21 +41934,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -42319,7 +42091,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -42376,27 +42148,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Full Squat",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "SQUAT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -42861,7 +42623,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -42900,21 +42662,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "German Hang Pullout",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "BACK_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -44133,7 +43893,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -44172,21 +43932,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Half Layout One-Leg-Out Front Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -45993,7 +45751,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -46032,21 +45790,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Hands-Close-Together Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -46353,7 +46107,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -46392,21 +46146,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Handstand",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 4"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Handstand",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -46549,7 +46299,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -46588,21 +46338,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Handstand Lower to Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -47041,7 +46789,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -47080,21 +46828,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Handstand to Elbow Lever to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -47233,7 +46977,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -47272,21 +47016,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Handstand Walking",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — Handstand Walking RX Plan",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -48005,7 +47745,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -48044,21 +47784,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Hang to Front Lever Row",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -52564,7 +52302,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -52603,21 +52341,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Iron Cross to Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "BACK_LEVER",
+            "equipment": [
+              "rings"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -53228,7 +52964,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -53258,27 +52994,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Jump Squat",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 24"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jump",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/?page=6"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Squat Jump",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/?page=6"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "SQUAT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -53639,7 +53365,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -53683,27 +53409,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Jumping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Jumping Pull-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 3"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Jumping Pull-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -54660,7 +54378,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -54717,21 +54435,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Kipping Clapping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -54874,7 +54590,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -54940,21 +54656,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Kipping Muscle-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Kipping Muscle-Up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "MUSCLE_UP",
+            "equipment": [
+              "rings"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -55099,7 +54813,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -55143,21 +54857,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Kipping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Kipping Pull-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -56470,7 +56182,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -56509,21 +56221,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -56668,7 +56376,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -56712,21 +56420,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Clapping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -56877,7 +56583,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -56934,27 +56640,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Dips",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "L-Sit Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 21"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Parallel-bar Dip / L-sit support apparatus",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "DIP",
+            "equipment": [
+              "dip_bars"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -57115,7 +56813,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -57181,21 +56879,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Muscle-Up",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Journal — The Muscle-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "MUSCLE_UP",
+            "equipment": [
+              "rings"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -57643,7 +57339,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -57682,21 +57378,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Straddle Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -63635,7 +63327,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -63688,21 +63380,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Muscle-Up Negatives",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Ring Muscle-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "MUSCLE_UP",
+            "equipment": [
+              "rings"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -64154,7 +63844,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -64184,21 +63874,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Negative Dip",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 18"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Parallel-bar Dip progression",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "DIP",
+            "equipment": [
+              "dip_bars"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -64889,7 +64577,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -64928,21 +64616,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Negative Tuck Front Lever",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 41"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -65431,7 +65117,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -65488,21 +65174,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Non-Kipping Clapping Pull-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -66529,7 +66213,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -66573,21 +66257,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm Dip",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "DIP",
+            "equipment": [
+              "dip_bars"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -67039,7 +66721,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -67092,21 +66774,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Training Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -67565,7 +67243,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -67595,27 +67273,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "One-Arm One-Leg Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "One-Arm One-Leg Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 6"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "ACE — Push-up with Single-leg Raise",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/push-up-with-single-leg-raise/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -68752,7 +68420,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -68796,21 +68464,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "rings"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -69107,7 +68773,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -69160,21 +68826,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm-Straight Muscle-Up",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "MUSCLE_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -69313,7 +68977,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -69379,21 +69043,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Leg-Bent L-Sit",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "L_SIT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -71376,7 +71036,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -71420,21 +71080,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Pike Headstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -72531,7 +72187,7 @@
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -72588,21 +72244,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Pistols",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Single-Leg Squat",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-single-leg-squat"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "SQUAT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -72748,7 +72400,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -72778,27 +72430,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Planche",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "CAL_BEGINNER_150",
-            "source_name": "Planche",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 8"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -73260,7 +72902,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -73303,27 +72945,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Planche Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Planche Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 11"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -74184,7 +73816,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -74214,57 +73846,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Plank to Push-Up",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 17"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Plank-ups",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -85423,7 +85015,7 @@
     "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -85453,27 +85045,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Rotational Push-Up",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 24"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Push-up with Rotation",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Push-up with Rotation",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -93770,7 +93352,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -93825,21 +93407,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Single-Leg Planche",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -94031,7 +93609,7 @@
     "levelStatus": "KNOWN",
     "category": "LEGS",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -94086,63 +93664,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Single-Leg Squat",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 63"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single Leg Squat",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single Leg Squat",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single Leg Squat",
-            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single Leg Squat",
-            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single Leg Squat",
-            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single Leg Squat",
-            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Single Leg Squat",
-            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "SINGLE_LEG_SQUAT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
@@ -102582,7 +102114,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -102648,21 +102180,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -102801,7 +102331,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -102867,21 +102397,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle L-Sit",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "L_SIT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -103022,7 +102548,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -103079,21 +102605,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle One-Arm Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -103238,7 +102760,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -103295,21 +102817,19 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle One-Arm Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PULL_UP",
+            "equipment": [
+              "rings"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -103448,7 +102968,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -103487,21 +103007,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle or Pike Stand Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -103967,7 +103483,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -104024,21 +103540,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -104382,7 +103894,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -104439,21 +103951,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straight-Arm Frog Stand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -104594,7 +104102,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -104638,21 +104146,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straight-Body One-Arm Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit developmental gymnastics — One-arm push-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/legacy-pdf/cf-journal/Gymnastics_tumbling/Stunts_Records_pg-344-357.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -104795,7 +104299,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -104861,21 +104365,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Strict Bar Muscle-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Strict Bar Muscle-Up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "MUSCLE_UP",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -105601,7 +105103,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -105631,21 +105133,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Superman Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Journal — Calisthenics",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -108248,7 +107746,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -108278,27 +107776,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Triple-Clap Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "COMPLETE_CAL1",
-            "source_name": "Triple-Clap Push-Up",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 9"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Journal — Calisthenics",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://library.crossfit.com/premium/pdf/45_06_calisthenics.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -108987,7 +108475,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -109026,21 +108514,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Tuck Front Lever Hold",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 33"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -109183,7 +108669,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -109222,21 +108708,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Tuck Front Lever Raise",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 42"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -109379,7 +108863,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -109432,21 +108916,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Tuck Front Lever Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -110142,7 +109624,7 @@
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [
       "lsit_tuck"
@@ -110197,21 +109679,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Tuck L-Sit",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "L_SIT",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -110345,7 +109823,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -110384,21 +109862,19 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Tuck One-Leg Front Lever",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 34"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit Gymnastics Course Seminar Guide",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "FRONT_LEVER",
+            "equipment": [
+              "pull_up_bar"
+            ]
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -110885,7 +110361,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -110929,21 +110405,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Tuck Planche Pushups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PLANCHE",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -115758,7 +115230,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -115824,21 +115296,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Handstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -115979,7 +115447,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -116036,21 +115504,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Headstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — Freestanding HSPU progression",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/workout/2024/05"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -116191,7 +115655,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [
@@ -116248,21 +115712,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Headstand Pushup Eccentric",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — Freestanding HSPU progression",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/workout/2024/05"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -116556,7 +116016,7 @@
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -116586,21 +116046,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Wall Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wall Push-up",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/pros/expert-articles/6314/5-essential-rotator-cuff-exercises/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -117017,7 +116473,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [],
@@ -117056,21 +116512,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Straddle Press to Handstand Eccentrics",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -117208,7 +116660,7 @@
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "UNKNOWN",
     "skillIds": [],
     "progressionRelations": [
@@ -117272,21 +116724,17 @@
         ]
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Wall-Supported Handstand",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "CrossFit — HSPU and You",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "HANDSTAND",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "UNKNOWN",
@@ -118720,7 +118168,7 @@
     "levelStatus": "KNOWN",
     "category": "PUSH",
     "role": "Base",
-    "resistanceMode": "UNKNOWN",
+    "resistanceMode": "BODYWEIGHT",
     "movementPatternStatus": "V2_FAMILY_PATTERN_RULE",
     "skillIds": [],
     "progressionRelations": [],
@@ -118750,27 +118198,17 @@
         }
       },
       "resistanceMode": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Wide-Grip Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wide Push-up",
-            "evidence_type": "STRUCTURED_EXERCISE_EQUIPMENT_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Wide Push-up",
-            "evidence_type": "STRUCTURED_EXERCISE_DIFFICULTY_EVIDENCE",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+        "status": "EQUIPMENT_FAMILY_DETERMINISTIC",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+          "evidence_type": "KNOWN_SUPPORT_EQUIPMENT_AND_SELF_LOADED_FAMILY_TO_BODYWEIGHT",
+          "locator": {
+            "family": "PUSH_UP",
+            "equipment": []
           }
-        ]
+        },
+        "derivation": "Known no-load/support-only equipment plus reviewed self-loaded family deterministically maps to BODYWEIGHT; weighted/assisted/band names are excluded."
       },
       "level": {
         "status": "EXTERNAL_SOURCE_DIRECT",
