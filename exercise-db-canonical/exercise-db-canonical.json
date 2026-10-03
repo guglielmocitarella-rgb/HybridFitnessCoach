@@ -34421,6 +34421,12 @@
         "source_name": "Floor Handstand",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Handstand",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
       }
     ],
     "confidence": "MEDIUM",
@@ -34439,7 +34445,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -34478,15 +34484,16 @@
         "source": "ex-floor-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Floor Handstand",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Handstand",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
+        },
+        "observedValue": "Hands on floor; no training implement required",
+        "mapping": "Canonical floor handstand maps directly to documented handstand floor support"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -34496,6 +34503,12 @@
             "source_name": "Floor Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -34507,6 +34520,12 @@
             "source_name": "Floor Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -34518,6 +34537,12 @@
             "source_name": "Floor Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -34545,6 +34570,12 @@
             "source_name": "Floor Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -34557,6 +34588,12 @@
             "source_name": "Floor Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       }
@@ -35816,6 +35853,12 @@
         "source_name": "Freestanding Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Handstand",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
       }
     ],
     "confidence": "HIGH",
@@ -35834,7 +35877,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -35877,15 +35920,16 @@
         "source": "ex-freestanding-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Handstand",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
+        },
+        "observedValue": "Open-floor hand support; no training implement required",
+        "mapping": "Exact freestanding handstand page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -35895,6 +35939,12 @@
             "source_name": "Freestanding Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -35906,6 +35956,12 @@
             "source_name": "Freestanding Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -35917,6 +35973,12 @@
             "source_name": "Freestanding Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       },
@@ -35953,6 +36015,12 @@
             "source_name": "Freestanding Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Handstand",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/freestanding-handstand"
           }
         ]
       }
@@ -35998,6 +36066,12 @@
         "source_name": "Freestanding Handstand Push-Up",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
       }
     ],
     "confidence": "MEDIUM",
@@ -36016,7 +36090,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -36030,15 +36104,16 @@
         "source": "ex-freestanding-handstand-push-up"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Freestanding Handstand Push-Up",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
+        },
+        "observedValue": "Freestanding/open-floor handstand push-up; no wall support",
+        "mapping": "Exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -36056,6 +36131,12 @@
             "source_name": "Freestanding Handstand Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       },
@@ -36067,6 +36148,12 @@
             "source_name": "Freestanding Handstand Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       },
@@ -36094,6 +36181,12 @@
             "source_name": "Freestanding Handstand Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       },
@@ -36106,6 +36199,12 @@
             "source_name": "Freestanding Handstand Push-Up",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       }
@@ -36150,6 +36249,12 @@
         "source_name": "Freestanding Handstand Pushup",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
       }
     ],
     "confidence": "HIGH",
@@ -36168,7 +36273,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -36196,15 +36301,16 @@
         "source": "ex-freestanding-handstand-pushup"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
+        },
+        "observedValue": "Freestanding/open-floor handstand push-up; no wall support",
+        "mapping": "Exact duplicate-spelling exercise-specific match"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -36214,6 +36320,12 @@
             "source_name": "Freestanding Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       },
@@ -36225,6 +36337,12 @@
             "source_name": "Freestanding Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       },
@@ -36236,6 +36354,12 @@
             "source_name": "Freestanding Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       },
@@ -36263,6 +36387,12 @@
             "source_name": "Freestanding Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       },
@@ -36275,6 +36405,12 @@
             "source_name": "Freestanding Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
           }
         ]
       }
@@ -45850,6 +45986,12 @@
         "source_name": "Handstand Walking",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — Handstand Walking RX Plan",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
       }
     ],
     "confidence": "HIGH",
@@ -45868,7 +46010,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -45882,15 +46024,16 @@
         "source": "ex-handstand-walking"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Handstand Walking",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — Handstand Walking RX Plan",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
+        },
+        "observedValue": "Open floor; bodyweight handstand walking",
+        "mapping": "Exact movement-specific CrossFit training page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -45900,6 +46043,12 @@
             "source_name": "Handstand Walking",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking RX Plan",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -45911,6 +46060,12 @@
             "source_name": "Handstand Walking",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking RX Plan",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -45922,6 +46077,12 @@
             "source_name": "Handstand Walking",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking RX Plan",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -45949,6 +46110,12 @@
             "source_name": "Handstand Walking",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking RX Plan",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       },
@@ -45961,6 +46128,12 @@
             "source_name": "Handstand Walking",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Handstand Walking RX Plan",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
           }
         ]
       }
@@ -50648,7 +50821,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Iron Cross è un esercizio della famiglia skill. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -50676,6 +50851,12 @@
         "source_name": "Iron Cross",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -50693,8 +50874,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -50708,15 +50891,16 @@
         "source": "ex-iron-cross"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Iron Cross",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
+        },
+        "observedValue": "Rings apparatus; cross hold",
+        "mapping": "FIG Rings element table explicitly includes cross"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -50726,6 +50910,12 @@
             "source_name": "Iron Cross",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50737,6 +50927,12 @@
             "source_name": "Iron Cross",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50748,6 +50944,12 @@
             "source_name": "Iron Cross",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50775,6 +50977,12 @@
             "source_name": "Iron Cross",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50787,6 +50995,12 @@
             "source_name": "Iron Cross",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       }
@@ -50803,7 +51017,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Iron Cross Pullouts è un esercizio della famiglia skill. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -50831,6 +51047,12 @@
         "source_name": "Iron Cross Pullouts",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -50848,8 +51070,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -50863,15 +51087,16 @@
         "source": "ex-iron-cross-pullouts"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Iron Cross Pullouts",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
+        },
+        "observedValue": "Rings apparatus; cross strength element",
+        "mapping": "Pullout variation remains on the explicitly documented Rings cross apparatus"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -50881,6 +51106,12 @@
             "source_name": "Iron Cross Pullouts",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50892,6 +51123,12 @@
             "source_name": "Iron Cross Pullouts",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50903,6 +51140,12 @@
             "source_name": "Iron Cross Pullouts",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50930,6 +51173,12 @@
             "source_name": "Iron Cross Pullouts",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -50942,6 +51191,12 @@
             "source_name": "Iron Cross Pullouts",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       }
@@ -50958,7 +51213,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Iron Cross to Back Lever è un esercizio della famiglia back lever. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -50986,6 +51243,12 @@
         "source_name": "Iron Cross to Back Lever",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -51003,8 +51266,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -51018,15 +51283,16 @@
         "source": "ex-iron-cross-to-back-lever"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Iron Cross to Back Lever",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
+        },
+        "observedValue": "Rings apparatus; cross and back-lever elements",
+        "mapping": "Both named strength positions are documented in the FIG Rings element group"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -51036,6 +51302,12 @@
             "source_name": "Iron Cross to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -51047,6 +51319,12 @@
             "source_name": "Iron Cross to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -51058,6 +51336,12 @@
             "source_name": "Iron Cross to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -51085,6 +51369,12 @@
             "source_name": "Iron Cross to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       },
@@ -51097,6 +51387,12 @@
             "source_name": "Iron Cross to Back Lever",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf"
           }
         ]
       }
@@ -53192,7 +53488,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Kipping Muscle-Ups è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -53220,6 +53518,12 @@
         "source_name": "Kipping Muscle-Ups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Kipping Muscle-Up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
       }
     ],
     "confidence": "HIGH",
@@ -53237,8 +53541,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -53279,15 +53585,16 @@
         "source": "ex-kipping-muscle-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Kipping Muscle-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Kipping Muscle-Up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
+        },
+        "observedValue": "Gymnastics rings",
+        "mapping": "Exact CrossFit ring muscle-up movement family; distinct bar muscle-up has separate page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -53297,6 +53604,12 @@
             "source_name": "Kipping Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Kipping Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
           }
         ]
       },
@@ -53308,6 +53621,12 @@
             "source_name": "Kipping Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Kipping Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
           }
         ]
       },
@@ -53319,6 +53638,12 @@
             "source_name": "Kipping Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Kipping Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
           }
         ]
       },
@@ -53346,6 +53671,12 @@
             "source_name": "Kipping Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Kipping Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
           }
         ]
       },
@@ -53358,6 +53689,12 @@
             "source_name": "Kipping Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Kipping Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up"
           }
         ]
       }
@@ -57403,7 +57740,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "leg_press"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Leg Press Calf Raise è un esercizio della famiglia leg. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -57431,6 +57770,12 @@
         "source_name": "Leg Press Calf Raise",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "NASM — Leg Press Calf Raise",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
       }
     ],
     "confidence": "MEDIUM",
@@ -57448,8 +57793,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "leg_press"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -57463,15 +57810,16 @@
         "source": "ex-leg-press-calf-raise"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Leg Press Calf Raise",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "NASM — Leg Press Calf Raise",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
+        },
+        "observedValue": "Leg press machine",
+        "mapping": "Exact exercise-specific professional library page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -57481,6 +57829,12 @@
             "source_name": "Leg Press Calf Raise",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Leg Press Calf Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
           }
         ]
       },
@@ -57492,6 +57846,12 @@
             "source_name": "Leg Press Calf Raise",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Leg Press Calf Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
           }
         ]
       },
@@ -57503,6 +57863,12 @@
             "source_name": "Leg Press Calf Raise",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Leg Press Calf Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
           }
         ]
       },
@@ -57530,6 +57896,12 @@
             "source_name": "Leg Press Calf Raise",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Leg Press Calf Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
           }
         ]
       },
@@ -57542,6 +57914,12 @@
             "source_name": "Leg Press Calf Raise",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "NASM — Leg Press Calf Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise"
           }
         ]
       }
@@ -63304,7 +63682,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Neutral-Grip Vertical Pulldown è un esercizio della famiglia back. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -63332,6 +63712,12 @@
         "source_name": "Neutral-Grip Vertical Pulldown",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Seated Lat Pulldown",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
       }
     ],
     "confidence": "MEDIUM",
@@ -63349,8 +63735,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "machine"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
@@ -63364,15 +63752,16 @@
         "source": "ex-neutral-grip-vertical-pulldown"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Neutral-Grip Vertical Pulldown",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Seated Lat Pulldown",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
+        },
+        "observedValue": "Selectorized lat-pulldown machine; attachment/grip may vary",
+        "mapping": "Vertical pulldown apparatus is directly documented; neutral grip changes handle orientation, not apparatus"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -63382,6 +63771,12 @@
             "source_name": "Neutral-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Lat Pulldown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
           }
         ]
       },
@@ -63393,6 +63788,12 @@
             "source_name": "Neutral-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Lat Pulldown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
           }
         ]
       },
@@ -63404,6 +63805,12 @@
             "source_name": "Neutral-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Lat Pulldown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
           }
         ]
       },
@@ -63431,6 +63838,12 @@
             "source_name": "Neutral-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Lat Pulldown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
           }
         ]
       },
@@ -63443,6 +63856,12 @@
             "source_name": "Neutral-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Seated Lat Pulldown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/"
           }
         ]
       }
@@ -66457,7 +66876,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "One-Arm Reverse Pushdown è un esercizio della famiglia triceps. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -66485,6 +66906,12 @@
         "source_name": "One-Arm Reverse Pushdown",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 13"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -66502,8 +66929,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "cable"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -66517,15 +66946,16 @@
         "source": "ex-one-arm-reverse-pushdown"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "One-Arm Reverse Pushdown",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 13"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
+        },
+        "observedValue": "Cable machine handle",
+        "mapping": "Exact named exercise in technical anatomy manual"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -66535,6 +66965,12 @@
             "source_name": "One-Arm Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -66546,6 +66982,12 @@
             "source_name": "One-Arm Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -66557,6 +66999,12 @@
             "source_name": "One-Arm Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -66584,6 +67032,12 @@
             "source_name": "One-Arm Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -66596,6 +67050,12 @@
             "source_name": "One-Arm Reverse Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 13"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       }
@@ -75163,7 +75623,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "cable"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Pushdown è un esercizio della famiglia triceps. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -75191,6 +75653,12 @@
         "source_name": "Pushdown",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 11"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Triceps Pressdown",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
       }
     ],
     "confidence": "MEDIUM",
@@ -75208,8 +75676,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "cable"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -75223,15 +75693,16 @@
         "source": "ex-pushdown"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Pushdown",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 11"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Triceps Pressdown",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
+        },
+        "observedValue": "Cable pulley with rope attachment",
+        "mapping": "Exact pressdown/pushdown movement and cable setup"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -75241,6 +75712,12 @@
             "source_name": "Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Pressdown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
           }
         ]
       },
@@ -75252,6 +75729,12 @@
             "source_name": "Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Pressdown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
           }
         ]
       },
@@ -75263,6 +75746,12 @@
             "source_name": "Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Pressdown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
           }
         ]
       },
@@ -75290,6 +75779,12 @@
             "source_name": "Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Pressdown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
           }
         ]
       },
@@ -75302,6 +75797,12 @@
             "source_name": "Pushdown",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 11"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Triceps Pressdown",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/"
           }
         ]
       }
@@ -85915,7 +86416,10 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "ez_bar",
+      "bench"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Seated EZ-Bar Triceps Extension è un esercizio della famiglia triceps. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -85943,6 +86447,12 @@
         "source_name": "Seated EZ-Bar Triceps Extension",
         "evidence_type": "SOURCE_HEADING",
         "locator": "Source exercise heading 20"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -85960,8 +86470,11 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "ez_bar",
+      "bench"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PUSH",
     "role": "Base",
@@ -85975,15 +86488,16 @@
         "source": "ex-seated-ez-bar-triceps-extension"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "DELAVIER3",
-            "source_name": "Seated EZ-Bar Triceps Extension",
-            "evidence_type": "SOURCE_HEADING",
-            "locator": "Source exercise heading 20"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
+        },
+        "observedValue": "EZ-bar; seated/bench-supported setup",
+        "mapping": "Exact named exercise in technical anatomy manual"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -85993,6 +86507,12 @@
             "source_name": "Seated EZ-Bar Triceps Extension",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -86004,6 +86524,12 @@
             "source_name": "Seated EZ-Bar Triceps Extension",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -86015,6 +86541,12 @@
             "source_name": "Seated EZ-Bar Triceps Extension",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -86042,6 +86574,12 @@
             "source_name": "Seated EZ-Bar Triceps Extension",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       },
@@ -86054,6 +86592,12 @@
             "source_name": "Seated EZ-Bar Triceps Extension",
             "evidence_type": "SOURCE_HEADING",
             "locator": "Source exercise heading 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf"
           }
         ]
       }
@@ -101870,7 +102414,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "pull_up_bar"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Strict Bar Muscle-Ups è un esercizio della famiglia muscle up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -101898,6 +102444,12 @@
         "source_name": "Strict Bar Muscle-Ups",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Strict Bar Muscle-Up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
       }
     ],
     "confidence": "HIGH",
@@ -101915,8 +102467,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "pull_up_bar"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -101957,15 +102511,16 @@
         "source": "ex-strict-bar-muscle-ups"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Strict Bar Muscle-Ups",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Strict Bar Muscle-Up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
+        },
+        "observedValue": "Fixed pull-up bar",
+        "mapping": "Exact exercise-specific CrossFit page"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -101975,6 +102530,12 @@
             "source_name": "Strict Bar Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Strict Bar Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
           }
         ]
       },
@@ -101986,6 +102547,12 @@
             "source_name": "Strict Bar Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Strict Bar Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
           }
         ]
       },
@@ -101997,6 +102564,12 @@
             "source_name": "Strict Bar Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Strict Bar Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
           }
         ]
       },
@@ -102024,6 +102597,12 @@
             "source_name": "Strict Bar Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Strict Bar Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
           }
         ]
       },
@@ -102036,6 +102615,12 @@
             "source_name": "Strict Bar Muscle-Ups",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Strict Bar Muscle-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up"
           }
         ]
       }
@@ -112485,6 +113070,12 @@
         "source_name": "Wall Handstand Pushup",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
       }
     ],
     "confidence": "HIGH",
@@ -112503,7 +113094,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -112544,15 +113135,16 @@
         "source": "ex-wall-handstand-pushup"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Handstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
+        },
+        "observedValue": "Wall-supported handstand push-up; no fitness implement required",
+        "mapping": "Exact wall-supported HSPU family"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -112562,6 +113154,12 @@
             "source_name": "Wall Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
           }
         ]
       },
@@ -112573,6 +113171,12 @@
             "source_name": "Wall Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
           }
         ]
       },
@@ -112584,6 +113188,12 @@
             "source_name": "Wall Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
           }
         ]
       },
@@ -112611,6 +113221,12 @@
             "source_name": "Wall Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
           }
         ]
       },
@@ -112623,6 +113239,12 @@
             "source_name": "Wall Handstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up"
           }
         ]
       }
@@ -112669,6 +113291,12 @@
         "source_name": "Wall Headstand Pushup",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — Freestanding HSPU progression",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/workout/2024/05"
       }
     ],
     "confidence": "HIGH",
@@ -112687,7 +113315,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -112728,15 +113356,16 @@
         "source": "ex-wall-headstand-pushup"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Headstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — Freestanding HSPU progression",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/workout/2024/05"
+        },
+        "observedValue": "Headstand/handstand progression performed on floor with wall as optional support",
+        "mapping": "Wall-supported inverted press progression; no catalog fitness implement required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -112754,6 +113383,12 @@
             "source_name": "Wall Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       },
@@ -112765,6 +113400,12 @@
             "source_name": "Wall Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       },
@@ -112792,6 +113433,12 @@
             "source_name": "Wall Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       },
@@ -112804,6 +113451,12 @@
             "source_name": "Wall Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       }
@@ -112850,6 +113503,12 @@
         "source_name": "Wall Headstand Pushup Eccentric",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — Freestanding HSPU progression",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/workout/2024/05"
       }
     ],
     "confidence": "HIGH",
@@ -112868,7 +113527,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -112909,15 +113568,16 @@
         "source": "ex-wall-headstand-pushup-eccentric"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Headstand Pushup Eccentric",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — Freestanding HSPU progression",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/workout/2024/05"
+        },
+        "observedValue": "Controlled lowering from handstand toward headstand, wall used for assistance",
+        "mapping": "Exact eccentric phase documented in wall-assisted handstand/headstand progression; no catalog fitness implement required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -112935,6 +113595,12 @@
             "source_name": "Wall Headstand Pushup Eccentric",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       },
@@ -112946,6 +113612,12 @@
             "source_name": "Wall Headstand Pushup Eccentric",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       },
@@ -112973,6 +113645,12 @@
             "source_name": "Wall Headstand Pushup Eccentric",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       },
@@ -112985,6 +113663,12 @@
             "source_name": "Wall Headstand Pushup Eccentric",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — Freestanding HSPU progression",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/workout/2024/05"
           }
         ]
       }
@@ -113799,6 +114483,12 @@
         "source_name": "Wall-Supported Handstand",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "CrossFit — HSPU and You",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
       }
     ],
     "confidence": "MEDIUM",
@@ -113817,7 +114507,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -113856,15 +114546,16 @@
         "source": "ex-wall-supported-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Wall-Supported Handstand",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "CrossFit — HSPU and You",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
+        },
+        "observedValue": "Handstand supported by wall; no fitness implement required",
+        "mapping": "Source explicitly documents handstand on wall; wall treated as environmental support, not catalog equipment"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -113874,6 +114565,12 @@
             "source_name": "Wall-Supported Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — HSPU and You",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
           }
         ]
       },
@@ -113885,6 +114582,12 @@
             "source_name": "Wall-Supported Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — HSPU and You",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
           }
         ]
       },
@@ -113896,6 +114599,12 @@
             "source_name": "Wall-Supported Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — HSPU and You",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
           }
         ]
       },
@@ -113923,6 +114632,12 @@
             "source_name": "Wall-Supported Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — HSPU and You",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
           }
         ]
       },
@@ -113935,6 +114650,12 @@
             "source_name": "Wall-Supported Handstand",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "CrossFit — HSPU and You",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
           }
         ]
       }
@@ -115441,7 +116162,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Wide-Grip Vertical Pulldown è un esercizio della famiglia back. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -115469,6 +116192,12 @@
         "source_name": "Wide-Grip Vertical Pulldown",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
       }
     ],
     "confidence": "MEDIUM",
@@ -115486,8 +116215,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "machine"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "PULL",
     "role": "Base",
@@ -115501,15 +116232,16 @@
         "source": "ex-wide-grip-vertical-pulldown"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Wide-Grip Vertical Pulldown",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
+        },
+        "observedValue": "Cable/lat-pulldown machine with traditional wide bar",
+        "mapping": "Source explicitly describes traditional wide-grip lat pull-down on cable machine"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -115519,6 +116251,12 @@
             "source_name": "Wide-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
           }
         ]
       },
@@ -115530,6 +116268,12 @@
             "source_name": "Wide-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
           }
         ]
       },
@@ -115541,6 +116285,12 @@
             "source_name": "Wide-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
           }
         ]
       },
@@ -115568,6 +116318,12 @@
             "source_name": "Wide-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
           }
         ]
       },
@@ -115580,6 +116336,12 @@
             "source_name": "Wide-Grip Vertical Pulldown",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/"
           }
         ]
       }
