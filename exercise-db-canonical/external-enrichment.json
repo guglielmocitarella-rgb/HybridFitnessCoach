@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policy": "Only direct, exercise-specific ACE library entries are applied. Difficulty labels are translated to the candidate's Italian level vocabulary; equipment 'No Equipment' maps to a known empty equipment list. No variants are generalized from these records.",
+  "policy": "Only direct exercise-specific or exact progression-family evidence from technically authoritative sources is applied. Apparatus mappings require an explicit apparatus label or an exact source taxonomy that separates apparatus-specific variants; ambiguous variants remain unresolved. Difficulty and technique are not inferred unless separately evidenced.",
   "exercises": {
     "ex-bear-crawls": {
       "equipmentRequired": {
@@ -4124,6 +4124,234 @@
         "source_name": "CrossFit Journal — The Muscle-up",
         "url": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf",
         "mapping": "L-sit variation of documented ring muscle-up family"
+      }
+    },
+    "ex-freestanding-handstand-with-one-arm-support": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-hands-close-together-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-pike-headstand-pushup": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-freestanding-headstand-pushup": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-bent-arm-bent-body-press-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-l-sit-bent-arm-bent-body-press-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-chest-roll-straight-body-press-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-bent-arm-straight-body-press-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-handstand-to-elbow-lever-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-straddle-or-pike-stand-press-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-l-sit-straddle-press-to-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-wall-straddle-press-to-handstand-eccentrics": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-tuck-l-sit": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-one-leg-bent-l-sit": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-straddle-l-sit": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-straddle-one-arm-pushup": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
+      }
+    },
+    "ex-straddle-one-arm-rows": {
+      "equipmentRequired": {
+        "value": [
+          "rings"
+        ],
+        "observed_value": "Ring Rows progression",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise appears in the Ring Rows progression; canonical rings"
+      }
+    },
+    "ex-one-arm-rows": {
+      "equipmentRequired": {
+        "value": [
+          "rings"
+        ],
+        "observed_value": "Ring Rows progression",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise appears in the Ring Rows progression; canonical rings"
+      }
+    },
+    "ex-45-degree-forward-lean-dips": {
+      "equipmentRequired": {
+        "value": [
+          "dip_bars"
+        ],
+        "observed_value": "Parallel-bar Dips progression; Rings Dips are listed separately",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in parallel-bar dip branch; canonical dip_bars"
+      }
+    },
+    "ex-one-arm-dip": {
+      "equipmentRequired": {
+        "value": [
+          "dip_bars"
+        ],
+        "observed_value": "Parallel-bar Dips progression; Rings Dips are listed separately",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "url": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "mapping": "exact exercise in parallel-bar dip branch; canonical dip_bars"
       }
     }
   },
