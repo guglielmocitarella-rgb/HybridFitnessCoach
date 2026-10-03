@@ -465,6 +465,39 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
         self.assertEqual(result["counts"]["resistance_mode_unknown"], 187 - candidates["count"])
 
+    def test_record_first_band_batch_keeps_field_level_evidence_independent(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+            batch = json.loads((output / "RECORD_FIRST_ENRICHMENT_BATCH_01.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(batch["strategy"], "RECORD_FIRST_ENRICHMENT")
+        self.assertEqual(batch["screenedResistanceUnknown"], 165)
+        self.assertEqual(batch["count"], 15)
+        self.assertEqual(batch["summary"]["resistanceModeResolved"], 15)
+        self.assertGreater(batch["summary"]["movementPatternResolved"], 0)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 150)
+        for item in batch["records"]:
+            record = by_id[item["id"]]
+            self.assertEqual(record["equipmentRequired"], ["resistance_band"])
+            self.assertEqual(record["resistanceMode"], "EXTERNAL_LOAD")
+            resistance_prov = record["fieldProvenance"]["resistanceMode"]
+            self.assertEqual(resistance_prov["confidence"], "HIGH")
+            self.assertEqual(resistance_prov["status"], "EQUIPMENT_DETERMINISTIC")
+            # Level and instructions must not be promoted merely because
+            # resistance mode has high-confidence evidence.
+            if "level" in item["missingFieldsBefore"]:
+                self.assertIn("level", item["remainingIncompleteFields"])
+            for field in ("descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"):
+                if field in item["missingFieldsBefore"]:
+                    self.assertIn(field, item["remainingIncompleteFields"])
+            for resolved in item["resolvedFields"]:
+                self.assertEqual(resolved["confidence"], "HIGH")
+        self.assertEqual(by_id["ex-banded-biceps-curl"]["movementPattern"], ["pull-accessory"])
+        self.assertEqual(by_id["ex-banded-biceps-curl"]["fieldProvenance"]["movementPattern"]["status"], "REVIEWED_CANONICAL_MECHANICS_RULE")
+        self.assertIsNone(by_id["ex-banded-biceps-curl"]["level"])
+
     def test_generates_deterministic_resistance_unknown_operational_report(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)
