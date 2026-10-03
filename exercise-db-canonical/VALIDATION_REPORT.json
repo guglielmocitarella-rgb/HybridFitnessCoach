@@ -2,7 +2,7 @@
   "ok": true,
   "errors": [],
   "warnings": [
-    "95 exercises still have unknown equipment requirements",
+    "99 exercises still have unknown equipment requirements",
     "18 exercises use equipment tokens not supported by the current app catalog",
     "201 exercises still lack an explicit movement pattern",
     "500 exercises lack supported execution instructions",
@@ -17,7 +17,7 @@
     "progression_edges": 113
   },
   "blockers": {
-    "equipment_unknown": 95,
+    "equipment_unknown": 99,
     "equipment_unsupported_by_app": 18,
     "movement_pattern_missing": 201,
     "instruction_incomplete": 500,

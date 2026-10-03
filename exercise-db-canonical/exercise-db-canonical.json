@@ -3055,12 +3055,6 @@
         "source_name": "Angled Half Lever",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -3079,7 +3073,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -3118,16 +3112,15 @@
         "source": "ex-angled-half-lever"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Angled Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -3137,12 +3130,6 @@
             "source_name": "Angled Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -3154,12 +3141,6 @@
             "source_name": "Angled Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -3171,12 +3152,6 @@
             "source_name": "Angled Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -3204,12 +3179,6 @@
             "source_name": "Angled Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -3222,12 +3191,6 @@
             "source_name": "Angled Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -26278,7 +26241,9 @@
     "movementPattern": [
       "core-control"
     ],
-    "equipment": [],
+    "equipment": [
+      "bench"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Decline Abdominal Crunch è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -26306,6 +26271,12 @@
         "source_name": "Decline Abdominal Crunch",
         "evidence_type": "INDEX",
         "locator": "Science of Strength Training index"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch"
       }
     ],
     "confidence": "MEDIUM",
@@ -26323,8 +26294,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "bench"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -26338,15 +26311,16 @@
         "source": "ex-decline-abdominal-crunch"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Decline Abdominal Crunch",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch"
+        },
+        "observedValue": "decline abdominal crunch performed on a dedicated decline/abdominal bench",
+        "mapping": "exact exercise/apparatus pairing; canonical bench"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -26364,6 +26338,12 @@
             "source_name": "Decline Abdominal Crunch",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch"
           }
         ]
       },
@@ -26375,6 +26355,12 @@
             "source_name": "Decline Abdominal Crunch",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch"
           }
         ]
       },
@@ -26402,6 +26388,12 @@
             "source_name": "Decline Abdominal Crunch",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch"
           }
         ]
       },
@@ -26414,6 +26406,12 @@
             "source_name": "Decline Abdominal Crunch",
             "evidence_type": "INDEX",
             "locator": "Science of Strength Training index"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Life Fitness — Adjustable Decline/Abdominal Crunch",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://www.lifefitness.com/en-us/catalog/strength-training/benches/adjustable-decline-abdominal-crunch"
           }
         ]
       }
@@ -32638,12 +32636,6 @@
         "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -32662,7 +32654,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -32676,16 +32668,15 @@
         "source": "ex-elevated-straddle-stand-straddle-press-to-handstand"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Elevated Straddle Stand Press to Handstand in Press Handstands progression",
-        "mapping": "exact progression identity; elevation is setup geometry, no unique external apparatus token established"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -32695,12 +32686,6 @@
             "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -32712,12 +32697,6 @@
             "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -32729,12 +32708,6 @@
             "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -32762,12 +32735,6 @@
             "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -32780,12 +32747,6 @@
             "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -35082,12 +35043,6 @@
         "source_name": "Floor Half Lever",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -35106,7 +35061,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -35133,16 +35088,15 @@
         "source": "ex-floor-half-lever"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Floor Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -35152,12 +35106,6 @@
             "source_name": "Floor Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -35169,12 +35117,6 @@
             "source_name": "Floor Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -35186,12 +35128,6 @@
             "source_name": "Floor Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -35219,12 +35155,6 @@
             "source_name": "Floor Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -35237,12 +35167,6 @@
             "source_name": "Floor Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -43077,7 +43001,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "machine"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Glute Ham Raise è un esercizio della famiglia posterior chain. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -43105,6 +43031,12 @@
         "source_name": "Glute Ham Raise",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 19"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Macros Inc — Glute Ham Raise",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
       }
     ],
     "confidence": "HIGH",
@@ -43122,8 +43054,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "machine"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -43137,15 +43071,16 @@
         "source": "ex-glute-ham-raise"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Glute Ham Raise",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 19"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Macros Inc — Glute Ham Raise",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
+        },
+        "observedValue": "Glute-Ham Raise performed on a GHD machine",
+        "mapping": "exact exercise specifies GHD machine; canonical machine"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -43155,6 +43090,12 @@
             "source_name": "Glute Ham Raise",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Macros Inc — Glute Ham Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
           }
         ]
       },
@@ -43166,6 +43107,12 @@
             "source_name": "Glute Ham Raise",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Macros Inc — Glute Ham Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
           }
         ]
       },
@@ -43177,6 +43124,12 @@
             "source_name": "Glute Ham Raise",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Macros Inc — Glute Ham Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
           }
         ]
       },
@@ -43204,6 +43157,12 @@
             "source_name": "Glute Ham Raise",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Macros Inc — Glute Ham Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
           }
         ]
       },
@@ -43216,6 +43175,12 @@
             "source_name": "Glute Ham Raise",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 19"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Macros Inc — Glute Ham Raise",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://macrosinc.net/exercises/legs/glute-ham-raise/"
           }
         ]
       }
@@ -44341,12 +44306,6 @@
         "source_name": "Half Lever",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -44365,7 +44324,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -44404,16 +44363,15 @@
         "source": "ex-half-lever"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -44423,12 +44381,6 @@
             "source_name": "Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44440,12 +44392,6 @@
             "source_name": "Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44457,12 +44403,6 @@
             "source_name": "Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44490,12 +44430,6 @@
             "source_name": "Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44508,12 +44442,6 @@
             "source_name": "Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -44557,12 +44485,6 @@
         "source_name": "Half-Lever Bicycles",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -44581,7 +44503,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -44595,16 +44517,15 @@
         "source": "ex-half-lever-bicycles"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Bicycles",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -44614,12 +44535,6 @@
             "source_name": "Half-Lever Bicycles",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44631,12 +44546,6 @@
             "source_name": "Half-Lever Bicycles",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44648,12 +44557,6 @@
             "source_name": "Half-Lever Bicycles",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44681,12 +44584,6 @@
             "source_name": "Half-Lever Bicycles",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44699,12 +44596,6 @@
             "source_name": "Half-Lever Bicycles",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -44748,12 +44639,6 @@
         "source_name": "Half-Lever Extensions",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -44772,7 +44657,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -44786,16 +44671,15 @@
         "source": "ex-half-lever-extensions"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Extensions",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -44805,12 +44689,6 @@
             "source_name": "Half-Lever Extensions",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44822,12 +44700,6 @@
             "source_name": "Half-Lever Extensions",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44839,12 +44711,6 @@
             "source_name": "Half-Lever Extensions",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44872,12 +44738,6 @@
             "source_name": "Half-Lever Extensions",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -44890,12 +44750,6 @@
             "source_name": "Half-Lever Extensions",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -44939,12 +44793,6 @@
         "source_name": "Half-Lever Swimmers",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -44963,7 +44811,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -44977,16 +44825,15 @@
         "source": "ex-half-lever-swimmers"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -44996,12 +44843,6 @@
             "source_name": "Half-Lever Swimmers",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -45013,12 +44854,6 @@
             "source_name": "Half-Lever Swimmers",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -45030,12 +44865,6 @@
             "source_name": "Half-Lever Swimmers",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -45063,12 +44892,6 @@
             "source_name": "Half-Lever Swimmers",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -45081,12 +44904,6 @@
             "source_name": "Half-Lever Swimmers",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
@@ -89865,7 +89682,9 @@
     "movementPattern": [
       "mobility"
     ],
-    "equipment": [],
+    "equipment": [
+      "stability_ball"
+    ],
     "level": null,
     "measure": "SECONDS",
     "descriptionIt": "Seated Side Stretch on Ball è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -89893,6 +89712,12 @@
         "source_name": "Seated Side Stretch on Ball",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 77"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -89910,8 +89735,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "stability_ball"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "MOBILITY",
     "role": "Base",
@@ -89925,15 +89752,16 @@
         "source": "ex-seated-side-stretch-on-ball"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Seated Side Stretch on Ball",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 77"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf"
+        },
+        "observedValue": "Seated Side Stretch on Ball illustrated seated on a large exercise ball",
+        "mapping": "exact exercise title and illustrated ball apparatus; canonical stability_ball"
       },
       "movementPattern": {
         "status": "V2_MOVEMENT_TYPE_RULE",
@@ -89951,6 +89779,12 @@
             "source_name": "Seated Side Stretch on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 77"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf"
           }
         ]
       },
@@ -89962,6 +89796,12 @@
             "source_name": "Seated Side Stretch on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 77"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf"
           }
         ]
       },
@@ -89989,6 +89829,12 @@
             "source_name": "Seated Side Stretch on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 77"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf"
           }
         ]
       },
@@ -90001,6 +89847,12 @@
             "source_name": "Seated Side Stretch on Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 77"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Anyang University/KOCW — Seated Side Stretch on Ball",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/13.pdf"
           }
         ]
       }
@@ -90327,7 +90179,9 @@
     "relatedFamilies": [],
     "variantOf": null,
     "movementPattern": [],
-    "equipment": [],
+    "equipment": [
+      "stability_ball"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Seesaw with Ball è un esercizio della famiglia lower body. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -90355,6 +90209,12 @@
         "source_name": "Seesaw with Ball",
         "evidence_type": "TOC_HEADING",
         "locator": "Part 2: Exercises; item 37"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
       }
     ],
     "confidence": "MEDIUM",
@@ -90372,8 +90232,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "stability_ball"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "LEGS",
     "role": "Base",
@@ -90387,15 +90249,16 @@
         "source": "ex-seesaw-with-ball"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Seesaw with Ball",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 37"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
+        },
+        "observedValue": "Seesaw with ball in illustrated strength/fitness exercise reference",
+        "mapping": "exact named ball exercise; canonical stability_ball"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -90405,6 +90268,12 @@
             "source_name": "Seesaw with Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 37"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
           }
         ]
       },
@@ -90416,6 +90285,12 @@
             "source_name": "Seesaw with Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 37"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
           }
         ]
       },
@@ -90427,6 +90302,12 @@
             "source_name": "Seesaw with Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 37"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
           }
         ]
       },
@@ -90454,6 +90335,12 @@
             "source_name": "Seesaw with Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 37"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
           }
         ]
       },
@@ -90466,6 +90353,12 @@
             "source_name": "Seesaw with Ball",
             "evidence_type": "TOC_HEADING",
             "locator": "Part 2: Exercises; item 37"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
           }
         ]
       }
@@ -109914,12 +109807,6 @@
         "source_name": "Tuck Half Lever",
         "evidence_type": "INDEX",
         "locator": "Complete Calisthenics 2e index"
-      },
-      {
-        "source_id": "ACE_EXERCISE_LIBRARY",
-        "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
       }
     ],
     "confidence": "MEDIUM",
@@ -109938,7 +109825,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "KNOWN",
+    "equipmentStatus": "UNKNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -109965,16 +109852,15 @@
         "source": "ex-tuck-half-lever"
       },
       "equipmentRequired": {
-        "status": "EXTERNAL_SOURCE_DIRECT",
-        "confidence": "HIGH",
-        "source": {
-          "source_id": "ACE_EXERCISE_LIBRARY",
-          "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
-        },
-        "observedValue": "Manna / V-sit floor progression family with no external apparatus requirement",
-        "mapping": "exact floor-support half-lever/manna progression family; no canonical external apparatus required"
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tuck Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -109984,12 +109870,6 @@
             "source_name": "Tuck Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -110001,12 +109881,6 @@
             "source_name": "Tuck Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -110018,12 +109892,6 @@
             "source_name": "Tuck Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -110051,12 +109919,6 @@
             "source_name": "Tuck Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       },
@@ -110069,12 +109931,6 @@
             "source_name": "Tuck Half Lever",
             "evidence_type": "INDEX",
             "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Overcoming Gravity 2nd Edition — official author preview/TOC",
-            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
-            "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf"
           }
         ]
       }
