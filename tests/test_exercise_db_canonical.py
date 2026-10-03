@@ -477,7 +477,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(batch["count"], 15)
         self.assertEqual(batch["summary"]["resistanceModeResolved"], 15)
         self.assertGreater(batch["summary"]["movementPatternResolved"], 0)
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 127)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 116)
         for item in batch["records"]:
             record = by_id[item["id"]]
             if item["id"] == "ex-it-band-foam-rolling":
@@ -509,6 +509,29 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(by_id["ex-banded-biceps-curl"]["movementPattern"], ["pull-accessory"])
         self.assertEqual(by_id["ex-banded-biceps-curl"]["fieldProvenance"]["movementPattern"]["status"], "REVIEWED_CANONICAL_MECHANICS_RULE")
         self.assertIsNone(by_id["ex-banded-biceps-curl"]["level"])
+
+    def test_record_first_batch03_uses_scored_multi_field_review_without_forcing_ambiguous_modes(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = pathlib.Path(temporary)
+            result = build_database(ROOT, output)
+            records = json.loads((output / "exercise-db-canonical.json").read_text())
+            batch = json.loads((output / "RECORD_FIRST_ENRICHMENT_BATCH_03.json").read_text())
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(batch["strategy"], "RECORD_FIRST_ENRICHMENT")
+        self.assertEqual(batch["screenedResistanceUnknown"], 127)
+        self.assertEqual(batch["count"], 15)
+        self.assertEqual(batch["summary"]["resistanceModeResolved"], 11)
+        self.assertEqual(batch["summary"]["movementPatternResolved"], 10)
+        self.assertEqual(batch["summary"]["levelResolved"], 5)
+        self.assertEqual(batch["summary"]["fieldsResolvedTotal"], 26)
+        self.assertEqual(result["counts"]["resistance_mode_unknown"], 116)
+        for excluded_id in ("ex-muscle-up", "ex-normal-muscle-up", "ex-weighted-dip", "ex-medicine-ball-clean"):
+            self.assertEqual(by_id[excluded_id]["resistanceMode"], "UNKNOWN")
+        for exercise_id in ("ex-box-jumps", "ex-hamstring-ball-curl", "ex-stability-ball-reverse-back-extension", "ex-stability-ball-pike", "ex-stability-ball-abdominal-crunch"):
+            provenance = by_id[exercise_id]["fieldProvenance"]["level"]
+            self.assertEqual(provenance["status"], "EXTERNAL_SOURCE_DIRECT")
+            self.assertEqual(provenance["confidence"], "HIGH")
+            self.assertEqual(provenance["source"]["source_id"], "ACE_EXERCISE_LIBRARY")
 
     def test_record_first_batch02_resolves_reviewed_records_without_cross_field_confidence(self):
         with tempfile.TemporaryDirectory() as temporary:
