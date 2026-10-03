@@ -1,7 +1,8 @@
 # Exercise DB canonical candidate — checklist status
 
-**Baseline:** `feature/v0.9.5` at `9b8a41cfe5c7ee007f37219f9987a843f3ae3911` (Android APK #873).  
-**State:** candidate materialized and structurally validated; **not ready for app integration**.
+**Audit baseline:** `feature/v0.9.5` at `9b8a41cfe5c7ee007f37219f9987a843f3ae3911` (Android APK #873).  
+**Saved candidate:** `feature/v0.9.5` commit `a09a612ea0d42e3be62397a5a3c79d0832894c3a`.  
+**State:** candidate materialized, structurally validated, and saved to GitHub; **not ready for app integration**.
 
 ## Reconciliation
 
@@ -26,7 +27,7 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | 9. Simulate reachability by location, capability, and skill | **Not run** | Must be completed against the app's actual eligibility pipeline after selection metadata is completed. Unknown equipment remains fail-closed. |
 | 10. Measure current generator diversity | **Not run** | Requires running the existing generator against the reconciled catalog and representative histories/configurations. |
 | 11. Design controlled ranking diversification | **Not started** | Requires reachability and diversity measurements first. |
-| 12. Prepare integration and remote checkpoint | **Not started** | No app runtime files were changed, no push was made, and the baseline remains unchanged. |
+| 12. Prepare integration and remote checkpoint | **Partial** | Candidate generator, validator, tests, checklist, and exact candidate/audit archives were pushed to `feature/v0.9.5` in commit `a09a612`. App runtime files were not changed; integration remains blocked by incomplete selection-critical and instruction data. |
 
 ## Validation snapshot
 
