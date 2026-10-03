@@ -165,7 +165,9 @@
     "movementPattern": [
       "vertical-push"
     ],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "45-Degree Forward-Lean Dips è un esercizio della famiglia dip. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -193,6 +195,12 @@
         "source_name": "45-Degree Forward-Lean Dips",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -210,8 +218,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dip_bars"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -252,15 +262,16 @@
         "source": "ex-45-degree-forward-lean-dips"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "45-Degree Forward-Lean Dips",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Parallel-bar Dips progression; Rings Dips are listed separately",
+        "mapping": "exact exercise in parallel-bar dip branch; canonical dip_bars"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -278,6 +289,12 @@
             "source_name": "45-Degree Forward-Lean Dips",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -289,6 +306,12 @@
             "source_name": "45-Degree Forward-Lean Dips",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -316,6 +339,12 @@
             "source_name": "45-Degree Forward-Lean Dips",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -328,6 +357,12 @@
             "source_name": "45-Degree Forward-Lean Dips",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -13049,6 +13084,12 @@
         "source_name": "Bent-Arm Bent-Body Press to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -13067,7 +13108,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -13081,15 +13122,16 @@
         "source": "ex-bent-arm-bent-body-press-to-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Bent-Arm Bent-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -13099,6 +13141,12 @@
             "source_name": "Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13110,6 +13158,12 @@
             "source_name": "Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13121,6 +13175,12 @@
             "source_name": "Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13148,6 +13208,12 @@
             "source_name": "Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13160,6 +13226,12 @@
             "source_name": "Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -13400,6 +13472,12 @@
         "source_name": "Bent-Arm Straight-Body Press to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -13418,7 +13496,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -13432,15 +13510,16 @@
         "source": "ex-bent-arm-straight-body-press-to-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Bent-Arm Straight-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -13450,6 +13529,12 @@
             "source_name": "Bent-Arm Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13461,6 +13546,12 @@
             "source_name": "Bent-Arm Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13472,6 +13563,12 @@
             "source_name": "Bent-Arm Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13499,6 +13596,12 @@
             "source_name": "Bent-Arm Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -13511,6 +13614,12 @@
             "source_name": "Bent-Arm Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -21042,6 +21151,12 @@
         "source_name": "Chest Roll Straight-Body Press to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -21060,7 +21175,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -21074,15 +21189,16 @@
         "source": "ex-chest-roll-straight-body-press-to-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Chest Roll Straight-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -21092,6 +21208,12 @@
             "source_name": "Chest Roll Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -21103,6 +21225,12 @@
             "source_name": "Chest Roll Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -21114,6 +21242,12 @@
             "source_name": "Chest Roll Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -21141,6 +21275,12 @@
             "source_name": "Chest Roll Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -21153,6 +21293,12 @@
             "source_name": "Chest Roll Straight-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -37098,6 +37244,12 @@
         "source_name": "Freestanding Handstand with One-Arm Support",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -37116,7 +37268,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -37157,15 +37309,16 @@
         "source": "ex-freestanding-handstand-with-one-arm-support"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Handstand with One-Arm Support",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -37175,6 +37328,12 @@
             "source_name": "Freestanding Handstand with One-Arm Support",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -37186,6 +37345,12 @@
             "source_name": "Freestanding Handstand with One-Arm Support",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -37197,6 +37362,12 @@
             "source_name": "Freestanding Handstand with One-Arm Support",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -37224,6 +37395,12 @@
             "source_name": "Freestanding Handstand with One-Arm Support",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -37236,6 +37413,12 @@
             "source_name": "Freestanding Handstand with One-Arm Support",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -37282,6 +37465,12 @@
         "source_name": "Freestanding Headstand Pushup",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -37300,7 +37489,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -37341,15 +37530,16 @@
         "source": "ex-freestanding-headstand-pushup"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Freestanding Headstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -37367,6 +37557,12 @@
             "source_name": "Freestanding Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -37378,6 +37574,12 @@
             "source_name": "Freestanding Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -37405,6 +37607,12 @@
             "source_name": "Freestanding Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -37417,6 +37625,12 @@
             "source_name": "Freestanding Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -45550,6 +45764,12 @@
         "source_name": "Hands-Close-Together Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -45568,7 +45788,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -45582,15 +45802,16 @@
         "source": "ex-hands-close-together-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Hands-Close-Together Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -45600,6 +45821,12 @@
             "source_name": "Hands-Close-Together Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -45611,6 +45838,12 @@
             "source_name": "Hands-Close-Together Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -45622,6 +45855,12 @@
             "source_name": "Hands-Close-Together Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -45649,6 +45888,12 @@
             "source_name": "Hands-Close-Together Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -45661,6 +45906,12 @@
             "source_name": "Hands-Close-Together Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -46561,6 +46812,12 @@
         "source_name": "Handstand to Elbow Lever to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -46579,7 +46836,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -46593,15 +46850,16 @@
         "source": "ex-handstand-to-elbow-lever-to-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Handstand to Elbow Lever to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -46611,6 +46869,12 @@
             "source_name": "Handstand to Elbow Lever to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -46622,6 +46886,12 @@
             "source_name": "Handstand to Elbow Lever to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -46633,6 +46903,12 @@
             "source_name": "Handstand to Elbow Lever to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -46660,6 +46936,12 @@
             "source_name": "Handstand to Elbow Lever to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -46672,6 +46954,12 @@
             "source_name": "Handstand to Elbow Lever to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -55963,6 +56251,12 @@
         "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -55981,7 +56275,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -55995,15 +56289,16 @@
         "source": "ex-l-sit-bent-arm-bent-body-press-to-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -56013,6 +56308,12 @@
             "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -56024,6 +56325,12 @@
             "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -56035,6 +56342,12 @@
             "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -56062,6 +56375,12 @@
             "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -56074,6 +56393,12 @@
             "source_name": "L-Sit Bent-Arm Bent-Body Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -57099,6 +57424,12 @@
         "source_name": "L-Sit Straddle Press to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -57117,7 +57448,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -57131,15 +57462,16 @@
         "source": "ex-l-sit-straddle-press-to-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "L-Sit Straddle Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -57149,6 +57481,12 @@
             "source_name": "L-Sit Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -57160,6 +57498,12 @@
             "source_name": "L-Sit Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -57171,6 +57515,12 @@
             "source_name": "L-Sit Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -57198,6 +57548,12 @@
             "source_name": "L-Sit Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -57210,6 +57566,12 @@
             "source_name": "L-Sit Straddle Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -65942,7 +66304,9 @@
     "movementPattern": [
       "vertical-push"
     ],
-    "equipment": [],
+    "equipment": [
+      "dip_bars"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "One-Arm Dip è un esercizio della famiglia dip. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -65970,6 +66334,12 @@
         "source_name": "One-Arm Dip",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -65987,8 +66357,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "dip_bars"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -66016,15 +66388,16 @@
         "source": "ex-one-arm-dip"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm Dip",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Parallel-bar Dips progression; Rings Dips are listed separately",
+        "mapping": "exact exercise in parallel-bar dip branch; canonical dip_bars"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -66042,6 +66415,12 @@
             "source_name": "One-Arm Dip",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -66053,6 +66432,12 @@
             "source_name": "One-Arm Dip",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -66080,6 +66465,12 @@
             "source_name": "One-Arm Dip",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -66092,6 +66483,12 @@
             "source_name": "One-Arm Dip",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -68135,7 +68532,9 @@
     "movementPattern": [
       "horizontal-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "One-Arm Rows è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -68163,6 +68562,12 @@
         "source_name": "One-Arm Rows",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -68180,8 +68585,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -68209,15 +68616,16 @@
         "source": "ex-one-arm-rows"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Arm Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Ring Rows progression",
+        "mapping": "exact exercise appears in the Ring Rows progression; canonical rings"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -68235,6 +68643,12 @@
             "source_name": "One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -68246,6 +68660,12 @@
             "source_name": "One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -68273,6 +68693,12 @@
             "source_name": "One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -68285,6 +68711,12 @@
             "source_name": "One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -68693,6 +69125,12 @@
         "source_name": "One-Leg-Bent L-Sit",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -68711,7 +69149,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -68752,15 +69190,16 @@
         "source": "ex-one-leg-bent-l-sit"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "One-Leg-Bent L-Sit",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -68770,6 +69209,12 @@
             "source_name": "One-Leg-Bent L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -68781,6 +69226,12 @@
             "source_name": "One-Leg-Bent L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -68792,6 +69243,12 @@
             "source_name": "One-Leg-Bent L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -68819,6 +69276,12 @@
             "source_name": "One-Leg-Bent L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -68831,6 +69294,12 @@
             "source_name": "One-Leg-Bent L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -70689,6 +71158,12 @@
         "source_name": "Pike Headstand Pushup",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -70707,7 +71182,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -70735,15 +71210,16 @@
         "source": "ex-pike-headstand-pushup"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Pike Headstand Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -70761,6 +71237,12 @@
             "source_name": "Pike Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -70772,6 +71254,12 @@
             "source_name": "Pike Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -70799,6 +71287,12 @@
             "source_name": "Pike Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -70811,6 +71305,12 @@
             "source_name": "Pike Headstand Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -101982,6 +102482,12 @@
         "source_name": "Straddle L-Sit",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -102000,7 +102506,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -102041,15 +102547,16 @@
         "source": "ex-straddle-l-sit"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle L-Sit",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -102059,6 +102566,12 @@
             "source_name": "Straddle L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102070,6 +102583,12 @@
             "source_name": "Straddle L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102081,6 +102600,12 @@
             "source_name": "Straddle L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102108,6 +102633,12 @@
             "source_name": "Straddle L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102120,6 +102651,12 @@
             "source_name": "Straddle L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -102166,6 +102703,12 @@
         "source_name": "Straddle One-Arm Pushup",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -102184,7 +102727,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -102225,15 +102768,16 @@
         "source": "ex-straddle-one-arm-pushup"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle One-Arm Pushup",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -102251,6 +102795,12 @@
             "source_name": "Straddle One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102262,6 +102812,12 @@
             "source_name": "Straddle One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102289,6 +102845,12 @@
             "source_name": "Straddle One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102301,6 +102863,12 @@
             "source_name": "Straddle One-Arm Pushup",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -102319,7 +102887,9 @@
     "movementPattern": [
       "horizontal-pull"
     ],
-    "equipment": [],
+    "equipment": [
+      "rings"
+    ],
     "level": null,
     "measure": "REPS",
     "descriptionIt": "Straddle One-Arm Rows è un esercizio della famiglia pull up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
@@ -102347,6 +102917,12 @@
         "source_name": "Straddle One-Arm Rows",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -102364,8 +102940,10 @@
       "sourceEntries": [],
       "ambiguousSourceEntries": []
     },
-    "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentRequired": [
+      "rings"
+    ],
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -102406,15 +102984,16 @@
         "source": "ex-straddle-one-arm-rows"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle One-Arm Rows",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Ring Rows progression",
+        "mapping": "exact exercise appears in the Ring Rows progression; canonical rings"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -102432,6 +103011,12 @@
             "source_name": "Straddle One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102443,6 +103028,12 @@
             "source_name": "Straddle One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102470,6 +103061,12 @@
             "source_name": "Straddle One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102482,6 +103079,12 @@
             "source_name": "Straddle One-Arm Rows",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -102526,6 +103129,12 @@
         "source_name": "Straddle or Pike Stand Press to Handstand",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -102544,7 +103153,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -102558,15 +103167,16 @@
         "source": "ex-straddle-or-pike-stand-press-to-handstand"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Straddle or Pike Stand Press to Handstand",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -102576,6 +103186,12 @@
             "source_name": "Straddle or Pike Stand Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102587,6 +103203,12 @@
             "source_name": "Straddle or Pike Stand Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102598,6 +103220,12 @@
             "source_name": "Straddle or Pike Stand Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102625,6 +103253,12 @@
             "source_name": "Straddle or Pike Stand Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -102637,6 +103271,12 @@
             "source_name": "Straddle or Pike Stand Press to Handstand",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -109172,6 +109812,12 @@
         "source_name": "Tuck L-Sit",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -109190,7 +109836,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "CORE",
     "role": "Base",
@@ -109220,15 +109866,16 @@
         "source": "ex-tuck-l-sit"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Tuck L-Sit",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -109238,6 +109885,12 @@
             "source_name": "Tuck L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -109249,6 +109902,12 @@
             "source_name": "Tuck L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -109260,6 +109919,12 @@
             "source_name": "Tuck L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -109296,6 +109961,12 @@
             "source_name": "Tuck L-Sit",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
@@ -116000,6 +116671,12 @@
         "source_name": "Wall Straddle Press to Handstand Eccentrics",
         "evidence_type": "LEVEL_HEADING",
         "locator": "Chapters 24-27 progression charts"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
       }
     ],
     "confidence": "HIGH",
@@ -116018,7 +116695,7 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
     "levelStatus": "UNKNOWN",
     "category": "SKILL",
     "role": "Base",
@@ -116032,15 +116709,16 @@
         "source": "ex-wall-straddle-press-to-handstand-eccentrics"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "OVERCOMING_GRAVITY",
-            "source_name": "Wall Straddle Press to Handstand Eccentrics",
-            "evidence_type": "LEVEL_HEADING",
-            "locator": "Chapters 24-27 progression charts"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
+        },
+        "observedValue": "Floor/freestanding bodyweight variant; apparatus-specific ring variants are separately named in the source taxonomy",
+        "mapping": "exact exercise in non-rings/non-apparatus progression branch; no canonical external apparatus required"
       },
       "movementPattern": {
         "status": "UNKNOWN",
@@ -116050,6 +116728,12 @@
             "source_name": "Wall Straddle Press to Handstand Eccentrics",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -116061,6 +116745,12 @@
             "source_name": "Wall Straddle Press to Handstand Eccentrics",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -116072,6 +116762,12 @@
             "source_name": "Wall Straddle Press to Handstand Eccentrics",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -116099,6 +116795,12 @@
             "source_name": "Wall Straddle Press to Handstand Eccentrics",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       },
@@ -116111,6 +116813,12 @@
             "source_name": "Wall Straddle Press to Handstand Eccentrics",
             "evidence_type": "LEVEL_HEADING",
             "locator": "Chapters 24-27 progression charts"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Overcoming Gravity 2nd Edition — official author TOC/intro",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf"
           }
         ]
       }
