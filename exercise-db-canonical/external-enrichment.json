@@ -547,6 +547,148 @@
         "url": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/",
         "mapping": "ACE Difficulty -> canonical Italian level"
       }
+    },
+    "ex-forward-step-lunge": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Forward Lunge",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Forward Lunge",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      "descriptionIt": {
+        "value": "Affondo in avanti eseguito da stazione eretta con trasferimento controllato del peso sulla gamba anteriore e ritorno alla posizione iniziale.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Forward Lunge",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      "setupIt": {
+        "value": "Parti in piedi con i piedi uniti, tronco stabile e addome attivo; prepara il passo mantenendo il corpo controllato sulla gamba di appoggio.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Forward Lunge",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Solleva un piede e fai un passo avanti appoggiando prima il tallone, trasferendo gradualmente il peso sulla gamba anteriore.",
+          "Abbassa il bacino verso il pavimento fino a un range confortevole, mantenendo la schiena piatta e il ginocchio in controllo.",
+          "Spingi con la gamba anteriore per tornare in modo stabile alla posizione eretta iniziale."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Forward Lunge",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il tronco stabile senza oscillazioni laterali.",
+          "Pensa a scendere con il bacino invece di spingere eccessivamente il ginocchio in avanti.",
+          "Mantieni la schiena piatta durante la discesa."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Forward Lunge",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Oscillare lateralmente con il tronco o perdere la stabilità della gamba di appoggio.",
+          "Spingere il bacino e il ginocchio troppo in avanti invece di controllare la discesa.",
+          "Arrotondare la schiena durante l'affondo."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Forward Lunge",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/"
+      }
+    },
+    "ex-mountain-climbers": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Mountain Climbers",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      "level": {
+        "value": "Avanzato",
+        "observed_value": "Advanced",
+        "mapping": "ACE Difficulty -> canonical Italian level",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Mountain Climbers",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      "descriptionIt": {
+        "value": "Esercizio dinamico in appoggio sulle mani in cui le gambe si alternano rapidamente portando un ginocchio in avanti mentre l'altra gamba si estende.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Mountain Climbers",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      "setupIt": {
+        "value": "Posiziona le mani a terra leggermente davanti alle spalle, attiva l'addome e stabilizza le spalle; porta una gamba avanti e distendi l'altra dietro di te.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Mountain Climbers",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Mantieni le mani ferme a terra, il tronco attivo e le spalle stabili.",
+          "Scambia simultaneamente la posizione delle gambe: porta un ginocchio avanti mentre estendi l'altra gamba dietro.",
+          "Continua ad alternare mantenendo il controllo del bacino e distribuendo il peso senza proiettarti eccessivamente in avanti."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Mountain Climbers",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni addome attivo e spalle forti durante gli scambi.",
+          "Tieni le mani ben piantate e il tronco stabile.",
+          "Distribuisci il peso senza caricarlo tutto sulla gamba anteriore."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Mountain Climbers",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Perdere la stabilità del tronco durante il cambio delle gambe.",
+          "Spostare eccessivamente il peso in avanti sulla gamba anteriore.",
+          "Lasciare cedere la stabilità delle spalle o delle mani durante gli appoggi."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Mountain Climbers",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/"
+      }
     }
   },
   "unresolved_conflicts": [
