@@ -1,4 +1,5 @@
 name: Exercise DB matching audit continuation
+# persistence strategy: validate and push each tranche before global aggregation
 
 on:
   push:
