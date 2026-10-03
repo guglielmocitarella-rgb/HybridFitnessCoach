@@ -1,0 +1,509 @@
+{
+  "integrity": {
+    "canonical": 1087,
+    "processed": 1087,
+    "unique": 1087,
+    "missing": 0,
+    "duplicates": 0,
+    "checkpoint_count": 12
+  },
+  "matching": {
+    "CERTAIN": 0,
+    "HIGH_PROBABILITY": 270,
+    "AMBIGUOUS": 495,
+    "NO_MATCH": 322
+  },
+  "matching_pct": {
+    "CERTAIN": 0.0,
+    "HIGH_PROBABILITY": 24.84,
+    "AMBIGUOUS": 45.54,
+    "NO_MATCH": 29.62
+  },
+  "datasets": {
+    "yuhonas/free-exercise-db": {
+      "source_records": 876,
+      "canonical_with_candidate": 442,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 76,
+      "AMBIGUOUS": 366,
+      "NO_MATCH": 645,
+      "coverage_pct": 40.66,
+      "instruction_coverage_canonical": 436,
+      "media_coverage_canonical": 441,
+      "available_field_candidate_rows": {
+        "equipment": 996,
+        "level": 1045,
+        "primaryMuscles": 1045,
+        "execution": 1033,
+        "secondaryMuscles": 735
+      },
+      "conflicts": {
+        "variant_qualifier_difference": 296,
+        "equipment_disjoint": 379
+      },
+      "license": {
+        "license": "Unlicense",
+        "status": "SAFE_TO_USE",
+        "note": "Public-domain dedication in pinned LICENSE.md."
+      }
+    },
+    "kinetic-place/exercises-json": {
+      "source_records": 899,
+      "canonical_with_candidate": 455,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 89,
+      "AMBIGUOUS": 366,
+      "NO_MATCH": 632,
+      "coverage_pct": 41.86,
+      "instruction_coverage_canonical": 455,
+      "media_coverage_canonical": 0,
+      "available_field_candidate_rows": {
+        "equipment": 1142,
+        "level": 1142,
+        "execution": 1142,
+        "primaryMuscles": 1142,
+        "secondaryMuscles": 731
+      },
+      "conflicts": {
+        "variant_qualifier_difference": 320,
+        "equipment_disjoint": 434,
+        "multiple_supported_candidates_in_source": 2
+      },
+      "license": {
+        "license": "MIT",
+        "status": "ATTRIBUTION_REQUIRED",
+        "note": "MIT notice required."
+      }
+    },
+    "ArelliGoutham/exercise-database": {
+      "source_records": 1376,
+      "canonical_with_candidate": 629,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 176,
+      "AMBIGUOUS": 453,
+      "NO_MATCH": 458,
+      "coverage_pct": 57.87,
+      "instruction_coverage_canonical": 628,
+      "media_coverage_canonical": 629,
+      "available_field_candidate_rows": {
+        "equipment": 2057,
+        "level": 2057,
+        "description": 2050,
+        "primaryMuscles": 2057,
+        "secondaryMuscles": 1734,
+        "techniqueCues": 1258,
+        "execution": 2045
+      },
+      "conflicts": {
+        "variant_qualifier_difference": 540,
+        "equipment_disjoint": 800,
+        "multiple_supported_candidates_in_source": 18
+      },
+      "license": {
+        "license": "MIT",
+        "status": "ATTRIBUTION_REQUIRED",
+        "note": "MIT notice required."
+      }
+    },
+    "RepDB/exercise-dataset": {
+      "source_records": 609,
+      "canonical_with_candidate": 561,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 108,
+      "AMBIGUOUS": 453,
+      "NO_MATCH": 526,
+      "coverage_pct": 51.61,
+      "instruction_coverage_canonical": 561,
+      "media_coverage_canonical": 561,
+      "available_field_candidate_rows": {
+        "equipment": 1037,
+        "level": 1264,
+        "description": 1264,
+        "primaryMuscles": 1264,
+        "secondaryMuscles": 1185,
+        "bodyRegion": 1264,
+        "techniqueCues": 1264,
+        "execution": 1264
+      },
+      "conflicts": {
+        "variant_qualifier_difference": 309,
+        "equipment_disjoint": 412
+      },
+      "license": {
+        "license": "RepDB Free Tier v1.0",
+        "status": "ATTRIBUTION_REQUIRED",
+        "note": "In-app use with attribution; dataset redistribution prohibited; paid preview animations evaluation-only."
+      }
+    },
+    "rthepen/workout-database": {
+      "source_records": 1015,
+      "canonical_with_candidate": 610,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 143,
+      "AMBIGUOUS": 467,
+      "NO_MATCH": 477,
+      "coverage_pct": 56.12,
+      "instruction_coverage_canonical": 610,
+      "media_coverage_canonical": 599,
+      "available_field_candidate_rows": {
+        "equipment": 1489,
+        "level": 1489,
+        "primaryMuscles": 1489,
+        "secondaryMuscles": 1231,
+        "execution": 1489,
+        "techniqueCues": 1489
+      },
+      "conflicts": {
+        "equipment_disjoint": 696,
+        "variant_qualifier_difference": 307,
+        "multiple_supported_candidates_in_source": 2
+      },
+      "license": {
+        "license": "MIT",
+        "status": "ATTRIBUTION_REQUIRED",
+        "note": "MIT notice required."
+      }
+    },
+    "harshvishu/free-exercise-db-with-videos": {
+      "source_records": 317,
+      "canonical_with_candidate": 458,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 83,
+      "AMBIGUOUS": 375,
+      "NO_MATCH": 629,
+      "coverage_pct": 42.13,
+      "instruction_coverage_canonical": 458,
+      "media_coverage_canonical": 458,
+      "available_field_candidate_rows": {
+        "equipment": 1489,
+        "level": 1489,
+        "description": 1489,
+        "secondaryMuscles": 1487,
+        "bodyRegion": 1489,
+        "techniqueCues": 1489,
+        "commonErrors": 1489,
+        "execution": 1489
+      },
+      "conflicts": {
+        "equipment_disjoint": 618,
+        "variant_qualifier_difference": 447,
+        "multiple_supported_candidates_in_source": 33
+      },
+      "license": {
+        "license": "MIT",
+        "status": "LICENSE_UNCLEAR",
+        "note": "Repository is MIT; external video URLs need separate media-rights review."
+      }
+    }
+  },
+  "fields": {
+    "equipment": {
+      "CURRENT": 990,
+      "MATCHED_SOURCE_AVAILABLE": 45,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 0,
+      "AMBIGUOUS": 45,
+      "STILL_MISSING": 52,
+      "current_pct": 91.08,
+      "potential_high_pct": 91.08
+    },
+    "resistanceMode": {
+      "CURRENT": 976,
+      "MATCHED_SOURCE_AVAILABLE": 0,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 0,
+      "AMBIGUOUS": 0,
+      "STILL_MISSING": 111,
+      "current_pct": 89.79,
+      "potential_high_pct": 89.79
+    },
+    "movementPattern": {
+      "CURRENT": 911,
+      "MATCHED_SOURCE_AVAILABLE": 0,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 0,
+      "AMBIGUOUS": 0,
+      "STILL_MISSING": 176,
+      "current_pct": 83.81,
+      "potential_high_pct": 83.81
+    },
+    "level": {
+      "CURRENT": 649,
+      "MATCHED_SOURCE_AVAILABLE": 280,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 49,
+      "AMBIGUOUS": 231,
+      "STILL_MISSING": 158,
+      "current_pct": 59.71,
+      "potential_high_pct": 64.21
+    },
+    "skillLink": {
+      "CURRENT": 944,
+      "MATCHED_SOURCE_AVAILABLE": 0,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 0,
+      "AMBIGUOUS": 0,
+      "STILL_MISSING": 143,
+      "current_pct": 86.84,
+      "potential_high_pct": 86.84
+    },
+    "primaryMuscles": {
+      "CURRENT": 0,
+      "MATCHED_SOURCE_AVAILABLE": 721,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 235,
+      "AMBIGUOUS": 486,
+      "STILL_MISSING": 366,
+      "current_pct": 0.0,
+      "potential_high_pct": 21.62
+    },
+    "secondaryMuscles": {
+      "CURRENT": 0,
+      "MATCHED_SOURCE_AVAILABLE": 753,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 262,
+      "AMBIGUOUS": 491,
+      "STILL_MISSING": 334,
+      "current_pct": 0.0,
+      "potential_high_pct": 24.1
+    },
+    "bodyRegion": {
+      "CURRENT": 0,
+      "MATCHED_SOURCE_AVAILABLE": 662,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 163,
+      "AMBIGUOUS": 499,
+      "STILL_MISSING": 425,
+      "current_pct": 0.0,
+      "potential_high_pct": 15.0
+    },
+    "description": {
+      "CURRENT": 189,
+      "MATCHED_SOURCE_AVAILABLE": 534,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 167,
+      "AMBIGUOUS": 367,
+      "STILL_MISSING": 364,
+      "current_pct": 17.39,
+      "potential_high_pct": 32.75
+    },
+    "setup": {
+      "CURRENT": 189,
+      "MATCHED_SOURCE_AVAILABLE": 0,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 0,
+      "AMBIGUOUS": 0,
+      "STILL_MISSING": 898,
+      "current_pct": 17.39,
+      "potential_high_pct": 17.39
+    },
+    "execution": {
+      "CURRENT": 189,
+      "MATCHED_SOURCE_AVAILABLE": 594,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 204,
+      "AMBIGUOUS": 390,
+      "STILL_MISSING": 304,
+      "current_pct": 17.39,
+      "potential_high_pct": 36.15
+    },
+    "techniqueCues": {
+      "CURRENT": 36,
+      "MATCHED_SOURCE_AVAILABLE": 731,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 251,
+      "AMBIGUOUS": 480,
+      "STILL_MISSING": 320,
+      "current_pct": 3.31,
+      "potential_high_pct": 26.4
+    },
+    "commonErrors": {
+      "CURRENT": 34,
+      "MATCHED_SOURCE_AVAILABLE": 445,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 80,
+      "AMBIGUOUS": 365,
+      "STILL_MISSING": 608,
+      "current_pct": 3.13,
+      "potential_high_pct": 10.49
+    }
+  },
+  "historical_blockers": {
+    "equipment_unknown": {
+      "baseline": 97,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 0,
+      "AMBIGUOUS": 45,
+      "residual_after_high_probability": 97,
+      "potential_improvement_pct": 0.0
+    },
+    "equipment_unsupported_by_app": {
+      "baseline": 18,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 12,
+      "AMBIGUOUS": 5,
+      "residual_after_high_probability": 6,
+      "potential_improvement_pct": 66.67
+    },
+    "movement_pattern_missing": {
+      "baseline": 176,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 0,
+      "AMBIGUOUS": 0,
+      "residual_after_high_probability": 176,
+      "potential_improvement_pct": 0.0
+    },
+    "instruction_incomplete": {
+      "baseline": 500,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 150,
+      "AMBIGUOUS": 208,
+      "residual_after_high_probability": 350,
+      "potential_improvement_pct": 30.0
+    },
+    "level_unknown": {
+      "baseline": 438,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 49,
+      "AMBIGUOUS": 231,
+      "residual_after_high_probability": 389,
+      "potential_improvement_pct": 11.19
+    },
+    "resistance_mode_unknown": {
+      "baseline": 111,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 0,
+      "AMBIGUOUS": 0,
+      "residual_after_high_probability": 111,
+      "potential_improvement_pct": 0.0
+    },
+    "skill_links_missing": {
+      "baseline": 143,
+      "CERTAIN": 0,
+      "HIGH_PROBABILITY": 0,
+      "AMBIGUOUS": 0,
+      "residual_after_high_probability": 143,
+      "potential_improvement_pct": 0.0
+    }
+  },
+  "instructions": {
+    "description": {
+      "CURRENT": 189,
+      "MATCHED_SOURCE_AVAILABLE": 534,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 167,
+      "AMBIGUOUS": 367,
+      "STILL_MISSING": 364,
+      "current_pct": 17.39,
+      "potential_high_pct": 32.75
+    },
+    "setup": {
+      "CURRENT": 189,
+      "MATCHED_SOURCE_AVAILABLE": 0,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 0,
+      "AMBIGUOUS": 0,
+      "STILL_MISSING": 898,
+      "current_pct": 17.39,
+      "potential_high_pct": 17.39
+    },
+    "execution": {
+      "CURRENT": 189,
+      "MATCHED_SOURCE_AVAILABLE": 594,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 204,
+      "AMBIGUOUS": 390,
+      "STILL_MISSING": 304,
+      "current_pct": 17.39,
+      "potential_high_pct": 36.15
+    },
+    "techniqueCues": {
+      "CURRENT": 36,
+      "MATCHED_SOURCE_AVAILABLE": 731,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 251,
+      "AMBIGUOUS": 480,
+      "STILL_MISSING": 320,
+      "current_pct": 3.31,
+      "potential_high_pct": 26.4
+    },
+    "commonErrors": {
+      "CURRENT": 34,
+      "MATCHED_SOURCE_AVAILABLE": 445,
+      "CERTAINLY_RESOLVABLE": 0,
+      "HIGH_PROBABILITY_RESOLVABLE": 80,
+      "AMBIGUOUS": 365,
+      "STILL_MISSING": 608,
+      "current_pct": 3.13,
+      "potential_high_pct": 10.49
+    }
+  },
+  "media": {
+    "yuhonas/free-exercise-db": {
+      "references": 2082,
+      "canonical_exercises": 441,
+      "types": {
+        "photo": 2082
+      },
+      "license_status": "SAFE_TO_USE",
+      "license": "Unlicense",
+      "note": "Public-domain dedication in pinned LICENSE.md."
+    },
+    "kinetic-place/exercises-json": {
+      "references": 0,
+      "canonical_exercises": 0,
+      "types": {},
+      "license_status": "ATTRIBUTION_REQUIRED",
+      "license": "MIT",
+      "note": "MIT notice required."
+    },
+    "ArelliGoutham/exercise-database": {
+      "references": 4479,
+      "canonical_exercises": 629,
+      "types": {
+        "image": 4479
+      },
+      "license_status": "ATTRIBUTION_REQUIRED",
+      "license": "MIT",
+      "note": "MIT notice required."
+    },
+    "RepDB/exercise-dataset": {
+      "references": 2409,
+      "canonical_exercises": 561,
+      "types": {
+        "illustration": 2409
+      },
+      "license_status": "ATTRIBUTION_REQUIRED",
+      "license": "RepDB Free Tier v1.0",
+      "note": "In-app use with attribution; dataset redistribution prohibited; paid preview animations evaluation-only."
+    },
+    "rthepen/workout-database": {
+      "references": 1446,
+      "canonical_exercises": 599,
+      "types": {
+        "video": 1446
+      },
+      "license_status": "ATTRIBUTION_REQUIRED",
+      "license": "MIT",
+      "note": "MIT notice required."
+    },
+    "harshvishu/free-exercise-db-with-videos": {
+      "references": 5714,
+      "canonical_exercises": 458,
+      "types": {
+        "video": 2857,
+        "thumbnail": 2857
+      },
+      "license_status": "LICENSE_UNCLEAR",
+      "license": "MIT",
+      "note": "Repository is MIT; external video URLs need separate media-rights review."
+    }
+  },
+  "conflicts": {
+    "variant_qualifier_difference": 2219,
+    "equipment_disjoint": 3339,
+    "multiple_supported_candidates_in_source": 55
+  },
+  "review_queue_count": 817,
+  "classification_note": "CERTAIN intentionally remains zero: matcher v1.0 calls exact-name+equipment evidence probable, not certain."
+}
