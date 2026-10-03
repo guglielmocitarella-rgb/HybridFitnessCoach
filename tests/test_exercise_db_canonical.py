@@ -92,7 +92,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
 
     def test_applies_external_ace_equipment_and_level_enrichment_with_per_field_evidence(self):
         with tempfile.TemporaryDirectory() as temporary:
-            build_database(ROOT, pathlib.Path(temporary))
+            result = build_database(ROOT, pathlib.Path(temporary))
             records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
             sources = json.loads((pathlib.Path(temporary) / "sources.json").read_text())
         by_id = {record["id"]: record for record in records}
@@ -104,6 +104,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             "ex-cobra-stretch": ([], "Principiante"),
             "ex-contralateral-limb-raises": ([], "Principiante"),
             "ex-bodyweight-crunches": ([], "Principiante"),
+            "ex-front-plank": ([], "Intermedio"),
         }
         self.assertIn("ACE_EXERCISE_LIBRARY", {source["source_id"] for source in sources})
         for exercise_id, (equipment, level) in expected.items():
@@ -118,6 +119,13 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
                 self.assertEqual(provenance["source"]["source_id"], "ACE_EXERCISE_LIBRARY")
                 self.assertTrue(provenance["source"]["locator"].startswith("https://www.acefitness.org/"))
                 self.assertTrue(provenance["source"]["evidence_type"])
+        plank = by_id["ex-front-plank"]
+        self.assertIn("avambracci", plank["setupIt"])
+        self.assertGreaterEqual(len(plank["executionStepsIt"]), 3)
+        self.assertEqual(plank["fieldProvenance"]["executionStepsIt"]["status"], "EXTERNAL_SOURCE_DIRECT")
+        self.assertEqual(plank["fieldProvenance"]["instructions"]["source"]["source_id"], "ACE_EXERCISE_LIBRARY")
+        self.assertEqual(result["externalEnrichmentAudit"]["fields_applied"]["executionStepsIt"], 8)
+        self.assertEqual(len(result["externalEnrichmentAudit"]["unresolved_conflicts"]), 1)
 
     def test_validator_rejects_external_field_provenance_without_url_or_confidence(self):
         with tempfile.TemporaryDirectory() as temporary:

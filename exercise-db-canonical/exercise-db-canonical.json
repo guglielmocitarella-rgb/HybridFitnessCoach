@@ -11243,15 +11243,20 @@
     "equipment": [],
     "level": "Intermedio",
     "measure": "REPS",
-    "descriptionIt": "Bear Crawls è un esercizio della famiglia conditioning. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Prepara spazio e attrezzatura necessari e parti da un'intensità che consenta controllo del gesto.",
+    "descriptionIt": "Locomozione quadrupedica in cui mani e piedi avanzano alternati mantenendo stabile il tronco.",
+    "setupIt": "Assumi un appoggio frontale con mani circa sotto le spalle, gambe distese dietro e ginocchia piegate; mantieni i piedi alla larghezza dei fianchi.",
     "executionStepsIt": [
-      "Avvia il gesto con ritmo regolare e postura stabile.",
-      "Mantieni la cadenza prevista senza sacrificare la qualità del movimento.",
-      "Riduci progressivamente l'intensità al termine dell'intervallo o della durata prescritta."
+      "Spingi le dita del piede sinistro a terra e avanza insieme con mano sinistra e gamba destra.",
+      "Alterna mano e gamba opposte per proseguire la camminata per la distanza prevista, mantenendo schiena stabile e bacino e spalle alla stessa altezza."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Coordina mano e gamba opposte.",
+      "Mantieni schiena, bacino e spalle stabili durante gli appoggi."
+    ],
+    "commonErrorsIt": [
+      "Lasciare cedere o ruotare il tronco durante l’avanzamento.",
+      "Perdere l’allineamento tra bacino e spalle."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -11280,13 +11285,43 @@
         "source_name": "Bear Crawl Exercise",
         "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
         "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bear Crawl Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bear Crawl Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bear Crawl Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bear Crawl Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bear Crawl Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Bear Crawls",
     "runtimeModelNames": [],
@@ -11350,6 +11385,36 @@
             "source_name": "Bear Crawl Exercise",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
           }
         ]
       },
@@ -11401,34 +11466,107 @@
             "source_name": "Bear Crawl Exercise",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bear Crawl Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Bear Crawls",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bear Crawl Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bear Crawl Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-behind-the-neck-press",
@@ -12924,15 +13062,20 @@
     "equipment": [],
     "level": "Principiante",
     "measure": "REPS",
-    "descriptionIt": "Bent-Knee Push-Up è un esercizio della famiglia push up. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilizza tronco e cintura scapolare e posiziona mani o attrezzo secondo la variante.",
+    "descriptionIt": "Piegamento sulle braccia eseguito con appoggio sulle ginocchia e tronco mantenuto allineato.",
+    "setupIt": "Inginocchiati con i piedi uniti dietro di te. Appoggia le mani a terra alla larghezza delle spalle e porta le spalle sopra i polsi; attiva il tronco mantenendo una linea stabile dalle ginocchia alla testa.",
     "executionStepsIt": [
-      "Avvia la fase di spinta mantenendo polsi, gomiti e spalle sotto controllo.",
-      "Completa l'estensione prevista senza perdere l'assetto del tronco.",
-      "Ritorna lentamente alla posizione iniziale mantenendo attive le spalle."
+      "Piega i gomiti e abbassa lentamente il corpo mantenendo testa e tronco allineati, fino ad avvicinare petto o mento al piano.",
+      "Spingi con le braccia e torna alla posizione iniziale estendendo i gomiti senza perdere la stabilità del tronco."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni il tronco rigido e la testa in linea con la colonna.",
+      "Tieni i gomiti vicino al corpo o leggermente aperti."
+    ],
+    "commonErrorsIt": [
+      "Lasciare inarcare la zona lombare o sollevare il bacino.",
+      "Perdere l’allineamento della testa durante la discesa e la risalita."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -12961,13 +13104,43 @@
         "source_name": "Bent Knee Push-up",
         "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
         "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bent Knee Push-up",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Bent-Knee Push-Up",
     "runtimeModelNames": [],
@@ -13031,6 +13204,36 @@
             "source_name": "Bent Knee Push-up",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
           }
         ]
       },
@@ -13082,34 +13285,107 @@
             "source_name": "Bent Knee Push-up",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bent Knee Push-up",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "ULTIMATE_CAL_COLLECTION",
-            "source_name": "Bent-Knee Push-Up",
-            "evidence_type": "EXERCISE_SECTION",
-            "locator": "The Gym-Less Workout exercise/progression section 10"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bent Knee Push-up",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bent Knee Push-up",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-bent-knee-sit-up",
@@ -14518,15 +14794,20 @@
     "equipment": [],
     "level": "Principiante",
     "measure": "REPS",
-    "descriptionIt": "Bodyweight Crunches è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
+    "descriptionIt": "Flessione controllata del tronco in posizione supina, sollevando la parte alta della schiena senza staccare la zona lombare.",
+    "setupIt": "Sdraiati supino con ginocchia piegate e piedi a terra. Porta le mani dietro la testa senza tirarla e mantieni i gomiti aperti.",
     "executionStepsIt": [
-      "Attiva il tronco prima di muovere gli arti o il bacino.",
-      "Completa il movimento senza perdere il controllo lombopelvico.",
-      "Ritorna lentamente alla posizione iniziale mantenendo la tensione del core."
+      "Espira, avvicina leggermente il mento al petto e incurva il tronco portando la gabbia toracica verso il bacino finché le scapole si sollevano dal piano.",
+      "Inspira e riabbassa lentamente il tronco mantenendo piedi, bacino e zona lombare appoggiati."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Lascia rilassati collo e spalle; guida il movimento con la flessione del tronco.",
+      "Mantieni i piedi e la zona lombare a contatto con il piano."
+    ],
+    "commonErrorsIt": [
+      "Eseguire il movimento troppo rapidamente o tirare la testa con le mani.",
+      "Sollevare la zona lombare o usare lo slancio dei flessori dell’anca."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -14555,13 +14836,43 @@
         "source_name": "Crunch",
         "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
         "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Crunch",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Crunch",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Crunch",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Crunch",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Crunch",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Bodyweight Crunches",
     "runtimeModelNames": [],
@@ -14625,6 +14936,36 @@
             "source_name": "Crunch",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
           }
         ]
       },
@@ -14676,34 +15017,107 @@
             "source_name": "Crunch",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Crunch",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight Crunches",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 15"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Crunch",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Crunch",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-bodyweight-leaning-side-abdominal",
@@ -15179,15 +15593,22 @@
     "equipment": [],
     "level": "Principiante",
     "measure": "REPS",
-    "descriptionIt": "Bodyweight/Air Squat è un esercizio della famiglia squat. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilisci l'appoggio dei piedi, mantieni il tronco attivo e prepara anche e ginocchia a muoversi in modo coordinato.",
+    "descriptionIt": "Accosciata a corpo libero con flessione coordinata di anche e ginocchia e risalita controllata.",
+    "setupIt": "In piedi con i piedi poco più larghi dei fianchi e punte leggermente ruotate all’esterno. Braccia rilassate ai lati; attiva il tronco e mantieni il torace sollevato.",
     "executionStepsIt": [
-      "Scendi flettendo anche e ginocchia mantenendo i piedi stabili.",
-      "Raggiungi il range previsto senza perdere l'allineamento di ginocchia, bacino e tronco.",
-      "Spingi attraverso l'appoggio e torna alla posizione iniziale in controllo."
+      "Porta indietro il bacino e scendi piegando anche e ginocchia insieme, mantenendo i piedi appoggiati e le ginocchia orientate verso il secondo dito.",
+      "Fermati quando le cosce sono circa parallele o prima se talloni, schiena o controllo del movimento lo richiedono.",
+      "Spingi il pavimento con i piedi e distendi anche e ginocchia; fai risalire insieme bacino e tronco fino alla stazione eretta."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni il tronco attivo e la schiena stabile.",
+      "Mantieni i piedi fermi e le ginocchia in linea con le punte.",
+      "Distribuisci il peso tra avampiede e tallone senza sollevare i talloni."
+    ],
+    "commonErrorsIt": [
+      "Far collassare le caviglie o le ginocchia verso l’interno o l’esterno.",
+      "Sollevare i talloni o incurvare il tronco durante la discesa."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -15216,13 +15637,43 @@
         "source_name": "Bodyweight Squat",
         "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
         "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Bodyweight Squat",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Bodyweight/Air Squat",
     "runtimeModelNames": [],
@@ -15286,6 +15737,36 @@
             "source_name": "Bodyweight Squat",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
           }
         ]
       },
@@ -15337,34 +15818,107 @@
             "source_name": "Bodyweight Squat",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Bodyweight Squat",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "VELLA_ANATOMY",
-            "source_name": "Bodyweight/Air Squat",
-            "evidence_type": "TOC_HEADING",
-            "locator": "Part 2: Exercises; item 20"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Bodyweight Squat",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Bodyweight Squat",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-box-dip",
@@ -19941,15 +20495,19 @@
     "equipment": [],
     "level": "Principiante",
     "measure": "REPS",
-    "descriptionIt": "Child's Pose è un esercizio della famiglia mobility. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una base stabile e prepara l'articolazione interessata con un range confortevole.",
+    "descriptionIt": "Posizione di mobilità a terra con anche che arretrano verso i talloni e braccia distese in avanti.",
+    "setupIt": "Inginocchiati con gli alluci a contatto e le ginocchia divaricate quanto consentito. Appoggia le mani a terra davanti alle spalle e stabilizza dolcemente il tronco.",
     "executionStepsIt": [
-      "Esegui il movimento articolare lentamente nel range controllabile.",
-      "Mantieni il tronco stabile evitando compensi delle articolazioni vicine.",
-      "Ritorna al punto di partenza con lo stesso controllo."
+      "Sposta il bacino indietro verso i talloni mantenendo le mani appoggiate e allungando braccia e schiena.",
+      "Lascia scendere il torace tra le cosce e la fronte verso il pavimento; respira lentamente nella posizione per 5–10 respiri profondi."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni le spalle lontane dalle orecchie e respira senza forzare la posizione.",
+      "Adatta la distanza tra le ginocchia alla mobilità disponibile."
+    ],
+    "commonErrorsIt": [
+      "Forzare l’ampiezza della posizione o trattenere il respiro."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -19978,13 +20536,43 @@
         "source_name": "Childs Pose",
         "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
         "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Childs Pose",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Child's Pose",
     "runtimeModelNames": [],
@@ -20048,6 +20636,36 @@
             "source_name": "Childs Pose",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
           }
         ]
       },
@@ -20099,34 +20717,107 @@
             "source_name": "Childs Pose",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Childs Pose",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "SCIENCE_STRENGTH",
-            "source_name": "Child's Pose",
-            "evidence_type": "INDEX",
-            "locator": "Science of Strength Training index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Childs Pose",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Childs Pose",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-chin-up",
@@ -21798,15 +22489,20 @@
     "equipment": [],
     "level": "Principiante",
     "measure": "SECONDS",
-    "descriptionIt": "Cobra Stretch è un esercizio della famiglia stretch. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Raggiungi la posizione di allungamento in modo graduale, senza rimbalzi e con respirazione regolare.",
+    "descriptionIt": "Estensione prona del tronco eseguita sollevando delicatamente il torace mentre il bacino resta appoggiato.",
+    "setupIt": "Sdraiati prono su un tappetino o a terra, gambe distese e mani appoggiate sotto le spalle.",
     "executionStepsIt": [
-      "Muoviti lentamente fino a percepire una tensione controllabile.",
-      "Mantieni l'allineamento della regione interessata senza forzare il range.",
-      "Rilascia gradualmente la posizione e torna al neutro."
+      "Espira e premi delicatamente il bacino sul piano mentre sollevi il torace senza muovere i fianchi.",
+      "Mantieni la posizione per 15–30 secondi, poi rilassa e riabbassa lentamente il busto. Interrompi se compare dolore lombare."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni i fianchi appoggiati mentre estendi il torace.",
+      "Usa un’estensione delle braccia compatibile con il mantenimento del bacino a terra."
+    ],
+    "commonErrorsIt": [
+      "Sollevare i fianchi dal piano per aumentare l’estensione delle braccia.",
+      "Continuare il movimento se provoca dolore nella zona lombare."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -21835,13 +22531,43 @@
         "source_name": "Cobra Exercise",
         "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
         "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cobra Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cobra Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cobra Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cobra Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Cobra Exercise",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Cobra Stretch",
     "runtimeModelNames": [],
@@ -21905,6 +22631,36 @@
             "source_name": "Cobra Exercise",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
           }
         ]
       },
@@ -21956,34 +22712,107 @@
             "source_name": "Cobra Exercise",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Cobra Exercise",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "COMPLETE_CAL2",
-            "source_name": "Cobra Stretch",
-            "evidence_type": "INDEX",
-            "locator": "Complete Calisthenics 2e index"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Cobra Exercise",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Cobra Exercise",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-concentration-curl",
@@ -22281,15 +23110,20 @@
     "equipment": [],
     "level": "Principiante",
     "measure": "REPS",
-    "descriptionIt": "Contralateral Limb Raises è un esercizio della famiglia general. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Assumi una posizione stabile e simmetrica, prepara l'attrezzatura richiesta e crea tensione attiva nel tronco prima di iniziare.",
+    "descriptionIt": "Sollevamento controllato di un braccio e della gamba opposta in posizione prona, con il tronco stabile.",
+    "setupIt": "Sdraiati prono con gambe distese, braccia allungate sopra la testa e palmi rivolti l’uno verso l’altro. Mantieni la testa in linea con la colonna.",
     "executionStepsIt": [
-      "Avvia il movimento dalla posizione preparatoria mantenendo controllo e allineamento.",
-      "Completa l'escursione prevista senza usare slanci non richiesti dalla variante.",
-      "Ritorna alla posizione iniziale in controllo e interrompi la serie se perdi l'assetto tecnico."
+      "Attiva l’addome e solleva di pochi centimetri un braccio e la gamba opposta senza ruotare il bacino o inarcare la schiena.",
+      "Mantieni brevemente la posizione e riabbassa gli arti con controllo; alterna i lati."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni testa e tronco fermi.",
+      "Solleva gli arti solo fin dove riesci a evitare rotazioni e inarcamento lombare."
+    ],
+    "commonErrorsIt": [
+      "Inarcare la schiena o ruotare il bacino durante il sollevamento.",
+      "Sollevare gli arti più in alto di quanto consenta il controllo del tronco."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -22318,13 +23152,43 @@
         "source_name": "Contralateral Limb Raises",
         "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
         "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Contralateral Limb Raises",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Contralateral Limb Raises",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Contralateral Limb Raises",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Contralateral Limb Raises",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Contralateral Limb Raises",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
       }
     ],
     "confidence": "MEDIUM",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "FAMILY_GUIDANCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Contralateral Limb Raises",
     "runtimeModelNames": [],
@@ -22380,6 +23244,36 @@
             "source_name": "Contralateral Limb Raises",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
           }
         ]
       },
@@ -22402,6 +23296,36 @@
             "source_id": "ACE_EXERCISE_LIBRARY",
             "source_name": "Contralateral Limb Raises",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
           }
         ]
@@ -22454,34 +23378,107 @@
             "source_name": "Contralateral Limb Raises",
             "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
             "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Contralateral Limb Raises",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "FAMILY_GUIDANCE",
-        "sources": [
-          {
-            "source_id": "CAL_BEGINNER_50",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "TOC_EXERCISE",
-            "locator": "Exercise list; item 18"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          },
-          {
-            "source_id": "ACE_EXERCISE_LIBRARY",
-            "source_name": "Contralateral Limb Raises",
-            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
-            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Contralateral Limb Raises",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-cross-cable-triceps-pressdown",
@@ -36266,17 +37263,23 @@
       "core-control"
     ],
     "equipment": [],
-    "level": null,
+    "level": "Intermedio",
     "measure": "SECONDS",
-    "descriptionIt": "Front Plank è un esercizio della famiglia core. Il contratto di esecuzione descrive una ripetizione controllata e tecnicamente stabile; serie, ripetizioni, recupero e intensità sono prescritti separatamente dal coach.",
-    "setupIt": "Stabilizza bacino e colonna e imposta gli appoggi o la sospensione previsti dalla variante.",
+    "descriptionIt": "Tenuta isometrica in appoggio sugli avambracci, con tronco e gambe mantenuti allineati.",
+    "setupIt": "Sdraiati prono su un tappetino o a terra, gomiti sotto le spalle e avambracci appoggiati. Estendi le gambe e attiva il tronco.",
     "executionStepsIt": [
-      "Attiva il tronco prima di muovere gli arti o il bacino.",
-      "Completa il movimento senza perdere il controllo lombopelvico.",
-      "Ritorna lentamente alla posizione iniziale mantenendo la tensione del core."
+      "Solleva il corpo mantenendo l’appoggio sugli avambracci e sulle punte dei piedi, con ginocchia estese.",
+      "Mantieni spalle sopra i gomiti e tronco e gambe stabili durante il tempo prescritto, continuando a respirare.",
+      "Abbassa il corpo con controllo al termine della tenuta."
     ],
-    "techniqueCuesIt": [],
-    "commonErrorsIt": [],
+    "techniqueCuesIt": [
+      "Mantieni tronco e gambe rigidi senza inarcare la zona lombare.",
+      "Tieni il bacino allineato, le ginocchia estese e le spalle lontane dalle orecchie."
+    ],
+    "commonErrorsIt": [
+      "Lasciare cedere la zona lombare o sollevare eccessivamente il bacino.",
+      "Piegare le ginocchia o incassare le spalle verso le orecchie."
+    ],
     "primaryMuscles": [],
     "secondaryMuscles": [],
     "stabilizers": [],
@@ -36293,13 +37296,55 @@
         "source_name": "Front Plank",
         "evidence_type": "EXERCISE_HEADING",
         "locator": "Exercise Technique Manual; exercise heading 54"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      },
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Front Plank",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
       }
     ],
     "confidence": "HIGH",
     "video": {
       "status": "DEFERRED"
     },
-    "executionEvidence": "SPECIFIC_SOURCE",
+    "executionEvidence": "EXTERNAL_TECHNICAL_REFERENCE",
     "identitySource": "EXERCISE_DB_V2",
     "runtimeName": "Front Plank",
     "runtimeModelNames": [],
@@ -36311,8 +37356,8 @@
       "ambiguousSourceEntries": []
     },
     "equipmentRequired": [],
-    "equipmentStatus": "UNKNOWN",
-    "levelStatus": "UNKNOWN",
+    "equipmentStatus": "KNOWN",
+    "levelStatus": "KNOWN",
     "category": "CORE",
     "role": "Base",
     "resistanceMode": "UNKNOWN",
@@ -36325,15 +37370,15 @@
         "source": "ex-front-plank"
       },
       "equipmentRequired": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 54"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "No Equipment"
       },
       "movementPattern": {
         "status": "V2_FAMILY_PATTERN_RULE",
@@ -36351,19 +37396,62 @@
             "source_name": "Front Plank",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 54"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
           }
         ]
       },
       "level": {
-        "status": "UNKNOWN",
-        "source": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 54"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "Intermediate",
+        "mapping": "ACE Difficulty -> canonical Italian level"
       },
       "category": {
         "status": "APP_RULE_RUNTIME_CONVERSION",
@@ -36389,22 +37477,119 @@
             "source_name": "Front Plank",
             "evidence_type": "EXERCISE_HEADING",
             "locator": "Exercise Technique Manual; exercise heading 54"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Front Plank",
+            "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+            "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
           }
         ]
       },
       "instructions": {
-        "status": "V2_EVIDENCE_TIER",
-        "executionEvidence": "SPECIFIC_SOURCE",
-        "sources": [
-          {
-            "source_id": "NSCA_TECH",
-            "source_name": "Front Plank",
-            "evidence_type": "EXERCISE_HEADING",
-            "locator": "Exercise Technique Manual; exercise heading 54"
-          }
-        ]
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "descriptionIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "setupIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "executionStepsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "techniqueCuesIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
+      },
+      "commonErrorsIt": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Front Plank",
+          "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        "observedValue": "ACE exercise-specific description/setup or form instructions paraphrased"
       }
-    }
+    },
+    "instructionCompleteness": "SUPPORTED_EXTERNAL_REFERENCE"
   },
   {
     "id": "ex-front-plank-with-rotation",

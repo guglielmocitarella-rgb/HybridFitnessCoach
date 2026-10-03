@@ -811,6 +811,7 @@ def build_database(root, output_dir):
     external_enrichment = json.loads((root / EXTERNAL_ENRICHMENT_REL).read_text(encoding="utf-8"))
     records_by_id = {record["id"]: record for record in all_records}
     external_fields_applied = Counter()
+    instruction_fields = {"descriptionIt", "setupIt", "executionStepsIt", "techniqueCuesIt", "commonErrorsIt"}
     for exercise_id, field_values in external_enrichment.get("exercises", {}).items():
         if exercise_id not in records_by_id:
             raise ValueError(f"external enrichment targets unknown canonical ID: {exercise_id}")
@@ -836,6 +837,12 @@ def build_database(root, output_dir):
                     raise ValueError(f"external enrichment has invalid level for {exercise_id}: {value}")
                 record["level"] = value
                 record["levelStatus"] = "KNOWN"
+            elif field in instruction_fields:
+                if field in {"executionStepsIt", "techniqueCuesIt", "commonErrorsIt"} and not isinstance(value, list):
+                    raise ValueError(f"external enrichment expects a list for {exercise_id}.{field}")
+                if field in {"descriptionIt", "setupIt"} and not isinstance(value, str):
+                    raise ValueError(f"external enrichment expects text for {exercise_id}.{field}")
+                record[field] = value
             else:
                 raise ValueError(f"external enrichment field is not yet supported: {field}")
             provenance[field] = {
@@ -847,6 +854,16 @@ def build_database(root, output_dir):
                 provenance[field]["observedValue"] = evidence["observed_value"]
             if "mapping" in evidence:
                 provenance[field]["mapping"] = evidence["mapping"]
+            if field in instruction_fields:
+                record["fieldProvenance"]["instructions"] = {
+                    "status": "EXTERNAL_SOURCE_DIRECT",
+                    "confidence": evidence["confidence"],
+                    "source": source_ref,
+                }
+                if "observed_value" in evidence:
+                    record["fieldProvenance"]["instructions"]["observedValue"] = evidence["observed_value"]
+                record["executionEvidence"] = "EXTERNAL_TECHNICAL_REFERENCE"
+                record["instructionCompleteness"] = "SUPPORTED_EXTERNAL_REFERENCE"
             if source_ref not in record.setdefault("sources", []):
                 record["sources"].append(source_ref)
             external_fields_applied[field] += 1
@@ -942,6 +959,7 @@ def build_database(root, output_dir):
             "source_ids": [ACE_EXERCISE_LIBRARY_SOURCE["source_id"]] if external_fields_applied else [],
             "fields_applied": dict(sorted(external_fields_applied.items())),
             "exercise_ids": sorted(external_enrichment.get("exercises", {})),
+            "unresolved_conflicts": external_enrichment.get("unresolved_conflicts", []),
         },
         "acceptance": {
             "stable_unique_ids": len(id_counts) == len(all_records) and all(count == 1 for count in id_counts.values()),
@@ -963,7 +981,7 @@ def build_database(root, output_dir):
             "skill_links_missing": skill_link_missing,
             "dangling_progression_edges": dangling_edges,
         },
-        "policy": "APP_MODEL and APP_RULE fields identify software-model provenance, not exercise-science evidence. UNKNOWN remains explicit; no guidance or progression edge is invented.",
+        "policy": "APP_MODEL and APP_RULE fields identify software-model provenance, not exercise-science evidence. External fields use the separate reviewed enrichment input with per-field source URL, evidence type, and confidence. UNKNOWN remains explicit; no guidance or progression edge is invented.",
         "structuralValidation": structural_validation,
     }
     output_dir.mkdir(parents=True, exist_ok=True)

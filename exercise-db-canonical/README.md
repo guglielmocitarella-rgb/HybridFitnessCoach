@@ -6,7 +6,7 @@ This is a reproducible, structurally validated candidate. It is not release-read
 
 The repository-wide source inventory and the fields found or still absent from internal sources are documented in `INTERNAL_SOURCE_AUDIT.md`.
 
-Researched external values are kept in `external-enrichment.json` and applied by the builder. Each value records its original observation, field-level evidence type, source URL, and confidence. The current ACE tranche covers equipment and difficulty for seven individually matched exercises; values from a broad class of movements are not generalized to unresearched variants.
+Researched external values are kept in `external-enrichment.json` and applied by the builder. Each value records its original observation, field-level evidence type, source URL, and confidence. The current ACE tranche covers equipment, difficulty, setup, execution, cues, and common errors for eight individually matched exercises; values from a broad class of movements are not generalized to unresearched variants. Conflicting ACE difficulty observations for a side-plank item are retained as unresolved and are not applied to a candidate record.
 
 The exact generated candidate and audit are stored as gzip archives because the candidate JSON is 4.7 MB. Restore them with:
 

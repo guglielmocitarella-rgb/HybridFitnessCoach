@@ -15,12 +15,12 @@
     "canonical_records": 1087,
     "progression_edges": 113,
     "unique_ids": 1087,
-    "equipment_unknown": 287,
+    "equipment_unknown": 286,
     "movement_pattern_missing": 201,
     "equipment_unsupported_by_app": 18,
     "instruction_incomplete": 500,
     "runtime_duplicate_labels": 0,
-    "level_unknown": 499,
+    "level_unknown": 498,
     "resistance_mode_unknown": 338,
     "skill_links_missing": 143,
     "runtime_application_entries": 583,
@@ -112,8 +112,13 @@
       "ACE_EXERCISE_LIBRARY"
     ],
     "fields_applied": {
-      "equipmentRequired": 7,
-      "level": 7
+      "commonErrorsIt": 8,
+      "descriptionIt": 8,
+      "equipmentRequired": 8,
+      "executionStepsIt": 8,
+      "level": 8,
+      "setupIt": 8,
+      "techniqueCuesIt": 8
     },
     "exercise_ids": [
       "ex-bear-crawls",
@@ -122,7 +127,26 @@
       "ex-bodyweightair-squat",
       "ex-childs-pose",
       "ex-cobra-stretch",
-      "ex-contralateral-limb-raises"
+      "ex-contralateral-limb-raises",
+      "ex-front-plank"
+    ],
+    "unresolved_conflicts": [
+      {
+        "source_id": "ACE_EXERCISE_LIBRARY",
+        "source_name": "Side Plank (Modified)",
+        "evidence_type": "SOURCE_INTERNAL_DIFFICULTY_CONFLICT",
+        "observations": [
+          {
+            "value": "Beginner",
+            "url": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/?page=6"
+          },
+          {
+            "value": "Advanced",
+            "url": "https://www.acefitness.org/resources/everyone/exercise-library/99/side-plank-modified/"
+          }
+        ],
+        "resolution": "No level is applied while the source listing and detail page disagree; no canonical identity is assigned from this mismatch."
+      }
     ]
   },
   "acceptance": {
@@ -224,7 +248,6 @@
       "ex-front-deltoid-shoulder-press",
       "ex-front-foot-elevated-split-squat",
       "ex-front-lever-pull-to-inverted-hang",
-      "ex-front-plank",
       "ex-front-plank-with-rotation",
       "ex-full-body-stretch",
       "ex-full-front-lever-rows",
@@ -1315,7 +1338,6 @@
       "ex-front-lever",
       "ex-front-lever-pull-to-inverted-hang",
       "ex-front-lever-pull-up",
-      "ex-front-plank",
       "ex-front-plank-with-rotation",
       "ex-full-ab-wheel",
       "ex-full-back-lever",
@@ -2138,16 +2160,16 @@
     ],
     "dangling_progression_edges": []
   },
-  "policy": "APP_MODEL and APP_RULE fields identify software-model provenance, not exercise-science evidence. UNKNOWN remains explicit; no guidance or progression edge is invented.",
+  "policy": "APP_MODEL and APP_RULE fields identify software-model provenance, not exercise-science evidence. External fields use the separate reviewed enrichment input with per-field source URL, evidence type, and confidence. UNKNOWN remains explicit; no guidance or progression edge is invented.",
   "structuralValidation": {
     "ok": true,
     "errors": [],
     "warnings": [
-      "287 exercises still have unknown equipment requirements",
+      "286 exercises still have unknown equipment requirements",
       "18 exercises use equipment tokens not supported by the current app catalog",
       "201 exercises still lack an explicit movement pattern",
       "500 exercises lack supported execution instructions",
-      "499 exercises have unknown level",
+      "498 exercises have unknown level",
       "338 exercises have unknown resistance mode",
       "143 skill exercises lack a stable SkillCatalog link"
     ],
@@ -2158,11 +2180,11 @@
       "progression_edges": 113
     },
     "blockers": {
-      "equipment_unknown": 287,
+      "equipment_unknown": 286,
       "equipment_unsupported_by_app": 18,
       "movement_pattern_missing": 201,
       "instruction_incomplete": 500,
-      "level_unknown": 499,
+      "level_unknown": 498,
       "resistance_mode_unknown": 338,
       "skill_links_missing": 143
     }
