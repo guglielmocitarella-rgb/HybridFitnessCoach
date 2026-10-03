@@ -23,7 +23,7 @@ class ResistanceModeV32ATest(unittest.TestCase):
   for x in ['ex-forward-fold','ex-glute-stretch','ex-jogging-and-running','ex-sprints','ex-scapula-foam-rolling']: self.assertIn(x,ids)
  def test_variable_examples(self):
   ids={r['canonicalId'] for r in U['records'] if r['classification']=='UNRESOLVED_INTRINSICALLY_VARIABLE'}
-  for x in ['ex-russian-twist','ex-rows','ex-lunge-to-row','ex-back-foot-elevated-split-squat','ex-neutral-grip-horizontal-row']: self.assertIn(x,ids)
+  for x in ['ex-russian-twist','ex-side-to-side-squat','ex-lunge-to-row','ex-back-foot-elevated-split-squat','ex-neutral-grip-horizontal-row']: self.assertIn(x,ids)
  def test_schema_and_identity_terminal(self):
   s={r['canonicalId'] for r in U['records'] if r['classification']=='UNRESOLVED_SCHEMA_DECISION_REQUIRED'}
   for x in ['ex-assisted-pull-up','ex-assisted-pistol-squat','ex-low-alternating-wave-with-battle-ropes']: self.assertIn(x,s)
