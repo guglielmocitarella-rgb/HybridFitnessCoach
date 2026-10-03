@@ -10,11 +10,12 @@ PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from tools.build_exercise_db_canonical import RECOGNIZED_EQUIPMENT
+from tools.build_exercise_db_canonical import RECOGNIZED_EQUIPMENT, _skill_nodes
 
 
 def validate_database(records, progressions, sources):
     errors, warnings = [], []
+    active_skill_ids = {node["id"] for node in _skill_nodes(PROJECT_ROOT)}
     ids = [record.get("id") for record in records]
     id_set = {value for value in ids if value}
     source_ids = {source.get("source_id") for source in sources}
@@ -35,6 +36,11 @@ def validate_database(records, progressions, sources):
         for token in record.get("equipmentRequired") or []:
             if token not in RECOGNIZED_EQUIPMENT:
                 errors.append(f"{exercise_id}: unrecognized equipment token {token}")
+        if record.get("resistanceMode") == "EXTERNAL_LOAD":
+            equipment = set(record.get("equipmentRequired") or [])
+            external_equipment = {"barbell", "cable", "dumbbell", "ez_bar", "kettlebell", "leg_press", "machine", "resistance_band"}
+            if record.get("equipmentStatus") != "KNOWN" or not equipment.intersection(external_equipment):
+                errors.append(f"{exercise_id}: EXTERNAL_LOAD requires known external-load equipment")
         if not record.get("movementPatternStatus"):
             errors.append(f"{exercise_id}: missing movementPatternStatus provenance")
         for edge in record.get("progressionRelations") or []:
@@ -64,6 +70,8 @@ def validate_database(records, progressions, sources):
         for skill_id in record.get("skillIds") or []:
             if not str(skill_id).strip():
                 errors.append(f"{exercise_id}: empty skill link")
+            elif skill_id not in active_skill_ids:
+                errors.append(f"{exercise_id}: unknown SkillCatalog ID {skill_id}")
 
     edge_keys = set()
     for edge in progressions:

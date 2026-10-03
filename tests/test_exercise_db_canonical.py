@@ -191,6 +191,32 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(by_id["ex-normal-muscle-up"]["runtimeName"], "Normal Muscle-Up")
         self.assertNotEqual(by_id["ex-muscle-up"]["runtimeName"], by_id["ex-normal-muscle-up"]["runtimeName"])
 
+    def test_validator_rejects_skill_ids_missing_from_the_active_skill_catalog(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+            sources = json.loads((pathlib.Path(temporary) / "sources.json").read_text())
+            progressions = json.loads((ROOT / "app/src/main/assets/exercise-db-v2/progressions.json").read_text())
+        broken = [dict(record) for record in records]
+        exercise = next(record for record in broken if record.get("skillIds"))
+        exercise["skillIds"] = ["skill_id_that_does_not_exist"]
+
+        report = validate_database(broken, progressions, sources)
+        self.assertTrue(any("unknown SkillCatalog ID" in error for error in report["errors"]))
+
+    def test_validator_rejects_external_load_without_explicit_external_equipment(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+            sources = json.loads((pathlib.Path(temporary) / "sources.json").read_text())
+            progressions = json.loads((ROOT / "app/src/main/assets/exercise-db-v2/progressions.json").read_text())
+        broken = [dict(record) for record in records]
+        exercise = next(record for record in broken if record["id"] == "ex-front-lever")
+        exercise["resistanceMode"] = "EXTERNAL_LOAD"
+
+        report = validate_database(broken, progressions, sources)
+        self.assertTrue(any("EXTERNAL_LOAD" in error and "equipment" in error for error in report["errors"]))
+
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)
