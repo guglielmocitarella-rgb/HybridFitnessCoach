@@ -135,6 +135,18 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
 
         self.assertEqual(by_id["ex-front-lever"]["movementPatternStatus"], "UNKNOWN")
 
+    def test_skill_links_include_active_legacy_skill_catalog_nodes_by_stable_id(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            build_database(ROOT, pathlib.Path(temporary))
+            records = json.loads((pathlib.Path(temporary) / "exercise-db-canonical.json").read_text())
+        by_id = {record["id"]: record for record in records}
+
+        self.assertIn("front_tuck", by_id["ex-tuck-front-lever"]["skillIds"])
+        self.assertIn("front_full", by_id["ex-full-front-lever"]["skillIds"])
+        self.assertIn("planche_adv_tuck", by_id["ex-advanced-tuck-planche"]["skillIds"])
+        self.assertIn("backlever_full", by_id["ex-back-lever"]["skillIds"])
+        self.assertNotIn("back_5", by_id["ex-back-lever"]["skillIds"])
+
     def test_validator_accepts_integrity_but_never_calls_incomplete_evidence_release_ready(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)

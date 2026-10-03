@@ -19,9 +19,9 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | 1. Materialize one candidate catalog | **Partial** | Candidate contains 1,087 records with stable unique IDs, original V2 content, current-model metadata, source references, and field provenance. Several required fields remain unknown. |
 | 2. Resolve identity and variants | **Partial** | Three unique V2/current-model name variants were linked; the straight-arm duplicate was merged with provenance retained. Muscle-Up ambiguity remains unresolved. No progression edge was invented. |
 | 3. Complete equipment and provenance | **Partial** | Equipment tokens are normalized and unknown is distinct from known-empty. A conservative, provenance-marked name rule resolves 11 explicitly named implements; 292 records still have unknown equipment requirements. |
-| 4. Complete selection-critical fields | **Not complete** | Unknowns remain: equipment 292, movement pattern 255, level 504, resistance mode 336, SkillCatalog links 172. App-rule-derived values are labeled as rules, not source facts. |
+| 4. Complete selection-critical fields | **Not complete** | Unknowns remain: equipment 292, movement pattern 255, level 504, resistance mode 336, SkillCatalog links 145. App-rule-derived values are labeled as rules, not source facts. |
 | 5. Complete movement-pattern taxonomy | **Partial** | Direct V2 movement types resolve 75 broad patterns. A whitelisted V2-family rule resolves another 174, with explicit exceptions for mixed pull-up/push-up families. 255 still need more specific supported patterns. |
-| 6. Link skills and progressions by stable IDs | **Partial** | All 113 V2 progression edges have valid endpoints and registered sources. 172 skill records still lack a specific stable SkillCatalog node link. |
+| 6. Link skills and progressions by stable IDs | **Partial** | All 113 V2 progression edges have valid endpoints and registered sources. The builder now reads active legacy `SkillProgressionNode` entries from `MainActivity.kt`, respecting the app's shadowing rules; this resolved 27 additional exact exercise-to-node links. 145 skill records still lack a specific stable node link. |
 | 7. Complete training and instruction metadata | **Not complete** | 500 current-model-only identities have no supported description, setup, or execution steps. Missing muscle, laterality, and exercise-level prescription data also remain. |
 | 8. Add an automatic validator | **Complete for candidate structure** | `tools/validate_exercise_db_canonical.py` passes structural integrity, source registration, equipment-token, ID, and progression-reference checks. It keeps the release gate false while evidence is incomplete. |
 | 9. Simulate reachability by location, capability, and skill | **Not run** | Must be completed against the app's actual eligibility pipeline after selection metadata is completed. Unknown equipment remains fail-closed. |
@@ -46,13 +46,13 @@ The canonical candidate has 1,087 identities after preserving three unique punct
 | Missing movement patterns | 255 |
 | Unknown level | 504 |
 | Unknown resistance mode | 336 |
-| Skill exercises without a stable node link | 172 |
+| Skill exercises without a stable node link | 145 |
 | Missing supported exercise instructions | 500 |
 | Remaining duplicate runtime labels | 1 (`Muscle-Up`) |
 
 The structural validator passes with zero errors. The candidate is not release-ready because selection-critical and instruction-critical evidence remains incomplete. The explicit-name equipment rule resolves only `High-/Low-Pulley`, `Rings`, `Bench`, `Bar Pull-Up`, `Parallel Bar`, `Box`, and `Band` terms; generic names such as `Ball Bridge` remain unknown. The movement-type rule fills only broad categories whose V2 type has a direct top-level pattern mapping; it does not infer strength, skill, core, or limb mechanics. The family rule maps whitelisted families to the app's broad pattern taxonomy and handles `PULL_UP` rows and headstand/handstand `PUSH_UP` variants explicitly; mixed families without a reliable mapping remain unknown. All inference rules have registered provenance sources and validator checks. The existing V2 database's own Python tests and deterministic build are separate regression gates and should be run alongside the candidate tests.
 
-Latest local verification on the reconstructed baseline snapshot plus equipment, movement-type, and whitelisted family rules: all 15 exercise-DB Python tests passed; the existing V2 deterministic builder/validator passed with artifact SHA-256 `fbf3d0cd4dc14d8156a3203f9f71d59a2a00f9856ccb20125ad986af4e69a430`; the candidate structural validator passed with zero errors and `releaseReady: false`. The candidate remains at 1,087 identities and 113 valid progression edges.
+Latest local verification on the reconstructed baseline snapshot plus equipment, movement-type, whitelisted family, and active legacy skill-node rules: all 16 exercise-DB Python tests passed; the existing V2 deterministic builder/validator passed with artifact SHA-256 `fbf3d0cd4dc14d8156a3203f9f71d59a2a00f9856ccb20125ad986af4e69a430`; the candidate structural validator passed with zero errors and `releaseReady: false`. The candidate remains at 1,087 identities and 113 valid progression edges.
 
 ## Reproduce
 

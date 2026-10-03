@@ -333,6 +333,13 @@ def _skill_nodes(root):
         alias_match = re.search(r'exerciseAliases\s*=\s*setOf\(([^)]*)\)', body)
         aliases = _value("setOf(" + alias_match.group(1) + ")") if alias_match else []
         nodes.append({"id": m.group(1), "exerciseName": m.group(2), "skill": m.group(3), "aliases": aliases})
+    initial_skills = {node["skill"].casefold() for node in nodes}
+    main_text = (root / APP_REL / "MainActivity.kt").read_text(encoding="utf-8")
+    for m in re.finditer(r'SkillProgressionNode\(\s*"([^"]+)"\s*,\s*"([^"]+)"\s*,\s*"([^"]+)"', main_text):
+        node_id, skill, label = m.groups()
+        if skill.casefold() in initial_skills or skill.casefold() in {"l-sit", "v-sit"}:
+            continue
+        nodes.append({"id": node_id, "exerciseName": label, "skill": skill, "aliases": []})
     return nodes
 
 
