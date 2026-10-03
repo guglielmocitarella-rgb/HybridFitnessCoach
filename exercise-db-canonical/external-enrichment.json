@@ -3321,6 +3321,249 @@
         "url": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
         "mapping": "canonical weighted dip retained in fixed-bar dip family; source distinguishes ring dip"
       }
+    },
+    "ex-leg-press-calf-raise": {
+      "equipmentRequired": {
+        "value": [
+          "leg_press"
+        ],
+        "observed_value": "Leg press machine",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "NASM — Leg Press Calf Raise",
+        "url": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise",
+        "mapping": "Exact exercise-specific professional library page"
+      }
+    },
+    "ex-seated-ez-bar-triceps-extension": {
+      "equipmentRequired": {
+        "value": [
+          "ez_bar",
+          "bench"
+        ],
+        "observed_value": "EZ-bar; seated/bench-supported setup",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Strength Training Anatomy — Seated EZ-Bar Triceps Extensions",
+        "url": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf",
+        "mapping": "Exact named exercise in technical anatomy manual"
+      }
+    },
+    "ex-pushdown": {
+      "equipmentRequired": {
+        "value": [
+          "cable"
+        ],
+        "observed_value": "Cable pulley with rope attachment",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Triceps Pressdown",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/3/triceps-pressdown/",
+        "mapping": "Exact pressdown/pushdown movement and cable setup"
+      }
+    },
+    "ex-one-arm-reverse-pushdown": {
+      "equipmentRequired": {
+        "value": [
+          "cable"
+        ],
+        "observed_value": "Cable machine handle",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "Strength Training Anatomy — One-Arm Reverse Pushdowns",
+        "url": "https://avys.omu.edu.tr/storage/app/public/murat.elioz/139526/3-ARMS.pdf",
+        "mapping": "Exact named exercise in technical anatomy manual"
+      }
+    },
+    "ex-neutral-grip-vertical-pulldown": {
+      "equipmentRequired": {
+        "value": [
+          "machine"
+        ],
+        "observed_value": "Selectorized lat-pulldown machine; attachment/grip may vary",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Seated Lat Pulldown",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/",
+        "mapping": "Vertical pulldown apparatus is directly documented; neutral grip changes handle orientation, not apparatus"
+      }
+    },
+    "ex-wide-grip-vertical-pulldown": {
+      "equipmentRequired": {
+        "value": [
+          "machine"
+        ],
+        "observed_value": "Cable/lat-pulldown machine with traditional wide bar",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "ACE — Beginner Strength Training: Lat Pull-down",
+        "url": "https://www.acefitness.org/resources/everyone/blog/3714/beginner-strength-training-workout/",
+        "mapping": "Source explicitly describes traditional wide-grip lat pull-down on cable machine"
+      }
+    },
+    "ex-strict-bar-muscle-ups": {
+      "equipmentRequired": {
+        "value": [
+          "pull_up_bar"
+        ],
+        "observed_value": "Fixed pull-up bar",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Strict Bar Muscle-Up",
+        "url": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up",
+        "mapping": "Exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-kipping-muscle-ups": {
+      "equipmentRequired": {
+        "value": [
+          "rings"
+        ],
+        "observed_value": "Gymnastics rings",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Kipping Muscle-Up",
+        "url": "https://www.crossfit.com/essentials/the-kipping-muscle-up",
+        "mapping": "Exact CrossFit ring muscle-up movement family; distinct bar muscle-up has separate page"
+      }
+    },
+    "ex-iron-cross": {
+      "equipmentRequired": {
+        "value": [
+          "rings"
+        ],
+        "observed_value": "Rings apparatus; cross hold",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+        "url": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf",
+        "mapping": "FIG Rings element table explicitly includes cross"
+      }
+    },
+    "ex-iron-cross-pullouts": {
+      "equipmentRequired": {
+        "value": [
+          "rings"
+        ],
+        "observed_value": "Rings apparatus; cross strength element",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+        "url": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf",
+        "mapping": "Pullout variation remains on the explicitly documented Rings cross apparatus"
+      }
+    },
+    "ex-iron-cross-to-back-lever": {
+      "equipmentRequired": {
+        "value": [
+          "rings"
+        ],
+        "observed_value": "Rings apparatus; cross and back-lever elements",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "FIG MAG Code of Points 2025–2028 — Rings",
+        "url": "https://www.gymnastics.sport/publicdir/rules/files/en_1.1%20-%20MAG%20Code%20of%20Points%202025-2028.pdf",
+        "mapping": "Both named strength positions are documented in the FIG Rings element group"
+      }
+    },
+    "ex-freestanding-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Open-floor hand support; no training implement required",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Handstand",
+        "url": "https://www.crossfit.com/essentials/freestanding-handstand",
+        "mapping": "Exact freestanding handstand page"
+      }
+    },
+    "ex-floor-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Hands on floor; no training implement required",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Handstand",
+        "url": "https://www.crossfit.com/essentials/freestanding-handstand",
+        "mapping": "Canonical floor handstand maps directly to documented handstand floor support"
+      }
+    },
+    "ex-handstand-walking": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Open floor; bodyweight handstand walking",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — Handstand Walking RX Plan",
+        "url": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan",
+        "mapping": "Exact movement-specific CrossFit training page"
+      }
+    },
+    "ex-freestanding-handstand-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Freestanding/open-floor handstand push-up; no wall support",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+        "url": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up",
+        "mapping": "Exact exercise-specific CrossFit page"
+      }
+    },
+    "ex-freestanding-handstand-pushup": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Freestanding/open-floor handstand push-up; no wall support",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Freestanding Handstand Push-Up",
+        "url": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up",
+        "mapping": "Exact duplicate-spelling exercise-specific match"
+      }
+    },
+    "ex-wall-supported-handstand": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Handstand supported by wall; no fitness implement required",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — HSPU and You",
+        "url": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "mapping": "Source explicitly documents handstand on wall; wall treated as environmental support, not catalog equipment"
+      }
+    },
+    "ex-wall-handstand-pushup": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Wall-supported handstand push-up; no fitness implement required",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — The Chest-to-Wall Handstand Push-Up",
+        "url": "https://www.crossfit.com/essentials/the-chest-to-wall-handstand-push-up",
+        "mapping": "Exact wall-supported HSPU family"
+      }
+    },
+    "ex-wall-headstand-pushup": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Headstand/handstand progression performed on floor with wall as optional support",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — Freestanding HSPU progression",
+        "url": "https://www.crossfit.com/workout/2024/05",
+        "mapping": "Wall-supported inverted press progression; no catalog fitness implement required"
+      }
+    },
+    "ex-wall-headstand-pushup-eccentric": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "Controlled lowering from handstand toward headstand, wall used for assistance",
+        "confidence": "HIGH",
+        "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+        "source_name": "CrossFit — Freestanding HSPU progression",
+        "url": "https://www.crossfit.com/workout/2024/05",
+        "mapping": "Exact eccentric phase documented in wall-assisted handstand/headstand progression; no catalog fitness implement required"
+      }
     }
   },
   "unresolved_conflicts": [
