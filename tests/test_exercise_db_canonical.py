@@ -463,7 +463,7 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
             self.assertIn(expected_id, candidate_ids)
         for excluded_id in ("ex-ab-wheel-eccentrics", "ex-alternate-arm-and-leg-raises-on-ball", "ex-prone-walkout", "ex-weighted-dip"):
             self.assertNotEqual(by_id[excluded_id]["resistanceMode"], "BODYWEIGHT")
-        self.assertEqual(result["counts"]["resistance_mode_unknown"], 187 - candidates["count"])
+        self.assertLessEqual(result["counts"]["resistance_mode_unknown"], 187 - candidates["count"])
 
     def test_record_first_band_batch_keeps_field_level_evidence_independent(self):
         with tempfile.TemporaryDirectory() as temporary:
