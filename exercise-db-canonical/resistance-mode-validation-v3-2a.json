@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.2A",
   "sourceHead": "12b5b23185213f75a712c97fb76a23355aa06032",
-  "status": "PENDING_EXECUTED_CI",
+  "status": "PASS",
   "integrity": {
     "canonical": 1087,
     "unique": 1087,
@@ -26,5 +26,26 @@
   "schemaSufficient": false,
   "validatorCommand": "python tools/validate_exercise_db_canonical.py",
   "regressionCommand": "python -m unittest tests/test_exercise_db_canonical.py tests/test_equipment_v31c.py tests/test_resistance_mode_v32a.py -v",
-  "note": "Canonical DB remains intentionally unchanged; afterAuditPatchLayer means unresolved terminal cases after applying isolated V3.2A patch semantics."
+  "note": "Canonical DB remains intentionally unchanged; afterAuditPatchLayer means unresolved terminal cases after applying isolated V3.2A patch semantics.",
+  "validatedCommit": "eafc90e4449917487853a317bce36152e95535be",
+  "workflowRunId": 37151172994,
+  "workflowName": "Exercise DB V3.2A validation",
+  "ciDbOnlyUsed": true,
+  "tempWorkflowRemoved": true,
+  "actualResults": {
+    "jsonSyntax": "PASS",
+    "canonicalValidator": "PASS",
+    "regressionSuite": {
+      "result": "PASS",
+      "tests": 40
+    },
+    "integrity": {
+      "result": "PASS",
+      "canonical": 1087,
+      "unique": 1087,
+      "duplicates": 0,
+      "resistanceUnknownAudited": 111
+    }
+  },
+  "domainDecision": "CLOSED_WITH_DOCUMENTED_UNRESOLVED"
 }

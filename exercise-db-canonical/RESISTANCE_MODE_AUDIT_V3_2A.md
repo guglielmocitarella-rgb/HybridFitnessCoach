@@ -26,3 +26,9 @@ Assignments use the preserved V3 identity/matching/equipment evidence and the au
 
 ## Quality review
 The regression test samples resolved bodyweight, external load, NOT_APPLICABLE, variable, insufficient-evidence, schema-decision and canonical-identity cases and checks equipment/resistance disagreement handling and UNKNOWN != NONE.
+
+## Executed validation
+DB-only GitHub Actions run **37151172994** on commit `eafc90e4449917487853a317bce36152e95535be`: PASS. JSON syntax, canonical validator, combined canonical/equipment/resistance regression suite (**40 tests**) and explicit integrity all passed. Canonical integrity remained 1087/1087 unique. The temporary V3.2A workflow is removed by the final evidence commit.
+
+## Domain gate
+**CLOSED_WITH_DOCUMENTED_UNRESOLVED** — 111/111 audited; 78 deterministic patch entries; 33 terminal unresolved with explicit cause; UNKNOWN is distinct from NONE/NOT_APPLICABLE; schema limitations are documented and no runtime DB or selection engine was modified.
