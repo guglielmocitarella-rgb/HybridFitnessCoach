@@ -480,11 +480,18 @@ class ExerciseDbCanonicalTest(unittest.TestCase):
         self.assertEqual(result["counts"]["resistance_mode_unknown"], 150)
         for item in batch["records"]:
             record = by_id[item["id"]]
-            self.assertEqual(record["equipmentRequired"], ["resistance_band"])
-            self.assertEqual(record["resistanceMode"], "EXTERNAL_LOAD")
+            if item["id"] == "ex-it-band-foam-rolling":
+                self.assertEqual(record["equipmentRequired"], ["foam_roller"])
+                self.assertEqual(record["resistanceMode"], "NONE")
+            else:
+                self.assertEqual(record["equipmentRequired"], ["resistance_band"])
+                self.assertEqual(record["resistanceMode"], "EXTERNAL_LOAD")
             resistance_prov = record["fieldProvenance"]["resistanceMode"]
             self.assertEqual(resistance_prov["confidence"], "HIGH")
-            self.assertEqual(resistance_prov["status"], "EQUIPMENT_DETERMINISTIC")
+            if item["id"] == "ex-it-band-foam-rolling":
+                self.assertEqual(resistance_prov["status"], "EXERCISE_SPECIFIC_SOURCE")
+            else:
+                self.assertEqual(resistance_prov["status"], "EQUIPMENT_DETERMINISTIC")
             # Level and instructions must not be promoted merely because
             # resistance mode has high-confidence evidence.
             if "level" in item["missingFieldsBefore"]:
