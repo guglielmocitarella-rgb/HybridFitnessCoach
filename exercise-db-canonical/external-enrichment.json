@@ -1623,6 +1623,713 @@
         "url": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
         "mapping": "ACE title adds the implement qualifier 'Stability Ball'; canonical 'Prone Walkout' denotes the same prone walkout movement."
       }
+    },
+    "ex-jumping-squat": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Squat Jumps",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/",
+        "mapping": "canonical 'Jumping Squat' -> ACE 'Squat Jumps'; same squat-jump movement"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Squat Jumps",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical 'Jumping Squat' -> ACE 'Squat Jumps'; same squat-jump movement"
+      },
+      "descriptionIt": {
+        "value": "Squat pliometrico a corpo libero con discesa controllata, salto in tripla estensione e atterraggio ammortizzato.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Squat Jumps",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/",
+        "mapping": "canonical 'Jumping Squat' -> ACE 'Squat Jumps'; same squat-jump movement"
+      },
+      "setupIt": {
+        "value": "In piedi con piedi circa alla larghezza dei fianchi, tronco attivo, scapole stabilizzate e schiena neutra.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Squat Jumps",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/",
+        "mapping": "canonical 'Jumping Squat' -> ACE 'Squat Jumps'; same squat-jump movement"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Porta il bacino indietro e scendi flettendo anche e ginocchia mantenendo la schiena stabile.",
+          "Senza una lunga pausa, spingi con forza il terreno ed estendi caviglie, ginocchia e anche per saltare.",
+          "Atterra dolcemente sul mesopiede, accompagna verso i talloni e assorbi l'impatto riportando il bacino indietro e in basso."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Squat Jumps",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/",
+        "mapping": "canonical 'Jumping Squat' -> ACE 'Squat Jumps'; same squat-jump movement"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il core attivo e la schiena stabile.",
+          "Atterra in modo morbido e controllato.",
+          "Mantieni piedi e ginocchia allineati durante discesa e atterraggio."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Squat Jumps",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/",
+        "mapping": "canonical 'Jumping Squat' -> ACE 'Squat Jumps'; same squat-jump movement"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Atterrare rigidi o con le ginocchia bloccate.",
+          "Lasciare avanzare eccessivamente le ginocchia o perdere il controllo del tronco.",
+          "Sollevare i talloni prematuramente durante la discesa."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Squat Jumps",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/116/squat-jumps/",
+        "mapping": "canonical 'Jumping Squat' -> ACE 'Squat Jumps'; same squat-jump movement"
+      }
+    },
+    "ex-standing-jump-and-reach": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Jump and Reach",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/",
+        "mapping": "canonical adds 'Standing'; ACE movement starts standing and otherwise matches"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Jump and Reach",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical adds 'Standing'; ACE movement starts standing and otherwise matches"
+      },
+      "descriptionIt": {
+        "value": "Salto verticale a corpo libero con caricamento in squat/hinge e slancio coordinato delle braccia verso l'alto.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Jump and Reach",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/",
+        "mapping": "canonical adds 'Standing'; ACE movement starts standing and otherwise matches"
+      },
+      "setupIt": {
+        "value": "Inizia dalla stazione eretta, porta il bacino indietro in una discesa controllata e prepara le braccia dietro al corpo mantenendo schiena e testa allineate.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Jump and Reach",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/",
+        "mapping": "canonical adds 'Standing'; ACE movement starts standing and otherwise matches"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Dalla posizione caricata spingi rapidamente il terreno estendendo caviglie, ginocchia e anche.",
+          "Slancia le braccia in avanti e sopra la testa raggiungendo la massima estensione controllata del corpo.",
+          "Atterra sul mesopiede, accompagna verso i talloni e porta il bacino indietro e in basso per assorbire l'impatto."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Jump and Reach",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/",
+        "mapping": "canonical adds 'Standing'; ACE movement starts standing and otherwise matches"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Coordina lo slancio delle braccia con l'estensione delle gambe.",
+          "Atterra morbido e silenzioso.",
+          "Mantieni testa, tronco e colonna allineati."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Jump and Reach",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/",
+        "mapping": "canonical adds 'Standing'; ACE movement starts standing and otherwise matches"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Atterrare con ginocchia bloccate.",
+          "Perdere la neutralità della schiena nel caricamento.",
+          "Non assorbire l'impatto con anche e ginocchia."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Jump and Reach",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/176/jump-and-reach/",
+        "mapping": "canonical adds 'Standing'; ACE movement starts standing and otherwise matches"
+      }
+    },
+    "ex-plank-to-push-up": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "descriptionIt": {
+        "value": "Transizione controllata tra plank alto sulle mani e plank sugli avambracci mantenendo il corpo in linea.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "setupIt": {
+        "value": "Assumi una posizione di push-up con mani sotto le spalle, gambe distese e cosce, glutei e core attivi.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Scendi su un avambraccio alla volta mantenendo tronco e gambe allineati.",
+          "Dal plank sugli avambracci appoggia una mano alla volta e spingi per tornare alla posizione alta."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni una linea stabile dalla testa ai piedi.",
+          "Limita rotazioni e cedimenti del bacino durante i cambi di appoggio."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Lasciare cedere o ruotare il bacino.",
+          "Perdere l'allineamento del tronco durante la transizione."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      }
+    },
+    "ex-high-to-low-plank": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "level": {
+        "value": "Intermedio",
+        "observed_value": "Intermediate",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "descriptionIt": {
+        "value": "Transizione controllata tra plank alto sulle mani e plank sugli avambracci mantenendo il corpo in linea.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "setupIt": {
+        "value": "Assumi una posizione di push-up con mani sotto le spalle, gambe distese e cosce, glutei e core attivi.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Scendi su un avambraccio alla volta mantenendo tronco e gambe allineati.",
+          "Dal plank sugli avambracci appoggia una mano alla volta e spingi per tornare alla posizione alta."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni una linea stabile dalla testa ai piedi.",
+          "Limita rotazioni e cedimenti del bacino durante i cambi di appoggio."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Lasciare cedere o ruotare il bacino.",
+          "Perdere l'allineamento del tronco durante la transizione."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Plank-ups",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/320/plank-ups/",
+        "mapping": "canonical plank-to-push-up/high-to-low-plank terminology -> ACE 'Plank-ups'; same alternating hand/forearm transition"
+      }
+    },
+    "ex-standing-chest-and-anterior-shoulder-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE detail page explicitly includes anterior-deltoid stretch variation"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE Difficulty -> canonical Italian level; ACE detail page explicitly includes anterior-deltoid stretch variation"
+      },
+      "descriptionIt": {
+        "value": "Allungamento in piedi per il torace con enfasi estendibile al deltoide anteriore mediante la variante con braccia dietro al corpo.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE detail page explicitly includes anterior-deltoid stretch variation"
+      },
+      "setupIt": {
+        "value": "In piedi con piedi alla larghezza dei fianchi, core attivo e scapole depresse e retratte senza aumentare l'arco lombare.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE detail page explicitly includes anterior-deltoid stretch variation"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Espira, solleva leggermente il torace e porta le spalle in rotazione esterna avvicinando le scapole.",
+          "Per aumentare il coinvolgimento del deltoide anteriore, porta le braccia dietro la schiena e sollevale gradualmente senza spingere il bacino avanti.",
+          "Mantieni l'allungamento in controllo e poi rilascia gradualmente."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE detail page explicitly includes anterior-deltoid stretch variation"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni la colonna neutra.",
+          "Porta le spalle indietro senza forzare il torace in avanti.",
+          "Interrompi l'aumento del range prima di perdere l'allineamento."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE detail page explicitly includes anterior-deltoid stretch variation"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Aumentare la lordosi lombare per cercare più allungamento.",
+          "Spingere il bacino in avanti.",
+          "Forzare il torace anteriormente invece di controllare scapole e spalle."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Standing Chest Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "mapping": "ACE detail page explicitly includes anterior-deltoid stretch variation"
+      }
+    },
+    "ex-single-leg-deadlift": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Single-leg Romanian Deadlift",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/",
+        "mapping": "canonical 'Single-Leg Deadlift' -> ACE bodyweight single-leg Romanian deadlift; same unsupported single-leg hinge identity"
+      },
+      "level": {
+        "value": "Avanzato",
+        "observed_value": "Advanced",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Single-leg Romanian Deadlift",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical 'Single-Leg Deadlift' -> ACE bodyweight single-leg Romanian deadlift; same unsupported single-leg hinge identity"
+      },
+      "descriptionIt": {
+        "value": "Hip hinge monopodalico a corpo libero con una gamba di appoggio e l'altra che si estende posteriormente per bilanciare il tronco.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Single-leg Romanian Deadlift",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/",
+        "mapping": "canonical 'Single-Leg Deadlift' -> ACE bodyweight single-leg Romanian deadlift; same unsupported single-leg hinge identity"
+      },
+      "setupIt": {
+        "value": "In piedi con piedi circa alla larghezza dei fianchi, schiena alta e neutra e ginocchia leggermente flesse.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Single-leg Romanian Deadlift",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/",
+        "mapping": "canonical 'Single-Leg Deadlift' -> ACE bodyweight single-leg Romanian deadlift; same unsupported single-leg hinge identity"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Porta il bacino indietro mentre sollevi una gamba dal terreno e la estendi dietro al corpo.",
+          "Inclina il tronco in avanti mantenendo la schiena stabile fino al range controllabile.",
+          "Contrai il gluteo della gamba d'appoggio e torna in piedi riportando la gamba libera verso il pavimento."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Single-leg Romanian Deadlift",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/",
+        "mapping": "canonical 'Single-Leg Deadlift' -> ACE bodyweight single-leg Romanian deadlift; same unsupported single-leg hinge identity"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Muovi il corpo principalmente dall'anca.",
+          "Mantieni la schiena neutra.",
+          "Controlla l'equilibrio prima di iniziare la ripetizione successiva."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Single-leg Romanian Deadlift",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/",
+        "mapping": "canonical 'Single-Leg Deadlift' -> ACE bodyweight single-leg Romanian deadlift; same unsupported single-leg hinge identity"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Arrotondare o inarcare la schiena durante l'hinge.",
+          "Ruotare il bacino perdendo l'allineamento.",
+          "Usare slancio invece del controllo dell'anca."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Single-leg Romanian Deadlift",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/329/single-leg-romanian-deadlift/",
+        "mapping": "canonical 'Single-Leg Deadlift' -> ACE bodyweight single-leg Romanian deadlift; same unsupported single-leg hinge identity"
+      }
+    },
+    "ex-calf-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/",
+        "mapping": "canonical generic calf stretch is matched only to ACE page explicitly titled '(Calf Stretch)' and its standard standing dorsiflexion execution"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical generic calf stretch is matched only to ACE page explicitly titled '(Calf Stretch)' and its standard standing dorsiflexion execution"
+      },
+      "descriptionIt": {
+        "value": "Allungamento del polpaccio in stazione eretta con appoggio alla parete e tallone della gamba posteriore mantenuto a terra.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/",
+        "mapping": "canonical generic calf stretch is matched only to ACE page explicitly titled '(Calf Stretch)' and its standard standing dorsiflexion execution"
+      },
+      "setupIt": {
+        "value": "Posizionati di fronte a una parete a distanza di un braccio, piedi rivolti avanti; porta una gamba indietro in split stance mantenendo entrambi i piedi appoggiati.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/",
+        "mapping": "canonical generic calf stretch is matched only to ACE page explicitly titled '(Calf Stretch)' and its standard standing dorsiflexion execution"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Avvicina lentamente il corpo alla parete flettendo il ginocchio anteriore.",
+          "Mantieni la gamba posteriore distesa e spingi il tallone nel pavimento con piede rivolto avanti.",
+          "Mantieni la posizione di allungamento e poi cambia lato."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/",
+        "mapping": "canonical generic calf stretch is matched only to ACE page explicitly titled '(Calf Stretch)' and its standard standing dorsiflexion execution"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni bacino e colonna allineati.",
+          "Tieni il tallone posteriore a contatto con il pavimento.",
+          "Evita rotazioni del piede posteriore."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/",
+        "mapping": "canonical generic calf stretch is matched only to ACE page explicitly titled '(Calf Stretch)' and its standard standing dorsiflexion execution"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Sollevare il tallone posteriore.",
+          "Inclinare il bacino in avanti perdendo l'allineamento.",
+          "Ruotare il piede per aumentare artificialmente il range."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Standing Dorsi-Flexion (Calf Stretch)",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/152/standing-dorsi-flexion-calf-stretch/",
+        "mapping": "canonical generic calf stretch is matched only to ACE page explicitly titled '(Calf Stretch)' and its standard standing dorsiflexion execution"
+      }
+    },
+    "ex-supine-lying-deep-external-rotators-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Supine 90-90 Hip Rotator Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/",
+        "mapping": "canonical deep external-rotator supine stretch -> ACE supine 90-90 hip-rotator stretch; same target and figure-four mechanics"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Supine 90-90 Hip Rotator Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical deep external-rotator supine stretch -> ACE supine 90-90 hip-rotator stretch; same target and figure-four mechanics"
+      },
+      "descriptionIt": {
+        "value": "Allungamento supino dei rotatori dell'anca in configurazione 90-90, portando una caviglia sul ginocchio opposto e avvicinando la coscia al tronco.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Supine 90-90 Hip Rotator Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/",
+        "mapping": "canonical deep external-rotator supine stretch -> ACE supine 90-90 hip-rotator stretch; same target and figure-four mechanics"
+      },
+      "setupIt": {
+        "value": "Supino con core attivo; porta anche e ginocchia nella posizione di supporto a circa 90 gradi e rilassa progressivamente le anche.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Supine 90-90 Hip Rotator Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/",
+        "mapping": "canonical deep external-rotator supine stretch -> ACE supine 90-90 hip-rotator stretch; same target and figure-four mechanics"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Appoggia un piede sul ginocchio opposto mantenendo il ginocchio della gamba incrociata flesso.",
+          "Afferra posteriormente la coscia di supporto e avvicinala gradualmente al torace.",
+          "Mantieni l'allungamento controllato, rilascia e ripeti sul lato opposto."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Supine 90-90 Hip Rotator Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/",
+        "mapping": "canonical deep external-rotator supine stretch -> ACE supine 90-90 hip-rotator stretch; same target and figure-four mechanics"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni la zona lombare controllata.",
+          "Aumenta la tensione gradualmente senza rimbalzi.",
+          "Mantieni la configurazione dell'anca e del ginocchio durante la trazione."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Supine 90-90 Hip Rotator Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/",
+        "mapping": "canonical deep external-rotator supine stretch -> ACE supine 90-90 hip-rotator stretch; same target and figure-four mechanics"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Sollevare o compensare eccessivamente con la zona lombare.",
+          "Forzare il ginocchio della gamba incrociata.",
+          "Usare movimenti rapidi o rimbalzi."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Supine 90-90 Hip Rotator Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/148/supine-90-90-hip-rotator-stretch/",
+        "mapping": "canonical deep external-rotator supine stretch -> ACE supine 90-90 hip-rotator stretch; same target and figure-four mechanics"
+      }
+    },
+    "ex-quadruped-leg-lift": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Quadruped Bent-knee Hip Extensions",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+        "mapping": "canonical 'Quadruped Leg Lift' matched to the bent-knee hip-extension form; canonical source label does not specify an alternate implement or competing variant"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Quadruped Bent-knee Hip Extensions",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+        "mapping": "ACE Difficulty -> canonical Italian level; canonical 'Quadruped Leg Lift' matched to the bent-knee hip-extension form; canonical source label does not specify an alternate implement or competing variant"
+      },
+      "descriptionIt": {
+        "value": "Estensione monopodalica dell'anca dalla quadrupedia mantenendo il ginocchio flesso e il tronco stabile.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_TECHNIQUE_PARAPHRASE",
+        "source_name": "Quadruped Bent-knee Hip Extensions",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+        "mapping": "canonical 'Quadruped Leg Lift' matched to the bent-knee hip-extension form; canonical source label does not specify an alternate implement or competing variant"
+      },
+      "setupIt": {
+        "value": "In quadrupedia con mani sotto le spalle e ginocchia sotto le anche; attiva addome e core mantenendo la colonna neutra.",
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_SETUP_PARAPHRASE",
+        "source_name": "Quadruped Bent-knee Hip Extensions",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+        "mapping": "canonical 'Quadruped Leg Lift' matched to the bent-knee hip-extension form; canonical source label does not specify an alternate implement or competing variant"
+      },
+      "executionStepsIt": {
+        "value": [
+          "Contrai il gluteo e solleva una gamba mantenendo il ginocchio flesso, muovendo dall'articolazione dell'anca.",
+          "Fermati al range in cui la zona lombare resta stabile.",
+          "Ritorna con controllo e completa le ripetizioni prima di cambiare lato."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EXECUTION_PARAPHRASE",
+        "source_name": "Quadruped Bent-knee Hip Extensions",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+        "mapping": "canonical 'Quadruped Leg Lift' matched to the bent-knee hip-extension form; canonical source label does not specify an alternate implement or competing variant"
+      },
+      "techniqueCuesIt": {
+        "value": [
+          "Mantieni il core stabile.",
+          "Muovi la gamba dall'anca senza aumentare la lordosi lombare.",
+          "Interrompi la salita quando perdi il controllo del bacino."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_FORM_CUE_PARAPHRASE",
+        "source_name": "Quadruped Bent-knee Hip Extensions",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+        "mapping": "canonical 'Quadruped Leg Lift' matched to the bent-knee hip-extension form; canonical source label does not specify an alternate implement or competing variant"
+      },
+      "commonErrorsIt": {
+        "value": [
+          "Inarcare la zona lombare per sollevare più in alto la gamba.",
+          "Ruotare il bacino durante l'estensione.",
+          "Perdere l'allineamento di mani, spalle, ginocchia e anche."
+        ],
+        "observed_value": "ACE exercise-specific description/setup or form instructions paraphrased",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_ERROR_FROM_STATED_FORM_LIMIT",
+        "source_name": "Quadruped Bent-knee Hip Extensions",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+        "mapping": "canonical 'Quadruped Leg Lift' matched to the bent-knee hip-extension form; canonical source label does not specify an alternate implement or competing variant"
+      }
+    },
+    "ex-hip-flexor-stretch": {
+      "equipmentRequired": {
+        "value": [],
+        "observed_value": "No Equipment",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_EQUIPMENT_LABEL",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/",
+        "mapping": "canonical generic hip-flexor stretch -> ACE featured kneeling hip-flexor stretch; no technique promoted from listing"
+      },
+      "level": {
+        "value": "Principiante",
+        "observed_value": "Beginner",
+        "confidence": "HIGH",
+        "evidence_type": "EXERCISE_LIBRARY_DIFFICULTY_LABEL",
+        "source_name": "Kneeling Hip-flexor Stretch",
+        "url": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/",
+        "mapping": "ACE Difficulty -> canonical Italian level; no technique promoted from listing"
+      }
     }
   },
   "unresolved_conflicts": [
