@@ -1,0 +1,149 @@
+{
+  "validatedCommit": "c1575a315fd017f6177cdee7a141f3ec30fcea9f",
+  "executionEnvironment": "github-actions",
+  "canonicalCount": 1087,
+  "canonicalUnique": 1087,
+  "missingIds": 0,
+  "duplicates": 0,
+  "historicalMissing": 176,
+  "currentMissing": 176,
+  "patternDistribution": {
+    "conditioning": 42,
+    "vertical-push": 59,
+    "core-control": 126,
+    "recovery": 12,
+    "vertical-pull": 60,
+    "horizontal-push": 238,
+    "horizontal-pull": 56,
+    "knee-dominant": 106,
+    "mobility": 87,
+    "pull-accessory": 53,
+    "hinge": 43,
+    "push-accessory": 5,
+    "locomotion": 1,
+    "stability": 1,
+    "anti-extension": 6,
+    "ankle-mobility": 1,
+    "thoracic-mobility": 2,
+    "hip-mobility": 2,
+    "shoulder-mobility": 3,
+    "wrist-mobility": 1,
+    "anti-rotation": 2,
+    "loaded-carry": 2,
+    "hip-stability": 1,
+    "anti-lateral-flexion": 1,
+    "spinal-mobility": 1,
+    "full-body-mobility": 1
+  },
+  "worksetRecords": 177,
+  "worksetIssues": 177,
+  "issuesByType": {
+    "MISSING_OR_UNKNOWN": 176,
+    "MULTI_PATTERN": 1
+  },
+  "patchesCertainHigh": 0,
+  "notApplicable": 0,
+  "multiPattern": 1,
+  "unresolved": 176,
+  "unresolvedByReason": {
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 176,
+    "RESOLVED_MULTI_PATTERN": 1
+  },
+  "provenanceCoverage": "100% (0/0 patches)",
+  "metadataFindings": [
+    {
+      "field": "family",
+      "present": 1087,
+      "missing": 0,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "unilateral",
+      "present": 500,
+      "missing": 587,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "laterality",
+      "present": 0,
+      "missing": 1087,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "isometric",
+      "present": 500,
+      "missing": 587,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "primaryMuscles",
+      "present": 0,
+      "missing": 1087,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "secondaryMuscles",
+      "present": 0,
+      "missing": 1087,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "stabilizers",
+      "present": 0,
+      "missing": 1087,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "bodyRegion",
+      "present": 0,
+      "missing": 1087,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "movementType",
+      "present": 1087,
+      "missing": 0,
+      "classification": "ENGINE_CRITICAL_OR_MAPPING_DEPENDENT",
+      "runtimeConsumerVerified": false
+    },
+    {
+      "field": "category",
+      "present": 1087,
+      "missing": 0,
+      "classification": "ENGINE_CRITICAL_OR_MAPPING_DEPENDENT",
+      "runtimeConsumerVerified": true
+    },
+    {
+      "field": "group",
+      "present": 0,
+      "missing": 1087,
+      "classification": "ENGINE_CRITICAL_OR_MAPPING_DEPENDENT",
+      "runtimeConsumerVerified": true
+    },
+    {
+      "field": "secondaryGroups",
+      "present": 0,
+      "missing": 1087,
+      "classification": "ENGINE_CRITICAL_OR_MAPPING_DEPENDENT",
+      "runtimeConsumerVerified": true
+    },
+    {
+      "field": "progressionRelations",
+      "present": 134,
+      "missing": 953,
+      "classification": "ENGINE_ENHANCING",
+      "runtimeConsumerVerified": false
+    }
+  ],
+  "varietyFinding": "MIXED",
+  "runtimeDbModified": false,
+  "domainStatus": "CLOSED_WITH_DOCUMENTED_UNRESOLVED"
+}

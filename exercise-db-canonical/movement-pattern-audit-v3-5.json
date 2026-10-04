@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "V3.5",
+  "canonicalCount": 1087,
+  "unique": 1087,
+  "missingIds": 0,
+  "duplicates": 0,
+  "historicalMissing": {
+    "count": 176,
+    "source": "ENGINE_DATA_CONTRACT_V3_1.md",
+    "definition": "movementPattern missing at V3.1 baseline"
+  },
+  "currentMissing": 176,
+  "delta": 0,
+  "patternDistribution": {
+    "ankle-mobility": 1,
+    "anti-extension": 6,
+    "anti-lateral-flexion": 1,
+    "anti-rotation": 2,
+    "conditioning": 42,
+    "core-control": 126,
+    "full-body-mobility": 1,
+    "hinge": 43,
+    "hip-mobility": 2,
+    "hip-stability": 1,
+    "horizontal-pull": 56,
+    "horizontal-push": 238,
+    "knee-dominant": 106,
+    "loaded-carry": 2,
+    "locomotion": 1,
+    "mobility": 87,
+    "pull-accessory": 53,
+    "push-accessory": 5,
+    "recovery": 12,
+    "shoulder-mobility": 3,
+    "spinal-mobility": 1,
+    "stability": 1,
+    "thoracic-mobility": 2,
+    "vertical-pull": 60,
+    "vertical-push": 59,
+    "wrist-mobility": 1
+  },
+  "statusDistribution": {
+    "V2_MOVEMENT_TYPE_RULE": 75,
+    "V2_FAMILY_PATTERN_RULE": 230,
+    "UNKNOWN": 176,
+    "APP_RULE_NAME_OR_GROUP_HEURISTIC": 547,
+    "KNOWN": 24,
+    "APP_MODEL_DIRECT": 34,
+    "EXTERNAL_SOURCE_DIRECT": 1
+  },
+  "allRecordsAudited": true,
+  "worksetRecords": 177,
+  "worksetIssues": 177,
+  "issuesByType": {
+    "MISSING_OR_UNKNOWN": 176,
+    "MULTI_PATTERN": 1
+  },
+  "terminalByClass": {
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 176,
+    "RESOLVED_MULTI_PATTERN": 1
+  },
+  "modelStatus": "V3_LIST_SUPPORTS_MULTI_PATTERN_RUNTIME_SINGLE_VALUE_GAP",
+  "engineContract": {
+    "meaning": "broad movement-pattern metadata",
+    "producer": "canonical builder/source provenance",
+    "consumer": "current runtime sequencing metadata after V2 conversion",
+    "fallback": "legacy withExerciseMetadata heuristic from name/category",
+    "impact": "ENGINE_ENHANCING; adjacent same-pattern sequencing penalty, not eligibility blocker"
+  }
+}

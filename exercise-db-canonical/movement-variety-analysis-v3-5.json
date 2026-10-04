@@ -1,0 +1,37 @@
+{
+  "scenarios": [
+    {
+      "name": "CANONICAL_GLOBAL_READ_ONLY",
+      "candidatePool": 1087,
+      "recordsWithPattern": 911,
+      "uniquePatterns": 26,
+      "patternConcentrationMaxShare": 0.260965
+    }
+  ],
+  "filters": {
+    "locationEquipment": "not simulated: V3 remains isolated and runtime location semantics use current DB",
+    "capability": "not simulated against V3 runtime",
+    "skill": "audited previously V3.2C; no V3 runtime integration"
+  },
+  "dbGaps": {
+    "missingPattern": 176,
+    "multiPattern": 1
+  },
+  "taxonomyGaps": {
+    "singleRuntimeValueVsV3List": true
+  },
+  "engineGaps": {
+    "runtimeAdjacentSamePatternPenaltyOnly": true,
+    "noRecentFamilyAvoidanceVerifiedInV3Contract": true
+  },
+  "expectedFilteringEffects": [
+    "location/equipment can shrink pools materially per V3.1A"
+  ],
+  "beforeAfterPatch": {
+    "patchCount": 0,
+    "reason": "no unsupported inference applied",
+    "coverageDelta": 0
+  },
+  "finalFinding": "MIXED",
+  "rationale": "Persisted DB has movement-pattern gaps while the audited runtime uses pattern only as an adjacent-sequencing penalty; V3 is not integrated, so a live HOME/GYM before/after claim would be false."
+}
