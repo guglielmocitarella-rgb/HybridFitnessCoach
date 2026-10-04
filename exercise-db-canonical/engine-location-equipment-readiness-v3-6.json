@@ -1,0 +1,38 @@
+{
+  "scenarios": [
+    {
+      "name": "CANONICAL_GLOBAL_READ_ONLY",
+      "candidatePool": 1087,
+      "recordsWithPattern": 911,
+      "recordsMissingPattern": 176,
+      "uniquePatterns": 26,
+      "patternConcentrationMaxShare": 0.260965
+    },
+    {
+      "name": "BODYWEIGHT_MINIMAL",
+      "candidatePool": 377,
+      "recordsWithPattern": 326,
+      "recordsMissingPattern": 51,
+      "uniquePatterns": 20,
+      "patternConcentrationMaxShare": 0.220859
+    },
+    {
+      "name": "HOME_SYNTHETIC",
+      "candidatePool": 705,
+      "recordsWithPattern": 600,
+      "recordsMissingPattern": 105,
+      "uniquePatterns": 26,
+      "patternConcentrationMaxShare": 0.283333
+    },
+    {
+      "name": "GYM_SYNTHETIC",
+      "candidatePool": 1087,
+      "recordsWithPattern": 911,
+      "recordsMissingPattern": 176,
+      "uniquePatterns": 26,
+      "patternConcentrationMaxShare": 0.260965
+    }
+  ],
+  "classification": "SYNTHETIC_READ_ONLY",
+  "warning": "not live-runtime equivalence"
+}
