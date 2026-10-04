@@ -21,7 +21,10 @@ for r in records:
  ps=pats(r)
  if not ps: issues.append(("MISSING_OR_UNKNOWN","UNRESOLVED_INSUFFICIENT_EVIDENCE"))
  if len(ps)>1: issues.append(("MULTI_PATTERN","RESOLVED_MULTI_PATTERN"))
+ st=str(r.get("movementPatternStatus") or "MISSING")
  if not r.get("movementPatternStatus"): issues.append(("MISSING_STATUS","UNRESOLVED_SCHEMA_DECISION_REQUIRED"))
+ if st=="APP_RULE_NAME_OR_GROUP_HEURISTIC" and ps: issues.append(("HEURISTIC_PATTERN_UNCERTIFIED","UNRESOLVED_INSUFFICIENT_EVIDENCE"))
+ if st in {"V2_MOVEMENT_TYPE_RULE","V2_FAMILY_PATTERN_RULE"} and ps: issues.append(("SOURCE_TAXONOMY_DERIVED","UNRESOLVED_SOURCE_TAXONOMY_CONFLICT"))
  if r in invalid: issues.append(("INVALID_TYPE","UNRESOLVED_SCHEMA_DECISION_REQUIRED"))
  for typ,terminal in issues:
   work.append({"canonicalExerciseId":r["id"],"canonicalNameEn":r.get("canonicalNameEn"),"issue":typ,"terminalClassification":terminal,"currentValue":r.get("movementPattern")})
@@ -68,13 +71,13 @@ Model status: **V3_LIST_SUPPORTS_MULTI_PATTERN_RUNTIME_SINGLE_VALUE_GAP**. V3 ca
 
 Pattern distribution: {json.dumps(dict(sorted(dist.items())),ensure_ascii=False)}.
 
-Workset: {len(set(x['canonicalExerciseId'] for x in work))} records / {len(work)} issues. Missing/unknown remain unresolved without exercise-specific evidence. Existing multi-pattern records are preserved rather than collapsed. Automatic patches: 0.
+Workset: {len(set(x['canonicalExerciseId'] for x in work))} records / {len(work)} issues. Missing/unknown and heuristic or source-taxonomy-derived patterns remain terminally unresolved unless supported by stronger field evidence. Existing multi-pattern records are preserved rather than collapsed. Automatic patches: 0.
 
 Variety/repetitivity finding: **MIXED**. DB pattern gaps reduce sequencing information, but runtime pattern use is narrow; location/equipment filtering can shrink pools and V3 is not integrated, so no false live-runtime resolution is claimed.
 
 Provenance coverage for patches: 100% (0/0). Previous V3.1–V3.4 artifacts preserved.
 """
 (DB/"MOVEMENT_PATTERN_AUDIT_V3_5.md").write_text(report)
-validation={"validatedCommit":os.getenv("GITHUB_SHA","LOCAL_OR_CI"),"executionEnvironment":"github-actions" if os.getenv("GITHUB_ACTIONS") else "local","canonicalCount":1087,"canonicalUnique":1087,"missingIds":0,"duplicates":0,"historicalMissing":176,"currentMissing":len(missing),"patternDistribution":dict(dist),"worksetRecords":len(set(x["canonicalExerciseId"] for x in work)),"worksetIssues":len(work),"issuesByType":dict(issues_by),"patchesCertainHigh":0,"notApplicable":0,"multiPattern":len(multi),"unresolved":len(unresolved),"unresolvedByReason":dict(term),"provenanceCoverage":"100% (0/0 patches)","metadataFindings":metadata,"varietyFinding":"MIXED","runtimeDbModified":False,"domainStatus":"CLOSED_WITH_DOCUMENTED_UNRESOLVED"}
+validation={"validatedCommit":os.getenv("GITHUB_SHA","LOCAL_OR_CI"),"executionEnvironment":"github-actions" if os.getenv("GITHUB_ACTIONS") else "local","canonicalCount":1087,"canonicalUnique":1087,"missingIds":0,"duplicates":0,"historicalMissing":176,"currentMissing":len(missing),"patternDistribution":dict(dist),"worksetRecords":len(set(x["canonicalExerciseId"] for x in work)),"worksetIssues":len(work),"issuesByType":dict(issues_by),"patchesCertainHigh":0,"notApplicable":0,"multiPattern":len(multi),"unresolved":len(unresolved),"unresolvedByReason":dict(collections.Counter(x["terminalClassification"] for x in unresolved)),"provenanceCoverage":"100% (0/0 patches)","metadataFindings":metadata,"varietyFinding":"MIXED","runtimeDbModified":False,"domainStatus":"CLOSED_WITH_DOCUMENTED_UNRESOLVED"}
 (DB/"movement-pattern-validation-v3-5.json").write_text(json.dumps(validation,indent=2)+"\n")
 print(json.dumps({"missing":len(missing),"patterns":dict(dist),"workset":len(work),"multi":len(multi)}))
