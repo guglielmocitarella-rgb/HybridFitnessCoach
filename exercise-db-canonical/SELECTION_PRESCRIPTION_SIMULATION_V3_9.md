@@ -2,6 +2,6 @@
 
 Deterministic isolated simulation over the V3.8 engine-ready candidate. Runtime DB was not modified.
 
-Final classification: **RUNTIME_EVOLUTION_REQUIRED**.
+Final classification: **NOT_READY_BLOCKED**.
 
-The V3 candidate is structurally simulatable, but current runtime semantics cannot consume the V3 multidimensional equipment/capability/typed-skill/prescription contract losslessly. This is persisted as an S1 runtime-model blocker, not silently repaired in V3.9.
+Strict V3 intended fail-closed selection produces no eligible pool in the required scenario matrix because capability/schema state is not yet materially selectable. This is persisted as an S1 SCHEMA_GAP. Runtime-model evolution is a secondary dependency; no runtime change is made in V3.9.

@@ -1,7 +1,12 @@
 {
-  "status": "PENDING_VALIDATOR",
+  "status": "PASS",
   "candidate": 1087,
-  "skillNodes": 60,
-  "scenarios": 640,
-  "runtimeDbModified": false
+  "unique": 1087,
+  "missing": 0,
+  "duplicates": 0,
+  "scenarioSchema": "PASS",
+  "skillNodeCoverage": "60/60",
+  "determinismMetadata": "PASS",
+  "runtimeDbModified": false,
+  "summaryConsistency": "PASS"
 }
