@@ -1,0 +1,769 @@
+{
+  "schemaVersion": "3.3",
+  "sourceHead": "7089472638799bccb50ab7ff0e75508279191ce7",
+  "integrity": {
+    "canonical": 1087,
+    "unique": 1087,
+    "missing": 0,
+    "duplicates": 0
+  },
+  "contract": {
+    "category": {
+      "meaning": "Broad runtime functional class used by capability mapping/eligibility and planning.",
+      "classification": "ENGINE_CRITICAL",
+      "allowed": [
+        "CARDIO",
+        "CORE",
+        "LEGS",
+        "MOBILITY",
+        "OTHER",
+        "PULL",
+        "PUSH",
+        "SKILL"
+      ]
+    },
+    "group": {
+      "meaning": "Legacy/body-part runtime label; not a canonical V3 top-level field.",
+      "classification": "ENGINE_ENHANCING",
+      "schemaDecision": "Do not alias to category; future anatomy must be explicit."
+    }
+  },
+  "categoryDistribution": {
+    "CARDIO": 42,
+    "SKILL": 204,
+    "CORE": 130,
+    "MOBILITY": 109,
+    "OTHER": 45,
+    "LEGS": 165,
+    "PUSH": 251,
+    "PULL": 141
+  },
+  "groupDistributionFromRuntimeSnapshots": {
+    "Dorso / Core": 19,
+    "Spalle / Core": 20,
+    "Dorso / Bicipiti": 5,
+    "Petto / Tricipiti": 6,
+    "Dorso": 70,
+    "Gambe": 97,
+    "Core / Spalle": 3,
+    "Spalle": 41,
+    "Core": 70,
+    "Petto": 56,
+    "Bicipiti": 24,
+    "Gambe / Core": 7,
+    "Dorso / Spalle": 6,
+    "Petto / Spalle": 2,
+    "Gambe / Dorso": 3,
+    "Dorso / Spalle / Core": 2,
+    "Cardio": 23,
+    "Total body / Core": 1,
+    "Spalle / Tricipiti": 3,
+    "Tricipiti": 20,
+    "Dorso / Petto / Tricipiti": 3,
+    "Dorso / Petto": 2,
+    "Petto / Core": 1,
+    "Spalle / Petto": 1,
+    "Petto / Tricipiti / Core": 1,
+    "Spalle / Tricipiti / Core": 1,
+    "Petto / Spalle / Core": 1,
+    "Gambe / Spalle / Core": 1,
+    "Avambracci": 1,
+    "Mobilità": 38,
+    "Polpacci": 1,
+    "Avambracci / Core": 1,
+    "Core / Cardio": 1,
+    "Total body": 48,
+    "Gambe / Glutei": 1,
+    "Core / Adduttori": 1,
+    "Spalle / Dorso": 1,
+    "Glutei": 1
+  },
+  "categoryProvenance": {
+    "APP_RULE_RUNTIME_CONVERSION": 506,
+    "APP_MODEL_DIRECT": 290,
+    "APP_EXERCISE_METADATA_RULE": 291
+  },
+  "worksetCount": 45,
+  "worksetUnique": 45,
+  "issueCount": 45,
+  "issuesByType": {
+    "CATEGORY_OTHER": 45
+  },
+  "records": [
+    {
+      "canonicalExerciseId": "ex-arm-circling",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-back-extension-apparatus",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "BACK_EXTENSION",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-banded-biceps-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-banded-triceps-extension",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-banded-unilateral-triceps-extension",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-box-jumps",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "PLYOMETRIC",
+      "family": "JUMP",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-boxer",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-cable-unilateral-triceps-pressdown",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-contralateral-limb-raises",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-cross-cable-triceps-pressdown",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ELBOW_FLEXION",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-donkey-kick",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-dumbbell-biceps-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-dumbbell-hang-power-clean",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-dumbbell-triceps-extension",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-ez-bar-biceps-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-hammer-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-hang-power-clean",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-hang-power-snatch",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-lateral-shoulder-raise",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "LATERAL_RAISE",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-machine-biceps-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-medicine-ball-clean",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-muscle-snatch",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-dumbbell-snatch",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-kettlebell-clean",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-power-clean",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-power-snatch",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-prone-walkout",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-push-jerk",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-quadruped-leg-lift",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-reverse-wrist-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "FOREARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-rope-triceps-pushdown",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-rotator-cuff-stabilization-with-theraband",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ROTATOR_CUFF",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-russian-twist",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-deadlift",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-split-jerk",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-squat-push-press",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "TOTAL_BODY",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-standing-jump-and-reach",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "PLYOMETRIC",
+      "family": "JUMP",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-sumo-dead-lift-high-pull",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "POWER",
+      "family": "OLYMPIC",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-superman",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "CALISTHENICS",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-triceps-push-up",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-jump",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "PLYOMETRIC",
+      "family": "GENERAL",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-unilateral-cross-body-triceps-extension",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "ARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-wrist-curl",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "FOREARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    },
+    {
+      "canonicalExerciseId": "ex-wrist-extension",
+      "category": "OTHER",
+      "categoryProvenance": "APP_RULE_RUNTIME_CONVERSION",
+      "movementType": "STRENGTH",
+      "family": "FOREARM",
+      "runtimeGroups": [],
+      "issues": [
+        {
+          "type": "CATEGORY_OTHER",
+          "status": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+          "reason": "OTHER is fail-safe but non-discriminating."
+        }
+      ]
+    }
+  ]
+}
