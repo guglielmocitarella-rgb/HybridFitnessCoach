@@ -1,0 +1,619 @@
+{
+  "schemaVersion": "3.2C-R",
+  "integrity": {
+    "canonical": 1087,
+    "unique": 1087,
+    "missingIds": 0,
+    "duplicates": 0
+  },
+  "skillCatalog": {
+    "verifiedSkillCount": 15,
+    "nodeCount": 60
+  },
+  "workset": {
+    "expected": 143,
+    "processed": 143,
+    "unique": 143,
+    "missing": 0,
+    "duplicates": 0
+  },
+  "terminalClassifications": [
+    {
+      "canonicalExerciseId": "ex-45-degree-forward-lean-dips",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-90-degree-push-up",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-advanced-tuck-front-lever-rows",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-alternating-front-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-angled-half-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-archer-arm-in-ring-rows",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-archer-ring-rows",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-back-lever-pullout",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-band-assisted-planche",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-bar-pull-up-eccentrics",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-bent-arm-bent-body-press-to-handstand",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-bent-arm-pull-up-to-back-lever",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-bent-arm-straight-body-press-to-handstand",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-box-headstand-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-butterfly-mount",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-chest-roll-straight-body-press-to-handstand",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-circle-front-levers",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-false-grip-muscle-up",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-flat-back-back-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-flat-back-front-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-flat-back-planche",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-floor-half-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-floor-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-handstand-push-up",
+      "classification": "RESOLVED_MULTI_SKILL"
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-handstand-pushup",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-handstand-shoulder-taps",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-handstand-with-one-arm-support",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-headstand-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-parallette-handstand-push-up",
+      "classification": "RESOLVED_MULTI_SKILL"
+    },
+    {
+      "canonicalExerciseId": "ex-front-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-front-lever-pull-to-inverted-hang",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-front-lever-pull-up",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-full-back-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-full-front-lever-rows",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-full-planche-pushups",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-german-hang",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-german-hang-pullout",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-half-layout-one-leg-out-front-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-half-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-half-lever-bicycles",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-half-lever-extensions",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-half-lever-swimmers",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-hands-close-together-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-hands-elevated-one-arm-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-handstand-lower-to-back-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-handstand-walking",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-hang-pull-to-inverted-hang",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-hang-to-front-lever-row",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-iron-cross",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-iron-cross-pullouts",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-iron-cross-to-back-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-jumping-pull-ups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-kipping-clapping-pull-ups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-kipping-muscle-ups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-kipping-pull-ups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-l-sit-bent-arm-bent-body-press-to-handstand",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-l-sit-clapping-pull-ups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-l-sit-dips",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-l-sit-muscle-up",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-l-sit-straddle-press-to-handstand",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-muscle-up",
+      "classification": "RESOLVED_SKILL_ITSELF"
+    },
+    {
+      "canonicalExerciseId": "ex-muscle-up-negatives",
+      "classification": "RESOLVED_DIRECT_REGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-negative-tuck-front-lever",
+      "classification": "RESOLVED_DIRECT_REGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-non-kipping-clapping-pull-ups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-normal-muscle-up",
+      "classification": "RESOLVED_SKILL_ITSELF"
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-dip",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-rows",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-straight-muscle-up",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-one-leg-bent-l-sit",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-parallel-bar-dip-eccentrics",
+      "classification": "RESOLVED_DIRECT_REGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-parallel-bar-jumping-dips",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-parallette-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-pike-headstand-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-planche",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-planche-lean",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-planche-push-up",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-ring-row-eccentrics",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-ring-rows",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-advanced-tuck-planche",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-advanced-tuck-planche-pushups",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-dip-eccentrics",
+      "classification": "RESOLVED_DIRECT_REGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-dips",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-freestanding-handstand-pushup",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-frog-stand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-full-planche",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-full-planche-pushups",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-l-sit-dips",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-muscle-up",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-shoulder-stand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-straddle-one-arm-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-straddle-planche",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-strap-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-strap-handstand-pushup",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-tuck-planche",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-tuck-planche-pushups",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-turned-out-archer-pushups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-turned-out-l-sit",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-turned-out-pushups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-turned-out-support-hold",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-wide-dips",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-rings-wide-handstand-pushup",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-back-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-front-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-planche",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-skin-the-cat",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-flag",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-front-lever-rows",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-l-sit",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-one-arm-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-one-arm-rows",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-or-pike-stand-press-to-handstand",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-planche-pushups",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-straight-arm-frog-stand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-straight-body-one-arm-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-strict-bar-muscle-ups",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-front-lever-hold",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-front-lever-raise",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-front-lever-rows",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-half-lever",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-one-leg-front-lever",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-planche-pushups",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-tucked-flag",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-vertical-flag",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-vertical-human-flag",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-vertical-pulls",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-wall-handstand-pushup",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "ex-wall-headstand-pushup",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-wall-headstand-pushup-eccentric",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-wall-parallette-handstand-push-up",
+      "classification": "RESOLVED_MULTI_SKILL"
+    },
+    {
+      "canonicalExerciseId": "ex-wall-straddle-press-to-handstand-eccentrics",
+      "classification": "RESOLVED_DIRECT_REGRESSION"
+    },
+    {
+      "canonicalExerciseId": "ex-wall-supported-handstand",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-wall-walk",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "ex-wide-ring-rows",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "cm-toes-to-bar",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "cm-front-lever-raises-tuck",
+      "classification": "RESOLVED_DIRECT_PROGRESSION"
+    },
+    {
+      "canonicalExerciseId": "cm-handstand-kick-up",
+      "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "canonicalExerciseId": "cm-planche-lean-push-up",
+      "classification": "RESOLVED_STRENGTH_BUILDER"
+    },
+    {
+      "canonicalExerciseId": "cm-front-lever-negative",
+      "classification": "RESOLVED_DIRECT_REGRESSION"
+    }
+  ],
+  "classificationCounts": {
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 94,
+    "RESOLVED_DIRECT_PROGRESSION": 19,
+    "RESOLVED_STRENGTH_BUILDER": 19,
+    "RESOLVED_MULTI_SKILL": 3,
+    "RESOLVED_SKILL_ITSELF": 2,
+    "RESOLVED_DIRECT_REGRESSION": 6
+  },
+  "typedRelationCount": 160,
+  "relationsByType": {
+    "DIRECT_PROGRESSION": 62,
+    "SKILL_ITSELF": 67,
+    "DIRECT_REGRESSION": 6,
+    "STRENGTH_BUILDER": 25
+  },
+  "targetsByType": {
+    "NODE": 110,
+    "FAMILY": 50
+  },
+  "confidenceCounts": {
+    "HIGH_CONFIDENCE": 93,
+    "CERTAIN": 67
+  },
+  "invalidReferences": [],
+  "modelStatus": "TYPED_RELATIONS_IMPLEMENTED"
+}
