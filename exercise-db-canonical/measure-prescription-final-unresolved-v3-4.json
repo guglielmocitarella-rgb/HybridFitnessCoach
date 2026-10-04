@@ -1,0 +1,2857 @@
+[
+  {
+    "canonicalExerciseId": "ex-4-point-burpee",
+    "canonicalName": "4-Point Burpee",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-adductor-foam-rolling",
+    "canonicalName": "Adductor Foam Rolling",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-advanced-tuck-front-lever-rows",
+    "canonicalName": "Advanced Tuck Front Lever Rows",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
+    "canonicalName": "Advanced Tuck Planche Pushups",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-arch",
+    "canonicalName": "Arch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-arm-circling",
+    "canonicalName": "Arm Circling",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-armpit-foam-rolling",
+    "canonicalName": "Armpit Foam Rolling",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-asian-squat",
+    "canonicalName": "Asian Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-assisted-leg-raise",
+    "canonicalName": "Assisted Leg Raise",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-assisted-pistol-squat",
+    "canonicalName": "Assisted Pistol Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-assisted-pull-up",
+    "canonicalName": "Assisted Pull-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-back-foot-elevated-split-squat",
+    "canonicalName": "Back Foot Elevated Split Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "canonicalName": "Back Lever Pullout",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-ball-shoulder-stretch",
+    "canonicalName": "Ball Shoulder Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bastards",
+    "canonicalName": "Bastards",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bear-crawl",
+    "canonicalName": "Bear Crawl",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bear-crawls",
+    "canonicalName": "Bear Crawls",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bench-step",
+    "canonicalName": "Bench Step",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bend-and-reach",
+    "canonicalName": "Bend and Reach",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bent-arm-pull-up-to-back-lever",
+    "canonicalName": "Bent-Arm Pull-Up to Back Lever",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bent-leg-good-morning",
+    "canonicalName": "Bent Leg Good Morning",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bodyweight-leaning-side-abdominal",
+    "canonicalName": "Bodyweight Leaning Side Abdominal",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bodyweight-sit-ups",
+    "canonicalName": "Bodyweight Sit-Ups",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-boxer",
+    "canonicalName": "Boxer",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-butterfly-mount",
+    "canonicalName": "Butterfly Mount",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-candlestick",
+    "canonicalName": "Candlestick",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-cat-cow-kneeling-crunch",
+    "canonicalName": "Cat-Cow Kneeling Crunch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-chair-pose-squat",
+    "canonicalName": "Chair Pose Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-chest-and-shoulder-stretch",
+    "canonicalName": "Chest and Shoulder Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-deep-push-up",
+    "canonicalName": "Deep Push-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dish",
+    "canonicalName": "Dish",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-double-leg-abdominal-press",
+    "canonicalName": "Double-Leg Abdominal Press",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-double-leg-bridge-with-shoulder-flexion",
+    "canonicalName": "Double Leg Bridge with Shoulder Flexion",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dragon-flag-swimmers",
+    "canonicalName": "Dragon-Flag Swimmers",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-hang-power-clean",
+    "canonicalName": "Dumbbell Hang Power Clean",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dynamic-prone-plank",
+    "canonicalName": "Dynamic Prone Plank",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+    "canonicalName": "Elevated Straddle Stand Straddle Press to Handstand",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-extended-plank",
+    "canonicalName": "Extended Plank",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-extended-plank",
+    "canonicalName": "Extended Plank",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-facing-away-standing-crunch",
+    "canonicalName": "Facing-Away Standing Crunch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-forearm-and-wrist-stretch-1",
+    "canonicalName": "Forearm and Wrist Stretch 1",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-forearm-and-wrist-stretch-2",
+    "canonicalName": "Forearm and Wrist Stretch 2",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-forward-fold",
+    "canonicalName": "Forward Fold",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-forward-stability-ball-roll",
+    "canonicalName": "Forward Stability Ball Roll",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-handstand-push-up",
+    "canonicalName": "Freestanding Handstand Push-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-handstand-pushup",
+    "canonicalName": "Freestanding Handstand Pushup",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-lateral-lunge",
+    "canonicalName": "Freestanding Lateral Lunge",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-parallette-handstand-push-up",
+    "canonicalName": "Freestanding Parallette Handstand Push-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-frog-hop",
+    "canonicalName": "Frog Hop",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-front-deltoid-shoulder-press",
+    "canonicalName": "Front Deltoid Shoulder Press",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-front-foot-elevated-split-squat",
+    "canonicalName": "Front Foot Elevated Split Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-to-inverted-hang",
+    "canonicalName": "Front Lever Pull to Inverted Hang",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-up",
+    "canonicalName": "Front-Lever Pull-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-front-plank-with-rotation",
+    "canonicalName": "Front Plank with Rotation",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-full-front-lever-rows",
+    "canonicalName": "Full Front Lever Rows",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-full-planche-pushups",
+    "canonicalName": "Full Planche Pushups",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang-pullout",
+    "canonicalName": "German Hang Pullout",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-glute-stretch",
+    "canonicalName": "Glute Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-groin-stretch",
+    "canonicalName": "Groin Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-half-lever-bicycles",
+    "canonicalName": "Half-Lever Bicycles",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-half-lever-extensions",
+    "canonicalName": "Half-Lever Extensions",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-half-lever-swimmers",
+    "canonicalName": "Half-Lever Swimmers",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-half-lever-swimmers",
+    "canonicalName": "Half-Lever Swimmers",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hamstring-stretch",
+    "canonicalName": "Hamstring Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hands-elevated-one-arm-pushup",
+    "canonicalName": "Hands-Elevated One-Arm Pushup",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-handstand",
+    "canonicalName": "Handstand",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-handstand-push-up",
+    "canonicalName": "Handstand Push-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hang-power-clean",
+    "canonicalName": "Hang Power Clean",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hang-power-snatch",
+    "canonicalName": "Hang Power Snatch",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hang-pull-to-inverted-hang",
+    "canonicalName": "Hang Pull to Inverted Hang",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hang-to-front-lever-row",
+    "canonicalName": "Hang to Front Lever Row",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-heel-kicks",
+    "canonicalName": "Heel Kicks",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-high-to-low-plank",
+    "canonicalName": "High-to-Low Plank",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-it-band-foam-rolling",
+    "canonicalName": "IT-Band Foam Rolling",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-jogging-and-running",
+    "canonicalName": "Jogging and Running",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "DURATION",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-judo-push-up",
+    "canonicalName": "Judo Push-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-knee-circles",
+    "canonicalName": "Knee Circles",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-knee-ups",
+    "canonicalName": "Knee-Ups",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lalanne-push-up",
+    "canonicalName": "LaLanne Push-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-low-alternating-wave-with-battle-ropes",
+    "canonicalName": "Low Alternating Wave with Battle Ropes",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lunge-to-row",
+    "canonicalName": "Lunge to Row",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lying-leg-extension",
+    "canonicalName": "Lying Leg Extension",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lying-leg-raise",
+    "canonicalName": "Lying Leg Raise",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lying-triceps-extension",
+    "canonicalName": "Lying Triceps Extension",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-mountain-climbers",
+    "canonicalName": "Mountain Climbers",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-neck-and-shoulder-stretch",
+    "canonicalName": "Neck and Shoulder Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-negative-dragon-flag",
+    "canonicalName": "Negative Dragon Flag",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-neutral-grip-horizontal-row",
+    "canonicalName": "Neutral-Grip Horizontal Row",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-normal-muscle-up",
+    "canonicalName": "Normal Muscle-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-oblique-twist-with-plate-weight",
+    "canonicalName": "Oblique Twist with Plate Weight",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-one-arm-straddle-elbow-lever",
+    "canonicalName": "One-Arm Straddle Elbow Lever",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-parallel-leg-raise",
+    "canonicalName": "Parallel Leg Raise",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-parallel-squat",
+    "canonicalName": "Parallel Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-piriformis-foam-rolling",
+    "canonicalName": "Piriformis Foam Rolling",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-planche-lean",
+    "canonicalName": "Planche Lean",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-planche-push-up",
+    "canonicalName": "Planche Push-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-plank",
+    "canonicalName": "Plank",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-plank-pose-stabilization",
+    "canonicalName": "Plank Pose Stabilization",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-prone-bench-rear-deltoid-raise",
+    "canonicalName": "Prone Bench Rear Deltoid Raise",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-pseudo-planche-push-up",
+    "canonicalName": "Pseudo-Planche Push-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rear-support",
+    "canonicalName": "Rear Support",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rings-advanced-tuck-planche-pushups",
+    "canonicalName": "Rings Advanced Tuck Planche Pushups",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rings-freestanding-handstand-pushup",
+    "canonicalName": "Rings Freestanding Handstand Pushup",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rings-full-planche-pushups",
+    "canonicalName": "Rings Full Planche Pushups",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rings-strap-handstand-pushup",
+    "canonicalName": "Rings Strap Handstand Pushup",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rings-tuck-planche-pushups",
+    "canonicalName": "Rings Tuck Planche Pushups",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rings-wide-handstand-pushup",
+    "canonicalName": "Rings Wide Handstand Pushup",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rollovers-into-straddle-sit",
+    "canonicalName": "Rollovers into Straddle Sit",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rope-triceps-pushdown",
+    "canonicalName": "Rope Triceps Pushdown",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rotator-cuff-stretch",
+    "canonicalName": "Rotator-Cuff Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rows",
+    "canonicalName": "Rows",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-russian-twist",
+    "canonicalName": "Russian Twist",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-scalene-stretch",
+    "canonicalName": "Scalene Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-dip",
+    "canonicalName": "Scapula Dip",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-foam-rolling",
+    "canonicalName": "Scapula Foam Rolling",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-foam-rolling",
+    "canonicalName": "Scapula Foam Rolling",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-one-arm-pull-up",
+    "canonicalName": "Scapula One-Arm Pull-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-pull-up",
+    "canonicalName": "Scapula Pull-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-seated-stride-into-saw-stretch",
+    "canonicalName": "Seated Stride into Saw Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-seesaw-with-ball",
+    "canonicalName": "Seesaw with Ball",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-segmental-rotation",
+    "canonicalName": "Segmental Rotation",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-shoulder-dislocates",
+    "canonicalName": "Shoulder Dislocates",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-leans",
+    "canonicalName": "Side Leans",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-plank",
+    "canonicalName": "Side Plank",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-plank-with-rotation",
+    "canonicalName": "Side Plank with Rotation",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-hip-rolls",
+    "canonicalName": "Side-to-Side Hip Rolls",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-squat",
+    "canonicalName": "Side-to-Side Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-dragon-flag",
+    "canonicalName": "Single-Leg Dragon Flag",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-skippingjump-rope",
+    "canonicalName": "Skipping/Jump Rope",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "DURATION",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-spider-push-up",
+    "canonicalName": "Spider Push-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-spine-foam-rolling",
+    "canonicalName": "Spine Foam Rolling",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_MOBILITY_AS_REPS",
+    "reason": "May require duration; exercise-specific evidence required.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-spine-roll",
+    "canonicalName": "Spine Roll",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-sprinter-sit-up",
+    "canonicalName": "Sprinter Sit-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-sprints",
+    "canonicalName": "Sprints",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "DISTANCE",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-stability-ball-jackknife",
+    "canonicalName": "Stability Ball Jackknife",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-stability-ball-rollout",
+    "canonicalName": "Stability Ball Rollout",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-stair-climb-with-biceps-curl",
+    "canonicalName": "Stair Climb with Biceps Curl",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-stair-climb-with-biceps-curl",
+    "canonicalName": "Stair Climb with Biceps Curl",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-standing-squat-bosu-balance-trainer",
+    "canonicalName": "Standing Squat (BOSU Balance Trainer)",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-star-jumps",
+    "canonicalName": "Star Jumps",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-stir-the-pot-swiss-ball",
+    "canonicalName": "Stir-the-Pot Swiss Ball",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-straddle-flag",
+    "canonicalName": "Straddle Flag",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-straddle-front-lever-rows",
+    "canonicalName": "Straddle Front Lever Rows",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-straddle-planche-pushups",
+    "canonicalName": "Straddle Planche Pushups",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-supine-legs-to-chest",
+    "canonicalName": "Supine Legs to Chest",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-supine-lying-single-leg-hamstring-stretch",
+    "canonicalName": "Supine Lying Single-Leg Hamstring Stretch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-transverse-abdominal-ball-crunch",
+    "canonicalName": "Transverse Abdominal Ball Crunch",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-transverse-activation-in-4-point-kneeling",
+    "canonicalName": "Transverse Activation in 4-Point Kneeling",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-tuck-front-lever-raise",
+    "canonicalName": "Tuck Front Lever Raise",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-tuck-front-lever-rows",
+    "canonicalName": "Tuck Front Lever Rows",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-tuck-half-lever",
+    "canonicalName": "Tuck Half Lever",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-tuck-planche-pushups",
+    "canonicalName": "Tuck Planche Pushups",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-tucked-dragon-flag",
+    "canonicalName": "Tucked Dragon Flag",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-tucked-flag",
+    "canonicalName": "Tucked Flag",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-elbow-lever",
+    "canonicalName": "Two-Arm Elbow Lever",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-unilateral-cross-body-triceps-extension",
+    "canonicalName": "Unilateral Cross-Body Triceps Extension",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-vertical-flag",
+    "canonicalName": "Vertical Flag",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-vertical-human-flag",
+    "canonicalName": "Vertical Human Flag",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-vertical-pulls",
+    "canonicalName": "Vertical Pulls",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-walking-arm-swings",
+    "canonicalName": "Walking Arm Swings",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "SECONDS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-wall-handstand-push-up",
+    "canonicalName": "Wall Handstand Push-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-wall-handstand-pushup",
+    "canonicalName": "Wall Handstand Pushup",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-wall-parallette-handstand-push-up",
+    "canonicalName": "Wall Parallette Handstand Push-Up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-weighted-dip",
+    "canonicalName": "Weighted Dip",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-weighted-pistols",
+    "canonicalName": "Weighted Pistols",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-weighted-single-leg-squat",
+    "canonicalName": "Weighted Single-Leg Squat",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-window-wipers",
+    "canonicalName": "Window Wipers",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-wrist-extension",
+    "canonicalName": "Wrist Extension",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-wrist-push-up",
+    "canonicalName": "Wrist Push-Up",
+    "field": "measure/resistanceMode",
+    "oldValue": {
+      "measure": "REPS",
+      "resistanceMode": "UNKNOWN"
+    },
+    "issueType": "RESISTANCE_INTERACTION_UNRESOLVED",
+    "reason": "Primary measure known but resistance unresolved by V3.2A.",
+    "classification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+    "evidence": {
+      "tier": "TIER_1",
+      "note": "Preserve V3.2A unresolved state."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-front-lever-raises-tuck",
+    "canonicalName": "Front lever raises tuck",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-handstand-shoulder-taps",
+    "canonicalName": "Handstand shoulder taps",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-handstand-kick-up",
+    "canonicalName": "Handstand kick-up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-planche-lean-push-up",
+    "canonicalName": "Planche lean push-up",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-front-lever-negative",
+    "canonicalName": "Front lever negative",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-plank-shoulder-tap",
+    "canonicalName": "Plank shoulder tap",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-plank-reach",
+    "canonicalName": "Plank reach",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-plank-walkout",
+    "canonicalName": "Plank walkout",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-rkc-plank",
+    "canonicalName": "RKC plank",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-side-plank-reach-through",
+    "canonicalName": "Side plank reach-through",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-side-plank-hip-lift",
+    "canonicalName": "Side plank hip lift",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-bear-plank",
+    "canonicalName": "Bear plank",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
+    "canonicalName": "Bear plank shoulder tap",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-jogging",
+    "canonicalName": "Jogging",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-tempo-run",
+    "canonicalName": "Tempo run",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-easy-run",
+    "canonicalName": "Easy run",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-recovery-run",
+    "canonicalName": "Recovery run",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-hill-run",
+    "canonicalName": "Hill run",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-shuttle-run",
+    "canonicalName": "Shuttle run",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-lateral-shuffle",
+    "canonicalName": "Lateral shuffle",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-bear-crawl-conditioning",
+    "canonicalName": "Bear crawl conditioning",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_LOCOMOTION_AS_REPS",
+    "reason": "May require time and/or distance.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-ab-wheel-rollout-to-plank",
+    "canonicalName": "Ab Wheel rollout to plank",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-handstand-wall-walk",
+    "canonicalName": "Handstand wall walk",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-wall-handstand-shrug",
+    "canonicalName": "Wall handstand shrug",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-wall-handstand-weight-shift",
+    "canonicalName": "Wall handstand weight shift",
+    "field": "measure",
+    "oldValue": "REPS",
+    "issueType": "POSSIBLE_HOLD_AS_REPS",
+    "reason": "Static/skill-hold semantics may require time/attempt.",
+    "classification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+    "evidence": {
+      "tier": "TIER_1_PLUS_RECORD_SEMANTICS",
+      "note": "Review flag only; no name-only normalization."
+    }
+  }
+]

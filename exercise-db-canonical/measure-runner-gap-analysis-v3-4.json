@@ -1,0 +1,80 @@
+{
+  "counts": {
+    "SUPPORTED": 3,
+    "SUPPORTED_WITH_LOSS": 3,
+    "SCHEMA_DEPENDENT": 1,
+    "NOT_SUPPORTED": 1
+  },
+  "rows": [
+    {
+      "measurementType": "REPS",
+      "resistanceMode": "BODYWEIGHT",
+      "requiredRunnerInput": [
+        "actualReps"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "measurementType": "REPS",
+      "resistanceMode": "EXTERNAL_LOAD",
+      "requiredRunnerInput": [
+        "actualReps",
+        "actualLoadKg"
+      ],
+      "status": "SUPPORTED_WITH_LOSS",
+      "notes": "Load is stored, but primary completion validation is reps-driven."
+    },
+    {
+      "measurementType": "REPS",
+      "resistanceMode": "ASSISTED",
+      "requiredRunnerInput": [
+        "actualReps",
+        "actualAssistanceKg"
+      ],
+      "status": "SUPPORTED_WITH_LOSS"
+    },
+    {
+      "measurementType": "TIME",
+      "resistanceMode": "BODYWEIGHT/NONE",
+      "requiredRunnerInput": [
+        "actualSeconds"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "measurementType": "TIME",
+      "resistanceMode": "EXTERNAL_LOAD/ASSISTED",
+      "requiredRunnerInput": [
+        "actualSeconds",
+        "loadOrAssistance"
+      ],
+      "status": "SUPPORTED_WITH_LOSS"
+    },
+    {
+      "measurementType": "DISTANCE",
+      "resistanceMode": "BODYWEIGHT/NONE",
+      "requiredRunnerInput": [
+        "actualDistanceMeters"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "measurementType": "DISTANCE+TIME",
+      "resistanceMode": "ANY",
+      "requiredRunnerInput": [
+        "actualDistanceMeters",
+        "actualSeconds"
+      ],
+      "status": "SCHEMA_DEPENDENT",
+      "notes": "Only one primary target is materialized."
+    },
+    {
+      "measurementType": "ATTEMPT/QUALITY/OPEN_ENDED",
+      "resistanceMode": "ANY",
+      "requiredRunnerInput": [
+        "not represented"
+      ],
+      "status": "NOT_SUPPORTED"
+    }
+  ]
+}
