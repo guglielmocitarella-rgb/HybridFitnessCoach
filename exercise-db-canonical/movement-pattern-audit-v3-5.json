@@ -49,14 +49,17 @@
     "EXTERNAL_SOURCE_DIRECT": 1
   },
   "allRecordsAudited": true,
-  "worksetRecords": 177,
-  "worksetIssues": 177,
+  "worksetRecords": 1029,
+  "worksetIssues": 1029,
   "issuesByType": {
+    "SOURCE_TAXONOMY_DERIVED": 305,
     "MISSING_OR_UNKNOWN": 176,
+    "HEURISTIC_PATTERN_UNCERTIFIED": 547,
     "MULTI_PATTERN": 1
   },
   "terminalByClass": {
-    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 176,
+    "UNRESOLVED_SOURCE_TAXONOMY_CONFLICT": 305,
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 723,
     "RESOLVED_MULTI_PATTERN": 1
   },
   "modelStatus": "V3_LIST_SUPPORTS_MULTI_PATTERN_RUNTIME_SINGLE_VALUE_GAP",

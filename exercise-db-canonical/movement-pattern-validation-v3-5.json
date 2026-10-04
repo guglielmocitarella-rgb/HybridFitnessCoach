@@ -1,5 +1,5 @@
 {
-  "validatedCommit": "c1575a315fd017f6177cdee7a141f3ec30fcea9f",
+  "validatedCommit": "961b4fe7f5220b24d5e88dde2ee57827ebeea670",
   "executionEnvironment": "github-actions",
   "canonicalCount": 1087,
   "canonicalUnique": 1087,
@@ -35,19 +35,21 @@
     "spinal-mobility": 1,
     "full-body-mobility": 1
   },
-  "worksetRecords": 177,
-  "worksetIssues": 177,
+  "worksetRecords": 1029,
+  "worksetIssues": 1029,
   "issuesByType": {
+    "SOURCE_TAXONOMY_DERIVED": 305,
     "MISSING_OR_UNKNOWN": 176,
+    "HEURISTIC_PATTERN_UNCERTIFIED": 547,
     "MULTI_PATTERN": 1
   },
   "patchesCertainHigh": 0,
   "notApplicable": 0,
   "multiPattern": 1,
-  "unresolved": 176,
+  "unresolved": 1028,
   "unresolvedByReason": {
-    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 176,
-    "RESOLVED_MULTI_PATTERN": 1
+    "UNRESOLVED_SOURCE_TAXONOMY_CONFLICT": 305,
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 723
   },
   "provenanceCoverage": "100% (0/0 patches)",
   "metadataFindings": [
