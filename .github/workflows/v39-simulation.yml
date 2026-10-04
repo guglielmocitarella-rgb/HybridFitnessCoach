@@ -15,7 +15,13 @@ jobs:
       - name: Stamp exact commit
         run: sed -i "s/__COMMIT__/$GITHUB_SHA/g" tools/simulate_engine_v39.py
       - name: Execute simulation
-        run: python tools/simulate_engine_v39.py
+        run: |\n          set -o pipefail\n          python tools/simulate_engine_v39.py 2>&1 | tee v39-simulation.log
+      - name: Upload diagnostic log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v39-diagnostic
+          path: v39-simulation.log
       - name: Regression V3.1-V3.9
         run: |
           python -m unittest tests/test_engine_simulation_v39.py -v
