@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "3.7",
+  "principle": "minimum-sufficient-lossless-fail-closed",
+  "stateDomain": [
+    "KNOWN",
+    "UNKNOWN",
+    "NOT_APPLICABLE",
+    "EVIDENCE_UNRESOLVED",
+    "SCHEMA_UNRESOLVED",
+    "IDENTITY_PROBLEM"
+  ],
+  "types": {
+    "equipmentRequirement": {
+      "mode": [
+        "NONE",
+        "REQUIRED",
+        "OPTIONAL",
+        "ONE_OF",
+        "ASSISTED_BY",
+        "EXTERNAL_LOAD",
+        "UNKNOWN"
+      ],
+      "cardinality": "structured"
+    },
+    "resistance": {
+      "source": [
+        "BODYWEIGHT",
+        "EXTERNAL_LOAD",
+        "ASSISTED",
+        "NONE",
+        "BAND",
+        "MACHINE",
+        "MANUAL_ASSISTANCE",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "separates": [
+        "source",
+        "loadInput",
+        "assistanceInput",
+        "quantification"
+      ]
+    },
+    "capability": {
+      "dimensions": [
+        "strengthRequirement",
+        "technicalDifficulty",
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ],
+      "scale": [
+        "LOW",
+        "MODERATE",
+        "HIGH",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ],
+      "legacyLevel": "LEGACY_ONLY_NO_BLIND_MAPPING"
+    },
+    "skillRelations": {
+      "relationTypes": [
+        "DIRECT_PROGRESSION",
+        "DIRECT_REGRESSION",
+        "SKILL_ITSELF",
+        "STRENGTH_BUILDER"
+      ],
+      "targetTypes": [
+        "FAMILY",
+        "NODE"
+      ]
+    },
+    "categoryGroup": {
+      "rule": "category and recovery group are distinct"
+    },
+    "prescription": {
+      "dimensions": [
+        "REPS",
+        "DURATION",
+        "DISTANCE",
+        "INTERVALS",
+        "LOAD",
+        "ASSISTANCE",
+        "DISTANCE_TIME",
+        "ATTEMPT",
+        "QUALITY",
+        "OPEN_ENDED"
+      ]
+    },
+    "movementPatterns": {
+      "cardinality": "0..n",
+      "zeroSemantics": [
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "provenance": {
+      "levels": [
+        "record",
+        "field",
+        "relation"
+      ]
+    }
+  },
+  "requiredness": {
+    "identity": "REQUIRED",
+    "category": "REQUIRED",
+    "group": "REQUIRED",
+    "equipment": "REQUIRED",
+    "resistance": "CONDITIONAL",
+    "measure": "REQUIRED",
+    "prescription": "CONDITIONAL",
+    "capability": "CONDITIONAL",
+    "skillRelations": "CONDITIONAL",
+    "movementPatterns": "OPTIONAL_ENGINE_ENHANCING"
+  },
+  "legacyCompatibility": true
+}

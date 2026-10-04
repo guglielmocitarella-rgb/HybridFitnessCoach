@@ -1,0 +1,55 @@
+{
+  "validatedCommit": "f6a3e88828c7b287efaa0dfa2785432994f5e422",
+  "executionEnvironment": "GitHub Actions DB-only",
+  "sourceCount": 1087,
+  "candidateCount": 1087,
+  "uniqueCount": 1087,
+  "missing": 0,
+  "duplicates": 0,
+  "schemaVersion": "3.7",
+  "migrationCounts": {
+    "VALIDATED_PATCH_APPLIED": 78,
+    "UNRESOLVED_PRESERVED": 974,
+    "LOSSLESS_STRUCTURAL": 35
+  },
+  "patch": {
+    "inventory": 92,
+    "eligible": 92,
+    "appliedFieldMutations": 85,
+    "rejected": 0
+  },
+  "representability": {
+    "REPRESENTABLE_WITH_DOCUMENTED_UNRESOLVED": 1052,
+    "FULLY_REPRESENTABLE": 35
+  },
+  "silentSemanticLossCount": 0,
+  "provenanceCoverage": 1087,
+  "skill": {
+    "expectedFamilies": 15,
+    "expectedNodes": 60,
+    "typedRelationRecords": 117,
+    "relationsRepresentable": true,
+    "classification": "DEGRADED_BY_UNRESOLVED",
+    "note": "Full simulation deferred to V3.9"
+  },
+  "runtimeAdapter": {
+    "identity": "DIRECT",
+    "category": "DIRECT",
+    "group": "DEGRADED_MAPPING",
+    "equipmentRequirement": "REQUIRES_RUNTIME_EVOLUTION",
+    "resistance": "REQUIRES_RUNTIME_EVOLUTION",
+    "capability": "UNSUPPORTED",
+    "skillRelations": "REQUIRES_RUNTIME_EVOLUTION",
+    "prescription": "REQUIRES_RUNTIME_EVOLUTION",
+    "movementPatterns": "DEGRADED_MAPPING",
+    "engineMetadata": "DEGRADED_MAPPING"
+  },
+  "validatorErrors": [],
+  "qualityReview": {
+    "result": "PASS",
+    "falseNormalizations": 0,
+    "semanticLosses": 0
+  },
+  "runtimeDbModified": false,
+  "status": "READY_FOR_ENGINE_CRITICAL_REMEDIATION"
+}
