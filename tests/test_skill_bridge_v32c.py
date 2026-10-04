@@ -18,4 +18,9 @@ class SkillBridgeV32CTest(unittest.TestCase):
  def test_no_ambiguous_applied(self): self.assertFalse(any(r["confidence"]=="AMBIGUOUS" for r in self.rels))
  def test_legacy_preserved(self):
   db=json.loads((OUT/"exercise-db-canonical.json").read_text()); self.assertTrue(any(x.get("skillIds") for x in db))
+ def test_legacy_semantically_incomplete_not_promoted_to_typed_progression(self):
+  legacy=json.loads((OUT/"skill-legacy-comparison-v3-2c.json").read_text())
+  incomplete={(x["canonicalExerciseId"],x["skillId"]) for x in legacy if x.get("status")=="LEGACY_SEMANTICALLY_INCOMPLETE"}
+  applied={(r["canonicalExerciseId"],r["targetId"]) for r in self.rels if r["targetType"]=="NODE"}
+  self.assertFalse(incomplete & applied)
 if __name__=="__main__": unittest.main()
