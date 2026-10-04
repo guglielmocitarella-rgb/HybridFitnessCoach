@@ -80,3 +80,5 @@ def main():
  (OUT/"SKILL_BRIDGE_AUDIT_V3_2C.md").write_text("# Exercise DB V3.2C-R — Typed Skill Relations\n\nCanonical: %d/%d. Skill catalog: %d families / %d nodes. Historical workset: %d processed, %d unresolved. Typed relations: %d. Runtime DB modified: NO.\n"%(len(db),len(set(ids)),len(by),len(nodes),len(terminal),len(unresolved),len(rels)))
  print(json.dumps(validation,indent=2))
 if __name__=="__main__": main()
+
+# V3.2C-R executed-validation trigger
