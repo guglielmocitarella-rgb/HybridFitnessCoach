@@ -54,9 +54,11 @@ def main():
    if sid not in valid:
     invalid.append({"canonicalExerciseId":ex["id"],"skillId":sid}); legacy.append({"canonicalExerciseId":ex["id"],"skillId":sid,"status":"LEGACY_INVALID_REFERENCE"}); continue
    n=lookup[sid]; exact=norm(ex.get("canonicalNameEn")) in node_names(n) or norm(ex.get("canonicalNameIt")) in node_names(n)
-   rt="SKILL_ITSELF" if exact else "DIRECT_PROGRESSION"
-   rels.append(relation(ex,"NODE",sid,rt,"CERTAIN" if exact else "HIGH_CONFIDENCE","APP_SKILL_CATALOG","Existing valid legacy skillIds reference to authoritative SkillCatalog node "+n["exerciseName"],"Preserved legacy node bridge; typed relation makes semantics explicit.",{"tier":1,"method":"legacy_valid_node_bridge"},"SkillCatalog.kt"))
-   legacy.append({"canonicalExerciseId":ex["id"],"skillId":sid,"status":"LEGACY_CONFIRMED" if exact else "LEGACY_SEMANTICALLY_INCOMPLETE"})
+   if exact:
+    rels.append(relation(ex,"NODE",sid,"SKILL_ITSELF","CERTAIN","APP_SKILL_CATALOG","Canonical exercise identity exactly matches the authoritative SkillCatalog node "+n["exerciseName"],"Exact identity supports SKILL_ITSELF independently of the legacy bridge.",{"tier":1,"method":"legacy_exact_node_identity"},"SkillCatalog.kt"))
+    legacy.append({"canonicalExerciseId":ex["id"],"skillId":sid,"status":"LEGACY_CONFIRMED"})
+   else:
+    legacy.append({"canonicalExerciseId":ex["id"],"skillId":sid,"status":"LEGACY_SEMANTICALLY_INCOMPLETE"})
  # Record-first review of complete historical workset.
  for ex in work:
   rs,u=classify_workset(ex,nodes,by); rels.extend(rs)
