@@ -11,6 +11,6 @@ Pattern distribution: {"ankle-mobility": 1, "anti-extension": 6, "anti-lateral-f
 
 Workset: 1029 records / 1029 issues. Missing/unknown and heuristic or source-taxonomy-derived patterns remain terminally unresolved unless supported by stronger field evidence. Existing multi-pattern records are preserved rather than collapsed. Automatic patches: 0.
 
-Variety/repetitivity finding: **MIXED**. DB pattern gaps reduce sequencing information, but runtime pattern use is narrow; location/equipment filtering can shrink pools and V3 is not integrated, so no false live-runtime resolution is claimed.
+Variety/repetitivity finding: **MIXED**. DB pattern gaps reduce sequencing information, but runtime pattern use is narrow; synthetic BODYWEIGHT/HOME/GYM equipment fixtures quantify candidate-pool shrinkage read-only; they are not claimed as live-runtime equivalence because V3 is not integrated.
 
 Provenance coverage for patches: 100% (0/0). Previous V3.1–V3.4 artifacts preserved.
