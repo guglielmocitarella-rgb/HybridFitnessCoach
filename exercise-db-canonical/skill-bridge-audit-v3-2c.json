@@ -599,20 +599,20 @@
     "RESOLVED_SKILL_ITSELF": 2,
     "RESOLVED_DIRECT_REGRESSION": 6
   },
-  "typedRelationCount": 160,
+  "typedRelationCount": 117,
   "relationsByType": {
-    "DIRECT_PROGRESSION": 62,
     "SKILL_ITSELF": 67,
     "DIRECT_REGRESSION": 6,
+    "DIRECT_PROGRESSION": 19,
     "STRENGTH_BUILDER": 25
   },
   "targetsByType": {
-    "NODE": 110,
+    "NODE": 67,
     "FAMILY": 50
   },
   "confidenceCounts": {
-    "HIGH_CONFIDENCE": 93,
-    "CERTAIN": 67
+    "CERTAIN": 67,
+    "HIGH_CONFIDENCE": 50
   },
   "invalidReferences": [],
   "modelStatus": "TYPED_RELATIONS_IMPLEMENTED"

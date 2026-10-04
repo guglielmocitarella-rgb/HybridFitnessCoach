@@ -1,72 +1,16 @@
 [
   {
-    "canonicalExerciseId": "cm-affondi",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-assisted-one-arm-pull-up",
-    "targetType": "NODE",
-    "targetId": "oap_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm pull-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
     "canonicalExerciseId": "cm-back-lever-advanced-tuck",
     "targetType": "NODE",
     "targetId": "backlever_advanced_tuck",
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced Tuck Back Lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced Tuck Back Lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-back-lever-advanced-tuck",
-    "targetType": "NODE",
-    "targetId": "backlever_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Back Lever",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-back-lever-tuck",
-    "targetType": "NODE",
-    "targetId": "backlever_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Back Lever",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -76,11 +20,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck Back Lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck Back Lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -90,25 +34,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Band-assisted Muscle-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Band-assisted Muscle-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-band-assisted-muscle-up",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -118,53 +48,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Box Pistol Squat",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Box Pistol Squat",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-box-pistol-squat",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-bulgarian-split-squat",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-chest-to-bar-pull-up",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -174,11 +62,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Trazioni chest-to-bar",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Trazioni chest-to-bar",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -188,25 +76,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Chest-to-bar Pull-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Chest-to-bar Pull-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-compression-lift",
-    "targetType": "NODE",
-    "targetId": "lsit_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -216,11 +90,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node V-sit Compression",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node V-sit Compression",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -230,25 +104,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip parallele",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip parallele",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-dip-alle-parallele",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -258,11 +118,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip assistite",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip assistite",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -272,11 +132,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip profondi",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip profondi",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -286,11 +146,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip zavorrate",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip zavorrate",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -300,25 +160,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag negative",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dragon flag negative",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-dragon-flag-negativa",
-    "targetType": "NODE",
-    "targetId": "dragon_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -328,25 +174,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Elevated pike push-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Elevated pike push-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-elevated-pike-push-up",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -356,11 +188,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Freestanding Handstand",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Freestanding Handstand",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -392,59 +224,17 @@
     }
   },
   {
-    "canonicalExerciseId": "cm-goblet-squat",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
     "canonicalExerciseId": "cm-handstand-shoulder-taps",
     "targetType": "NODE",
     "targetId": "handstand_wall_shoulder_tap",
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Wall Handstand Shoulder Tap",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Wall Handstand Shoulder Tap",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-handstand-shoulder-taps",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-human-flag-tuck",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -454,11 +244,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck Human Flag",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck Human Flag",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -468,53 +258,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Incline one-arm push-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Incline one-arm push-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-incline-one-arm-push-up",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-jumping-muscle-up",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-l-sit-tuck",
-    "targetType": "NODE",
-    "targetId": "lsit_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -524,25 +272,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck L-sit",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck L-sit",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-military-press",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -552,25 +286,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up Negative",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Muscle-up Negative",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-muscle-up-negativo",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -580,25 +300,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One-arm eccentric",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One-arm eccentric",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-one-arm-eccentric",
-    "targetType": "NODE",
-    "targetId": "oap_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm pull-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -608,39 +314,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One-arm negative",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One-arm negative",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-one-arm-negative",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-one-arm-push-up-assistito",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -650,11 +328,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One-leg front lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One-leg front lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -664,25 +342,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Assisted Pistol Squat",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Assisted Pistol Squat",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-pistol-squat-assistito",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -700,101 +364,17 @@
     }
   },
   {
-    "canonicalExerciseId": "cm-push-up-declinato",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-push-up-inclinato",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
     "canonicalExerciseId": "cm-reverse-crunch",
     "targetType": "NODE",
     "targetId": "dragon_1",
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Reverse crunch",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Reverse crunch",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-reverse-crunch",
-    "targetType": "NODE",
-    "targetId": "dragon_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-ring-dip",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-ring-muscle-up-transition",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-shoulder-press-manubri",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -804,11 +384,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Shrimp squat",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Shrimp squat",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -818,53 +398,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Assisted shrimp squat",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Assisted shrimp squat",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-shrimp-squat-assistito",
-    "targetType": "NODE",
-    "targetId": "shrimp_3",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Shrimp squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-side-plank-star",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-single-leg-romanian-deadlift",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -874,39 +412,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Split squat",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Split squat",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-split-squat",
-    "targetType": "NODE",
-    "targetId": "shrimp_3",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Shrimp squat",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-straddle-human-flag",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -916,53 +426,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle Human Flag",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle Human Flag",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-straight-bar-dip",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-trazioni-esplosive",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-trazioni-prone",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -972,11 +440,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Trazioni prone",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Trazioni prone",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -986,11 +454,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pull-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pull-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1000,11 +468,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Trazioni zavorrate",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Trazioni zavorrate",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1014,39 +482,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck dragon flag",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck dragon flag",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-tuck-dragon-flag",
-    "targetType": "NODE",
-    "targetId": "dragon_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-v-sit",
-    "targetType": "NODE",
-    "targetId": "lsit_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1056,39 +496,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node V-sit",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node V-sit",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-v-sit-tuck",
-    "targetType": "NODE",
-    "targetId": "vsit_hold",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node V-sit",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-vertical-flag-hold",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1098,25 +510,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Vertical Flag Hold",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Vertical Flag Hold",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    }
-  },
-  {
-    "canonicalExerciseId": "cm-wall-hspu-negativa",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "source": "APP_SKILL_CATALOG",
-    "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1126,11 +524,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced Tuck Back Lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced Tuck Back Lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1140,11 +538,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced tuck front lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced tuck front lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1168,11 +566,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced tuck planche",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced tuck planche",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1196,11 +594,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Archer pull-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Archer pull-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1210,11 +608,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Archer push-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Archer push-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1224,11 +622,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Assisted Pistol Squat",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Assisted Pistol Squat",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1238,11 +636,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Australian pull-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Australian pull-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1252,11 +650,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Back Lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Back Lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1350,11 +748,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dragon flag",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1378,11 +776,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Freestanding Handstand",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Freestanding Handstand",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1462,11 +860,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Frog stand",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Frog stand",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1504,11 +902,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Full front lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Full front lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1532,11 +930,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Full planche",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Full planche",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1560,11 +958,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Handstand push-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1588,11 +986,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Human Flag",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1602,11 +1000,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node L-sit",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1700,11 +1098,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm pull-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One arm pull-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1714,11 +1112,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One arm push-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1742,11 +1140,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pike push-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pike push-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1756,11 +1154,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pistol Squat",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1784,11 +1182,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pull-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pull-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1938,11 +1336,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle Back Lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle Back Lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1952,11 +1350,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle front lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle front lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -1994,11 +1392,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle planche",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle planche",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -2022,11 +1420,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck Back Lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck Back Lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -2036,11 +1434,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck front lever",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck front lever",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -2092,11 +1490,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck L-sit",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck L-sit",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -2120,11 +1518,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck planche",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck planche",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -2148,11 +1546,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Typewriter pull-up",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Typewriter pull-up",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -2162,11 +1560,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Wall Handstand",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Wall Handstand",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {
@@ -2176,11 +1574,11 @@
     "relationType": "SKILL_ITSELF",
     "source": "APP_SKILL_CATALOG",
     "sourceRecordId": "SkillCatalog.kt",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Wall HSPU",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Wall HSPU",
     "confidence": "CERTAIN",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     }
   },
   {

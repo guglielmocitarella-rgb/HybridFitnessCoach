@@ -1,76 +1,16 @@
 [
   {
-    "canonicalExerciseId": "cm-affondi",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-assisted-one-arm-pull-up",
-    "targetType": "NODE",
-    "targetId": "oap_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
     "canonicalExerciseId": "cm-back-lever-advanced-tuck",
     "targetType": "NODE",
     "targetId": "backlever_advanced_tuck",
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced Tuck Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced Tuck Back Lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-back-lever-advanced-tuck",
-    "targetType": "NODE",
-    "targetId": "backlever_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-back-lever-tuck",
-    "targetType": "NODE",
-    "targetId": "backlever_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -81,11 +21,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck Back Lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -96,26 +36,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Band-assisted Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Band-assisted Muscle-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-band-assisted-muscle-up",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -126,56 +51,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Box Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Box Pistol Squat",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-box-pistol-squat",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-bulgarian-split-squat",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-chest-to-bar-pull-up",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -186,11 +66,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Trazioni chest-to-bar",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Trazioni chest-to-bar",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -201,26 +81,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Chest-to-bar Pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Chest-to-bar Pull-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-compression-lift",
-    "targetType": "NODE",
-    "targetId": "lsit_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -231,11 +96,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node V-sit Compression",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node V-sit Compression",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -246,26 +111,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip parallele",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip parallele",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-dip-alle-parallele",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -276,11 +126,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip assistite",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip assistite",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -291,11 +141,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip profondi",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip profondi",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -306,11 +156,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dip zavorrate",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dip zavorrate",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -321,26 +171,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag negative",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dragon flag negative",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-dragon-flag-negativa",
-    "targetType": "NODE",
-    "targetId": "dragon_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -351,26 +186,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Elevated pike push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Elevated pike push-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-elevated-pike-push-up",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -381,11 +201,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Freestanding Handstand",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Freestanding Handstand",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -420,62 +240,17 @@
     "sourceRecordId": "SkillCatalog.kt"
   },
   {
-    "canonicalExerciseId": "cm-goblet-squat",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
     "canonicalExerciseId": "cm-handstand-shoulder-taps",
     "targetType": "NODE",
     "targetId": "handstand_wall_shoulder_tap",
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Wall Handstand Shoulder Tap",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Wall Handstand Shoulder Tap",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-handstand-shoulder-taps",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-human-flag-tuck",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -486,11 +261,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck Human Flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck Human Flag",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -501,56 +276,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Incline one-arm push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Incline one-arm push-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-incline-one-arm-push-up",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-jumping-muscle-up",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-l-sit-tuck",
-    "targetType": "NODE",
-    "targetId": "lsit_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -561,26 +291,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck L-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck L-sit",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-military-press",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -591,26 +306,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up Negative",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Muscle-up Negative",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-muscle-up-negativo",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -621,26 +321,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One-arm eccentric",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One-arm eccentric",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-one-arm-eccentric",
-    "targetType": "NODE",
-    "targetId": "oap_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -651,41 +336,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One-arm negative",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One-arm negative",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-one-arm-negative",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-one-arm-push-up-assistito",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -696,11 +351,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One-leg front lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One-leg front lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -711,26 +366,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Assisted Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Assisted Pistol Squat",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-pistol-squat-assistito",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -750,107 +390,17 @@
     "sourceRecordId": "SkillCatalog.kt"
   },
   {
-    "canonicalExerciseId": "cm-push-up-declinato",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-push-up-inclinato",
-    "targetType": "NODE",
-    "targetId": "oapu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
     "canonicalExerciseId": "cm-reverse-crunch",
     "targetType": "NODE",
     "targetId": "dragon_1",
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Reverse crunch",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Reverse crunch",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-reverse-crunch",
-    "targetType": "NODE",
-    "targetId": "dragon_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-ring-dip",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-ring-muscle-up-transition",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-shoulder-press-manubri",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -861,11 +411,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Shrimp squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Shrimp squat",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -876,56 +426,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Assisted shrimp squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Assisted shrimp squat",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-shrimp-squat-assistito",
-    "targetType": "NODE",
-    "targetId": "shrimp_3",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Shrimp squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-side-plank-star",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-single-leg-romanian-deadlift",
-    "targetType": "NODE",
-    "targetId": "pistol_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -936,41 +441,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Split squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Split squat",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-split-squat",
-    "targetType": "NODE",
-    "targetId": "shrimp_3",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Shrimp squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-straddle-human-flag",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -981,56 +456,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle Human Flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle Human Flag",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-straight-bar-dip",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-trazioni-esplosive",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-trazioni-prone",
-    "targetType": "NODE",
-    "targetId": "muscleup_strict",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Muscle-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1041,11 +471,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Trazioni prone",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Trazioni prone",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1056,11 +486,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pull-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1071,11 +501,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Trazioni zavorrate",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Trazioni zavorrate",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1086,41 +516,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck dragon flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck dragon flag",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-tuck-dragon-flag",
-    "targetType": "NODE",
-    "targetId": "dragon_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-v-sit",
-    "targetType": "NODE",
-    "targetId": "lsit_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1131,41 +531,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node V-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node V-sit",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-v-sit-tuck",
-    "targetType": "NODE",
-    "targetId": "vsit_hold",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node V-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-vertical-flag-hold",
-    "targetType": "NODE",
-    "targetId": "flag_full",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1176,26 +546,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Vertical Flag Hold",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Vertical Flag Hold",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
-    },
-    "sourceRecordId": "SkillCatalog.kt"
-  },
-  {
-    "canonicalExerciseId": "cm-wall-hspu-negativa",
-    "targetType": "NODE",
-    "targetId": "hspu_4",
-    "relationType": "DIRECT_PROGRESSION",
-    "confidence": "HIGH_CONFIDENCE",
-    "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
-    "provenance": {
-      "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1206,11 +561,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced Tuck Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced Tuck Back Lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1221,11 +576,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced tuck front lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced tuck front lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1251,11 +606,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Advanced tuck planche",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Advanced tuck planche",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1281,11 +636,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Archer pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Archer pull-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1296,11 +651,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Archer push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Archer push-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1311,11 +666,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Assisted Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Assisted Pistol Squat",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1326,11 +681,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Australian pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Australian pull-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1341,11 +696,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Back Lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1446,11 +801,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Dragon flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Dragon flag",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1476,11 +831,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Freestanding Handstand",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Freestanding Handstand",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1566,11 +921,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Frog stand",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Frog stand",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1611,11 +966,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Full front lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Full front lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1641,11 +996,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Full planche",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Full planche",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1671,11 +1026,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Handstand push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Handstand push-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1701,11 +1056,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Human Flag",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Human Flag",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1716,11 +1071,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node L-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node L-sit",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1821,11 +1176,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One arm pull-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1836,11 +1191,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node One arm push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node One arm push-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1866,11 +1221,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pike push-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pike push-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1881,11 +1236,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pistol Squat",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pistol Squat",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -1911,11 +1266,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Pull-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2076,11 +1431,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle Back Lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2091,11 +1446,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle front lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle front lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2136,11 +1491,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Straddle planche",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Straddle planche",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2166,11 +1521,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck Back Lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck Back Lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2181,11 +1536,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck front lever",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck front lever",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2241,11 +1596,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck L-sit",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck L-sit",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2271,11 +1626,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Tuck planche",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Tuck planche",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2301,11 +1656,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Typewriter pull-up",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Typewriter pull-up",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2316,11 +1671,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Wall Handstand",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Wall Handstand",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
@@ -2331,11 +1686,11 @@
     "relationType": "SKILL_ITSELF",
     "confidence": "CERTAIN",
     "source": "APP_SKILL_CATALOG",
-    "evidence": "Existing valid legacy skillIds reference to authoritative SkillCatalog node Wall HSPU",
-    "reason": "Preserved legacy node bridge; typed relation makes semantics explicit.",
+    "evidence": "Canonical exercise identity exactly matches the authoritative SkillCatalog node Wall HSPU",
+    "reason": "Exact identity supports SKILL_ITSELF independently of the legacy bridge.",
     "provenance": {
       "tier": 1,
-      "method": "legacy_valid_node_bridge"
+      "method": "legacy_exact_node_identity"
     },
     "sourceRecordId": "SkillCatalog.kt"
   },
