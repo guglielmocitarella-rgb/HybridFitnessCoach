@@ -1,0 +1,59 @@
+name: Exercise DB V3.2C-X final gate
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths: ['.github/workflows/exercise-db-v32c-final.yml']
+permissions:
+  contents: write
+jobs:
+  validate:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/exercise-db-v3
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate typed skill relations
+        run: python tools/audit_skill_bridge_v32c.py
+      - name: JSON syntax
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          names=['skill-bridge-audit-v3-2c.json','skill-relations-v3-2c.json','skill-provenance-v3-2c.json','skill-final-unresolved-v3-2c.json','skill-validation-v3-2c.json','skill-legacy-comparison-v3-2c.json']
+          for n in names: json.loads((pathlib.Path('exercise-db-canonical')/n).read_text())
+          print('JSON PASS',len(names))
+          PY
+      - name: Canonical validator
+        run: python tools/validate_exercise_db_canonical.py
+      - name: Regression suite
+        run: python -m unittest tests.test_exercise_db_canonical tests.test_equipment_v31c tests.test_resistance_mode_v32a tests.test_level_capability_v32b tests.test_skill_bridge_v32c -v
+      - name: Final gate integrity and validation artifact
+        run: |
+          python - <<'PY'
+          import collections,json,os,pathlib,subprocess,sys
+          root=pathlib.Path('.'); out=root/'exercise-db-canonical'
+          db=json.loads((out/'exercise-db-canonical.json').read_text()); rels=json.loads((out/'skill-relations-v3-2c.json').read_text()); prov=json.loads((out/'skill-provenance-v3-2c.json').read_text()); unresolved=json.loads((out/'skill-final-unresolved-v3-2c.json').read_text()); audit=json.loads((out/'skill-bridge-audit-v3-2c.json').read_text())
+          ids=[x.get('id') for x in db]; assert len(db)==1087 and len(set(ids))==1087 and all(ids)
+          w=audit['workset']; assert w['expected']==w['processed']==w['unique'] and w['missing']==0 and w['duplicates']==0
+          assert len(prov)==len(rels) and all(p.get('source') and p.get('evidence') and p.get('confidence') and p.get('provenance') for p in prov)
+          assert not audit['invalidReferences']; assert not any(r.get('confidence')=='AMBIGUOUS' for r in rels)
+          keys=[(r['canonicalExerciseId'],r['targetType'],r['targetId'],r['relationType']) for r in rels]; assert len(keys)==len(set(keys))
+          before=subprocess.check_output(['git','show',os.environ['GITHUB_SHA']+':app/src/main/assets/exercise-db-v2/exercises.json']); now=(root/'app/src/main/assets/exercise-db-v2/exercises.json').read_bytes(); assert before==now
+          v=json.loads((out/'skill-validation-v3-2c.json').read_text())
+          v.update({'validatedCommit':os.environ['GITHUB_SHA'],'executionEnvironment':'GitHub Actions ubuntu-latest Python '+sys.version.split()[0],'executionTreeSource':'actions/checkout exact feature/exercise-db-v3 head','auditCommand':'python tools/audit_skill_bridge_v32c.py','auditExitCode':0,'auditResult':'PASS','validatorCommand':'python tools/validate_exercise_db_canonical.py','validatorExitCode':0,'validatorResult':'PASS','testCommand':'python -m unittest tests.test_exercise_db_canonical tests.test_equipment_v31c tests.test_resistance_mode_v32a tests.test_level_capability_v32b tests.test_skill_bridge_v32c -v','testsExecuted':'full requested regression modules','testsFailed':0,'testsErrors':0,'canonicalCount':len(db),'canonicalUnique':len(set(ids)),'canonicalMissing':sum(not x for x in ids),'canonicalDuplicates':len(ids)-len(set(ids)),'worksetExpected':w['expected'],'worksetProcessed':w['processed'],'worksetUnique':w['unique'],'worksetMissing':w['missing'],'worksetDuplicates':w['duplicates'],'terminalClassificationCount':len(audit['terminalClassifications']),'typedRelationCount':len(rels),'exercisesWithTypedRelations':len({r['canonicalExerciseId'] for r in rels}),'relationsByType':dict(collections.Counter(r['relationType'] for r in rels)),'familyTargetCount':sum(r['targetType']=='FAMILY' for r in rels),'nodeTargetCount':sum(r['targetType']=='NODE' for r in rels),'certainRelations':sum(r['confidence']=='CERTAIN' for r in rels),'highConfidenceRelations':sum(r['confidence']=='HIGH_CONFIDENCE' for r in rels),'unresolvedCount':len(unresolved),'unresolvedByReason':dict(collections.Counter(x['classification'] for x in unresolved)),'provenanceCoverage':1.0,'validSkillReferences':len(rels),'invalidSkillReferences':0,'duplicateRelations':0,'referentialIntegrityResult':'PASS','runtimeDbModified':False,'ciUsed':True,'ciRunId':os.environ['GITHUB_RUN_ID'],'status':'PASS'})
+          (out/'skill-validation-v3-2c.json').write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n'); print(json.dumps(v,indent=2))
+          PY
+      - name: Persist outputs and remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exercise-db-canonical/skill-* exercise-db-canonical/SKILL_*
+          git rm .github/workflows/exercise-db-v32c-final.yml
+          git commit -m "db(v3.2c): validate and persist typed skill relations [skip ci]"
+          git push origin HEAD:feature/exercise-db-v3
