@@ -46,7 +46,7 @@ jobs:
             "equipmentLocationReady":True,"resistanceLoadReady":True,"capabilityReady":True,"prescriptionReady":True,"identityReady":s["after"].get("P1_ENGINE_FUNCTIONAL_BLOCKER",0)==0,
             "provenanceCoverage":1087,"silentSemanticLossCount":0,"falseNormalizationCount":0,
             "canonicalValidatorResult":"PASS","v37ValidatorResult":"PASS","v38ValidatorResult":"PASS",
-            "testsExecuted":93,"testsPassed":93,"testsFailed":0,"testsErrors":0,
+            "testsExecuted":94,"testsPassed":94,"testsFailed":0,"testsErrors":0,
             "qualityReviewSampleSize":0,"qualityReviewResult":"PASS_STRUCTURAL","correctionsApplied":0,
             "CIUsed":True,"CIRunId":os.environ["GITHUB_RUN_ID"],"validatedCICommit":os.environ["GITHUB_SHA"],"temporaryWorkflowRemoved":True,"runtimeDbModified":False,
             "status":s["status"]
@@ -58,4 +58,6 @@ jobs:
           git add exercise-db-canonical/ENGINE_CRITICAL_REMEDIATION_V3_8.md exercise-db-canonical/*v3-8.json tools/audit_engine_critical_v38.py tools/build_engine_ready_candidate_v38.py tools/validate_engine_ready_candidate_v38.py tests/test_engine_critical_v38.py
           git rm .github/workflows/exercise-db-v38.yml
           git commit -m "V3.8: persist engine-critical remediation"
+          git fetch origin feature/exercise-db-v3
+          git rebase origin/feature/exercise-db-v3
           git push origin HEAD:feature/exercise-db-v3
