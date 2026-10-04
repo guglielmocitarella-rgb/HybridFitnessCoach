@@ -1,0 +1,46 @@
+name: Exercise DB V3.7 schema candidate
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths: ['.github/workflows/exercise-db-v37.yml']
+permissions:
+  contents: write
+jobs:
+  v37:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: feature/exercise-db-v3, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Generate isolated V3 candidate
+        run: python tools/build_engine_schema_candidate_v37.py
+      - name: Candidate validator
+        run: python tools/validate_engine_schema_candidate_v37.py
+      - name: Canonical validator
+        run: python tools/validate_exercise_db_canonical.py
+      - name: Regression V3.1 through V3.7
+        run: |
+          python -m unittest -v             tests/test_exercise_db_canonical.py             tests/test_equipment_v31c.py             tests/test_resistance_mode_v32a.py             tests/test_level_capability_v32b.py             tests/test_skill_bridge_v32c.py             tests/test_category_group_v33.py             tests/test_measure_prescription_v34.py             tests/test_movement_pattern_v35.py             tests/test_engine_readiness_v36.py             tests/test_engine_schema_candidate_v37.py
+      - name: Quality and preservation gate
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          d=pathlib.Path('exercise-db-canonical')
+          v=json.loads((d/'engine-v3-validation-v3-7.json').read_text())
+          assert v['sourceCount']==1087 and v['candidateCount']==1087 and v['uniqueCount']==1087
+          assert v['missing']==0 and v['duplicates']==0 and v['silentSemanticLossCount']==0
+          assert v['provenanceCoverage']==1087 and v['runtimeDbModified'] is False
+          assert v['status']=='READY_FOR_ENGINE_CRITICAL_REMEDIATION'
+          print(v)
+          PY
+      - name: Persist V3.7 outputs and remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exercise-db-canonical/ENGINE_SCHEMA_CANDIDATE_V3_7.md             exercise-db-canonical/engine-schema-candidate-v3-7.json             exercise-db-canonical/exercise-db-v3-candidate.json             exercise-db-canonical/engine-v3-migration-v3-7.json             exercise-db-canonical/engine-v3-migration-unresolved-v3-7.json             exercise-db-canonical/engine-v3-patch-application-v3-7.json             exercise-db-canonical/engine-v3-losslessness-audit-v3-7.json             exercise-db-canonical/engine-v3-representability-v3-7.json             exercise-db-canonical/engine-v3-runtime-adapter-spec-v3-7.json             exercise-db-canonical/engine-v3-forward-contract-v3-7.json             exercise-db-canonical/engine-v3-skill-structural-check-v3-7.json             exercise-db-canonical/engine-v3-validation-v3-7.json
+          git rm .github/workflows/exercise-db-v37.yml
+          git commit -m "V3.7: persist engine schema candidate"
+          git push origin HEAD:feature/exercise-db-v3
