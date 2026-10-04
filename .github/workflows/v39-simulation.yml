@@ -1,21 +1,33 @@
 name: V3.9 Selection Prescription Simulation
 on:
   push:
-    branches: [feature/exercise-db-v3]
-    paths: ['tools/simulate_engine_v39.py','tools/validate_engine_simulation_v39.py','tests/test_engine_simulation_v39.py','.github/workflows/v39-simulation.yml']
-permissions: {contents: write}
+    branches:
+      - feature/exercise-db-v3
+    paths:
+      - 'tools/simulate_engine_v39.py'
+      - 'tools/validate_engine_simulation_v39.py'
+      - 'tests/test_engine_simulation_v39.py'
+      - '.github/workflows/v39-simulation.yml'
+permissions:
+  contents: write
 jobs:
   simulate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: {ref: feature/exercise-db-v3, fetch-depth: 0}
+        with:
+          ref: feature/exercise-db-v3
+          fetch-depth: 0
       - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
+        with:
+          python-version: '3.12'
       - name: Stamp exact commit
         run: sed -i "s/__COMMIT__/$GITHUB_SHA/g" tools/simulate_engine_v39.py
       - name: Execute simulation
-        run: |\n          set -o pipefail\n          python tools/simulate_engine_v39.py 2>&1 | tee v39-simulation.log
+        shell: bash
+        run: |
+          set -o pipefail
+          python tools/simulate_engine_v39.py 2>&1 | tee v39-simulation.log
       - name: Upload diagnostic log
         if: failure()
         uses: actions/upload-artifact@v4
