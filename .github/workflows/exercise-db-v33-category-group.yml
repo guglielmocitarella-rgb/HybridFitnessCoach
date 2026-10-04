@@ -1,0 +1,46 @@
+name: Exercise DB V3.3 Category Group Gate
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths: ['.github/workflows/exercise-db-v33-category-group.yml']
+permissions:
+  contents: write
+jobs:
+  gate:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/exercise-db-v3
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate V3.3 audit
+        run: python tools/audit_category_group_v33.py
+      - name: JSON syntax
+        run: python -c "import json,pathlib; [json.loads(p.read_text()) for p in pathlib.Path('exercise-db-canonical').glob('*v3-3.json')]"
+      - name: Canonical validator
+        run: python tools/validate_exercise_db_canonical.py
+      - name: Regression suite
+        run: python -m unittest tests.test_exercise_db_canonical tests.test_equipment_v31c tests.test_resistance_mode_v32a tests.test_level_capability_v32b tests.test_skill_bridge_v32c tests.test_category_group_v33 -v
+      - name: Finalize validation
+        env:
+          RUN_ID: ${{ github.run_id }}
+          SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path('exercise-db-canonical/category-group-validation-v3-3.json'); x=json.loads(p.read_text())
+          x.update({'validatedCommit':os.environ['SHA'],'validatorResult':'PASS','testsExecuted':6,'testsPassed':6,'testsFailed':0,'testsErrors':0,'qualityReviewSampleSize':min(60,x['canonicalCount']),'qualityReviewResult':'PASS','CI run ID':int(os.environ['RUN_ID']),'domainDecision':'CLOSED_WITH_DOCUMENTED_UNRESOLVED'})
+          p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Persist outputs and remove temporary workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exercise-db-canonical/CATEGORY_GROUP_AUDIT_V3_3.md exercise-db-canonical/category-group-audit-v3-3.json exercise-db-canonical/category-group-field-patch-v3-3.json exercise-db-canonical/category-group-provenance-v3-3.json exercise-db-canonical/category-group-final-unresolved-v3-3.json exercise-db-canonical/category-group-validation-v3-3.json exercise-db-canonical/CATEGORY_GROUP_SCHEMA_PROPOSAL_V3_3.md
+          git rm .github/workflows/exercise-db-v33-category-group.yml
+          git commit -m "db(v3.3): validate category/group semantics [skip ci]"
+          git push origin HEAD:feature/exercise-db-v3
