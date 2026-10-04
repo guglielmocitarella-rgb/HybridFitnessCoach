@@ -88,12 +88,12 @@ def main():
  sktxt=pathlib.Path("app/src/main/java/com/hybridfitnesscoach/app/SkillCatalog.kt").read_text()
  maintxt=pathlib.Path("app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt").read_text()
  initial=[]
- for m in re.finditer(r'SkillNode\\("([^"]+)",\\s*"([^"]+)",\\s*"([^"]+)"([^\\n]*)',sktxt):
-  nid,name,fam,tail=m.groups(); prereq=re.findall(r'setOf\\("([^"]+)"',tail)
+ for m in re.finditer(r'SkillNode\("([^"]+)",\s*"([^"]+)",\s*"([^"]+)"([^\n]*)',sktxt):
+  nid,name,fam,tail=m.groups(); prereq=re.findall(r'setOf\("([^"]+)"',tail)
   initial.append({"id":nid,"name":name,"family":fam,"prerequisites":prereq})
  legacy=[]
- for m in re.finditer(r'SkillProgressionNode\\("([^"]+)",\\s*"([^"]+)",\\s*"([^"]+)",\\s*\\d+([^\\n]*)',maintxt):
-  nid,fam,name,tail=m.groups(); prereq=re.findall(r'listOf\\("([^"]+)"',tail)
+ for m in re.finditer(r'SkillProgressionNode\("([^"]+)",\s*"([^"]+)",\s*"([^"]+)",\s*\d+([^\n]*)',maintxt):
+  nid,fam,name,tail=m.groups(); prereq=re.findall(r'listOf\("([^"]+)"',tail)
   legacy.append({"id":nid,"name":name,"family":fam,"prerequisites":prereq})
  initial_fams={x["family"].lower() for x in initial}
  nodes=initial+[x for x in legacy if x["family"].lower() not in initial_fams and x["family"].lower() not in {"l-sit","v-sit"}]
