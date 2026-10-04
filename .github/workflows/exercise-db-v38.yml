@@ -55,7 +55,7 @@ jobs:
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add exercise-db-canonical/ENGINE_CRITICAL_REMEDIATION_V3_8.md exercise-db-canonical/*v3-8.json tools/audit_engine_critical_v38.py tools/build_engine_ready_candidate_v38.py tools/validate_engine_ready_candidate_v38.py tests/test_engine_critical_v38.py
+          git add exercise-db-canonical/ENGINE_CRITICAL_REMEDIATION_V3_8.md exercise-db-canonical/*v3-8.json exercise-db-canonical/exercise-db-v3-engine-ready-candidate.json tools/audit_engine_critical_v38.py tools/build_engine_ready_candidate_v38.py tools/validate_engine_ready_candidate_v38.py tests/test_engine_critical_v38.py
           git rm .github/workflows/exercise-db-v38.yml
           git commit -m "V3.8: persist engine-critical remediation"
           git fetch origin feature/exercise-db-v3
