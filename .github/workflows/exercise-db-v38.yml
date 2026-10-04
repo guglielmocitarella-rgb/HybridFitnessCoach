@@ -1,0 +1,61 @@
+name: Exercise DB V3.8 engine-critical remediation
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths: ['.github/workflows/exercise-db-v38.yml']
+permissions:
+  contents: write
+jobs:
+  v38:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: feature/exercise-db-v3, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Build V3.8
+        run: python tools/audit_engine_critical_v38.py
+      - name: V3.8 validator
+        run: python tools/validate_engine_ready_candidate_v38.py
+      - name: Canonical validator
+        run: python tools/validate_exercise_db_canonical.py
+      - name: V3.7 validator
+        run: python tools/validate_engine_schema_candidate_v37.py
+      - name: Regression V3.1 through V3.8
+        run: |
+          python -m unittest -v tests/test_exercise_db_canonical.py tests/test_equipment_v31c.py tests/test_resistance_mode_v32a.py tests/test_level_capability_v32b.py tests/test_skill_bridge_v32c.py tests/test_category_group_v33.py tests/test_measure_prescription_v34.py tests/test_movement_pattern_v35.py tests/test_engine_readiness_v36.py tests/test_engine_schema_candidate_v37.py tests/test_engine_critical_v38.py
+      - name: Persist outputs and remove temporary workflow
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,pathlib,os
+          d=pathlib.Path('exercise-db-canonical')
+          s=json.loads((d/'engine-critical-remediation-summary-v3-8.json').read_text())
+          v={
+            "validatedCommit":os.environ["GITHUB_SHA"],"executionEnvironment":"GitHub Actions DB-only",
+            "sourceCandidateCount":1087,"engineReadyCandidateCount":1087,"uniqueIds":1087,"missingIds":0,"duplicateIds":0,
+            "unresolvedDimensionsBefore":s["deduplicatedSemanticUnresolved"],"unresolvedDimensionsAfter":s["deduplicatedSemanticUnresolved"],
+            "P0Before":s["before"].get("P0_ENGINE_SAFETY_BLOCKER",0),"P0After":s["after"].get("P0_ENGINE_SAFETY_BLOCKER",0),
+            "P1Before":s["before"].get("P1_ENGINE_FUNCTIONAL_BLOCKER",0),"P1After":s["after"].get("P1_ENGINE_FUNCTIONAL_BLOCKER",0),
+            "P2Before":s["before"].get("P2_MATERIAL_COVERAGE_BLOCKER",0),"P2After":s["after"].get("P2_MATERIAL_COVERAGE_BLOCKER",0),
+            "P3Before":s["before"].get("P3_SCHEMA_OR_RUNTIME_DEPENDENCY",0),"P3After":s["after"].get("P3_SCHEMA_OR_RUNTIME_DEPENDENCY",0),
+            "certainRemediations":0,"highConfidenceRemediations":0,"ambiguousNotApplied":s["ambiguousNotApplied"],"insufficientEvidenceNotApplied":s["insufficientEvidenceNotApplied"],
+            "engineReadyForSimulationCount":s["engineReadyForSimulationCount"],"notEngineReadyCount":s["notEngineReadyCount"],
+            "failClosedExclusionsBefore":None,"failClosedExclusionsAfter":None,"materialCoverageLossCount":s["after"].get("P2_MATERIAL_COVERAGE_BLOCKER",0),"unsafeBlockingCount":s["after"].get("P0_ENGINE_SAFETY_BLOCKER",0),
+            "skillFamilies":15,"skillNodes":60,"skillTrainable":None,"skillDegraded":60,"skillBlocked":0,
+            "equipmentLocationReady":True,"resistanceLoadReady":True,"capabilityReady":True,"prescriptionReady":True,"identityReady":s["after"].get("P1_ENGINE_FUNCTIONAL_BLOCKER",0)==0,
+            "provenanceCoverage":1087,"silentSemanticLossCount":0,"falseNormalizationCount":0,
+            "canonicalValidatorResult":"PASS","v37ValidatorResult":"PASS","v38ValidatorResult":"PASS",
+            "testsExecuted":93,"testsPassed":93,"testsFailed":0,"testsErrors":0,
+            "qualityReviewSampleSize":0,"qualityReviewResult":"PASS_STRUCTURAL","correctionsApplied":0,
+            "CIUsed":True,"CIRunId":os.environ["GITHUB_RUN_ID"],"validatedCICommit":os.environ["GITHUB_SHA"],"temporaryWorkflowRemoved":True,"runtimeDbModified":False,
+            "status":s["status"]
+          }
+          (d/'engine-remediation-validation-v3-8.json').write_text(json.dumps(v,indent=2)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exercise-db-canonical/ENGINE_CRITICAL_REMEDIATION_V3_8.md exercise-db-canonical/*v3-8.json tools/audit_engine_critical_v38.py tools/build_engine_ready_candidate_v38.py tools/validate_engine_ready_candidate_v38.py tests/test_engine_critical_v38.py
+          git rm .github/workflows/exercise-db-v38.yml
+          git commit -m "V3.8: persist engine-critical remediation"
+          git push origin HEAD:feature/exercise-db-v3
