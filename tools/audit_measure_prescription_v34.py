@@ -13,7 +13,7 @@ def main():
   m=x.get('measure'); n=x.get('canonicalNameEn',''); mt=x.get('movementType'); rm=x.get('resistanceMode')
   if 'measure' not in x or m in (None,'','UNKNOWN'):add(x,'MISSING_OR_UNKNOWN','No operational primary measure','UNRESOLVED_SCHEMA_DECISION_REQUIRED');continue
   if m not in VALID:add(x,'INVALID_OR_UNSUPPORTED','Outside runtime ExerciseMeasure','UNRESOLVED_SCHEMA_DECISION_REQUIRED');continue
-  if re.search(r'(^|\\b)(plank|handstand|lever|planche|hang|wall sit|isometric)(\\b|$)',n,re.I) and m=='REPS':add(x,'POSSIBLE_HOLD_AS_REPS','Static/skill-hold semantics may require time/attempt.')
+  if re.search(r'(^|\b)(plank|handstand|lever|planche|hang|wall sit|isometric)(\b|$)',n,re.I) and m=='REPS':add(x,'POSSIBLE_HOLD_AS_REPS','Static/skill-hold semantics may require time/attempt.')
   if mt in {'AEROBIC','CONDITIONING'} and m=='REPS' and re.search(r'run|jog|walk|crawl|shuffle|climb',n,re.I):add(x,'POSSIBLE_LOCOMOTION_AS_REPS','May require time and/or distance.')
   if mt in {'FLEXIBILITY','SMR'} and m=='REPS':add(x,'POSSIBLE_MOBILITY_AS_REPS','May require duration; exercise-specific evidence required.')
   if rm=='UNKNOWN':issues.append({'canonicalExerciseId':x['id'],'canonicalName':n,'field':'measure/resistanceMode','oldValue':{'measure':m,'resistanceMode':rm},'issueType':'RESISTANCE_INTERACTION_UNRESOLVED','reason':'Primary measure known but resistance unresolved by V3.2A.','classification':'UNRESOLVED_SCHEMA_DECISION_REQUIRED','evidence':{'tier':'TIER_1','note':'Preserve V3.2A unresolved state.'}})
