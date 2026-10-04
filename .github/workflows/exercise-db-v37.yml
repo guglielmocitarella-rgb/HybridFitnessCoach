@@ -1,4 +1,5 @@
 name: Exercise DB V3.7 schema candidate
+# rerun after lossless legacy preservation fix
 on:
   push:
     branches: [feature/exercise-db-v3]
