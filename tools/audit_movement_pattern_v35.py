@@ -38,6 +38,17 @@ metadata=[]
 for f in metadata_fields:
  present=sum(1 for r in records if r.get(f) not in (None,"",[],{}))
  metadata.append({"field":f,"present":present,"missing":1087-present,"classification":"ENGINE_ENHANCING" if f in {"family","unilateral","laterality","isometric","primaryMuscles","secondaryMuscles","stabilizers","bodyRegion","progressionRelations"} else "ENGINE_CRITICAL_OR_MAPPING_DEPENDENT","runtimeConsumerVerified": f in {"category","group","secondaryGroups"}})
+record_audit=[]
+by_id_issues=collections.defaultdict(list)
+for x in work: by_id_issues[x["canonicalExerciseId"]].append(x["issue"])
+for r in records:
+ record_audit.append({"canonicalExerciseId":r["id"],"canonicalNameEn":r.get("canonicalNameEn"),"patterns":pats(r),"movementPatternStatus":r.get("movementPatternStatus"),"issues":by_id_issues.get(r["id"],[]),"audited":True})
+def fixture(name,allowed):
+ pool=[r for r in records if set(r.get("equipmentRequired") or []).issubset(allowed)]
+ pd=collections.Counter(x for r in pool for x in pats(r))
+ return {"name":name,"candidatePool":len(pool),"recordsWithPattern":sum(1 for r in pool if pats(r)),"recordsMissingPattern":sum(1 for r in pool if not pats(r)),"uniquePatterns":len(pd),"patternConcentrationMaxShare":round(max(pd.values())/sum(pd.values()),6) if pd else 0}
+all_eq=set(x for r in records for x in (r.get("equipmentRequired") or []))
+scenario_rows=[fixture("BODYWEIGHT_MINIMAL",set()),fixture("HOME_SYNTHETIC",{"resistance_band","dumbbell","kettlebell","pull_up_bar","bench","yoga_mat","suspension_trainer"}),fixture("FULL_GYM_SYNTHETIC",all_eq)]
 concentration=(max(dist.values())/sum(dist.values())) if dist else 0
 variety={"scenarios":[{"name":"CANONICAL_GLOBAL_READ_ONLY","candidatePool":1087,"recordsWithPattern":1087-len(missing),"recordsMissingPattern":len(missing),"uniquePatterns":len(dist),"patternConcentrationMaxShare":round(concentration,6)}]+scenario_rows,
 "filters":{"locationEquipment":"synthetic equipment-subset scenarios executed read-only; not asserted as live-runtime equivalence","capability":"not simulated against V3 runtime","skill":"audited previously V3.2C; no V3 runtime integration"},
@@ -47,7 +58,9 @@ variety={"scenarios":[{"name":"CANONICAL_GLOBAL_READ_ONLY","candidatePool":1087,
 audit={"schemaVersion":"V3.5","canonicalCount":1087,"unique":1087,"missingIds":0,"duplicates":0,"historicalMissing":{"count":176,"source":"ENGINE_DATA_CONTRACT_V3_1.md","definition":"movementPattern missing at V3.1 baseline"},"currentMissing":len(missing),"delta":len(missing)-176,
 "patternDistribution":dict(sorted(dist.items())),"statusDistribution":dict(status),"allRecordsAudited":len(record_audit)==1087,"recordAuditCount":len(record_audit),"worksetRecords":len({x["canonicalExerciseId"] for x in work}),"worksetIssues":len(work),"issuesByType":dict(issues_by),"terminalByClass":dict(term),
 "modelStatus":"V3_LIST_SUPPORTS_MULTI_PATTERN_RUNTIME_SINGLE_VALUE_GAP","engineContract":{"meaning":"broad movement-pattern metadata","producer":"canonical builder/source provenance","consumer":"current runtime sequencing metadata after V2 conversion","fallback":"legacy withExerciseMetadata heuristic from name/category","impact":"ENGINE_ENHANCING; adjacent same-pattern sequencing penalty, not eligibility blocker"}}
-(DB/"movement-pattern-record-audit-v3-5.json").write_text(json.dumps(record_audit,indent=2,ensure_ascii=False)+"\\n")\n(DB/"movement-pattern-workset-v3-5.json").write_text(json.dumps(work,indent=2,ensure_ascii=False)+"\\n")\n(DB/"movement-pattern-audit-v3-5.json").write_text(json.dumps(audit,indent=2,ensure_ascii=False)+"\n")
+(DB/"movement-pattern-record-audit-v3-5.json").write_text(json.dumps(record_audit,indent=2,ensure_ascii=False)+"\n")
+(DB/"movement-pattern-workset-v3-5.json").write_text(json.dumps(work,indent=2,ensure_ascii=False)+"\n")
+(DB/"movement-pattern-audit-v3-5.json").write_text(json.dumps(audit,indent=2,ensure_ascii=False)+"\n")
 (DB/"movement-pattern-field-patch-v3-5.json").write_text(json.dumps(patch,indent=2)+"\n")
 (DB/"movement-pattern-provenance-v3-5.json").write_text(json.dumps(prov,indent=2)+"\n")
 (DB/"movement-pattern-final-unresolved-v3-5.json").write_text(json.dumps(unresolved,indent=2,ensure_ascii=False)+"\n")
