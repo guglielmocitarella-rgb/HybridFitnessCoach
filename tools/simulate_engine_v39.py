@@ -83,15 +83,31 @@ def main():
         "skillStatus":"N/A","substitutionStatus":"N/A","diversityMetrics":vm,"currentRuntimeSemanticsResult":"LEGACY_MODEL_REQUIRES_SEPARATE_RUNTIME_ADAPTER",
         "v3IntendedSemanticsResult":{"eligiblePool":len(elig)},"divergence":"RUNTIME_MODEL_GAP","failureClass":None if elig else "DATA_GAP","blockingReason":None,"provenanceRefs":[]}
     scenarios.append(sc); sel.append({"scenarioId":sc["scenarioId"],"status":sc["selectionStatus"],"selected":sc["selectedExercises"]})
- # Skill simulation: authoritative 60-node coverage, typed relations mapped when target IDs are node-like.
+ # Skill simulation from the real SkillCatalog contract (no fabricated node IDs).
+ import re
+ sktxt=pathlib.Path("app/src/main/java/com/hybridfitnesscoach/app/SkillCatalog.kt").read_text()
+ maintxt=pathlib.Path("app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt").read_text()
+ initial=[]
+ for m in re.finditer(r'SkillNode\\("([^"]+)",\\s*"([^"]+)",\\s*"([^"]+)"([^\\n]*)',sktxt):
+  nid,name,fam,tail=m.groups(); prereq=re.findall(r'setOf\\("([^"]+)"',tail)
+  initial.append({"id":nid,"name":name,"family":fam,"prerequisites":prereq})
+ legacy=[]
+ for m in re.finditer(r'SkillProgressionNode\\("([^"]+)",\\s*"([^"]+)",\\s*"([^"]+)",\\s*\\d+([^\\n]*)',maintxt):
+  nid,fam,name,tail=m.groups(); prereq=re.findall(r'listOf\\("([^"]+)"',tail)
+  legacy.append({"id":nid,"name":name,"family":fam,"prerequisites":prereq})
+ initial_fams={x["family"].lower() for x in initial}
+ nodes=initial+[x for x in legacy if x["family"].lower() not in initial_fams and x["family"].lower() not in {"l-sit","v-sit"}]
+ assert len(nodes)==60,(len(initial),len(legacy),len(nodes))
  skill=[]
- for i in range(1,61):
-  nid=f"NODE_{i:02d}"; rs=[r for r in skillrels if str(r.get("targetId"))==nid]
+ for n in nodes:
+  rs=[r for r in skillrels if str(r.get("targetId"))==n["id"]]
   st="SIMULATION_PASS" if rs else "PASS_WITH_DEGRADED_COVERAGE"
-  skill.append({"nodeId":nid,"family":None,"prerequisites":[],"athleteState":"BOUNDARY_MATRIX","candidateExercises":[r.get("canonicalExerciseId") for r in rs],
-    "eligibleExercises":[r.get("canonicalExerciseId") for r in rs],"selectedExercises":[r.get("canonicalExerciseId") for r in rs[:1]],"progressionAvailable":any(r.get("relationType")=="DIRECT_PROGRESSION" for r in rs),
-    "regressionAvailable":any(r.get("relationType")=="DIRECT_REGRESSION" for r in rs),"builderAvailable":any(r.get("relationType")=="STRENGTH_BUILDER" for r in rs),
-    "prescriptionValid":True,"equipmentCompatible":True,"capabilityCompatible":True,"simulationStatus":st,"failureReason":None if rs else "No explicit NODE target relation in V3 relation layer"})
+  skill.append({"nodeId":n["id"],"family":n["family"],"prerequisites":n["prerequisites"],"athleteState":"BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises":[r.get("canonicalExerciseId") for r in rs],"eligibleExercises":[],"selectedExercises":[],
+    "progressionAvailable":any(r.get("relationType")=="DIRECT_PROGRESSION" for r in rs),"regressionAvailable":any(r.get("relationType")=="DIRECT_REGRESSION" for r in rs),
+    "builderAvailable":any(r.get("relationType")=="STRENGTH_BUILDER" for r in rs),"prescriptionValid":False if not rs else True,
+    "equipmentCompatible":None,"capabilityCompatible":None,"simulationStatus":st,
+    "failureReason":None if rs else "No explicit typed NODE relation supports behavioral selection for this authoritative SkillCatalog node"})
  # prescription inventory
  pc=collections.Counter()
  for r in cand:
@@ -113,8 +129,9 @@ def main():
    cl="RUNTIME_INTEGRATION_DEPENDENCY" if x["priority"].startswith("P3") else "DEGRADED_COVERAGE"
    p23.append({"blockerId":x["blockerId"],"priority":x["priority"],"classification":cl,"canonicalIds":x.get("canonicalIds",[])})
  # failures: runtime gap is material because current runtime cannot consume V3 multidimensional semantics.
- failures=[{"failureId":"V39-F-001","severity":"S1_CORE_FUNCTION_BLOCKED","failureClass":"RUNTIME_MODEL_GAP","scenarioIds":[s["scenarioId"] for s in scenarios[:8]],"rootCause":"Current runtime model cannot natively represent V3 equipment/capability/typed-skill/multidimensional prescription semantics.","requiredRemediation":"Design V3 runtime adapter/migration before integration."}]
- blockers=[{"blockerId":"V39-B-001","severity":"S1_CORE_FUNCTION_BLOCKED","failureClass":"RUNTIME_MODEL_GAP","scenarioIds":[s["scenarioId"] for s in scenarios[:8]],"canonicalIds":[],"skillNodes":[],"locations":["HOME","GYM"],"athleteProfiles":[p["id"] for p in profiles],"observableImpact":"V3 intended semantics cannot be integrated losslessly into current runtime model.","rootCause":failures[0]["rootCause"],"requiredRemediation":"V3.10 runtime integration design / adapter contract; then implement and re-run behavioral parity.","dataChangeRequired":False,"schemaChangeRequired":False,"runtimeChangeRequired":True,"algorithmChangeRequired":False,"safeToIntegrateBeforeFix":False,"completionCriterion":"Runtime adapter represents all V3 engine-critical dimensions without silent coercion."}]
+ failures=[{"failureId":"V39-F-001","severity":"S1_CORE_FUNCTION_BLOCKED","failureClass":"SCHEMA_GAP","scenarioIds":[x["scenarioId"] for x in scenarios],"rootCause":"Under strict V3 intended fail-closed semantics, capability state is not materially representable for selection: every tested scenario has an empty eligible pool.","requiredRemediation":"Resolve the V3 capability/schema representation required for selection before runtime integration; do not coerce UNKNOWN/SCHEMA_UNRESOLVED."},
+ {"failureId":"V39-F-002","severity":"S2_MATERIAL_DEGRADATION","failureClass":"RUNTIME_MODEL_GAP","scenarioIds":[],"rootCause":"Current runtime cannot natively consume V3 structured equipment, multidimensional capability, typed skill relations and multidimensional prescription.","requiredRemediation":"Design a lossless runtime adapter after the candidate-side selection blocker is resolved."}]
+ blockers=[{"blockerId":"V39-B-001","severity":"S1_CORE_FUNCTION_BLOCKED","failureClass":"SCHEMA_GAP","scenarioIds":[x["scenarioId"] for x in scenarios],"canonicalIds":[],"skillNodes":[],"locations":["HOME","GYM"],"athleteProfiles":[p["id"] for p in profiles],"observableImpact":"Strict V3 intended selection yields zero eligible exercises in all required scenarios, so variety/substitution cannot be meaningfully evaluated yet.","rootCause":failures[0]["rootCause"],"requiredRemediation":"Targeted V3 capability/schema remediation, then re-run V3.9 before integration planning.","dataChangeRequired":True,"schemaChangeRequired":True,"runtimeChangeRequired":False,"algorithmChangeRequired":False,"safeToIntegrateBeforeFix":False,"completionCriterion":"Required profiles produce non-empty, semantically valid eligible pools without coercing unresolved capability; then V3.9 variety/substitution gates can execute."}]
  snapshot={"schemaVersion":"3.9","validatedCommit":COMMIT,"currentRuntime":{"eligibility":["skillEligibleExerciseNames","legacy levelScore/capabilityLevelFor","locationCompatible","text equipment filters"],"skill":["SkillCatalog prerequisites/mastery","legacy exercise.skills"],"prescription":["legacy measure","SourcePrescriptionBaselineRegistry"],"history":["sessions","RPE","mastery"]},"v3Intended":{"equipment":"structured mode/state","capability":"multidimensional","skill":"typed FAMILY/NODE relations","prescription":"multidimensional dimensions","failClosed":True}}
  comp={"classification":"RUNTIME_EVOLUTION_REQUIRED","observations":{"v3ScenarioCount":len(scenarios),"currentRuntimeNativeV3Semantics":False,"reason":"runtime adapter spec classifies multiple V3 dimensions as REQUIRES_RUNTIME_EVOLUTION/UNSUPPORTED"}}
  summary={"validatedCommit":COMMIT,"candidateCommit":COMMIT,"candidateCount":1087,"uniqueIds":1087,"missingIds":0,"duplicateIds":0,"athleteProfiles":len(profiles),"environments":len(envs),"scenarioCount":len(scenarios),"simulationRuns":len(scenarios)*100,"seedsUsed":100,
@@ -122,14 +139,14 @@ def main():
  "prescriptionPass":sum(s["prescriptionStatus"]=="PASS" for s in scenarios),"prescriptionFail":sum(s["prescriptionStatus"]!="PASS" for s in scenarios),
  "skillNodesTotal":60,"skillNodesPass":sum(x["simulationStatus"]=="SIMULATION_PASS" for x in skill),"skillNodesDegraded":sum(x["simulationStatus"]=="PASS_WITH_DEGRADED_COVERAGE" for x in skill),"skillNodesFail":0,
  "substitutionValid":sum(x["status"]=="VALID_SUBSTITUTION" for x in subs),"substitutionDegraded":sum(x["status"]=="DEGRADED_BUT_ACCEPTABLE" for x in subs),"substitutionUnavailable":sum(x["status"]=="NO_VALID_SUBSTITUTION" for x in subs),"substitutionInvalid":invalid,
- "failClosedTotal":fail.get("totalFailClosedExclusionsAfter",88),"failClosedSafe":0,"failClosedDegraded":len(fcout),"failClosedMaterialFailure":0,
- "P2Total":578,"P2Observable":len(fcitems),"P2MaterialImpact":len(fcitems),"P3Total":321,"P3Observable":sum(x.get("priority")=="P3_SCHEMA_OR_RUNTIME_DEPENDENCY" for x in residual),"P3RuntimeDependency":sum(x.get("priority")=="P3_SCHEMA_OR_RUNTIME_DEPENDENCY" for x in residual),
- "S0":0,"S1":1,"S2":0,"S3":0,"S4":0,"falseEligibilityCount":0,"invalidPrescriptionCount":0,"invalidSkillProgressionCount":0,"invalidSubstitutionCount":0,
+ "failClosedTotal":len(fcout),"failClosedSafe":0,"failClosedDegraded":len(fcout),"failClosedMaterialFailure":0,
+ "P2Total":578,"P2Observable":0,"P2MaterialImpact":0,"P3Total":321,"P3Observable":sum(x.get("priority")=="P3_SCHEMA_OR_RUNTIME_DEPENDENCY" for x in residual),"P3RuntimeDependency":sum(x.get("priority")=="P3_SCHEMA_OR_RUNTIME_DEPENDENCY" for x in residual),
+ "S0":0,"S1":1,"S2":1,"S3":0,"S4":0,"falseEligibilityCount":0,"invalidPrescriptionCount":0,"invalidSkillProgressionCount":0,"invalidSubstitutionCount":0,
  "varietyMetrics":{"scenarioReports":len(variety)},"currentVsV3ImprovementSummary":comp,"silentSemanticLossCount":0,"falseNormalizationCount":0,"runtimeDbModified":False,
- "status":"RUNTIME_EVOLUTION_REQUIRED"}
+ "status":"NOT_READY_BLOCKED"}
  outputs={"engine-contract-snapshot-v3-9.json":snapshot,"simulation-athlete-profiles-v3-9.json":profiles,"simulation-environments-v3-9.json":envs,"simulation-scenarios-v3-9.json":scenarios,"selection-simulation-results-v3-9.json":sel,"prescription-simulation-results-v3-9.json":pres,"skill-simulation-results-v3-9.json":skill,"substitution-simulation-results-v3-9.json":subs,"variety-repetition-audit-v3-9.json":variety,"fail-closed-simulation-v3-9.json":fcout,"p2-p3-impact-v3-9.json":p23,"current-vs-v3-comparison-v3-9.json":comp,"simulation-failures-v3-9.json":failures,"simulation-blocker-queue-v3-9.json":blockers,"simulation-summary-v3-9.json":summary}
  for n,x in outputs.items(): W(n,x)
  W("simulation-validation-v3-9.json",{"status":"PENDING_VALIDATOR","candidate":1087,"skillNodes":60,"scenarios":len(scenarios),"runtimeDbModified":False})
- (D/"SELECTION_PRESCRIPTION_SIMULATION_V3_9.md").write_text("# Exercise DB V3.9 — Selection / Prescription Simulation\n\nDeterministic isolated simulation over the V3.8 engine-ready candidate. Runtime DB was not modified.\n\nFinal classification: **RUNTIME_EVOLUTION_REQUIRED**.\n\nThe V3 candidate is structurally simulatable, but current runtime semantics cannot consume the V3 multidimensional equipment/capability/typed-skill/prescription contract losslessly. This is persisted as an S1 runtime-model blocker, not silently repaired in V3.9.\n")
+ (D/"SELECTION_PRESCRIPTION_SIMULATION_V3_9.md").write_text("# Exercise DB V3.9 — Selection / Prescription Simulation\n\nDeterministic isolated simulation over the V3.8 engine-ready candidate. Runtime DB was not modified.\n\nFinal classification: **NOT_READY_BLOCKED**.\n\nStrict V3 intended fail-closed selection produces no eligible pool in the required scenario matrix because capability/schema state is not yet materially selectable. This is persisted as an S1 SCHEMA_GAP. Runtime-model evolution is a secondary dependency; no runtime change is made in V3.9.\n")
  print(json.dumps(summary,indent=2))
 if __name__=="__main__": main()
