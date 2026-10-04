@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "3.9",
+  "validatedCommit": "348ba2b0d5f6cc4539431d29c3813b1c3fc9a0e5",
+  "currentRuntime": {
+    "eligibility": [
+      "skillEligibleExerciseNames",
+      "legacy levelScore/capabilityLevelFor",
+      "locationCompatible",
+      "text equipment filters"
+    ],
+    "skill": [
+      "SkillCatalog prerequisites/mastery",
+      "legacy exercise.skills"
+    ],
+    "prescription": [
+      "legacy measure",
+      "SourcePrescriptionBaselineRegistry"
+    ],
+    "history": [
+      "sessions",
+      "RPE",
+      "mastery"
+    ]
+  },
+  "v3Intended": {
+    "equipment": "structured mode/state",
+    "capability": "multidimensional",
+    "skill": "typed FAMILY/NODE relations",
+    "prescription": "multidimensional dimensions",
+    "failClosed": true
+  }
+}

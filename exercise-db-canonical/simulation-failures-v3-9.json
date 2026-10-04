@@ -1,0 +1,19 @@
+[
+  {
+    "failureId": "V39-F-001",
+    "severity": "S1_CORE_FUNCTION_BLOCKED",
+    "failureClass": "RUNTIME_MODEL_GAP",
+    "scenarioIds": [
+      "V39-0001",
+      "V39-0002",
+      "V39-0003",
+      "V39-0004",
+      "V39-0005",
+      "V39-0006",
+      "V39-0007",
+      "V39-0008"
+    ],
+    "rootCause": "Current runtime model cannot natively represent V3 equipment/capability/typed-skill/multidimensional prescription semantics.",
+    "requiredRemediation": "Design V3 runtime adapter/migration before integration."
+  }
+]
