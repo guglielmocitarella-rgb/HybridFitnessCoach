@@ -1,0 +1,21 @@
+name: Exercise DB V3.4 Measure Gate
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths: ['tools/audit_measure_prescription_v34.py','tests/test_measure_prescription_v34.py','.github/workflows/exercise-db-v34-measure.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: feature/exercise-db-v3}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python tools/audit_measure_prescription_v34.py
+      - run: python -c "import json,pathlib; [json.loads(p.read_text()) for p in pathlib.Path('exercise-db-canonical').glob('*v3-4.json')]"
+      - run: python tools/validate_exercise_db_canonical.py
+      - run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - run: python -m unittest tests/test_measure_prescription_v34.py -v
