@@ -48,7 +48,7 @@ def fixture(name,allowed):
  pd=collections.Counter(x for r in pool for x in pats(r))
  return {"name":name,"candidatePool":len(pool),"recordsWithPattern":sum(1 for r in pool if pats(r)),"recordsMissingPattern":sum(1 for r in pool if not pats(r)),"uniquePatterns":len(pd),"patternConcentrationMaxShare":round(max(pd.values())/sum(pd.values()),6) if pd else 0}
 all_eq=set(x for r in records for x in (r.get("equipmentRequired") or []))
-scenario_rows=[fixture("BODYWEIGHT_MINIMAL",set()),fixture("HOME_SYNTHETIC",{"resistance_band","dumbbell","kettlebell","pull_up_bar","bench","yoga_mat","suspension_trainer"}),fixture("FULL_GYM_SYNTHETIC",all_eq)]
+scenario_rows=[fixture("BODYWEIGHT_MINIMAL",set()),fixture("HOME_SYNTHETIC",{"resistance_band","dumbbell","kettlebell","pull_up_bar","bench","yoga_mat","suspension_trainer"}),fixture("GYM_SYNTHETIC",all_eq)]
 concentration=(max(dist.values())/sum(dist.values())) if dist else 0
 variety={"scenarios":[{"name":"CANONICAL_GLOBAL_READ_ONLY","candidatePool":1087,"recordsWithPattern":1087-len(missing),"recordsMissingPattern":len(missing),"uniquePatterns":len(dist),"patternConcentrationMaxShare":round(concentration,6)}]+scenario_rows,
 "filters":{"locationEquipment":"synthetic equipment-subset scenarios executed read-only; not asserted as live-runtime equivalence","capability":"not simulated against V3 runtime","skill":"audited previously V3.2C; no V3 runtime integration"},
