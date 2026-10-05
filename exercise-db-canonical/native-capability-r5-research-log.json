@@ -2365,6 +2365,76 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-alzate-frontali",
+      "exerciseName": "Alzate frontali",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Front Raise",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/54/front-raise/",
+          "finding": "ACE classifies dumbbell front raise Beginner and prescribes a braced stable stance with controlled arm elevation to shoulder height."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-alzate-laterali",
+      "exerciseName": "Alzate laterali",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Side Lateral Raise",
+          "publisher": "Bodybuilding.com",
+          "tier": 3,
+          "locator": "https://www.youtube.com/watch?v=E3abEP8SIh0",
+          "finding": "Exercise guide classifies dumbbell side lateral raise Beginner; stationary torso and controlled shoulder-height raise."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-arch-body-hold",
+      "exerciseName": "Arch body hold",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Arch Body Hold",
+          "publisher": "GymnasticBodies",
+          "tier": 3,
+          "locator": "https://www.gymnasticbodies.com/exercises/arch-body-hold",
+          "finding": "Moderate bodyweight gymnastics strength hold requiring simultaneous glute, back and shoulder engagement with extended arms and legs."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
