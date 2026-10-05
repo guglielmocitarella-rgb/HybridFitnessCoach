@@ -6522,6 +6522,37 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-glute-bridge",
+      "exerciseName": "Glute bridge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Glute Bridge Exercise",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/",
+          "finding": "ACE rates the no-equipment bilateral glute bridge Beginner and prescribes a supported supine bent-knee setup, abdominal bracing, controlled hip extension and heel pressure for stability; NASM independently describes the floor bridge as fundamental, accessible across fitness levels and focused on hip-extension strength and spinal stability."
+        },
+        {
+          "title": "Floor Bridge",
+          "publisher": "NASM",
+          "tier": 3,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/floor-bridge",
+          "finding": "Fundamental supported floor bridge for hip-extension strength and glute activation; accessible across fitness levels with core bracing, feet grounded and controlled ascent/descent."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
