@@ -3044,6 +3044,99 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-band-pull-apart",
+      "exerciseName": "Band pull-apart",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Pull Apart Exercise Guide",
+          "publisher": "MuscleWiki",
+          "tier": 3,
+          "locator": "https://musclewiki.com/exercise/band-pull-apart",
+          "finding": "Novice band exercise: arms straight in front, retract shoulder blades/shoulder joint until the band reaches the chest."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-pull-through",
+      "exerciseName": "Band pull-through",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Pull Through",
+          "publisher": "GymImpulse",
+          "tier": 3,
+          "locator": "https://gymimpulse.com/exercise/band-pull-through",
+          "finding": "Beginner low-impact band hip-hinge using a stable bilateral stance, neutral spine and controlled hip flexion/extension; described as a hinge-teaching accessory."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-push-up",
+      "exerciseName": "Band push-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "How to do a Band Push up",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.youtube.com/watch?v=7Xu3D-TKKAw",
+          "finding": "NASM band push-up guidance emphasizes controllable range, avoiding shoulder shrugging and preventing the hips from dipping."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-romanian-deadlift",
+      "exerciseName": "Band Romanian deadlift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Romanian Deadlift",
+          "publisher": "Caliverse",
+          "tier": 3,
+          "locator": "https://www.caliverse.app/exercises/band-romanian-deadlift-805",
+          "finding": "Easy-level band hip hinge from a stable hip-width stance; brace, maintain neutral spine, hinge until hamstring tension and control the descent."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
