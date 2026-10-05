@@ -2482,6 +2482,81 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-affondi",
+      "exerciseName": "Affondi",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "How To Do Lunges and Muscles Worked",
+          "publisher": "Cleveland Clinic",
+          "tier": 2,
+          "locator": "https://health.clevelandclinic.org/lunges-muscles-worked",
+          "finding": "Sports-medicine guidance notes lunges are challenging for beginners because they require single-leg strength, coordination and proficiency; controlled forward-lunge form is emphasized."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ankle-dorsiflexion-rocks",
+      "exerciseName": "Ankle dorsiflexion rocks",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Ankle Rocks",
+          "publisher": "Rehab Hero",
+          "tier": 2,
+          "locator": "https://www.rehabhero.ca/exercise/ankle-rocks",
+          "finding": "Supported ankle-mobility warm-up explicitly intended to increase dorsiflexion; heel remains planted while knee advances comfortably, minimizing strength and balance demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "VERY_LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-wide-knee-rollout",
+      "exerciseName": "Ab Wheel wide-knee rollout",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [],
+      "decision": "TERMINAL_UNRESOLVED_INSUFFICIENT_EXERCISE_SPECIFIC_EVIDENCE",
+      "reason": "Targeted exact-variant search did not identify a reliable exercise-specific source distinguishing wide-knee rollout capability demands from generic ab-wheel family guidance.",
+      "fieldApplication": {
+        "processedFields": [
+          "strengthRequirement",
+          "technicalDifficulty",
+          "mobilityRequirement",
+          "balanceCoordinationRequirement"
+        ],
+        "resolvedFields": [],
+        "terminalUnresolvedFields": [
+          "strengthRequirement",
+          "technicalDifficulty",
+          "mobilityRequirement",
+          "balanceCoordinationRequirement"
+        ],
+        "reason": "Targeted exact-variant search did not identify a reliable exercise-specific source distinguishing wide-knee rollout capability demands from generic ab-wheel family guidance."
+      },
+      "searchTrail": [
+        "R3/R4 internal evidence re-examined",
+        "targeted exact-variant web search",
+        "generic family evidence rejected"
+      ]
     }
   ],
   "guards": {
