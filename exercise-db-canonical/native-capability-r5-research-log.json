@@ -4880,6 +4880,101 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-commando-pull-up",
+      "exerciseName": "Commando pull-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Commando Pull-Up",
+          "publisher": "Pullup & Dip",
+          "tier": 3,
+          "locator": "https://www.pullup-dip.com/blogs/training-camp/commando-pull-ups",
+          "finding": "Commando pull-ups use a narrow mixed/parallel bar orientation, alternating the head to either side while pulling the body to the bar; the variation adds rotational control and coordination beyond a standard pull-up."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dip-assistite",
+      "exerciseName": "Dip assistite",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Assisted Dip",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/assisted-dip",
+          "finding": "NASM presents assisted dip as a regression of the dip using machine assistance, with controlled elbow flexion/extension and stable shoulder positioning."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dips-panca",
+      "exerciseName": "Dips panca",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bench Dips",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/36/bench-dips/",
+          "finding": "ACE bench dip guidance uses hands supported on a bench with feet on the floor, controlled elbow flexion and shoulder positioning; the support reduces balance complexity."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-double-kettlebell-clean",
+      "exerciseName": "Double kettlebell clean",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Kettlebell Clean",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/348/kettlebell-clean/",
+          "finding": "ACE classifies kettlebell clean Advanced and describes an explosive hip-driven movement requiring coordinated acceleration and controlled rack reception; double bells preserve the same technical pattern bilaterally."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
