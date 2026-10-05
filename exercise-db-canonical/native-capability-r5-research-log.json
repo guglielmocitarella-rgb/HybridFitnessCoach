@@ -2698,6 +2698,74 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-band-assisted-squat",
+      "exerciseName": "Band assisted squat",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Squats With Resistance Bands: Evidence And Safe Form",
+          "publisher": "Acibadem Hospitals Group",
+          "tier": 2,
+          "locator": "https://acibademinternational.com/health-library/squats-with-resistance-bands-explained-by-medical-evidence-not-myths/",
+          "finding": "Medically reviewed guide distinguishes a long-band assisted squat: assistance can help balance or reduce leg load while controlled repeatable alignment remains the technique goal."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-chest-fly",
+      "exerciseName": "Band chest fly",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "How to Do Resistance Band Chest Fly: Muscles Worked & Proper Form",
+          "publisher": "StrengthLog",
+          "tier": 3,
+          "locator": "https://www.strengthlog.com/resistance-band-chest-fly/",
+          "finding": "Exercise-specific standing band chest fly: stable chest-height anchor, slight elbow bend, controlled horizontal adduction and controlled return; isolation exercise for chest/front deltoid."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-external-rotation",
+      "exerciseName": "Band external rotation",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Band External Rotation",
+          "publisher": "Catalyst Athletics",
+          "tier": 3,
+          "locator": "https://www.catalystathletics.com/exercise/916/Band-External-Rotation/",
+          "finding": "Exercise-specific library calls it a simple shoulder-prep drill: stand with bands at shoulder height, elbows about 90 degrees, rotate forearms vertical under control for rotator-cuff strength and scapular control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
