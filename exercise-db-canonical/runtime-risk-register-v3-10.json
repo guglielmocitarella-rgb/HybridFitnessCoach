@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "3.10",
+  "risks": [
+    [
+      "R1",
+      "identity",
+      "S1"
+    ],
+    [
+      "R2",
+      "equipment",
+      "S1"
+    ],
+    [
+      "R3",
+      "capability",
+      "S1"
+    ],
+    [
+      "R4",
+      "prescription",
+      "S1"
+    ],
+    [
+      "R5",
+      "persistence",
+      "S1"
+    ],
+    [
+      "R6",
+      "skill",
+      "S1"
+    ],
+    [
+      "R7",
+      "unknown",
+      "S1"
+    ],
+    [
+      "R8",
+      "source-of-truth",
+      "S2"
+    ],
+    [
+      "R9",
+      "performance",
+      "S3"
+    ],
+    [
+      "R10",
+      "hidden-legacy-consumer",
+      "S1"
+    ]
+  ]
+}
