@@ -2022,6 +2022,78 @@
           "mobilityRequirement"
         ]
       }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-partial-rollout",
+      "exerciseName": "Ab Wheel partial rollout",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Ab Wheel Half Rollout",
+          "publisher": "seto",
+          "tier": 3,
+          "locator": "https://seto.fit/exercises/ab-wheel-half-rollout/",
+          "finding": "Beginner short-range kneeling rollout explicitly described as an easier step toward the full rollout, with braced trunk and controlled wheel return."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-pause-rollout",
+      "exerciseName": "Ab Wheel pause rollout",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "How to Build Core Strength: The Ab Wheel Rollout Technique Guide",
+          "publisher": "The Workout Mag",
+          "tier": 3,
+          "locator": "https://theworkoutmag.com/training-guide/ab-wheel-rollout-core-strength-guide",
+          "finding": "Kneeling rollout with a three-second pause is classified intermediate-advanced and explicitly increases time under tension and anti-extension demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-rollout-da-piedi",
+      "exerciseName": "Ab Wheel rollout da piedi",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Standing Ab-Wheel Rollout",
+          "publisher": "Kysero",
+          "tier": 3,
+          "locator": "https://kysero.io/exercise-library/standing-wheel-rollout/",
+          "finding": "Advanced standing rollout requires whole-body tension through a long lever, slow controlled extension and return, with kneeling rollout mastery as prerequisite."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
