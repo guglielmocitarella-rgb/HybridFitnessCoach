@@ -1734,6 +1734,78 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-cable-deadlift",
+      "exerciseName": "Cable Deadlift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Cable Deadlift",
+          "publisher": "Fitloop",
+          "tier": 3,
+          "locator": "https://fitloop.app/exercises/cable-deadlifts",
+          "finding": "Beginner compound cable hip/knee extension with flat-back setup and controlled lowering."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-boxer",
+      "exerciseName": "Boxer Shuffle",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Boxer Shuffle",
+          "publisher": "Dr. Fitology",
+          "tier": 3,
+          "locator": "https://www.drfitology.com/exercises/quads/boxer-shuffle",
+          "finding": "Beginner rhythmic bodyweight footwork drill requiring rapid weight shifts, agility and coordination."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-candlestick",
+      "exerciseName": "Candlestick",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Candlestick",
+          "publisher": "CrossFit",
+          "tier": 1,
+          "locator": "https://www.crossfit.com/essentials/candlestick-drills",
+          "finding": "Basic gymnastics roll from standing/squat into shoulder-supported candlestick; develops core strength, body awareness and control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
