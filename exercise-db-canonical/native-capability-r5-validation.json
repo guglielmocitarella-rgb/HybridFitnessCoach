@@ -1,9 +1,9 @@
 {
-  "status": "CHECKPOINT_RESEARCH_PERSISTED_MATERIALIZATION_PENDING",
+  "status": "CHECKPOINT_RECONCILED_11_TRACEABILITY_GAPS_RESOLVED_MATERIALIZATION_PENDING",
   "initialResidual": 3835,
   "processedCells": 532,
-  "resolvedCells": 502,
-  "terminalUnresolved": 30,
+  "resolvedCells": 513,
+  "terminalUnresolved": 19,
   "remainingUnprocessed": 3303,
   "researchedRecords": 141,
   "strengthPrescriptionDependentPreserved": 441,
@@ -16,5 +16,10 @@
   "S0": 0,
   "S1": 1,
   "S2": 1,
-  "S3": 0
+  "S3": 0,
+  "reconciliation": {
+    "anomalousTerminalCells": 11,
+    "action": "RESEARCHED_AND_RESOLVED_WITH_FIELD_LEVEL_EXTERNAL_EVIDENCE",
+    "remainingTraceabilityGap": 0
+  }
 }
