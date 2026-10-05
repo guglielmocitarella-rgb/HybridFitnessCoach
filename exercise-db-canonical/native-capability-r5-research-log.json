@@ -4975,6 +4975,100 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dip-profondi",
+      "exerciseName": "Dip profondi",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Triceps Dip",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/38/triceps-dip/",
+          "finding": "ACE rates parallel-bar triceps dip Advanced; the body is unsupported between bars and lowers under control through substantial shoulder extension before pressing back up. A deliberately deeper dip increases the range requirement."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dip-zavorrate",
+      "exerciseName": "Dip zavorrate",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Triceps Dip",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/38/triceps-dip/",
+          "finding": "ACE rates unsupported parallel-bar dip Advanced and requires controlled lowering and pressing; external load increases the strength requirement while retaining the same advanced movement control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-double-kettlebell-front-squat",
+      "exerciseName": "Double kettlebell front squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Kettlebell Front Squat",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/353/kettlebell-front-squat/",
+          "finding": "ACE classifies kettlebell front squat Advanced, requiring stable rack position, braced trunk, aligned knee/hip flexion and controlled squat depth; double bells increase rack/postural demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-double-kettlebell-press",
+      "exerciseName": "Double kettlebell press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Kettlebell Shoulder Press",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/352/kettlebell-shoulder-press/",
+          "finding": "ACE classifies kettlebell shoulder press Advanced; it requires stable rack-to-overhead pressing, trunk control and coordinated shoulder motion. Double bells make the pattern bilateral without removing the overhead mobility demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
