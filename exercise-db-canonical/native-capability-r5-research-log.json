@@ -1470,6 +1470,174 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-bodyweight-crunches",
+      "exerciseName": "Bodyweight Crunches",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bodyweight Crunches",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/",
+          "finding": "Beginner floor-supported abdominal crunch with short controlled spinal flexion."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bodyweight-modified-push-ups",
+      "exerciseName": "Bodyweight Modified Push-Ups",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bodyweight Modified Push-Ups",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/",
+          "finding": "Beginner kneeling push-up progression with reduced bodyweight loading."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bodyweight-sit-ups",
+      "exerciseName": "Bodyweight Sit-Ups",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bodyweight Sit-Ups",
+          "publisher": "Bodyweight Strength Training Anatomy",
+          "tier": 2,
+          "locator": "https://library.step4sport.com/wp-content/uploads/2022/10/Bodyweight-strength-training-anatomy-reduced.pdf",
+          "finding": "Classic stable supine bodyweight trunk-flexion exercise."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-cable-front-raise",
+      "exerciseName": "Cable Front Raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Cable Front Raise",
+          "publisher": "PureGym",
+          "tier": 3,
+          "locator": "https://www.puregym.com/exercises/arms-and-shoulders/front-raises/cable-front-raise/",
+          "finding": "Beginner-friendly cable isolation movement with stable cable path and controlled raise."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-cable-rope-crunch",
+      "exerciseName": "Cable Rope Crunch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Cable Rope Crunch",
+          "publisher": "The Workout Mag",
+          "tier": 3,
+          "locator": "https://theworkoutmag.com/training-guide/cable-crunch-exercise-setup-form-guide",
+          "finding": "Weighted kneeling spinal-flexion exercise with adjustable cable resistance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-cable-upright-row",
+      "exerciseName": "Cable Upright Row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Cable Upright Row",
+          "publisher": "PureGym",
+          "tier": 3,
+          "locator": "https://www.puregym.com/exercises/arms-and-shoulders/upright-rows/cable-upright-row/",
+          "finding": "Standing cable row with controlled path; lighter load recommended for stability and shoulder comfort."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-calf-raise",
+      "exerciseName": "Calf Raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Calf Raise",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/legs-calves-and-shins/",
+          "finding": "ACE classifies machine calf raise as Beginner."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
