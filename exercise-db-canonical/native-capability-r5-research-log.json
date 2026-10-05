@@ -6553,6 +6553,289 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-glute-kickback-machine",
+      "exerciseName": "Glute kickback machine",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Glute Kickback Machine",
+          "publisher": "MoveKit",
+          "tier": 3,
+          "locator": "https://movekit.com/exercises/glute-kickback-machine",
+          "finding": "Machine-supported fixed-path hip extension; torso supported against pad and handles, removing balance demand; controlled hip motion and simple setup."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-goblet-squat",
+      "exerciseName": "Goblet squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Goblet Squat",
+          "publisher": "NASM",
+          "tier": 3,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/goblet-squat",
+          "finding": "Fundamental accessible squat for all fitness levels; front load counterbalances, facilitates depth and teaches upright controlled mechanics."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-half-kneeling-cable-row",
+      "exerciseName": "Half-kneeling cable row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Half Kneeling Cable Row",
+          "publisher": "Trainwell / Kysero",
+          "tier": 3,
+          "locator": "https://www.trainwell.net/exercises/half-kneeling-cable-row",
+          "finding": "Stable half-kneeling base; upright trunk and square hips while rowing without rotation."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-half-kneeling-hip-flexor-stretch",
+      "exerciseName": "Half-kneeling hip flexor stretch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Half-kneeling Hip-flexor and Adductor Stretch",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/blog/5681/3-stretches-for-opening-up-tight-hips/",
+          "finding": "Half-kneeling mobility stretch with tucked pelvis, neutral spine and controlled hip positioning; mobility rather than strength."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-half-kneeling-pallof-press",
+      "exerciseName": "Half-kneeling Pallof press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Half-Kneeling Pallof Press",
+          "publisher": "Muscle & Fitness",
+          "tier": 3,
+          "locator": "https://www.muscleandfitness.com/exercise/workouts/half-kneeling-pallof-press/",
+          "finding": "Beginner cable anti-rotation exercise in half-kneeling; requires trunk/hip stability while pressing, without exceptional ROM."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hamstring-floss",
+      "exerciseName": "Hamstring floss",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Active Hamstring Floss",
+          "publisher": "AARP",
+          "tier": 3,
+          "locator": "https://www.aarp.org/health/healthy-living/exercises-for-better-tomorrow/",
+          "finding": "Supine supported active hamstring mobility drill using repeated controlled knee extension into a comfortable stretch."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hand-release-push-up",
+      "exerciseName": "Hand-release push-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Hand-release push-up movement standard",
+          "publisher": "CrossFit",
+          "tier": 3,
+          "locator": "https://games-assets.crossfit.com/fhwiuea1osidf0923fl.pdf",
+          "finding": "Rigid straight-body push-up to chest contact, full hand release, then press to lockout; knee/elevated variants provide scaling."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-handstand-kick-up",
+      "exerciseName": "Handstand kick-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Handstand kick-up / handstand progression",
+          "publisher": "CrossFit",
+          "tier": 3,
+          "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan",
+          "finding": "Kick-up transitions from split to stacked inversion and requires finding handstand balance; wall drills scale confidence, strength and technique."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-handstand-shoulder-taps",
+      "exerciseName": "Handstand shoulder taps",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Freestanding shoulder taps in a handstand",
+          "publisher": "CrossFit",
+          "tier": 3,
+          "locator": "https://www.crossfit.com/workout/2024/02",
+          "finding": "Freestanding handstand balance must be established before alternating single-hand shoulder taps; wall and pike versions are explicit regressions."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-handstand-wall-walk",
+      "exerciseName": "Handstand wall walk",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "The Wall Walk",
+          "publisher": "CrossFit",
+          "tier": 3,
+          "locator": "https://www.crossfit.com/essentials/the-wall-walk",
+          "finding": "Inversion-introduction skill challenging coordination and upper-body strength while retaining three support contacts throughout."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-heel-taps",
+      "exerciseName": "Heel taps",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Heel Taps",
+          "publisher": "Physitrack",
+          "tier": 3,
+          "locator": "https://www.physitrack.com/exercise-library/how-to-perform-the-heel-taps-exercise",
+          "finding": "Supported supine exercise using abdominal bracing and controlled heel lowering with stable spine."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-high-bar-squat",
+      "exerciseName": "High-bar squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "The Back Squat — High Bar",
+          "publisher": "CrossFit",
+          "tier": 3,
+          "locator": "https://www.crossfit.com/essentials/the-back-squat",
+          "finding": "High-bar position permits more vertical torso; learning with PVC separates technique from load while depth, bracing and bar control remain material."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
