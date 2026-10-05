@@ -1,0 +1,112 @@
+{
+  "version": "V3.10C-R5",
+  "baseHead": "2371f66d2ee81c9bd756db6a6a6364879844e7a7",
+  "note": "Continuation research tranche after persisted checkpoint. Research evidence only; no capability mutation is applied by this file.",
+  "records": [
+    {
+      "canonicalExerciseId": "ex-90-degree-push-up",
+      "exerciseName": "90-Degree Push-Up",
+      "identityStatus": "IDENTITY_AMBIGUOUS",
+      "sources": [
+        {
+          "title": "90-Degree Push-Up",
+          "publisher": "CALISTHENICS.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/90-degree-push-up/",
+          "finding": "Elite handstand-to-bent-arm-planche skill; requires freestanding handstand, deep HSPU, bent-arm planche strength and dynamic balance."
+        },
+        {
+          "title": "FITNESSGRAM 90° Push-Up Instructions",
+          "publisher": "The Cooper Institute / FITNESSGRAM",
+          "tier": 1,
+          "locator": "https://d16k74nzx9emoe.cloudfront.net/ed993262-c7ef-49df-90c4-2e4714f11ae7/Push%20Up%20Instructions.pdf",
+          "finding": "Uses the same label for a conventional cadence push-up reaching 90-degree elbow flexion."
+        }
+      ],
+      "decision": "NO_MUTATION",
+      "reason": "Canonical identity must be disambiguated before capability classification; two materially different exercises share the name."
+    },
+    {
+      "canonicalExerciseId": "ex-ab-wheel-eccentrics",
+      "exerciseName": "Ab Wheel Eccentrics",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Knees Ab Wheel progression",
+          "publisher": "BodyTree",
+          "tier": 3,
+          "locator": "https://bodytree.app/exercises/knees-ab-wheel-rollout",
+          "finding": "Progression chain places Ab Wheel Eccentrics after ramp rollout and before full standing rollout; eccentrics control the descent from standing."
+        },
+        {
+          "title": "Ab Wheel Exercises progression guide",
+          "publisher": "Urban Strength",
+          "tier": 3,
+          "locator": "https://urbanstrength.com.au/ab-wheel-exercises-the-complete-progression-workout-guide/",
+          "finding": "Standing ab-wheel eccentrics are step 6 immediately before full standing rollout and are performed by rolling out without returning."
+        }
+      ],
+      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+    },
+    {
+      "canonicalExerciseId": "ex-abdominal-crunch",
+      "exerciseName": "Abdominal Crunch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Crunch",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/",
+          "finding": "ACE rates Crunch Beginner and specifies controlled supine spinal flexion with feet, tailbone and low back supported."
+        }
+      ],
+      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+    },
+    {
+      "canonicalExerciseId": "ex-adductor-foam-rolling",
+      "exerciseName": "Adductor Foam Rolling",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Foam Roll Adductors",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-adductors",
+          "finding": "NASM describes the technique as appropriate for all fitness levels; hands support the body while slow controlled rolling is performed."
+        }
+      ],
+      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+    },
+    {
+      "canonicalExerciseId": "ex-advanced-tuck-back-lever",
+      "exerciseName": "Advanced Tuck Back Lever",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Advanced Tuck Back Lever",
+          "publisher": "CALISTHENICS.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/advanced-tuck-back-lever/",
+          "finding": "Requires controlled tucked back lever, straight-arm strength, shoulder control, sufficient shoulder mobility, body-line awareness and controlled entry/exit."
+        },
+        {
+          "title": "Overcoming Gravity 2 preview",
+          "publisher": "Steven Low",
+          "tier": 2,
+          "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+          "finding": "Places Advanced Tuck Back Lever at level 4 in a structured back-lever progression, after tuck and before straddle."
+        }
+      ],
+      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+    }
+  ],
+  "guards": {
+    "nameOnlyInference": false,
+    "legacyLevelDerivation": 0,
+    "legacyLevelFallback": 0,
+    "globalUnknownRelaxation": false,
+    "productionPathModified": false,
+    "runtimeDbModified": false
+  }
+}
