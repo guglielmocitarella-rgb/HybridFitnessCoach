@@ -3137,6 +3137,99 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-band-deadlift",
+      "exerciseName": "Band deadlift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Resistance Band Deadlift",
+          "publisher": "STHENO Fitness",
+          "tier": 3,
+          "locator": "https://www.sthenofitness.com/exercises/resistance-band-deadlift",
+          "finding": "Beginner band hip-hinge with stable stance; keep ribs/pelvis stacked, back flat and chest tall through controlled repetitions."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-triceps-extension",
+      "exerciseName": "Band triceps extension",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Triceps Extension — Technique Guide",
+          "publisher": "WODBuilders",
+          "tier": 3,
+          "locator": "https://www.wodbuilders.com/en/exercises/band-triceps-extension",
+          "finding": "Isolated band elbow-extension with secure anchor, repeatable standing position, upper arms held still and controlled return; resistance should preserve the pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-wood-chop",
+      "exerciseName": "Band wood chop",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Wood Chop (Low to High)",
+          "publisher": "StrengthLog",
+          "tier": 3,
+          "locator": "https://www.strengthlog.com/band-wood-chop-low-to-high/",
+          "finding": "Standing sideways to a low anchor, use both hands for a controlled diagonal sweeping/rotational movement and controlled return."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-barbell-hip-thrust",
+      "exerciseName": "Barbell hip thrust",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Understanding the Barbell Hip Thrust",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/",
+          "finding": "ACE describes a supported supine/bench hip-extension exercise with feet flat and external resistance across the hips, emphasizing full hip extension and controlled loading."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
