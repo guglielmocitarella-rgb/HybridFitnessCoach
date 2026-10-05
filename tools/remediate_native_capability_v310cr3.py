@@ -58,3 +58,5 @@ report="# V3.10C-R3 — Native Capability Evidence Resolution\\n\\n**C — FURTH
 p=D/"RUNTIME_INTEGRATION_STATUS_V3.md";s=p.read_text()
 if "## V3.10C-R3 checkpoint" not in s:p.write_text(s+"\\n\\n## V3.10C-R3 checkpoint\\nR3 re-examined the complete R2 residual queue using exercise-specific repository evidence and deterministic rules excluding names, aliases, legacyLevel and existing capability values. Remaining terminal unresolved require exercise-specific external research. S1 remains open; production/runtime DB/Runner/persistence unchanged; S2 remains separate.\\n")
 print(json.dumps(V,indent=2))
+
+# R3 execution trigger
