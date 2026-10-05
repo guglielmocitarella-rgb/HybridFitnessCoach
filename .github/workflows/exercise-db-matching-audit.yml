@@ -2,11 +2,7 @@ name: Exercise DB matching audit continuation
 # persistence strategy: validate and push each tranche before global aggregation
 
 on:
-  push:
-    branches:
-      - feature/v0.9.5
-    paths:
-      - '.github/workflows/exercise-db-matching-audit.yml'
+  # PR #14 / feature/v0.9.5 is frozen. Manual execution only.
   workflow_dispatch:
 
 permissions:
