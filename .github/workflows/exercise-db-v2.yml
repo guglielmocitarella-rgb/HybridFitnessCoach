@@ -1,6 +1,8 @@
 name: Exercise DB v2
 on:
   push:
+    branches-ignore:
+      - feature/v0.9.5
     paths:
       - 'exercise-db-v2/**'
       - 'tools/build_exercise_db.py'
