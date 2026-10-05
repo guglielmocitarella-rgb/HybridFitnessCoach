@@ -326,6 +326,36 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-press",
+    "exerciseName": "Kettlebell press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "One-arm kettlebell press",
+        "publisher": "NSCA / Human Kinetics",
+        "tier": 1,
+        "locator": "https://us.humankinetics.com/blogs/excerpt/one-arm-kettlebell-press",
+        "finding": "NSCA technique requires overhead shoulder flexion/elbow extension with shoulder rotation, neutral spine, no lateral flexion and controlled lowering."
+      },
+      {
+        "title": "How to do a Kettlebell Overhead Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.youtube.com/watch?v=X-uFqWtjpGI",
+        "finding": "NASM cues core stabilization, avoidance of lumbar arch/head protrusion and full overhead arm extension."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-pistol-squat",
     "exerciseName": "Assisted Pistol Squat",
     "identityStatus": "IDENTITY_CONFIRMED",
