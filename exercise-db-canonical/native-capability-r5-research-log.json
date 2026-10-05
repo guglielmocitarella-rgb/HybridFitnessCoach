@@ -2975,6 +2975,75 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-band-shoulder-press",
+      "exerciseName": "Band shoulder press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Shoulder Press",
+          "publisher": "JEFIT",
+          "tier": 3,
+          "locator": "https://www.jefit.com/exercises/445/band-shoulder-press",
+          "finding": "Beginner bilateral band shoulder press from a stable standing base, pressing from shoulder level overhead and returning under control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-squat",
+      "exerciseName": "Band squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Squat",
+          "publisher": "TrainWithSam",
+          "tier": 3,
+          "locator": "https://trainwithsam.com/exercises/band-squat.html",
+          "finding": "Beginner band-loaded squat with shoulder-width stable stance, controlled descent below parallel, knee tracking and mid-foot pressure."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-straight-arm-pulldown",
+      "exerciseName": "Band straight-arm pulldown",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Handle Band Straight-Arm Pulldown",
+          "publisher": "Larry",
+          "tier": 3,
+          "locator": "https://www.larry.to/exercises/back/handle-band-straight-arm-pulldown",
+          "finding": "Beginner overhead-anchored band pulldown from a shoulder-width stance; arms remain straight while handles travel to hips under control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
