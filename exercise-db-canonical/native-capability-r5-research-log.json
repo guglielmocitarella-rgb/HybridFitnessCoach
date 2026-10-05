@@ -6212,6 +6212,125 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-peroneals",
+      "exerciseName": "Foam Roller peroneals",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Peroneal Foam Rolling",
+          "publisher": "Muscle & Strength",
+          "tier": 3,
+          "locator": "https://www.muscleandstrength.com/exercises/foam-rolling-peroneals",
+          "finding": "Exercise-specific guide classifies peroneal foam rolling Beginner/SMR: side-lying with forearm/free hand and free foot supporting the body while slow controlled rolling targets the outer lower leg."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-plantar-calf",
+      "exerciseName": "Foam Roller plantar calf",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Foam Roll Calves",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-calves",
+          "finding": "NASM describes calf foam rolling as ideal for all fitness levels: seated, hands support the body and lift hips slightly while the roller moves slowly from below the knee toward the ankle to improve ankle mobility."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-polpacci",
+      "exerciseName": "Foam Roller polpacci",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Foam Roll Calves",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-calves",
+          "finding": "NASM describes calf foam rolling as ideal for all fitness levels: seated, hands support the body and lift hips slightly while the roller moves slowly from below the knee toward the ankle to improve ankle mobility."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-quadricipiti",
+      "exerciseName": "Foam roller quadricipiti",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Quad Foam Rolling",
+          "publisher": "Muscle & Strength",
+          "tier": 3,
+          "locator": "https://www.muscleandstrength.com/exercises/foam-rolling-quads",
+          "finding": "Exercise-specific guide classifies quad foam rolling Beginner/SMR: prone with roller under the thigh and upper body supported on the forearms, using slow controlled rolling for quadriceps mobility/recovery."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-thoracic-extension",
+      "exerciseName": "Foam Roller thoracic extension",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Thoracic Extension - Foam Roller",
+          "publisher": "Physio REHAB",
+          "tier": 3,
+          "locator": "https://www.youtube.com/watch?v=ipMDqKrHmjA",
+          "finding": "Physio REHAB demonstrates a supported supine thoracic-extension mobility drill with knees bent, feet grounded, hands supporting the neck and controlled upper-back extension over a stationary foam roller while avoiding lumbar extension."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
