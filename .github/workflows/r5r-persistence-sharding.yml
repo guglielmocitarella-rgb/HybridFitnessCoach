@@ -1,86 +1,22 @@
-name: R5-R persistence sharding one-shot
+name: R5-R persistence sharding guard V2
 on:
   push:
     branches: [feature/exercise-db-v3]
-    paths: [.github/workflows/r5r-persistence-sharding.yml]
+    paths:
+      - 'exercise-db-canonical/r5-authoritative-shards/**'
+      - 'exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md'
+      - '.github/workflows/r5r-persistence-sharding.yml'
 permissions:
-  contents: write
+  contents: read
 jobs:
-  shard:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
-      - name: Lossless shard migration and validation
-        shell: bash
+      - name: Validate real sharded layout
+        run: python3 exercise-db-canonical/r5-authoritative-shards/validate_guard_v2.py
+      - name: Connector false-empty regression contract
         run: |
-          python3 - <<'PY'
-          import json, hashlib, pathlib, subprocess, collections
-          root=pathlib.Path("exercise-db-canonical"); out=root/"r5-authoritative-shards"; out.mkdir(exist_ok=True)
-          specs=[("field-decisions","native-capability-r5-field-decisions.json","array"),("evidence","native-capability-r5-evidence.json","array"),("provenance","native-capability-r5-provenance.json","array"),("research-log","native-capability-r5-research-log.json","records")]
-          canon=lambda x: json.dumps(x,sort_keys=True,separators=(",",":"),ensure_ascii=False)
-          hbytes=lambda b: hashlib.sha256(b).hexdigest()
-          def gitblob(path):
-            s=subprocess.check_output(["git","rev-parse",f"HEAD:{path}"],text=True).strip()
-            z=int(subprocess.check_output(["git","cat-file","-s",s],text=True)); return s,z
-          summary={}
-          for name,rel,kind in specs:
-            p=root/rel; doc=json.loads(p.read_text()); entries=doc if kind=="array" else doc["records"]
-            def key(e): return (str(e.get("canonicalExerciseId") or e.get("id")),str(e.get("field") or e.get("dimension") or ""),str(e.get("provenanceId") or ""))
-            ordered=sorted(entries,key=key); keys=[key(e) for e in ordered]
-            if len(keys)!=len(set(keys)): raise SystemExit(name+": duplicate semantic key")
-            buckets={i:[] for i in range(16)}
-            for e in ordered: buckets[int(hashlib.sha256(("|".join(key(e))).encode()).hexdigest()[:8],16)%16].append(e)
-            fam=out/name; fam.mkdir(exist_ok=True); shards=[]; flat=[]
-            for i in range(16):
-              vals=sorted(buckets[i],key=key); payload=(json.dumps(vals,indent=2,ensure_ascii=False)+"\n").encode()
-              sp=fam/f"bucket-{i:02x}.json"; sp.write_bytes(payload); flat+=vals
-              shards.append({"shardId":f"{i:02x}","path":str(sp),"bucket":i,"entryCount":len(vals),"byteSize":len(payload),"sha256":hbytes(payload)})
-            old=sorted(canon(e) for e in entries); new=sorted(canon(e) for e in flat)
-            if old!=new: raise SystemExit(name+": semantic mutation")
-            blob,size=gitblob(str(p)); logical=hbytes(("\n".join(old)+"\n").encode())
-            manifest={"schemaVersion":"V3.10C-R5-R-PS-1","artifactName":name,"authority":"SHARDED_AUTHORITATIVE","legacyMonolith":str(p),"sourceBlobSha":blob,"sourceBlobSize":size,"logicalEntryCount":len(entries),"shardCount":16,"ordering":["canonicalExerciseId","field/dimension","provenanceId"],"partitionStrategy":"sha256(canonicalExerciseId|field-or-dimension|provenanceId) first32bits mod 16","generationContext":"lossless migration from verified Git blob; monolith preserved","logicalContentHashSha256":logical,"shards":shards,"migrationGate":{"missing":0,"duplicate":0,"conflictingDuplicate":0,"semanticMutation":0}}
-            (fam/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
-            mx=max(s["byteSize"] for s in shards)
-            if mx>204800: raise SystemExit(name+": shard over target")
-            summary[name]={"entries":len(entries),"sourceBlobSha":blob,"sourceBlobSize":size,"shards":16,"maxShardBytes":mx,"logicalHash":logical}
-          fd=json.loads((root/"native-capability-r5-field-decisions.json").read_text()); ev=json.loads((root/"native-capability-r5-evidence.json").read_text()); pv=json.loads((root/"native-capability-r5-provenance.json").read_text())
-          ids=lambda a:[x.get("provenanceId") for x in a]
-          for n,a in [("fd",fd),("ev",ev),("pv",pv)]:
-            q=ids(a)
-            if None in q or len(q)!=len(set(q)): raise SystemExit(n+": provenance uniqueness")
-          if set(ids(fd))!=set(ids(ev)) or set(ids(fd))!=set(ids(pv)): raise SystemExit("referential integrity")
-          cp=json.loads((root/"native-capability-r5-checkpoint.json").read_text())
-          if cp["processedResidualCells"]!=cp["resolvedCells"]+cp["terminalUnresolvedCells"] or cp["processedResidualCells"]+cp["remainingCells"]!=3835 or cp["provenanceEntries"]!=len(pv): raise SystemExit("checkpoint arithmetic")
-          val=json.loads((root/"native-capability-r5-validation.json").read_text())
-          if val.get("strengthPrescriptionDependentPreserved")!=441: raise SystemExit("441 guard")
-          r4=json.loads((root/"r4-ledger-shards/manifest.json").read_text())
-          if r4.get("totalCells")!=3835 or r4.get("totalUniqueRecords")!=1087 or len(r4.get("shards",[]))!=39: raise SystemExit("R4 inventory")
-          (root/"R5_R_PERSISTENCE_GUARD.md").write_text("""# R5-R authoritative-ledger persistence guard V2
-
-Authoritative incremental persistence is now the sharded representation under exercise-db-canonical/r5-authoritative-shards/. Historical monoliths are preserved and are migration baselines/derived compatibility artifacts, not the incremental write authority.
-
-1. Connector empty/non-returned content is NOT an empty repository file when Git tree/blob metadata reports non-zero size. Treat large-artifact read failure first as a transport-size issue candidate.
-2. Never replace an authoritative register without pre-write validation. Reconcile by semantic key (canonicalExerciseId, field/dimension, provenanceId), never by array offset.
-3. Incremental updates read checkpoint + family manifest, deterministically identify only affected hash buckets, read/verify those shards, apply validated entries, validate/write those shards, then update the manifest.
-4. A shard write must be atomic/equivalent at commit level. The manifest is updated only after shard validation; checkpoint is updated only after cross-artifact validation.
-5. No cell becomes processed unless decision + evidence + provenance are persisted and referentially consistent; patch is required when an applied materialization exists.
-6. Failed validation does not advance checkpoint. Roll back by retaining the prior Git commit/manifest and retry from the unchanged checkpoint.
-7. Every push must be followed by remote branch HEAD and PR HEAD verification.
-8. Historical monoliths remain preserved until an explicitly validated derived-monolith policy replaces them; never reconstruct an unreadable monolith heuristically.
-
-Root cause: CONNECTOR_TRANSPORT_SIZE_LIMIT / MONOLITHIC_INCREMENTAL_PERSISTENCE_SCALABILITY_GAP. The prior apparent zero-byte field-decisions/provenance condition was a connector false-empty: Git blob metadata and direct blob retrieval prove non-zero lossless content. No repository data loss was observed.
-""")
-          (root/"NATIVE_CAPABILITY_R5_PERSISTENCE_SHARDING_V3_10C_R5_R_PS.md").write_text("# V3.10C-R5-R-PS — Persistence Sharding\n\nStatus: MIGRATION_GATE_PASS_PENDING_REMOTE_VERIFICATION\n\nRoot cause: CONNECTOR_TRANSPORT_SIZE_LIMIT / MONOLITHIC_INCREMENTAL_PERSISTENCE_SCALABILITY_GAP; not Git corruption. Historical monoliths preserved.\n\nAuthority: field-decisions, evidence, provenance and research-log are SHARDED_AUTHORITATIVE for incremental updates. Patch/source-index/checkpoint remain monolithic because current sizes are connector-safe; reassess before threshold.\n\nPartition: 16 stable SHA-256 semantic-key buckets; deterministic, no append reshuffle; target <=200 KiB.\n\nMigration summary:\n"+json.dumps(summary,indent=2)+"\n\nGate: missing=0; duplicate semantic key=0; conflicting duplicate=0; semantic mutation=0; provenance referential integrity PASS; checkpoint arithmetic PASS; 3835-cell/1087-record/39-shard R4 inventory PASS; 441 PRESCRIPTION_DEPENDENT preserved.\n\nIncremental contract: checkpoint+manifest -> affected buckets only -> validate/write buckets -> manifest -> cross-artifact cardinality -> checkpoint -> push -> remote verify.\n")
-          (out/"migration-validation.json").write_text(json.dumps({"status":"PASS","rootCause":"CONNECTOR_TRANSPORT_SIZE_LIMIT / MONOLITHIC_INCREMENTAL_PERSISTENCE_SCALABILITY_GAP","realDataLoss":False,"families":summary,"missing":0,"duplicate":0,"conflictingDuplicate":0,"semanticMutation":0,"referentialIntegrity":"PASS","checkpointArithmetic":"PASS","r4Inventory":{"cells":3835,"records":1087,"shards":39},"prescriptionDependentPreserved":441,"runtimeDbModified":False,"productionPathModified":False},indent=2)+"\n")
-          print(json.dumps(summary,indent=2))
-          PY
-          git diff --check
-          git add exercise-db-canonical/r5-authoritative-shards exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md exercise-db-canonical/NATIVE_CAPABILITY_R5_PERSISTENCE_SHARDING_V3_10C_R5_R_PS.md
-          git diff --cached --exit-code && exit 1 || true
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git commit -m "v3.10c-r5: shard authoritative persistence losslessly [skip ci]"
-          git push
-
-# trigger after workflow exists
+          grep -q 'content=""' exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md
+          grep -q 'FNV1a32' exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md
+          grep -q 'five families' exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md
