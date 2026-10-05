@@ -5256,6 +5256,97 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-fly",
+      "exerciseName": "Dumbbell fly",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell Chest Fly",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/41/chest-fly/",
+          "finding": "ACE rates dumbbell chest fly Beginner; performed supine on a bench with stable body support and controlled shoulder horizontal abduction/adduction, requiring moderate shoulder range but little balance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-decline-press",
+      "exerciseName": "Dumbbell decline press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell Bench Press",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/19/chest-press/",
+          "finding": "ACE chest press guidance uses full bench support and controlled dumbbell pressing with shoulder/scapular alignment; decline positioning changes torso angle but retains low balance demand and moderate pressing technique."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-external-rotation",
+      "exerciseName": "Dumbbell external rotation",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "External Rotation with Dumbbell",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/37/external-rotation/",
+          "finding": "ACE external rotation is a controlled rotator-cuff isolation movement with body/arm support and precise humeral rotation, creating minimal balance demand but requiring deliberate shoulder control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-around-the-world",
+      "exerciseName": "Dumbbell around the world",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Around the World Shoulder Exercise",
+          "publisher": "Muscle & Strength",
+          "tier": 3,
+          "locator": "https://www.muscleandstrength.com/exercises/around-the-world.html",
+          "finding": "Around-the-world uses controlled large-arc dumbbell shoulder movement from the sides toward overhead and back, demanding substantial shoulder range while the torso remains stable."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
