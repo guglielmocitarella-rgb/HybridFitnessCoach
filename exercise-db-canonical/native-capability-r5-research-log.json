@@ -5715,6 +5715,98 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-stiff-leg-deadlift",
+      "exerciseName": "Dumbbell stiff-leg deadlift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell Stiff Leg Deadlift",
+          "publisher": "Physitrack",
+          "tier": 3,
+          "locator": "https://www.physitrack.com/en-gb/exercise-library/how-to-perform-the-dumbbell-stiff-leg-deadlift-exercise",
+          "finding": "Physitrack gives exercise-specific instructions: stable bilateral stance, slight knee bend, straight-back hip hinge lowering dumbbells toward the shin, then glute/hamstring-driven return; this supports low balance demand with meaningful posterior-chain mobility and technique control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-sumo-squat",
+      "exerciseName": "Dumbbell sumo squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell sumo squat: how to do it and muscles worked",
+          "publisher": "Athletic Station",
+          "tier": 3,
+          "locator": "https://athleticstation.app/en/blog/dumbbell-sumo-squat-how-to/",
+          "finding": "Exercise-specific guide requires a wide toes-out stance, controlled squat depth, torso alignment and knee-to-toe tracking; bilateral support limits balance demand while the wide/deep squat requires moderate mobility and technique."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-upright-row",
+      "exerciseName": "Dumbbell upright row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell Upright Row",
+          "publisher": "Muscle & Fitness",
+          "tier": 3,
+          "locator": "https://www.muscleandfitness.com/exercise/workouts/shoulder-exercises/dumbbell-upright-row/",
+          "finding": "Muscle & Fitness classifies dumbbell upright row Intermediate and specifies controlled chest-height pulling, full shoulder range and avoidance of momentum; stable bilateral standing limits balance while shoulder motion creates moderate mobility/technical demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-walking-lunge",
+      "exerciseName": "Dumbbell walking lunge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "How to Do Dumbbell Walking Lunge",
+          "publisher": "StrengthLog",
+          "tier": 3,
+          "locator": "https://www.strengthlog.com/dumbbell-walking-lunge/",
+          "finding": "StrengthLog describes alternating loaded forward lunges through about 90-degree knee positions and explicitly states the exercise trains balance, coordination and knee control; continuous stepping raises balance/control demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
