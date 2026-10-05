@@ -4416,6 +4416,99 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-corsa-distanza",
+      "exerciseName": "Corsa distanza",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Running Basics and Training",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/everyone/blog/6404/how-to-start-running/",
+          "finding": "ACE presents distance running as fundamental cardiovascular locomotion, with gradual volume progression and efficient relaxed running mechanics."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-corsa-intervallata-60-60",
+      "exerciseName": "Corsa intervallata 60/60",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Interval Training",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/everyone/blog/6591/interval-training/",
+          "finding": "ACE interval running alternates harder running bouts with recovery periods; complexity comes from pacing/intensity changes rather than advanced movement skill."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cross-body-cable-triceps-extension",
+      "exerciseName": "Cross-body cable triceps extension",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Cable Triceps Extension",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/",
+          "finding": "NASM cable triceps-extension guidance emphasizes controlled elbow extension and stable scapular positioning; cross-body direction changes cable path without requiring exceptional range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-press",
+      "exerciseName": "Cable press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Rotational Training Plans — Standing Cable Chest Press",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://blog.nasm.org/exercise-programming/3-steps-to-creating-rotational-training-plans",
+          "finding": "NASM describes standing cable chest press as a free-standing press where cable direction creates a stability/anti-rotation demand, with controlled forward pressing."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
