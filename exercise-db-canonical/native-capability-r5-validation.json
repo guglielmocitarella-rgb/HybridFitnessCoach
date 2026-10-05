@@ -1,11 +1,11 @@
 {
   "status": "CHECKPOINT_RESEARCH_PERSISTED_MATERIALIZATION_PENDING",
   "initialResidual": 3835,
-  "processedCells": 1030,
-  "resolvedCells": 1011,
+  "processedCells": 1143,
+  "resolvedCells": 1124,
   "terminalUnresolved": 19,
-  "remainingUnprocessed": 2805,
-  "researchedRecords": 290,
+  "remainingUnprocessed": 2692,
+  "researchedRecords": 324,
   "strengthPrescriptionDependentPreserved": 441,
   "nameOnlyInference": false,
   "legacyLevelDerivation": 0,
@@ -21,5 +21,16 @@
     "anomalousTerminalCells": 11,
     "action": "RESEARCHED_AND_RESOLVED_WITH_FIELD_LEVEL_EXTERNAL_EVIDENCE",
     "remainingTraceabilityGap": 0
+  },
+  "persistenceRemediation": {
+    "rootCause": "CONNECTOR_FALSE_EMPTY_FOR_LARGE_JSON_NOT_REPOSITORY_TRUNCATION",
+    "fieldDecisionsBlobSha": "5a0615fa59fefad226fae9dffcadd24c1bb85b59",
+    "fieldDecisionsBlobSize": 1062001,
+    "recoveredBatchCells": 66,
+    "recoveredBatchRecords": 20,
+    "duplicateProvenanceIds": 0,
+    "arithmeticResolvedPlusTerminal": 1143,
+    "arithmeticProcessedPlusRemaining": 3835,
+    "guard": "R5_R_PERSISTENCE_GUARD.md"
   }
 }
