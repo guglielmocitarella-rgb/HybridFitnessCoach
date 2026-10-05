@@ -4041,6 +4041,100 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-wood-chop-low-to-high",
+      "exerciseName": "Cable wood chop low-to-high",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Core Programming That Translates to Real Life",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/blog/training/core-training-programming",
+          "finding": "NASM cable chops train rotational force production/control and diagonal transfer between lower and upper body, requiring coordinated trunk movement."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-calf-wall-stretch",
+      "exerciseName": "Calf wall stretch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Standing Calf Stretch",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/16/standing-calf-stretch/",
+          "finding": "ACE standing calf stretch uses wall support, staggered stance and heel-down ankle dorsiflexion; it is a supported flexibility drill with negligible strength and skill demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-chest-press",
+      "exerciseName": "Chest press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Seated Chest Press",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/188/seated-chest-press/",
+          "finding": "ACE seated chest press uses back support and machine-guided pressing, controlled elbow extension/flexion and neutral wrist/shoulder alignment."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-child-pose-lat-stretch",
+      "exerciseName": "Child pose lat stretch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Child's Pose",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/145/child-s-pose/",
+          "finding": "ACE child’s pose is a supported kneeling flexibility movement reaching the arms forward while hips move toward heels; it requires little strength or balance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
