@@ -5531,6 +5531,98 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-hex-press",
+      "exerciseName": "Dumbbell hex press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell Squeeze Press",
+          "publisher": "Muscle & Strength",
+          "tier": 3,
+          "locator": "https://www.muscleandstrength.com/exercises/dumbbell-squeeze-press.html",
+          "finding": "Supine dumbbell squeeze/hex press keeps the dumbbells pressed together while performing a controlled chest press; bench support minimizes balance and the close path limits shoulder range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-high-row",
+      "exerciseName": "Dumbbell high row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent-over Dumbbell Row",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/12/bent-over-row/",
+          "finding": "ACE rates bent-over dumbbell row Intermediate; it requires maintaining a neutral hip-hinged trunk while controlling scapular/shoulder pulling. A high-row path changes elbow angle but preserves the postural demands."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-shoulder-press",
+      "exerciseName": "Dumbbell shoulder press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Seated Shoulder Press",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/31/seated-shoulder-press/",
+          "finding": "ACE rates dumbbell shoulder press Beginner and describes controlled overhead pressing with stable torso/scapular position; overhead range creates a moderate mobility prerequisite."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-shrug",
+      "exerciseName": "Dumbbell shrug",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Shoulder Shrug",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/28/shoulder-shrug/",
+          "finding": "ACE rates dumbbell shoulder shrug Beginner; it is performed from a stable stance with simple controlled scapular elevation/depression and minimal balance or mobility complexity."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "VERY_LOW",
+          "technicalDifficulty": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
