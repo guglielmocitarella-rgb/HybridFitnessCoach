@@ -1,0 +1,33 @@
+package com.hybridfitnesscoach.app.domain.v3
+
+import org.junit.Assert.*
+import org.junit.Test
+
+class V3SelectionEngineV310CTest {
+ private val low=SemanticValue.known(CapabilityLevel.LOW)
+ private val high=SemanticValue.known(CapabilityLevel.HIGH)
+ private val athlete=V3AthleteCapabilities(high,high,high,high)
+ private fun ex(
+   id:String="ex", equipment:EquipmentRequirement=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.NONE),
+   capabilities:CapabilityRequirements=CapabilityRequirements(low,low,low,low),
+   category:String="push", relations:List<SkillRelation> = emptyList(),
+   prescription:ExercisePrescription?=ExercisePrescription(listOf(PrescribedValue(PrescriptionDimension.REPS,8.0,InputUnit.REPETITIONS)))
+ )=ExerciseV3(CanonicalExerciseId(id),equipment,ResistanceSpec(SemanticValue.known(ResistanceSource.BODYWEIGHT)),capabilities,ExerciseCategoryV3(category),movementPatterns=SemanticValue.known(emptySet()),prescription=prescription,skillRelations=relations,legacyLevel=LegacyExerciseLevel("ADVANCED"),version=V3Version("3.7"))
+
+ @Test fun bodyweightHomePasses(){assertTrue(V3SelectionEngine.evaluate(ex(),athlete,V3SelectionEnvironment(),V3SelectionIntent()).eligible)}
+ @Test fun requiredEquipmentPassesAndFails(){val q=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.REQUIRED,setOf(EquipmentId("pull_up_bar")));assertTrue(V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(setOf(EquipmentId("pull_up_bar"))),V3SelectionIntent()).eligible);assertFalse(V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(),V3SelectionIntent()).eligible)}
+ @Test fun optionalAbsencePasses(){val q=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.OPTIONAL,optional=setOf(EquipmentId("bench")));assertTrue(V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(),V3SelectionIntent()).eligible)}
+ @Test fun oneOfEitherAlternativePasses(){val q=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.ONE_OF,setOf(EquipmentId("barbell")),setOf(EquipmentId("dumbbell")));assertTrue(V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(setOf(EquipmentId("dumbbell"))),V3SelectionIntent()).eligible)}
+ @Test fun assistedByRequiresCompatibleAssistance(){val q=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.ASSISTED_BY,assistance=setOf(EquipmentId("resistance_band")));assertTrue(V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(setOf(EquipmentId("resistance_band")),assistanceAvailable=true),V3SelectionIntent()).eligible)}
+ @Test fun externalLoadRequiresSupportAndEquipment(){val q=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.EXTERNAL_LOAD,setOf(EquipmentId("barbell")),externalLoadSupport=true);assertTrue(V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(setOf(EquipmentId("barbell")),externalLoadAvailable=true),V3SelectionIntent()).eligible)}
+ @Test fun suspensionTrainerTokenIsPreserved(){val q=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.REQUIRED,setOf(V3Equipment.SUSPENSION_TRAINER));assertTrue(V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(setOf(V3Equipment.SUSPENSION_TRAINER)),V3SelectionIntent()).eligible)}
+ @Test fun unknownEquipmentFailsClosed(){val q=EquipmentRequirement(EquipmentInformationState.UNKNOWN,EquipmentRequirementMode.REQUIRED);assertEquals(setOf(V3SelectionRejection.EQUIPMENT_UNRESOLVED),V3SelectionEngine.evaluate(ex(equipment=q),athlete,V3SelectionEnvironment(),V3SelectionIntent()).reasons)}
+ @Test fun fourCapabilitiesAreIndependent(){val req=CapabilityRequirements(high,low,low,low);val weak=V3AthleteCapabilities(low,high,high,high);assertTrue(V3SelectionRejection.CAPABILITY_INSUFFICIENT in V3SelectionEngine.evaluate(ex(capabilities=req),weak,V3SelectionEnvironment(),V3SelectionIntent()).reasons)}
+ @Test fun unresolvedCapabilityFailsWithoutLegacyLevelFallback(){val req=CapabilityRequirements(SemanticValue.unknown(),low,low,low);assertTrue(V3SelectionRejection.CAPABILITY_UNRESOLVED in V3SelectionEngine.evaluate(ex(capabilities=req),athlete,V3SelectionEnvironment(),V3SelectionIntent()).reasons)}
+ @Test fun irrelevantUnresolvedMovementPatternDoesNotBlock(){val x=ex().copy(movementPatterns=SemanticValue.evidenceUnresolved());assertTrue(V3SelectionEngine.evaluate(x,athlete,V3SelectionEnvironment(),V3SelectionIntent()).eligible)}
+ @Test fun typedFamilyAndNodeRelationsMatch(){val family=SkillTargetId("front_lever");val node=SkillTargetId("front_lever:tuck");val rs=listOf(SkillRelation(SkillTargetType.FAMILY,family,SkillRelationType.STRENGTH_BUILDER,EvidenceState.VERIFIED),SkillRelation(SkillTargetType.NODE,node,SkillRelationType.DIRECT_PROGRESSION,EvidenceState.VERIFIED));assertTrue(V3SelectionEngine.evaluate(ex(relations=rs),athlete,V3SelectionEnvironment(),V3SelectionIntent(skillFamilyIds=setOf(family))).eligible);assertTrue(V3SelectionEngine.evaluate(ex(relations=rs),athlete,V3SelectionEnvironment(),V3SelectionIntent(skillNodeIds=setOf(node))).eligible)}
+ @Test fun multidimensionalPrescriptionIsPreserved(){val p=ExercisePrescription(listOf(PrescribedValue(PrescriptionDimension.REPS,8.0,InputUnit.REPETITIONS),PrescribedValue(PrescriptionDimension.LOAD,20.0,InputUnit.KILOGRAMS),PrescribedValue(PrescriptionDimension.ASSISTANCE,2.0,InputUnit.BAND_LEVEL)));val x=ex(prescription=p);assertTrue(V3SelectionEngine.evaluate(x,athlete,V3SelectionEnvironment(),V3SelectionIntent(requirePrescriptionFeasibility=true)).eligible);assertEquals(3,x.prescription!!.prescribed.size)}
+ @Test fun deterministicOrderIsStable(){val xs=listOf(ex("b"),ex("a"),ex("c"));assertEquals(V3SelectionEngine.deterministicOrder(xs,42),V3SelectionEngine.deterministicOrder(xs.reversed(),42))}
+ @Test fun zeroPoolClassificationIsExplicit(){assertEquals(V3PoolStatus.LEGITIMATE_ZERO_POOL,V3SelectionEngine.pool(emptyList(),athlete,V3SelectionEnvironment(),V3SelectionIntent(),true).status);assertEquals(V3PoolStatus.INVALID_ZERO_POOL,V3SelectionEngine.pool(emptyList(),athlete,V3SelectionEnvironment(),V3SelectionIntent()).status)}
+ @Test fun substitutionRespectsHardConstraints(){val original=ex("o");val bad=ex("bad",equipment=EquipmentRequirement(EquipmentInformationState.KNOWN,EquipmentRequirementMode.REQUIRED,setOf(EquipmentId("barbell"))));val good=ex("good");assertEquals(listOf(good),V3SelectionEngine.validSubstitutes(original,listOf(bad,good),athlete,V3SelectionEnvironment(),V3SelectionIntent()))}
+}

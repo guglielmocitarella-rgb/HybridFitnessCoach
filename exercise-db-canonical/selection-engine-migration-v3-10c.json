@@ -1,0 +1,26 @@
+{
+  "phase": "V3.10C",
+  "architecture": {
+    "oldBoundary": "legacy Exercise/customWorkoutCandidatePool",
+    "shadowBoundary": "ExerciseV3/V3SelectionEngine",
+    "productionBindingChanged": false
+  },
+  "semantics": {
+    "fourCapabilitiesPreserved": true,
+    "legacyLevelFallback": false,
+    "equipmentStructured": true,
+    "typedSkillRelations": true,
+    "prescriptionFlattened": false,
+    "unresolvedDomainAware": true,
+    "deterministic": true,
+    "substitutionUsesHardConstraints": true
+  },
+  "finding": {
+    "classification": [
+      "UNEXPECTED_SELECTION_DRIFT",
+      "CAPABILITY_SEMANTICS_BUG"
+    ],
+    "severity": "S1",
+    "reason": "authoritative candidate has four scalar capability dimensions UNKNOWN; V3.9R-B residual coverage can use legacyLevel fallback, forbidden by V3.10C"
+  }
+}
