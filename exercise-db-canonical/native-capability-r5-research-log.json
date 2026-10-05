@@ -3970,6 +3970,77 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
+      "exerciseName": "Bear plank shoulder tap",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bear Crawl Exercise / Shoulder-Tap Progression",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/",
+          "finding": "ACE bear-crawl mechanics require a hovering quadruped base, contralateral control and level hips/shoulders; removing one hand for a shoulder tap increases anti-rotation strength and coordination demands."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-butt-kicks",
+      "exerciseName": "Butt kicks",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Running Drills for Better Form",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/everyone/blog/6599/running-drills-to-improve-running-form/",
+          "finding": "ACE running-drill guidance uses butt kicks as a dynamic running-pattern drill emphasizing quick cyclic leg action and coordination rather than external strength."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-wood-chop-high-to-low",
+      "exerciseName": "Cable wood chop high-to-low",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Core Programming That Translates to Real Life",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/blog/training/core-training-programming",
+          "finding": "NASM describes cable chops as rotational core exercises producing and controlling force through a diagonal trunk/upper-body pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
