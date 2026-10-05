@@ -846,6 +846,462 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-overhead-shoulder-press",
+      "exerciseName": "Standing Shoulder Press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Standing Shoulder Press",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/71/standing-shoulder-press/",
+          "finding": "ACE classifies standing barbell shoulder press as Advanced; requires standing bracing and controlled overhead press."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-row",
+      "exerciseName": "Barbell Row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Row",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.youtube.com/watch?v=TZLCvXbej_Q",
+          "finding": "ACE describes barbell row as Advanced and notes core stabilization demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-shrug",
+      "exerciseName": "Barbell Shrug",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Shrug",
+          "publisher": "Movviva",
+          "tier": 3,
+          "locator": "https://movviva.com/exercises/barbell-shrug",
+          "finding": "Catalog difficulty 2/5; simple standing barbell shrug with controlled vertical shoulder movement."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "VERY_LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-standing-shoulder-press",
+      "exerciseName": "Standing Shoulder Press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Standing Shoulder Press",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/71/standing-shoulder-press/",
+          "finding": "ACE classifies standing barbell shoulder press as Advanced."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-behind-the-neck-press",
+      "exerciseName": "Behind-the-Neck Press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Behind-the-Neck Press",
+          "publisher": "Healthline",
+          "tier": 2,
+          "locator": "https://www.healthline.com/health/behind-the-neck-press",
+          "finding": "Requires substantial shoulder extension/abduction and stability; even advanced lifters are advised to use care."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-behind-the-neck-pull-up",
+      "exerciseName": "Behind-the-Neck Pull-Up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Behind-the-Neck Pull-Up",
+          "publisher": "SetGrip",
+          "tier": 3,
+          "locator": "https://setgrip.app/exercises/pull-up-behind-neck/",
+          "finding": "Advanced bodyweight pull requiring unusual shoulder rotation range and controlled hanging execution."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bench-dip",
+      "exerciseName": "Bench Dips",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bench Dips",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/bench-dips",
+          "finding": "Intermediate bodyweight triceps exercise; scalable with foot position and requires controlled shoulder positioning."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bench-press",
+      "exerciseName": "Barbell Bench Press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Bench Press",
+          "publisher": "ACE Fitness",
+          "tier": 1,
+          "locator": "https://www.acefitness.org/about-ace/press-room/press-releases/2930/ace-study-tests-common-chest-exercises-finds-barbell-bench-press-most-effective/",
+          "finding": "Standard loaded chest press used as benchmark in ACE chest-exercise research; stable bench-supported compound press."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bend-and-reach",
+      "exerciseName": "Bend and Reach",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bend and Reach",
+          "publisher": "U.S. Army H2F Academy",
+          "tier": 1,
+          "locator": "https://www.youtube.com/watch?v=4yofbopcNG8",
+          "finding": "Slow preparation drill developing squat-and-reach ability and moving hips/spine through full flexion."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-arm-bent-body-press-to-handstand",
+      "exerciseName": "Bent-Arm Bent-Body Press to Handstand",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent-Arm Bent-Body Press to Handstand",
+          "publisher": "Overcoming Gravity",
+          "tier": 2,
+          "locator": "https://studylib.net/doc/27292673/overcoming-gravity---a-systematic-approach-to-gymnastics-...",
+          "finding": "Structured gymnastics progression lists this as Level 5 bent-arm press-to-handstand skill."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-arm-pull-up-to-back-lever",
+      "exerciseName": "Bent Arm Pull Up to Back Lever",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent Arm Pull Up to Back Lever",
+          "publisher": "Bodyweight Fitness",
+          "tier": 3,
+          "locator": "https://bodyweight.fitness/movements",
+          "finding": "Explicitly classified Advanced in the back-lever progression after back lever/pullout."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-arm-straight-body-press-to-handstand",
+      "exerciseName": "Bent-Arm Straight-Body Press to Handstand",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent-Arm Straight-Body Press to Handstand",
+          "publisher": "Overcoming Gravity",
+          "tier": 2,
+          "locator": "https://studylib.net/doc/27292673/overcoming-gravity---a-systematic-approach-to-gymnastics-...",
+          "finding": "Structured gymnastics progression lists bent-arm straight-body press to handstand as Level 8."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-knee-push-up",
+      "exerciseName": "Bent Knee Push-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent Knee Push-up",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/",
+          "finding": "ACE classifies the kneeling push-up as Beginner."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-knee-sit-up",
+      "exerciseName": "Bent-Knee Sit-Up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent-Knee Sit-Up",
+          "publisher": "Bodyweight Strength Training Anatomy",
+          "tier": 2,
+          "locator": "https://library.step4sport.com/wp-content/uploads/2022/10/Bodyweight-strength-training-anatomy-reduced.pdf",
+          "finding": "Classic floor core exercise using controlled trunk/hip flexion from a stable supine base."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-over-lateral-raise",
+      "exerciseName": "Bent-Over Lateral Raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent-Over Lateral Raise",
+          "publisher": "CaloNote",
+          "tier": 3,
+          "locator": "https://calonote.com/en/exercise-guide/bent-over-lateral-raise/",
+          "finding": "Intermediate rear-deltoid isolation exercise requiring a stable hip-hinged torso and controlled raise."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-over-one-arm-dumbbell-rows",
+      "exerciseName": "Bent-Over One-Arm Dumbbell Row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent-Over One-Arm Dumbbell Row",
+          "publisher": "White Coat Trainer",
+          "tier": 3,
+          "locator": "https://whitecoattrainer.com/blog/dumbbell-row",
+          "finding": "Basic fundamental supported unilateral row with torso kept motionless."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-over-row",
+      "exerciseName": "Bent-over Row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent-over Row",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/12/bent-over-row/",
+          "finding": "ACE classifies barbell bent-over row as Advanced and requires maintained flat-back hip hinge."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bicycle-crunch",
+      "exerciseName": "Bicycle Crunch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bicycle Crunch",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/about-ace/press-room/in-the-news/8311/how-to-do-a-bicycle-crunch-for-a-strong-stable-core-livestrong/",
+          "finding": "Bodyweight core movement combining trunk rotation/flexion with alternating leg motion."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bear-crawls",
+      "exerciseName": "Bear Crawls",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bear Crawls",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/continuing-education/certified/february-2021/7780/how-to-design-body-weight-training-workouts-using-the-ace-integrated-fitness-training-model/",
+          "finding": "ACE places bear crawls in bodyweight performance training, requiring coordinated quadrupedal locomotion."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
