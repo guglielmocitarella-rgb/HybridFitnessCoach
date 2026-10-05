@@ -259,6 +259,36 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-jerk",
+    "exerciseName": "Kettlebell jerk",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Double-Kettlebell Push Press and Jerk",
+        "publisher": "CrossFit",
+        "tier": 1,
+        "locator": "https://www.crossfit.com/essentials/double-kettlebell-push-press-and-jerk",
+        "finding": "Jerk adds a drop-under/rebend after explosive hip drive, catches overhead with locked elbows and is described as a demanding full-body strength and coordination challenge."
+      },
+      {
+        "title": "Kettlebell Jerk 101",
+        "publisher": "Cat & Chau Kettlebells",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=sNYWEhH23ns",
+        "finding": "Describes kettlebell jerk as an advanced ballistic skill; timing is a key learning difficulty and limited shoulder/thoracic mobility is explicitly identified as a limiter."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-adductor-foam-rolling",
     "exerciseName": "Adductor Foam Rolling",
     "identityStatus": "IDENTITY_CONFIRMED",
