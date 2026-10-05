@@ -11,9 +11,11 @@ name: Canonical Exercise DB
 
 
 on:
-  push:
-    branches:
-      - feature/v0.9.5
+  # PR #14 / feature/v0.9.5 is frozen. Keep manual execution available,
+  # but disable automatic push-triggered canonical regeneration.
+  workflow_dispatch:
+
+# Frozen legacy workflow: no automatic jobs until PR #14 is explicitly resumed.
     paths:
       - 'exercise-db-canonical/external-enrichment.json'
       - 'exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json'
@@ -28,7 +30,6 @@ on:
       - 'tools/validate_exercise_db_canonical.py'
       - 'tests/test_exercise_db_canonical.py'
       - '.github/workflows/exercise-db-canonical.yml'
-  workflow_dispatch:
 
 permissions:
   contents: write
