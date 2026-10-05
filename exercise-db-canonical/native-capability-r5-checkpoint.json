@@ -1,6 +1,6 @@
 {
   "version": "V3.10C-R5",
-  "baseHead": "4eb0330f5555b3aa1c8af12fadd0c7076009271d",
+  "baseHead": "928bc4cdb35e0e10593f224b1a81b3a13fe4b157",
   "baseCandidateBlob": "d2b3361183dd5694167c7ca8323268e1d6d13d38",
   "initialResidualCells": 3835,
   "processedRecordIds": [
@@ -141,14 +141,17 @@
     "cm-band-lateral-raise",
     "cm-band-lateral-walk",
     "cm-band-pallof-press",
-    "cm-band-row"
+    "cm-band-row",
+    "cm-band-shoulder-press",
+    "cm-band-squat",
+    "cm-band-straight-arm-pulldown"
   ],
-  "processedResidualCells": 523,
-  "resolvedCells": 493,
+  "processedResidualCells": 532,
+  "resolvedCells": 502,
   "terminalUnresolvedCells": 30,
-  "remainingCells": 3312,
-  "sourcesVisited": 138,
-  "provenanceEntries": 493,
-  "lastProcessedId": "cm-band-row",
+  "remainingCells": 3303,
+  "sourcesVisited": 141,
+  "provenanceEntries": 502,
+  "lastProcessedId": "cm-band-straight-arm-pulldown",
   "validationState": "CHECKPOINT_RESEARCH_PERSISTED_MATERIALIZATION_PENDING"
 }
