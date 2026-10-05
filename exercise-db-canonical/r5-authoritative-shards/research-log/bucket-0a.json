@@ -419,6 +419,36 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-lateral-lunge",
+    "exerciseName": "Kettlebell lateral lunge",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Lateral Lunge",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/364/lateral-lunge/",
+        "finding": "ACE rates the loaded lateral lunge Intermediate and specifies lateral stepping, hip-back mechanics and controlled return."
+      },
+      {
+        "title": "Side Lunge",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/50/side-lunge/",
+        "finding": "ACE details balance assistance, frontal-plane weight shift, flat heels, hip flexion and knee/foot alignment through the lateral lunge."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-advanced-tuck-back-lever",
     "exerciseName": "Advanced Tuck Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",
