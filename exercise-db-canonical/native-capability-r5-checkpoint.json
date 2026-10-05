@@ -1,6 +1,6 @@
 {
   "version": "V3.10C-R5",
-  "baseHead": "19d750c7fb79ec7ae24aa4e102d167619bda4769",
+  "baseHead": "4eb0330f5555b3aa1c8af12fadd0c7076009271d",
   "baseCandidateBlob": "d2b3361183dd5694167c7ca8323268e1d6d13d38",
   "initialResidualCells": 3835,
   "processedRecordIds": [
@@ -139,14 +139,16 @@
     "cm-band-hip-thrust",
     "cm-band-lat-pulldown",
     "cm-band-lateral-raise",
-    "cm-band-lateral-walk"
+    "cm-band-lateral-walk",
+    "cm-band-pallof-press",
+    "cm-band-row"
   ],
-  "processedResidualCells": 516,
-  "resolvedCells": 486,
+  "processedResidualCells": 523,
+  "resolvedCells": 493,
   "terminalUnresolvedCells": 30,
-  "remainingCells": 3319,
-  "sourcesVisited": 136,
-  "provenanceEntries": 486,
-  "lastProcessedId": "cm-band-lateral-walk",
+  "remainingCells": 3312,
+  "sourcesVisited": 138,
+  "provenanceEntries": 493,
+  "lastProcessedId": "cm-band-row",
   "validationState": "CHECKPOINT_RESEARCH_PERSISTED_MATERIALIZATION_PENDING"
 }
