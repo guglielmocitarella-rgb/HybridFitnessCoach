@@ -1,0 +1,289 @@
+[
+  {
+    "canonicalExerciseId": "cm-ab-wheel-rollout-in-ginocchio",
+    "exerciseName": "Ab Wheel rollout in ginocchio",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Ab Wheel Rollout Kneeling",
+        "publisher": "Caliverse",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/ab-wheel-rollout-kneeling-223",
+        "finding": "Kneeling rollout is a medium-difficulty anti-extension exercise requiring solid core stability, shoulder control and progressive range while maintaining posterior pelvic tilt."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-ab-wheel-wide-knee-rollout",
+    "exerciseName": "Ab Wheel wide-knee rollout",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [],
+    "decision": "TERMINAL_UNRESOLVED_INSUFFICIENT_EXERCISE_SPECIFIC_EVIDENCE",
+    "reason": "Targeted exact-variant search did not identify a reliable exercise-specific source distinguishing wide-knee rollout capability demands from generic ab-wheel family guidance.",
+    "fieldApplication": {
+      "processedFields": [
+        "strengthRequirement",
+        "technicalDifficulty",
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ],
+      "resolvedFields": [],
+      "terminalUnresolvedFields": [
+        "strengthRequirement",
+        "technicalDifficulty",
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ],
+      "reason": "Targeted exact-variant search did not identify a reliable exercise-specific source distinguishing wide-knee rollout capability demands from generic ab-wheel family guidance."
+    },
+    "searchTrail": [
+      "R3/R4 internal evidence re-examined",
+      "targeted exact-variant web search",
+      "generic family evidence rejected"
+    ]
+  },
+  {
+    "canonicalExerciseId": "cm-band-lat-pulldown",
+    "exerciseName": "Band lat pulldown",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Resistance Band Lat Pulldown",
+        "publisher": "seto",
+        "tier": 3,
+        "locator": "https://seto.fit/exercises/resistance-band-lat-pulldown/",
+        "finding": "Beginner band vertical pull performed seated under an overhead anchor with upright braced torso, full overhead reach and controlled pull/return."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-band-lateral-walk",
+    "exerciseName": "Band lateral walk",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Mini Band Lateral Walk",
+        "publisher": "seto",
+        "tier": 3,
+        "locator": "https://seto.fit/exercises/mini-band-walk/",
+        "finding": "Beginner lateral band-resisted walking drill for hip stabilizers, using a shallow athletic stance, small controlled side steps and maintained knee alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-barbell-hip-thrust",
+    "exerciseName": "Barbell hip thrust",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Understanding the Barbell Hip Thrust",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/",
+        "finding": "ACE describes a supported supine/bench hip-extension exercise with feet flat and external resistance across the hips, emphasizing full hip extension and controlled loading."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-cable-lift",
+    "exerciseName": "Cable lift",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Core Programming That Translates to Real Life",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/blog/training/core-training-programming",
+        "finding": "NASM uses cable lifts/chops as rotational core patterns that transfer force between lower and upper body and require controlled trunk rotation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-corsa-distanza",
+    "exerciseName": "Corsa distanza",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Running Basics and Training",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/6404/how-to-start-running/",
+        "finding": "ACE presents distance running as fundamental cardiovascular locomotion, with gradual volume progression and efficient relaxed running mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dumbbell-kickback",
+    "exerciseName": "Dumbbell kickback",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Triceps Kickback",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/triceps-kickback/",
+        "finding": "ACE rates triceps kickback Beginner; a supported/stable bent-over position is maintained while the elbow extends under control, requiring little balance or unusual mobility."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-incline-dumbbell-row",
+    "exerciseName": "Incline dumbbell row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Chest-supported dumbbell row",
+        "publisher": "Setkit",
+        "tier": 3,
+        "locator": "https://setkit.app/exercises/chest-supported-dumbbell-row/",
+        "finding": "Beginner incline-bench row with chest fully supported, feet planted and controlled dumbbell pull, reducing lower-back and balance demands."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-australian-pull-up",
+    "exerciseName": "Australian Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Australian Pull-Up",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/australian-pull-up/",
+        "finding": "Low-difficulty scalable horizontal pull with heels supported; body angle adjusts load while trunk maintains a rigid line."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-barbell-glute-bridge",
+    "exerciseName": "Barbell Glute Bridge",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Barbell Glute Bridge",
+        "publisher": "PureGym",
+        "tier": 3,
+        "locator": "https://www.puregym.com/exercises/glutes/glute-bridge/barbell-glute-bridges/",
+        "finding": "Weighted progression of bodyweight glute bridge; stable floor-supported hip extension with adjustable load."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-cable-upright-row",
+    "exerciseName": "Cable Upright Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Cable Upright Row",
+        "publisher": "PureGym",
+        "tier": 3,
+        "locator": "https://www.puregym.com/exercises/arms-and-shoulders/upright-rows/cable-upright-row/",
+        "finding": "Standing cable row with controlled path; lighter load recommended for stability and shoulder comfort."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  }
+]
