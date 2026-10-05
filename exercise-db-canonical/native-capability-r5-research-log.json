@@ -2928,6 +2928,53 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-band-pallof-press",
+      "exerciseName": "Band Pallof press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Pallof Press",
+          "publisher": "Muscle & Fitness",
+          "tier": 3,
+          "locator": "https://www.muscleandfitness.com/exercise/workouts/chest-exercises/banded-pallof-press/",
+          "finding": "Beginner band anti-rotation press from a solid shoulder-width base; arms extend slowly while the torso actively resists rotation."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-row",
+      "exerciseName": "Band row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Row",
+          "publisher": "Caliverse",
+          "tier": 3,
+          "locator": "https://www.caliverse.app/exercises/band-row-1292",
+          "finding": "Easy beginner seated resistance-band row with band secured around the feet, neutral upright spine, scapular retraction and controlled pulling mechanics."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
