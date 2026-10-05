@@ -3462,6 +3462,101 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-barbell-walking-lunge",
+      "exerciseName": "Barbell walking lunge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "5 Lunge Variations You Need to Try",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5818/5-lunge-variations-you-need-to-try/",
+          "finding": "ACE states walking lunges may use a barbell and recommends mastering the bodyweight movement first; each step must stabilize before controlled lowering and continued locomotion."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-body-saw",
+      "exerciseName": "Body saw",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "The Plank: Coaching Progressions and Variations for Every Client",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/blog/training/the-plank-coaching-progressions-and-variations-for-every-client",
+          "finding": "NASM identifies body saw as a more advanced plank variation that increases lever length and substantially raises anti-extension demand, requiring strong foundational control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-brisk-walk",
+      "exerciseName": "Brisk walk",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Walking Pads: Health Benefits and Usage Guidelines",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/8855/walking-pads-health-benefits-and-usage-guidelines/",
+          "finding": "ACE describes brisk walking around 2.5–4 mph as accessible cardiovascular activity; it requires focus at faster pace but no special skill or equipment."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "VERY_LOW",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-broad-jump-repeats",
+      "exerciseName": "Broad jump repeats",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Professional Football Skills — Broad Jump",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/3705/using-professional-football-skills-to-market-personal-training/",
+          "finding": "ACE identifies the standing broad jump as a test of explosive lower-body power; repeated broad jumps additionally require controlled athletic takeoff and landing."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
