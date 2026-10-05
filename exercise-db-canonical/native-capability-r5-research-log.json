@@ -4509,6 +4509,99 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-curl-bilanciere",
+      "exerciseName": "Curl bilanciere",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Biceps Curl",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/69/barbell-biceps-curl/",
+          "finding": "ACE barbell curl uses a stable standing base, neutral wrists, fixed upper arms and controlled elbow flexion/extension; it is an isolated arm exercise without complex balance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-curl-manubri",
+      "exerciseName": "Curl manubri",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Biceps Curl",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/70/biceps-curl/",
+          "finding": "ACE dumbbell biceps curl uses upright posture, elbows close to the torso and controlled elbow flexion, with no exceptional mobility or balance component."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-curl-martello",
+      "exerciseName": "Curl martello",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Hammer Curl",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/hammer-curl",
+          "finding": "NASM hammer curl is a beginner isolated elbow-flexion exercise performed with neutral grip, stable posture and controlled range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-crow-pose",
+      "exerciseName": "Crow pose",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Crow Pose",
+          "publisher": "Yoga Journal",
+          "tier": 3,
+          "locator": "https://www.yogajournal.com/poses/crow-pose/",
+          "finding": "Crow is an arm-balance requiring weight transfer onto the hands, bent-arm support, hip mobility, core control and sustained balance; it is commonly taught as an intermediate arm balance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
