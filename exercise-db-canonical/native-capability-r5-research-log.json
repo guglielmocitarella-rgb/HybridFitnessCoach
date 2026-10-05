@@ -3718,6 +3718,75 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-bird-dog-controllato",
+      "exerciseName": "Bird dog controllato",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bird Dog",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/bird-dog",
+          "finding": "NASM describes bird dog as an accessible all-levels core-stability exercise requiring slow controlled contralateral arm/leg extension, anti-rotation stability and coordinated movement."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-curl",
+      "exerciseName": "Cable curl",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "9 Best Arm Exercises",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/",
+          "finding": "NASM cable biceps curl guidance prescribes controlled elbow flexion/extension while maintaining scapular retraction, a straightforward isolated cable movement."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
+      "exerciseName": "Cable face pull with external rotation",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "NASM Exercise Library — Face Pull",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/workout-exercise-guidance",
+          "finding": "NASM lists cable-rope Face Pull as a beginner shoulder/back/arm exercise; adding deliberate external rotation increases shoulder-control complexity but retains a stable standing base."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
