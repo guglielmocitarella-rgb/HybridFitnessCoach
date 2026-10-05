@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "3.10",
+  "authority": "canonicalExerciseId",
+  "lookupOrder": [
+    "canonicalExerciseId",
+    "knownLegacyAlias",
+    "uniqueNormalizedName"
+  ],
+  "forbidden": [
+    "ambiguousNameAutoResolution",
+    "displayNameAsPrimaryKey"
+  ],
+  "persistedClasses": {
+    "plans": "REQUIRES_COMPATIBILITY_ADAPTER",
+    "active": "REQUIRES_COMPATIBILITY_ADAPTER",
+    "history": "REQUIRES_COMPATIBILITY_ADAPTER",
+    "custom": "REQUIRES_COMPATIBILITY_ADAPTER",
+    "singleExercise": "REQUIRES_COMPATIBILITY_ADAPTER",
+    "profile": "UNCHANGED"
+  },
+  "notMigratable": []
+}
