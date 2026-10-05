@@ -3230,6 +3230,50 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-barbell-pullover",
+      "exerciseName": "Barbell pullover",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Pullover",
+          "publisher": "Muscle & Strength",
+          "tier": 3,
+          "locator": "https://www.muscleandstrength.com/exercises/barbell-pullover.html",
+          "finding": "Intermediate barbell compound performed supported on a bench, lowering the bar behind the head under control with a long shoulder range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-barbell-split-squat",
+      "exerciseName": "Barbell split squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Split Squat",
+          "publisher": "Muscle & Fitness",
+          "tier": 3,
+          "locator": "https://www.muscleandfitness.com/exercise/workouts/leg-exercises/barbell-split-squat/",
+          "finding": "Intermediate staggered-stance barbell single-leg strength exercise explicitly described as improving balance and stability on both sides."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
