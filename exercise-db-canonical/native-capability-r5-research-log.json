@@ -2557,6 +2557,147 @@
         "targeted exact-variant web search",
         "generic family evidence rejected"
       ]
+    },
+    {
+      "canonicalExerciseId": "cm-back-lever-tuck",
+      "exerciseName": "Back lever tuck",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Back Lever Progression",
+          "publisher": "Simple Calisthenics",
+          "tier": 3,
+          "locator": "https://www.simple-calisthenics.com/it/exercises/backLeverProgressions",
+          "finding": "Tuck back lever is the short-lever straight-arm horizontal stage after German Hang/Skin-the-Cat; progression guidance explicitly combines shoulder mobility and straight-arm strength."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-assisted-muscle-up",
+      "exerciseName": "Band-assisted muscle-up",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Muscle Up Progressions",
+          "publisher": "Simple Calisthenics",
+          "tier": 3,
+          "locator": "https://www.simple-calisthenics.com/exercises/muscleUpProgressions",
+          "finding": "Band-assisted muscle-up is an assisted technique progression requiring explosive angled pull, transition and straight-bar dip mechanics."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-chest-press",
+      "exerciseName": "Band chest press",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Resistance-Band Chest Press Exercise",
+          "publisher": "InjuryAtlas",
+          "tier": 2,
+          "locator": "https://injuryatlas.ca/encyclopedia/chest-pecs/exercises/resistance-band-chest-press/",
+          "finding": "Physiotherapist-reviewed beginner bilateral resistance-band horizontal press with stable anchor and controlled chest/triceps/shoulder action."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-clamshell",
+      "exerciseName": "Band clamshell",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Clamshell Exercise Guide",
+          "publisher": "The Form Manual",
+          "tier": 3,
+          "locator": "https://exerciseform.com/exercises/clamshell/",
+          "finding": "Beginner resistance-band glute isolation exercise performed through a controlled hip range with stable supported body position."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-curl",
+      "exerciseName": "Band curl",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Band Curl",
+          "publisher": "Muscle & Fitness",
+          "tier": 3,
+          "locator": "https://www.muscleandfitness.com/exercise/workouts/arm-exercises/band-curl/",
+          "finding": "Beginner resistance-band elbow-flexion exercise anchored under the feet; simple bilateral isolation pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "VERY_LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-face-pull",
+      "exerciseName": "Band face pull",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Band Face Pull",
+          "publisher": "Caliverse",
+          "tier": 3,
+          "locator": "https://www.caliverse.app/exercises/band-face-pull-1129",
+          "finding": "Easy beginner band pull emphasizing scapular retraction, external rotation and controlled mechanics from a stable stance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
