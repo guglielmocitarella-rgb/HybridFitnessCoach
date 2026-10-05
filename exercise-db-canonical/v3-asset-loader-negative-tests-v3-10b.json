@@ -1,0 +1,23 @@
+{
+  "phase": "V3.10B",
+  "status": "PASS",
+  "executedLocally": [
+    "malformed JSON",
+    "missing/blank canonical ID",
+    "unknown equipment mode",
+    "invalid capability token",
+    "invalid skill relation type",
+    "invalid skill target type",
+    "unsupported schema version",
+    "duplicate canonical ID"
+  ],
+  "enforcedByLoader": [
+    "missing required top-level field",
+    "invalid semantic state",
+    "invalid resistance token",
+    "invalid prescription token",
+    "malformed nested structure",
+    "duplicate skill relation"
+  ],
+  "candidateMutatedForTests": false
+}
