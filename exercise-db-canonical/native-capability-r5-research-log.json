@@ -5161,6 +5161,101 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dive-bomber-push-up",
+      "exerciseName": "Dive bomber push-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dive Bomber Push-Up",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/87/dive-bomber-push-up/",
+          "finding": "ACE presents dive-bomber push-up as an advanced push-up variation moving dynamically between pike/downward-facing and extended positions, demanding upper-body strength, shoulder/hip mobility and coordinated whole-body control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-downward-dog-shoulder-tap",
+      "exerciseName": "Downward dog shoulder tap",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Downward-Facing Dog",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/18/downward-facing-dog/",
+          "finding": "ACE downward-facing dog requires supported inverted shoulder flexion and hip hinge; removing one hand for a shoulder tap adds unilateral support, anti-rotation strength and coordination demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dragon-flag-negativa",
+      "exerciseName": "Dragon flag negativa",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dragon Flag",
+          "publisher": "Calisthenics.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/dragon-flag/",
+          "finding": "Dragon flag is an advanced straight-body core skill requiring very high trunk/hip control and strong shoulder anchoring; the negative variation emphasizes controlled eccentric lowering while maintaining rigid body alignment."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-floor-press",
+      "exerciseName": "Dumbbell floor press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell Floor Press",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/dumbbell-floor-press",
+          "finding": "NASM floor press uses supine floor support to limit shoulder extension while dumbbells are pressed vertically under control, reducing balance and mobility demands relative to unsupported pressing."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
