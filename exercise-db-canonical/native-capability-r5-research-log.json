@@ -3557,6 +3557,98 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-crossover",
+      "exerciseName": "Cable crossover",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Cable Crossover",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/cable-crossover",
+          "finding": "NASM classifies cable crossover advanced; it uses a standing bilateral base, braced core, controlled large-arc shoulder motion and requires postural control without excessive shoulder hyperextension."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-chest-press",
+      "exerciseName": "Cable chest press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Rotational Training Plans — Standing Cable Chest Press",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://blog.nasm.org/exercise-programming/3-steps-to-creating-rotational-training-plans",
+          "finding": "NASM uses standing cable chest press as a free-standing alternative to a guided machine press; cable direction can create anti-rotational stability demand while pressing forward."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-face-pull",
+      "exerciseName": "Cable face pull",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Back Exercises that Build Muscle",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/everyone/blog/8080/back-exercises-that-build-muscle/",
+          "finding": "ACE specifically recommends cable face-pull for the mid-back musculature, a controlled cable pulling pattern emphasizing scapular retraction."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-hip-abduction",
+      "exerciseName": "Cable hip abduction",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Enhance Your Running Game by Strengthening Your Hips",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/resources/everyone/blog/7335/enhance-your-running-game-by-strengthening-your-hips/",
+          "finding": "ACE places standing cable hip abduction above side-lying and seated hip abduction in an ordered least-to-most advanced hip-abductor sequence; standing unilateral cable work contributes to balance demands."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
