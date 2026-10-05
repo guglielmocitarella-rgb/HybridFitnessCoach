@@ -1,0 +1,43 @@
+name: V3.10C R3 capability evidence
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths:
+      - tools/remediate_native_capability_v310cr3.py
+      - .github/workflows/v310cr3-capability-evidence.yml
+permissions:
+  contents: write
+jobs:
+  r3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/exercise-db-v3
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/remediate_native_capability_v310cr3.py
+      - name: Validate R3 invariants
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          d=pathlib.Path("exercise-db-canonical")
+          v=json.loads((d/"capability-validation-v3-10c-r3.json").read_text())
+          assert (v["records"],v["unique"],v["missing"],v["duplicates"])==(1087,1087,0,0)
+          assert not any(v[k] for k in ("legacyLevelUsedAsCapability","legacyLevelFallback","nameOnlyInference","globalUnknownRelaxation","productionPathModified","runtimeDbModified"))
+          p=json.loads((d/"capability-field-patch-v3-10c-r3.json").read_text())
+          q=json.loads((d/"capability-provenance-v3-10c-r3.json").read_text())
+          assert len(p)==len(q)
+          assert all(x["confidence"] in ("CERTAIN","HIGH_CONFIDENCE") and x["derivationRuleId"] and x["evidenceClaim"] for x in p)
+          print(v)
+          PY
+      - name: Persist R3 outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exercise-db-canonical/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "v3.10c-r3: persist evidence resolution checkpoint [skip ci]"
+          git push origin HEAD:feature/exercise-db-v3
