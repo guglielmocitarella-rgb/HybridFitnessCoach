@@ -2435,6 +2435,53 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-arnold-press",
+      "exerciseName": "Arnold press",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Arnold Press",
+          "publisher": "Healthline",
+          "tier": 3,
+          "locator": "https://www.healthline.com/health/arnold-press",
+          "finding": "Rotating overhead dumbbell press; beginner modification uses light seated loading, while full movement requires controlled rotation and sufficient shoulder mobility."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-back-lever-advanced-tuck",
+      "exerciseName": "Back lever advanced tuck",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "How to learn the back lever",
+          "publisher": "Strive Up",
+          "tier": 3,
+          "locator": "https://strive-up.com/en/blog/how-to-back-lever",
+          "finding": "Advanced tuck is a defined stage after tuck in the back-lever progression; back lever requires lat/straight-arm strength, clean skin-the-cat entry and shoulder-extension mobility, with controlled horizontal body position."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
