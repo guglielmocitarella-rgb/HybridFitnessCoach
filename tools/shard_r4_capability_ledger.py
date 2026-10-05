@@ -21,3 +21,11 @@ assert sorted(map(key,orig))==sorted(map(key,recon))
 manifest["validation"]={"cellsReconstructed":3835,"missingCells":0,"duplicateCellKeys":0,"semanticMutation":False,"sourcePreserved":True,"maxShardBytes":max(x["bytes"] for x in manifest["shards"])}
 (out/"manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(manifest["validation"]))
+
+# R5 exact unprocessed workset (infrastructure only)
+ck=json.loads((D/"native-capability-r5-checkpoint.json").read_text())
+processed=set(ck["processedRecordIds"])
+unprocessed=[x for x in rows if x["canonicalExerciseId"] not in processed]
+assert len(unprocessed)==3779, (len(unprocessed),ck)
+(D/"r4-ledger-shards"/"r5-unprocessed-workset.json").write_text(json.dumps(unprocessed,ensure_ascii=False,indent=2)+"\n")
+(D/"r4-ledger-shards"/"r5-unprocessed-summary.json").write_text(json.dumps({"baseCells":len(rows),"processedCells":len(rows)-len(unprocessed),"remainingUnprocessed":len(unprocessed),"processedRecordIds":sorted(processed)},ensure_ascii=False,indent=2)+"\n")
