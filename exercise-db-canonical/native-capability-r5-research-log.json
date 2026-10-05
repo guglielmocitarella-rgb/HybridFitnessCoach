@@ -23,8 +23,24 @@
           "finding": "Uses the same label for a conventional cadence push-up reaching 90-degree elbow flexion."
         }
       ],
-      "decision": "NO_MUTATION",
-      "reason": "Canonical identity must be disambiguated before capability classification; two materially different exercises share the name."
+      "decision": "TERMINAL_UNRESOLVED_IDENTITY_AMBIGUOUS",
+      "reason": "Canonical identity must be disambiguated before capability classification; two materially different exercises share the name.",
+      "fieldApplication": {
+        "processedFields": [
+          "strengthRequirement",
+          "technicalDifficulty",
+          "mobilityRequirement",
+          "balanceCoordinationRequirement"
+        ],
+        "resolvedFields": [],
+        "terminalUnresolvedFields": [
+          "strengthRequirement",
+          "technicalDifficulty",
+          "mobilityRequirement",
+          "balanceCoordinationRequirement"
+        ],
+        "reason": "Two materially different exercise identities share the label; no field value is defensible until identity is disambiguated."
+      }
     },
     {
       "canonicalExerciseId": "ex-ab-wheel-eccentrics",
@@ -46,7 +62,17 @@
           "finding": "Standing ab-wheel eccentrics are step 6 immediately before full standing rollout and are performed by rolling out without returning."
         }
       ],
-      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": [
+          "mobilityRequirement",
+          "balanceCoordinationRequirement"
+        ]
+      }
     },
     {
       "canonicalExerciseId": "ex-abdominal-crunch",
@@ -61,7 +87,15 @@
           "finding": "ACE rates Crunch Beginner and specifies controlled supine spinal flexion with feet, tailbone and low back supported."
         }
       ],
-      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     },
     {
       "canonicalExerciseId": "ex-adductor-foam-rolling",
@@ -76,7 +110,15 @@
           "finding": "NASM describes the technique as appropriate for all fitness levels; hands support the body while slow controlled rolling is performed."
         }
       ],
-      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     },
     {
       "canonicalExerciseId": "ex-advanced-tuck-back-lever",
@@ -98,7 +140,16 @@
           "finding": "Places Advanced Tuck Back Lever at level 4 in a structured back-lever progression, after tuck and before straddle."
         }
       ],
-      "decision": "EVIDENCE_RECOVERED_PENDING_FIELD_APPLICATION"
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
