@@ -6331,6 +6331,102 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-torace",
+      "exerciseName": "Foam Roller torace",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Estensione toracica sul foam roller",
+          "publisher": "FitMetrics",
+          "tier": 3,
+          "locator": "https://www.fitmetrics.ch/it/esercizi/6733d70dcfbe1-estensione-toracica-sul-foam-roller",
+          "finding": "Beginner, low-impact thoracic-mobility drill performed supported on the floor; controlled thoracic extension with feet stable and no forced range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-triceps",
+      "exerciseName": "Foam Roller triceps",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Foam Roller Triceps Roll",
+          "publisher": "Athlemove",
+          "tier": 3,
+          "locator": "https://athlemove.com/exercises/foam-roller-triceps-roll",
+          "finding": "Beginner-level self-myofascial release; explicitly needs no strength base, uses top hand and foot for support, and requires comfortable overhead arm reach."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-foam-roller-upper-back",
+      "exerciseName": "Foam Roller upper back",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Foam Roller Upper Back Roll",
+          "publisher": "Athlemove",
+          "tier": 3,
+          "locator": "https://athlemove.com/exercises/foam-roller-upper-back-roll",
+          "finding": "Supported upper-back self-myofascial release; pressure is adjusted by hip position and the exercise explicitly does not build strength."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-freestanding-handstand-hold",
+      "exerciseName": "Freestanding handstand hold",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Freestanding Handstand",
+          "publisher": "CALISTHENICS.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/freestanding-handstand/",
+          "finding": "High-difficulty unsupported static skill supporting full bodyweight on the hands, requiring a connected inverted line and continuous balance control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
