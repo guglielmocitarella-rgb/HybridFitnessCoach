@@ -3649,6 +3649,75 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-row",
+      "exerciseName": "Cable row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Beginner Fitness Routine",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/blog/training/beginner-fitness-routine",
+          "finding": "NASM uses seated cable row as a foundational beginner pulling pattern and emphasizes slow controlled repetitions and movement quality."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-biceps-curl",
+      "exerciseName": "Cable biceps curl",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "9 Best Arm Exercises",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/",
+          "finding": "NASM describes standing cable biceps curls with shoulder flexed as controlled elbow flexion while maintaining scapular retraction, with no complex locomotor or balance component."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-triceps-extension",
+      "exerciseName": "Cable triceps extension",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "9 Best Arm Exercises",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/",
+          "finding": "NASM describes cable triceps extension from a supported seated/upright position with shoulder blades retracted/depressed and controlled elbow extension."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
