@@ -5807,6 +5807,54 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-eccentric-pull-up",
+      "exerciseName": "Eccentric pull-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Eccentric Pull-up",
+          "publisher": "Australian Strength and Conditioning Association",
+          "tier": 3,
+          "locator": "https://www.strengthandconditioning.org/exercise-highlight/2299-eccentric-pull-up",
+          "finding": "ASCA describes eccentric pull-ups as a strength/technique progression for athletes not yet able to perform concentric pull-ups, requiring stable torso, minimal swing, slow controlled lowering, even arm use and body-control awareness."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-elevated-pike-push-up",
+      "exerciseName": "Elevated pike push-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Elevated Pike Push-Up",
+          "publisher": "Fitloop",
+          "tier": 3,
+          "locator": "https://fitloop.app/exercises/elevated-pike-push-up",
+          "finding": "Exercise-specific guide classifies the feet-elevated pike push-up Intermediate, with feet on a box, hips high in an inverted V, core engaged and controlled head-to-floor pressing; elevation increases bodyweight loading toward a handstand-push-up pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
