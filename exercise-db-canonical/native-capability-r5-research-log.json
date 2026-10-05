@@ -2248,6 +2248,123 @@
         "targeted web search for exact canonical variant",
         "generic family evidence rejected as insufficient for record-specific classification"
       ]
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-wall-limited-rollout",
+      "exerciseName": "Ab Wheel wall-limited rollout",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Ab wheel wall-limited rollout",
+          "publisher": "Coaching Video Studio",
+          "tier": 3,
+          "locator": "https://www.coachingvideosai.com/programs/workouts",
+          "finding": "Wall-limited rollout is classified beginner; the wall caps range to control the rollout and teach clean technique."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-adductor-rock-back",
+      "exerciseName": "Adductor rock-back",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Adductor Rock-back",
+          "publisher": "The Doctors of Physical Therapy",
+          "tier": 2,
+          "locator": "https://www.youtube.com/watch?v=uZyLZDxcD38",
+          "finding": "Physical-therapy demonstration uses quadruped support with one leg extended laterally and a slow backward weight shift to improve frontal-plane hip mobility and inner-thigh flexibility/stability."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-alternating-dumbbell-bench-press",
+      "exerciseName": "Alternating dumbbell bench press",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Alternating Dumbbell Bench Press",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.youtube.com/watch?v=wOa4YyxyiKI",
+          "finding": "NASM demonstrates alternating dumbbell pressing from a supported bench while stabilizing through the core; independent exercise libraries classify the movement beginner."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-alternating-dumbbell-curl",
+      "exerciseName": "Alternating dumbbell curl",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Alternating Dumbbell Curl",
+          "publisher": "SetGrip",
+          "tier": 3,
+          "locator": "https://setgrip.app/exercises/dumbbell-curl-alternating/",
+          "finding": "Beginner standing isolation curl with alternating sides, fixed upper arm and controlled full range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "VERY_LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-assisted-one-arm-pull-up",
+      "exerciseName": "Assisted one-arm pull-up",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Self-Assisted One Arm Pull Up Progressions",
+          "publisher": "Simple Calisthenics",
+          "tier": 3,
+          "locator": "https://www.simple-calisthenics.com/exercises/selfAssistedOneArmPullUpProgressions",
+          "finding": "Assisted one-arm pull-up progression requires unilateral pulling, controlled eccentric, shoulder packing and maximal anti-rotation control while assistance is progressively reduced."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
