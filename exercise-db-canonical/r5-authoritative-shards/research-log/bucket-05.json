@@ -381,6 +381,36 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-reverse-lunge-to-press",
+    "exerciseName": "Kettlebell reverse lunge to press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Kettlebell Lunge and Press: Build Strength, Balance and Control",
+        "publisher": "Kettlebells Workouts / Greg Brookes",
+        "tier": 3,
+        "locator": "https://kettlebellsworkouts.com/kettlebell-lunge-press/",
+        "finding": "Exercise combines reverse lunge and one-arm overhead press and is described as highly demanding in execution, challenging stability, posture, strength, balance, mobility and total-body coordination."
+      },
+      {
+        "title": "Reverse Lunge to Press",
+        "publisher": "Chloe Hamard",
+        "tier": 3,
+        "locator": "https://www.chloehamard.co.uk/exercise-library/upper-body/reverse-lunge-to-press",
+        "finding": "Kettlebell demonstration identifies the exercise as unilateral, core/balance demanding and recommends prior comfort with lunges and unilateral shoulder press; balance is explicitly key."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ball-shoulder-stretch",
     "exerciseName": "Ball Shoulder Stretch",
     "identityStatus": "IDENTITY_CONFIRMED",
