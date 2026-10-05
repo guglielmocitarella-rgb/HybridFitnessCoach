@@ -1302,6 +1302,174 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-bastards",
+      "exerciseName": "Bastards",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bastards",
+          "publisher": "Rees Fitness",
+          "tier": 3,
+          "locator": "https://reesfitness.co.uk/blog/2011/11/29/how-to-do-bastards/",
+          "finding": "Progression beyond a difficult burpee combining squat thrust, full push-up and explosive tuck jump; described as very hard full-body exercise."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bench-step",
+      "exerciseName": "Bench Step",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bench Step",
+          "publisher": "Sears Fitness",
+          "tier": 3,
+          "locator": "https://www.youtube.com/watch?v=LhivVRJBivc",
+          "finding": "Alternating bench step-up targets quads, hamstrings and glutes and explicitly improves balance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bent-leg-good-morning",
+      "exerciseName": "Bent Leg Good Morning",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bent Leg Good Morning",
+          "publisher": "Anatomy for Strength and Fitness Training",
+          "tier": 2,
+          "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/04.pdf",
+          "finding": "Barbell bent-leg good morning is explicitly classified intermediate to advanced and uses a controlled hip hinge."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bodyweightair-squat",
+      "exerciseName": "Bodyweight/Air Squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bodyweight/Air Squat",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.unm.edu/~lkravitz/Extra%2014/BodyweightACELK.pdf",
+          "finding": "ACE bodyweight interval guidance places air squats in an entry-level muscular-endurance workout."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-box-dip",
+      "exerciseName": "Box Dip",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Box Dip",
+          "publisher": "BrunchBody Exercise Guide",
+          "tier": 3,
+          "locator": "https://brunchbodyfit.com/wp-content/uploads/2021/12/BrunchBodyExerciseGuide.pdf",
+          "finding": "Stable box-supported bodyweight dip: hands fixed behind body, lower to about 90-degree elbows, press back up."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-box-headstand-pushup",
+      "exerciseName": "Box Headstand Pushup",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Box Headstand Pushup",
+          "publisher": "BodyTree",
+          "tier": 3,
+          "locator": "https://bodytree.app/exercises/box-headstand-pushup",
+          "finding": "Level-2 handstand-pushup progression; feet elevation shifts more bodyweight onto hands and requires prior solid pike headstand pushup."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-burpees",
+      "exerciseName": "Burpees",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Burpees",
+          "publisher": "Cleveland Clinic",
+          "tier": 2,
+          "locator": "https://health.clevelandclinic.org/how-to-do-burpee",
+          "finding": "High-intensity full-body sequence combining squat, plank, push-up and explosive jump; seven familiar movements but substantial strength/cardio demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
