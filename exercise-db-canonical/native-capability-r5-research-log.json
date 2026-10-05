@@ -6427,6 +6427,76 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-french-press",
+      "exerciseName": "French press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "How To Do the French Press Exercise for Bigger, Stronger Triceps",
+          "publisher": "BarBend",
+          "tier": 3,
+          "locator": "https://barbend.com/french-press-exercise/",
+          "finding": "Overhead triceps extension requires stable bracing, controlled elbow extension, and sufficient overhead shoulder mobility; inadequate mobility is specifically identified as a form limitation."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-frog-stretch",
+      "exerciseName": "Frog stretch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Frog Stretch",
+          "publisher": "Lonero",
+          "tier": 3,
+          "locator": "https://lonero.app/exercises/frog-stretch",
+          "finding": "Beginner bodyweight hip-mobility stretch performed supported on all fours/forearms, using a wide-knee position to load the adductors and hip range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-front-lever-negative",
+      "exerciseName": "Front lever negative",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Front Lever - Negative",
+          "publisher": "ENSO Calisthenics",
+          "tier": 3,
+          "locator": "https://www.ensocalisthenics.com/ws/media-library/15279172db3729893b6f32e2f60283f9/enso-bodyweight-strength-system.pdf",
+          "finding": "Listed at Pull Level 11: start inverted with straight arms/body and lower as slowly as possible while maintaining the lever, indicating advanced straight-arm pulling and whole-body control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
