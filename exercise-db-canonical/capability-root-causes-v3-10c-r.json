@@ -1,0 +1,25 @@
+{
+  "primary": [
+    "CAPABILITY_DATA_GAP",
+    "SOURCE_EVIDENCE_GAP"
+  ],
+  "secondary": [
+    "HISTORICAL_SELECTION_SIMULATION_LEGACY_COMPATIBILITY"
+  ],
+  "notDemonstrated": [
+    "CAPABILITY_MATERIALIZATION_BUG",
+    "AUTHORITATIVE_CANDIDATE_WIRING_BUG",
+    "SCHEMA_REPRESENTATION_BUG",
+    "LOADER_MAPPING_BUG",
+    "STATE_COLLAPSE_BUG",
+    "PATCH_APPLICATION_BUG",
+    "STALE_ASSET_BUG",
+    "TEST_FIXTURE_BUG",
+    "VALIDATOR_BUG"
+  ],
+  "evidence": [
+    "V3.10B: four scalar dimensions UNKNOWN 1087/1087",
+    "V3.9R-B residual capability patch: zero capability mutations",
+    "V3.9R-B cap() explicitly falls back to legacyLevel when native four-dimensional capability is unavailable"
+  ]
+}

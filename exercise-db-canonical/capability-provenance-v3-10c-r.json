@@ -1,0 +1,18 @@
+{
+  "diagnosticSources": [
+    {
+      "artifact": "V3_ASSET_LOADER_SCHEMA_VALIDATION_V3_10B.md",
+      "finding": "all four scalar dimensions UNKNOWN 1087/1087"
+    },
+    {
+      "artifact": "residual-capability-patch-v3-9r-b.json",
+      "finding": "capabilityMutations empty"
+    },
+    {
+      "artifact": "tools/audit_residual_selection_v39rb.py",
+      "finding": "cap() uses legacyLevel compatibility fallback when native four-dimensional capability unavailable"
+    }
+  ],
+  "newCapabilityValueProvenance": [],
+  "falsePrecisionIntroduced": false
+}

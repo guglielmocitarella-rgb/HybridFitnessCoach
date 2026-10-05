@@ -1,0 +1,40 @@
+{
+  "version": "V3.10C-R",
+  "records": 1087,
+  "authoritativeCandidate": "exercise-db-canonical/exercise-db-v3-9r-b-candidate.json",
+  "candidateBlob": "b400dbd49405d5e2350f7fab0849780e4f8d06f2",
+  "dimensions": [
+    "strengthRequirement",
+    "technicalDifficulty",
+    "mobilityRequirement",
+    "balanceCoordinationRequirement"
+  ],
+  "stages": {
+    "v39r": {
+      "representation": "four field names preserved; native values not materialized globally"
+    },
+    "v39rb": {
+      "capabilityMutations": 0,
+      "selectionCompatibility": "legacyLevel fallback when native dimensions unavailable"
+    },
+    "authoritativeCandidate": {
+      "eachDimension": {
+        "UNKNOWN": 1087
+      }
+    },
+    "v310b": {
+      "eachDimension": {
+        "UNKNOWN": 1087
+      },
+      "silentSemanticLoss": 0
+    },
+    "exerciseV3": {
+      "mapping": "UNKNOWN -> SemanticValue.UNKNOWN"
+    },
+    "v310c": {
+      "legacyLevelFallback": false,
+      "unknownFailsClosed": true
+    }
+  },
+  "lineageStatus": "PRESERVED_UNKNOWN_NO_PRIOR_NATIVE_VALUE_TO_RECOVER"
+}

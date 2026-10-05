@@ -3,19 +3,17 @@
 | Gate | Origin | Status / reason | Required before |
 |---|---|---|---|
 | V3_AUTHORITATIVE_ASSET_FULL_KOTLIN_EXECUTION_GATE | V3.10B / V3.10B-X / V3.10B-X2 | DEFERRED_MANDATORY_PRE_PRODUCTION — MATERIALIZATION_ENVIRONMENT_LIMITATION | PRODUCTION_ACTIVATION |
-| V3_NATIVE_SELECTION_ENGINE_GATE | V3.10C | SELECTION_REMEDIATION_REQUIRED — native four-capability coverage cannot use legacyLevel fallback | NEXT_RUNTIME_MIGRATION_PHASE |
+| V3_NATIVE_SELECTION_ENGINE_GATE | V3.10C-R | FURTHER_EVIDENCE_REMEDIATION_REQUIRED — authoritative candidate preserves UNKNOWN for all four scalar capability dimensions on 1087/1087 records; V3.9R-B coverage used explicit legacyLevel compatibility fallback and did not persist native capability mutations | NATIVE_SELECTION_VALIDATION |
 
-Required loader evidence before production: exact candidate bytes; Git blob identity; real `V3AssetLoader.loadAuthoritative`; input/parsed/validated/mapped 1087; rejected/missing/duplicates 0; silent semantic loss 0.
+## V3.10C-R finding
+PR #15 / branch baseline was verified at `47e5d580ad77dc3b5af8c82d641fad893aa4dc19`. Candidate aliases resolve to blob `b400dbd49405d5e2350f7fab0849780e4f8d06f2`.
 
-Allowed before loader gate: domain development, shadow integration, isolated simulation and local non-production tests. Forbidden: V3 production repository/default DB, Runner production switch, persistence migration, or APK/device claims of completed V3 production integration.
+No candidate wiring, schema mapping, loader mapping, state-collapse, patch-application, or stale-asset bug was demonstrated for capability. V3.10B's UNKNOWN state is the state serialized by the authoritative candidate. V3.9R-B did not materialize four-dimensional capability values; its simulator used legacyLevel compatibility when native capability was unavailable.
 
-## V3.10C shadow boundary
-`V3SelectionEngine` consumes `ExerciseV3` directly and is not bound into production DI/composition. Production behavior remains unchanged. The implementation preserves structured equipment, four capability dimensions, typed skill relations, multidimensional prescription, domain-aware unresolved handling, deterministic ordering, explicit legitimate/invalid zero-pool status, and substitution hard constraints.
+Therefore S1 is a real capability data/evidence gap. V3.10C correctly keeps legacyLevel fallback disabled and UNKNOWN fail-closed. No global relaxation is authorized.
 
-Known blocker: V3.10B reports all four scalar capability requirements UNKNOWN for the authoritative candidate. V3.9R-B coverage used a legacyLevel fallback in residual simulation; V3.10C forbids that fallback. This is S1 until native capability semantics/data are resolved.
+## Production isolation
+Production path modified: NO. Runtime DB modified: NO. Runner/persistence/workout generator modified: NO. Native V3 remains shadow-only.
 
-## GitHub Actions policy
-Free Actions budget exhausted. Local-first validation is mandatory. Do not create temporary workflows or intentionally trigger Actions without explicit user authorization.
-
-## Push policy
-Develop/test locally; no push-as-test; target one substantive commit and one push per phase; use `[skip ci]` where compatible; extra push only for demonstrated exceptional repository/infrastructure correction.
+## Next gate
+Evidence-first four-dimensional capability remediation with field-level provenance, followed by authoritative materialization validation, 640 native smoke/drift, then 64,000 deterministic rerun. S2 remains separately deferred mandatory pre-production.
