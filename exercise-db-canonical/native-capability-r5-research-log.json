@@ -6493,7 +6493,32 @@
         "resolved": {
           "balanceCoordinationRequirement": "MODERATE",
           "mobilityRequirement": "MODERATE",
-          "strengthRequirement": "VERY_HIGH"
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-front-lever-raises-tuck",
+      "exerciseName": "Front lever raises tuck",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Tuck Front Lever Raises",
+          "publisher": "CALISTHENICS.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/tuck-front-lever-raises/",
+          "finding": "Moderate-difficulty straight-arm pulling progression requiring a strength foundation, scapular control, core engagement, body alignment and controlled raising/lowering; shoulder and hip mobility are beneficial."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
         },
         "terminalUnresolved": []
       }
