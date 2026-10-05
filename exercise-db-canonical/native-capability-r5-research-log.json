@@ -246,6 +246,606 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-assisted-hamstring-curl",
+      "exerciseName": "Assisted Hamstring Curl",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Assisted Hamstring Curl",
+          "publisher": "Complete Calisthenics",
+          "tier": 3,
+          "locator": "https://studylib.net/doc/27879255/complete-calisthenics--the-ultimate-guide-to-bodyweight-e...",
+          "finding": "Assisted Nordic-style curl uses upper-body support to regulate difficulty; prescribed as a low-rep strength progression."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-assisted-leg-raise",
+      "exerciseName": "Assisted Leg Raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Assisted Leg Raise",
+          "publisher": "bit by bit",
+          "tier": 3,
+          "locator": "https://www.bitbybit.fit/exercises",
+          "finding": "Library classifies Assisted Leg Raise as Intermediate; supported lying execution trains hip flexors/quadriceps and core pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-assisted-single-leg-squat",
+      "exerciseName": "Assisted Single-Leg Squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Assisted Single-Leg Squat",
+          "publisher": "U.S. Army H2F",
+          "tier": 1,
+          "locator": "https://www.armyprt.com/h2f/suspension-training-drill-2/",
+          "finding": "Suspension trainer assists balance, squat depth and thigh load during a controlled single-leg squat."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-back-extension-apparatus",
+      "exerciseName": "Back Extension Apparatus",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Back Extension Apparatus",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/8944/a-back-to-school-program-an-evidence-based-approach-to-training-the-back/",
+          "finding": "ACE notes back extensions can use bodyweight, dumbbells or machine and are appropriate for healthy adults of all fitness levels."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-back-foot-elevated-split-squat",
+      "exerciseName": "Bulgarian Split Squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bulgarian Split Squat",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/bulgarian-split-squat",
+          "finding": "Advanced unilateral lower-body movement explicitly challenging single-leg strength, balance and stability."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-back-lever-pullout",
+      "exerciseName": "Back Lever Pullout",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Back Lever Pullout",
+          "publisher": "GymDaze",
+          "tier": 3,
+          "locator": "https://gym-daze.com/exercises/back-lever-pullout",
+          "finding": "Advanced transition from horizontal back lever to inverted hang with straight elbows and rigid body line."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-back-squat",
+      "exerciseName": "Back Squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Back Squat",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/11/back-squat/",
+          "finding": "ACE classifies barbell Back Squat as Advanced and requires controlled below-knee depth with straight back and chest up."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-ball-bridge",
+      "exerciseName": "Stability Ball Bridge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Stability Ball Bridge",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/4957/6-moves-for-a-stronger-core/",
+          "finding": "Supine bridge with heels on a stability ball; hips rise while the unstable ball increases stabilization demand."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-ball-shoulder-stretch",
+      "exerciseName": "Ball Shoulder Stretch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Ball Shoulder Stretch",
+          "publisher": "Great Lakes Bay Health Centers",
+          "tier": 2,
+          "locator": "https://greatlakesbayhealthcenters.org/wp-content/uploads/Exercise-During-Pregnancy.pdf",
+          "finding": "Supported kneeling stretch rolling an exercise ball forward only to a comfortable gentle shoulder/upper-back stretch."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-band-assisted-planche",
+      "exerciseName": "Band-Assisted Planche",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band-Assisted Planche",
+          "publisher": "CALISTHENICS.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/resistance-band-planche/",
+          "finding": "Band reduces load but preserves planche body line; assistance is progressively reduced toward unassisted planche."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-biceps-curl",
+      "exerciseName": "Banded Biceps Curl",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Biceps Curl",
+          "publisher": "Lonero",
+          "tier": 3,
+          "locator": "https://lonero.app/exercises/banded-biceps-curl?lang=it",
+          "finding": "Beginner resistance-band isolation curl with fixed elbows and controlled return."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "VERY_LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-chest-press",
+      "exerciseName": "Banded Chest Press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Chest Press",
+          "publisher": "SetGrip",
+          "tier": 3,
+          "locator": "https://setgrip.app/exercises/banded-chest-press-seated/",
+          "finding": "Beginner-friendly seated resistance-band press; simple bilateral compound push."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-deadlift",
+      "exerciseName": "Banded Deadlift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Deadlift",
+          "publisher": "PowerliftingTechnique",
+          "tier": 3,
+          "locator": "https://powerliftingtechnique.com/banded-deadlift/",
+          "finding": "Band-resisted barbell deadlift requires coordinated hip/knee extension, neutral spine and increasing lockout resistance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-deltoid-row",
+      "exerciseName": "Banded Rear Delt Row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Rear Delt Row",
+          "publisher": "LiftManual",
+          "tier": 3,
+          "locator": "https://liftmanual.com/band-standing-rear-delt-row/",
+          "finding": "Standing anchored-band high-elbow row targeting rear delts and upper back with controlled return."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-external-rotation",
+      "exerciseName": "Band External Rotation",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band External Rotation",
+          "publisher": "Muscle & Fitness",
+          "tier": 3,
+          "locator": "https://www.muscleandfitness.com/exercise/workouts/back-exercises/band-external-rotation/",
+          "finding": "Beginner prehab/rehab rotator-cuff movement using light resistance and fixed elbow."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-front-raise",
+      "exerciseName": "Banded Front Raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Front Raise",
+          "publisher": "Coach",
+          "tier": 3,
+          "locator": "https://www.coachweb.com/fitness/shoulder-workouts/beginner-shoulder-workouts",
+          "finding": "Included in a beginner shoulder workout; controlled standing band raise to eye level."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-lateral-raise",
+      "exerciseName": "Banded Lateral Raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Lateral Raise",
+          "publisher": "Muscle & Strength",
+          "tier": 3,
+          "locator": "https://cdn.muscleandstrength.com/exercises/banded-lateral-raise",
+          "finding": "Beginner isolation shoulder exercise performed standing on a band with controlled raise/lower."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-lying-leg-extension",
+      "exerciseName": "Banded Lying Leg Extension",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Lying Leg Extension",
+          "publisher": "GymBeam",
+          "tier": 3,
+          "locator": "https://gymbeam.com/blog/top-9-exercises-to-tighten-your-abs-with-a-resistance-band/",
+          "finding": "Supine band-resisted alternating leg extension with core braced and controlled range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-triceps-extension",
+      "exerciseName": "Band Triceps Extension",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Triceps Extension",
+          "publisher": "Kysero",
+          "tier": 3,
+          "locator": "https://kysero.io/exercise-library/mini-band-triceps-extension/",
+          "finding": "Beginner elbow-extension isolation drill with controlled upper-arm position."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-unilateral-triceps-extension",
+      "exerciseName": "Banded Unilateral Triceps Extension",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Unilateral Triceps Extension",
+          "publisher": "Gym Pact",
+          "tier": 3,
+          "locator": "https://www.gym-pact.com/cable-overhead-triceps-extension-alternative",
+          "finding": "Single-arm band triceps extension with stable staggered stance and isolated elbow extension."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-banded-upright-row",
+      "exerciseName": "Banded Upright Row",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Banded Upright Row",
+          "publisher": "Muscle & Fitness",
+          "tier": 3,
+          "locator": "https://www.muscleandfitness.com/exercise/workouts/shoulder-exercises/banded-upright-row/",
+          "finding": "Beginner resistance-band strength exercise: stand on band and pull to upper chest."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bar-pull-up-eccentrics",
+      "exerciseName": "Bar Pull-Up Eccentrics",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bar Pull-Up Eccentrics",
+          "publisher": "BodyTree",
+          "tier": 3,
+          "locator": "https://bodytree.app/exercises/bar-pull-ups",
+          "finding": "Progression immediately before strict pull-up; requires repeated controlled ~5-second negative lowers."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-bent-leg-dead-lift",
+      "exerciseName": "Barbell Bent Leg Dead Lift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Bent Leg Dead Lift",
+          "publisher": "Anatomy for Strength and Fitness Training",
+          "tier": 3,
+          "locator": "https://www.scribd.com/document/1059378448/Anatomy-for-Strength-and-Fitness-Training-An-Illustrated-Guide-to-Your-Muscles-in-Action-1",
+          "finding": "Compound closed-chain barbell pull classified intermediate to advanced, requiring coordinated knee/hip extension."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-biceps-curl",
+      "exerciseName": "Barbell Biceps Curl",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Biceps Curl",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/barbell/",
+          "finding": "ACE barbell library classifies Bicep Curl as Intermediate."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-glute-bridge",
+      "exerciseName": "Barbell Glute Bridge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Glute Bridge",
+          "publisher": "PureGym",
+          "tier": 3,
+          "locator": "https://www.puregym.com/exercises/glutes/glute-bridge/barbell-glute-bridges/",
+          "finding": "Weighted progression of bodyweight glute bridge; stable floor-supported hip extension with adjustable load."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
