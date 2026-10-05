@@ -9,6 +9,9 @@ on:
   pull_request:
     branches:
       - main
+    # PR #14 / feature/v0.9.5 is intentionally frozen while DB V3 is completed on PR #15.
+    branches-ignore:
+      - feature/v0.9.5
   workflow_dispatch:
 
 concurrency:
