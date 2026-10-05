@@ -5439,6 +5439,98 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-kickback",
+      "exerciseName": "Dumbbell kickback",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Triceps Kickback",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/triceps-kickback/",
+          "finding": "ACE rates triceps kickback Beginner; a supported/stable bent-over position is maintained while the elbow extends under control, requiring little balance or unusual mobility."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-lateral-lunge",
+      "exerciseName": "Dumbbell lateral lunge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Lateral Lunge",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/364/lateral-lunge/",
+          "finding": "ACE rates lateral lunge Intermediate and requires a wide lateral step, hip hinge/flexion on one side, knee-foot alignment and controlled return; dumbbells add load without simplifying the frontal-plane control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-reverse-lunge",
+      "exerciseName": "Dumbbell reverse lunge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Reverse Lunge",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/319/reverse-lunge/",
+          "finding": "ACE rates reverse lunge Intermediate, using a backward step and controlled lowering with upright posture; dumbbells add load while preserving unilateral balance and hip mobility demands."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-romanian-deadlift",
+      "exerciseName": "Dumbbell Romanian deadlift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Romanian Deadlift",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/159/romanian-deadlift/",
+          "finding": "ACE rates Romanian deadlift Intermediate and emphasizes hip hinge, neutral spine and controlled hamstring-loaded descent from a stable bilateral stance; dumbbells preserve this technical pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
