@@ -23,9 +23,17 @@ manifest["validation"]={"cellsReconstructed":3835,"missingCells":0,"duplicateCel
 print(json.dumps(manifest["validation"]))
 
 # R5 exact unprocessed workset (infrastructure only)
-ck=json.loads((D/"native-capability-r5-checkpoint.json").read_text())
-processed=set(ck["processedRecordIds"])
-unprocessed=[x for x in rows if x["canonicalExerciseId"] not in processed]
-assert len(unprocessed)==3779, (len(unprocessed),ck)
-(D/"r4-ledger-shards"/"r5-unprocessed-workset.json").write_text(json.dumps(unprocessed,ensure_ascii=False,indent=2)+"\n")
-(D/"r4-ledger-shards"/"r5-unprocessed-summary.json").write_text(json.dumps({"baseCells":len(rows),"processedCells":len(rows)-len(unprocessed),"remainingUnprocessed":len(unprocessed),"processedRecordIds":sorted(processed)},ensure_ascii=False,indent=2)+"\n")
+ck=json.loads((D/"native-capability-r5-checkpoint.json").read_text()); processed=set(ck["processedRecordIds"])
+unprocessed=[x for x in rows if x["canonicalExerciseId"] not in processed]; assert len(unprocessed)==3779
+for p in out.glob("r5-unprocessed-shard-*.json"): p.unlink()
+ug=[];cur=[];size=0
+for x in unprocessed:
+ s=len(json.dumps(x,ensure_ascii=False,separators=(",",":")).encode())+2
+ if cur and size+s>60000: ug.append(cur);cur=[];size=0
+ cur.append(x);size+=s
+if cur:ug.append(cur)
+um={"baseCells":len(rows),"processedCells":len(rows)-len(unprocessed),"remainingUnprocessed":len(unprocessed),"processedRecordIds":sorted(processed),"shards":[]}
+for i,g in enumerate(ug,1):
+ p=out/f"r5-unprocessed-shard-{i:03d}.json";b=(json.dumps(g,ensure_ascii=False,indent=2)+"\n").encode();p.write_bytes(b)
+ um["shards"].append({"index":i,"path":str(p),"sha256":hashlib.sha256(b).hexdigest(),"bytes":len(b),"cells":len(g),"firstCanonicalExerciseId":g[0]["canonicalExerciseId"],"lastCanonicalExerciseId":g[-1]["canonicalExerciseId"]})
+(out/"r5-unprocessed-summary.json").write_text(json.dumps(um,ensure_ascii=False,indent=2)+"\n")
