@@ -4788,6 +4788,98 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-deficit-deadlift",
+      "exerciseName": "Deficit deadlift",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Deadlift Variations and Progressions",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://blog.nasm.org/deadlift-variations",
+          "finding": "NASM treats deficit deadlift as a deadlift variation increasing the required range of motion from an elevated stance, demanding greater starting-position mobility and precise hinge mechanics."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-decline-dumbbell-fly",
+      "exerciseName": "Decline dumbbell fly",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell Chest Fly",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/126/chest-fly/",
+          "finding": "ACE dumbbell fly uses a supported bench position with controlled wide shoulder arc, fixed elbow angle and careful shoulder range; decline changes bench angle but remains externally supported."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-skull-crusher",
+      "exerciseName": "Cable skull crusher",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Triceps Extension",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/186/lying-triceps-extensions/",
+          "finding": "ACE lying triceps extension uses a stable supported position, fixed upper arms and controlled elbow flexion/extension; cable resistance preserves the same isolated joint pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-y-raise",
+      "exerciseName": "Cable Y raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Shoulder Scaption",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/162/shoulder-scaption/",
+          "finding": "ACE scaption/Y-pattern elevation requires controlled shoulder elevation in the scapular plane with stable trunk posture and adequate overhead shoulder range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
