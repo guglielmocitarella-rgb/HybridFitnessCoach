@@ -12,21 +12,21 @@
     "provenanceId"
   ],
   "shardCount": 16,
-  "totalEntryCount": 1093,
+  "totalEntryCount": 1124,
   "semanticComparison": {
-    "reconstructedEntryCount": 1093,
+    "reconstructedEntryCount": 1124,
     "missing": 0,
     "duplicate": 0,
     "semanticMutation": 0,
-    "result": "PASS"
+    "result": "PASS_AFTER_LOSSLESS_PERSISTED_TRAIL_RECOVERY"
   },
   "shards": [
     {
       "index": 0,
       "filename": "bucket-00.json",
-      "entryCount": 196,
-      "byteSize": 185783,
-      "gitBlobSha": "5ce9e7003c9e860cfd64d549ad5cf14e46b658ea"
+      "entryCount": 203,
+      "byteSize": 192298,
+      "gitBlobSha": "f22cd9ff2a4facd1c65b07a9a6ad8b1e4a2188f1"
     },
     {
       "index": 1,
@@ -38,9 +38,9 @@
     {
       "index": 2,
       "filename": "bucket-02.json",
-      "entryCount": 89,
-      "byteSize": 84320,
-      "gitBlobSha": "c8a786b566811af1c38615c07264d0b4efe32925"
+      "entryCount": 91,
+      "byteSize": 86281,
+      "gitBlobSha": "06b459dc94cb2c0e9d88e1f17bef5b085cec68bc"
     },
     {
       "index": 3,
@@ -52,9 +52,9 @@
     {
       "index": 4,
       "filename": "bucket-04.json",
-      "entryCount": 131,
-      "byteSize": 122318,
-      "gitBlobSha": "eef35075a8bb5814c3f6e7b318a197af096daeb5"
+      "entryCount": 133,
+      "byteSize": 124265,
+      "gitBlobSha": "c09993bfc16abde63505dd2c33101fef33a867c9"
     },
     {
       "index": 5,
@@ -66,9 +66,9 @@
     {
       "index": 6,
       "filename": "bucket-06.json",
-      "entryCount": 127,
-      "byteSize": 120657,
-      "gitBlobSha": "5a64f5461cd80245d076ba7097f9adb6af2abccc"
+      "entryCount": 132,
+      "byteSize": 125359,
+      "gitBlobSha": "3cbe91b508ec4492f1fb431b51f3b8b2d9440a2d"
     },
     {
       "index": 7,
@@ -80,9 +80,9 @@
     {
       "index": 8,
       "filename": "bucket-08.json",
-      "entryCount": 156,
-      "byteSize": 147109,
-      "gitBlobSha": "1130a02388ce9882ce440e083aadc5cb6b090096"
+      "entryCount": 160,
+      "byteSize": 150972,
+      "gitBlobSha": "c28d71164192899bf1f74c3a9b5d6c3bca52ab24"
     },
     {
       "index": 9,
@@ -94,9 +94,9 @@
     {
       "index": 10,
       "filename": "bucket-0a.json",
-      "entryCount": 80,
-      "byteSize": 75948,
-      "gitBlobSha": "4480415acbf3c3ee47578cc96ec51d30bccc62ef"
+      "entryCount": 85,
+      "byteSize": 80674,
+      "gitBlobSha": "679e072927a80305830b8b7f8fcf5a8ffb4a53cd"
     },
     {
       "index": 11,
@@ -108,9 +108,9 @@
     {
       "index": 12,
       "filename": "bucket-0c.json",
-      "entryCount": 165,
-      "byteSize": 155670,
-      "gitBlobSha": "b8a83b0a55c0eb74577810d5582909676dc07106"
+      "entryCount": 169,
+      "byteSize": 159483,
+      "gitBlobSha": "1215d0471582316fe838143b34108c9e85dc4cbe"
     },
     {
       "index": 13,
@@ -122,9 +122,9 @@
     {
       "index": 14,
       "filename": "bucket-0e.json",
-      "entryCount": 149,
-      "byteSize": 140673,
-      "gitBlobSha": "64c242e2f10550e28486ac96c49d9e332d13e2a5"
+      "entryCount": 151,
+      "byteSize": 142592,
+      "gitBlobSha": "8e22a0eb843391c296717316eb2e34510bef9615"
     },
     {
       "index": 15,
@@ -133,5 +133,10 @@
       "byteSize": 3,
       "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
     }
-  ]
+  ],
+  "integrityRemediation": {
+    "recoveredEntries": 31,
+    "from": "persisted field-decision + provenance + research-log source trail",
+    "newResearch": false
+  }
 }
