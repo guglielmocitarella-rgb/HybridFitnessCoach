@@ -150,6 +150,102 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-assisted-pistol-squat",
+      "exerciseName": "Assisted Pistol Squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Assisted Pistol Squat",
+          "publisher": "Calisthenics Association",
+          "tier": 3,
+          "locator": "https://calisthenicsassociation.org/lessons/beginner-progressions",
+          "finding": "Most accessible pistol progression: full-ROM single-leg squat using arms/support for assistance, progressively reduced."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-assisted-pull-up",
+      "exerciseName": "Assisted Pull-up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Assisted Pull-up",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/pros/expert-articles/5565/4-moves-to-help-you-master-the-pull-up/",
+          "finding": "Band assistance preserves the standard pull-up movement pattern while reducing required force; assistance is adjusted to current strength."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-australian-pull-up",
+      "exerciseName": "Australian Pull-Up",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Australian Pull-Up",
+          "publisher": "CALISTHENICS.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/australian-pull-up/",
+          "finding": "Low-difficulty scalable horizontal pull with heels supported; body angle adjusts load while trunk maintains a rigid line."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-back-lever",
+      "exerciseName": "Back Lever",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Back Lever",
+          "publisher": "CALISTHENICS.com",
+          "tier": 3,
+          "locator": "https://calisthenics.com/exercise/back-lever/",
+          "finding": "Elite straight-arm horizontal skill; final position in a long progression, with substantial straight-arm load, demanding shoulder extension and strict body-line control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
