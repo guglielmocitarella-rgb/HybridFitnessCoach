@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "3.10",
+  "consumers": {
+    "ExerciseDbV2": [
+      "parse/load",
+      "recordFor",
+      "toLegacyExercise",
+      "progressionRelations"
+    ],
+    "EquipmentCatalog": [
+      "requirementsFor",
+      "locationCompatible consumers"
+    ],
+    "CapabilityDimensions": [
+      "capabilityLevelFor",
+      "legacy eligibility"
+    ],
+    "V091Planning": [
+      "customWorkoutCandidatePool",
+      "skill focus",
+      "prescription/adaptation"
+    ],
+    "WorkoutInfrastructure": [
+      "runner targets",
+      "actual performance",
+      "skill mastery/history"
+    ],
+    "TimedRunner": [
+      "timed prescribed/actual/load/assistance"
+    ],
+    "AppStore": [
+      "profile",
+      "plans",
+      "active workout",
+      "history"
+    ],
+    "WorkoutLaunchPersistence": [
+      "resume snapshot"
+    ],
+    "SkillCatalog": [
+      "graph",
+      "prerequisites",
+      "mastery"
+    ]
+  }
+}
