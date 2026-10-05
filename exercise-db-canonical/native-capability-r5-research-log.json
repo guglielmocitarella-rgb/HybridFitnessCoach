@@ -1950,6 +1950,78 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-45-degree-leg-press",
+      "exerciseName": "45-degree leg press",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "45-Degree Leg Press: Correct Form, Foot Placement and Mistakes",
+          "publisher": "DAWT",
+          "tier": 3,
+          "locator": "https://www.dawtmilano.com/en/exercises/45-degree-leg-press/",
+          "finding": "Machine-supported 45-degree leg press keeps back and hips fixed to the pad and explicitly removes balance demand; controlled depth and knee tracking remain the main technique constraints."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-90-90-hip-switches",
+      "exerciseName": "90/90 hip switches",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "90/90 Hip Switches",
+          "publisher": "MoveKit",
+          "tier": 3,
+          "locator": "https://movekit.com/exercises/90-90-hip-switches",
+          "finding": "Beginner seated mobility drill using active internal/external hip rotation; pelvis stays grounded and torso tall while both legs switch sides under control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-eccentric-rollout",
+      "exerciseName": "Ab Wheel eccentric rollout",
+      "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+      "sources": [
+        {
+          "title": "Standing Eccentric Forward Ab Wheel Rollout",
+          "publisher": "AccelerateSP",
+          "tier": 3,
+          "locator": "https://www.youtube.com/watch?v=QtD8skWoQss",
+          "finding": "Standing eccentric rollout requires slow controlled lowering from standing toward plank/floor, continuous core engagement and shoulder stability; range stops when form can no longer be maintained."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": [
+          "mobilityRequirement"
+        ]
+      }
     }
   ],
   "guards": {
