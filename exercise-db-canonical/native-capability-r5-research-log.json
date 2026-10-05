@@ -5347,6 +5347,98 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-front-squat",
+      "exerciseName": "Dumbbell front squat",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Goblet Squat",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/362/goblet-squat/",
+          "finding": "ACE rates front-loaded dumbbell/goblet squat Intermediate, requiring upright torso, controlled hip/knee flexion, stable bilateral stance and squat depth while holding load anteriorly."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-incline-press",
+      "exerciseName": "Dumbbell incline press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Incline Chest Press",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/191/incline-chest-press/",
+          "finding": "ACE incline press uses bench support with controlled dumbbell pressing and shoulder/scapular alignment, producing minimal balance demand and moderate pressing technique."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-hip-thrust",
+      "exerciseName": "Dumbbell hip thrust",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Understanding the Barbell Hip Thrust",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/continuing-education/certified/november-2019/7403/understanding-the-barbell-hip-thrust/",
+          "finding": "ACE hip-thrust mechanics use upper-back support, feet planted and controlled hip extension; substituting a dumbbell for a bar preserves the supported low-balance movement pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-high-pull",
+      "exerciseName": "Dumbbell high pull",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Dumbbell High Pull",
+          "publisher": "Muscle & Strength",
+          "tier": 3,
+          "locator": "https://www.muscleandstrength.com/exercises/dumbbell-high-pull.html",
+          "finding": "Dumbbell high pull is an explosive compound pattern using hip extension followed by a coordinated high pull, requiring timing, stable posture and shoulder range."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
