@@ -2766,6 +2766,75 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-band-front-raise",
+      "exerciseName": "Band front raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Front Raise",
+          "publisher": "Caliverse",
+          "tier": 3,
+          "locator": "https://www.caliverse.app/exercises/band-front-raise-235",
+          "finding": "Exercise-specific guide describes an easy beginner standing band shoulder raise with simple setup, controlled tempo, shoulder flexion and scapular stability."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-glute-bridge",
+      "exerciseName": "Band glute bridge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Glute Bridge",
+          "publisher": "GymVim",
+          "tier": 3,
+          "locator": "https://gymvim.app/exercises/band-glute-bridge",
+          "finding": "Beginner floor-based glute bridge with loop band above knees; supported supine setup, controlled hip extension and abduction demand, with explicit form cues."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-good-morning",
+      "exerciseName": "Band good morning",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Good Morning",
+          "publisher": "Handler",
+          "tier": 3,
+          "locator": "https://liftwithhandler.com/exercise-database/band-good-morning/",
+          "finding": "Beginner resistance-band hip hinge; controlled hip-back pattern with neutral spine, bracing and hamstring tension; first step in its progression chain."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
