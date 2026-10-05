@@ -1,0 +1,411 @@
+{
+  "version": "V3.10C-R4-INFRA-SHARDS-1",
+  "sourcePath": "exercise-db-canonical/capability-terminal-unresolved-v3-10c-r4.json",
+  "sourceSha256": "9f54e313fedf7d3daac2c056d5219a03419b9da71376a5de74822a508b4cfffd",
+  "ordering": [
+    "canonicalExerciseId",
+    "field"
+  ],
+  "totalCells": 3835,
+  "totalUniqueRecords": 1087,
+  "shards": [
+    {
+      "index": 1,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-001.json",
+      "sha256": "3402003b36c64eb27a4a52c167374ffd2bbe099448225c5e2e95e546910de165",
+      "bytes": 70612,
+      "cells": 99,
+      "uniqueRecords": 27,
+      "firstCanonicalExerciseId": "cm-45-degree-leg-press",
+      "lastCanonicalExerciseId": "cm-back-lever-advanced-tuck"
+    },
+    {
+      "index": 2,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-002.json",
+      "sha256": "7ef4a316e3283dd99f671b816f638a38882c0c23da3e50f6cd8c7a32785ed58f",
+      "bytes": 71006,
+      "cells": 100,
+      "uniqueRecords": 32,
+      "firstCanonicalExerciseId": "cm-back-lever-tuck",
+      "lastCanonicalExerciseId": "cm-barbell-split-squat"
+    },
+    {
+      "index": 3,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-003.json",
+      "sha256": "038633ebd7166406fa26b533fc4b2568d598adebf8cd0e494f7ce04939806936",
+      "bytes": 70729,
+      "cells": 100,
+      "uniqueRecords": 31,
+      "firstCanonicalExerciseId": "cm-barbell-split-squat",
+      "lastCanonicalExerciseId": "cm-cable-lift"
+    },
+    {
+      "index": 4,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-004.json",
+      "sha256": "fc1d24034f0ba5b364aa94f1e798049310e9e45ce3f4d70515e7bd9a7a0284f9",
+      "bytes": 70797,
+      "cells": 100,
+      "uniqueRecords": 30,
+      "firstCanonicalExerciseId": "cm-cable-lift",
+      "lastCanonicalExerciseId": "cm-crab-walk"
+    },
+    {
+      "index": 5,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-005.json",
+      "sha256": "6d28729846b7027e5efb9d63d5ab565ed41916a25533b0fa7844355c511c0eed",
+      "bytes": 70789,
+      "cells": 100,
+      "uniqueRecords": 31,
+      "firstCanonicalExerciseId": "cm-crab-walk",
+      "lastCanonicalExerciseId": "cm-dumbbell-decline-press"
+    },
+    {
+      "index": 6,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-006.json",
+      "sha256": "c064fd3cb735c9be6230cc205c59cce3d443aed721b832aa42d200dca33c35e3",
+      "bytes": 71048,
+      "cells": 99,
+      "uniqueRecords": 33,
+      "firstCanonicalExerciseId": "cm-dumbbell-decline-press",
+      "lastCanonicalExerciseId": "cm-explosive-push-up"
+    },
+    {
+      "index": 7,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-007.json",
+      "sha256": "31e08c11e71a864859829f9094a0651724606b1f8c52504fc2240acd24943942",
+      "bytes": 70742,
+      "cells": 100,
+      "uniqueRecords": 27,
+      "firstCanonicalExerciseId": "cm-explosive-push-up",
+      "lastCanonicalExerciseId": "cm-front-lever-negative"
+    },
+    {
+      "index": 8,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-008.json",
+      "sha256": "710fbef4671323ba9ab8734cc9caf8291278b86af74f410484d8f15a7c86cf82",
+      "bytes": 70531,
+      "cells": 100,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "cm-front-lever-negative",
+      "lastCanonicalExerciseId": "cm-hollow-body-rock"
+    },
+    {
+      "index": 9,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-009.json",
+      "sha256": "13abedce35dc13d08d1588b643f2b11ba31625ae78affb93c6dbe3c541a2cfb1",
+      "bytes": 70981,
+      "cells": 99,
+      "uniqueRecords": 31,
+      "firstCanonicalExerciseId": "cm-hollow-body-rock",
+      "lastCanonicalExerciseId": "cm-kettlebell-snatch"
+    },
+    {
+      "index": 10,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-010.json",
+      "sha256": "4c505c1c926751f24da338dc759d9c547a00633db69e3126902c290576904bff",
+      "bytes": 70948,
+      "cells": 100,
+      "uniqueRecords": 30,
+      "firstCanonicalExerciseId": "cm-kettlebell-step-up",
+      "lastCanonicalExerciseId": "cm-mountain-climber"
+    },
+    {
+      "index": 11,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-011.json",
+      "sha256": "c4b9b079bacbee696c2c5e013a9e3315371d1dbc7299f6907b76853520883e10",
+      "bytes": 70996,
+      "cells": 100,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "cm-mountain-climber",
+      "lastCanonicalExerciseId": "cm-pike-hold"
+    },
+    {
+      "index": 12,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-012.json",
+      "sha256": "081dc70b6e4adbf5e430c9a22528567bf291f784d6d2bbc70c3904d066644424",
+      "bytes": 70685,
+      "cells": 100,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "cm-pike-shoulder-tap",
+      "lastCanonicalExerciseId": "cm-reverse-curl"
+    },
+    {
+      "index": 13,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-013.json",
+      "sha256": "4f2333b8fc8fb50972deb84595b8e0ad9e4497c979ec178af450714c862628f3",
+      "bytes": 71047,
+      "cells": 101,
+      "uniqueRecords": 27,
+      "firstCanonicalExerciseId": "cm-reverse-dumbbell-curl",
+      "lastCanonicalExerciseId": "cm-scapular-pull-up-hold"
+    },
+    {
+      "index": 14,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-014.json",
+      "sha256": "c035d3136125b654143d3377f1d7479122ce51c71f1277205c430cf38e22f2f6",
+      "bytes": 70344,
+      "cells": 98,
+      "uniqueRecords": 30,
+      "firstCanonicalExerciseId": "cm-scapular-pull-up-hold",
+      "lastCanonicalExerciseId": "cm-single-leg-leg-curl"
+    },
+    {
+      "index": 15,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-015.json",
+      "sha256": "e4e223b61168a3fe2d850612213ca75be38260066fa523708b0bf1e32bf7d5ce",
+      "bytes": 70547,
+      "cells": 99,
+      "uniqueRecords": 30,
+      "firstCanonicalExerciseId": "cm-single-leg-leg-extension",
+      "lastCanonicalExerciseId": "cm-straight-bar-dip"
+    },
+    {
+      "index": 16,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-016.json",
+      "sha256": "c2afdee4ee48207a90dd7cb1a9a0ce934d539db7b452272619f72ddc36f4cbbb",
+      "bytes": 70932,
+      "cells": 101,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "cm-straight-bar-dip",
+      "lastCanonicalExerciseId": "cm-trx-hamstring-curl"
+    },
+    {
+      "index": 17,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-017.json",
+      "sha256": "6cb47c47eb2f14b77e41bbee9d945e04be2d972b1c9dcd704fe458639e597cd9",
+      "bytes": 70628,
+      "cells": 101,
+      "uniqueRecords": 27,
+      "firstCanonicalExerciseId": "cm-trx-hamstring-curl",
+      "lastCanonicalExerciseId": "cm-wall-pec-stretch"
+    },
+    {
+      "index": 18,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-018.json",
+      "sha256": "ac7cf3ba8b92405a3244d881cf3334acc747347cbe70d2a2c79d8c457b4d825b",
+      "bytes": 70255,
+      "cells": 99,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "cm-wall-pec-stretch",
+      "lastCanonicalExerciseId": "ex-archer-arm-in-ring-rows"
+    },
+    {
+      "index": 19,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-019.json",
+      "sha256": "edc2ebab9ab841b8cc7cea8215a4a3fe245aa249c23a3460da92271726571b29",
+      "bytes": 70618,
+      "cells": 100,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "ex-archer-pull-up",
+      "lastCanonicalExerciseId": "ex-banded-lateral-raise"
+    },
+    {
+      "index": 20,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-020.json",
+      "sha256": "c7c178c35b2c2677d9cf243fbbe066b2c03d3e486175d1366f8fc96c50acdab3",
+      "bytes": 70655,
+      "cells": 99,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "ex-banded-lateral-raise",
+      "lastCanonicalExerciseId": "ex-bent-leg-good-morning"
+    },
+    {
+      "index": 21,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-021.json",
+      "sha256": "f213726cae7e9fc4a443e2d2892ea928953242a2fd769ffe3a88b9b26a51903b",
+      "bytes": 70524,
+      "cells": 100,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "ex-bent-over-lateral-raise",
+      "lastCanonicalExerciseId": "ex-cat-cow-kneeling-crunch"
+    },
+    {
+      "index": 22,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-022.json",
+      "sha256": "f3dc9de7fdcd39d022797679dba119c186ced1a64609a9ec3663c41169ccd78c",
+      "bytes": 70639,
+      "cells": 101,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "ex-cat-cow-kneeling-crunch",
+      "lastCanonicalExerciseId": "ex-deep-squat-position"
+    },
+    {
+      "index": 23,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-023.json",
+      "sha256": "9f264a5c3fbf1a6ef93470d3f10a1ff4aff24b4a463d1afce5de601372dcaf30",
+      "bytes": 70298,
+      "cells": 98,
+      "uniqueRecords": 30,
+      "firstCanonicalExerciseId": "ex-diamond-push-up",
+      "lastCanonicalExerciseId": "ex-elevated-straddle-stand-straddle-press-to-handstand"
+    },
+    {
+      "index": 24,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-024.json",
+      "sha256": "9e601c13ad69e7f1fc76955e2fa23c760c70e2b7c3d44c5c5286e06db54a4f01",
+      "bytes": 70573,
+      "cells": 99,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+      "lastCanonicalExerciseId": "ex-freestanding-headstand-pushup"
+    },
+    {
+      "index": 25,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-025.json",
+      "sha256": "c0205e4d915903a08e01c29f24ccbeea92093758e0215ee8136f10664c9699a1",
+      "bytes": 70404,
+      "cells": 100,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "ex-freestanding-headstand-pushup",
+      "lastCanonicalExerciseId": "ex-groin-stretch"
+    },
+    {
+      "index": 26,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-026.json",
+      "sha256": "f7af6a2586387549a13d3bc390a8dd406de1f03ef9e28caa328464557a1427f1",
+      "bytes": 70875,
+      "cells": 100,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "ex-groin-stretch",
+      "lastCanonicalExerciseId": "ex-high-low-cable-chest-fly"
+    },
+    {
+      "index": 27,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-027.json",
+      "sha256": "cb975d5a8ab1aed984dbe7700c694f7c1c37052cd2ac2c40b0d168381c54a335",
+      "bytes": 70393,
+      "cells": 100,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "ex-high-low-cable-chest-fly",
+      "lastCanonicalExerciseId": "ex-kipping-pull-ups"
+    },
+    {
+      "index": 28,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-028.json",
+      "sha256": "3fc6c6e8bfbc26606a31222b9dac3ccd71c90af3571f8db7c199679b811378bc",
+      "bytes": 70933,
+      "cells": 100,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "ex-kipping-pull-ups",
+      "lastCanonicalExerciseId": "ex-lying-leg-raise"
+    },
+    {
+      "index": 29,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-029.json",
+      "sha256": "9cbfc1ab8a3679ba330fdd943b98b711ad7f56941ce6e5d3bfe46b983fb75dd2",
+      "bytes": 70674,
+      "cells": 99,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "ex-lying-triceps-extension",
+      "lastCanonicalExerciseId": "ex-one-arm-dip"
+    },
+    {
+      "index": 30,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-030.json",
+      "sha256": "68589eb423495000e2a6ffcadcb1e3abf109072b2dad8f822c8d0eb686d8fc47",
+      "bytes": 70470,
+      "cells": 99,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "ex-one-arm-dip",
+      "lastCanonicalExerciseId": "ex-pike-push-up"
+    },
+    {
+      "index": 31,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-031.json",
+      "sha256": "729daa0c1477a9792b7424cc5260b87a2511aef96685af4ea6368ea6e826ada8",
+      "bytes": 70549,
+      "cells": 101,
+      "uniqueRecords": 30,
+      "firstCanonicalExerciseId": "ex-pike-push-up",
+      "lastCanonicalExerciseId": "ex-ramp-ab-wheel"
+    },
+    {
+      "index": 32,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-032.json",
+      "sha256": "0846fadcf15856cbbd49dcddd81064c657b8f106627711c0e1642304d643c2f7",
+      "bytes": 70244,
+      "cells": 99,
+      "uniqueRecords": 27,
+      "firstCanonicalExerciseId": "ex-ramp-ab-wheel",
+      "lastCanonicalExerciseId": "ex-rings-turned-out-archer-pushups"
+    },
+    {
+      "index": 33,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-033.json",
+      "sha256": "8ee980b959741d8805229da368b4af9ad29165293677263ebd37c0275b318edc",
+      "bytes": 70568,
+      "cells": 99,
+      "uniqueRecords": 27,
+      "firstCanonicalExerciseId": "ex-rings-turned-out-archer-pushups",
+      "lastCanonicalExerciseId": "ex-seated-dumbbell-shoulder-press"
+    },
+    {
+      "index": 34,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-034.json",
+      "sha256": "a162817f7622adcaac6b4eb3fbdfacffa094cb18509eb5c821ac951c94f27683",
+      "bytes": 70549,
+      "cells": 99,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "ex-seated-dumbbell-shoulder-press",
+      "lastCanonicalExerciseId": "ex-single-leg-glute-bridge"
+    },
+    {
+      "index": 35,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-035.json",
+      "sha256": "3d09e7abea87c83a90ef9582a05afbad411d752f5fd813b2188942f10a799443",
+      "bytes": 70744,
+      "cells": 100,
+      "uniqueRecords": 31,
+      "firstCanonicalExerciseId": "ex-single-leg-glute-bridge",
+      "lastCanonicalExerciseId": "ex-standing-squat-bosu-balance-trainer"
+    },
+    {
+      "index": 36,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-036.json",
+      "sha256": "69b8e7a9e39cfe534b4737f7433db011a9c7bd7f0044dd6b9271e3b3060908ae",
+      "bytes": 70364,
+      "cells": 99,
+      "uniqueRecords": 28,
+      "firstCanonicalExerciseId": "ex-standing-torso-rotations",
+      "lastCanonicalExerciseId": "ex-supine-barbell-french-curl"
+    },
+    {
+      "index": 37,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-037.json",
+      "sha256": "cda58a5fa41c1cd184c20a5970bca26a97e6f850f2d43364a7c798741be5414c",
+      "bytes": 70194,
+      "cells": 99,
+      "uniqueRecords": 27,
+      "firstCanonicalExerciseId": "ex-supine-barbell-french-curl",
+      "lastCanonicalExerciseId": "ex-turkish-get-up"
+    },
+    {
+      "index": 38,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-038.json",
+      "sha256": "0e608bba6226c08ec869a8c3c27f93c8c85450c00d57815a6b6cf2f0f0cf644c",
+      "bytes": 70668,
+      "cells": 99,
+      "uniqueRecords": 29,
+      "firstCanonicalExerciseId": "ex-two-arm-elbow-lever",
+      "lastCanonicalExerciseId": "ex-wall-supported-handstand"
+    },
+    {
+      "index": 39,
+      "path": "exercise-db-canonical/r4-ledger-shards/shard-039.json",
+      "sha256": "18ce0b77d0404261541d2154a20bac5e023e9c3a147bb2e86ad129fbb19e60ec",
+      "bytes": 34427,
+      "cells": 49,
+      "uniqueRecords": 14,
+      "firstCanonicalExerciseId": "ex-wall-supported-handstand",
+      "lastCanonicalExerciseId": "ex-wrist-push-up"
+    }
+  ],
+  "validation": {
+    "cellsReconstructed": 3835,
+    "missingCells": 0,
+    "duplicateCellKeys": 0,
+    "semanticMutation": false,
+    "sourcePreserved": true,
+    "maxShardBytes": 71048
+  }
+}
