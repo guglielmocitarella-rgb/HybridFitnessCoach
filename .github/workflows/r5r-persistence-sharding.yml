@@ -82,3 +82,5 @@ Root cause: CONNECTOR_TRANSPORT_SIZE_LIMIT / MONOLITHIC_INCREMENTAL_PERSISTENCE_
           git config user.email github-actions@github.com
           git commit -m "v3.10c-r5: shard authoritative persistence losslessly [skip ci]"
           git push
+
+# trigger after workflow exists
