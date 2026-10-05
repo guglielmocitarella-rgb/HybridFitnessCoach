@@ -1,0 +1,489 @@
+[
+  {
+    "canonicalExerciseId": "cm-ab-wheel-eccentric-rollout",
+    "exerciseName": "Ab Wheel eccentric rollout",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Standing Eccentric Forward Ab Wheel Rollout",
+        "publisher": "AccelerateSP",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=QtD8skWoQss",
+        "finding": "Standing eccentric rollout requires slow controlled lowering from standing toward plank/floor, continuous core engagement and shoulder stability; range stops when form can no longer be maintained."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement"
+      ]
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-ab-wheel-rollout-to-plank",
+    "exerciseName": "Ab Wheel rollout to plank",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [],
+    "decision": "TERMINAL_UNRESOLVED_INSUFFICIENT_EXERCISE_SPECIFIC_EVIDENCE",
+    "reason": "Targeted search returned generic rollout/plank material but no reliable source defining this canonical variant sufficiently to assign record-specific capability values.",
+    "fieldApplication": {
+      "processedFields": [
+        "strengthRequirement",
+        "technicalDifficulty",
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ],
+      "resolvedFields": [],
+      "terminalUnresolvedFields": [
+        "strengthRequirement",
+        "technicalDifficulty",
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ],
+      "reason": "Targeted search returned generic rollout/plank material but no reliable source defining this canonical variant sufficiently to assign record-specific capability values."
+    },
+    "searchTrail": [
+      "R3/R4 internal evidence re-examined",
+      "targeted web search for exact canonical variant",
+      "generic family evidence rejected as insufficient for record-specific classification"
+    ]
+  },
+  {
+    "canonicalExerciseId": "cm-band-squat",
+    "exerciseName": "Band squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Band Squat",
+        "publisher": "TrainWithSam",
+        "tier": 3,
+        "locator": "https://trainwithsam.com/exercises/band-squat.html",
+        "finding": "Beginner band-loaded squat with shoulder-width stable stance, controlled descent below parallel, knee tracking and mid-foot pressure."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-cable-chop",
+    "exerciseName": "Cable chop",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Core Programming That Translates to Real Life",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/blog/training/core-training-programming",
+        "finding": "NASM classifies cable chop as a rotational core exercise for producing and controlling force through the trunk and transferring force between lower and upper body."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-cable-external-rotation",
+    "exerciseName": "Cable external rotation",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "External Rotation with Cable",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/42/external-rotation-with-cable/",
+        "finding": "ACE describes a stable standing cable external-rotation drill with elbow fixed at the side and controlled shoulder rotation; posture remains upright throughout."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-child-pose-lat-stretch",
+    "exerciseName": "Child pose lat stretch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Child's Pose",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/145/child-s-pose/",
+        "finding": "ACE child’s pose is a supported kneeling flexibility movement reaching the arms forward while hips move toward heels; it requires little strength or balance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-corsa-intervallata-60-60",
+    "exerciseName": "Corsa intervallata 60/60",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Interval Training",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/6591/interval-training/",
+        "finding": "ACE interval running alternates harder running bouts with recovery periods; complexity comes from pacing/intensity changes rather than advanced movement skill."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dragon-flag-negativa",
+    "exerciseName": "Dragon flag negativa",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dragon Flag",
+        "publisher": "Calisthenics.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/dragon-flag/",
+        "finding": "Dragon flag is an advanced straight-body core skill requiring very high trunk/hip control and strong shoulder anchoring; the negative variation emphasizes controlled eccentric lowering while maintaining rigid body alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dumbbell-external-rotation",
+    "exerciseName": "Dumbbell external rotation",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "External Rotation with Dumbbell",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/37/external-rotation/",
+        "finding": "ACE external rotation is a controlled rotator-cuff isolation movement with body/arm support and precise humeral rotation, creating minimal balance demand but requiring deliberate shoulder control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-flutter-kicks",
+    "exerciseName": "Flutter kicks",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Flutter Kick",
+        "publisher": "Macros Inc",
+        "tier": 3,
+        "locator": "https://macrosinc.net/exercises/core/flutter-kick/",
+        "finding": "Exercise-specific guide rates Flutter Kick Beginner: supine, legs straight, alternating small kicks while the lower back remains pinned to the floor; bodyweight core endurance with a supported base and simple controlled pattern."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-incline-dumbbell-fly",
+    "exerciseName": "Incline dumbbell fly",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Incline Dumbbell Fly",
+        "publisher": "Macros Inc",
+        "tier": 3,
+        "locator": "https://macrosinc.net/exercises/chest/incline-dumbbell-fly/",
+        "finding": "Beginner bench-supported isolation fly with light dumbbells through a wide arc and loaded upper-chest stretch; fixed elbow angle and controlled depth are key form constraints."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-ab-wheel-eccentrics",
+    "exerciseName": "Ab Wheel Eccentrics",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Knees Ab Wheel progression",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/knees-ab-wheel-rollout",
+        "finding": "Progression chain places Ab Wheel Eccentrics after ramp rollout and before full standing rollout; eccentrics control the descent from standing."
+      },
+      {
+        "title": "Ab Wheel Exercises progression guide",
+        "publisher": "Urban Strength",
+        "tier": 3,
+        "locator": "https://urbanstrength.com.au/ab-wheel-exercises-the-complete-progression-workout-guide/",
+        "finding": "Standing ab-wheel eccentrics are step 6 immediately before full standing rollout and are performed by rolling out without returning."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ]
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-back-extension-apparatus",
+    "exerciseName": "Back Extension Apparatus",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Back Extension Apparatus",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/8944/a-back-to-school-program-an-evidence-based-approach-to-training-the-back/",
+        "finding": "ACE notes back extensions can use bodyweight, dumbbells or machine and are appropriate for healthy adults of all fitness levels."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-banded-upright-row",
+    "exerciseName": "Banded Upright Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Banded Upright Row",
+        "publisher": "Muscle & Fitness",
+        "tier": 3,
+        "locator": "https://www.muscleandfitness.com/exercise/workouts/shoulder-exercises/banded-upright-row/",
+        "finding": "Beginner resistance-band strength exercise: stand on band and pull to upper chest."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bear-crawls",
+    "exerciseName": "Bear Crawls",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bear Crawls",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/continuing-education/certified/february-2021/7780/how-to-design-body-weight-training-workouts-using-the-ace-integrated-fitness-training-model/",
+        "finding": "ACE places bear crawls in bodyweight performance training, requiring coordinated quadrupedal locomotion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bench-step",
+    "exerciseName": "Bench Step",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bench Step",
+        "publisher": "Sears Fitness",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=LhivVRJBivc",
+        "finding": "Alternating bench step-up targets quads, hamstrings and glutes and explicitly improves balance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bodyweight-leaning-side-abdominal",
+    "exerciseName": "Bodyweight Leaning Side Abdominal",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bodyweight Leaning Side Abdominal",
+        "publisher": "Anatomy for Strength and Fitness Training",
+        "tier": 2,
+        "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/03.pdf",
+        "finding": "Intermediate-to-advanced side-support bodyweight exercise requiring whole-body stabilization in a straight line."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-box-dip",
+    "exerciseName": "Box Dip",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Box Dip",
+        "publisher": "BrunchBody Exercise Guide",
+        "tier": 3,
+        "locator": "https://brunchbodyfit.com/wp-content/uploads/2021/12/BrunchBodyExerciseGuide.pdf",
+        "finding": "Stable box-supported bodyweight dip: hands fixed behind body, lower to about 90-degree elbows, press back up."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-cable-rotational-oblique-twist",
+    "exerciseName": "Cable Rotational Oblique Twist",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Cable Rotational Oblique Twist",
+        "publisher": "SET FOR SET",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=-i4qxlV_SWc",
+        "finding": "Standing cable rotational twist uses coordinated torso, hip and foot rotation with controlled diagonal cable path."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-calf-raise",
+    "exerciseName": "Calf Raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Calf Raise",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/legs-calves-and-shins/",
+        "finding": "ACE classifies machine calf raise as Beginner."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  }
+]
