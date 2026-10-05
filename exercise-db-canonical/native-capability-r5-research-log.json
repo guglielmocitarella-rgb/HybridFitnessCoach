@@ -5069,6 +5069,98 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-calf-raise",
+      "exerciseName": "Dumbbell calf raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Standing Calf Raises",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/51/standing-calf-raises/",
+          "finding": "ACE rates standing calf raise Beginner and prescribes controlled plantar flexion from a stable standing base; holding dumbbells adds load without changing the simple movement pattern."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-curtsy-lunge",
+      "exerciseName": "Dumbbell curtsy lunge",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Curtsy Lunge",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/343/curtsy-lunge/",
+          "finding": "ACE classifies curtsy lunge Intermediate; the stepping leg crosses behind the stance leg, requiring controlled multi-planar lowering, hip mobility and balance before returning upright. Dumbbells add load without simplifying control."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-lateral-raise",
+      "exerciseName": "Dumbbell lateral raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Lateral Raise",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/26/lateral-raise/",
+          "finding": "ACE rates lateral raise Beginner; from stable standing posture, dumbbells are raised laterally to shoulder height with controlled shoulder movement."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-front-raise",
+      "exerciseName": "Dumbbell front raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Front Raise",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/27/front-raise/",
+          "finding": "ACE rates dumbbell front raise Beginner and uses stable standing posture with controlled shoulder flexion to shoulder height."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
