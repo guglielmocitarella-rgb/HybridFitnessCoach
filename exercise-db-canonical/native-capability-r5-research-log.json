@@ -1806,6 +1806,78 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-bicycle",
+      "exerciseName": "Bicycle",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bicycle",
+          "publisher": "Verywell Fit",
+          "tier": 3,
+          "locator": "https://www.verywellfit.com/bicycle-crunch-exercise-3120058",
+          "finding": "Beginner no-equipment bicycle crunch combining alternating leg motion with trunk rotation."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bodyweight-leaning-side-abdominal",
+      "exerciseName": "Bodyweight Leaning Side Abdominal",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Bodyweight Leaning Side Abdominal",
+          "publisher": "Anatomy for Strength and Fitness Training",
+          "tier": 2,
+          "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/03.pdf",
+          "finding": "Intermediate-to-advanced side-support bodyweight exercise requiring whole-body stabilization in a straight line."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-calf-stretch",
+      "exerciseName": "Calf Stretch",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Calf Stretch",
+          "publisher": "ACE Fitness",
+          "tier": 2,
+          "locator": "https://www.acefitness.org/continuing-education/prosource/june-2015/5414/stretching-techniques-for-alleviating-muscle-and-joint-pain-part-2/",
+          "finding": "Passive standing calf stretch using staggered stance and ground support, held gently 20–30 seconds."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
