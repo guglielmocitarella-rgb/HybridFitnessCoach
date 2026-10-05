@@ -64,3 +64,4 @@ Evidence gathered in R3 must be persisted in reusable provenance/evidence artifa
 ### Non-goals
 R3 must not modify the production runtime DB, production Runner, production persistence, or activate the Native V3 Selection Engine. It must not reopen the four-dimensional capability model. Production activation remains blocked until the relevant native-selection gate and the separate S2 gate are satisfied.
 
+\n\n## V3.10C-R3 checkpoint\nR3 re-examined the complete R2 residual queue using exercise-specific repository evidence and deterministic rules excluding names, aliases, legacyLevel and existing capability values. Remaining terminal unresolved require exercise-specific external research. S1 remains open; production/runtime DB/Runner/persistence unchanged; S2 remains separate.\n
