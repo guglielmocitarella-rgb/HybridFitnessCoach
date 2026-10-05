@@ -17,3 +17,7 @@ Production path modified: NO. Runtime DB modified: NO. Runner/persistence/workou
 
 ## Next gate
 Evidence-first four-dimensional capability remediation with field-level provenance, followed by authoritative materialization validation, 640 native smoke/drift, then 64,000 deterministic rerun. S2 remains separately deferred mandatory pre-production.
+
+
+## V3.10C-R2 checkpoint
+V3.10C-R excluded materialization loss as primary root cause: four native dimensions were defined but not populated, while V3.9R-B used diagnostic legacyLevel compatibility. R2 processed 1087/1087 records and terminally classified 4348/4348 fields without legacy mapping/fallback or global UNKNOWN relaxation. Repository evidence supports limited special-state assignments; remaining fields are terminal unresolved pending exercise-specific external evidence. S1 remains open; native 640/64,000 gates are not executed. Production runtime remains unchanged. S2 remains separate and mandatory pre-production.

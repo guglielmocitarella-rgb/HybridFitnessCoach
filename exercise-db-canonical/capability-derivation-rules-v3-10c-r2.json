@@ -1,0 +1,35 @@
+[
+  {
+    "ruleId": "R2-STRENGTH-EXTERNAL-LOAD-PRESCRIPTION",
+    "targetCapability": "strengthRequirement",
+    "requiredEvidence": [
+      "resistance.source=EXTERNAL_LOAD",
+      "resistance.state=KNOWN"
+    ],
+    "conditions": "external load is prescribed/scalable; intrinsic variant strength is not equated with loaded demand",
+    "exceptions": "contrary exercise-specific evidence",
+    "output": "PRESCRIPTION_DEPENDENT",
+    "confidence": "HIGH_CONFIDENCE",
+    "sourceBasis": "authoritative V3 resistance semantics + R2 mandate",
+    "regressionTests": [
+      "no HIGH inferred from external load",
+      "legacyLevel unused"
+    ]
+  },
+  {
+    "ruleId": "R2-STRENGTH-ASSISTANCE-PRESCRIPTION",
+    "targetCapability": "strengthRequirement",
+    "requiredEvidence": [
+      "known assisted resistance source"
+    ],
+    "conditions": "required strength changes with prescribed assistance",
+    "exceptions": "contrary exercise-specific evidence",
+    "output": "PRESCRIPTION_DEPENDENT",
+    "confidence": "HIGH_CONFIDENCE",
+    "sourceBasis": "authoritative V3 resistance semantics + R2 mandate",
+    "regressionTests": [
+      "legacyLevel unused",
+      "assistance not mapped to scalar"
+    ]
+  }
+]
