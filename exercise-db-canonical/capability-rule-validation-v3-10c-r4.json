@@ -1,0 +1,46 @@
+{
+  "approved": [],
+  "requiresMoreEvidence": [
+    {
+      "classification": "REQUIRES_MORE_EVIDENCE",
+      "reason": "negative evidence for LOW is not established record-by-record",
+      "requiredPredicates": [
+        "machine",
+        "supported"
+      ],
+      "ruleId": "R4-CAND-STABLE-MACHINE-LOW-BAL",
+      "target": "LOW",
+      "targetCapability": "balanceCoordinationRequirement"
+    },
+    {
+      "classification": "REQUIRES_MORE_EVIDENCE",
+      "reason": "inversion alone is insufficient",
+      "requiredPredicates": [
+        "inverted/inversion plus motor-sequence evidence"
+      ],
+      "ruleId": "R4-CAND-INVERTED-TECH",
+      "target": "HIGH",
+      "targetCapability": "technicalDifficulty"
+    },
+    {
+      "classification": "REQUIRES_MORE_EVIDENCE",
+      "reason": "must distinguish training mobility from requiring mobility",
+      "requiredPredicates": [
+        "joint-specific required ROM"
+      ],
+      "ruleId": "R4-CAND-DEEP-ROM-MOB",
+      "target": "HIGH",
+      "targetCapability": "mobilityRequirement"
+    },
+    {
+      "classification": "REQUIRES_MORE_EVIDENCE",
+      "reason": "equipment/term alone is insufficient",
+      "requiredPredicates": [
+        "unstable support plus stabilization demand"
+      ],
+      "ruleId": "R4-CAND-UNSTABLE-BAL",
+      "target": "HIGH",
+      "targetCapability": "balanceCoordinationRequirement"
+    }
+  ]
+}
