@@ -1878,6 +1878,54 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-triceps-press",
+      "exerciseName": "Barbell Triceps Press",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Barbell Triceps Press",
+          "publisher": "Anatomy for Strength and Fitness Training",
+          "tier": 2,
+          "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/11.pdf",
+          "finding": "Barbell compound press explicitly classified intermediate to advanced; controlled pressing with elbows kept in."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-cable-rotational-oblique-twist",
+      "exerciseName": "Cable Rotational Oblique Twist",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Cable Rotational Oblique Twist",
+          "publisher": "SET FOR SET",
+          "tier": 3,
+          "locator": "https://www.youtube.com/watch?v=-i4qxlV_SWc",
+          "finding": "Standing cable rotational twist uses coordinated torso, hip and foot rotation with controlled diagonal cable path."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
