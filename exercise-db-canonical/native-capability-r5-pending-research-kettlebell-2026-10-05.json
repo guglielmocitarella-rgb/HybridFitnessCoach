@@ -1,0 +1,248 @@
+{
+  "version": "V3.10C-R5-R",
+  "status": "RESEARCH_ONLY_NOT_PROCESSED",
+  "baseSafeCheckpoint": "d12554f768095681986a305a6a46bedb5822f0bd",
+  "note": "Exercise-specific research persisted because authoritative field-decisions/provenance blob exceeds connector readable limit. These records MUST NOT advance processed/resolved/checkpoint counters until merged losslessly into decision/evidence/provenance/patch registers and validated.",
+  "records": [
+    {
+      "canonicalExerciseId": "cm-kettlebell-halo",
+      "exerciseName": "Kettlebell halo",
+      "sources": [
+        {
+          "title": "Halo",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/394/halo/",
+          "finding": "ACE lists the kettlebell Halo as Advanced and specifies a controlled path from chest over each shoulder and around/behind the head."
+        },
+        {
+          "title": "How to Do the Kettlebell Halo",
+          "publisher": "StrengthLog",
+          "tier": 3,
+          "locator": "https://www.strengthlog.com/kettlebell-halo/",
+          "finding": "Describes halo as shoulder mobility/control work with braced core, smooth controlled circular motion and still head."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-halo-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-halo-mobilityRequirement",
+        "R5-cm-kettlebell-halo-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-high-pull",
+      "exerciseName": "Kettlebell high pull",
+      "sources": [
+        {
+          "title": "Kettlebell High Pull: Form, Muscles & Cardio Benefits",
+          "publisher": "Kettlebells Workouts / Greg Brookes",
+          "tier": 3,
+          "locator": "https://kettlebellsworkouts.com/teaching-points-for-the-kettlebell-high-pull/",
+          "finding": "Calls the high pull a fast technical exercise between one-handed swing and snatch; timing, coordination, grip and control are explicit demands."
+        },
+        {
+          "title": "Kettlebell Workouts: The Ultimate Full-Body Training Guide",
+          "publisher": "Gold's Gym",
+          "tier": 3,
+          "locator": "https://www.goldsgym.com/blog/kettlebell-workouts/",
+          "finding": "High pull links lower-body power with upper-body speed and may improve coordination for explosive lifts; execution requires hinge, hip drive and controlled close bell path."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-high-pull-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-high-pull-mobilityRequirement",
+        "R5-cm-kettlebell-high-pull-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-jerk",
+      "exerciseName": "Kettlebell jerk",
+      "sources": [
+        {
+          "title": "Double-Kettlebell Push Press and Jerk",
+          "publisher": "CrossFit",
+          "tier": 1,
+          "locator": "https://www.crossfit.com/essentials/double-kettlebell-push-press-and-jerk",
+          "finding": "Jerk adds a drop-under/rebend after explosive hip drive, catches overhead with locked elbows and is described as a demanding full-body strength and coordination challenge."
+        },
+        {
+          "title": "Kettlebell Jerk 101",
+          "publisher": "Cat & Chau Kettlebells",
+          "tier": 3,
+          "locator": "https://www.youtube.com/watch?v=sNYWEhH23ns",
+          "finding": "Describes kettlebell jerk as an advanced ballistic skill; timing is a key learning difficulty and limited shoulder/thoracic mobility is explicitly identified as a limiter."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-jerk-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-jerk-mobilityRequirement",
+        "R5-cm-kettlebell-jerk-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-lateral-lunge",
+      "exerciseName": "Kettlebell lateral lunge",
+      "sources": [
+        {
+          "title": "Lateral Lunge",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/364/lateral-lunge/",
+          "finding": "ACE rates the loaded lateral lunge Intermediate and specifies lateral stepping, hip-back mechanics and controlled return."
+        },
+        {
+          "title": "Side Lunge",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/50/side-lunge/",
+          "finding": "ACE details balance assistance, frontal-plane weight shift, flat heels, hip flexion and knee/foot alignment through the lateral lunge."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-lateral-lunge-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-lateral-lunge-mobilityRequirement",
+        "R5-cm-kettlebell-lateral-lunge-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-press",
+      "exerciseName": "Kettlebell press",
+      "sources": [
+        {
+          "title": "One-arm kettlebell press",
+          "publisher": "NSCA / Human Kinetics",
+          "tier": 1,
+          "locator": "https://us.humankinetics.com/blogs/excerpt/one-arm-kettlebell-press",
+          "finding": "NSCA technique requires overhead shoulder flexion/elbow extension with shoulder rotation, neutral spine, no lateral flexion and controlled lowering."
+        },
+        {
+          "title": "How to do a Kettlebell Overhead Press",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.youtube.com/watch?v=X-uFqWtjpGI",
+          "finding": "NASM cues core stabilization, avoidance of lumbar arch/head protrusion and full overhead arm extension."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-press-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-press-mobilityRequirement",
+        "R5-cm-kettlebell-press-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-push-press",
+      "exerciseName": "Kettlebell push press",
+      "sources": [
+        {
+          "title": "The Push Press",
+          "publisher": "CrossFit",
+          "tier": 1,
+          "locator": "https://www.crossfit.com/essentials/the-push-press",
+          "finding": "CrossFit states great coordination is required in the dip-drive-to-arm handoff, accuracy in vertical torso/bar path, rapid turnaround/agility and balance under overhead load."
+        },
+        {
+          "title": "Double-Kettlebell Push Press and Jerk",
+          "publisher": "CrossFit",
+          "tier": 1,
+          "locator": "https://www.crossfit.com/essentials/double-kettlebell-push-press-and-jerk",
+          "finding": "Kettlebell push press uses a controlled dip, explosive leg/hip drive and overhead arm extension while maintaining upright rack mechanics."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-push-press-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-push-press-mobilityRequirement",
+        "R5-cm-kettlebell-push-press-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-reverse-lunge",
+      "exerciseName": "Kettlebell reverse lunge",
+      "sources": [
+        {
+          "title": "Kettlebell Reverse Lunge",
+          "publisher": "Original Kettlebell",
+          "tier": 3,
+          "locator": "https://www.originalkettlebell.com/exercise/kettlebell-reverse-lunge/",
+          "finding": "Exercise-specific tutorial requires rack position, long backward step, both knees bending, upright torso, strong abs, controlled heel-driven return and alternating sides."
+        },
+        {
+          "title": "Kettlebell Reverse Lunge: Strength, Balance, and Joint-Friendly Power",
+          "publisher": "Kettlebells Workouts / Greg Brookes",
+          "tier": 3,
+          "locator": "https://kettlebellsworkouts.com/teaching-points-of-the-kettlebell-lunge/",
+          "finding": "Describes the kettlebell reverse lunge as unilateral lower-body strength work that improves single-leg control and uses goblet/racked loading."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-reverse-lunge-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-reverse-lunge-mobilityRequirement",
+        "R5-cm-kettlebell-reverse-lunge-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-reverse-lunge-to-press",
+      "exerciseName": "Kettlebell reverse lunge to press",
+      "sources": [
+        {
+          "title": "Kettlebell Lunge and Press: Build Strength, Balance and Control",
+          "publisher": "Kettlebells Workouts / Greg Brookes",
+          "tier": 3,
+          "locator": "https://kettlebellsworkouts.com/kettlebell-lunge-press/",
+          "finding": "Exercise combines reverse lunge and one-arm overhead press and is described as highly demanding in execution, challenging stability, posture, strength, balance, mobility and total-body coordination."
+        },
+        {
+          "title": "Reverse Lunge to Press",
+          "publisher": "Chloe Hamard",
+          "tier": 3,
+          "locator": "https://www.chloehamard.co.uk/exercise-library/upper-body/reverse-lunge-to-press",
+          "finding": "Kettlebell demonstration identifies the exercise as unilateral, core/balance demanding and recommends prior comfort with lunges and unilateral shoulder press; balance is explicitly key."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-reverse-lunge-to-press-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-reverse-lunge-to-press-mobilityRequirement",
+        "R5-cm-kettlebell-reverse-lunge-to-press-technicalDifficulty"
+      ]
+    }
+  ]
+}
