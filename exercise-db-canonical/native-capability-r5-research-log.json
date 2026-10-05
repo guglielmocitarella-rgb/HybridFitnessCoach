@@ -2835,6 +2835,99 @@
         },
         "terminalUnresolved": []
       }
+    },
+    {
+      "canonicalExerciseId": "cm-band-hip-thrust",
+      "exerciseName": "Band hip thrust",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Band Hip Thrust",
+          "publisher": "Caliverse",
+          "tier": 3,
+          "locator": "https://www.caliverse.app/exercises/band-hip-thrust-747",
+          "finding": "Easy beginner band hip thrust with upper back supported on a bench, stable foot placement, neutral pelvis and controlled hip extension."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-lat-pulldown",
+      "exerciseName": "Band lat pulldown",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Resistance Band Lat Pulldown",
+          "publisher": "seto",
+          "tier": 3,
+          "locator": "https://seto.fit/exercises/resistance-band-lat-pulldown/",
+          "finding": "Beginner band vertical pull performed seated under an overhead anchor with upright braced torso, full overhead reach and controlled pull/return."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-lateral-raise",
+      "exerciseName": "Band lateral raise",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Resistance Band Lateral Raise",
+          "publisher": "seto",
+          "tier": 3,
+          "locator": "https://seto.fit/exercises/band-lateral-raise/",
+          "finding": "Beginner isolation shoulder exercise: stable standing stance, slight elbow bend, controlled raise to shoulder height and slow return; scalable band resistance."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-band-lateral-walk",
+      "exerciseName": "Band lateral walk",
+      "identityStatus": "IDENTITY_CONFIRMED",
+      "sources": [
+        {
+          "title": "Mini Band Lateral Walk",
+          "publisher": "seto",
+          "tier": 3,
+          "locator": "https://seto.fit/exercises/mini-band-walk/",
+          "finding": "Beginner lateral band-resisted walking drill for hip stabilizers, using a shallow athletic stance, small controlled side steps and maintained knee alignment."
+        }
+      ],
+      "decision": "FIELD_APPLICATION_COMPLETED",
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
     }
   ],
   "guards": {
