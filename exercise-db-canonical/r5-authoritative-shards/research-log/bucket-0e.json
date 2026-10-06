@@ -790,5 +790,51 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-biceps-curl",
+    "exerciseName": "Dumbbell Biceps Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Dumbbell Curl: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-curl/",
+        "finding": "Standing shoulder-width with slight knee bend and light core tension; controlled elbow flexion without swinging. Controlled elbow flexion from arms at sides with no unusual joint positions described. Described as a classic exercise renowned for simplicity; key cue is avoiding momentum and keeping elbows near the body."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-chest-fly",
+    "exerciseName": "Dumbbell Chest Fly",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Dumbbell Chest Fly: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-chest-fly/",
+        "finding": "Performed lying on a bench with feet planted and shoulder blades set; arms move in a controlled arc. Dumbbells are lowered out to the sides as deep as possible; load increases as chest/shoulder tissues are stretched. Requires fixed slight elbow bend, scapular positioning, controlled shoulder-joint arc and stable bench setup."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

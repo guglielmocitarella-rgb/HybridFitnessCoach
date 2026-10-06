@@ -640,5 +640,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-hang-power-clean",
+    "exerciseName": "Dumbbell Hang Power Clean",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dumbbell Power Clean - Instruction, Benefits & Technique",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-dumbbell-power-clean",
+        "finding": "Power clean requires coordination of every joint and balance while stabilizing external load and transitioning into the receiving position; hang variation removes setup demands but preserves receiving/coordination demands. CrossFit explicitly states the dumbbell power clean requires flexibility and mobility; hang variation reduces setup-position demands. Source calls the movement skill-intensive and breaks it into setup, extension, shrug/pull-under, receiving and finish phases."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

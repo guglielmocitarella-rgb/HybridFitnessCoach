@@ -691,5 +691,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-bench-press",
+    "exerciseName": "Dumbbell Bench Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Beginner Dumbbell Program: Full-Body Workout Plan",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/beginner-dumbbell-program/",
+        "finding": "Bench-supported bilateral dumbbell chest press; each arm independently stabilizes its load, but the body is supported on the bench. Beginner-program horizontal press from chest to straight arms with ordinary shoulder/elbow range. Included as a core exercise in a beginner dumbbell program with a straightforward press path."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

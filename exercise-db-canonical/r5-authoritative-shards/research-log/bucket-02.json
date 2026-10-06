@@ -658,5 +658,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-bent-over-row",
+    "exerciseName": "Dumbbell Bent-Over Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bent-Over Dumbbell Row: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-properly-perform-the-dumbbell-bent-over-row-3498295",
+        "finding": "Two-arm row from a fixed hip hinge; legs stay stationary, core engaged, spine neutral; source notes stance adjustments can make balance easier. Requires maintaining about a 45-degree hip hinge with neutral spine throughout the set. Source labels the exercise Intermediate and emphasizes neutral spine, fixed hinge, controlled wrists and avoiding lower-body movement."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V2",
   "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
   "baselineCheckpoint": {
@@ -596,5 +596,11 @@
         "unprocessed": 2145
       }
     }
-  ]
+  ],
+  "promotedCheckpoint": {
+    "processed": 1714,
+    "resolved": 1666,
+    "terminal": 48,
+    "unprocessed": 2121
+  }
 }

@@ -494,5 +494,51 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-goblet-squat",
+    "exerciseName": "Dumbbell Goblet Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Dumbbell Goblet Squat: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-goblet-squat-2/",
+        "finding": "Bilateral shoulder-width squat with one dumbbell held against the chest and core braced. Instruction is to squat down as deep as possible while maintaining the front-loaded position. Source calls it a great entry-level exercise or warm-up for the barbell squat."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-shoulder-press",
+    "exerciseName": "Dumbbell Shoulder Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Dumbbell Shoulder Press: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-shoulder-press/",
+        "finding": "Standing press requires core bracing while each dumbbell independently increases shoulder-stability demand. Dumbbells permit a longer range of motion and the exercise moves from shoulder level to straight arms overhead. Requires core brace, independent dumbbell stabilization, controlled overhead path and no leg-drive substitution."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

@@ -1953,5 +1953,22 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-deadlift-mobilityRequirement",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-bent-over-row",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Bent-Over Dumbbell Row: Proper Form, Variations, and Common Mistakes",
+    "sourcePublisher": "Verywell Fit",
+    "sourceLocator": "https://www.verywellfit.com/how-to-properly-perform-the-dumbbell-bent-over-row-3498295",
+    "evidenceSummary": "Requires maintaining about a 45-degree hip hinge with neutral spine throughout the set.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dumbbell-bent-over-row-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
   }
 ]
