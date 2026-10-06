@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "V3.10C-R5-R-STAGING-1",
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "leaseBaseHead": "e5d52a64bf6edecffac5d49b01c43e5f30e6c89e",
+  "authoritativeCheckpointBeforeWindow": {
+    "processed": 1664,
+    "resolved": 1619,
+    "terminal": 45,
+    "remaining": 2171,
+    "researchLog": 457,
+    "provenance": 1619
+  },
+  "window": {
+    "newWebQueries": 18,
+    "preflightQueueSize": 75,
+    "exCurl": {
+      "residualFields": [
+        "technicalDifficulty",
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ],
+      "decision": "LEAVE_UNPROCESSED_IDENTITY_AMBIGUOUS",
+      "sources": [
+        {
+          "title": "Biceps curl with barbell",
+          "publisher": "Mayo Clinic",
+          "locator": "https://www.mayoclinic.org/healthy-lifestyle/fitness/multimedia/biceps-curl/vid-20084678",
+          "finding": "Authoritative biceps-curl technique source found, but authoritative record identity is only 'Curl'; source cannot losslessly establish that ex-curl is this biceps-curl variant."
+        },
+        {
+          "title": "Bicep Curl",
+          "publisher": "ACE Fitness",
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/70/bicep-curl/",
+          "finding": "ACE describes an intermediate barbell biceps curl, but the generic authoritative record name 'Curl' remains insufficient to bind this source without name-only inference."
+        }
+      ]
+    },
+    "remainingResearch": [
+      {
+        "id": "ex-deep-push-up",
+        "sources": [
+          {
+            "title": "Deep Push Up: How To, Muscles Worked & Form",
+            "publisher": "GymImpulse",
+            "locator": "https://gymimpulse.com/exercise/deep-push-up",
+            "finding": "Exact deep push-up: dumbbells as elevated handles, longer ROM below hand level, rigid plank, controlled landing/press; more demanding than standard push-up due to longer range and balance on handles."
+          }
+        ],
+        "candidateDecision": "FIELD_APPLICATION_READY_NOT_AUTHORITATIVE",
+        "fieldApplication": {
+          "resolved": {
+            "strengthRequirement": "MODERATE",
+            "technicalDifficulty": "MODERATE",
+            "mobilityRequirement": "MODERATE",
+            "balanceCoordinationRequirement": "MODERATE"
+          },
+          "terminalUnresolved": []
+        }
+      },
+      {
+        "id": "ex-dumbbell-glute-bridge",
+        "sources": [
+          {
+            "title": "Glute Bridges: How To Do Them and Form Tips",
+            "publisher": "Cleveland Clinic",
+            "locator": "https://health.clevelandclinic.org/glute-bridges",
+            "finding": "Exact weighted variation: supported supine bridge, feet planted, core tightened, controlled hip raise; add dumbbell across front of hips."
+          }
+        ],
+        "candidateDecision": "FIELD_APPLICATION_READY_NOT_AUTHORITATIVE",
+        "fieldApplication": {
+          "resolved": {
+            "technicalDifficulty": "LOW",
+            "mobilityRequirement": "LOW",
+            "balanceCoordinationRequirement": "VERY_LOW"
+          },
+          "terminalUnresolved": []
+        }
+      },
+      {
+        "id": "ex-dumbbell-front-raise",
+        "sources": [
+          {
+            "title": "Dumbbell Front Raises: Proper Form, Variations, and Common Mistakes",
+            "publisher": "Verywell Fit",
+            "locator": "https://www.verywellfit.com/how-to-do-the-dumbbell-front-raise-3498300",
+            "finding": "Exact dumbbell front raise labeled beginner; feet planted, back straight, abdominals engaged, raise to shoulder height and lower slowly."
+          }
+        ],
+        "candidateDecision": "FIELD_APPLICATION_READY_NOT_AUTHORITATIVE",
+        "fieldApplication": {
+          "resolved": {
+            "technicalDifficulty": "LOW",
+            "mobilityRequirement": "LOW",
+            "balanceCoordinationRequirement": "LOW"
+          },
+          "terminalUnresolved": []
+        }
+      },
+      {
+        "id": "ex-dumbbell-trap-shrug",
+        "sources": [
+          {
+            "title": "How to Do Dumbbell Shrugs: Muscles Worked & Proper Form",
+            "publisher": "StrengthLog",
+            "locator": "https://www.strengthlog.com/dumbbell-shrug/",
+            "finding": "Exact dumbbell shrug: short-range standing isolation, posture/core tension, straight arms, shoulder elevation and controlled lowering."
+          }
+        ],
+        "candidateDecision": "FIELD_APPLICATION_READY_NOT_AUTHORITATIVE",
+        "fieldApplication": {
+          "resolved": {
+            "technicalDifficulty": "LOW",
+            "mobilityRequirement": "LOW",
+            "balanceCoordinationRequirement": "VERY_LOW"
+          },
+          "terminalUnresolved": []
+        }
+      },
+      {
+        "id": "ex-dumbbell-windmill",
+        "sources": [
+          {
+            "title": "The Windmill Exercise: What It Is and How To Perform It",
+            "publisher": "Cleveland Clinic",
+            "locator": "https://health.clevelandclinic.org/windmill-exercise",
+            "finding": "Windmill can use a dumbbell; full-body core/hips/shoulders movement, explicitly not for beginners, with form, overhead alignment and available flexibility emphasized."
+          }
+        ],
+        "candidateDecision": "FIELD_APPLICATION_READY_NOT_AUTHORITATIVE",
+        "fieldApplication": {
+          "resolved": {
+            "technicalDifficulty": "HIGH",
+            "mobilityRequirement": "HIGH",
+            "balanceCoordinationRequirement": "MODERATE"
+          },
+          "terminalUnresolved": []
+        }
+      }
+    ],
+    "notes": "Authoritative transaction was attempted but connector call ceiling occurred before tree/ref update. Remote HEAD/checkpoint were re-read and remained unchanged. Any created loose blobs are unreferenced and non-authoritative. Promote these entries idempotently after revalidating against current ledger; do not repeat represented web queries."
+  }
+}
