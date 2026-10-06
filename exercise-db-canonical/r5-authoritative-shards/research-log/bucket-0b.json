@@ -667,5 +667,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dish",
+    "exerciseName": "Dish",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hollow Hold - Guide & technique",
+        "publisher": "Pushup Tracker",
+        "tier": 3,
+        "locator": "https://pushup-stats.com/en/wiki/uebungen/hollow-hold",
+        "finding": "Source explicitly equates the gymnastics hollow position with the dish, labels it Intermediate, and describes a supine static hold with lower back pressed to the floor and leverage-based progressions."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

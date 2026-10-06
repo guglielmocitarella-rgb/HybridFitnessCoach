@@ -657,5 +657,30 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-double-clap-push-up",
+    "exerciseName": "Double-Clap Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Push-Up Variations: Unique and Primary Push-Up Types",
+        "publisher": "Athletic Insight",
+        "tier": 3,
+        "locator": "https://www.athleticinsight.com/exercise/chest/push-up/variation",
+        "finding": "Exact Explosive Double Clap Push-Up is described as advanced and requiring speed, coordination, strength, agility and impeccable body control; the source does not establish a mobility requirement tier."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement"
+      ]
+    }
   }
 ]

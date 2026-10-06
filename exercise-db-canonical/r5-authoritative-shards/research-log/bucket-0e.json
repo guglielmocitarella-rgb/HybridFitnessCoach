@@ -746,6 +746,28 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-deep-squat-position",
+    "exerciseName": "Deep-Squat Position",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Perform the Deep Squat Short Post for Mobility and Flexibility",
+        "publisher": "EVO Fitness",
+        "tier": 3,
+        "locator": "https://evofitness.ch/en/blog/evolve/deep-squat-short-post/",
+        "finding": "Exact deep-squat position is presented as a mobility/flexibility position; the source gives positioning and regressions but does not establish a defensible strength or technical-difficulty tier."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {},
+      "terminalUnresolved": [
+        "strengthRequirement",
+        "technicalDifficulty"
+      ]
+    }
+  },
+  {
     "canonicalExerciseId": "ex-diamond-push-up",
     "exerciseName": "Diamond Push-Up",
     "identityStatus": "IDENTITY_CONFIRMED",
