@@ -709,5 +709,52 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-parallette-handstand-push-up",
+    "exerciseName": "Freestanding Parallette Handstand Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Gymnastics Training Guide",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+        "finding": "Guide calls parallette freestanding HSPU the purest gymnastics version, with extended ROM to shoulders level with hands; achieving it requires substantial balance, strength, practice and full shoulder opening."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hack-squat",
+    "exerciseName": "Hack Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hack Squat",
+        "publisher": "A90 Training Club",
+        "tier": 3,
+        "locator": "https://a90trainingclub.com/exercises/hack-squat-machine",
+        "finding": "Beginner machine squat with shoulders/back supported by pads, feet on platform and guided carriage through controlled knee/hip flexion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

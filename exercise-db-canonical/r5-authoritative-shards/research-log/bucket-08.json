@@ -730,5 +730,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-inchworm",
+    "exerciseName": "Inchworm",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Don’t skip this full-body warmup",
+        "publisher": "American Medical Association",
+        "tier": 1,
+        "locator": "https://www.ama-assn.org/public-health/prevention-wellness/don-t-skip-full-body-warmup",
+        "finding": "Simple full-body warm-up combining forward fold, hand walk to plank and return; improves mobility, flexibility and body control while loading shoulders/core."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

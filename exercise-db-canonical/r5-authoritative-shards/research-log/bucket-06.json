@@ -675,5 +675,75 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-leg-curl",
+    "exerciseName": "Leg Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Seated Leg Curl",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://www.nasm.org/workout-exercise-guidance/how-to-seated-leg-curl",
+        "finding": "Beginner supported machine hamstring curl with knee aligned to hinge, torso/posture fixed and controlled heel-to-glute motion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-low-high-cable-chest-fly",
+    "exerciseName": "Low-High Cable Chest Fly",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Low to High Cable Chest Fly",
+        "publisher": "IronYou",
+        "tier": 3,
+        "locator": "https://www.ironyou.app/exercises/low-to-high-cable-chest-fly/",
+        "finding": "Beginner cable fly using a stable stance, braced torso, controlled low-to-high arc and comfortable chest stretch."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-muscle-up",
+    "exerciseName": "Muscle-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Muscle up technique, step by step",
+        "publisher": "Calisthenics.dk",
+        "tier": 3,
+        "locator": "https://calisthenics.dk/en/guides/muscle-up-technique",
+        "finding": "Requires false grip, explosive chest-height pull, rapid transition and dip press; readiness tests require 10 strict pull-ups, 10 full-depth dips and an explosive lower-chest pull."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

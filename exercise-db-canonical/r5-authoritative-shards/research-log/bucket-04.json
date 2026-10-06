@@ -800,6 +800,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-freestanding-handstand-push-up",
+    "exerciseName": "Freestanding Handstand Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Freestanding Handstand Push-Up / Gymnastics Training Guide",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up",
+        "finding": "Freestanding HSPU combines hand balance with major shoulder pressing strength; gymnastics guide states unassisted/parallette HSPU requires exceptional balance and strength with full overhead position."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-full-planche",
+    "exerciseName": "Full Planche",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Full Planche: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/full-planche",
+        "finding": "Level-11 capstone hold supporting the entire horizontal body on locked arms; near-maximal shoulder torque, exact scapular protraction/body line, and loaded wrist dorsiflexion make strength, balance/control and technique elite-level."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-german-hang",
     "exerciseName": "German Hang",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -819,6 +867,53 @@
         "mobilityRequirement": "HIGH",
         "strengthRequirement": "MODERATE",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang",
+    "exerciseName": "German Hang",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "German Hang",
+        "publisher": "GMB Fitness",
+        "tier": 3,
+        "locator": "https://gmb.io/german-hang/",
+        "finding": "Loaded shoulder-extension hang used to develop shoulder flexibility/mobility; requires controlled ring/bar support and progressive preparation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "VERY_HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-machine-biceps-curl",
+    "exerciseName": "Machine Biceps Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Machine Biceps Curl",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/machine-bicep-curl/",
+        "finding": "Beginner machine curl places the lifter in the correct supported position so balance and cheating are minimized; controlled single-joint elbow flexion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

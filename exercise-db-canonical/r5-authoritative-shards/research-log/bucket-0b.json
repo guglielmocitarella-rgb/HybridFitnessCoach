@@ -737,5 +737,51 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-handstand-shoulder-taps",
+    "exerciseName": "Freestanding Handstand Shoulder Taps",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "CrossFit Workout / Freestanding Shoulder Taps",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/workout/2024/02",
+        "finding": "Freestanding shoulder taps require first establishing handstand balance, then unilateral weight shift; wall and pike variants are explicit regressions."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-full-back-lever",
+    "exerciseName": "Full Back Lever",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Full Back Lever: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/full-back-lever",
+        "finding": "Full horizontal straight-arm back lever is explicitly strength work rather than balance work, requires extreme shoulder extension and advanced posterior-shoulder/connective-tissue strength with strict body-line technique."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "VERY_HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

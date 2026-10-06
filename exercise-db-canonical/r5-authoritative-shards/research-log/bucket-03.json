@@ -914,5 +914,74 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-good-morning",
+    "exerciseName": "Good Morning",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Good Morning Exercise: Techniques, Benefits, Variations",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-do-the-good-morning-exercise-with-barbell-3498255",
+        "finding": "Intermediate barbell hip hinge requiring braced trunk, controlled hip displacement and maintenance of spinal position under a back-loaded bar."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-leg-press",
+    "exerciseName": "Leg Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Leg Press",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press",
+        "finding": "Fundamental machine lower-body press providing a safe stable guided path and explicitly avoiding the balance demands of barbell squats."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-medicine-ball-clean",
+    "exerciseName": "Medicine Ball Clean",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Medicine-Ball Clean",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean",
+        "finding": "Foundational clean teaching deadlift, shrug, pull-under and squat catch; CrossFit explicitly identifies coordination, accuracy, balance, speed and mobility requirements."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

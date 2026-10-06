@@ -715,6 +715,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-freestanding-headstand-pushup",
+    "exerciseName": "Freestanding Headstand Pushup",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "HSPU and You: Master the Movement",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "finding": "Headstand-push-up/HSPU progression uses tripod head-and-hand support, controlled descent, overhead alignment and pressing strength; freestanding execution adds balance away from wall support."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-frog-stand",
     "exerciseName": "Frog Stand",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -734,6 +758,100 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "MODERATE",
         "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-incline-push-up",
+    "exerciseName": "Incline Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Incline Push-Up",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/incline-push-up",
+        "finding": "Foundational beginner pressing regression with hands elevated, reduced bodyweight load, rigid head-to-heel alignment and controlled chest-to-surface range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-kipping-pull-ups",
+    "exerciseName": "Kipping Pull-Ups",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Kipping Pull-Up",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up",
+        "finding": "Full-body gymnastics pull requiring coordinated arch-hollow kip and power transfer from hips and arms; strict pull-up is a recommended prerequisite."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lat-pulldown-machine",
+    "exerciseName": "Lat Pulldown (Machine)",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lat Pulldowns: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-do-the-lat-pulldown-3498309",
+        "finding": "Beginner seated cable-pulley back exercise using adjustable resistance; pull toward chin and return under control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-machine-chest-fly",
+    "exerciseName": "Machine Chest Fly",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Machine Chest Fly",
+        "publisher": "PureGym",
+        "tier": 3,
+        "locator": "https://www.puregym.com/exercises/chest/chest-fly/machine-fly/",
+        "finding": "Fixed-path machine fly explicitly recommended for beginners; machine provides greater stability and requires less core/stabilizer involvement than free-weight flyes."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

@@ -715,5 +715,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-handstand",
+    "exerciseName": "Handstand",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Analyzing the Handstand",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://library.crossfit.com/free/pdf/CFJ_2015_07_Handstand_Long2.pdf",
+        "finding": "CrossFit analysis states handstand requires strength, flexibility, coordination and balance, with significant joint mobility/stability and unconventional shoulder-complex loading."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V4-CONTINUE",
   "baselineHead": "938f5ed0101ff76e3cf54a15bb26820b55899c5f",
   "newWebQueries": 89,
@@ -664,5 +664,16 @@
     "preservedConcurrentStaging": true,
     "previousEvidenceCompleteCount": 49,
     "note": "Cumulative anti-loss update after linear compatible concurrent staging commit; no research repeated."
-  }
+  },
+  "promotedCapabilityCount": 137,
+  "promotedRecordCount": 39,
+  "finalCheckpoint": {
+    "processed": 1922,
+    "resolved": 1874,
+    "terminal": 48,
+    "unprocessed": 1913,
+    "provenance": 1874,
+    "researchLog": 532
+  },
+  "promotionNote": "Promoted via chunked Git-object preparation; checkpoint blob prepared last and branch ref updated only after complete tree."
 }

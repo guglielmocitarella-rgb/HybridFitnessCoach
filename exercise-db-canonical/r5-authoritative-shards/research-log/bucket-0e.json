@@ -836,5 +836,51 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-glute-ham-raise",
+    "exerciseName": "Glute Ham Raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Glute Ham Raise",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/glute-ham-raise/",
+        "finding": "Machine-supported knee-flexion movement with feet secured; body remains straight while hamstrings/glutes control near-horizontal descent and return."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-machine-horizontal-row",
+    "exerciseName": "Machine Horizontal Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do a Machine Row",
+        "publisher": "Gravitus",
+        "tier": 3,
+        "locator": "https://gravitus.com/guides/exercises/machine-row/",
+        "finding": "Beginner seated machine row, commonly chest-supported, with planted feet and guided resistance; pull handles to torso under control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

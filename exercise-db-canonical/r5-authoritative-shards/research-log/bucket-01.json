@@ -801,5 +801,52 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-full-squat",
+    "exerciseName": "Full Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Full Squat Mobility",
+        "publisher": "Crucible",
+        "tier": 3,
+        "locator": "https://www.cruciblefit.com/exercises/full-squat-mobility",
+        "finding": "Beginner bodyweight full-depth squat mobility drill requiring controlled balance/posture and deep hip, knee and ankle ROM; bodyweight return to standing supplies low external strength demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-leg-extension",
+    "exerciseName": "Leg Extension",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Leg Extension (Machine)",
+        "publisher": "Gym.com",
+        "tier": 3,
+        "locator": "https://gym.com/exercises/leg-extension-machine",
+        "finding": "Beginner seated machine isolation: extend knees smoothly against a pad and lower under control while the machine supports the body."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

@@ -704,5 +704,99 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-handstand-with-one-arm-support",
+    "exerciseName": "Freestanding Handstand with One-Arm Support",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Freestanding Handstand with One-Arm Support",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/one-arm-handstand-support",
+        "finding": "Advanced bridge to one-arm handstand requiring a reliable 60-second freestanding handstand, lateral weight shift, single-wrist balance, active shoulder elevation and high-frequency skill practice."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-incline-dumbbell-bench-press",
+    "exerciseName": "Incline Dumbbell Bench Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Incline Dumbbell Press",
+        "publisher": "Helthy",
+        "tier": 3,
+        "locator": "https://www.helthy.app/exercises/incline-dumbbell-press",
+        "finding": "Beginner incline dumbbell press performed on a bench; independent dumbbells require shoulder control while the bench supports the torso."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-kettlebell-swing",
+    "exerciseName": "Kettlebell Swing",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kettlebell Swing Tutorial",
+        "publisher": "Brittany van Schravendijk",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=1Qi0NQW89Oc",
+        "finding": "Swing requires learned hinge mechanics, timing, leg drive, arm position, breathing and backswing progression; source explicitly says mastering it takes time and progression."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-l-sit-pull-up",
+    "exerciseName": "L-Sit Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "L-Sit Pull-Up – Muscles Worked, Exercise Demo, and Benefits",
+        "publisher": "BarBend",
+        "tier": 3,
+        "locator": "https://barbend.com/l-sit-pull-up/",
+        "finding": "Advanced bodyweight combination requiring pull-up strength plus sustained L-sit core control and midline stability throughout the repetition."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]
