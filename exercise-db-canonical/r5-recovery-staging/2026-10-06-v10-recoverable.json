@@ -1,5 +1,5 @@
 {
-  "status": "PROMOTED_AUTHORITATIVE",
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE_VALIDATION_FAILED",
   "version": "V3.10C-R5-R-V10",
   "baselineHead": "10c2d41070db996508b4347ce08cb3e0c399a67a",
   "note": "V10 staging promoted differentially; semantic duplicates were not reinserted.",
@@ -431,5 +431,11 @@
     "authoritativeCapabilityTotal": 2537,
     "researchLogTotal": 704,
     "validation": "PASS"
+  },
+  "promotionValidation": {
+    "result": "FAIL",
+    "reason": "Staged tranche is not disjoint from existing authoritative provenance; promotion attempt detected pre-existing provenance IDs. Authoritative shard writes from the aborted attempt were rolled back before checkpoint.",
+    "checkpointAdvanced": false,
+    "authoritativeCountsAdvanced": false
   }
 }
