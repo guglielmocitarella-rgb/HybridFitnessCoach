@@ -621,5 +621,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-chest-roll-straight-body-press-to-handstand",
+    "exerciseName": "Chest Roll Straight-Body Press to Handstand",
+    "identityStatus": "IDENTITY_CONFIRMED_INSUFFICIENT_CAPABILITY_EVIDENCE",
+    "sources": [
+      {
+        "title": "Overcoming Gravity — preview",
+        "publisher": "Steven Low",
+        "tier": 2,
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "finding": "The exact Chest Roll, Straight-Body Press to Handstand is identified in the bent-arm press-to-handstand progression, but the accessible preview supplies only a progression level/page reference and no execution details usable under the no-level-mapping rule."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {},
+      "terminalUnresolved": [
+        "balanceCoordinationRequirement",
+        "mobilityRequirement",
+        "strengthRequirement",
+        "technicalDifficulty"
+      ]
+    }
   }
 ]
