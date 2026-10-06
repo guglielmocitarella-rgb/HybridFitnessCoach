@@ -692,5 +692,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-hammer-curl",
+    "exerciseName": "Hammer Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hammer Curl",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/",
+        "finding": "ACE classifies Hammer Curl as Intermediate and describes a stabilized split stance, braced upright torso, neutral wrists, fixed elbows and controlled elbow flexion/extension without torso motion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

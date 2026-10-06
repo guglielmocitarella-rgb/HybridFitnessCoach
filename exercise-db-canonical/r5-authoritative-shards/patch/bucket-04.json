@@ -1640,6 +1640,22 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-dumbbell-renegade-row",
+    "field": "mobilityRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "LOW",
+    "provenanceId": "R5-ex-dumbbell-renegade-row-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-renegade-row",
+    "field": "technicalDifficulty",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-dumbbell-renegade-row-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-dumbbell-shoulder-press",
     "field": "mobilityRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -1664,11 +1680,27 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-front-lever",
+    "field": "mobilityRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-front-lever-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-front-plank",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-ex-front-plank-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang",
+    "field": "strengthRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-german-hang-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   }
 ]

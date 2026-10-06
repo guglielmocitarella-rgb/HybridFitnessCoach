@@ -3075,5 +3075,22 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-dumbbell-lateral-raise-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-renegade-row",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Renegade Row",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/355/renegade-row/",
+    "evidenceSummary": "Alternating a one-arm row from a straight-body plank while maintaining body position creates substantial anti-rotation and coordination demand.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dumbbell-renegade-row-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
   }
 ]

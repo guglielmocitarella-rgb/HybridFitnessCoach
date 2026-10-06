@@ -713,5 +713,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-frog-stand",
+    "exerciseName": "Frog Stand",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Frog Stand",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/frog-stand/",
+        "finding": "The source classifies Frog Stand as a moderate skill/strength exercise and a planche regression, requiring forward weight shift onto the hands, feet lifted, balance, coordination, wrist/shoulder/core strength."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

@@ -776,5 +776,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-up",
+    "exerciseName": "Front Lever Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Front Lever Pull-Up",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/front-lever-pull-up/",
+        "finding": "The source classifies Front Lever Pull-Up as elite difficulty and requires a fully suspended horizontal straight-body lever, false grip, dynamic elbow flexion/extension, controlled return, and prior full-lever/shorter-lever pulling readiness."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

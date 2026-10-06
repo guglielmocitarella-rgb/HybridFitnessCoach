@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V3",
   "baselineHead": "04cb0a7850ec32090d279401d9da997c252f5751",
   "baselineCheckpoint": {
@@ -117,5 +117,16 @@
   ],
   "newWebQueries": 11,
   "sourceFamilyBatching": true,
-  "note": "Evidence-complete cumulative staging created because connector/code-mode execution hit its per-script tool-call ceiling during attempted atomic authoritative materialization. Authoritative checkpoint intentionally unchanged; resume by promoting this staging fail-closed."
+  "note": "Evidence-complete cumulative staging created because connector/code-mode execution hit its per-script tool-call ceiling during attempted atomic authoritative materialization. Authoritative checkpoint intentionally unchanged; resume by promoting this staging fail-closed.",
+  "promotedCapabilityCount": 25,
+  "promotedRecordCount": 7,
+  "finalCheckpoint": {
+    "processed": 1739,
+    "resolved": 1691,
+    "terminal": 48,
+    "unprocessed": 2096,
+    "provenance": 1691,
+    "researchLog": 480
+  },
+  "promotionNote": "Promoted losslessly via chunked Git-object preparation; authoritative checkpoint advanced only in final complete tree."
 }

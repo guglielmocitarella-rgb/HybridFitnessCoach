@@ -844,5 +844,51 @@
         "technicalDifficulty"
       ]
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-renegade-row",
+    "exerciseName": "Dumbbell Renegade Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Renegade Row",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/355/renegade-row/",
+        "finding": "ACE classifies the Renegade Row as Advanced and describes a straight-body dumbbell-supported push-up position followed by alternating rows while the feet press into the ground."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-good-morning",
+    "exerciseName": "Good Morning",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Good Mornings",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/good-mornings",
+        "finding": "NASM describes barbell Good Mornings as a challenging intermediate-to-advanced hip hinge requiring a neutral spine, braced core, slight knee bend, controlled 45-90 degree forward lean and hamstring stretch."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

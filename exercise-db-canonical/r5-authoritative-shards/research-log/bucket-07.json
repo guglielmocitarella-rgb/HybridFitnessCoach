@@ -580,5 +580,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever",
+    "exerciseName": "Front Lever",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Front Lever",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/front-lever/",
+        "finding": "The source calls the full front lever an elite calisthenics skill: fully suspended, face-up, parallel to the ground, straight arms and legs, requiring straight-arm pulling strength and positional control after shorter-lever progressions."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

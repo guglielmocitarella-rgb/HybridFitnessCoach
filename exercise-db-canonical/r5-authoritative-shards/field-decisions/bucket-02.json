@@ -2140,5 +2140,22 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-forward-step-lunge-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-good-morning",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Good Mornings",
+    "sourcePublisher": "NASM",
+    "sourceLocator": "https://www.nasm.org/resource-center/exercise-library/good-mornings",
+    "evidenceSummary": "The movement uses a fixed bilateral hip-width stance with no single-leg or unstable support requirement.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-good-morning-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
   }
 ]

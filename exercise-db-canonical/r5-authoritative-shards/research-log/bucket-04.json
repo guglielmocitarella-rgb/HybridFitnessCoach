@@ -751,5 +751,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang",
+    "exerciseName": "German Hang",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "German Hang",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/german-hang/",
+        "finding": "The source defines German Hang as controlled loaded shoulder-extension mobility, entered through an inverted tuck or assisted setup, with straight elbows, controlled depth and safe exit; it emphasizes shoulder-girdle tension and gradual range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

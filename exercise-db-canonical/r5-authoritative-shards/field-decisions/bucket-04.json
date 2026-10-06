@@ -3485,6 +3485,40 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "ex-dumbbell-renegade-row",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Renegade Row",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/355/renegade-row/",
+    "evidenceSummary": "The described movement uses standard plank, push-up and rowing joint ranges without an unusual end-range mobility prerequisite.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dumbbell-renegade-row-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-renegade-row",
+    "dimension": "technicalDifficulty",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Renegade Row",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/355/renegade-row/",
+    "evidenceSummary": "ACE explicitly classifies the exercise as Advanced and requires integrated push-up, plank stabilization and alternating dumbbell rows.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dumbbell-renegade-row-technicalDifficulty",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-dumbbell-shoulder-press",
     "dimension": "mobilityRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -3536,6 +3570,23 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "ex-front-lever",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Front Lever",
+    "sourcePublisher": "CALISTHENICS.com",
+    "sourceLocator": "https://calisthenics.com/exercise/front-lever/",
+    "evidenceSummary": "The skill requires a controlled straight-arm hanging/suspended shoulder position and rigid full-body alignment, but is primarily strength-limited rather than a maximal mobility skill.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-front-lever-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-front-plank",
     "dimension": "mobilityRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -3550,6 +3601,23 @@
     "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-front-plank-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang",
+    "dimension": "strengthRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "German Hang",
+    "sourcePublisher": "CALISTHENICS.com",
+    "sourceLocator": "https://calisthenics.com/exercise/german-hang/",
+    "evidenceSummary": "The exercise is primarily mobility/positional control rather than conventional strength, but requires grip and shoulder-girdle tension to support and control bodyweight.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-german-hang-strengthRequirement",
     "researchVersion": "V3.10C-R5"
   }
 ]

@@ -2518,5 +2518,37 @@
     "after": "HIGH",
     "provenanceId": "R5-ex-dumbbell-windmill-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-up",
+    "field": "mobilityRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-front-lever-pull-up-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-up",
+    "field": "strengthRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-front-lever-pull-up-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang",
+    "field": "balanceCoordinationRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-german-hang-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang",
+    "field": "technicalDifficulty",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-german-hang-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
   }
 ]
