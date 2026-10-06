@@ -434,6 +434,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-one-arm-negative",
+    "exerciseName": "One arm negative",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "One-arm pull-up: negatives to full rep",
+        "publisher": "Strive Up",
+        "tier": 3,
+        "locator": "https://strive-up.com/en/blog/one-arm-pull-up",
+        "finding": "One-arm negative is an advanced progression lowered on one arm for 5–8 seconds; source cites very high pulling, grip, core and scapular-control prerequisites."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ball-shoulder-stretch",
     "exerciseName": "Ball Shoulder Stretch",
     "identityStatus": "IDENTITY_CONFIRMED",

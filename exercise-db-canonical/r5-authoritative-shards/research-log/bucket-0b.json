@@ -312,6 +312,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-overhead-rope-extension",
+    "exerciseName": "Overhead rope extension",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Cable overhead triceps extension",
+        "publisher": "FitTools",
+        "tier": 3,
+        "locator": "https://www.tools.fit/exercises/push/cable-overhead-triceps-extension",
+        "finding": "Rope cable overhead extension uses split stance, fixed upper arms and controlled elbow extension; core stabilizes against back arching."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-adductor-foam-rolling",
     "exerciseName": "Adductor Foam Rolling",
     "identityStatus": "IDENTITY_CONFIRMED",

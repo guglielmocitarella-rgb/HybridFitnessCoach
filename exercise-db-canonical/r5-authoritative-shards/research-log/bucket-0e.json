@@ -421,6 +421,53 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-neck-controlled-rotations",
+    "exerciseName": "Neck controlled rotations",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Controlled Articular Rotations (CARs)",
+        "publisher": "NeckCare",
+        "tier": 2,
+        "locator": "https://help.neckcare.com/controlled-articular-rotations",
+        "finding": "Neck CAR slowly moves the head through the largest pain-free circle while the rest of the body stays still; explicitly trains active ROM and movement control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "strengthRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-neutral-grip-dumbbell-press",
+    "exerciseName": "Neutral-grip dumbbell press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Neutral Grip Dumbbell Press",
+        "publisher": "ChunkItUp",
+        "tier": 3,
+        "locator": "https://chunkitup.com/exercises/neutral-grip-dumbbell-press",
+        "finding": "Beginner bench variation with stable feet/bench setup, controlled dumbbell lowering and palms-facing neutral grip."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-90-degree-push-up",
     "exerciseName": "90-Degree Push-Up",
     "identityStatus": "IDENTITY_AMBIGUOUS",

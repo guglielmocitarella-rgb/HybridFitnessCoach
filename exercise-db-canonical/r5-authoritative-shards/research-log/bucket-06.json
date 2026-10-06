@@ -465,6 +465,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-one-leg-front-lever",
+    "exerciseName": "One leg front lever",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Single Leg Front Lever",
+        "publisher": "Calisthenics.com",
+        "tier": 2,
+        "locator": "https://calisthenics.com/exercise/single-leg-front-lever/",
+        "finding": "High-difficulty skill with one leg straight and one tucked; asymmetrical loading challenges lats/core, body control, stability and scapular depression."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-foot-elevated-split-squat",
     "exerciseName": "Bulgarian Split Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

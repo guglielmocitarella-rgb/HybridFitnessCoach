@@ -305,6 +305,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-neutral-grip-lat-pulldown",
+    "exerciseName": "Neutral-grip lat pulldown",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lat Pulldown with Neutral Grip",
+        "publisher": "StrengthLog",
+        "tier": 2,
+        "locator": "https://www.strengthlog.com/lat-pulldown-with-neutral-grip/",
+        "finding": "Seated neutral-grip cable pulldown with thighs secured under support; pull to upper chest and return slowly to full arm extension."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-single-leg-squat",
     "exerciseName": "Assisted Single-Leg Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

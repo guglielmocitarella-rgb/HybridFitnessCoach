@@ -330,6 +330,52 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-open-book-thoracic-rotation",
+    "exerciseName": "Open book thoracic rotation",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Thoracic Rotation (Open Book)",
+        "publisher": "PhysioOnClick",
+        "tier": 2,
+        "locator": "https://physioonclick.co.uk/exercises/thoracic-rotation-open-book",
+        "finding": "Mobility-phase side-lying thoracic rotation with knees stacked while upper arm, head and chest rotate slowly through comfortable range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-overhead-triceps-extension",
+    "exerciseName": "Overhead triceps extension",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Cable Overhead Triceps Extension",
+        "publisher": "Muscle & Fitness",
+        "tier": 2,
+        "locator": "https://www.muscleandfitness.com/exercise/workouts/arm-exercises/cable-overhead-triceps-extension/",
+        "finding": "Intermediate single-joint cable exercise performed seated firmly, elbows overhead and upper arms vertical/stationary through controlled extension."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",

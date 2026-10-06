@@ -353,6 +353,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-neutral-grip-pull-up",
+    "exerciseName": "Neutral-grip pull-up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Pull-Ups With a Neutral Grip",
+        "publisher": "StrengthLog",
+        "tier": 2,
+        "locator": "https://www.strengthlog.com/pull-ups-with-a-neutral-grip/",
+        "finding": "Bodyweight neutral-grip pull-up from full arm extension to chin over bar/upper chest, then controlled lowering; band regression and external-load progression documented."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-abdominal-crunch",
     "exerciseName": "Abdominal Crunch",
     "identityStatus": "IDENTITY_CONFIRMED",

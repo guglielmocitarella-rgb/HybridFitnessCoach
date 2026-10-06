@@ -263,6 +263,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-mobilit-polsi",
+    "exerciseName": "Mobilità polsi",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Wrist and Elbow Mobility for Handstands and Calisthenics",
+        "publisher": "Calisthenics Association",
+        "tier": 2,
+        "locator": "https://calisthenicsassociation.org/lessons/wrist-and-elbow-mobility",
+        "finding": "Wrist CARs move slowly through extension, ulnar deviation, flexion and radial deviation to maintain active range and prepare the wrists."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ab-wheel-eccentrics",
     "exerciseName": "Ab Wheel Eccentrics",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

@@ -561,6 +561,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-nordic-curl-eccentric",
+    "exerciseName": "Nordic curl eccentric",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Nordic Hamstring Eccentric",
+        "publisher": "StrengthLog",
+        "tier": 2,
+        "locator": "https://www.strengthlog.com/nordic-hamstring-eccentric/",
+        "finding": "Kneeling eccentric Nordic with feet anchored and hips straight; control gravity with all hamstring strength until chest reaches floor."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deadlift",
     "exerciseName": "Banded Deadlift",
     "identityStatus": "IDENTITY_CONFIRMED",

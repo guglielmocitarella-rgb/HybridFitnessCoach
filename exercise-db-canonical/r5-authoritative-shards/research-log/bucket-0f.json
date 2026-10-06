@@ -234,6 +234,76 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-monster-walk-elastico",
+    "exerciseName": "Monster walk elastico",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lateral band walk",
+        "publisher": "Human Movement Atlas",
+        "tier": 2,
+        "locator": "https://humanmovementatlas.com/exercise/lateral-band-walk/",
+        "finding": "Level-1 band/monster walk uses a shallow squat and controlled stepping while maintaining pelvis and lower-limb control; diagonal monster walk is a listed variation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-muscle-up-negativo",
+    "exerciseName": "Muscle-up negativo",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Negative Muscle-Up",
+        "publisher": "GymnasticBodies",
+        "tier": 2,
+        "locator": "https://www.gymnasticbodies.com/exercises/negative-muscle-up",
+        "finding": "Intermediate ring progression requiring solid ring dip, top support control, controlled eccentric dip, transition to false-grip pull-up and full controlled lowering."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-overhead-dumbbell-triceps-extension",
+    "exerciseName": "Overhead dumbbell triceps extension",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Overhead Dumbbell Tricep Extension",
+        "publisher": "Gravitus",
+        "tier": 3,
+        "locator": "https://gravitus.com/guides/exercises/overhead-dumbbell-tricep-extension/",
+        "finding": "Beginner triceps isolation: seated or standing, dumbbell overhead with both hands, upper arms fixed while forearms lower behind head and extend."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-band-assisted-planche",
     "exerciseName": "Band-Assisted Planche",
     "identityStatus": "IDENTITY_CONFIRMED",

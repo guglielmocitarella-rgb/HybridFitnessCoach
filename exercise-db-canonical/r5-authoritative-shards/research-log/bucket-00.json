@@ -379,6 +379,54 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-mountain-climber",
+    "exerciseName": "Mountain climber",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Mountain Climber Plank",
+        "publisher": "Crucible",
+        "tier": 3,
+        "locator": "https://www.cruciblefit.com/exercises/mountain-climber-plank",
+        "finding": "Beginner dynamic bodyweight core exercise: high plank, stable pelvis/spine, alternate knee drives under control; builds shoulder/ab stability and hip mobility."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-nordic-curl-assistito",
+    "exerciseName": "Nordic curl assistito",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Nordic Curl (Assisted)",
+        "publisher": "TrainWithSam",
+        "tier": 3,
+        "locator": "https://trainwithsam.com/exercises/nordic-curl.html",
+        "finding": "Advanced assisted Nordic: kneeling with ankles anchored and body straight, lower whole body forward slowly while hamstrings resist; assistance is expected."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "balanceCoordinationRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-pistol-squat",
     "exerciseName": "Assisted Pistol Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

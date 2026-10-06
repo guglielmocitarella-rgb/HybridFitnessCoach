@@ -449,6 +449,54 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-one-arm-eccentric",
+    "exerciseName": "One arm eccentric",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "One-arm eccentric Push-Up",
+        "publisher": "FitMetrics",
+        "tier": 3,
+        "locator": "https://www.fitmetrics.ch/en/exercise/6876b69691543-one-arm-eccentric-push-up",
+        "finding": "One-arm high-plank eccentric requires slow controlled lowering, core/glute bracing and active resistance to torso rotation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-one-arm-push-up-assistito",
+    "exerciseName": "One arm push-up assistito",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Assisted One Arm Push Up",
+        "publisher": "Caliverse",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/assisted-one-arm-push-up-209",
+        "finding": "Medium-level assisted one-arm push-up reduces load with support but requires core stability, anti-rotation control, square hips/shoulders and controlled pressing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-advanced-tuck-back-lever",
     "exerciseName": "Advanced Tuck Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",
