@@ -430,6 +430,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-scapular-pull-up-hold",
+    "exerciseName": "Scapular pull-up hold",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Scapular pull-up hold",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/ring-scapula-pull-up/",
+        "finding": "Foundational low-difficulty scapular activation/strength drill; straight arms, scapular depression/retraction, core tension and controlled body position."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-adductor-foam-rolling",
     "exerciseName": "Adductor Foam Rolling",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -833,8 +857,8 @@
     }
   },
   {
-    "canonicalExerciseId": "ex-half-lever-swimmers",
-    "exerciseName": "ex-half-lever-swimmers",
+    "canonicalExerciseId": "ex-half-lever",
+    "exerciseName": "ex-half-lever",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
     "sources": [
       {
@@ -857,8 +881,8 @@
     }
   },
   {
-    "canonicalExerciseId": "ex-half-lever",
-    "exerciseName": "ex-half-lever",
+    "canonicalExerciseId": "ex-half-lever-swimmers",
+    "exerciseName": "ex-half-lever-swimmers",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
     "sources": [
       {
