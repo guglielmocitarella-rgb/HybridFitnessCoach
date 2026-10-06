@@ -753,6 +753,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-jumping-squat",
+    "exerciseName": "Jumping Squat",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Squat Jump",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/squat-jump",
+        "finding": "Fundamental plyometric squat jump develops explosive lower-body power and requires controlled squat depth, symmetric takeoff and landing mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-kettlebell-swing",
     "exerciseName": "Kettlebell Swing",
     "identityStatus": "IDENTITY_CONFIRMED",

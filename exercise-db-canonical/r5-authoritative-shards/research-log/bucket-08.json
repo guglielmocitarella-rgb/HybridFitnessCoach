@@ -754,5 +754,77 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-judo-push-up",
+    "exerciseName": "Judo Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Judo Push-Up - Exercise Guide",
+        "publisher": "Gym Navigator",
+        "tier": 3,
+        "locator": "https://gymnavigator.com/workout-center/exercise/65567a5edfc294001eefa37f/judo-push-up/",
+        "finding": "Pike/downward-dog start dives through a low arc into upward-dog and reverses under control, combining pressing strength with substantial shoulder/hip range and sequencing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-knee-circles",
+    "exerciseName": "Knee Circles",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Knee Circles",
+        "publisher": "seto",
+        "tier": 3,
+        "locator": "https://seto.fit/exercises/knee-circles/",
+        "finding": "Beginner standing knee-mobility drill using slow circles through comfortable knee/ankle range with feet grounded and upright control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-l-sit-clapping-pull-ups",
+    "exerciseName": "L-Sit Clapping Pull-Ups",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Overcoming Gravity 2nd Edition Exercise Charts",
+        "publisher": "Overcoming Gravity",
+        "tier": 2,
+        "locator": "https://docs.google.com/spreadsheets/d/19l4tVfdTJLheLMwZBYqcw1oeEBPRh8mxngqrCz2YnVg/edit",
+        "finding": "Progression chart places L-clap pull-ups at an advanced level above non-kipping clapping pull-ups, combining L-sit compression with explosive release/regrasp pulling."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

@@ -896,6 +896,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-l-sit-straddle-press-to-handstand",
+    "exerciseName": "L-Sit Straddle Press to Handstand",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Developing the Straddle Sit Press to Handstand",
+        "publisher": "Valentin Uzunov / Gym Press",
+        "tier": 2,
+        "locator": "https://www.researchgate.net/publication/281149742_Developing_the_Straddle_Sit_Press_to_Handstand",
+        "finding": "Gymnastics training paper identifies strength, active flexibility and motor execution as the three main requirements, with weight centered over wrists and maximal compression."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "VERY_HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lying-leg-raise",
+    "exerciseName": "Lying Leg Raise",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Lying Leg Raise",
+        "publisher": "ExerciseLibrary.com",
+        "tier": 3,
+        "locator": "https://www.exerciselibrary.com/exercise/lying-leg-raise/",
+        "finding": "Beginner supine bodyweight core exercise lifting straight legs with controlled pelvis and lumbar position; range is reduced if spinal control is lost."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-machine-biceps-curl",
     "exerciseName": "Machine Biceps Curl",
     "identityStatus": "IDENTITY_CONFIRMED",

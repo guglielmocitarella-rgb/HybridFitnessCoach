@@ -674,6 +674,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-jogging-and-running",
+    "exerciseName": "Jogging and Running",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "CrossFit FAQ",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/cf/faq",
+        "finding": "Running is treated as a standard monostructural movement; no special equipment is required and ordinary running mechanics are the operative task."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-jumping-pull-ups",
+    "exerciseName": "Jumping Pull-Ups",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Jumping Pull-Up Progression",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.youtube.com/watch?v=KdjfFHefFkg",
+        "finding": "CrossFit presents jumping pull-ups as a scalable pull-up progression using a box/jump with coordinated bar timing and controlled movement mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-l-sit",
     "exerciseName": "L-Sit",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -692,6 +740,30 @@
         "balanceCoordinationRequirement": "MODERATE",
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-negative-dip",
+    "exerciseName": "Negative Dip",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Negative Dip",
+        "publisher": "Progresspedia",
+        "tier": 3,
+        "locator": "https://progresspedia.org/courses/calisthenics/negative-dip/",
+        "finding": "Eccentric dip starts in locked support and lowers slowly to shoulders at/below elbow height; requires supported-body control and develops dip strength before concentric reps."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
         "technicalDifficulty": "MODERATE"
       },
       "terminalUnresolved": []

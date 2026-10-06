@@ -861,6 +861,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-l-sit-bent-arm-bent-body-press-to-handstand",
+    "exerciseName": "L-Sit Bent-Arm Bent-Body Press to Handstand",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "MAG Passport",
+        "publisher": "Gymnastics BC",
+        "tier": 2,
+        "locator": "https://www.gymbc.org/disciplines/mens-artistic-gymnastics/mag-passport/",
+        "finding": "Gymnastics progression lists bent-arm bent-body press to handstand as a formal still-rings skill after foundational support/L-sit work, requiring advanced inversion control and pressing strength."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-machine-horizontal-row",
     "exerciseName": "Machine Horizontal Row",
     "identityStatus": "IDENTITY_CONFIRMED",

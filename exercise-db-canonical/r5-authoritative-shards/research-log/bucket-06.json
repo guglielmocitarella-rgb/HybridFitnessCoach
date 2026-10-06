@@ -677,6 +677,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-l-sit-muscle-up",
+    "exerciseName": "L-Sit Muscle-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "CrossFit Workout 260925 / L-Sit Muscle-Up",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/search/handstand",
+        "finding": "CrossFit specifies an L-sit muscle-up beginning with straight legs at 90 degrees and finishing in locked-out support, classifying it as high-skill gymnastics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-leg-curl",
     "exerciseName": "Leg Curl",
     "identityStatus": "IDENTITY_CONFIRMED",

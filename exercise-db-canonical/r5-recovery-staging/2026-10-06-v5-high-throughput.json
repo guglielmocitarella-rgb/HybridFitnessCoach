@@ -1,0 +1,17 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V5",
+  "baselineHead": "001ffb9964cc5f8c1ad412431b09aba431faf523",
+  "newWebQueries": 48,
+  "promotedCapabilityCount": 120,
+  "promotedRecordCount": 30,
+  "finalCheckpoint": {
+    "processed": 2042,
+    "resolved": 1994,
+    "terminal": 48,
+    "unprocessed": 1793,
+    "provenance": 1994,
+    "researchLog": 562
+  },
+  "promotionNote": "V5 normal high-throughput source-family batch; 30 records x 4 field-level decisions. Concurrent linear engine-readiness commit preserved."
+}

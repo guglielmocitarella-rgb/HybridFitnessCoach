@@ -676,5 +676,53 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-knee-ups",
+    "exerciseName": "Knee-Ups",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Abs Workout: Knee-Ups",
+        "publisher": "Fitness with Dale L. Roberts",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=sorb9oTvohE",
+        "finding": "Knee-ups are presented as an accessible core exercise; repeated knee drive requires basic trunk control without high external load or complex skill."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-low-alternating-wave-with-battle-ropes",
+    "exerciseName": "Low Alternating Wave with Battle Ropes",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Asynchronous Waves",
+        "publisher": "ACE",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/376/asynchronous-waves/",
+        "finding": "ACE classifies alternating heavy-rope waves as advanced; athlete holds a partial squat and alternates explosive arm waves with coordinated timing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

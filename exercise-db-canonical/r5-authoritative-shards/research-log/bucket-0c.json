@@ -787,6 +787,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-kipping-muscle-ups",
+    "exerciseName": "Kipping Muscle-Ups",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "The Kipping Muscle-Up",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-kipping-muscle-up",
+        "finding": "Kipping muscle-up links hang, pull-up transition and dip using coordinated swing; CrossFit emphasizes the difficult transition and substantial upper-body strength."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-kipping-pull-ups",
     "exerciseName": "Kipping Pull-Ups",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -852,6 +876,30 @@
         "balanceCoordinationRequirement": "VERY_LOW",
         "mobilityRequirement": "MODERATE",
         "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-mountain-climbers",
+    "exerciseName": "Mountain Climbers",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Mountain Climbers",
+        "publisher": "ACE",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/258/mountain-climbers/",
+        "finding": "ACE classifies mountain climbers as advanced; high-plank support is maintained while legs switch dynamically, requiring trunk/shoulder stability and coordinated rapid hip flexion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
       },
       "terminalUnresolved": []
     }

@@ -847,5 +847,53 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-planche-lean",
+    "exerciseName": "Planche Lean",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Planche Progression",
+        "publisher": "GMB Fitness",
+        "tier": 2,
+        "locator": "https://gmb.io/planche/",
+        "finding": "Basic planche lean starts from plank and shifts shoulders beyond wrists while feet remain supported; it is the first progression toward unsupported planche strength/control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-planche-push-up",
+    "exerciseName": "Planche Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Planche Push-Ups",
+        "publisher": "Pull Gravity",
+        "tier": 3,
+        "locator": "https://pullgravity.com/exercises/push-ups/planche-push-ups/",
+        "finding": "Push-up is performed with feet airborne in planche, entire bodyweight supported on hands; source explicitly notes great strength and high balance demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

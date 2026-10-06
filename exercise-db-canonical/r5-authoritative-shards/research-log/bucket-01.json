@@ -827,6 +827,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-l-sit-dips",
+    "exerciseName": "L-Sit Dips",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "L-Sit Dips: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/l-sit-dips",
+        "finding": "Parallel-bar dip is performed while holding straight legs at hip height throughout, combining deep pressing ROM with continuous core/hip-flexor compression and body control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lalanne-push-up",
+    "exerciseName": "LaLanne Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Lalanne Push-Ups",
+        "publisher": "CrossFit Invictus Gymnastics",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=OQB99r5hI7U",
+        "finding": "Invictus describes Lalanne push-ups as extremely difficult, requiring extended-arm pressing plus strong lower-abdominal support to protect the low back."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-leg-extension",
     "exerciseName": "Leg Extension",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -844,6 +892,54 @@
       "resolved": {
         "balanceCoordinationRequirement": "VERY_LOW",
         "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lunge-to-row",
+    "exerciseName": "Lunge to Row",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Lunge to Single Arm Row",
+        "publisher": "ACE",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/345/lunge-to-single-arm-row/",
+        "finding": "ACE classifies the cable lunge-to-row as advanced and requires transitioning from a rear lunge into single-leg balance while rowing the cable."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lying-leg-extension",
+    "exerciseName": "Lying Leg Extension",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Lying Leg Extension",
+        "publisher": "ManiacMuscle",
+        "tier": 3,
+        "locator": "https://maniacmuscle.com/lying-leg-extension/",
+        "finding": "Beginner-to-intermediate supine core drill extends the legs away while maintaining abdominal tension and pelvic/lumbar control; no external load or standing balance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "LOW",
         "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
