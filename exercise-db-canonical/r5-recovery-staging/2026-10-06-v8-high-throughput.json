@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V8",
   "baselineHead": "96961a6a6139e0f25d034af41d7e8e9007415b3f",
   "newWebQueries": 30,
@@ -548,5 +548,11 @@
         "technicalDifficulty": "LOW"
       }
     }
-  ]
+  ],
+  "promotion": {
+    "capabilitiesPromoted": 126,
+    "recordsPromoted": 32,
+    "validation": "PASS",
+    "duplicateGate": "BASELINE_DUPLICATES_PRESERVED_NO_NEW_VIOLATIONS"
+  }
 }

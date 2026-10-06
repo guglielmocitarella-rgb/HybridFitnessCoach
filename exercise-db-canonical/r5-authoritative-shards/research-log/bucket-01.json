@@ -803,6 +803,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-flat-back-back-lever",
+    "exerciseName": "Flat-Back Back Lever",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct back-lever progression: flattening the back moves mass farther from the hands and requires substantially more muscular control with locked elbows."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-full-front-lever",
+    "exerciseName": "Full Front Lever",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct final front-lever progression: legs together, elbows locked, full-body tension and horizontal hip position; explicitly extremely difficult after straddle progression."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-full-squat",
     "exerciseName": "Full Squat",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -1059,6 +1107,30 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-squat",
+    "exerciseName": "Side-to-Side Squat",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Side squats",
+        "publisher": "Caliverse",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/side-squats-1534",
+        "finding": "Lateral bodyweight squat shifts weight to one leg with the other straight; beginner guide explicitly targets lateral strength, balance and hip mobility."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

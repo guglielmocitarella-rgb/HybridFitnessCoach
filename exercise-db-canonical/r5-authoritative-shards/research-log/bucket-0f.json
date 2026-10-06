@@ -686,6 +686,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-quadruped-leg-lift",
+    "exerciseName": "Quadruped Leg Lift",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Supplement 2 — Quadruped exercises",
+        "publisher": "BMJ Open",
+        "tier": 1,
+        "locator": "https://bmjopen.bmj.com/highwire/filestream/315662/field_highwire_adjunct_files/1/bmjopen-2023-081022supp002_data_supplement.pdf",
+        "finding": "Direct quadruped leg lift with abdominal bracing: extend one leg parallel to ground, hold, return and alternate; controlled trunk stabilization is explicit."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ramp-ab-wheel",
     "exerciseName": "Ramp Ab Wheel",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
@@ -710,6 +734,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-rear-support",
+    "exerciseName": "Rear Support",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct rear-support section: straight-body reverse support, arms pressing hard, hips elevated; progression elevates feet and increases bodyweight demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-rings-dips",
     "exerciseName": "Rings Dips",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
@@ -729,6 +777,54 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rock-climber-pull-up",
+    "exerciseName": "Rock-Climber Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct rock-climber pull-up section: wide overhand hang, scapular set, asymmetric pull toward one hand; presented as progression toward one-arm pulling."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rotator-cuff-stretch",
+    "exerciseName": "Rotator-Cuff Stretch",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct rotator-cuff stretch: side-lying shoulder at 90 degrees, opposite hand gently drives wrist toward floor; mobility-focused shoulder drill."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

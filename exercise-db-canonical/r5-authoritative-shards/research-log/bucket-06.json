@@ -677,6 +677,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-front-dip",
+    "exerciseName": "Front Dip",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct single-bar front dip: support above bar, lower toward bar with forward lean/leg counterbalance, then press to locked arms; same support used atop muscle-up."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-l-sit-muscle-up",
     "exerciseName": "L-Sit Muscle-Up",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

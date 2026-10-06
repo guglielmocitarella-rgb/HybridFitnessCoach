@@ -40,6 +40,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "cm-ab-wheel-rollout",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-ab-wheel-rollout-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "cm-ab-wheel-rollout-in-ginocchio",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -53,14 +61,6 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-ab-wheel-rollout",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-cm-ab-wheel-rollout-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1744,19 +1744,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-advanced-tuck-planche-pushups-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-advanced-tuck-planche",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-advanced-tuck-planche-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-advanced-tuck-planche-pushups-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1936,22 +1936,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-back-lever-pullout",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-back-lever-pullout-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-back-lever-pullout",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-back-lever-pullout-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-back-lever",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1965,6 +1949,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-back-lever-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-back-lever-pullout-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-back-lever-pullout-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2584,6 +2584,38 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-flat-back-back-lever",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-flat-back-back-lever-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-floor-handstand",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-floor-handstand-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-floor-handstand",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-floor-handstand-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-floor-handstand",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-floor-handstand-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-foam-roll-latissimus-dorsi",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2597,6 +2629,22 @@
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-freestanding-parallette-handstand-push-up-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-dip",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-front-dip-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-dip",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-front-dip-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2621,6 +2669,30 @@
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "HIGH",
     "provenanceId": "R5-ex-front-squat-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-full-ab-wheel",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-full-ab-wheel-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-full-ab-wheel",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-full-ab-wheel-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-full-front-lever",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-full-front-lever-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2968,6 +3040,22 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-planche",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-planche-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-planche",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-planche-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-planche-lean",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2989,22 +3077,6 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-planche-push-up-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-planche",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-ex-planche-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-planche",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-planche-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -3120,14 +3192,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-rings-advanced-tuck-planche-pushups",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-ex-rings-advanced-tuck-planche-pushups-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-rings-advanced-tuck-planche",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -3141,6 +3205,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-rings-advanced-tuck-planche-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-rings-advanced-tuck-planche-pushups",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-rings-advanced-tuck-planche-pushups-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -3192,6 +3264,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-rings-strap-handstand",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-rings-strap-handstand-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-rings-strap-handstand-pushup",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -3205,14 +3285,6 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-rings-strap-handstand-pushup-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-rings-strap-handstand",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-rings-strap-handstand-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -3256,11 +3328,67 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-rollovers-into-straddle-sit",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-rollovers-into-straddle-sit-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-rollovers-into-straddle-sit",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-rollovers-into-straddle-sit-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-russian-twist",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-russian-twist-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-dip",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-scapula-dip-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-dip",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-scapula-dip-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-dip",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-scapula-dip-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-push-up",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-scapula-push-up-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-push-up",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-scapula-push-up-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -3272,11 +3400,51 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-shoulder-dislocates",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-shoulder-dislocates-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-side-plank",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-ex-side-plank-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-hip-rolls",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-side-to-side-hip-rolls-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-hip-rolls",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-side-to-side-hip-rolls-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-squat",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-side-to-side-squat-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-squat",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-side-to-side-squat-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -3309,6 +3477,38 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-single-arm-incline-dumbbell-chest-press-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-back-lever",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-single-leg-back-lever-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-back-lever",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-single-leg-back-lever-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-box-squat",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-single-leg-box-squat-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-box-squat",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-single-leg-box-squat-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

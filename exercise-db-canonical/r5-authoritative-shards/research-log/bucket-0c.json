@@ -763,6 +763,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-front-foot-elevated-split-squat",
+    "exerciseName": "Front Foot Elevated Split Squat",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Front Foot Elevated Split Squat",
+        "publisher": "Macros Inc",
+        "tier": 3,
+        "locator": "https://macrosinc.net/exercises/legs/front-foot-elevated-split-squat/",
+        "finding": "Verified exercise guide classifies it intermediate; elevated front foot increases ROM, unilateral loading and knee/hip control with balance and alignment requirements."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-full-ab-wheel",
+    "exerciseName": "Full Ab Wheel",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Ab Wheel Exercises — Complete Progression",
+        "publisher": "Urban Strength",
+        "tier": 3,
+        "locator": "https://urbanstrength.com.au/ab-wheel-exercises-the-complete-progression-workout-guide/",
+        "finding": "Standing full abdominal rollout appears late in a progression after kneeling, ramp and eccentric rollouts; requires hollow-body control under long leverage."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-incline-push-up",
     "exerciseName": "Incline Push-Up",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -948,6 +996,30 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-leans",
+    "exerciseName": "Side Leans",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct core mobility drill for obliques/lateral spinal flexibility using a light bar while bending sideways at the waist."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

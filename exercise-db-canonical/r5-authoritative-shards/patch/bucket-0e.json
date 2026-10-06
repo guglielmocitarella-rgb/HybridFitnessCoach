@@ -32,6 +32,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "cm-ab-wheel-rollout",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-ab-wheel-rollout-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "cm-ab-wheel-rollout-da-piedi",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -45,14 +53,6 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-ab-wheel-rollout",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-ab-wheel-rollout-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1328,19 +1328,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-back-lever-pullout",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-back-lever-pullout-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-back-lever",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-back-lever-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-back-lever-pullout-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1872,11 +1872,27 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-flat-back-back-lever",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-flat-back-back-lever-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-floor-bridge",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_LOW",
     "provenanceId": "R5-ex-floor-bridge-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-floor-handstand",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-floor-handstand-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1893,6 +1909,14 @@
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-freestanding-parallette-handstand-push-up-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-frog-hop",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-frog-hop-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1928,19 +1952,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-front-lever-pull-up",
-    "field": "balanceCoordinationRequirement",
-    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-front-lever-pull-up-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-front-lever",
     "field": "balanceCoordinationRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "HIGH",
     "provenanceId": "R5-ex-front-lever-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-up",
+    "field": "balanceCoordinationRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-front-lever-pull-up-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1965,6 +1989,14 @@
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "VERY_LOW",
     "provenanceId": "R5-ex-full-back-lever-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-full-front-lever",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-full-front-lever-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2120,19 +2152,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-leg-press-calf-raise",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_LOW",
-    "provenanceId": "R5-ex-leg-press-calf-raise-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-leg-press",
     "field": "balanceCoordinationRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "VERY_LOW",
     "provenanceId": "R5-ex-leg-press-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-leg-press-calf-raise",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-leg-press-calf-raise-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2208,6 +2240,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-rear-support",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-rear-support-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-reverse-crunch-to-knee-up-with-rotation",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2280,14 +2320,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-rings-tuck-planche-pushups",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-rings-tuck-planche-pushups-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-rings-tuck-planche",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2301,6 +2333,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-rings-tuck-planche-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-rings-tuck-planche-pushups",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-rings-tuck-planche-pushups-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2336,11 +2376,67 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-rotational-push-up",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-rotational-push-up-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-rows",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-rows-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-foam-rolling",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-scapula-foam-rolling-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-shoulder-dislocates",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-shoulder-dislocates-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-leans",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-side-leans-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-to-side-squat",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-side-to-side-squat-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-single-arm-incline-dumbbell-chest-press",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-ex-single-arm-incline-dumbbell-chest-press-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-box-squat",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-single-leg-box-squat-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

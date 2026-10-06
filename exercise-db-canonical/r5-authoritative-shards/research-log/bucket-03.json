@@ -893,6 +893,29 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-dumbbell-triceps-extension",
+    "exerciseName": "Dumbbell Triceps Extension",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Triceps extension with dumbbell",
+        "publisher": "Mayo Clinic",
+        "tier": 1,
+        "locator": "https://www.mayoclinic.org/healthy-lifestyle/fitness/multimedia/triceps-extension/vid-20084676",
+        "finding": "Medical exercise guide: supported dumbbell elbow extension with stable head/spine/lower body, smooth controlled motion and optional opposite-hand stabilization."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-finger-assisted-one-arm-pull-up",
     "exerciseName": "Finger-Assisted One-Arm Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -912,6 +935,30 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "VERY_HIGH",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-frog-hop",
+    "exerciseName": "Frog Hop",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct frog-hop mobility drill: from push-up position jump both feet outside the hands and back; source explicitly notes increased flexibility and good hip mobility requirement."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
       },
       "terminalUnresolved": []
     }

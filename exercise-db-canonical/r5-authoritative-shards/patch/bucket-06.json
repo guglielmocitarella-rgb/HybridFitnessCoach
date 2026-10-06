@@ -760,22 +760,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-kettlebell-clean-and-press",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-kettlebell-clean-and-press-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-kettlebell-clean-and-press",
-    "field": "technicalDifficulty",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-kettlebell-clean-and-press-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-kettlebell-clean",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -797,6 +781,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-cm-kettlebell-clean-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-kettlebell-clean-and-press",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-kettlebell-clean-and-press-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-kettlebell-clean-and-press",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-kettlebell-clean-and-press-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -928,6 +928,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "cm-pallof-press",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-pallof-press-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "cm-pallof-press-walkout",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -949,14 +957,6 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-cm-pallof-press-walkout-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-pallof-press",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "LOW",
-    "provenanceId": "R5-cm-pallof-press-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1472,6 +1472,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-dumbbell-triceps-extension",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-dumbbell-triceps-extension-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-ez-bar-biceps-curl",
     "field": "balanceCoordinationRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -1509,6 +1517,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-ex-foam-roll-latissimus-dorsi-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-forward-fold",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-forward-fold-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-forward-fold",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-forward-fold-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1816,6 +1840,22 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-quad-stretch",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-quad-stretch-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-quadruped-leg-lift",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-quadruped-leg-lift-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-rings-dip-eccentrics",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1872,11 +1912,43 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-rock-climber-pull-up",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-rock-climber-pull-up-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-rows",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-rows-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-foam-rolling",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-scapula-foam-rolling-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-seated-leg-curl",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_LOW",
     "provenanceId": "R5-ex-seated-leg-curl-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-leans",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-side-leans-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

@@ -886,6 +886,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-dynamic-prone-plank",
+    "exerciseName": "Dynamic Prone Plank",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "50 Body Weight Exercises",
+        "publisher": "Bodyweight exercise guide",
+        "tier": 3,
+        "locator": "https://www.snhac.org.uk/media/files/1584641238_50_body_weight_exercises.pdf",
+        "finding": "Direct dynamic prone plank: standard plank support with repeated hip raise/lower while maintaining straight back and preventing hip sag."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-floor-half-lever",
+    "exerciseName": "Floor Half Lever",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct floor half-lever progression: straight legs, locked elbows and hard downward press from the floor; harder than elevated support due to clearance and leverage."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-glute-ham-raise",
     "exerciseName": "Glute Ham Raise",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -999,6 +1047,30 @@
         "mobilityRequirement": "HIGH",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-scapula-pull-up",
+    "exerciseName": "Scapula Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Direct scapula pull-up: hang with straight arms and move through scapular depression/retraction without elbow flexion; foundational hanging shoulder control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
       },
       "terminalUnresolved": []
     }
