@@ -720,5 +720,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-close-grip-pull-up",
+    "exerciseName": "Close-Grip Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Close Grip Pull-Up: Form & Muscles Worked",
+        "publisher": "SetGrip",
+        "tier": 3,
+        "locator": "https://setgrip.app/exercises/pull-up-close-grip/",
+        "finding": "Intermediate hanging compound pull using a close grip, full hang, trunk bracing and controlled pull to chin-over-bar."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

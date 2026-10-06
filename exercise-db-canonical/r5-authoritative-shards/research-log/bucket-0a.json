@@ -645,5 +645,52 @@
         "technicalDifficulty"
       ]
     }
+  },
+  {
+    "canonicalExerciseId": "ex-cross-cable-triceps-pressdown",
+    "exerciseName": "Cross-Cable Triceps Pressdown",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Cross Cable Triceps Pushdown",
+        "publisher": "seto",
+        "tier": 3,
+        "locator": "https://seto.fit/exercises/cross-cable-triceps-pushdown/",
+        "finding": "Beginner cable-machine isolation exercise performed between two high pulleys with crossed handles; stand tall and extend the elbows down and out under control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-crunch",
+    "exerciseName": "Crunch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Crunch",
+        "publisher": "ACE Fitness",
+        "tier": 1,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/",
+        "finding": "ACE classifies Crunch as Beginner; supine floor-supported trunk curl with feet, tailbone and low back maintained on the mat and controlled spinal flexion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

@@ -617,5 +617,28 @@
         "technicalDifficulty"
       ]
     }
+  },
+  {
+    "canonicalExerciseId": "ex-concentration-curl",
+    "exerciseName": "Concentration Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Concentration Curl: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/concentration-curl/",
+        "finding": "Seated single-arm curl with elbow supported against the inner leg; controlled elbow flexion and supported posture make cheating difficult."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

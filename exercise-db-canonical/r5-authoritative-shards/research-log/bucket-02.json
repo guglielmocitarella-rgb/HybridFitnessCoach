@@ -587,5 +587,52 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-clap-push-up",
+    "exerciseName": "Clap Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Clap Push-Up: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/clap-push-up/",
+        "finding": "Plyometric push-up requiring explosive takeoff, an airborne clap and controlled re-landing while maintaining a rigid body line."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-contralateral-limb-raises",
+    "exerciseName": "Contralateral Limb Raises",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Contralateral Limb Raises",
+        "publisher": "ACE Fitness",
+        "tier": 1,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/",
+        "finding": "ACE classifies the exercise as Beginner; prone supported setup with slow opposite arm/leg raises while the core stabilizes the spine and torso."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]
