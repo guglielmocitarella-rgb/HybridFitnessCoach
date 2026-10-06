@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE_VALIDATION_FAILED",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V10",
   "baselineHead": "10c2d41070db996508b4347ce08cb3e0c399a67a",
   "note": "V10 staging promoted differentially; semantic duplicates were not reinserted.",
@@ -430,7 +430,11 @@
     "newProcessedRecords": 7,
     "authoritativeCapabilityTotal": 2537,
     "researchLogTotal": 704,
-    "validation": "PASS"
+    "validation": "PASS",
+    "finalCardinality": 2537,
+    "provenanceDuplicateIds": 7,
+    "routingViolationsAdded": 0,
+    "prescriptionDependentPreserved": 441
   },
   "promotionValidation": {
     "result": "FAIL",
