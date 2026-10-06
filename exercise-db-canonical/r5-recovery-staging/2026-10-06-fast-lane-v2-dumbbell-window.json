@@ -1,0 +1,600 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V2",
+  "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+  "baselineCheckpoint": {
+    "processed": 1690,
+    "resolved": 1642,
+    "terminal": 48,
+    "unprocessed": 2145
+  },
+  "evidenceCompleteCount": 24,
+  "records": [
+    "ex-dumbbell-bench-press",
+    "ex-dumbbell-bent-over-row",
+    "ex-dumbbell-biceps-curl",
+    "ex-dumbbell-chest-fly",
+    "ex-dumbbell-goblet-squat",
+    "ex-dumbbell-hang-power-clean",
+    "ex-dumbbell-lateral-raise",
+    "ex-dumbbell-shoulder-press"
+  ],
+  "entries": [
+    {
+      "recordId": "ex-dumbbell-bench-press",
+      "exerciseName": "Dumbbell Bench Press",
+      "semanticKey": "ex-dumbbell-bench-press::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/beginner-dumbbell-program/",
+      "sourceTitle": "Beginner Dumbbell Program: Full-Body Workout Plan",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Bench-supported bilateral dumbbell chest press; each arm independently stabilizes its load, but the body is supported on the bench.",
+      "fieldApplication": "Balance/coordination is limited by bench support while independent dumbbells add some stabilization demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-bench-press",
+      "exerciseName": "Dumbbell Bench Press",
+      "semanticKey": "ex-dumbbell-bench-press::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/beginner-dumbbell-program/",
+      "sourceTitle": "Beginner Dumbbell Program: Full-Body Workout Plan",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Beginner-program horizontal press from chest to straight arms with ordinary shoulder/elbow range.",
+      "fieldApplication": "No unusual end-range mobility requirement is described for the standard press.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-bench-press",
+      "exerciseName": "Dumbbell Bench Press",
+      "semanticKey": "ex-dumbbell-bench-press::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/beginner-dumbbell-program/",
+      "sourceTitle": "Beginner Dumbbell Program: Full-Body Workout Plan",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Included as a core exercise in a beginner dumbbell program with a straightforward press path.",
+      "fieldApplication": "Beginner suitability plus simple supported pressing mechanics supports low technical difficulty.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-bent-over-row",
+      "exerciseName": "Dumbbell Bent-Over Row",
+      "semanticKey": "ex-dumbbell-bent-over-row::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.verywellfit.com/how-to-properly-perform-the-dumbbell-bent-over-row-3498295",
+      "sourceTitle": "Bent-Over Dumbbell Row: Proper Form, Variations, and Common Mistakes",
+      "publisher": "Verywell Fit",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Two-arm row from a fixed hip hinge; legs stay stationary, core engaged, spine neutral; source notes stance adjustments can make balance easier.",
+      "fieldApplication": "Stable bilateral stance with fixed lower body creates limited balance demand, despite trunk stabilization.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-bent-over-row",
+      "exerciseName": "Dumbbell Bent-Over Row",
+      "semanticKey": "ex-dumbbell-bent-over-row::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.verywellfit.com/how-to-properly-perform-the-dumbbell-bent-over-row-3498295",
+      "sourceTitle": "Bent-Over Dumbbell Row: Proper Form, Variations, and Common Mistakes",
+      "publisher": "Verywell Fit",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Requires maintaining about a 45-degree hip hinge with neutral spine throughout the set.",
+      "fieldApplication": "Sustained hip-hinge position creates meaningful posterior-chain/hip range demand beyond simple supported upper-body work.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-bent-over-row",
+      "exerciseName": "Dumbbell Bent-Over Row",
+      "semanticKey": "ex-dumbbell-bent-over-row::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.verywellfit.com/how-to-properly-perform-the-dumbbell-bent-over-row-3498295",
+      "sourceTitle": "Bent-Over Dumbbell Row: Proper Form, Variations, and Common Mistakes",
+      "publisher": "Verywell Fit",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Source labels the exercise Intermediate and emphasizes neutral spine, fixed hinge, controlled wrists and avoiding lower-body movement.",
+      "fieldApplication": "Intermediate classification and multiple simultaneous posture constraints support moderate technical difficulty.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-biceps-curl",
+      "exerciseName": "Dumbbell Biceps Curl",
+      "semanticKey": "ex-dumbbell-biceps-curl::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-curl/",
+      "sourceTitle": "How to Dumbbell Curl: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Standing shoulder-width with slight knee bend and light core tension; controlled elbow flexion without swinging.",
+      "fieldApplication": "Stable standing base and isolated elbow action create low balance/coordination demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-biceps-curl",
+      "exerciseName": "Dumbbell Biceps Curl",
+      "semanticKey": "ex-dumbbell-biceps-curl::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-curl/",
+      "sourceTitle": "How to Dumbbell Curl: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Controlled elbow flexion from arms at sides with no unusual joint positions described.",
+      "fieldApplication": "Standard elbow/forearm range supports low mobility requirement.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-biceps-curl",
+      "exerciseName": "Dumbbell Biceps Curl",
+      "semanticKey": "ex-dumbbell-biceps-curl::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-curl/",
+      "sourceTitle": "How to Dumbbell Curl: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Described as a classic exercise renowned for simplicity; key cue is avoiding momentum and keeping elbows near the body.",
+      "fieldApplication": "Explicit simplicity and isolated movement support low technical difficulty.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-chest-fly",
+      "exerciseName": "Dumbbell Chest Fly",
+      "semanticKey": "ex-dumbbell-chest-fly::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "VERY_LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-chest-fly/",
+      "sourceTitle": "How to Do Dumbbell Chest Fly: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Performed lying on a bench with feet planted and shoulder blades set; arms move in a controlled arc.",
+      "fieldApplication": "Bench and foot support minimize whole-body balance demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-chest-fly",
+      "exerciseName": "Dumbbell Chest Fly",
+      "semanticKey": "ex-dumbbell-chest-fly::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-chest-fly/",
+      "sourceTitle": "How to Do Dumbbell Chest Fly: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Dumbbells are lowered out to the sides as deep as possible; load increases as chest/shoulder tissues are stretched.",
+      "fieldApplication": "Loaded shoulder horizontal-abduction stretch supports moderate mobility requirement.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-chest-fly",
+      "exerciseName": "Dumbbell Chest Fly",
+      "semanticKey": "ex-dumbbell-chest-fly::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-chest-fly/",
+      "sourceTitle": "How to Do Dumbbell Chest Fly: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Requires fixed slight elbow bend, scapular positioning, controlled shoulder-joint arc and stable bench setup.",
+      "fieldApplication": "Multiple form constraints under a loaded shoulder stretch support moderate technique demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-goblet-squat",
+      "exerciseName": "Dumbbell Goblet Squat",
+      "semanticKey": "ex-dumbbell-goblet-squat::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-goblet-squat-2/",
+      "sourceTitle": "How to Do Dumbbell Goblet Squat: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Bilateral shoulder-width squat with one dumbbell held against the chest and core braced.",
+      "fieldApplication": "Symmetric stance and front-held load keep balance demand low.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-goblet-squat",
+      "exerciseName": "Dumbbell Goblet Squat",
+      "semanticKey": "ex-dumbbell-goblet-squat::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-goblet-squat-2/",
+      "sourceTitle": "How to Do Dumbbell Goblet Squat: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Instruction is to squat down as deep as possible while maintaining the front-loaded position.",
+      "fieldApplication": "Deep squat range creates meaningful ankle/hip mobility demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-goblet-squat",
+      "exerciseName": "Dumbbell Goblet Squat",
+      "semanticKey": "ex-dumbbell-goblet-squat::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-goblet-squat-2/",
+      "sourceTitle": "How to Do Dumbbell Goblet Squat: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Source calls it a great entry-level exercise or warm-up for the barbell squat.",
+      "fieldApplication": "Explicit entry-level characterization supports low technical difficulty.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-hang-power-clean",
+      "exerciseName": "Dumbbell Hang Power Clean",
+      "semanticKey": "ex-dumbbell-hang-power-clean::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "HIGH",
+      "sourceLocator": "https://www.crossfit.com/essentials/the-dumbbell-power-clean",
+      "sourceTitle": "Dumbbell Power Clean - Instruction, Benefits & Technique",
+      "publisher": "CrossFit",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Power clean requires coordination of every joint and balance while stabilizing external load and transitioning into the receiving position; hang variation removes setup demands but preserves receiving/coordination demands.",
+      "fieldApplication": "Explicit whole-body coordination and dynamic balance requirements support high balance/coordination demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-hang-power-clean",
+      "exerciseName": "Dumbbell Hang Power Clean",
+      "semanticKey": "ex-dumbbell-hang-power-clean::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.crossfit.com/essentials/the-dumbbell-power-clean",
+      "sourceTitle": "Dumbbell Power Clean - Instruction, Benefits & Technique",
+      "publisher": "CrossFit",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "CrossFit explicitly states the dumbbell power clean requires flexibility and mobility; hang variation reduces setup-position demands.",
+      "fieldApplication": "Explicit mobility requirement, partially reduced by hang start, supports moderate mobility demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-hang-power-clean",
+      "exerciseName": "Dumbbell Hang Power Clean",
+      "semanticKey": "ex-dumbbell-hang-power-clean::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "HIGH",
+      "sourceLocator": "https://www.crossfit.com/essentials/the-dumbbell-power-clean",
+      "sourceTitle": "Dumbbell Power Clean - Instruction, Benefits & Technique",
+      "publisher": "CrossFit",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Source calls the movement skill-intensive and breaks it into setup, extension, shrug/pull-under, receiving and finish phases.",
+      "fieldApplication": "Explicit skill-intensive multi-phase execution supports high technical difficulty.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-lateral-raise",
+      "exerciseName": "Dumbbell Lateral Raise",
+      "semanticKey": "ex-dumbbell-lateral-raise::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-lateral-raise/",
+      "sourceTitle": "How to Do Dumbbell Lateral Raise: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Standing neutral spine with core engaged; controlled bilateral shoulder abduction without momentum.",
+      "fieldApplication": "Stable stance and simple bilateral arm path support low balance/coordination demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-lateral-raise",
+      "exerciseName": "Dumbbell Lateral Raise",
+      "semanticKey": "ex-dumbbell-lateral-raise::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-lateral-raise/",
+      "sourceTitle": "How to Do Dumbbell Lateral Raise: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Standard version raises arms to horizontal/shoulder height, not into forced end range.",
+      "fieldApplication": "Ordinary shoulder-height range supports low mobility requirement.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-lateral-raise",
+      "exerciseName": "Dumbbell Lateral Raise",
+      "semanticKey": "ex-dumbbell-lateral-raise::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "LOW",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-lateral-raise/",
+      "sourceTitle": "How to Do Dumbbell Lateral Raise: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Source describes it as easy to perform; strict form mainly requires light load, fixed elbow bend and no swinging.",
+      "fieldApplication": "Explicit ease plus simple isolation mechanics support low technical difficulty.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-shoulder-press",
+      "exerciseName": "Dumbbell Shoulder Press",
+      "semanticKey": "ex-dumbbell-shoulder-press::balanceCoordinationRequirement",
+      "capability": "balanceCoordinationRequirement",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-shoulder-press/",
+      "sourceTitle": "How to Do Dumbbell Shoulder Press: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Standing press requires core bracing while each dumbbell independently increases shoulder-stability demand.",
+      "fieldApplication": "Standing unsupported posture plus independent overhead loads support moderate stabilization/coordination demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-shoulder-press",
+      "exerciseName": "Dumbbell Shoulder Press",
+      "semanticKey": "ex-dumbbell-shoulder-press::mobilityRequirement",
+      "capability": "mobilityRequirement",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-shoulder-press/",
+      "sourceTitle": "How to Do Dumbbell Shoulder Press: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Dumbbells permit a longer range of motion and the exercise moves from shoulder level to straight arms overhead.",
+      "fieldApplication": "Overhead end position and long shoulder range support moderate mobility demand.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    },
+    {
+      "recordId": "ex-dumbbell-shoulder-press",
+      "exerciseName": "Dumbbell Shoulder Press",
+      "semanticKey": "ex-dumbbell-shoulder-press::technicalDifficulty",
+      "capability": "technicalDifficulty",
+      "candidateDecision": "MODERATE",
+      "sourceLocator": "https://www.strengthlog.com/dumbbell-shoulder-press/",
+      "sourceTitle": "How to Do Dumbbell Shoulder Press: Muscles Worked & Proper Form",
+      "publisher": "StrengthLog",
+      "querySourceTrail": [
+        "FAST_LANE_V2",
+        "exercise-specific web search"
+      ],
+      "finding": "Requires core brace, independent dumbbell stabilization, controlled overhead path and no leg-drive substitution.",
+      "fieldApplication": "Multiple simultaneous stabilization and path-control demands support moderate technical difficulty.",
+      "status": "EVIDENCE_COMPLETE",
+      "baselineHead": "0ffd236607142c6576666b3c8f743f04754de830",
+      "baselineCheckpoint": {
+        "processed": 1690,
+        "resolved": 1642,
+        "terminal": 48,
+        "unprocessed": 2145
+      }
+    }
+  ]
+}
