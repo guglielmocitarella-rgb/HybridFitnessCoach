@@ -458,6 +458,54 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-pause-push-up",
+    "exerciseName": "Pause Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Deficit Push-Up",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/deficit-push-up/",
+        "finding": "Push-up progression explicitly uses a 2–3 second bottom pause while preserving alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-planche-lean-push-up",
+    "exerciseName": "Planche Lean Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Planche Lean Push Up",
+        "publisher": "Caliverse",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/planche-lean-push-up-543",
+        "finding": "Hard bodyweight push with shoulders past wrists, strict scapular control and full-body tension."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ball-shoulder-stretch",
     "exerciseName": "Ball Shoulder Stretch",
     "identityStatus": "IDENTITY_CONFIRMED",

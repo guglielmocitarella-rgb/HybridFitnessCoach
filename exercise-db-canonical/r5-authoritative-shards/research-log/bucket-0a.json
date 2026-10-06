@@ -497,6 +497,53 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-pike-shoulder-tap",
+    "exerciseName": "Pike Shoulder Tap",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Pike Shoulder Taps",
+        "publisher": "Die Ringe",
+        "tier": 3,
+        "locator": "https://dieringe.com/exercises/pike-shoulder-taps",
+        "finding": "Shifts bodyweight onto one arm while tapping the opposite shoulder, challenging balance and stability."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-pistol-squat-assistito",
+    "exerciseName": "Pistol Squat Assistito",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Assisted Pistol Squat",
+        "publisher": "Movviva",
+        "tier": 3,
+        "locator": "https://movviva.com/exercises/pistol-squat-assisted",
+        "finding": "External support with controlled single-leg descent/ascent; catalog difficulty 2/5."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-advanced-tuck-back-lever",
     "exerciseName": "Advanced Tuck Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",

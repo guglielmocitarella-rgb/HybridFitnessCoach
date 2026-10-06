@@ -474,6 +474,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-pendulum-squat",
+    "exerciseName": "Pendulum Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Pendulum Squat",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/pendulum-squat/",
+        "finding": "Guided machine path with back supported, controlled squat and platform drive."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-lever",
     "exerciseName": "Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",

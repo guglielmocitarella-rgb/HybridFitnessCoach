@@ -1,11 +1,11 @@
 {
-  "status": "CHECKPOINT_RESEARCH_PERSISTED_MATERIALIZATION_PENDING",
+  "status": "CHECKPOINT_SHARDED_AUTHORITATIVE_VALIDATED",
   "initialResidual": 3835,
-  "processedCells": 1143,
-  "resolvedCells": 1124,
+  "processedCells": 1391,
+  "resolvedCells": 1372,
   "terminalUnresolved": 19,
-  "remainingUnprocessed": 2692,
-  "researchedRecords": 324,
+  "remainingUnprocessed": 2444,
+  "researchedRecords": 381,
   "strengthPrescriptionDependentPreserved": 441,
   "nameOnlyInference": false,
   "legacyLevelDerivation": 0,
@@ -13,24 +13,15 @@
   "globalUnknownRelaxation": false,
   "productionPathModified": false,
   "runtimeDbModified": false,
-  "S0": 0,
-  "S1": 1,
-  "S2": 1,
-  "S3": 0,
-  "reconciliation": {
-    "anomalousTerminalCells": 11,
-    "action": "RESEARCHED_AND_RESOLVED_WITH_FIELD_LEVEL_EXTERNAL_EVIDENCE",
-    "remainingTraceabilityGap": 0
-  },
-  "persistenceRemediation": {
-    "rootCause": "CONNECTOR_FALSE_EMPTY_FOR_LARGE_JSON_NOT_REPOSITORY_TRUNCATION",
-    "fieldDecisionsBlobSha": "5a0615fa59fefad226fae9dffcadd24c1bb85b59",
-    "fieldDecisionsBlobSize": 1062001,
-    "recoveredBatchCells": 66,
-    "recoveredBatchRecords": 20,
+  "incrementalBatch": {
+    "firstRecord": "cm-pallof-press",
+    "lastRecord": "cm-plank-shoulder-tap",
+    "records": 18,
+    "resolvedCells": 62,
+    "terminalCells": 0,
+    "decisionEvidenceProvenancePatchCardinality": 62,
+    "referentialIntegrity": "PASS",
     "duplicateProvenanceIds": 0,
-    "arithmeticResolvedPlusTerminal": 1143,
-    "arithmeticProcessedPlusRemaining": 3835,
-    "guard": "R5_R_PERSISTENCE_GUARD.md"
+    "checkpointArithmetic": "PASS"
   }
 }

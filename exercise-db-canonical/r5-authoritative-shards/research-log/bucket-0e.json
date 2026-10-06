@@ -468,6 +468,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-plank-reach",
+    "exerciseName": "Plank Reach",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Plank Reach",
+        "publisher": "Dr. Fitology",
+        "tier": 3,
+        "locator": "https://www.drfitology.com/exercises/obliques/plank-reach",
+        "finding": "Intermediate plank reach removes one arm support while maintaining trunk and hip stability."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-90-degree-push-up",
     "exerciseName": "90-Degree Push-Up",
     "identityStatus": "IDENTITY_AMBIGUOUS",

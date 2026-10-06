@@ -377,6 +377,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-pendlay-row",
+    "exerciseName": "Pendlay Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Pendlay Row",
+        "publisher": "Catalyst Athletics",
+        "tier": 3,
+        "locator": "https://www.catalystathletics.com/exercise/867/Pendlay-Row/",
+        "finding": "Near-horizontal hinged trunk, braced pull from floor and floor reset each repetition."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-abdominal-crunch",
     "exerciseName": "Abdominal Crunch",
     "identityStatus": "IDENTITY_CONFIRMED",

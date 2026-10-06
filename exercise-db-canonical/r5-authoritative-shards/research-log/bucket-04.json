@@ -468,6 +468,53 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-panca-inclinata-manubri",
+    "exerciseName": "Panca Inclinata Manubri",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Incline Dumbbell Press",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-incline-press/",
+        "finding": "Independent dumbbells on 30–45 degree bench with controlled lowering and pressing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-pause-pull-up",
+    "exerciseName": "Pause Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Paused Pull Up",
+        "publisher": "Caliverse",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/paused-pull-up-1273",
+        "finding": "Dead-hang pull-up with chin over bar pause and controlled scapular position."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deltoid-row",
     "exerciseName": "Banded Rear Delt Row",
     "identityStatus": "IDENTITY_CONFIRMED",
