@@ -400,6 +400,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-prone-press-up-mobility",
+    "exerciseName": "Prone press-up mobility",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "McKenzie Back Exercises",
+        "publisher": "StatPearls / NCBI Bookshelf",
+        "tier": 1,
+        "locator": "https://www.ncbi.nlm.nih.gov/books/NBK539720/",
+        "finding": "Prone press-up extends the elbows to lift the upper body while the pelvis stays in contact with the surface, specifically increasing lumbar extension."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-abdominal-crunch",
     "exerciseName": "Abdominal Crunch",
     "identityStatus": "IDENTITY_CONFIRMED",
