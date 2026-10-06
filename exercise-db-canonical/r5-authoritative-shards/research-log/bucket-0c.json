@@ -353,6 +353,54 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-knee-raise-pull-up",
+    "exerciseName": "Knee-raise pull-up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Knee-raise pull-up",
+        "publisher": "BODi / NASM",
+        "tier": 3,
+        "locator": "https://www.bodi.com/blog/how-to-get-better-at-pull-ups ; https://www.nasm.org/resource-center/blog/training/best-abs-exercises",
+        "finding": "Combines a strict pull-up with a knee raise; requires pull-up strength plus controlled hanging knee raise, trunk stabilization and minimized swing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-mixed-grip-pull-up",
+    "exerciseName": "Mixed-grip pull-up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Mixed-grip pull-up",
+        "publisher": "Kysero",
+        "tier": 3,
+        "locator": "https://kysero.io/exercise-library/mixed-grip-pull-up/",
+        "finding": "Intermediate asymmetric vertical pull; one pronated and one supinated hand, controlled hang, slow lowering and explicit anti-rotation requirement."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "cm-neutral-grip-pull-up",
     "exerciseName": "Neutral-grip pull-up",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -372,6 +420,30 @@
         "technicalDifficulty": "MODERATE",
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-pause-pull-up",
+    "exerciseName": "Pause pull-up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Pause pull-up",
+        "publisher": "Caliverse / Calisthenics Association",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/paused-pull-up-1273 ; https://calisthenicsassociation.org/lessons/weighted-pull-up-technique-breakdown",
+        "finding": "Pull-up variation with deliberate isometric pause; removes momentum and adds control demand at the sticking point while retaining full bodyweight pulling."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
       },
       "terminalUnresolved": []
     }
