@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V7",
   "baselineHead": "4a63b77c3faf8e56a3e54367447543b0c524d5e8",
   "newWebQueries": 42,
@@ -636,5 +636,25 @@
       }
     }
   ],
-  "note": "V7 cumulative anti-loss staging. ex-curl intentionally skipped as known residue. Candidate/runtime/production untouched."
+  "note": "V7 cumulative anti-loss staging. ex-curl intentionally skipped as known residue. Candidate/runtime/production untouched.",
+  "promotedCapabilityCount": 148,
+  "promotedRecordCount": 37,
+  "promotionValidation": {
+    "result": "PASS",
+    "duplicateGate": "BASELINE_DUPLICATES_PRESERVED_NO_NEW_VIOLATIONS",
+    "baselineDuplicateIdCount": 7,
+    "candidateDuplicateIdCount": 7,
+    "newDuplicateIds": 0,
+    "multiplicityIncreases": 0,
+    "integrityCounts": {
+      "fieldDecisions": 2283,
+      "evidence": 2283,
+      "provenance": 2283,
+      "patch": 2283,
+      "researchLog": 636
+    },
+    "routingViolationsHistorical": 11,
+    "newRoutingViolations": 0,
+    "prescriptionDependent": 441
+  }
 }

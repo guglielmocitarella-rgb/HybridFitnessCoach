@@ -566,6 +566,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-incline-barbell-bench-press",
+    "exerciseName": "Incline Barbell Bench Press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Incline Barbell Bench Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists supported incline barbell bench press as intermediate, with controlled shoulder/chest pressing range and stable bench support."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-jumping-lunge",
     "exerciseName": "Jumping Lunge",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

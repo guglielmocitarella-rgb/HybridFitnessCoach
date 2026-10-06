@@ -739,6 +739,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-floor-bridge",
+    "exerciseName": "Floor Bridge",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Floor Bridge",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/floor-bridge",
+        "finding": "Supine supported hip-extension exercise emphasizing glute strength, core bracing and level hip alignment; NASM classifies it beginner."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-foam-roll-calves",
+    "exerciseName": "Foam Roll Calves",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Foam Roll Calves",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-calves",
+        "finding": "Self-myofascial release for calf tightness and ankle mobility; seated hand support and slow controlled rolling make strength demand minimal."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-freestanding-handstand-shoulder-taps",
     "exerciseName": "Freestanding Handstand Shoulder Taps",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -828,6 +876,54 @@
         "mobilityRequirement": "HIGH",
         "strengthRequirement": "VERY_HIGH",
         "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-seated-leg-curl",
+    "exerciseName": "Seated Leg Curl",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Seated Leg Curl",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-leg-curl",
+        "finding": "Supported machine hamstring isolation with stable back support and controlled knee flexion; intended for all fitness levels."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-standing-cable-fly",
+    "exerciseName": "Two-Arm Standing Cable Fly",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists Two-Arm Standing Cable Fly as beginner; standing bilateral cable adduction requires postural stabilization and controlled shoulder range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

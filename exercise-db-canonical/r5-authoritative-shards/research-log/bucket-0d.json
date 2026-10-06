@@ -826,6 +826,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-lunge-jump",
+    "exerciseName": "Lunge Jump",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Lunge Jump",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/lunge-jump",
+        "finding": "Advanced plyometric alternating-lunge jump requiring explosive unilateral strength, dynamic balance, controlled landing and torso control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-machine-shoulder-press",
     "exerciseName": "Machine Shoulder Press",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -892,6 +916,102 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "VERY_HIGH",
         "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-reverse-crunch-to-knee-up-with-rotation",
+    "exerciseName": "Reverse Crunch to Knee Up With Rotation",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Reverse Crunch to Knee Up With Rotation",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/reverse-crunch-to-knee-up-with-rotation",
+        "finding": "NASM classifies this multi-planar core exercise intermediate; combines hip flexion and rotation with controlled alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-plank",
+    "exerciseName": "Side Plank",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Side Plank",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/side-plank",
+        "finding": "Isometric lateral core stabilization requiring straight-line alignment and prevention of hip sag/torso rotation; NASM classifies side plank beginner."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-seated-leg-curl",
+    "exerciseName": "Single-Leg Seated Leg Curl",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Single-Leg Seated Leg Curl",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/single-leg-seated-leg-curl",
+        "finding": "Stable unilateral machine curl for individual hamstring strength; controlled knee position and asymmetry management are emphasized."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-dumbbell-chest-press-with-band",
+    "exerciseName": "Two-Arm Dumbbell Chest Press with Band",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM classifies the band-resisted supported dumbbell press intermediate; variable resistance requires controlled pressing mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
       },
       "terminalUnresolved": []
     }

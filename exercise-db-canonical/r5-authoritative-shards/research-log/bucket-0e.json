@@ -674,6 +674,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-barbell-bench-press-with-bands",
+    "exerciseName": "Barbell Bench Press with Bands",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Barbell Bench Press with Bands",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists this variable-resistance barbell bench variation as advanced; bench support limits balance but band tension increases loading/control complexity."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bent-arm-bent-body-press-to-handstand",
     "exerciseName": "Bent-Arm Bent-Body Press to Handstand",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -717,6 +741,30 @@
         "technicalDifficulty": "LOW",
         "mobilityRequirement": "LOW",
         "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-chest-press-machine",
+    "exerciseName": "Chest Press Machine",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Chest Press Machine",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/chest-press-machine",
+        "finding": "Guided seated press with back support and predetermined path, explicitly reducing balance demands while developing chest pressing strength; NASM classifies it beginner."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }
@@ -951,6 +999,54 @@
         "mobilityRequirement": "HIGH",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-seated-machine-row-close-grip",
+    "exerciseName": "Seated Machine Row Close Grip",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Seated Machine Row Close Grip",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-machine-row-close-grip",
+        "finding": "Guided machine row with supported setup, controlled scapular retraction and stable posture; NASM library classifies it beginner."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-static-latissimus-dorsi-ball-stretch",
+    "exerciseName": "Static Latissimus Dorsi Ball Stretch",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Static Latissimus Dorsi Ball Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies this stability-ball lat mobility stretch beginner; mobility is the primary requirement with minimal strength demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

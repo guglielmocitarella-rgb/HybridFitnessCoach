@@ -1,0 +1,37 @@
+{
+  "version": "V3.10C-R5-R-V7",
+  "result": "PASS",
+  "promotion": "AUTHORITATIVE",
+  "capabilitiesPromoted": 148,
+  "recordsPromoted": 37,
+  "duplicateProvenanceGate": {
+    "baselineDuplicateIdCount": 7,
+    "candidateDuplicateIdCount": 7,
+    "newDuplicateIds": [],
+    "multiplicityIncreases": [],
+    "result": "BASELINE_DUPLICATES_PRESERVED_NO_NEW_VIOLATIONS"
+  },
+  "checkpoint": {
+    "processed": 2331,
+    "resolved": 2283,
+    "terminal": 48,
+    "unprocessed": 1504,
+    "provenance": 2283,
+    "researchLog": 636
+  },
+  "integrity": {
+    "fieldDecisions": 2283,
+    "evidence": 2283,
+    "provenance": 2283,
+    "patch": 2283,
+    "missing": 0
+  },
+  "routing": {
+    "historicalViolations": 11,
+    "newViolations": 0
+  },
+  "prescriptionDependent": 441,
+  "candidateDbModified": false,
+  "runtimeDbModified": false,
+  "productionPathModified": false
+}

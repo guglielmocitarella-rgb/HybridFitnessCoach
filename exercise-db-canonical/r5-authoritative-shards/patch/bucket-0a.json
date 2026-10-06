@@ -800,6 +800,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-bench-dips",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-bench-dips-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-bent-knee-push-up",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1048,6 +1056,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-kettlebell-crush-curl-with-squat",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-kettlebell-crush-curl-with-squat-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-kettlebell-swing",
     "field": "balanceCoordinationRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -1136,6 +1152,30 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-plank-walkup",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-plank-walkup-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-plank-walkup",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-plank-walkup-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-plank-walkup",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-plank-walkup-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-pseudo-planche-push-up",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1205,6 +1245,78 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-rings-turned-out-l-sit-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-press",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-single-leg-press-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-press",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-single-leg-press-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-squat-jump",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-squat-jump-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-squat-jump",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-squat-jump-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-static-butterfly-stretch",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-static-butterfly-stretch-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-static-latissimus-dorsi-ball-stretch",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-static-latissimus-dorsi-ball-stretch-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-static-latissimus-dorsi-ball-stretch",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-static-latissimus-dorsi-ball-stretch-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-static-standing-adductor-stretch",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-static-standing-adductor-stretch-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-straight-arm-plank",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-straight-arm-plank-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   }
 ]

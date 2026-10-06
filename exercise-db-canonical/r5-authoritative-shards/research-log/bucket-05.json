@@ -673,6 +673,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-close-grip-bench-press",
+    "exerciseName": "Close Grip Bench Press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Close Grip Bench Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/close-grip-bench-press",
+        "finding": "Supported barbell press emphasizing triceps strength, narrower grip positioning and controlled bar path; NASM library classifies the movement beginner."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-dumbbell-lateral-raise",
     "exerciseName": "Dumbbell Lateral Raise",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -690,6 +714,30 @@
       "resolved": {
         "balanceCoordinationRequirement": "LOW",
         "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-foam-roll-latissimus-dorsi",
+    "exerciseName": "Foam Roll Latissimus Dorsi",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Foam Roll Latissimus Dorsi",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-latissimus-dorsi",
+        "finding": "Side-supported self-myofascial release explicitly aimed at lat/shoulder mobility with slow controlled rolling and low strength demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
         "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
@@ -833,6 +881,78 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "VERY_HIGH",
         "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-single-arm-incline-dumbbell-chest-press",
+    "exerciseName": "Single-Arm Incline Dumbbell Chest Press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM classifies this supported unilateral incline press intermediate; unilateral load requires trunk control and shoulder pressing range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-static-seated-calf-stretch",
+    "exerciseName": "Static Seated Calf Stretch",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Static Seated Calf Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies the seated calf stretch beginner; seated supported ankle/calf mobility with negligible strength and balance demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-incline-dumbbell-chest-press",
+    "exerciseName": "Two-Arm Incline Dumbbell Chest Press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists the supported bilateral incline dumbbell press as beginner; bench support limits balance while shoulder/chest range remains controlled."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

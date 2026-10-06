@@ -852,6 +852,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-plank-walkup",
+    "exerciseName": "Plank Walkup",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Plank Walkup",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/plank-walkup",
+        "finding": "NASM classifies dynamic forearm-to-straight-arm plank transitions intermediate, explicitly requiring anti-rotation control and shoulder stability."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-rings-dip-eccentrics",
     "exerciseName": "Rings Dip Eccentrics",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

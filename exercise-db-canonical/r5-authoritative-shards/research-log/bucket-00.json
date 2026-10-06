@@ -578,6 +578,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-bench-dips",
+    "exerciseName": "Bench Dips",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Bench Dips",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/bench-dips",
+        "finding": "Bodyweight bench-supported triceps press requiring controlled shoulder/elbow range and torso stability; NASM describes it as intermediate."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bent-leg-good-morning",
     "exerciseName": "Bent Leg Good Morning",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -793,6 +817,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-prisoner-squat",
+    "exerciseName": "Prisoner Squat",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Prisoner Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists bodyweight prisoner squat beginner; bilateral squat requires basic hip/ankle range and lower-body strength with low coordination complexity."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-pseudo-planche-push-up",
     "exerciseName": "Pseudo-Planche Push-Up",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
@@ -812,6 +860,30 @@
         "mobilityRequirement": "HIGH",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-single-arm-dumbbell-chest-press",
+    "exerciseName": "Single-Arm Dumbbell Chest Press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM classifies the supported unilateral dumbbell chest press intermediate; unilateral loading adds trunk stabilization while bench support limits balance demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
       },
       "terminalUnresolved": []
     }

@@ -1096,6 +1096,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-barbell-bench-press-with-chains",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-barbell-bench-press-with-chains-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-barbell-bent-leg-dead-lift",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1760,6 +1768,22 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-foam-roll-calves",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-foam-roll-calves-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-foam-roll-calves",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-foam-roll-calves-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-forward-step-lunge",
     "field": "technicalDifficulty",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1917,6 +1941,14 @@
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "MODERATE",
     "provenanceId": "R5-ex-handstand-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-incline-barbell-bench-press",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-incline-barbell-bench-press-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2224,6 +2256,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-reverse-crunch-to-knee-up-with-rotation",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-reverse-crunch-to-knee-up-with-rotation-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-ring-row-eccentrics",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2309,6 +2349,86 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-rings-turned-out-support-hold-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-russian-twist",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-russian-twist-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-russian-twist",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-russian-twist-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-seated-leg-curl",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-seated-leg-curl-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-seated-leg-curl",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-seated-leg-curl-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-plank",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-side-plank-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-squat-to-row",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-single-leg-squat-to-row-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-standing-tubing-row",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-standing-tubing-row-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-standing-tubing-row",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-standing-tubing-row-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-dumbbell-chest-press-with-band",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-two-arm-dumbbell-chest-press-with-band-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-standing-cable-fly",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-two-arm-standing-cable-fly-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   }
 ]

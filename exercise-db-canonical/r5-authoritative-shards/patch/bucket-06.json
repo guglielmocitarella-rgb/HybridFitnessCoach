@@ -1168,6 +1168,22 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-barbell-bench-press-with-bands",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-barbell-bench-press-with-bands-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-barbell-bench-press-with-bands",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-barbell-bench-press-with-bands-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-barbell-biceps-curl",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1488,6 +1504,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-foam-roll-latissimus-dorsi",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-foam-roll-latissimus-dorsi-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-freestanding-handstand",
     "field": "balanceCoordinationRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -1536,6 +1560,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-iron-cross",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-iron-cross-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-judo-push-up",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1549,6 +1581,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-judo-push-up-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-kettlebell-crush-curl-with-squat",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-kettlebell-crush-curl-with-squat-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-kettlebell-crush-curl-with-squat",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-kettlebell-crush-curl-with-squat-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1720,6 +1768,38 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-prisoner-squat",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-prisoner-squat-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-prisoner-squat",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-prisoner-squat-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-prisoner-squat",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-prisoner-squat-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-prisoner-squat",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-prisoner-squat-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-pseudo-planche-push-up",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1789,6 +1869,46 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-rings-straddle-planche-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-seated-leg-curl",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-seated-leg-curl-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-side-plank",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-side-plank-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-press",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-single-leg-press-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-static-latissimus-dorsi-ball-stretch",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-static-latissimus-dorsi-ball-stretch-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-dumbbell-chest-press-with-band",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-two-arm-dumbbell-chest-press-with-band-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   }
 ]

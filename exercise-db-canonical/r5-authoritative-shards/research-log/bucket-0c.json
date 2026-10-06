@@ -787,6 +787,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-kettlebell-crush-curl-with-squat",
+    "exerciseName": "Kettlebell Crush Curl with Squat",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Kettlebell Crush Curl with Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists the integrated kettlebell curl-plus-squat movement beginner; combines squat positioning with upper-body resistance and bilateral control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-kipping-muscle-ups",
     "exerciseName": "Kipping Muscle-Ups",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

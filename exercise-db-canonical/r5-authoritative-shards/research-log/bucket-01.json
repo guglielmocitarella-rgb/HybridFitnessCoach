@@ -898,6 +898,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-leg-press-calf-raise",
+    "exerciseName": "Leg Press Calf Raise",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Leg Press Calf Raise",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise",
+        "finding": "Stable guided calf isolation on leg press; full plantarflexion/dorsiflexion range and controlled high-load calf strength are emphasized."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-lunge-to-row",
     "exerciseName": "Lunge to Row",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
