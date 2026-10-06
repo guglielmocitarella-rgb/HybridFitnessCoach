@@ -287,6 +287,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-push-up-declinato",
+    "exerciseName": "Push-up declinato",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Decline Push-Up",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/decline-push-up",
+        "finding": "NASM describes the feet-elevated decline push-up as an advanced pressing variation requiring solid push-up form, adequate upper-body strength, excellent core stability and controlled alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ab-wheel-eccentrics",
     "exerciseName": "Ab Wheel Eccentrics",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
