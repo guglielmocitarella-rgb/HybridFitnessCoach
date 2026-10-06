@@ -3,7 +3,7 @@
   "version": "V3.10C-R5-R-V10",
   "baselineHead": "10c2d41070db996508b4347ce08cb3e0c399a67a",
   "note": "Early anti-loss staging. Evidence-first pull-family tranche; not yet promoted authoritative.",
-  "newWebQueryGroups": 4,
+  "newWebQueryGroups": 8,
   "dimensions": [
     "balanceCoordinationRequirement",
     "mobilityRequirement",
@@ -248,9 +248,111 @@
           "technicalDifficulty": "HIGH"
         }
       }
+    },
+    {
+      "canonicalExerciseId": "cm-wall-handstand-weight-shift",
+      "exerciseName": "Wall handstand weight shift",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/chest-to-wall-handstand-weight-shifts/",
+        "finding": "Intermediate handstand drill: controlled lateral transfer toward one arm while inverted, with straight elbows, elevated shoulders, stable trunk and anti-rotation control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cossack-squat",
+      "exerciseName": "Cossack squat",
+      "source": {
+        "publisher": "Healthline / StrengthLog",
+        "locator": "https://www.healthline.com/health/fitness-exercise/cossack-squat ; https://www.strengthlog.com/cossack-squat/",
+        "finding": "Deep lateral unilateral squat explicitly testing strength plus hip, knee and ankle mobility; also challenges balance/flexibility and requires controlled deep side-to-side loading."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-sliding-hamstring-curl",
+      "exerciseName": "Sliding hamstring curl",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/sliding-hamstring-curl/",
+        "finding": "Intermediate posterior-chain strength exercise: bridge position maintained while hamstrings control knee extension and flexion through sliding heels; core and hip stability required."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-nordic-curl-eccentric",
+      "exerciseName": "Nordic curl eccentric",
+      "source": {
+        "publisher": "Movviva",
+        "locator": "https://movviva.com/exercises/nordic-curl-eccentric",
+        "finding": "Eccentric Nordic requires anchored knees, rigid knee-to-head line and slow hamstring-controlled lowering; hands catch lightly and return may be assisted."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-scapular-push-up",
+      "exerciseName": "Scapular push-up",
+      "source": {
+        "publisher": "HomeFit Atlas / ACE-derived exercise library",
+        "locator": "https://homefitnessatlas.com/exercises/scapular-push-up",
+        "finding": "Beginner shoulder-blade control exercise in push-up support: move scapulae while elbows remain straight; progression is via range, hold or load."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-wall-handstand-shrug",
+      "exerciseName": "Wall handstand shrug",
+      "source": {
+        "publisher": "Pocket Fit",
+        "locator": "https://www.pocket-fit.app/exercises/wall-assisted-handstand-hold",
+        "finding": "Wall-supported inverted bodyweight support with small scapular elevations; wall assists balance but shoulders support bodyweight overhead and scapulae move under load."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
     }
   ],
-  "evidenceCompleteCapabilityCount": 56,
+  "evidenceCompleteCapabilityCount": 80,
   "querySourceAssociation": [
     {
       "family": "scapular/pull-up-combination",
@@ -289,6 +391,36 @@
         "cm-dive-bomber-push-up"
       ],
       "queryGroup": 4
+    },
+    {
+      "family": "handstand weight-transfer/scapular variants",
+      "records": [
+        "cm-wall-handstand-weight-shift",
+        "cm-wall-handstand-shrug"
+      ],
+      "queryGroup": 5
+    },
+    {
+      "family": "lateral squat mobility-strength",
+      "records": [
+        "cm-cossack-squat"
+      ],
+      "queryGroup": 6
+    },
+    {
+      "family": "hamstring eccentric/slider curl",
+      "records": [
+        "cm-sliding-hamstring-curl",
+        "cm-nordic-curl-eccentric"
+      ],
+      "queryGroup": 7
+    },
+    {
+      "family": "scapular push control",
+      "records": [
+        "cm-scapular-push-up"
+      ],
+      "queryGroup": 8
     }
   ]
 }
