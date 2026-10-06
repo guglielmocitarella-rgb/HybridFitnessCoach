@@ -2769,5 +2769,22 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-cable-rotational-oblique-twist-technicalDifficulty",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-chest-and-shoulder-stretch",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 1,
+    "sourceTitle": "Chest and shoulder stretch",
+    "sourcePublisher": "CommonSpirit Health",
+    "sourceLocator": "https://www.commonspirit.org/conditions-treatments/chest-and-shoulder-stretch",
+    "evidenceSummary": "Sit or stand tall, raise the arms, bend the elbows and lower them while drawing the shoulder blades down/back until a stretch is felt across the chest and front shoulders; hold briefly.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-chest-and-shoulder-stretch-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
   }
 ]
