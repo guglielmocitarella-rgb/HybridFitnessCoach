@@ -351,6 +351,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-prone-t-raise",
+    "exerciseName": "Prone T raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Prone Scapular (Shoulder) Stabilization Series - I, Y, T, W, O Formation",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/249/prone-scapular-shoulder-stabilization-series-i-y-t-w-o-formation/",
+        "finding": "ACE rates the prone scapular stabilization series Intermediate; the T position is performed prone with braced trunk, scapular depression/retraction and controlled arm lift to 90 degrees."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-single-leg-squat",
     "exerciseName": "Assisted Single-Leg Squat",
     "identityStatus": "IDENTITY_CONFIRMED",
