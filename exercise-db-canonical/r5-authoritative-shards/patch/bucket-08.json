@@ -8,14 +8,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-ab-wheel-rollout-in-ginocchio",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-ab-wheel-rollout",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -29,6 +21,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-cm-ab-wheel-rollout-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-ab-wheel-rollout-in-ginocchio",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1214,6 +1214,46 @@
     "after": "LOW",
     "provenanceId": "R5-cm-prone-w-raise-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rear-delt-dumbbell-row",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-rear-delt-dumbbell-row-mobilityRequirement",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rear-delt-dumbbell-row",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-rear-delt-dumbbell-row-technicalDifficulty",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-recovery-run",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-recovery-run-strengthRequirement",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-bilanciere",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-rematore-bilanciere-balanceCoordinationRequirement",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-bilanciere",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-rematore-bilanciere-technicalDifficulty",
+    "confidence": "MODERATE_CONFIDENCE"
   },
   {
     "canonicalExerciseId": "ex-adductor-foam-rolling",

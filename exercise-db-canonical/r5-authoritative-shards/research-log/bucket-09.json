@@ -422,6 +422,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-rematore-manubrio",
+    "exerciseName": "Rematore manubrio",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "How to Do a One-Arm Dumbbell Row",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/one-arm-dumbbell-row-3120040",
+        "finding": "Verywell Fit identifies the one-arm dumbbell row as an Intermediate compound exercise that improves core stability; the setup uses a staggered/lunge stance, a forward hinge and support from the free hand while the dumbbell is rowed under control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",

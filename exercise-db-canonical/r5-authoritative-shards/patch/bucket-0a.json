@@ -216,19 +216,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "LOW",
-    "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-cable-face-pull",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-cm-cable-face-pull-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -646,6 +646,22 @@
     "after": "VERY_LOW",
     "provenanceId": "R5-cm-preacher-curl-manubrio-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-t-bar",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-rematore-t-bar-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-t-bar",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-rematore-t-bar-technicalDifficulty",
+    "confidence": "MODERATE_CONFIDENCE"
   },
   {
     "canonicalExerciseId": "ex-abdominal-crunch",

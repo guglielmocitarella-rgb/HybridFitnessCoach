@@ -208,22 +208,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-cm-bear-plank-shoulder-tap-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
-    "field": "technicalDifficulty",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-bear-plank-shoulder-tap-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-bear-plank",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -237,6 +221,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-cm-bear-plank-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-bear-plank-shoulder-tap-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-bear-plank-shoulder-tap-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -288,19 +288,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
-    "field": "technicalDifficulty",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-cable-face-pull",
     "field": "technicalDifficulty",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-cm-cable-face-pull-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1325,6 +1325,30 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-cm-push-up-declinato-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-push-up-to-shoulder-tap",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-push-up-to-shoulder-tap-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-recovery-run",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-recovery-run-technicalDifficulty",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-manubrio",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-rematore-manubrio-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

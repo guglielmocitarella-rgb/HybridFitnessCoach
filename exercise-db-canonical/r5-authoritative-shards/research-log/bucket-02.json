@@ -374,6 +374,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-renegade-row",
+    "exerciseName": "Renegade row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Renegade Row",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/355/renegade-row/",
+        "finding": "ACE rates the renegade row Advanced. It is performed from a straight-body plank on dumbbells while one hand rows at a time, requiring the athlete to keep the trunk flat and stable while alternating support."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-single-leg-squat",
     "exerciseName": "Assisted Single-Leg Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

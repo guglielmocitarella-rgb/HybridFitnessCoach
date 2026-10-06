@@ -406,6 +406,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-push-up-to-shoulder-tap",
+    "exerciseName": "Push-up to shoulder tap",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "20-Minute At-Home Bodyweight Circuit",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5172/20-minute-at-home-bodyweight-circuit/",
+        "finding": "ACE’s shoulder-tap push-up starts in a plank, performs a full push-up, then alternates lifting one hand to tap the opposite shoulder while keeping the abdominals and legs tight."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-adductor-foam-rolling",
     "exerciseName": "Adductor Foam Rolling",
     "identityStatus": "IDENTITY_CONFIRMED",

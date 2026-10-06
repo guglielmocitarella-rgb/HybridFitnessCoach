@@ -40,6 +40,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "cm-ab-wheel-rollout",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-ab-wheel-rollout-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "cm-ab-wheel-rollout-in-ginocchio",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -53,14 +61,6 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-ab-wheel-rollout",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-cm-ab-wheel-rollout-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1664,6 +1664,30 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "cm-recovery-run",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-recovery-run-mobilityRequirement",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-bilanciere",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-rematore-bilanciere-mobilityRequirement",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-manubrio",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-rematore-manubrio-mobilityRequirement",
+    "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-adductor-foam-rolling",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1712,22 +1736,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-back-lever-pullout",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-back-lever-pullout-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-back-lever-pullout",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-back-lever-pullout-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-back-lever",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1741,6 +1749,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-back-lever-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-back-lever-pullout-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-back-lever-pullout-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

@@ -516,6 +516,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-rematore-t-bar",
+    "exerciseName": "Rematore T-bar",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do T-Bar Row: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/t-bar-row/",
+        "finding": "StrengthLog describes the T-bar row as a standing forward-leaning row with a fixed bar path; it explicitly notes that the fixed path reduces balance and stabilization requirements and makes it easier to focus on the target muscles."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-90-degree-push-up",
     "exerciseName": "90-Degree Push-Up",
     "identityStatus": "IDENTITY_AMBIGUOUS",

@@ -352,6 +352,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-recovery-run",
+    "exerciseName": "Recovery run",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Everything You Need to Know About Easy Pace and Recovery Runs",
+        "publisher": "Runner's World",
+        "tier": 3,
+        "locator": "https://www.runnersworld.com/advanced/a66038478/the-easy-day-pace-1757514749/",
+        "finding": "Runner’s World defines a recovery/easy run as a short-to-moderate, low-intensity conversational run, typically around 65–70% of maximum heart rate, with pace kept easy enough that normal running form remains intact."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bodyweight-crunches",
     "exerciseName": "Bodyweight Crunches",
     "identityStatus": "IDENTITY_CONFIRMED",

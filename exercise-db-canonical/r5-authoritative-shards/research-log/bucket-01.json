@@ -543,6 +543,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-rear-delt-dumbbell-row",
+    "exerciseName": "Rear-delt dumbbell row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Dumbbell Rear Delt Row: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-rear-delt-row/",
+        "finding": "StrengthLog describes a bent-over dumbbell rear-delt row with a wide rowing path, controlled lowering, light loading to avoid swinging, and free dumbbell motion that permits a somewhat longer range of motion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-lever",
     "exerciseName": "Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",

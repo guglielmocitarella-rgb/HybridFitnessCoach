@@ -424,6 +424,52 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-pushdown-cavo",
+    "exerciseName": "Pushdown cavo",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "9 Best Arm Exercises",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/",
+        "finding": "NASM documents controlled cable triceps-extension mechanics, but the retrieved source does not identify the specific bilateral pushdown variant with enough precision to assign balance, mobility, or technical-difficulty values for this canonical record; no value is inferred from the exercise name."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {},
+      "terminalUnresolved": [
+        "balanceCoordinationRequirement",
+        "mobilityRequirement",
+        "technicalDifficulty"
+      ]
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-rematore-bilanciere",
+    "exerciseName": "Rematore bilanciere",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Barbell Rows: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/barbell-row/",
+        "finding": "StrengthLog describes the barbell row as a standing bent-over row: the lifter maintains a forward-leaning position with the bar hanging from straight arms, rows it to the torso, and lowers it under control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-abdominal-crunch",
     "exerciseName": "Abdominal Crunch",
     "identityStatus": "IDENTITY_CONFIRMED",

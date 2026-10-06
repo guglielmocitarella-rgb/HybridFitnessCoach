@@ -128,22 +128,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-bird-dog-controllato",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "LOW",
-    "provenanceId": "R5-cm-bird-dog-controllato-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-bird-dog-controllato",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "LOW",
-    "provenanceId": "R5-cm-bird-dog-controllato-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-bird-dog",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -157,6 +141,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-cm-bird-dog-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-bird-dog-controllato",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-bird-dog-controllato-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-bird-dog-controllato",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-bird-dog-controllato-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -646,6 +646,14 @@
     "after": "LOW",
     "provenanceId": "R5-cm-pulley-basso-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-recovery-run",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-recovery-run-balanceCoordinationRequirement",
+    "confidence": "MODERATE_CONFIDENCE"
   },
   {
     "canonicalExerciseId": "ex-back-extension-apparatus",
