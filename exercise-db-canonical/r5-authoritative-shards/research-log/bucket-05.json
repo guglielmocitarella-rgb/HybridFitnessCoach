@@ -647,5 +647,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-chair-pose-squat",
+    "exerciseName": "Chair Pose Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "THE CHAIR POSE SQUAT",
+        "publisher": "Train-at-Home",
+        "tier": 3,
+        "locator": "https://trainathome.vhx.tv/leg-strengthening-exercises",
+        "finding": "Stand hip-width, squat until thighs are parallel while raising the arms, then stand and add an alternating knee lift with opposite-arm rotation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]
