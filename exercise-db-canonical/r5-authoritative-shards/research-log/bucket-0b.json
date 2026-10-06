@@ -383,6 +383,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-pullover-manubrio",
+    "exerciseName": "Pullover manubrio",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Dumbbell Pullover: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-pullover/",
+        "finding": "Bench-supported dumbbell pullover lowers an almost-straight arm load behind the head through a long shoulder range, then reverses under control; form is prioritized over load."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-adductor-foam-rolling",
     "exerciseName": "Adductor Foam Rolling",
     "identityStatus": "IDENTITY_CONFIRMED",
