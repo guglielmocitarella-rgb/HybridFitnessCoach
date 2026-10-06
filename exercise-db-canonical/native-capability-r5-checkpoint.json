@@ -728,5 +728,20 @@
   "sourcesVisited": 704,
   "provenanceEntries": 2537,
   "lastProcessedId": "cm-wall-handstand-shrug",
-  "validationState": "V10_PROMOTED_AUTHORITATIVE_DIFFERENTIAL_VALIDATED"
+  "validationState": "V10_PROMOTED_AUTHORITATIVE_DIFFERENTIAL_VALIDATED",
+  "v10Promotion": {
+    "stagedCapabilities": 80,
+    "preexistingAuthoritativeCapabilities": 52,
+    "newAuthoritativeCapabilities": 28,
+    "stagedRecords": 20,
+    "preexistingProcessedRecords": 13,
+    "newProcessedRecords": 7,
+    "validation": "PASS",
+    "provenanceDuplicateIds": 7,
+    "maxDuplicateMultiplicity": 2,
+    "routingViolationsHistorical": 11,
+    "routingViolationsAdded": 0,
+    "prescriptionDependentPreserved": 441,
+    "stagingState": "PROMOTED_AUTHORITATIVE"
+  }
 }
