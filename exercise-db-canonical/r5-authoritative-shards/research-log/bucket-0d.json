@@ -729,5 +729,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-decline-abdominal-crunch",
+    "exerciseName": "Decline Abdominal Crunch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Decline Crunch",
+        "publisher": "Catalyst Athletics",
+        "tier": 2,
+        "locator": "https://www.catalystathletics.com/exercise/704/Decline-Crunch/",
+        "finding": "Simple decline-bench trunk-flexion exercise with feet anchored and continuous abdominal tension; controlled curl without hip hinging."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

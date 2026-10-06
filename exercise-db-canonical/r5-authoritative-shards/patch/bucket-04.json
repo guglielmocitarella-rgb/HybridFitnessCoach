@@ -1168,14 +1168,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-bear-crawl",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-ex-bear-crawl-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-bear-crawls",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1197,6 +1189,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-bear-crawls-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-bear-crawl",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-bear-crawl-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1485,6 +1485,30 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-close-grip-push-up-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-deadbug",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-deadbug-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-decline-push-up",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-decline-push-up-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-decline-push-up",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-decline-push-up-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

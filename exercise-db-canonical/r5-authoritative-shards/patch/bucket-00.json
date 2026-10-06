@@ -1776,14 +1776,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-arch",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-ex-arch-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-archer-arm-in-ring-rows",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1829,6 +1821,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-archer-ring-rows-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-arch",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-arch-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2413,6 +2413,30 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-ex-cross-cable-triceps-pressdown-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-deadbug",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-deadbug-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-decline-abdominal-crunch",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-decline-abdominal-crunch-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-decline-abdominal-crunch",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-decline-abdominal-crunch-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   }
 ]

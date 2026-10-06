@@ -2854,5 +2854,39 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-crunch-strengthRequirement",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-deadlift-from-blocks",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Barbell Deadlift From Blocks: How to, Muscles & Form",
+    "sourcePublisher": "Crucible",
+    "sourceLocator": "https://www.cruciblefit.com/exercises/barbell-deadlift-from-blocks",
+    "evidenceSummary": "Intermediate compound deadlift from an elevated bar position; reduced range of motion with controlled hip hinge and heavy loading.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-deadlift-from-blocks-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-deadlift-from-blocks",
+    "dimension": "technicalDifficulty",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Barbell Deadlift From Blocks: How to, Muscles & Form",
+    "sourcePublisher": "Crucible",
+    "sourceLocator": "https://www.cruciblefit.com/exercises/barbell-deadlift-from-blocks",
+    "evidenceSummary": "Intermediate compound deadlift from an elevated bar position; reduced range of motion with controlled hip hinge and heavy loading.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-deadlift-from-blocks-technicalDifficulty",
+    "researchVersion": "V3.10C-R5"
   }
 ]

@@ -1936,5 +1936,22 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-crunch-technicalDifficulty",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-deadlift",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Barbell Deadlift",
+    "sourcePublisher": "NASM",
+    "sourceLocator": "https://www.nasm.org/resource-center/exercise-library/barbell-deadlift",
+    "evidenceSummary": "NASM describes an advanced heavy compound hip hinge requiring powerful bracing, neutral-spine control, coordinated hip/knee extension and controlled bar path.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-deadlift-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
   }
 ]
