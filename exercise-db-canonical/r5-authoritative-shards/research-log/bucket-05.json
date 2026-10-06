@@ -411,6 +411,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-lying-leg-curl",
+    "exerciseName": "Lying leg curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lying Leg Curl",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/lying-leg-curl",
+        "finding": "Stable prone machine hamstring curl for all fitness levels; controlled setup and execution."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ball-shoulder-stretch",
     "exerciseName": "Ball Shoulder Stretch",
     "identityStatus": "IDENTITY_CONFIRMED",

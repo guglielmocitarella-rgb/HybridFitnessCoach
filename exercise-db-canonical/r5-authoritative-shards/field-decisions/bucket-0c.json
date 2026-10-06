@@ -2142,6 +2142,23 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "cm-military-press",
+    "dimension": "technicalDifficulty",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 1,
+    "sourceTitle": "TSAC Report Issue 54 — Military Press",
+    "sourcePublisher": "NSCA",
+    "sourceLocator": "https://www.nsca.com/globalassets/education/tsac-report/tsac-report-54.pdf",
+    "evidenceSummary": "NSCA describes a standing barbell military press from the front shoulders/clavicle to overhead elbow extension with trunk stabilization and a controlled return.",
+    "reasoningRule": "Record-specific external evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-military-press-technicalDifficulty",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-ab-wheel-eccentrics",
     "dimension": "technicalDifficulty",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",

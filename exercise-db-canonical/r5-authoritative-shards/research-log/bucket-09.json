@@ -307,6 +307,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-military-press",
+    "exerciseName": "Military press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "TSAC Report Issue 54 — Military Press",
+        "publisher": "NSCA",
+        "tier": 1,
+        "locator": "https://www.nsca.com/globalassets/education/tsac-report/tsac-report-54.pdf",
+        "finding": "Standing barbell military press from clavicle/front shoulders to overhead lockout with trunk stabilization and controlled return."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",

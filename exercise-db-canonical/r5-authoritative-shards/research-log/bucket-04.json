@@ -444,6 +444,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-mixed-grip-pull-up",
+    "exerciseName": "Mixed-grip pull-up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Mixed-grip pull-up exercise instructions",
+        "publisher": "WeightTraining.guide",
+        "tier": 3,
+        "locator": "https://weighttraining.guide/exercises/mixed-grip-pull-up/",
+        "finding": "Compound bodyweight pull-up using one supinated and one pronated grip; controlled hang-to-bar motion without sway or momentum."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deltoid-row",
     "exerciseName": "Banded Rear Delt Row",
     "identityStatus": "IDENTITY_CONFIRMED",
