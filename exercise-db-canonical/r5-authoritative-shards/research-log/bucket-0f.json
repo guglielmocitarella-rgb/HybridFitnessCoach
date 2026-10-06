@@ -470,5 +470,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-double-leg-abdominal-press",
+    "exerciseName": "Double Leg Abdominal Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Exercises to improve your core strength",
+        "publisher": "Mayo Clinic",
+        "tier": 1,
+        "locator": "https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/core-strength/art-20546851",
+        "finding": "Supine double-leg abdominal press keeps a neutral back, hips and knees at 90 degrees, and uses an isometric hand-to-knee abdominal brace held for three breaths."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

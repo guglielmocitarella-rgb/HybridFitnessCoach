@@ -666,5 +666,29 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-donkey-kick",
+    "exerciseName": "Donkey Kick",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Donkey Kick: 5 Exercise Variations",
+        "publisher": "Healthline",
+        "tier": 3,
+        "locator": "https://www.healthline.com/health/fitness-exercise/donkey-kick",
+        "finding": "Standard donkey kick is presented as the beginner variation: quadruped support, neutral spine, braced core, bent-knee hip extension and pelvis kept square to the floor."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

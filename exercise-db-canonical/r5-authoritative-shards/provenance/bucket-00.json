@@ -5183,5 +5183,39 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-decline-abdominal-crunch-strengthRequirement",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-dragon-flag",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "How to Do Dragon Flag: Muscles Worked & Proper Form",
+    "sourcePublisher": "StrengthLog",
+    "sourceLocator": "https://www.strengthlog.com/dragon-flag/",
+    "evidenceSummary": "Dragon flag is described as a challenging core exercise requiring tremendous strength and full-body control while maintaining a straight hollow body from shoulders to feet through a slow unsupported lowering and raise.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dragon-flag-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-dragon-flag",
+    "dimension": "strengthRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "VERY_HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "How to Do Dragon Flag: Muscles Worked & Proper Form",
+    "sourcePublisher": "StrengthLog",
+    "sourceLocator": "https://www.strengthlog.com/dragon-flag/",
+    "evidenceSummary": "Dragon flag is described as a challenging core exercise requiring tremendous strength and full-body control while maintaining a straight hollow body from shoulders to feet through a slow unsupported lowering and raise.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dragon-flag-strengthRequirement",
+    "researchVersion": "V3.10C-R5"
   }
 ]
