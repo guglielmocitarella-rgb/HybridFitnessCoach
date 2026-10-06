@@ -564,6 +564,29 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-assisted-dip",
+    "exerciseName": "Assisted Dip",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Assisted Dips: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 2,
+        "locator": "https://www.verywellfit.com/how-to-do-assisted-pullups-and-dips-3498284",
+        "finding": "Beginner assisted-machine dip uses adjustable upward assistance, supported platform and controlled lowering to about 90 degrees."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-leg-raise",
     "exerciseName": "Assisted Leg Raise",
     "identityStatus": "IDENTITY_CONFIRMED",

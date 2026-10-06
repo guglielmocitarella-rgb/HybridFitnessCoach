@@ -535,6 +535,29 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-armpit-foam-rolling",
+    "exerciseName": "Armpit Foam Rolling",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Foam Roll Latissimus Dorsi",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-latissimus-dorsi",
+        "finding": "Foam roller is positioned just below the armpit; all-fitness-level self-myofascial release uses arm/leg support and slow controlled rolling to improve mobility."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-foot-elevated-split-squat",
     "exerciseName": "Bulgarian Split Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

@@ -603,6 +603,29 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-asian-squat",
+    "exerciseName": "Asian Squat",
+    "identityStatus": "IDENTITY_NOT_EXACTLY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The relationship between the deep squat movement and the hip, knee and ankle range of motion and muscle strength",
+        "publisher": "Journal of Physical Therapy Science / PubMed",
+        "tier": 1,
+        "locator": "https://pubmed.ncbi.nlm.nih.gov/32581431/",
+        "finding": "Deep-squat evidence confirms joint-ROM and strength relationships, but does not establish that the repository label Asian Squat is the exact studied exercise identity."
+      }
+    ],
+    "decision": "TERMINAL_INSUFFICIENT_EXERCISE_SPECIFIC_EVIDENCE",
+    "fieldApplication": {
+      "resolved": {},
+      "terminalUnresolved": [
+        "balanceCoordinationRequirement",
+        "strengthRequirement",
+        "technicalDifficulty"
+      ]
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-front-raise",
     "exerciseName": "Banded Front Raise",
     "identityStatus": "IDENTITY_CONFIRMED",
