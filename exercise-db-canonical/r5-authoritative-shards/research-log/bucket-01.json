@@ -402,6 +402,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-l-sit-tuck",
+    "exerciseName": "L-sit Tuck",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "L-Sit Progression: 6 Steps To A Rock Solid Core",
+        "publisher": "GMB Fitness",
+        "tier": 3,
+        "locator": "https://gmb.io/l-sit/",
+        "finding": "GMB's tuck progression floats both feet with total-body tension and develops strength, control and balance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-lever",
     "exerciseName": "Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",
