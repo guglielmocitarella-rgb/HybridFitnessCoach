@@ -683,5 +683,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-cat-stretch",
+    "exerciseName": "Cat Stretch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Cat stretch",
+        "publisher": "South Tees Hospitals NHS Foundation Trust",
+        "tier": 1,
+        "locator": "https://www.southtees.nhs.uk/resources/cat-stretch/",
+        "finding": "Quadruped bodyweight movement: slowly round the back upward, then gently reverse so the spine sinks toward the floor; performed slowly and under control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]
