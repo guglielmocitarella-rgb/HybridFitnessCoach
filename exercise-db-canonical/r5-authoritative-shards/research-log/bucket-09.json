@@ -261,6 +261,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-lat-machine",
+    "exerciseName": "Lat machine",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Seated Lat Pulldown",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/",
+        "finding": "ACE labels the selectorized seated pulldown beginner and specifies anchored thighs, bracing and controlled scapular pulling."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",
