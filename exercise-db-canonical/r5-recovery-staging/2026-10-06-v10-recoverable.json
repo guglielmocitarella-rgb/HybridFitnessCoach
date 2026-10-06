@@ -3,7 +3,7 @@
   "version": "V3.10C-R5-R-V10",
   "baselineHead": "10c2d41070db996508b4347ce08cb3e0c399a67a",
   "note": "Early anti-loss staging. Evidence-first pull-family tranche; not yet promoted authoritative.",
-  "newWebQueryGroups": 3,
+  "newWebQueryGroups": 4,
   "dimensions": [
     "balanceCoordinationRequirement",
     "mobilityRequirement",
@@ -163,9 +163,94 @@
           "technicalDifficulty": "MODERATE"
         }
       }
+    },
+    {
+      "canonicalExerciseId": "cm-pike-hold",
+      "exerciseName": "Pike hold",
+      "source": {
+        "publisher": "Caliverse",
+        "locator": "https://www.caliverse.app/exercises/pike-hold-1346",
+        "finding": "Easy-level isometric inverted-V bodyweight position developing shoulder stability, core strength and upper-body endurance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-downward-dog-shoulder-tap",
+      "exerciseName": "Downward dog shoulder tap",
+      "source": {
+        "publisher": "seto",
+        "locator": "https://seto.fit/exercises/pike-shoulder-tap/",
+        "finding": "Pike/downward-dog shoulder tap shifts bodyweight onto one arm and requires alternating taps without hip rotation; intermediate control demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-handstand-wall-walk",
+      "exerciseName": "Handstand wall walk",
+      "source": {
+        "publisher": "ACRO Physical Therapy",
+        "locator": "https://www.acropt.com/blog/2018/5/13/handstand-wall-walks",
+        "finding": "Controlled inversion drill that trains proprioception, handstand balance/form and shoulder strength; arms stay straight, scapulae active and trunk controlled."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-pike-shoulder-tap",
+      "exerciseName": "Pike shoulder tap",
+      "source": {
+        "publisher": "seto",
+        "locator": "https://seto.fit/exercises/pike-shoulder-tap/",
+        "finding": "Intermediate pike shoulder tap loading one arm while resisting trunk rotation and maintaining an inverted-V position."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dive-bomber-push-up",
+      "exerciseName": "Dive bomber push-up",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/dive-bomber-push-up/",
+        "finding": "Intermediate dynamic push-up variation sweeping from pike through multiple body positions; builds upper-body strength while demanding shoulder/chest/lower-back mobility and controlled transitions."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
     }
   ],
-  "evidenceCompleteCapabilityCount": 36,
+  "evidenceCompleteCapabilityCount": 56,
   "querySourceAssociation": [
     {
       "family": "scapular/pull-up-combination",
@@ -193,6 +278,17 @@
         "cm-isometric-pull-up-hold"
       ],
       "queryGroup": 3
+    },
+    {
+      "family": "pike/handstand push-control variants",
+      "records": [
+        "cm-pike-hold",
+        "cm-downward-dog-shoulder-tap",
+        "cm-handstand-wall-walk",
+        "cm-pike-shoulder-tap",
+        "cm-dive-bomber-push-up"
+      ],
+      "queryGroup": 4
     }
   ]
 }
