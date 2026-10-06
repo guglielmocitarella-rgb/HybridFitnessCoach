@@ -516,6 +516,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-power-walk",
+    "exerciseName": "Power walk",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Walking Pads: Health Benefits and Usage Guidelines",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/8855/walking-pads-health-benefits-and-usage-guidelines/",
+        "finding": "ACE describes brisk walking around 2.5–4 mph as accessible cardiovascular activity with increased attentional demand as pace rises but no specialized skill requirement."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "VERY_LOW",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-leg-raise",
     "exerciseName": "Assisted Leg Raise",
     "identityStatus": "IDENTITY_CONFIRMED",

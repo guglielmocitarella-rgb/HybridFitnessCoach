@@ -585,6 +585,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-preacher-curl-manubrio",
+    "exerciseName": "Preacher curl manubrio",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dumbbell Preacher Curl",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-preacher-curl/",
+        "finding": "A dumbbell preacher curl uses bench-supported upper arm positioning and controlled elbow flexion, reducing whole-body balance demands."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deadlift",
     "exerciseName": "Banded Deadlift",
     "identityStatus": "IDENTITY_CONFIRMED",
