@@ -1,8 +1,8 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V10",
   "baselineHead": "10c2d41070db996508b4347ce08cb3e0c399a67a",
-  "note": "Early anti-loss staging. Evidence-first pull-family tranche; not yet promoted authoritative.",
+  "note": "V10 staging promoted differentially; semantic duplicates were not reinserted.",
   "newWebQueryGroups": 8,
   "dimensions": [
     "balanceCoordinationRequirement",
@@ -422,5 +422,14 @@
       ],
       "queryGroup": 8
     }
-  ]
+  ],
+  "promotion": {
+    "stagedCapabilities": 80,
+    "authoritativeNewCapabilities": 28,
+    "semanticDuplicatesSkipped": 52,
+    "newProcessedRecords": 7,
+    "authoritativeCapabilityTotal": 2537,
+    "researchLogTotal": 704,
+    "validation": "PASS"
+  }
 }
