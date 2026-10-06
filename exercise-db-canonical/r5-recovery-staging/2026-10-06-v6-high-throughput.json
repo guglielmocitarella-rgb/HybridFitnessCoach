@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V6",
   "baselineHead": "2fd88c6fc0281ecf82809249ee7e4765ef2a4bc7",
   "newWebQueries": 25,
@@ -628,5 +628,14 @@
         "technicalDifficulty": "HIGH"
       }
     }
-  ]
+  ],
+  "finalCheckpoint": {
+    "processed": 2183,
+    "resolved": 2135,
+    "terminal": 48,
+    "unprocessed": 1652,
+    "provenance": 2135,
+    "researchLog": 599
+  },
+  "promotionNote": "V6 high-throughput source-family batch; 37 records / 141 field-level authoritative capabilities. Linear concurrent engine-readiness commit preserved."
 }
