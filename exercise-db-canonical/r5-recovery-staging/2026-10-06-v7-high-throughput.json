@@ -2,9 +2,9 @@
   "status": "RECOVERABLE_NOT_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V7",
   "baselineHead": "4a63b77c3faf8e56a3e54367447543b0c524d5e8",
-  "newWebQueries": 32,
-  "evidenceCompleteCapabilityCount": 88,
-  "recordCount": 22,
+  "newWebQueries": 42,
+  "evidenceCompleteCapabilityCount": 148,
+  "recordCount": 37,
   "records": [
     {
       "canonicalExerciseId": "ex-russian-twist",
@@ -378,6 +378,261 @@
         "mobilityRequirement": "HIGH",
         "strengthRequirement": "VERY_HIGH",
         "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-bench-press-with-bands",
+      "exerciseName": "Barbell Bench Press with Bands",
+      "source": {
+        "title": "Barbell Bench Press with Bands",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists this variable-resistance barbell bench variation as advanced; bench support limits balance but band tension increases loading/control complexity."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-bench-press-with-chains",
+      "exerciseName": "Barbell Bench Press with Chains",
+      "source": {
+        "title": "Barbell Bench Press with Chains",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists this variable-resistance barbell bench variation as advanced; chain loading changes through the range and requires controlled bar path."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-incline-barbell-bench-press",
+      "exerciseName": "Incline Barbell Bench Press",
+      "source": {
+        "title": "Incline Barbell Bench Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists supported incline barbell bench press as intermediate, with controlled shoulder/chest pressing range and stable bench support."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-foam-roll-calves",
+      "exerciseName": "Foam Roll Calves",
+      "source": {
+        "title": "Foam Roll Calves",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-calves",
+        "finding": "Self-myofascial release for calf tightness and ankle mobility; seated hand support and slow controlled rolling make strength demand minimal."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-foam-roll-latissimus-dorsi",
+      "exerciseName": "Foam Roll Latissimus Dorsi",
+      "source": {
+        "title": "Foam Roll Latissimus Dorsi",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-latissimus-dorsi",
+        "finding": "Side-supported self-myofascial release explicitly aimed at lat/shoulder mobility with slow controlled rolling and low strength demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-butterfly-stretch",
+      "exerciseName": "Static Butterfly Stretch",
+      "source": {
+        "title": "Static Butterfly Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies the groin-focused static butterfly stretch beginner; static supported mobility task has minimal strength/coordination demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-latissimus-dorsi-ball-stretch",
+      "exerciseName": "Static Latissimus Dorsi Ball Stretch",
+      "source": {
+        "title": "Static Latissimus Dorsi Ball Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies this stability-ball lat mobility stretch beginner; mobility is the primary requirement with minimal strength demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-seated-calf-stretch",
+      "exerciseName": "Static Seated Calf Stretch",
+      "source": {
+        "title": "Static Seated Calf Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies the seated calf stretch beginner; seated supported ankle/calf mobility with negligible strength and balance demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-standing-adductor-stretch",
+      "exerciseName": "Static Standing Adductor Stretch",
+      "source": {
+        "title": "Static Standing Adductor Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies standing adductor stretch beginner; primary demand is groin mobility with modest standing postural control."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-kettlebell-crush-curl-with-squat",
+      "exerciseName": "Kettlebell Crush Curl with Squat",
+      "source": {
+        "title": "Kettlebell Crush Curl with Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists the integrated kettlebell curl-plus-squat movement beginner; combines squat positioning with upper-body resistance and bilateral control."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-prisoner-squat",
+      "exerciseName": "Prisoner Squat",
+      "source": {
+        "title": "Prisoner Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists bodyweight prisoner squat beginner; bilateral squat requires basic hip/ankle range and lower-body strength with low coordination complexity."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-dumbbell-front-squat",
+      "exerciseName": "Dumbbell Front Squat",
+      "source": {
+        "title": "Dumbbell Front Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists dumbbell front squat beginner; front-loaded bilateral squat requires controlled hip/knee/ankle range and moderate strength."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-reverse-crunch-to-knee-up-with-rotation",
+      "exerciseName": "Reverse Crunch to Knee Up With Rotation",
+      "source": {
+        "title": "Reverse Crunch to Knee Up With Rotation",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/reverse-crunch-to-knee-up-with-rotation",
+        "finding": "NASM classifies this multi-planar core exercise intermediate; combines hip flexion and rotation with controlled alignment."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straight-arm-plank",
+      "exerciseName": "Straight-Arm Plank",
+      "source": {
+        "title": "Straight-Arm Plank",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/straight-arm-plank",
+        "finding": "NASM describes a straight-arm isometric plank with shoulder/core stabilization and notes greater core demand than forearm plank while retaining simple alignment."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-plank-walkup",
+      "exerciseName": "Plank Walkup",
+      "source": {
+        "title": "Plank Walkup",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/plank-walkup",
+        "finding": "NASM classifies dynamic forearm-to-straight-arm plank transitions intermediate, explicitly requiring anti-rotation control and shoulder stability."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
       }
     }
   ],
