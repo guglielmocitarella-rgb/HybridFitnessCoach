@@ -2,9 +2,9 @@
   "status": "RECOVERABLE_NOT_AUTHORITATIVE",
   "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V4-CONTINUE",
   "baselineHead": "938f5ed0101ff76e3cf54a15bb26820b55899c5f",
-  "newWebQueries": 29,
+  "newWebQueries": 89,
   "sourceFamilyBatching": true,
-  "evidenceCompleteCount": 49,
+  "evidenceCompleteCount": 137,
   "records": [
     {
       "id": "ex-freestanding-handstand",
@@ -223,6 +223,432 @@
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "VERY_HIGH"
       }
+    },
+    {
+      "id": "ex-german-hang",
+      "exerciseName": "German Hang",
+      "source": {
+        "title": "German Hang",
+        "publisher": "GMB Fitness",
+        "tier": 3,
+        "locator": "https://gmb.io/german-hang/"
+      },
+      "finding": "Loaded shoulder-extension hang used to develop shoulder flexibility/mobility; requires controlled ring/bar support and progressive preparation.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "VERY_HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-l-sit",
+      "exerciseName": "L-Sit",
+      "source": {
+        "title": "How to Do L-Sit: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/l-sit/"
+      },
+      "finding": "Challenging static support requiring straight locked arms, legs held horizontal, strong abs/hip flexors and sustained body control/stability.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-muscle-up",
+      "exerciseName": "Muscle-Up",
+      "source": {
+        "title": "Muscle up technique, step by step",
+        "publisher": "Calisthenics.dk",
+        "tier": 3,
+        "locator": "https://calisthenics.dk/en/guides/muscle-up-technique"
+      },
+      "finding": "Requires false grip, explosive chest-height pull, rapid transition and dip press; readiness tests require 10 strict pull-ups, 10 full-depth dips and an explosive lower-chest pull.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-kettlebell-swing",
+      "exerciseName": "Kettlebell Swing",
+      "source": {
+        "title": "Kettlebell Swing Tutorial",
+        "publisher": "Brittany van Schravendijk",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=1Qi0NQW89Oc"
+      },
+      "finding": "Swing requires learned hinge mechanics, timing, leg drive, arm position, breathing and backswing progression; source explicitly says mastering it takes time and progression.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-incline-push-up",
+      "exerciseName": "Incline Push-Up",
+      "source": {
+        "title": "Incline Push-Up",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/incline-push-up"
+      },
+      "finding": "Foundational beginner pressing regression with hands elevated, reduced bodyweight load, rigid head-to-heel alignment and controlled chest-to-surface range.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-glute-ham-raise",
+      "exerciseName": "Glute Ham Raise",
+      "source": {
+        "title": "How to Do Glute Ham Raise",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/glute-ham-raise/"
+      },
+      "finding": "Machine-supported knee-flexion movement with feet secured; body remains straight while hamstrings/glutes control near-horizontal descent and return.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-hanging-leg-raise",
+      "exerciseName": "Hanging Leg Raise",
+      "source": {
+        "title": "How to Do Hanging Leg Raise",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/hanging-leg-raise/"
+      },
+      "finding": "Straight-arm hanging core exercise: lift straight legs without swinging and lower under control; knee raise is explicit easier regression.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-human-flag",
+      "exerciseName": "Human Flag",
+      "source": {
+        "title": "Human Flag",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/human-flag/"
+      },
+      "finding": "Elite skill holding the body sideways on a vertical support with coordinated straight-arm push/pull, strong obliques and full-body tension; strict pull-up, handstand support and side-plank prerequisites.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-it-band-foam-rolling",
+      "exerciseName": "IT-Band Foam Rolling",
+      "source": {
+        "title": "IT Band Foam Rolling Video Exercise Guide",
+        "publisher": "Muscle & Strength",
+        "tier": 3,
+        "locator": "https://www.muscleandstrength.com/exercises/foam-rolling-it-band"
+      },
+      "finding": "Beginner side-lying self-myofascial-release drill using forearm/free hand and top leg for support while rolling the lateral thigh.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-machine-chest-fly",
+      "exerciseName": "Machine Chest Fly",
+      "source": {
+        "title": "Machine Chest Fly",
+        "publisher": "PureGym",
+        "tier": 3,
+        "locator": "https://www.puregym.com/exercises/chest/chest-fly/machine-fly/"
+      },
+      "finding": "Fixed-path machine fly explicitly recommended for beginners; machine provides greater stability and requires less core/stabilizer involvement than free-weight flyes.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-leg-press",
+      "exerciseName": "Leg Press",
+      "source": {
+        "title": "Leg Press",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press"
+      },
+      "finding": "Fundamental machine lower-body press providing a safe stable guided path and explicitly avoiding the balance demands of barbell squats.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-lat-pulldown-machine",
+      "exerciseName": "Lat Pulldown (Machine)",
+      "source": {
+        "title": "Lat Pulldowns: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-do-the-lat-pulldown-3498309"
+      },
+      "finding": "Beginner seated cable-pulley back exercise using adjustable resistance; pull toward chin and return under control.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-leg-curl",
+      "exerciseName": "Leg Curl",
+      "source": {
+        "title": "Seated Leg Curl",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://www.nasm.org/workout-exercise-guidance/how-to-seated-leg-curl"
+      },
+      "finding": "Beginner supported machine hamstring curl with knee aligned to hinge, torso/posture fixed and controlled heel-to-glute motion.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-leg-extension",
+      "exerciseName": "Leg Extension",
+      "source": {
+        "title": "Leg Extension (Machine)",
+        "publisher": "Gym.com",
+        "tier": 3,
+        "locator": "https://gym.com/exercises/leg-extension-machine"
+      },
+      "finding": "Beginner seated machine isolation: extend knees smoothly against a pad and lower under control while the machine supports the body.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-machine-shoulder-press",
+      "exerciseName": "Machine Shoulder Press",
+      "source": {
+        "title": "How to Do Machine Shoulder Press",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/machine-shoulder-press/"
+      },
+      "finding": "Machine press explicitly offers more stability and less balance/coordination demand than free-weight shoulder presses and is easy to learn for beginners.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-medicine-ball-clean",
+      "exerciseName": "Medicine Ball Clean",
+      "source": {
+        "title": "The Medicine-Ball Clean",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-medicine-ball-clean"
+      },
+      "finding": "Foundational clean teaching deadlift, shrug, pull-under and squat catch; CrossFit explicitly identifies coordination, accuracy, balance, speed and mobility requirements.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-machine-biceps-curl",
+      "exerciseName": "Machine Biceps Curl",
+      "source": {
+        "title": "How to Do Machine Biceps Curl",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/machine-bicep-curl/"
+      },
+      "finding": "Beginner machine curl places the lifter in the correct supported position so balance and cheating are minimized; controlled single-joint elbow flexion.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-machine-horizontal-row",
+      "exerciseName": "Machine Horizontal Row",
+      "source": {
+        "title": "How to Do a Machine Row",
+        "publisher": "Gravitus",
+        "tier": 3,
+        "locator": "https://gravitus.com/guides/exercises/machine-row/"
+      },
+      "finding": "Beginner seated machine row, commonly chest-supported, with planted feet and guided resistance; pull handles to torso under control.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-inchworm",
+      "exerciseName": "Inchworm",
+      "source": {
+        "title": "Don’t skip this full-body warmup",
+        "publisher": "American Medical Association",
+        "tier": 1,
+        "locator": "https://www.ama-assn.org/public-health/prevention-wellness/don-t-skip-full-body-warmup"
+      },
+      "finding": "Simple full-body warm-up combining forward fold, hand walk to plank and return; improves mobility, flexibility and body control while loading shoulders/core.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-hack-squat",
+      "exerciseName": "Hack Squat",
+      "source": {
+        "title": "Hack Squat",
+        "publisher": "A90 Training Club",
+        "tier": 3,
+        "locator": "https://a90trainingclub.com/exercises/hack-squat-machine"
+      },
+      "finding": "Beginner machine squat with shoulders/back supported by pads, feet on platform and guided carriage through controlled knee/hip flexion.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-good-morning",
+      "exerciseName": "Good Morning",
+      "source": {
+        "title": "Good Morning Exercise: Techniques, Benefits, Variations",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-do-the-good-morning-exercise-with-barbell-3498255"
+      },
+      "finding": "Intermediate barbell hip hinge requiring braced trunk, controlled hip displacement and maintenance of spinal position under a back-loaded bar.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-low-high-cable-chest-fly",
+      "exerciseName": "Low-High Cable Chest Fly",
+      "source": {
+        "title": "Low to High Cable Chest Fly",
+        "publisher": "IronYou",
+        "tier": 3,
+        "locator": "https://www.ironyou.app/exercises/low-to-high-cable-chest-fly/"
+      },
+      "finding": "Beginner cable fly using a stable stance, braced torso, controlled low-to-high arc and comfortable chest stretch.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-incline-dumbbell-bench-press",
+      "exerciseName": "Incline Dumbbell Bench Press",
+      "source": {
+        "title": "Incline Dumbbell Press",
+        "publisher": "Helthy",
+        "tier": 3,
+        "locator": "https://www.helthy.app/exercises/incline-dumbbell-press"
+      },
+      "finding": "Beginner incline dumbbell press performed on a bench; independent dumbbells require shoulder control while the bench supports the torso.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-hamstring-ball-curl",
+      "exerciseName": "Hamstring Ball Curl",
+      "source": {
+        "title": "Stability Ball Hamstring Curl",
+        "publisher": "MuscleWiki",
+        "tier": 3,
+        "locator": "https://musclewiki.com/exercise/stability-ball-hamstring-curl"
+      },
+      "finding": "Beginner supine curl with heels on stability ball, hips elevated, core engaged; source explicitly requires keeping control and balance as ball moves.",
+      "decisions": {
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-kipping-pull-ups",
+      "exerciseName": "Kipping Pull-Ups",
+      "source": {
+        "title": "The Kipping Pull-Up",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-kipping-pull-up"
+      },
+      "finding": "Full-body gymnastics pull requiring coordinated arch-hollow kip and power transfer from hips and arms; strict pull-up is a recommended prerequisite.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-l-sit-pull-up",
+      "exerciseName": "L-Sit Pull-Up",
+      "source": {
+        "title": "L-Sit Pull-Up – Muscles Worked, Exercise Demo, and Benefits",
+        "publisher": "BarBend",
+        "tier": 3,
+        "locator": "https://barbend.com/l-sit-pull-up/"
+      },
+      "finding": "Advanced bodyweight combination requiring pull-up strength plus sustained L-sit core control and midline stability throughout the repetition.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      }
     }
   ],
   "guards": {
@@ -233,5 +659,10 @@
     "candidateDbModified": false,
     "runtimeDbModified": false,
     "productionPathModified": false
+  },
+  "reconciliation": {
+    "preservedConcurrentStaging": true,
+    "previousEvidenceCompleteCount": 49,
+    "note": "Cumulative anti-loss update after linear compatible concurrent staging commit; no research repeated."
   }
 }
