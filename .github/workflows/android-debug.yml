@@ -23,25 +23,69 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Detect R5-only PR checkpoint
+        id: scope
+        shell: bash
+        env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "run_android=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git fetch --no-tags --depth=2 origin "$PR_HEAD_SHA"
+          mapfile -t changed < <(git diff-tree --no-commit-id --name-only -r "$PR_HEAD_SHA")
+
+          if [ "${#changed[@]}" -eq 0 ]; then
+            echo "run_android=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          r5_only=true
+          for path in "${changed[@]}"; do
+            case "$path" in
+              exercise-db-canonical/native-capability-r5-*|              exercise-db-canonical/r5-authoritative-shards/*|              exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md|              tools/r5_*|              tools/fixtures/r5_*|              .github/workflows/r5*.yml)
+                ;;
+              *)
+                r5_only=false
+                break
+                ;;
+            esac
+          done
+
+          if [ "$r5_only" = true ]; then
+            echo "R5-only checkpoint commit: skipping Android/Gradle work."
+            echo "run_android=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Non-R5 change detected: Android validation required."
+            echo "run_android=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up JDK 17
+        if: steps.scope.outputs.run_android == 'true'
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
       - name: Set up Gradle
+        if: steps.scope.outputs.run_android == 'true'
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.6.0'
 
       - name: Run unit tests
+        if: steps.scope.outputs.run_android == 'true'
         run: gradle :app:testDebugUnitTest
 
       - name: Run Android lint
+        if: steps.scope.outputs.run_android == 'true'
         run: gradle :app:lintDebug
 
       - name: Restore signing keystore
-        if: ${{ github.event_name != 'pull_request' }}
+        if: ${{ steps.scope.outputs.run_android == 'true' && github.event_name != 'pull_request' }}
         env:
           HFC_KEYSTORE_BASE64: ${{ secrets.HFC_KEYSTORE_BASE64 }}
         run: |
@@ -49,7 +93,7 @@ jobs:
           echo "$HFC_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/hybridfitnesscoach-release.jks"
 
       - name: Build signed release APK
-        if: ${{ github.event_name != 'pull_request' }}
+        if: ${{ steps.scope.outputs.run_android == 'true' && github.event_name != 'pull_request' }}
         env:
           HFC_KEYSTORE_PATH: ${{ runner.temp }}/hybridfitnesscoach-release.jks
           HFC_KEYSTORE_PASSWORD: ${{ secrets.HFC_KEYSTORE_PASSWORD }}
@@ -58,14 +102,14 @@ jobs:
         run: gradle :app:assembleRelease
 
       - name: Verify APK signature
-        if: ${{ github.event_name != 'pull_request' }}
+        if: ${{ steps.scope.outputs.run_android == 'true' && github.event_name != 'pull_request' }}
         run: |
           APK="app/build/outputs/apk/release/app-release.apk"
           test -f "$APK"
           "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner" verify --verbose --print-certs "$APK"
 
       - name: Upload signed APK
-        if: ${{ github.event_name != 'pull_request' }}
+        if: ${{ steps.scope.outputs.run_android == 'true' && github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v4
         with:
           name: HybridFitnessCoach-v0.9.5-signed
@@ -74,11 +118,11 @@ jobs:
           retention-days: 3
 
       - name: Build PR debug APK
-        if: ${{ github.event_name == 'pull_request' }}
+        if: ${{ steps.scope.outputs.run_android == 'true' && github.event_name == 'pull_request' }}
         run: gradle :app:assembleDebug
 
       - name: Upload PR debug APK
-        if: ${{ github.event_name == 'pull_request' }}
+        if: ${{ steps.scope.outputs.run_android == 'true' && github.event_name == 'pull_request' }}
         uses: actions/upload-artifact@v4
         with:
           name: HybridFitnessCoach-v0.9.5-device-test
