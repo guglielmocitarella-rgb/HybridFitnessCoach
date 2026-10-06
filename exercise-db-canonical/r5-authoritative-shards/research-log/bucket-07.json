@@ -258,6 +258,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kneeling-cable-crunch",
+    "exerciseName": "Kneeling cable crunch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kneeling Cable Crunch",
+        "publisher": "Muscle & Fitness",
+        "tier": 3,
+        "locator": "https://www.muscleandfitness.com/exercise/workouts/abs-and-core-exercises/kneeling-cable-crunch/",
+        "finding": "Exercise-specific guide labels the movement intermediate and specifies a kneeling base, controlled abdominal crunch and avoidance of jerking."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bodyweight-crunches",
     "exerciseName": "Bodyweight Crunches",
     "identityStatus": "IDENTITY_CONFIRMED",

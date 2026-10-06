@@ -238,6 +238,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kneeling-lat-pulldown",
+    "exerciseName": "Kneeling lat pulldown",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How To Do Kneeling Lat Pulldowns",
+        "publisher": "PureGym",
+        "tier": 3,
+        "locator": "https://www.puregym.com/exercises/back/lat-exercises/kneeling-lat-pulldown/",
+        "finding": "PureGym states the kneeling version is more stable than standing but needs core/lower-body stabilization, controlled arm extension and a braced, still torso."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",

@@ -420,6 +420,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-knee-push-up",
+    "exerciseName": "Knee push-up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Modified Push-Up",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/modified-push-up",
+        "finding": "NASM identifies the knee-supported modified push-up as a beginner-accessible regression that reduces load/difficulty while retaining braced alignment and controlled push-up mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deltoid-row",
     "exerciseName": "Banded Rear Delt Row",
     "identityStatus": "IDENTITY_CONFIRMED",
