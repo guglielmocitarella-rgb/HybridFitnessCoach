@@ -1360,6 +1360,23 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "cm-preacher-curl-manubrio",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "VERY_LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Dumbbell Preacher Curl",
+    "sourcePublisher": "StrengthLog",
+    "sourceLocator": "https://www.strengthlog.com/dumbbell-preacher-curl/",
+    "evidenceSummary": "A dumbbell preacher curl uses bench-supported upper arm positioning and controlled elbow flexion, reducing whole-body balance demands.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-preacher-curl-manubrio-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-abdominal-crunch",
     "dimension": "mobilityRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
