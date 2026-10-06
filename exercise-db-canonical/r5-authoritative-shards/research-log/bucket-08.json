@@ -564,5 +564,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-chest-stretch",
+    "exerciseName": "Chest Stretch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Exercises for the Health of Your Bones — Chest stretch",
+        "publisher": "Mayo Clinic",
+        "tier": 1,
+        "locator": "https://mcforms.mayo.edu/mc1800-mc1899/mc1821-05.pdf",
+        "finding": "Seated upright chest stretch: arms are raised to shoulder level, elbows bend to bring the hands toward the chest; the exercise is explicitly presented as a stretch to improve posture."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]
