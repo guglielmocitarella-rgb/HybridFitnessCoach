@@ -1,0 +1,237 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V4-CONTINUE",
+  "baselineHead": "938f5ed0101ff76e3cf54a15bb26820b55899c5f",
+  "newWebQueries": 29,
+  "sourceFamilyBatching": true,
+  "evidenceCompleteCount": 49,
+  "records": [
+    {
+      "id": "ex-freestanding-handstand",
+      "exerciseName": "Freestanding Handstand",
+      "source": {
+        "title": "Freestanding Handstand: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/freestanding-handstand"
+      },
+      "finding": "Freestanding inversion requiring continuous wrist/finger balance corrections, proprioception, active shoulder elevation, hollow-body control and overhead shoulder mobility.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-freestanding-handstand-push-up",
+      "exerciseName": "Freestanding Handstand Push-Up",
+      "source": {
+        "title": "The Freestanding Handstand Push-Up / Gymnastics Training Guide",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-freestanding-handstand-push-up"
+      },
+      "finding": "Freestanding HSPU combines hand balance with major shoulder pressing strength; gymnastics guide states unassisted/parallette HSPU requires exceptional balance and strength with full overhead position.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-freestanding-handstand-shoulder-taps",
+      "exerciseName": "Freestanding Handstand Shoulder Taps",
+      "source": {
+        "title": "CrossFit Workout / Freestanding Shoulder Taps",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/workout/2024/02"
+      },
+      "finding": "Freestanding shoulder taps require first establishing handstand balance, then unilateral weight shift; wall and pike variants are explicit regressions.",
+      "decisions": {
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH"
+      }
+    },
+    {
+      "id": "ex-freestanding-handstand-with-one-arm-support",
+      "exerciseName": "Freestanding Handstand with One-Arm Support",
+      "source": {
+        "title": "Freestanding Handstand with One-Arm Support",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/one-arm-handstand-support"
+      },
+      "finding": "Advanced bridge to one-arm handstand requiring a reliable 60-second freestanding handstand, lateral weight shift, single-wrist balance, active shoulder elevation and high-frequency skill practice.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-freestanding-headstand-pushup",
+      "exerciseName": "Freestanding Headstand Pushup",
+      "source": {
+        "title": "HSPU and You: Master the Movement",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement"
+      },
+      "finding": "Headstand-push-up/HSPU progression uses tripod head-and-hand support, controlled descent, overhead alignment and pressing strength; freestanding execution adds balance away from wall support.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-freestanding-parallette-handstand-push-up",
+      "exerciseName": "Freestanding Parallette Handstand Push-Up",
+      "source": {
+        "title": "Gymnastics Training Guide",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+      },
+      "finding": "Guide calls parallette freestanding HSPU the purest gymnastics version, with extended ROM to shoulders level with hands; achieving it requires substantial balance, strength, practice and full shoulder opening.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-front-squat",
+      "exerciseName": "Front Squat",
+      "source": {
+        "title": "The Front Squat",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-front-squat"
+      },
+      "finding": "Foundational loaded squat with stable bilateral stance; explicitly requires and develops mobility/flexibility at ankles, knees, hips, upper back and shoulder girdle plus controlled front-rack technique.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-full-back-lever",
+      "exerciseName": "Full Back Lever",
+      "source": {
+        "title": "Full Back Lever: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/full-back-lever"
+      },
+      "finding": "Full horizontal straight-arm back lever is explicitly strength work rather than balance work, requires extreme shoulder extension and advanced posterior-shoulder/connective-tissue strength with strict body-line technique.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "VERY_HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-full-planche",
+      "exerciseName": "Full Planche",
+      "source": {
+        "title": "Full Planche: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/full-planche"
+      },
+      "finding": "Level-11 capstone hold supporting the entire horizontal body on locked arms; near-maximal shoulder torque, exact scapular protraction/body line, and loaded wrist dorsiflexion make strength, balance/control and technique elite-level.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-full-squat",
+      "exerciseName": "Full Squat",
+      "source": {
+        "title": "Full Squat Mobility",
+        "publisher": "Crucible",
+        "tier": 3,
+        "locator": "https://www.cruciblefit.com/exercises/full-squat-mobility"
+      },
+      "finding": "Beginner bodyweight full-depth squat mobility drill requiring controlled balance/posture and deep hip, knee and ankle ROM; bodyweight return to standing supplies low external strength demand.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-handstand",
+      "exerciseName": "Handstand",
+      "source": {
+        "title": "Analyzing the Handstand",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://library.crossfit.com/free/pdf/CFJ_2015_07_Handstand_Long2.pdf"
+      },
+      "finding": "CrossFit analysis states handstand requires strength, flexibility, coordination and balance, with significant joint mobility/stability and unconventional shoulder-complex loading.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-handstand-push-up",
+      "exerciseName": "Handstand Push-Up",
+      "source": {
+        "title": "The Strict Handstand Push-Up / Gymnastics Training Guide",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-strict-handstand-push-up"
+      },
+      "finding": "HSPU integrates strength and balance; controlled tripod descent, active overhead position and pressing back to handstand demand substantial shoulder/triceps strength and technique.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-handstand-walking",
+      "exerciseName": "Handstand Walking",
+      "source": {
+        "title": "Mastering the Handstand Walk",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan"
+      },
+      "finding": "Handstand walking requires a solid freestanding handstand plus inverted weight shifting, spatial awareness, balance, coordination, shoulder/upper-back support strength and adequate overhead mobility.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    }
+  ],
+  "guards": {
+    "nameOnlyInference": false,
+    "legacyLevelDerivation": 0,
+    "legacyLevelFallback": 0,
+    "globalUnknownRelaxation": false,
+    "candidateDbModified": false,
+    "runtimeDbModified": false,
+    "productionPathModified": false
+  }
+}
