@@ -6,6 +6,11 @@ on:
       - 'exercise-db-canonical/r5-authoritative-shards/**'
       - 'exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md'
       - '.github/workflows/r5r-persistence-sharding.yml'
+
+concurrency:
+  group: r5r-persistence-sharding-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 jobs:
