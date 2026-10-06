@@ -10,9 +10,9 @@
     "provenance": 1691,
     "researchLog": 480
   },
-  "newWebQueries": 19,
+  "newWebQueries": 27,
   "sourceFamilyBatching": true,
-  "evidenceCompleteCount": 26,
+  "evidenceCompleteCount": 46,
   "records": [
     {
       "id": "ex-dumbbell-flat-bench-flyes",
@@ -134,6 +134,86 @@
         "balanceCoordinationRequirement": "LOW",
         "mobilityRequirement": "MODERATE",
         "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-false-grip-muscle-up",
+      "source": {
+        "title": "Muscle up technique, step by step",
+        "publisher": "Calisthenics.dk",
+        "tier": 3,
+        "locator": "https://calisthenics.dk/en/guides/muscle-up-technique"
+      },
+      "finding": "Muscle-up requires false grip, explosive pull to lower chest, aggressive transition and press to straight arms; readiness tests require 10 strict pull-ups, 10 full-depth dips and an explosive chest-height pull.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-finger-assisted-one-arm-pull-up",
+      "source": {
+        "title": "Finger-Assisted One Arm Pull Up Progressions",
+        "publisher": "Simple Calisthenics",
+        "tier": 3,
+        "locator": "https://www.simple-calisthenics.com/exercises/fingerAssistedOneArmPullUpProgressions"
+      },
+      "finding": "Progression reduces assisting fingers from four to one; near-full bodyweight is borne by the working arm, strict 2-3 second eccentrics are required, and anti-rotation/core bracing demand rises as assistance falls.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-finger-pull-up",
+      "source": {
+        "title": "Finger Pull Ups: Form Guide, Grip Progressions & Programming",
+        "publisher": "The Workout Mag",
+        "tier": 3,
+        "locator": "https://theworkoutmag.com/training-guide/finger-pull-ups-form-guide-progressions"
+      },
+      "finding": "Advanced bodyweight pull-up performed with finger-only or reduced-finger contact, placing extreme stress on finger flexor tendons/pulleys and requiring controlled hanging and pulling.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-fingertip-push-up",
+      "source": {
+        "title": "Fingertip Push-Up: Proper Form, Muscles Worked, Benefits & Safety",
+        "publisher": "Bodybuilding Wizard",
+        "tier": 3,
+        "locator": "https://bodybuilding-wizard.com/fingertip-push-up/"
+      },
+      "finding": "Advanced push-up variation supporting bodyweight on fingertips; develops finger strength, hand stability, wrist control and upper-body pushing strength under extended weight-bearing finger position.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-flat-back-front-lever",
+      "source": {
+        "title": "Complete Calisthenics Guide",
+        "publisher": "Complete Calisthenics / StudyLib mirror",
+        "tier": 3,
+        "locator": "https://studylib.net/doc/27226669/ashley-kalym---complete-calisthenics---reedited-2016"
+      },
+      "finding": "Flat-back front lever is explicitly described as extremely difficult relative to tuck front lever: flattening the back lengthens the core and moves more bodyweight away from the hands, forcing greater back/core force while elbows stay straight and hips align with shoulders.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
       }
     }
   ]
