@@ -594,5 +594,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-cat-cow-kneeling-crunch",
+    "exerciseName": "Cat-Cow Kneeling Crunch",
+    "identityStatus": "IDENTITY_CONFIRMED_INSUFFICIENT_CAPABILITY_EVIDENCE",
+    "sources": [
+      {
+        "title": "Comprehensive Strength Training Guide — exercise list",
+        "publisher": "Scribd-hosted training guide",
+        "tier": 3,
+        "locator": "https://ru.scribd.com/document/698098798/Khoa-h%E1%BB%8Dc-v%E1%BB%81-t%E1%BA%ADp-khang-l%E1%BB%B1c-Danh-sach-bai-t%E1%BA%ADp",
+        "finding": "The exact exercise name Cat-Cow Kneeling Crunch appears in the abdominal-exercise list, but the source provides no execution or capability-specific mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {},
+      "terminalUnresolved": [
+        "mobilityRequirement",
+        "strengthRequirement",
+        "technicalDifficulty"
+      ]
+    }
   }
 ]
