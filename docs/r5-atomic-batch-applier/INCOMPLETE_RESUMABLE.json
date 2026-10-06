@@ -1,0 +1,284 @@
+{
+  "status": "INCOMPLETE — RESUMABLE",
+  "completionGate": "FAIL",
+  "reason": "11 pre-existing research-log entries violate the authoritative FNV routing in both historical fixture and authorized baseline. No correction or relaxation applied.",
+  "baselineHead": "d9dcd79802a6b3a0844461eb564132df5a17cc42",
+  "prMetadataStatus": "STALE_PR_METADATA — NON_BLOCKING",
+  "targetedApplierTests": "NOT_COMPLETED",
+  "verifiedPreflightTests": {
+    "passed": 11,
+    "failed": 0
+  },
+  "strictLosslessApplierRegression": "BLOCKED_BY_BASELINE_ROUTING",
+  "fixtureExtraction": "PASS_27_CELLS_8_RECORDS_LOSSLESS_PAYLOADS",
+  "independentRepositoryGuardFunctionCheck": "SAME_11_MISMATCHES",
+  "current": {
+    "status": "FAIL",
+    "families": {
+      "field-decisions": 1413,
+      "evidence": 1413,
+      "provenance": 1413,
+      "patch": 1413,
+      "research-log": 393
+    },
+    "checkpoint": {
+      "processedResidualCells": 1432,
+      "resolvedCells": 1413,
+      "terminalUnresolvedCells": 19,
+      "remainingCells": 2403,
+      "lastProcessedId": "cm-push-up-inclinato"
+    },
+    "problems": [
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-knee-push-up",
+        "semanticKey": "cm-knee-push-up||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "d159d67276d49cd5a97d2b931cc6b6ae85c9696e"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-landmine-press",
+        "semanticKey": "cm-landmine-press||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-mixed-grip-pull-up",
+        "semanticKey": "cm-mixed-grip-pull-up||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "d159d67276d49cd5a97d2b931cc6b6ae85c9696e"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-mobilit-polsi",
+        "semanticKey": "cm-mobilit-polsi||",
+        "actualBucket": "08",
+        "expectedBucket": "00",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-08.json",
+        "sourceGitBlobSha": "5005f81928c8872e34e33b794accf4ebb3b66a5c"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-mountain-climber",
+        "semanticKey": "cm-mountain-climber||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-neutral-grip-pull-up",
+        "semanticKey": "cm-neutral-grip-pull-up||",
+        "actualBucket": "0c",
+        "expectedBucket": "04",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-0c.json",
+        "sourceGitBlobSha": "3c0296bbe09256477bba39bc5373c93b926324fe"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-nordic-curl-assistito",
+        "semanticKey": "cm-nordic-curl-assistito||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-pallof-press",
+        "semanticKey": "cm-pallof-press||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-panca-inclinata-manubri",
+        "semanticKey": "cm-panca-inclinata-manubri||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "d159d67276d49cd5a97d2b931cc6b6ae85c9696e"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-pause-pull-up",
+        "semanticKey": "cm-pause-pull-up||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "d159d67276d49cd5a97d2b931cc6b6ae85c9696e"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-pendlay-row",
+        "semanticKey": "cm-pendlay-row||",
+        "actualBucket": "0c",
+        "expectedBucket": "04",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-0c.json",
+        "sourceGitBlobSha": "3c0296bbe09256477bba39bc5373c93b926324fe"
+      }
+    ],
+    "writes": 0,
+    "semanticChanges": 0
+  },
+  "historical": {
+    "status": "FAIL",
+    "families": {
+      "field-decisions": 1386,
+      "evidence": 1386,
+      "provenance": 1386,
+      "patch": 1386,
+      "research-log": 385
+    },
+    "checkpoint": {
+      "processedResidualCells": 1405,
+      "resolvedCells": 1386,
+      "terminalUnresolvedCells": 19,
+      "remainingCells": 2430,
+      "lastProcessedId": "cm-preacher-curl-manubrio"
+    },
+    "problems": [
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-knee-push-up",
+        "semanticKey": "cm-knee-push-up||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "5bf0d4094dc7057526a3c944c4a91272290486e0"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-landmine-press",
+        "semanticKey": "cm-landmine-press||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-mixed-grip-pull-up",
+        "semanticKey": "cm-mixed-grip-pull-up||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "5bf0d4094dc7057526a3c944c4a91272290486e0"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-mobilit-polsi",
+        "semanticKey": "cm-mobilit-polsi||",
+        "actualBucket": "08",
+        "expectedBucket": "00",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-08.json",
+        "sourceGitBlobSha": "c63f43c937f39154d59510d5b1ea33ec06599442"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-mountain-climber",
+        "semanticKey": "cm-mountain-climber||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-neutral-grip-pull-up",
+        "semanticKey": "cm-neutral-grip-pull-up||",
+        "actualBucket": "0c",
+        "expectedBucket": "04",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-0c.json",
+        "sourceGitBlobSha": "dbfba17cf2cc9f567395c87ceeee7b3e2042dd0e"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-nordic-curl-assistito",
+        "semanticKey": "cm-nordic-curl-assistito||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-pallof-press",
+        "semanticKey": "cm-pallof-press||",
+        "actualBucket": "00",
+        "expectedBucket": "08",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-00.json",
+        "sourceGitBlobSha": "3182bc791298163165c6862fd808b056d026a3c2"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-panca-inclinata-manubri",
+        "semanticKey": "cm-panca-inclinata-manubri||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "5bf0d4094dc7057526a3c944c4a91272290486e0"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-pause-pull-up",
+        "semanticKey": "cm-pause-pull-up||",
+        "actualBucket": "04",
+        "expectedBucket": "0c",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-04.json",
+        "sourceGitBlobSha": "5bf0d4094dc7057526a3c944c4a91272290486e0"
+      },
+      {
+        "kind": "WRONG_FNV_ROUTING",
+        "family": "research-log",
+        "canonicalExerciseId": "cm-pendlay-row",
+        "semanticKey": "cm-pendlay-row||",
+        "actualBucket": "0c",
+        "expectedBucket": "04",
+        "sourcePath": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-0c.json",
+        "sourceGitBlobSha": "dbfba17cf2cc9f567395c87ceeee7b3e2042dd0e"
+      }
+    ],
+    "writes": 0,
+    "semanticChanges": 0
+  },
+  "authoritativeMutation": 0,
+  "newCapabilityResearch": 0,
+  "checkpointModified": false,
+  "runtimeAndCandidateFilesModified": false,
+  "productionPathModified": false,
+  "prescriptionDependentPreservation": "Existing 441 baseline status preserved by unchanged Git blobs; no new candidate audit.",
+  "independentReview": "Confirmed blocker and report accuracy. Full fixture hash inventory and truncated-XZ handling corrected and tested."
+}
