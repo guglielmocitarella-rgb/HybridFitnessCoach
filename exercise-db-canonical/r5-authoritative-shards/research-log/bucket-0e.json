@@ -539,6 +539,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-scapular-push-up",
+    "exerciseName": "Scapular push-up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Scapular push-up",
+        "publisher": "HomeFit Atlas / ACE-derived exercise library",
+        "tier": 3,
+        "locator": "https://homefitnessatlas.com/exercises/scapular-push-up",
+        "finding": "Beginner shoulder-blade control exercise in push-up support: move scapulae while elbows remain straight; progression is via range, hold or load."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-90-degree-push-up",
     "exerciseName": "90-Degree Push-Up",
     "identityStatus": "IDENTITY_AMBIGUOUS",
