@@ -589,6 +589,54 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-sliding-hamstring-curl",
+    "exerciseName": "Sliding hamstring curl",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Sliding hamstring curl",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/sliding-hamstring-curl/",
+        "finding": "Intermediate posterior-chain strength exercise: bridge position maintained while hamstrings control knee extension and flexion through sliding heels; core and hip stability required."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-tempo-pull-up",
+    "exerciseName": "Tempo pull-up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Tempo pull-up",
+        "publisher": "Lifting Tempo",
+        "tier": 3,
+        "locator": "https://www.liftingtempo.com/tempo/pull-up",
+        "finding": "Strict pull-up under prescribed slow tempo, long eccentric and dead-hang pause; demands sustained pulling strength, scapular control, core stability and precise pacing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-lever",
     "exerciseName": "Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",
