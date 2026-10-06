@@ -520,6 +520,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-prone-y-raise",
+    "exerciseName": "Prone Y raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Prone Scapular (Shoulder) Stabilization Series - I, Y, T, W, O Formation",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/249/prone-scapular-shoulder-stabilization-series-i-y-t-w-o-formation/",
+        "finding": "ACE rates the prone scapular stabilization series Intermediate; the Y position uses straight arms at about 45 degrees overhead with scapular control and stable prone trunk alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-lever",
     "exerciseName": "Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",
