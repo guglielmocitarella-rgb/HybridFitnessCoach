@@ -1,6 +1,6 @@
 {
   "schemaVersion": "V3.10C-R5-R-STAGING-1",
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "leaseBaseHead": "e5d52a64bf6edecffac5d49b01c43e5f30e6c89e",
   "authoritativeCheckpointBeforeWindow": {
     "processed": 1664,
@@ -139,5 +139,18 @@
       }
     ],
     "notes": "Authoritative transaction was attempted but connector call ceiling occurred before tree/ref update. Remote HEAD/checkpoint were re-read and remained unchanged. Any created loose blobs are unreferenced and non-authoritative. Promote these entries idempotently after revalidating against current ledger; do not repeat represented web queries."
+  },
+  "promotion": {
+    "resolvedCapabilities": 16,
+    "records": 5,
+    "targetCheckpoint": {
+      "processed": 1680,
+      "resolved": 1635,
+      "terminal": 45,
+      "remaining": 2155,
+      "provenance": 1635,
+      "researchLog": 462
+    },
+    "newWebQueriesDuringRecovery": 0
   }
 }

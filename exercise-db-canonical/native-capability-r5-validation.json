@@ -1,11 +1,11 @@
 {
   "status": "CHECKPOINT_SHARDED_AUTHORITATIVE_VALIDATED",
   "initialResidual": 3835,
-  "processedCells": 1405,
-  "resolvedCells": 1386,
-  "terminalUnresolved": 19,
-  "remainingUnprocessed": 2430,
-  "researchedRecords": 385,
+  "processedCells": 1680,
+  "resolvedCells": 1635,
+  "terminalUnresolved": 45,
+  "remainingUnprocessed": 2155,
+  "researchedRecords": 462,
   "strengthPrescriptionDependentPreserved": 441,
   "nameOnlyInference": false,
   "legacyLevelDerivation": 0,
@@ -14,19 +14,18 @@
   "productionPathModified": false,
   "runtimeDbModified": false,
   "incrementalBatch": {
-    "firstRecord": "cm-plank-walkout",
-    "lastRecord": "cm-preacher-curl-manubrio",
-    "records": 4,
-    "resolvedCells": 14,
+    "firstRecord": "ex-deep-push-up",
+    "lastRecord": "ex-dumbbell-windmill",
+    "records": 5,
+    "resolvedCells": 16,
     "terminalCells": 0,
-    "decisionEvidenceProvenancePatchCardinality": 14,
+    "decisionEvidenceProvenancePatchCardinality": 16,
     "referentialIntegrity": "PASS",
     "duplicateProvenanceIds": 0,
     "checkpointArithmetic": "PASS",
-    "preWriteNormalization": {
-      "fieldDecisionDuplicateSemanticKeysRemoved": 5,
-      "capabilityValueChanges": 0,
-      "result": "PASS"
-    }
+    "routingViolationsHistorical": 11,
+    "routingViolationsAdded": 0,
+    "stagingSourceBlob": "bb23434174d8e5536f6f1fda303b7de775cff00b",
+    "result": "PASS"
   }
 }

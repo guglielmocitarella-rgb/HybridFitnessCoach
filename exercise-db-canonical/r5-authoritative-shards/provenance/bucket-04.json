@@ -2482,6 +2482,23 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "ex-bear-crawl",
+    "dimension": "strengthRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Bear Crawl Exercise",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/",
+    "evidenceSummary": "ACE rates Bear Crawl Intermediate and specifies alternating contralateral arm/leg movement while maintaining trunk/hip/shoulder alignment.",
+    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-bear-crawl-strengthRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-bear-crawls",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -2530,23 +2547,6 @@
     "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-bear-crawls-technicalDifficulty",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
-    "canonicalExerciseId": "ex-bear-crawl",
-    "dimension": "strengthRequirement",
-    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "newState": "KNOWN",
-    "value": "MODERATE",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 3,
-    "sourceTitle": "Bear Crawl Exercise",
-    "sourcePublisher": "ACE Fitness",
-    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/",
-    "evidenceSummary": "ACE rates Bear Crawl Intermediate and specifies alternating contralateral arm/leg movement while maintaining trunk/hip/shoulder alignment.",
-    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-bear-crawl-strengthRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -3380,6 +3380,40 @@
     "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-dragon-flag-technicalDifficulty",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-glute-bridge",
+    "dimension": "mobilityRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 1,
+    "sourceTitle": "Glute Bridges: How To Do Them and Form Tips",
+    "sourcePublisher": "Cleveland Clinic",
+    "sourceLocator": "https://health.clevelandclinic.org/glute-bridges",
+    "evidenceSummary": "Exact weighted variation: supported supine bridge, feet planted, core tightened, controlled hip raise; add dumbbell across front of hips.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dumbbell-glute-bridge-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-windmill",
+    "dimension": "technicalDifficulty",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 1,
+    "sourceTitle": "The Windmill Exercise: What It Is and How To Perform It",
+    "sourcePublisher": "Cleveland Clinic",
+    "sourceLocator": "https://health.clevelandclinic.org/windmill-exercise",
+    "evidenceSummary": "Windmill can use a dumbbell; full-body core/hips/shoulders movement, explicitly not for beginners, with form, overhead alignment and available flexibility emphasized.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-dumbbell-windmill-technicalDifficulty",
     "researchVersion": "V3.10C-R5"
   },
   {

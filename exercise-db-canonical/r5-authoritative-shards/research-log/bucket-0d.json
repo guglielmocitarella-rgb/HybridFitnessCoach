@@ -753,5 +753,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-windmill",
+    "exerciseName": "Dumbbell Windmill",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Windmill Exercise: What It Is and How To Perform It",
+        "publisher": "Cleveland Clinic",
+        "tier": 1,
+        "locator": "https://health.clevelandclinic.org/windmill-exercise",
+        "finding": "Windmill can use a dumbbell; full-body core/hips/shoulders movement, explicitly not for beginners, with form, overhead alignment and available flexibility emphasized."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]
