@@ -40,14 +40,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-ab-wheel-rollout",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-cm-ab-wheel-rollout-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-ab-wheel-rollout-in-ginocchio",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -61,6 +53,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-ab-wheel-rollout",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-ab-wheel-rollout-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1744,6 +1744,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-advanced-tuck-planche-pushups-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-advanced-tuck-planche",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1752,11 +1760,99 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
+    "canonicalExerciseId": "ex-alternating-v-up-crunch",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-alternating-v-up-crunch-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-angled-half-lever",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-advanced-tuck-planche-pushups-strengthRequirement",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-angled-half-lever-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-arch",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-arch-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-arm-in-ring-rows",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-archer-arm-in-ring-rows-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-arm-in-ring-rows",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-archer-arm-in-ring-rows-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-push-up",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-archer-push-up-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-ring-rows",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-archer-ring-rows-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-ring-rows",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-archer-ring-rows-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-ring-rows",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-archer-ring-rows-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-arm-circling",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-arm-circling-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-arm-circling",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-arm-circling-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-arm-circling",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-arm-circling-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1800,22 +1896,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-back-lever",
-    "field": "mobilityRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-back-lever-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-back-lever",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-back-lever-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-back-lever-pullout",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1829,6 +1909,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-back-lever-pullout-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-back-lever-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-back-lever-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

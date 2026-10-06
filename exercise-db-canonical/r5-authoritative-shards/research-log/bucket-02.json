@@ -421,6 +421,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-archer-pull-up",
+    "exerciseName": "Archer Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Archer Pull-Up",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/archer-pull-up/",
+        "finding": "High-difficulty skill/strength vertical pull: pull diagonally toward one hand while the opposite arm straightens; requires strict pull-up foundation, unilateral strength, shoulder control, core bracing and control of rotation/swing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-single-leg-squat",
     "exerciseName": "Assisted Single-Leg Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

@@ -493,6 +493,37 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-archer-arm-in-ring-rows",
+    "exerciseName": "Archer-Arm-In Ring Rows",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Overcoming Gravity 2 — Pulling Exercise Progressions",
+        "publisher": "Steven Low",
+        "tier": 2,
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "finding": "Rowing progression places Archer Ring Rows at Level 4, Archer-Arm-In Ring Rows at Level 5, then Straddle One-Arm Rows and One-Arm Rows."
+      },
+      {
+        "title": "Archer Ring Rows: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/archer-ring-rows",
+        "finding": "Progression chain explicitly advances Archer Ring Rows to Archer-Arm-In Ring Rows to One-Arm Rows, shifting progressively more load to one arm."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-hamstring-curl",
     "exerciseName": "Assisted Hamstring Curl",
     "identityStatus": "IDENTITY_CONFIRMED",

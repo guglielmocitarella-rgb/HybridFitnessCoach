@@ -445,6 +445,85 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-angled-half-lever",
+    "exerciseName": "Angled Half Lever",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Complete Calisthenics — Angled Half Lever",
+        "publisher": "Ashley Kalym",
+        "tier": 2,
+        "locator": "https://studylib.net/doc/27494280/ashley-kalym---complete-calisthenics---reedited-2016",
+        "finding": "Progression after tuck half lever: hands supported on a platform, elbows locked, push down hard and hold straight legs about 45 degrees with heels just above the floor."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-archer-ring-rows",
+    "exerciseName": "Archer Ring Rows",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Overcoming Gravity 2 — Pulling Exercise Progressions",
+        "publisher": "Steven Low",
+        "tier": 2,
+        "locator": "https://stevenlow.org/wp-content/uploads/2016/12/OG2_TOC_INTRO.pdf",
+        "finding": "Rowing progression places Archer Ring Rows at Level 4 after Wide Ring Rows and before Archer-Arm-In Ring Rows."
+      },
+      {
+        "title": "Archer Ring Rows: How to Learn It",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/archer-ring-rows",
+        "finding": "Horizontal pull on gymnastic rings where one arm performs most of the pull and the other stays straight for assistance; progression shifts increasing load to one arm and states no special mobility is needed for the rowing journey."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-arm-circling",
+    "exerciseName": "Arm Circling",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Arm circles",
+        "publisher": "Health and Wellbeing Queensland",
+        "tier": 1,
+        "locator": "https://hw.qld.gov.au/physical-activity/arm-circles/",
+        "finding": "Beginner warm-up for shoulders and upper-body mobility: standing controlled large arm circles, 10–15 each direction; smaller circles are suggested if shoulder discomfort occurs."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",

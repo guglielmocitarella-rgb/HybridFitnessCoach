@@ -32,14 +32,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-ab-wheel-rollout",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-ab-wheel-rollout-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-ab-wheel-rollout-da-piedi",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -53,6 +45,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-ab-wheel-rollout",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-ab-wheel-rollout-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1280,6 +1280,30 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-angled-half-lever",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-angled-half-lever-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-ring-rows",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-archer-ring-rows-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-arm-circling",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-arm-circling-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1304,19 +1328,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-back-lever",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-back-lever-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-back-lever-pullout",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-back-lever-pullout-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-back-lever-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

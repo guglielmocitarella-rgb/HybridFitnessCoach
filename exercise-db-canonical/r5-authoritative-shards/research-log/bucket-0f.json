@@ -304,6 +304,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-archer-push-up",
+    "exerciseName": "Archer Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Archer Push-Up",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/archer-push-up",
+        "finding": "NASM describes an advanced unilateral pressing variation with asymmetrical loading, lateral arm extension, increased pressing-arm demand and exceptional core stability/control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-band-assisted-planche",
     "exerciseName": "Band-Assisted Planche",
     "identityStatus": "IDENTITY_CONFIRMED",

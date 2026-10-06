@@ -459,23 +459,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "cm-cable-face-pull",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "newState": "KNOWN",
-    "value": "LOW",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "Back Exercises that Build Muscle",
-    "sourcePublisher": "ACE Fitness",
-    "sourceLocator": "https://www.acefitness.org/resources/everyone/blog/8080/back-exercises-that-build-muscle/",
-    "evidenceSummary": "ACE specifically recommends cable face-pull for the mid-back musculature, a controlled cable pulling pattern emphasizing scapular retraction.",
-    "reasoningRule": "Record-specific external evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-cm-cable-face-pull-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -490,6 +473,23 @@
     "reasoningRule": "Record-specific external evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "cm-cable-face-pull",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Back Exercises that Build Muscle",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/blog/8080/back-exercises-that-build-muscle/",
+    "evidenceSummary": "ACE specifically recommends cable face-pull for the mid-back musculature, a controlled cable pulling pattern emphasizing scapular retraction.",
+    "reasoningRule": "Record-specific external evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-cable-face-pull-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -1510,6 +1510,40 @@
     "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-advanced-tuck-planche-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-arch",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "VERY_LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Complete Calisthenics — Arch",
+    "sourcePublisher": "Ashley Kalym",
+    "sourceLocator": "https://studylib.net/doc/27494280/ashley-kalym---complete-calisthenics---reedited-2016",
+    "evidenceSummary": "Exact floor Arch is a prone static posterior-chain hold into a shallow U; source notes deceptive difficulty and unfamiliar force production.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-arch-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-pull-up",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Archer Pull-Up",
+    "sourcePublisher": "CALISTHENICS.com",
+    "sourceLocator": "https://calisthenics.com/exercise/archer-pull-up/",
+    "evidenceSummary": "High-difficulty asymmetric vertical pull requiring strong unilateral pulling, shoulder control, bracing and controlled rotation/swing.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-archer-pull-up-mobilityRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {

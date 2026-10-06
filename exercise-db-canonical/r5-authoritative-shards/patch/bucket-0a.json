@@ -216,19 +216,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-cable-face-pull",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "LOW",
-    "provenanceId": "R5-cm-cable-face-pull-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-cable-face-pull",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-cable-face-pull-balanceCoordinationRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -709,6 +709,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-advanced-tuck-planche-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-arch",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-arch-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-archer-pull-up",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-archer-pull-up-mobilityRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {

@@ -486,6 +486,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-alternating-v-up-crunch",
+    "exerciseName": "Alternating V-Up Crunch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Alternating V-Up",
+        "publisher": "Seto",
+        "tier": 3,
+        "locator": "https://seto.fit/exercises/alternating-v-up/",
+        "finding": "Floor core exercise: one straight leg rises while the opposite hand reaches toward the foot; Seto labels it Intermediate and notes lower demand than a full V-up."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bodyweight-crunches",
     "exerciseName": "Bodyweight Crunches",
     "identityStatus": "IDENTITY_CONFIRMED",
