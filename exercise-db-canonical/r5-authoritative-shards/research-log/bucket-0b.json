@@ -453,6 +453,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-alternating-front-lever",
+    "exerciseName": "Alternating Front Lever",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Front Lever Progression: A Realistic Step-by-Step Path",
+        "publisher": "CaliVision",
+        "tier": 3,
+        "locator": "https://calivision.playthenics.com/guides/front-lever-progression",
+        "finding": "The source documents standard front-lever progressions and shape criteria but does not define an Alternating Front Lever variant, so no exact variant-specific capability value can be justified from it."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {},
+      "terminalUnresolved": [
+        "strengthRequirement",
+        "technicalDifficulty",
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ]
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-pull-up",
     "exerciseName": "Assisted Pull-up",
     "identityStatus": "IDENTITY_CONFIRMED",

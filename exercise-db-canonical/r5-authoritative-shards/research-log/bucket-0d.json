@@ -540,6 +540,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-alternate-arm-and-leg-raises-on-ball",
+    "exerciseName": "Alternate Arm and Leg Raises on Ball",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Alternate Arm and Leg Raises on Ball",
+        "publisher": "Anyang University / KOCW",
+        "tier": 3,
+        "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf",
+        "finding": "The exact stability-ball exercise is labeled Intermediate to Advanced and instructs prone support on the ball with abdominal stabilization while raising the opposite arm and leg."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement"
+      ]
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-leg-raise",
     "exerciseName": "Assisted Leg Raise",
     "identityStatus": "IDENTITY_CONFIRMED",

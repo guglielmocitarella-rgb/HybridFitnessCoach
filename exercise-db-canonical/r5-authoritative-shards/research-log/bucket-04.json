@@ -610,6 +610,31 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-advanced-tuck-front-lever-rows",
+    "exerciseName": "Advanced Tuck Front Lever Rows",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Front Lever Row Progressions",
+        "publisher": "Simple Calisthenics",
+        "tier": 3,
+        "locator": "https://www.simple-calisthenics.com/it/exercises/frontLeverRowProgressions",
+        "finding": "The Advanced Tuck Front Lever Row uses hips near 90 degrees, a longer lever than tuck, much greater back/core demand, maintained hip-shoulder alignment, and controlled rowing through the full repetition."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement"
+      ]
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deltoid-row",
     "exerciseName": "Banded Rear Delt Row",
     "identityStatus": "IDENTITY_CONFIRMED",

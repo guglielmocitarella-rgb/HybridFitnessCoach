@@ -423,6 +423,69 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-45-degree-forward-lean-dips",
+    "exerciseName": "45-Degree Forward-Lean Dips",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Overcoming Gravity 2nd Edition preview",
+        "publisher": "Steven Low",
+        "tier": 2,
+        "locator": "https://stevenlow.org/wp-content/uploads/2018/09/OG2-preview-TOC-Intro-Ch1-3.pdf",
+        "finding": "The dips progression lists Parallel Bar Dips at Level 3, L-Sit Dips at Level 4, and 45-Degree Forward-Lean Dips at Level 5."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement",
+        "balanceCoordinationRequirement"
+      ]
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-advanced-tuck-planche",
+    "exerciseName": "Advanced Tuck Planche",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Full Planche progression",
+        "publisher": "Myosin",
+        "tier": 3,
+        "locator": "https://getmyosin.com/en/progressions/planche",
+        "finding": "Advanced tuck planche at 10 seconds is rated Difficulty 5 of 5 in the planche progression."
+      },
+      {
+        "title": "Advanced Tuck Planche",
+        "publisher": "Treethenics",
+        "tier": 3,
+        "locator": "https://www.treethenics.com/exercises/tuck-advanced-planche",
+        "finding": "The exact exercise requires a controlled tuck-planche base, shoulders forward of the hands, locked elbows, active protraction, hips near shoulder level, and sustained body control."
+      },
+      {
+        "title": "Planche progression",
+        "publisher": "CaliCoachAI",
+        "tier": 3,
+        "locator": "https://calicoachai.com/skills/planche",
+        "finding": "The progression including advanced tuck planche specifies wrist preparation, pain-free 90-degree straight-arm shoulder flexion, scapular control, core tension, and balance prerequisites."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bodyweight-crunches",
     "exerciseName": "Bodyweight Crunches",
     "identityStatus": "IDENTITY_CONFIRMED",

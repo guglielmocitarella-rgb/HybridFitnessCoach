@@ -311,6 +311,37 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-4-point-burpee",
+    "exerciseName": "4-Point Burpee",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Slide 1",
+        "publisher": "Anyang University / KOCW",
+        "tier": 3,
+        "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/01.pdf",
+        "finding": "The exercise classification table places 4-Point Burpee in the Intermediate row."
+      },
+      {
+        "title": "Full Body Muscle Blast",
+        "publisher": "NW Personal Training",
+        "tier": 3,
+        "locator": "https://nwpersonaltraining.com/blog/full-body-muscle-blast/",
+        "finding": "Exercise-specific instructions define the 4-point burpee as hands to floor, legs back to plank, legs back toward hands, then stand and jump."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ab-wheel-eccentrics",
     "exerciseName": "Ab Wheel Eccentrics",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

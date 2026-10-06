@@ -450,6 +450,38 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
+    "exerciseName": "Advanced Tuck Planche Pushups",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Planche Pushups and Dynamic Planche Skills Guide",
+        "publisher": "Calisthenics Association",
+        "tier": 3,
+        "locator": "https://calisthenicsassociation.org/lessons/planche-pushups-and-dynamic-skills",
+        "finding": "Advanced Tuck Planche Pushups maintain the flat-back advanced-tuck position through a full-range pushup, are significantly harder than tuck planche pushups, and begin with very low repetition targets."
+      },
+      {
+        "title": "Planche Push Up Progression",
+        "publisher": "Simple Calisthenics",
+        "tier": 3,
+        "locator": "https://www.simple-calisthenics.com/exercises/planchePushUpProgression",
+        "finding": "The exact advanced tucked planche push-up requires protracted/depressed shoulders, hips and shoulders kept level, controlled lowering, and pressing back to full elbow extension."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement"
+      ]
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-pistol-squat",
     "exerciseName": "Assisted Pistol Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

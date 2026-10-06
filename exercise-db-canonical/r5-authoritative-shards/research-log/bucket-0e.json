@@ -578,6 +578,31 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-advanced-tuck-front-lever",
+    "exerciseName": "Advanced Tuck Front Lever",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Advanced Tuck Front Lever",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/advanced-tuck-front-lever/",
+        "finding": "The exact exercise is labeled Intermediate, Skill/Strength, with longer leverage than tuck front lever, greater core/back/shoulder challenge, and greater body-control demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement"
+      ]
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-front-raise",
     "exerciseName": "Banded Front Raise",
     "identityStatus": "IDENTITY_CONFIRMED",
