@@ -469,6 +469,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-back-clap-push-up",
+    "exerciseName": "Back-Clap Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How To Do A BACK CLAP PUSH UP | Exercise Demonstration Video and Guide",
+        "publisher": "Live Lean TV Daily Exercises",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=A1h1P50-VFk",
+        "finding": "Advanced plyometric push-up requiring explosive takeoff, a behind-the-back clap while airborne, rapid hand recovery and a controlled soft landing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-barbell-triceps-press",
     "exerciseName": "Barbell Triceps Press",
     "identityStatus": "IDENTITY_CONFIRMED",
