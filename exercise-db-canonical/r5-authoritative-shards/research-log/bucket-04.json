@@ -468,6 +468,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-neutral-grip-pull-up",
+    "exerciseName": "Neutral-grip pull-up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Neutral-grip pull-up",
+        "publisher": "Catalyst Athletics",
+        "tier": 3,
+        "locator": "https://www.catalystathletics.com/exercise/864/Neutral-Grip-Pull-Up/",
+        "finding": "Full-bodyweight vertical pull using neutral handles; controlled full ROM, scapular retraction/depression and shoulder opening; scalable by assistance or added load."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "cm-panca-inclinata-manubri",
     "exerciseName": "Panca Inclinata Manubri",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -581,6 +605,30 @@
         "technicalDifficulty": "MODERATE",
         "mobilityRequirement": "MODERATE",
         "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-wall-handstand-weight-shift",
+    "exerciseName": "Wall handstand weight shift",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Wall handstand weight shift",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/chest-to-wall-handstand-weight-shifts/",
+        "finding": "Intermediate handstand drill: controlled lateral transfer toward one arm while inverted, with straight elbows, elevated shoulders, stable trunk and anti-rotation control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "HIGH"
       },
       "terminalUnresolved": []
     }
