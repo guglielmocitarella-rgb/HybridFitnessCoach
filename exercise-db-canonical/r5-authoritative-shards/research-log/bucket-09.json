@@ -215,6 +215,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-windmill",
+    "exerciseName": "Kettlebell windmill",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Nontraditional Core Exercises",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/6953/nontraditional-core-exercises-for-a-more-productive-workout/",
+        "finding": "ACE windmill requires staggered foot orientation, visual tracking of the overhead arm, hip hinge with long neutral spine, slow controlled motion and progression from low-held to overhead kettlebell."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",

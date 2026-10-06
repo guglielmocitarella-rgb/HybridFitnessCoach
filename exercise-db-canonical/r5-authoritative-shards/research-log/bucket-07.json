@@ -235,6 +235,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-step-up",
+    "exerciseName": "Kettlebell step-up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Step-up",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/28/step-up/",
+        "finding": "ACE rates loaded dumbbell step-up Beginner; requires controlled unilateral stepping, knee/foot alignment and weight transfer, with single-leg stand described as a progression."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bodyweight-crunches",
     "exerciseName": "Bodyweight Crunches",
     "identityStatus": "IDENTITY_CONFIRMED",

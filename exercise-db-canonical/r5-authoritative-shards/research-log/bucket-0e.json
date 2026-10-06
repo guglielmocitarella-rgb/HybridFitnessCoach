@@ -304,6 +304,52 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-romanian-deadlift",
+    "exerciseName": "Kettlebell Romanian deadlift",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Romanian Deadlift Barbell",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/romanian-deadlift-barbell",
+        "finding": "RDL is a bilateral closed-chain hip hinge requiring neutral spine, slight knee bend and descent to hamstring stretch/mid-shin; emphasizes controlled hinge mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-kettlebell-snatch",
+    "exerciseName": "Kettlebell snatch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Kettlebell Snatch",
+        "publisher": "CrossFit",
+        "tier": 1,
+        "locator": "https://www.crossfit.com/essentials/the-kettlebell-snatch",
+        "finding": "CrossFit explicitly describes great technique, flexibility, complex joint coordination, accuracy and balance; movement travels from backswing through explosive launch to overhead lockout."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-90-degree-push-up",
     "exerciseName": "90-Degree Push-Up",
     "identityStatus": "IDENTITY_AMBIGUOUS",

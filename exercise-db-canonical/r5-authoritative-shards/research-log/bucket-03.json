@@ -538,6 +538,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-sumo-deadlift",
+    "exerciseName": "Kettlebell sumo deadlift",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "What Is a Deadlift?",
+        "publisher": "CrossFit",
+        "tier": 1,
+        "locator": "https://www.crossfit.com/essentials/foundational-movement-deadlift-what-is-a-deadlift",
+        "finding": "CrossFit identifies sumo deadlift as a wide-stance deadlift sharing midline stabilization and frontal-plane balance; kettlebells are explicitly supported implements and the wider stance facilitates upright pulling."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deadlift",
     "exerciseName": "Banded Deadlift",
     "identityStatus": "IDENTITY_CONFIRMED",

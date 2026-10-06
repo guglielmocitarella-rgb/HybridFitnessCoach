@@ -419,6 +419,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-walking-lunge",
+    "exerciseName": "Kettlebell walking lunge",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kettlebell Walking Lunge",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/kettlebell-leg-exercises-5218501",
+        "finding": "Exercise-specific walking lunge guidance notes kettlebells challenge balance, with braced core, controlled alternating forward steps and near-parallel lunge depth."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-foot-elevated-split-squat",
     "exerciseName": "Bulgarian Split Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

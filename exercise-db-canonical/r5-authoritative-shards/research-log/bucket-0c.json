@@ -330,6 +330,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-thruster",
+    "exerciseName": "Kettlebell thruster",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Thruster",
+        "publisher": "CrossFit",
+        "tier": 1,
+        "locator": "https://www.crossfit.com/essentials/the-thruster",
+        "finding": "CrossFit states thruster develops full-body coordination, uses a large range of motion combining full front squat and overhead press, and requires proper timing; kettlebells are an explicit variation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-abdominal-crunch",
     "exerciseName": "Abdominal Crunch",
     "identityStatus": "IDENTITY_CONFIRMED",

@@ -397,6 +397,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-kettlebell-single-leg-deadlift",
+    "exerciseName": "Kettlebell single-leg deadlift",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kettlebell Single Leg Deadlift",
+        "publisher": "Kettlebells Workouts / Greg Brookes",
+        "tier": 3,
+        "locator": "https://kettlebellsworkouts.com/kettlebell-single-leg-deadlift/",
+        "finding": "Single-leg kettlebell deadlift is more challenging than traditional deadlift and explicitly requires good core strength, hip mobility, balance and coordination."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deltoid-row",
     "exerciseName": "Banded Rear Delt Row",
     "identityStatus": "IDENTITY_CONFIRMED",
