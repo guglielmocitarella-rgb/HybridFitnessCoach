@@ -200,8 +200,11 @@ def apply(root,p):
             old,new=p["old"][rel],p["outputs"][rel]; need((root/rel).read_bytes()==old,f"target changed after validation {rel}")
             (d/f"{i:03d}.old").write_bytes(old); (d/f"{i:03d}.new").write_bytes(new); entries.append({"path":rel,"oldSha256":sha256(old),"newSha256":sha256(new),"checkpointLast":rel==cp})
         areplace(d/"journal.json",jbytes({"version":1,"batchId":p["batchId"],"state":"PREPARED","entries":entries}))
-        for i,rel in enumerate(order): areplace(root/rel,(d/f"{i:03d}.new").read_bytes())
-        for x in entries: need(sha256((root/x["path"]).read_bytes())==x["newSha256"],f"post-write verify failed {x['path']}")
+        data_entries=entries[:-1]
+        for i,rel in enumerate(order[:-1]): areplace(root/rel,(d/f"{i:03d}.new").read_bytes())
+        for x in data_entries: need(sha256((root/x["path"]).read_bytes())==x["newSha256"],f"post-write verify failed {x['path']}")
+        cp_i=len(order)-1; areplace(root/cp,(d/f"{cp_i:03d}.new").read_bytes())
+        need(sha256((root/cp).read_bytes())==entries[-1]["newSha256"],f"post-write verify failed {cp}")
         shutil.rmtree(d)
         try: (root/TXN).rmdir()
         except OSError: pass

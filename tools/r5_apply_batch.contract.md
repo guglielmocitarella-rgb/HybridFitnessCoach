@@ -40,16 +40,30 @@ The applier computes the authoritative bucket itself as FNV1a32 over UTF-16 code
 
 Duplicate semantic keys in the batch are rejected. Existing unequal payloads for the same semantic key are conflicts and are rejected. A mixture of already-existing and absent payloads is rejected as a partial replay/write.
 
-The current repository contains 11 pre-existing research-log routing violations. Microphase A does not normalize them. A new batch must introduce zero new routing violations and must leave the pre-existing violation set unchanged.
+The current repository contains 11 pre-existing research-log routing violations. They are not normalized by this applier. A new batch must introduce zero new routing violations and must leave the pre-existing violation set unchanged.
 
-## Checkpoint and replay
+## Checkpoint, idempotency, and arithmetic
 
 Checkpoint arithmetic is derived from the validated payload:
 resolved cells + terminal unresolved cells advance `processedResidualCells`; resolved cells advance `resolvedCells` and `provenanceEntries`; terminal fields advance `terminalUnresolvedCells`; record count advances `sourcesVisited`; `remainingCells` decreases by processed cells.
 
-Checkpoint is written last.
+A replay is accepted without mutation only when every batch payload is already present exactly, is correctly routed, and the current checkpoint equals the checkpoint deterministically derived from `expectedPreviousCheckpoint` plus that batch. An accepted replay performs zero writes, so counters and semantic rows are not duplicated.
 
-A replay is accepted without mutation only when every batch payload is already present exactly, is correctly routed, and the current checkpoint equals the checkpoint deterministically derived from `expectedPreviousCheckpoint` plus that batch.
+## Atomicity and recovery boundary
+
+The repository does not provide filesystem-wide transactions. The implemented safety contract is therefore recoverable transactionality over the authoritative files touched by one batch:
+
+1. validate the batch and current authoritative state;
+2. stage old and new bytes for every touched file under `.r5-apply-batch-txn/<batchId>/`;
+3. write a journal containing old/new hashes for every staged target;
+4. atomically replace the touched shard/manifest data files;
+5. validate those replaced data files against the journaled new hashes;
+6. atomically replace the checkpoint **last**;
+7. validate the checkpoint hash and remove the transaction journal.
+
+If an exception occurs after the journal exists, recovery accepts only targets whose bytes still match either the journaled old or new hash, then restores all journaled old bytes. A process interruption can therefore leave a recoverable mixed old/new data state, but not a committed checkpoint written before data validation. On the next same-batch `--apply`, the CLI rolls the interrupted transaction back and returns a controlled failure asking for one rerun; that rerun revalidates from the restored state and applies normally. A later replay is idempotent with zero writes.
+
+This is intentionally not a claim of global filesystem atomicity. An unrelated external writer that ignores the applier lock remains outside this transaction boundary; hash checks cause the applier to fail rather than silently accept an unexpected semantic mutation.
 
 ## CLI
 
