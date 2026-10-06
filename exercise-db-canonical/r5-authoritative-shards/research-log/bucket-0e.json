@@ -350,6 +350,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-lat-stretch-on-bench",
+    "exerciseName": "Lat stretch on bench",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kneeling Lat Stretch (w/bench)",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/141/kneeling-lat-stretch-w-bench/",
+        "finding": "ACE labels it beginner and uses a stable kneeling base, braced spine, straight arms and deliberate lean-back to increase lat stretch."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-90-degree-push-up",
     "exerciseName": "90-Degree Push-Up",
     "identityStatus": "IDENTITY_AMBIGUOUS",
