@@ -445,6 +445,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-lateral-lunge-corpo-libero",
+    "exerciseName": "Lateral lunge corpo libero",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lateral Lunge",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/364/lateral-lunge/",
+        "finding": "ACE labels lateral lunge intermediate and describes lateral stepping, hip-back descent and controlled return; related ACE guidance identifies balance and flexibility demands."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-leg-raise",
     "exerciseName": "Assisted Leg Raise",
     "identityStatus": "IDENTITY_CONFIRMED",
