@@ -562,6 +562,54 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-scapular-wall-slide",
+    "exerciseName": "Scapular wall slide",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Scapula W Slide Exercise",
+        "publisher": "Peak Physio",
+        "tier": 3,
+        "locator": "https://www.peak-physio.com.au/exercise/scapula-w-slide/",
+        "finding": "Physiotherapy guidance describes a wall-supported scapular slide requiring maintained forearm-wall pressure, controlled arm elevation and coordinated scapular tension to improve scapular stability and coordination."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-world-greatest-stretch",
+    "exerciseName": "World greatest stretch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "World's Greatest Stretch",
+        "publisher": "Muscle & Fitness",
+        "tier": 3,
+        "locator": "https://www.muscleandfitness.com/exercise/workouts/abs-and-core-exercises/worlds-greatest-stretch/",
+        "finding": "Exercise-specific guidance rates the World's Greatest Stretch Beginner and sequences a forward lunge, floor-supported forearm position and thoracic rotation with an arm reaching overhead."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-banded-deltoid-row",
     "exerciseName": "Banded Rear Delt Row",
     "identityStatus": "IDENTITY_CONFIRMED",

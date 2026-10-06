@@ -376,6 +376,53 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-respirazione-diaframmatica",
+    "exerciseName": "Respirazione diaframmatica",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Diaphragmatic Breathing",
+        "publisher": "Cleveland Clinic",
+        "tier": 2,
+        "locator": "https://my.clevelandclinic.org/health/articles/9445-diaphragmatic-breathing",
+        "finding": "Medically reviewed guidance teaches diaphragmatic breathing first lying supine with knees bent and head supported, then seated; it emphasizes slow controlled breathing, minimal effort, relaxed shoulders/neck and keeping the upper chest still."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "VERY_LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-suitcase-carry",
+    "exerciseName": "Suitcase carry",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Best Abs Exercises: Science-Based Core Training That Delivers Results",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/blog/training/best-abs-exercises",
+        "finding": "NASM describes suitcase carry as loaded walking with a unilateral load that creates constant anti-lateral-flexion demand and requires posture, gait mechanics and trunk stability while walking tall without leaning."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-bodyweight-crunches",
     "exerciseName": "Bodyweight Crunches",
     "identityStatus": "IDENTITY_CONFIRMED",

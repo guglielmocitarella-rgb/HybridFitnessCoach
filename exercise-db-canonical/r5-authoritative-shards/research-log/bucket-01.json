@@ -286,6 +286,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-dumbbell-pullover",
+    "exerciseName": "Dumbbell pullover",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dumbbell Pullover",
+        "publisher": "HyperBody",
+        "tier": 3,
+        "locator": "https://hyperbody.fit/exercises/dumbbell-pullover",
+        "finding": "The exercise guide rates dumbbell pullover Intermediate and requires a controlled dumbbell arc behind the head with soft elbows, stable torso and a pronounced chest/ribcage stretch through the overhead shoulder range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "cm-dumbbell-romanian-deadlift",
     "exerciseName": "Dumbbell Romanian deadlift",
     "identityStatus": "IDENTITY_CONFIRMED",

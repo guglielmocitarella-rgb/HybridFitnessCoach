@@ -397,6 +397,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-stretch-pettorale-al-muro",
+    "exerciseName": "Stretch pettorale al muro",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Wall Chest Stretch",
+        "publisher": "BSR Physical Therapy",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=c3TbQiFLiro",
+        "finding": "Physical-therapy exercise guidance identifies the wall chest stretch as a chest-muscle stretch used to promote upright posture; the wall provides external support during the static mobility drill."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-single-leg-squat",
     "exerciseName": "Assisted Single-Leg Squat",
     "identityStatus": "IDENTITY_CONFIRMED",

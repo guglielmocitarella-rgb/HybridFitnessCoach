@@ -506,6 +506,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-single-arm-cable-chest-press",
+    "exerciseName": "Single-arm cable chest press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Single-Arm Cable Chest Press",
+        "publisher": "Muscle & Fitness",
+        "tier": 3,
+        "locator": "https://www.muscleandfitness.com/exercise/workouts/chest-exercises/single-arm-cable-chest-press/",
+        "finding": "Exercise-specific guidance rates the movement Beginner; it uses a staggered standing stance, unilateral cable press, opposite arm for balance, full controlled range and a solid stance for stability."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-ball-shoulder-stretch",
     "exerciseName": "Ball Shoulder Stretch",
     "identityStatus": "IDENTITY_CONFIRMED",

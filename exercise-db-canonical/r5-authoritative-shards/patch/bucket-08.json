@@ -648,6 +648,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "cm-dumbbell-pullover",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-dumbbell-pullover-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "cm-dumbbell-romanian-deadlift",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1254,6 +1262,46 @@
     "after": "HIGH",
     "provenanceId": "R5-cm-rematore-bilanciere-technicalDifficulty",
     "confidence": "MODERATE_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-single-arm-dumbbell-bench-press",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-single-arm-dumbbell-bench-press-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-single-arm-dumbbell-bench-press",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-single-arm-dumbbell-bench-press-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-single-arm-dumbbell-bench-press",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-single-arm-dumbbell-bench-press-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-stretch-pettorale-al-muro",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-cm-stretch-pettorale-al-muro-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-stretch-pettorale-al-muro",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-cm-stretch-pettorale-al-muro-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
   },
   {
     "canonicalExerciseId": "ex-adductor-foam-rolling",

@@ -512,6 +512,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-single-arm-dumbbell-bench-press",
+    "exerciseName": "Single-arm dumbbell bench press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Single-Arm Dumbbell Chest Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/single-arm-dumbbell-chest-press",
+        "finding": "NASM classifies the single-arm dumbbell chest press as an advanced unilateral press for intermediate-to-advanced exercisers, with substantial core stabilization and anti-rotation demand while lying on a stable bench with feet planted."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-foot-elevated-split-squat",
     "exerciseName": "Bulgarian Split Squat",
     "identityStatus": "IDENTITY_CONFIRMED",
