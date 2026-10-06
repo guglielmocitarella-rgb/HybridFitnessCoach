@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "status": "R5_R_RESEARCH_RECOVERY_STAGING_NOT_AUTHORITATIVE",
+  "baselineHead": "0e3d217be550d07b69ccd81ee7881f2d22416fe2",
+  "checkpointBefore": {
+    "processedResidualCells": 1517,
+    "resolvedCells": 1485,
+    "terminalUnresolvedCells": 32,
+    "remainingCells": 2318,
+    "provenanceEntries": 1485,
+    "sourcesVisited": 417,
+    "lastProcessedId": "ex-alternating-front-lever",
+    "firstUnprocessedId": "ex-alternating-v-up-crunch"
+  },
+  "webQueriesExecuted": 19,
+  "instruction": "Do not repeat the 19 searches. This file preserves the recoverable research product from the interrupted tranche. It is staging only and MUST NOT advance authoritative checkpoint counters.",
+  "records": [
+    {
+      "canonicalExerciseId": "ex-alternating-v-up-crunch",
+      "exerciseName": "Alternating V-Up Crunch",
+      "researchState": "EVIDENCE_FOUND",
+      "knownSource": {
+        "title": "Alternating V-Up",
+        "publisher": "Seto",
+        "locator": "https://seto.fit/exercises/alternating-v-up/"
+      },
+      "note": "Exercise-specific evidence was found in the completed 19-query research tranche."
+    },
+    {
+      "canonicalExerciseId": "ex-angled-half-lever",
+      "exerciseName": "Angled Half Lever",
+      "researchState": "EVIDENCE_FOUND",
+      "note": "Exercise-specific evidence was found in the completed 19-query research tranche."
+    },
+    {
+      "canonicalExerciseId": "ex-arch",
+      "exerciseName": "Arch",
+      "researchState": "IDENTITY_INSUFFICIENT",
+      "note": "Do not transfer classifications from cm-arch-body-hold; identity/evidence was not sufficiently unambiguous."
+    },
+    {
+      "canonicalExerciseId": "ex-archer-arm-in-ring-rows",
+      "exerciseName": "Archer-Arm-In Ring Rows",
+      "researchState": "EVIDENCE_FOUND",
+      "note": "Exercise-specific/progression evidence was found in the completed tranche; promotion requires exact source metadata reconstruction from retained session evidence."
+    },
+    {
+      "canonicalExerciseId": "ex-archer-pull-up",
+      "exerciseName": "Archer Pull-Up",
+      "researchState": "EVIDENCE_FOUND",
+      "note": "Exercise-specific evidence was found in the completed 19-query research tranche."
+    },
+    {
+      "canonicalExerciseId": "ex-archer-push-up",
+      "exerciseName": "Archer Push-Up",
+      "researchState": "EVIDENCE_FOUND",
+      "note": "Exercise-specific evidence was found in the completed 19-query research tranche."
+    },
+    {
+      "canonicalExerciseId": "ex-archer-ring-rows",
+      "exerciseName": "Archer Ring Rows",
+      "researchState": "EVIDENCE_FOUND",
+      "note": "Exercise-specific/progression evidence was found in the completed 19-query research tranche."
+    },
+    {
+      "canonicalExerciseId": "ex-arm-circling",
+      "exerciseName": "Arm Circling",
+      "researchState": "EVIDENCE_FOUND",
+      "note": "Exercise-specific evidence was found in the completed 19-query research tranche."
+    }
+  ],
+  "safety": {
+    "authoritativeShardsModified": false,
+    "checkpointModified": false,
+    "candidateDbModified": false,
+    "runtimeDbModified": false,
+    "productionPathModified": false
+  }
+}
