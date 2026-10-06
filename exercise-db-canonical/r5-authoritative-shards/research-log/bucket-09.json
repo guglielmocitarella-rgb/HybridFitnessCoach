@@ -759,6 +759,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-full-front-lever-rows",
+    "exerciseName": "ex-full-front-lever-rows",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Exercise-specific progression or execution evidence supports this capability classification."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-hack-squat",
     "exerciseName": "Hack Squat",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -776,6 +800,29 @@
       "resolved": {
         "balanceCoordinationRequirement": "VERY_LOW",
         "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hip-flexor-stretch",
+    "exerciseName": "ex-hip-flexor-stretch",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Hip flexor stretch",
+        "publisher": "Mayo Clinic",
+        "tier": 2,
+        "locator": "https://www.mayoclinic.org/healthy-lifestyle/fitness/multimedia/stretching/sls-20076840",
+        "finding": "Exercise-specific progression or execution evidence supports this capability classification."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
         "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
