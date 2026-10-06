@@ -773,5 +773,76 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-chair-squat",
+    "exerciseName": "Chair Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Properly Squat and Lunge — Chair squat",
+        "publisher": "Tennessee State Government",
+        "tier": 1,
+        "locator": "https://www.tn.gov/wfhtn/resources/physical-activity/how-to-properly-squat-and-lunge.html",
+        "finding": "Stand in front of a stable chair, brace the core, lower by bending knees and driving hips back, touch the chair with the glutes, then rise slowly; the chair provides a safety target."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-chest-and-shoulder-stretch",
+    "exerciseName": "Chest and Shoulder Stretch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Chest and shoulder stretch",
+        "publisher": "CommonSpirit Health",
+        "tier": 1,
+        "locator": "https://www.commonspirit.org/conditions-treatments/chest-and-shoulder-stretch",
+        "finding": "Sit or stand tall, raise the arms, bend the elbows and lower them while drawing the shoulder blades down/back until a stretch is felt across the chest and front shoulders; hold briefly."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-child-stretch",
+    "exerciseName": "Child Stretch",
+    "identityStatus": "IDENTITY_NOT_CONFIRMED_TERMINAL",
+    "sources": [
+      {
+        "title": "Stretching Exercises: Kids Sports Injury Prevention",
+        "publisher": "Children's Hospital of Orange County",
+        "tier": 1,
+        "locator": "https://choc.org/rehabilitation/physical-therapy/physical-therapy-for-orthopedic-and-sports-related-conditions/stretching-exercises-kids-sports-injury-prevention/",
+        "finding": "Search evidence discusses stretching for children but does not establish an exercise specifically named Child Stretch; exact exercise identity and mechanics remain unverified."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {},
+      "terminalUnresolved": [
+        "mobilityRequirement",
+        "strengthRequirement",
+        "technicalDifficulty"
+      ]
+    }
   }
 ]
