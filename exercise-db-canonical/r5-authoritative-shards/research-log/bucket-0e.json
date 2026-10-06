@@ -374,6 +374,53 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-lean-away-lateral-raise",
+    "exerciseName": "Lean-away lateral raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Leaning Cable Lateral Raise",
+        "publisher": "seto",
+        "tier": 3,
+        "locator": "https://seto.fit/exercises/leaning-cable-lateral-raise/",
+        "finding": "Supported lean-away cable raise with frame support, fixed lean and controlled shoulder-height raise."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-lying-knee-raise",
+    "exerciseName": "Lying knee raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lying Knee Raise Exercise Guide",
+        "publisher": "STHENO Fitness",
+        "tier": 3,
+        "locator": "https://www.sthenofitness.com/exercises/lying-knee-raise",
+        "finding": "Stable supine bent-knee pelvic curl performed without momentum through controlled range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-90-degree-push-up",
     "exerciseName": "90-Degree Push-Up",
     "identityStatus": "IDENTITY_AMBIGUOUS",

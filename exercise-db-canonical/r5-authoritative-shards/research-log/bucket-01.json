@@ -426,6 +426,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-line-hops",
+    "exerciseName": "Line hops",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "7 Line Drills to Improve Agility",
+        "publisher": "NSCA",
+        "tier": 1,
+        "locator": "https://www.nsca.com/education/articles/kinetic-select/7-line-drills-to-improve-agility/",
+        "finding": "Line hops develop footwork, speed and coordination with immediate push-off and multidirectional/single-leg variants."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-back-lever",
     "exerciseName": "Back Lever",
     "identityStatus": "IDENTITY_CONFIRMED",

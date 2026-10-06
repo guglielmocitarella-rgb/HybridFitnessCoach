@@ -284,6 +284,29 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-low-bar-squat",
+    "exerciseName": "Low-bar squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The NASM Guide to Squats and Deadlifts",
+        "publisher": "NASM",
+        "tier": 1,
+        "locator": "https://trainer.nasm.org/hubfs/NASM_Free%20Guide_Squats%20and%20Deadlifts.pdf?hsLang=en",
+        "finding": "Low-bar squat uses specific bar placement, braced walkout, mid-foot loading and greater torso lean/hip dominance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-australian-pull-up",
     "exerciseName": "Australian Pull-Up",
     "identityStatus": "IDENTITY_CONFIRMED",

@@ -469,6 +469,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-leg-raise",
+    "exerciseName": "Leg raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Hanging Leg Raises: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-do-the-hanging-leg-raise-3498232",
+        "finding": "High-level hanging leg raise requires controlled abdominal/hip-flexor effort, shoulders down and no swinging."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-assisted-leg-raise",
     "exerciseName": "Assisted Leg Raise",
     "identityStatus": "IDENTITY_CONFIRMED",
