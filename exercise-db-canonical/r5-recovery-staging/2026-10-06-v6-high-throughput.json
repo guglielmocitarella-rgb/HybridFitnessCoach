@@ -3,8 +3,8 @@
   "version": "V3.10C-R5-R-V6",
   "baselineHead": "2fd88c6fc0281ecf82809249ee7e4765ef2a4bc7",
   "newWebQueries": 25,
-  "evidenceCompleteCapabilityCount": 137,
-  "recordCount": 36,
+  "evidenceCompleteCapabilityCount": 141,
+  "recordCount": 37,
   "records": [
     {
       "canonicalExerciseId": "ex-plank-to-downward-facing-dog",
@@ -603,6 +603,23 @@
         "tier": 2,
         "locator": "https://docs.google.com/spreadsheets/d/19l4tVfdTJLheLMwZBYqcw1oeEBPRh8mxngqrCz2YnVg/edit",
         "finding": "Published progression charts explicitly enumerate ab-wheel and rings progressions by level, including ring rows, planche variants, ring dips, ring handstands/HSPU, L-sit, muscle-up and support progressions."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-rings-turned-out-support-hold",
+      "exerciseName": "Rings-Turned-Out Support Hold",
+      "source": {
+        "title": "Overcoming Gravity 2nd Edition Exercise Charts",
+        "publisher": "Overcoming Gravity",
+        "tier": 2,
+        "locator": "https://docs.google.com/spreadsheets/d/19l4tVfdTJLheLMwZBYqcw1oeEBPRh8mxngqrCz2YnVg/edit",
+        "finding": "Published progression charts explicitly enumerate rings support and rings-turned-out progressions by level alongside ring dips, planche, handstand and L-sit progressions."
       },
       "fieldApplication": {
         "balanceCoordinationRequirement": "HIGH",
