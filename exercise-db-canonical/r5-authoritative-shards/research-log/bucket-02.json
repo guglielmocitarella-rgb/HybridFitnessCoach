@@ -681,5 +681,28 @@
       },
       "terminalUnresolved": []
     }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-seated-shoulder-press",
+    "exerciseName": "Dumbbell Seated Shoulder Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dumbbell Seated Shoulder Press",
+        "publisher": "GymImpulse",
+        "tier": 3,
+        "locator": "https://gymimpulse.com/exercise/dumbbell-seated-shoulder-press",
+        "finding": "Beginner-suitable bilateral overhead press from a seated back-supported position; bench stabilizes torso while arms press from shoulder height overhead."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

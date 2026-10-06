@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V4",
   "baselineHead": "611cd3eb104a621932cca98f5815005ccc63f27b",
   "baselineCheckpoint": {
@@ -216,5 +216,16 @@
         "technicalDifficulty": "HIGH"
       }
     }
-  ]
+  ],
+  "promotedCapabilityCount": 46,
+  "promotedRecordCount": 13,
+  "finalCheckpoint": {
+    "processed": 1785,
+    "resolved": 1737,
+    "terminal": 48,
+    "unprocessed": 2050,
+    "provenance": 1737,
+    "researchLog": 493
+  },
+  "promotionNote": "Promoted via chunked Git-object preparation; checkpoint included only in final complete tree."
 }

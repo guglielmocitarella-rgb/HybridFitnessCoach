@@ -582,6 +582,78 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-extended-plank",
+    "exerciseName": "Extended Plank",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Extended Plank: Form, Muscles Worked, Target Reps & Variations",
+        "publisher": "Fitbod",
+        "tier": 3,
+        "locator": "https://fitbod.me/exercises/extended-plank",
+        "finding": "Intermediate bodyweight plank variation with arms farther forward, significantly increased instability and core engagement required to maintain rigid alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-false-grip-muscle-up",
+    "exerciseName": "False-Grip Muscle-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Muscle up technique, step by step",
+        "publisher": "Calisthenics.dk",
+        "tier": 3,
+        "locator": "https://calisthenics.dk/en/guides/muscle-up-technique",
+        "finding": "Muscle-up requires false grip, explosive pull to lower chest, aggressive transition and press to straight arms; readiness tests require 10 strict pull-ups, 10 full-depth dips and an explosive chest-height pull."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-flat-back-front-lever",
+    "exerciseName": "Flat-Back Front Lever",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Complete Calisthenics Guide",
+        "publisher": "Complete Calisthenics / StudyLib mirror",
+        "tier": 3,
+        "locator": "https://studylib.net/doc/27226669/ashley-kalym---complete-calisthenics---reedited-2016",
+        "finding": "Flat-back front lever is explicitly described as extremely difficult relative to tuck front lever: flattening the back lengthens the core and moves more bodyweight away from the hands, forcing greater back/core force while elbows stay straight and hips align with shoulders."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-front-lever",
     "exerciseName": "Front Lever",
     "identityStatus": "IDENTITY_CONFIRMED",

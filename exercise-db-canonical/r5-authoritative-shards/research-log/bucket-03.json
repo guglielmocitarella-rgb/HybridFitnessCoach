@@ -869,6 +869,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-finger-assisted-one-arm-pull-up",
+    "exerciseName": "Finger-Assisted One-Arm Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Finger-Assisted One Arm Pull Up Progressions",
+        "publisher": "Simple Calisthenics",
+        "tier": 3,
+        "locator": "https://www.simple-calisthenics.com/exercises/fingerAssistedOneArmPullUpProgressions",
+        "finding": "Progression reduces assisting fingers from four to one; near-full bodyweight is borne by the working arm, strict 2-3 second eccentrics are required, and anti-rotation/core bracing demand rises as assistance falls."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-good-morning",
     "exerciseName": "Good Morning",
     "identityStatus": "IDENTITY_CONFIRMED",

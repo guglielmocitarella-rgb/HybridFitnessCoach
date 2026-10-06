@@ -642,6 +642,29 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-dumbbell-flat-bench-flyes",
+    "exerciseName": "Dumbbell Flat Bench Flyes",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dumbbell Flat Bench Flyes: Form Guide, Muscles Worked & Programming",
+        "publisher": "The Workout Mag",
+        "tier": 3,
+        "locator": "https://theworkoutmag.com/training/dumbbell-flat-bench-flyes-form-guide",
+        "finding": "Flat-bench supported isolation fly; feet planted, scapulae set, controlled wide arc and emphasized eccentric control through a large chest/shoulder stretch."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-dumbbell-hang-power-clean",
     "exerciseName": "Dumbbell Hang Power Clean",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -660,6 +683,29 @@
         "balanceCoordinationRequirement": "HIGH",
         "mobilityRequirement": "MODERATE",
         "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-squat",
+    "exerciseName": "Dumbbell Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Dumbbell Squat: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-squat/",
+        "finding": "Shoulder-width bilateral dumbbell squat with light core brace and descent as deep as possible; source explicitly says it is easy to learn and suitable for beginners."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
       },
       "terminalUnresolved": []
     }

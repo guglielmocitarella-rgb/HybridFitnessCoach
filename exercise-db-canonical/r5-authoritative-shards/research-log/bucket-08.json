@@ -682,5 +682,53 @@
         "mobilityRequirement"
       ]
     }
+  },
+  {
+    "canonicalExerciseId": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+    "exerciseName": "Elevated Straddle Stand Straddle Press to Handstand",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Press to Handstand",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/press-to-handstand/",
+        "finding": "High-difficulty straight-arm straddle press to freestanding handstand requiring straight-arm shoulder strength, active compression, flexibility, balance and coordination without jumping."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-finger-pull-up",
+    "exerciseName": "Finger Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Finger Pull Ups: Form Guide, Grip Progressions & Programming",
+        "publisher": "The Workout Mag",
+        "tier": 3,
+        "locator": "https://theworkoutmag.com/training-guide/finger-pull-ups-form-guide-progressions",
+        "finding": "Advanced bodyweight pull-up performed with finger-only or reduced-finger contact, placing extreme stress on finger flexor tendons/pulleys and requiring controlled hanging and pulling."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
   }
 ]

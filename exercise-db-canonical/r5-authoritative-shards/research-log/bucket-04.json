@@ -753,6 +753,53 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-ez-bar-biceps-curl",
+    "exerciseName": "EZ Bar Biceps Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "EZ Bar Biceps Curl",
+        "publisher": "IronYou",
+        "tier": 3,
+        "locator": "https://www.ironyou.app/exercises/ez-bar-biceps-curl/",
+        "finding": "Beginner standing EZ-bar curl: brace torso, keep upper arms mostly still, flex elbows through a comfortable range and lower under control without swinging."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-fingertip-push-up",
+    "exerciseName": "Fingertip Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Fingertip Push-Up: Proper Form, Muscles Worked, Benefits & Safety",
+        "publisher": "Bodybuilding Wizard",
+        "tier": 3,
+        "locator": "https://bodybuilding-wizard.com/fingertip-push-up/",
+        "finding": "Advanced push-up variation supporting bodyweight on fingertips; develops finger strength, hand stability, wrist control and upper-body pushing strength under extended weight-bearing finger position."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-german-hang",
     "exerciseName": "German Hang",
     "identityStatus": "IDENTITY_CONFIRMED",
