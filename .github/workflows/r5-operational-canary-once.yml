@@ -171,3 +171,4 @@ PY
           result=$(cat /tmp/canary.json)
           git commit -m "v3.10c-r5: apply operational canary pushup-to-renegade [skip ci]" -m "R5_CANARY_RESULT=$result" >/dev/null || fail_closed "commit" "unable to commit canary outputs"
           git push origin HEAD:feature/exercise-db-v3 >/tmp/push.log 2>&1 || fail_closed "push" "$(tail -40 /tmp/push.log | tr '\n' ' ')"
+# operational-canary-trigger-no-skip
