@@ -311,6 +311,30 @@
     }
   },
   {
+    "canonicalExerciseId": "cm-wall-handstand-shrug",
+    "exerciseName": "Wall handstand shrug",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Wall handstand shrug",
+        "publisher": "Pocket Fit",
+        "tier": 3,
+        "locator": "https://www.pocket-fit.app/exercises/wall-assisted-handstand-hold",
+        "finding": "Wall-supported inverted bodyweight support with small scapular elevations; wall assists balance but shoulders support bodyweight overhead and scapulae move under load."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-4-point-burpee",
     "exerciseName": "4-Point Burpee",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
