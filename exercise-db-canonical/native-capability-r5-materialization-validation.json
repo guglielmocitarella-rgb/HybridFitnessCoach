@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "V3.10C-R5-MATERIALIZATION-VALIDATION-1",
+  "baselineHead": "8b9cdfbfe1ff3d47bf55e4ae5a8b4ad14c50b15c",
+  "result": "PASS",
+  "r5Partition": {
+    "universe": 3835,
+    "resolvedInUniverse": 3787,
+    "terminalInUniverse": 48,
+    "trueMissing": 0,
+    "arithmetic": "3787 + 48 + 0 = 3835"
+  },
+  "authoritativeImmutability": {
+    "fieldDecisionsBlob": "241efd5726c6a8669eaf90d6ffa5977f4bdd03ed",
+    "evidenceBlob": "4d2fd8c2672d34446bbcbe751c5cc46fe8ce6bb4",
+    "provenanceBlob": "241efd5726c6a8669eaf90d6ffa5977f4bdd03ed",
+    "modified": false
+  },
+  "patch": {
+    "before": 2814,
+    "addedInUniverse": 1178,
+    "after": 3992,
+    "inUniverseParity": "3787/3787",
+    "existingOutOfUniversePatchEntries": 205,
+    "outOfUniverseMissingNotMaterialized": 9,
+    "duplicateSemanticKeys": 0,
+    "orphanPatchTargets": 0
+  },
+  "outOfUniverseDisposition": {
+    "total": 214,
+    "counts": {
+      "ORPHAN_NO_TARGET": 148,
+      "PRESCRIPTION_DEPENDENT_VS_R5_SCALAR": 55,
+      "R3_VS_R5": 9,
+      "R3_IDENTICAL": 2
+    },
+    "precedenceRequired": 64,
+    "orphanNoTarget": 148,
+    "allExactlyOnce": true
+  },
+  "databaseImmutability": {
+    "canonicalDbBlob": "8786eaf73f4c1bf8cd623243f43312dd62db96f9",
+    "candidateR4Blob": "d2b3361183dd5694167c7ca8323268e1d6d13d38",
+    "candidateAliasBlob": "b400dbd49405d5e2350f7fab0849780e4f8d06f2",
+    "engineReadyCandidateBlob": "b400dbd49405d5e2350f7fab0849780e4f8d06f2",
+    "runtimeProductionAssetBlob": "41567fee1747a28249308d60d1e59c80fab864fc",
+    "modified": false
+  },
+  "invariants": {
+    "duplicateProvenance": 0,
+    "noOrphanAppliedArbitrarily": true,
+    "noLegacyLevelFallbackIntroduced": true,
+    "newResearch": false,
+    "candidateRuntimeProductionUnchanged": true
+  }
+}
