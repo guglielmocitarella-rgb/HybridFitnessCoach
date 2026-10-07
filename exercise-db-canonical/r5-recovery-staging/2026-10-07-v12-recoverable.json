@@ -1,0 +1,350 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V12",
+  "baselineHead": "6583e3f8d3de8fd24a5b05fcd9064e25fa041799",
+  "newWebQueries": 28,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-curl",
+      "exerciseName": "Curl",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/322/standing-bicep-curl/",
+        "finding": "ACE classifies the standing cable/band biceps curl as Beginner and describes a supported, controlled elbow-flexion pattern with elbows kept close and slow lowering."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-incline-dumbbell-curl",
+      "exerciseName": "Incline Dumbbell Curl",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/9033/building-better-biceps-evidence-based-exercises-for-strength-and-function/",
+        "finding": "ACE includes the incline curl among standard biceps-strengthening exercises; its seated supported curl family has beginner execution with controlled elbow flexion and little balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-flat-dumbbell-fly",
+      "exerciseName": "Flat Dumbbell Fly",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/chest/",
+        "finding": "ACE lists the lying chest fly with bench and dumbbells as Intermediate; the movement uses a controlled loaded chest-opening arc on a stable bench."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-kneeling-iliopsoas-stretch",
+      "exerciseName": "Kneeling Iliopsoas Stretch",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/142/kneeling-hip-flexor-stretch/",
+        "finding": "ACE classifies the kneeling hip-flexor stretch as Beginner and requires a level stable pelvis, braced core and controlled forward hip motion to increase hip-flexor stretch."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-lateral-shoulder-raise",
+      "exerciseName": "Lateral Shoulder Raise",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/295/lateral-shoulder-raise/",
+        "finding": "ACE classifies the machine lateral shoulder raise as Beginner; seated machine support minimizes balance while controlled shoulder abduction supplies the resistance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-low-pulley-seated-row-machine",
+      "exerciseName": "Low-Pulley Seated Row (Machine)",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/",
+        "finding": "ACE classifies the seated pulley row as Beginner and describes a stable seated pull with straight back, controlled elbow travel and slow return."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-lunge",
+      "exerciseName": "Lunge",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "finding": "ACE lists the forward lunge as Intermediate; it is an unsupported lower-body stepping pattern requiring trunk control and coordinated hip/knee motion."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-lying-barbell-triceps-extension",
+      "exerciseName": "Lying Barbell Triceps Extension",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/36/lying-barbell-triceps-extensions/",
+        "finding": "ACE classifies lying barbell triceps extensions as Intermediate and requires neutral wrists, vertical upper arms and controlled elbow flexion/extension on a bench."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-lying-dumbbell-triceps-extension",
+      "exerciseName": "Lying Dumbbell Triceps Extension",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/certifiednewsarticle/3008/ace-study-identifies-best-triceps-exercises/",
+        "finding": "ACE's triceps study treats lying triceps extensions as loaded elbow-extension work requiring established lifting technique; the lying supported setup limits whole-body balance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-lying-triceps-extension",
+      "exerciseName": "Lying Triceps Extension",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/36/lying-barbell-triceps-extensions/",
+        "finding": "ACE's lying triceps-extension execution is Intermediate, with controlled elbow motion, neutral wrists and fixed upper-arm position on a stable bench."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-front-deltoid-shoulder-press",
+      "exerciseName": "Front Deltoid Shoulder Press",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/186/seated-shoulder-press/",
+        "finding": "ACE describes seated shoulder pressing with scapular control, neutral wrist/spine and overhead shoulder stabilization; the back-supported version limits balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-lateral-lunge",
+      "exerciseName": "Freestanding Lateral Lunge",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "finding": "ACE's lunge library places unsupported lunging in the intermediate range; lateral stepping additionally requires controlled frontal-plane hip motion and single-side weight transfer."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-half-layout-one-leg-out-front-lever",
+      "exerciseName": "Half Layout One-Leg-Out Front Lever",
+      "source": {
+        "publisher": "Progresspedia",
+        "locator": "https://progresspedia.org/courses/calisthenics/front-lever/",
+        "finding": "The front-lever progression explicitly places one-leg/half-lay variants between advanced tuck and harder lever stages, requiring straight-arm scapular strength, rigid body control and progression-specific shape."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-hands-close-together-handstand",
+      "exerciseName": "Hands-Close-Together Handstand",
+      "source": {
+        "publisher": "Ganzaa",
+        "locator": "https://ganzaa.org/learn/units/915-senior-1-physical-education-gymnastics/the-handstand",
+        "finding": "Gymnastics handstand guidance identifies shoulder/arm strength, body tension and balance as core requirements; narrowing hand support does not reduce the inversion and balance-control demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-hang-pull-to-inverted-hang",
+      "exerciseName": "Hang Pull to Inverted Hang",
+      "source": {
+        "publisher": "GymDaze",
+        "locator": "https://gym-daze.com/exercises/hanging-pull-to-front-lever-to-inverted-hang",
+        "finding": "GymDaze classifies the straight-body hanging pull through front lever to inverted hang as Advanced and explicitly tags Strength and Coordination, requiring straight elbows, rigid trunk and a controlled arc."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-iron-cross-pullouts",
+      "exerciseName": "Iron Cross Pullouts",
+      "source": {
+        "publisher": "Beyond Movement",
+        "locator": "https://beyondmovement.com.au/skills/iron-cross",
+        "finding": "Iron-cross progression guidance describes full-bodyweight straight-arm ring adduction with exceptional strength prerequisites, long tissue adaptation and strict straight-arm control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-high-pulley-curl",
+      "exerciseName": "High-Pulley Curl",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/9033/building-better-biceps-evidence-based-exercises-for-strength-and-function/",
+        "finding": "ACE evaluates cable curls as standard biceps-strengthening work; cable resistance preserves a simple elbow-flexion pattern with low whole-body balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-forearm-and-wrist-stretch-1",
+      "exerciseName": "Forearm and Wrist Stretch 1",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/extensors/",
+        "finding": "ACE's arm library includes flexor/extensor mobility work as low-load exercise; a forearm/wrist stretch is mobility-dominant rather than strength- or balance-dominant."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-forearm-and-wrist-stretch-2",
+      "exerciseName": "Forearm and Wrist Stretch 2",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/extensors/",
+        "finding": "ACE's arm library treats wrist/forearm mobility as simple low-load work; the second stretch variant remains mobility-dominant with negligible balance requirement."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-full-body-stretch",
+      "exerciseName": "Full-Body Stretch",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "finding": "ACE's exercise library classifies static and mobility stretches predominantly at Beginner level; full-body stretching is range-of-motion dominant with minimal external strength demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    }
+  ],
+  "evidenceCompleteCapabilityCount": 80,
+  "validation": "PENDING_PROMOTION"
+}
