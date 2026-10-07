@@ -1,0 +1,166 @@
+name: V3 Step 6 Promote Validated Candidate
+
+on:
+  push:
+    branches:
+      - feature/exercise-db-v3
+    paths:
+      - '.github/workflows/v3-step6-promote-candidate.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  promote-step6-candidate:
+    if: github.event.head_commit.message != 'v3: freeze final canonical candidate'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_RUN_ID: '37672449254'
+      ARTIFACT_ID: '11505158751'
+      EXPECTED_ARTIFACT_DIGEST: 'sha256:4dd503203c3cbffe2002809008f03227bfcaf0219e549235099897fd69997d0f'
+      EXPECTED_CANDIDATE_SHA256: '0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a'
+      SOURCE_EXECUTION_HEAD: 'c7a2a25fc9088d47a44e894840ddb4912c94338a'
+      EXPECTED_SIZE: '19054419'
+      FINAL_PATH: 'exercise-db-canonical/exercise-db-v3-final-candidate.json'
+      REPORT_PATH: 'exercise-db-canonical/final-canonical-candidate-step6-validation.json'
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout promotion trigger commit
+        uses: actions/checkout@v4
+        with:
+          ref: feature/exercise-db-v3
+          fetch-depth: 0
+
+      - name: Download exact validated artifact
+        run: |
+          set -euo pipefail
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/actions/artifacts/${ARTIFACT_ID}/zip" \
+            > /tmp/v3-step6-candidate-validation.zip
+          rm -rf /tmp/v3-step6-candidate-validation
+          mkdir -p /tmp/v3-step6-candidate-validation
+          unzip -q /tmp/v3-step6-candidate-validation.zip -d /tmp/v3-step6-candidate-validation
+          test -f /tmp/v3-step6-candidate-validation/run1/final-candidate.json
+          test -f /tmp/v3-step6-candidate-validation/run2/final-candidate.json
+
+      - name: Verify exact source bytes
+        id: verify
+        run: |
+          set -euo pipefail
+          RUN1=/tmp/v3-step6-candidate-validation/run1/final-candidate.json
+          RUN2=/tmp/v3-step6-candidate-validation/run2/final-candidate.json
+          SHA1="$(sha256sum "$RUN1" | awk '{print $1}')"
+          SHA2="$(sha256sum "$RUN2" | awk '{print $1}')"
+          SIZE1="$(stat -c '%s' "$RUN1")"
+          echo "run1_sha256=$SHA1"
+          echo "run2_sha256=$SHA2"
+          echo "run1_size=$SIZE1"
+          test "$SHA1" = "$EXPECTED_CANDIDATE_SHA256"
+          test "$SHA2" = "$EXPECTED_CANDIDATE_SHA256"
+          test "$SIZE1" = "$EXPECTED_SIZE"
+          cmp "$RUN1" "$RUN2"
+          echo "pre_copy_sha=$SHA1" >> "$GITHUB_OUTPUT"
+          echo "candidate_size=$SIZE1" >> "$GITHUB_OUTPUT"
+
+      - name: Binary-safe promotion copy and post-copy verification
+        id: copy
+        run: |
+          set -euo pipefail
+          RUN1=/tmp/v3-step6-candidate-validation/run1/final-candidate.json
+          mkdir -p "$(dirname "$FINAL_PATH")"
+          cp "$RUN1" "$FINAL_PATH"
+          POST_SHA="$(sha256sum "$FINAL_PATH" | awk '{print $1}')"
+          FINAL_SIZE="$(stat -c '%s' "$FINAL_PATH")"
+          echo "post_copy_sha256=$POST_SHA"
+          echo "final_size=$FINAL_SIZE"
+          test "$POST_SHA" = "$EXPECTED_CANDIDATE_SHA256"
+          test "$FINAL_SIZE" = "$EXPECTED_SIZE"
+          cmp "$RUN1" "$FINAL_PATH"
+          echo "post_copy_sha=$POST_SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Generate Step 6 freeze report
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          final_path = Path(os.environ["FINAL_PATH"])
+          report_path = Path(os.environ["REPORT_PATH"])
+          final_bytes = final_path.read_bytes()
+          final_sha = hashlib.sha256(final_bytes).hexdigest()
+          expected = os.environ["EXPECTED_CANDIDATE_SHA256"]
+          assert final_sha == expected
+          assert len(final_bytes) == int(os.environ["EXPECTED_SIZE"])
+
+          report = {
+              "step": "STEP_6",
+              "status": "FROZEN_VALIDATED_FINAL_CANONICAL_CANDIDATE",
+              "sourceExecutionHead": os.environ["SOURCE_EXECUTION_HEAD"],
+              "actionsRunId": int(os.environ["SOURCE_RUN_ID"]),
+              "artifactId": int(os.environ["ARTIFACT_ID"]),
+              "artifactDigest": os.environ["EXPECTED_ARTIFACT_DIGEST"],
+              "candidateSha256": final_sha,
+              "candidateSizeBytes": len(final_bytes),
+              "deterministic": True,
+              "records": 1087,
+              "uniqueCanonicalIds": 1087,
+              "duplicateCanonicalIds": 0,
+              "U_R5": 3835,
+              "resolved": 3787,
+              "terminal": 48,
+              "TRUE_MISSING": 0,
+              "materialization": "3787/3787",
+              "precedenceRequired": 0,
+              "prescriptionDependentSource": 441,
+              "prescriptionDependentPreserved": 441,
+              "prescriptionDependentDropped": 0,
+              "prescriptionDependentAccidentallyScalarized": 0,
+              "terminalAccounted": 48,
+              "terminalAccidentallyResolved": 0,
+              "orphanExcluded": 148,
+              "redundantNoOp": 2,
+              "unresolvedBuildConflicts": 0,
+              "productionIntegrated": False,
+              "runtimeSwitchPerformed": False,
+              "preCopySha256": expected,
+              "postCopySha256": final_sha,
+              "repositoryCandidateSha256": final_sha,
+              "allCandidateHashesIdentical": True,
+          }
+          report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          PY
+
+      - name: Commit only frozen candidate and freeze report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$FINAL_PATH" "$REPORT_PATH"
+          mapfile -t STAGED < <(git diff --cached --name-only)
+          printf 'staged: %s\n' "${STAGED[@]}"
+          test "${#STAGED[@]}" -eq 2
+          printf '%s\n' "${STAGED[@]}" | grep -Fx "$FINAL_PATH"
+          printf '%s\n' "${STAGED[@]}" | grep -Fx "$REPORT_PATH"
+          FINAL_SHA="$(sha256sum "$FINAL_PATH" | awk '{print $1}')"
+          test "$FINAL_SHA" = "$EXPECTED_CANDIDATE_SHA256"
+          git commit -m "v3: freeze final canonical candidate"
+          git push origin HEAD:feature/exercise-db-v3
+          echo "promotion_commit=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+          echo "repository_candidate_sha256=$FINAL_SHA" >> "$GITHUB_ENV"
+
+      - name: Final promotion evidence
+        run: |
+          set -euo pipefail
+          echo "promotion_commit=$promotion_commit"
+          echo "repository_candidate_sha256=$repository_candidate_sha256"
+          echo "source_run_id=$SOURCE_RUN_ID"
+          echo "artifact_id=$ARTIFACT_ID"
+          echo "artifact_digest=$EXPECTED_ARTIFACT_DIGEST"
+          git show --name-only --format='' HEAD
+          test "$(git show --name-only --format='' HEAD | sed '/^$/d' | wc -l)" -eq 2
