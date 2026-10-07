@@ -1,12 +1,13 @@
-name: V3 Step 7B Structural Validation\n# Step 7B recovery rerun
+name: V3 Step 7B Structural Validation
 on:
   push:
-    branches: [ feature/exercise-db-v3 ]
+    branches:
+      - feature/exercise-db-v3
     paths:
-      - 'tools/validate_final_canonical_candidate_step7b.py'
-      - '.github/workflows/v3-step7b-structural-validation.yml'
+      - tools/validate_final_canonical_candidate_step7b.py
+      - .github/workflows/v3-step7b-structural-validation.yml
   workflow_dispatch:
-# gate revision 2\npermissions:
+permissions:
   contents: read
 jobs:
   validate:
