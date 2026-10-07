@@ -1,5 +1,5 @@
 {
-  "status": "STAGED_RECOVERABLE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "R5/V26",
   "baselineHead": "07ff1e8f13cbeaa5b53ebc3f1346f242e026c09b",
   "workset": "native-capability-r5-true-missing.json",
@@ -548,5 +548,14 @@
     "stagedCapabilities": 84,
     "freshCapabilities": 84,
     "newTerminal": 0
+  },
+  "promotion": {
+    "freshCapabilities": 84,
+    "newTerminal": 0,
+    "resolvedInUniverseAfter": 3585,
+    "terminalInUniverseAfter": 48,
+    "trueMissingAfter": 202,
+    "authoritativeOutOfUniverse": 214,
+    "validation": "PASS"
   }
 }

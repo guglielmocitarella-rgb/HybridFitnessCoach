@@ -1,12 +1,12 @@
 {
   "version": "V3.10C-R5-SET-VALIDATION",
-  "baseline": "447605aa125bd5b652caa7f45acd6c8d5782b771",
+  "baseline": "5a562125a1e3162035d5ee42547972e4b7d1f663",
   "result": "PASS",
   "counts": {
     "universe": 3835,
-    "resolvedInUniverse": 3501,
+    "resolvedInUniverse": 3585,
     "terminalInUniverse": 48,
-    "trueMissing": 286,
+    "trueMissing": 202,
     "authoritativeOutOfUniverse": 214
   },
   "invariants": {
@@ -18,12 +18,13 @@
     "partitionUnionCount": 3835,
     "partitionEqualsUniverse": true,
     "trueMissingOutsideUniverse": 0,
-    "arithmetic": "3501 + 48 + 286 = 3835"
+    "arithmetic": "3585 + 48 + 202 = 3835"
   },
   "guardPolicy": {
     "promotionRequiresUniverseMembership": true,
     "promotionRequiresCurrentTrueMissingMembership": true,
     "rejectAlreadyClassified": true,
     "remainingDerivedFromTrueMissing": true
-  }
+  },
+  "lastPromotion": "R5/V26"
 }
