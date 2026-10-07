@@ -175,6 +175,7 @@ def build_candidate(data, enforce_repository_contract=True):
         "prescriptionDependentSource": 0,
         "prescriptionDependentPreserved": 0,
         "prescriptionDependentDropped": 0,
+        "prescriptionDependentKeepActions": 0,
         "accidentallyScalarized": 0,
         "terminalAccounted": 0,
         "orphanExcluded": 0,
@@ -262,7 +263,8 @@ def build_candidate(data, enforce_repository_contract=True):
         for field in CAPABILITY_FIELDS:
             if r["capability"].get(field) == PD:
                 output_pd.add(semantic_key(r["canonicalExerciseId"], field))
-    report["prescriptionDependentPreserved"] = len(source_pd & output_pd)\n    report["prescriptionDependentDropped"] = len(source_pd - output_pd)
+    report["prescriptionDependentPreserved"] = len(source_pd & output_pd)
+    report["prescriptionDependentDropped"] = len(source_pd - output_pd)
     report["accidentallyScalarized"] = len(
         (source_pd - output_pd) & {
             k for k, d in decision_by_key.items()
