@@ -4,9 +4,9 @@
   "result": "PASS",
   "counts": {
     "universe": 3835,
-    "resolvedInUniverse": 3746,
+    "resolvedInUniverse": 3787,
     "terminalInUniverse": 48,
-    "trueMissing": 41,
+    "trueMissing": 0,
     "authoritativeOutOfUniverse": 214
   },
   "invariants": {
@@ -18,7 +18,7 @@
     "partitionUnionCount": 3835,
     "partitionEqualsUniverse": true,
     "trueMissingOutsideUniverse": 0,
-    "arithmetic": "3746 + 48 + 41 = 3835"
+    "arithmetic": "3787 + 48 + 0 = 3835"
   },
   "guardPolicy": {
     "promotionRequiresUniverseMembership": true,
@@ -26,5 +26,5 @@
     "rejectAlreadyClassified": true,
     "remainingDerivedFromTrueMissing": true
   },
-  "lastPromotion": "R5/V28"
+  "lastPromotion": "R5/V29"
 }
