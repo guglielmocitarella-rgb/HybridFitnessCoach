@@ -1,0 +1,451 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "R5/V22",
+  "baselineHead": "f424e915b15793c644de364566486f24e830fb48",
+  "note": "R5/V22 source-family research staging. FRESH true-missing capability decisions only; existing authoritative decisions excluded losslessly before staging.",
+  "newWebQueries": 12,
+  "overlapExclusion": {
+    "capabilities": 0,
+    "keys": [],
+    "policy": "preserve existing authoritative decisions; do not restage or replace"
+  },
+  "records": [
+    {
+      "canonicalExerciseId": "ex-superman",
+      "exerciseName": "Superman",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/9/supermans/",
+        "tier": 2,
+        "locator": "Beginner prone trunk/hip/shoulder extension with controlled spinal stabilization; low balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-superman-push-up",
+      "exerciseName": "Superman Push-Up",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/pros/expert-articles/4943/total-body-plyometrics-workout/",
+        "tier": 2,
+        "locator": "Explosive push-up family requires elite-level upper-body power, rapid landing control and advanced coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-supine-barbell-french-curl",
+      "exerciseName": "Supine Barbell French Curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/triceps/",
+        "tier": 2,
+        "locator": "Supported supine loaded elbow-extension pattern has low balance demand, moderate shoulder/elbow positioning demand and controlled technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-supine-gluteal-stretch",
+      "exerciseName": "Supine Gluteal Stretch",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/blog/6499/flexibility-exercises-for-beginners/",
+        "tier": 2,
+        "locator": "Reclining glute stretch is a supported flexibility drill with negligible strength demand and simple technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-supine-legs-to-chest",
+      "exerciseName": "Supine Legs to Chest",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/146/supine-hip-flexor-stretch/",
+        "tier": 2,
+        "locator": "Supported supine knee-to-chest positioning is low-load and low-balance, with moderate hip/lumbar mobility demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-supine-lying-deep-external-rotators-stretch",
+      "exerciseName": "Supine Lying Deep External Rotators Stretch",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/blog/6499/flexibility-exercises-for-beginners/",
+        "tier": 2,
+        "locator": "Reclining figure-4 targets outer hip/gluteal tissues; supported position makes strength and technique demands minimal while hip mobility is primary."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-supine-lying-single-leg-hamstring-stretch",
+      "exerciseName": "Supine Lying Single-Leg Hamstring Stretch",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/235/supine-hamstrings-stretch/",
+        "tier": 2,
+        "locator": "Beginner supported hamstring stretch emphasizes controlled range and spinal stabilization with minimal force or balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-transverse-abdominal-ball-crunch",
+      "exerciseName": "Transverse Abdominal Ball Crunch",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/68/stability-ball-sit-ups-crunches/",
+        "tier": 2,
+        "locator": "Ball crunch is beginner-level but explicitly requires maintaining balance on an unstable surface while controlling trunk flexion."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-transverse-activation-in-4-point-kneeling",
+      "exerciseName": "Transverse Activation in 4-Point Kneeling",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/abs/",
+        "tier": 2,
+        "locator": "Quadruped deep-core activation is a low-load stabilization drill with a broad base of support and modest technique demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-trap-bar-deadlift",
+      "exerciseName": "Trap Bar Deadlift",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/6/deadlift/",
+        "tier": 2,
+        "locator": "Advanced loaded hinge requires controlled hip mechanics and trunk bracing; bilateral stance keeps balance demand low."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-triceps-dip",
+      "exerciseName": "Triceps Dip",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/about-ace/press-room/press-releases/2718/american-council-on-exercise-study-highlights-most-effective-triceps-exercises/",
+        "tier": 2,
+        "locator": "Dips produce high triceps activation and require bodyweight pressing with shoulder control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-triceps-kickback",
+      "exerciseName": "Triceps Kickback",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/triceps/",
+        "tier": 2,
+        "locator": "Kickback is a conventional controlled isolation exercise with limited mobility and balance demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-triceps-push-up",
+      "exerciseName": "Triceps Push-Up",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/?page=4",
+        "tier": 2,
+        "locator": "Push-up family is intermediate; triceps emphasis retains substantial bodyweight pressing demand and moderate whole-body control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-triceps-pushdown-machine",
+      "exerciseName": "Triceps Pushdown (Machine)",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/triceps/",
+        "tier": 2,
+        "locator": "Machine-supported elbow extension has low balance and mobility demands with straightforward controlled technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-triple-clap-push-up",
+      "exerciseName": "Triple-Clap Push-Up",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/pros/expert-articles/4943/total-body-plyometrics-workout/",
+        "tier": 2,
+        "locator": "Explosive push-up plyometrics are elite-level; a triple-clap variant compounds power, timing and landing-control requirements."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-back-lever",
+      "exerciseName": "Tuck Back Lever",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tuck back-lever is an advanced straight-arm bodyweight progression requiring high relative strength and body-line control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-front-lever",
+      "exerciseName": "Tuck Front Lever",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tuck front-lever is a foundational lever progression requiring high pulling/core strength and coordinated body-line control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-front-lever-hold",
+      "exerciseName": "Tuck Front Lever Hold",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Isometric tuck front-lever hold requires sustained high pulling/core strength and precise scapular/body-line control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-front-lever-raise",
+      "exerciseName": "Tuck Front Lever Raise",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Dynamic tuck front-lever raising increases strength and technical demand beyond the static tuck position."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-front-lever-rows",
+      "exerciseName": "Tuck Front Lever Rows",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Front-lever rowing combines lever-body control with dynamic pulling, producing very high relative-strength and high technical demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-half-lever",
+      "exerciseName": "Tuck Half Lever",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tucked lever-family hold requires high core/shoulder strength and coordinated rigid-body control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-jump",
+      "exerciseName": "Tuck Jump",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/pros/expert-articles/4943/total-body-plyometrics-workout/",
+        "tier": 2,
+        "locator": "Explosive jump family requires rapid force production and coordinated takeoff/landing; mobility demand is moderate."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-l-sit",
+      "exerciseName": "Tuck L-Sit",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tuck L-sit requires substantial compression/support strength with moderate hip mobility and controlled static balance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "promotion": {
+    "stagedRecords": 23,
+    "stagedCapabilities": 85,
+    "preexistingAuthoritativeCapabilities": 0,
+    "freshCapabilities": 85,
+    "validation": "PENDING"
+  }
+}
