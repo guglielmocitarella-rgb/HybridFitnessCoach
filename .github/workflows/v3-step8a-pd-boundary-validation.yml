@@ -25,8 +25,14 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.6.0'
+      - name: Generate frozen-candidate native coverage test
+        run: python3 tools/generate_step8a_pd_coverage_test.py
       - name: Compile and run native V3 Step 8A tests
-        run: gradle :app:testDebugUnitTest --tests 'com.hybridfitnesscoach.app.domain.v3.*'
+        run: >-
+          gradle :app:testDebugUnitTest
+          --tests 'com.hybridfitnesscoach.app.domain.v3.V3PrescriptionDependentStrengthTest'
+          --tests 'com.hybridfitnesscoach.app.domain.v3.V3PdGeneratedCoverageTest'
+          --tests 'com.hybridfitnesscoach.app.domain.v3.V3SelectionEngineV310CTest'
       - name: Step 8A machine validation
         run: python3 tools/validate_step8a_pd_boundary.py
       - name: Step 7B structural regression
