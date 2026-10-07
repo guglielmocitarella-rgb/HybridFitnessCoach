@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "R5/V25",
   "baselineHead": "62ef1880fa89f8a07abbb00f47cd2aa758e0c322",
   "note": "82 FRESH evidence-complete capabilities targeted; source-family research prioritized.",
@@ -429,9 +429,9 @@
     }
   ],
   "promotion": {
-    "state": "RECOVERABLE_NOT_AUTHORITATIVE",
+    "state": "PROMOTED_AUTHORITATIVE",
     "freshCapabilities": 82,
     "overlapExcluded": 0,
-    "validation": "PENDING"
+    "validation": "PASS"
   }
 }
