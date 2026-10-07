@@ -566,6 +566,29 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-hang-power-clean",
+    "exerciseName": "Hang Power Clean",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hang Power Clean",
+        "publisher": "CrossFit",
+        "tier": 3,
+        "locator": "https://www.crossfit.com/essentials/the-hang-power-clean",
+        "finding": "Hang power clean uses rapid hip/leg extension, pull-under and partial front-squat reception; CrossFit explicitly describes technical complexity, coordination, balance, flexibility/mobility and sound technique."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-incline-barbell-bench-press",
     "exerciseName": "Incline Barbell Bench Press",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
@@ -585,6 +608,30 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-iron-cross-to-back-lever",
+    "exerciseName": "Iron Cross to Back Lever",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Iron Cross to Back Lever",
+        "publisher": "GymDaze",
+        "tier": 3,
+        "locator": "https://gym-daze.com/exercises/iron-cross-to-back-lever",
+        "finding": "Expert rings transition from iron cross to horizontal back lever with straight elbows, controlled shoulder transition and rigid body line; explicitly classified for stability and strength."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "VERY_HIGH"
       },
       "terminalUnresolved": []
     }

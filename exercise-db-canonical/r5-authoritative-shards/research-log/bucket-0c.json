@@ -907,6 +907,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-hands-elevated-one-arm-pushup",
+    "exerciseName": "Hands-Elevated One-Arm Pushup",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hands-Elevated One-Arm Pushup",
+        "publisher": "Vital Proteins",
+        "tier": 3,
+        "locator": "https://www.vitalproteins.com/blogs/fitness/how-to-do-one-arm-push-ups",
+        "finding": "Elevated one-arm push-up reduces bodyweight versus floor one-arm push-up but remains a unilateral pressing progression requiring anti-rotation and controlled single-arm support."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-incline-push-up",
     "exerciseName": "Incline Push-Up",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -973,6 +997,29 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "MODERATE",
         "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-kettlebell-front-squat",
+    "exerciseName": "Kettlebell Front Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kettlebell Front Squat",
+        "publisher": "NASM",
+        "tier": 3,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/kettlebell-front-squat",
+        "finding": "Front-loaded squat requires controlled descent to about parallel, substantial core stability and postural control; NASM describes the movement as intermediate to advanced."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
       },
       "terminalUnresolved": []
     }

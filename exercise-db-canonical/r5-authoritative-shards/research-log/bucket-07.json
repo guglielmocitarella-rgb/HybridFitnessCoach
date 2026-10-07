@@ -678,6 +678,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-front-plank-with-rotation",
+    "exerciseName": "Front Plank with Rotation",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Front Plank with Rotation",
+        "publisher": "OPEX Fitness",
+        "tier": 3,
+        "locator": "https://www.opexfit.com/blog/the-10-best-bodyweight-core-exercises",
+        "finding": "Front plank rotates onto one arm into a side-plank position while maintaining a rigid trunk; exercise progression requires trunk stability and controlled rotation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hamstring-curl",
+    "exerciseName": "Hamstring Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hamstring Curl",
+        "publisher": "NASM",
+        "tier": 3,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/lying-leg-curl",
+        "finding": "Machine hamstring curl is a stable supported isolation exercise with controlled knee flexion/extension; NASM describes a safe stable environment and controlled movement for all fitness levels."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-knee-ups",
     "exerciseName": "Knee-Ups",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

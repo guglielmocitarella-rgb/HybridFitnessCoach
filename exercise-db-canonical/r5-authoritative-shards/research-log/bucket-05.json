@@ -790,6 +790,54 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-handstand-lower-to-back-lever",
+    "exerciseName": "Handstand Lower to Back Lever",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Handstand Lower to Back Lever",
+        "publisher": "GymDaze",
+        "tier": 3,
+        "locator": "https://gym-daze.com/exercises/handstand-lower-to-back-lever",
+        "finding": "Expert rings transition from straight-body handstand through a controlled straight-arm lowering arc to a horizontal back lever; explicitly classified for coordination, stability and strength."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-hang-to-front-lever-row",
+    "exerciseName": "Hang to Front Lever Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hang to Front Lever Row",
+        "publisher": "Calistree",
+        "tier": 3,
+        "locator": "https://calistree.app/exercise?id=e04o",
+        "finding": "From straight-arm hang, athlete pulls and angles the whole body to horizontal while keeping a fully straight body and reverses under control; strength skill with high body-control demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-hanging-leg-raise",
     "exerciseName": "Hanging Leg Raise",
     "identityStatus": "IDENTITY_CONFIRMED",
@@ -809,6 +857,30 @@
         "mobilityRequirement": "MODERATE",
         "strengthRequirement": "HIGH",
         "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-high-to-low-plank",
+    "exerciseName": "High-to-Low Plank",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "High-to-Low Plank",
+        "publisher": "Men's Journal",
+        "tier": 3,
+        "locator": "https://www.mensjournal.com/fitness/the-best-hiit-workout-for-beginners-to-burn-fat-mens-journal",
+        "finding": "High-to-low plank alternates forearm and hand support while maintaining an engaged core and plank body line, creating moderate upper-body/core control demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "MODERATE"
       },
       "terminalUnresolved": []
     }

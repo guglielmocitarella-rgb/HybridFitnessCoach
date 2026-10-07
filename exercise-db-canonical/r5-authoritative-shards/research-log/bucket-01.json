@@ -923,6 +923,29 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-hang-power-snatch",
+    "exerciseName": "Hang Power Snatch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hang Power Snatch",
+        "publisher": "CrossFit",
+        "tier": 3,
+        "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch",
+        "finding": "Hang power snatch moves a load from above the knees to overhead in one continuous motion; CrossFit explicitly calls technical demands high and describes flexibility/mobility, coordination, accuracy and balance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-l-sit-dips",
     "exerciseName": "L-Sit Dips",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",

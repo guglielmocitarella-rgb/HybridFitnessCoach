@@ -857,6 +857,30 @@
     }
   },
   {
+    "canonicalExerciseId": "ex-half-lever-swimmers",
+    "exerciseName": "ex-half-lever-swimmers",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Exercise-specific progression or execution evidence supports this capability classification."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
     "canonicalExerciseId": "ex-half-lever",
     "exerciseName": "ex-half-lever",
     "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
@@ -881,25 +905,25 @@
     }
   },
   {
-    "canonicalExerciseId": "ex-half-lever-swimmers",
-    "exerciseName": "ex-half-lever-swimmers",
-    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "canonicalExerciseId": "ex-heel-kicks",
+    "exerciseName": "Heel Kicks",
+    "identityStatus": "IDENTITY_CONFIRMED",
     "sources": [
       {
-        "title": "Complete Calisthenics",
-        "publisher": "Ashley Kalym / Complete Calisthenics",
-        "tier": 2,
-        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
-        "finding": "Exercise-specific progression or execution evidence supports this capability classification."
+        "title": "Heel Kicks",
+        "publisher": "Pure Sports Medicine",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=J7VPWi9sazQ",
+        "finding": "Running drill performed from a slow jog with repeated heel-to-glute action; targets hamstrings/quads, flexibility, running mechanics and faster leg turnover."
       }
     ],
     "decision": "FIELD_APPLICATION_COMPLETED",
     "fieldApplication": {
       "resolved": {
-        "balanceCoordinationRequirement": "HIGH",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
         "mobilityRequirement": "MODERATE",
-        "strengthRequirement": "HIGH",
-        "technicalDifficulty": "HIGH"
+        "balanceCoordinationRequirement": "MODERATE"
       },
       "terminalUnresolved": []
     }

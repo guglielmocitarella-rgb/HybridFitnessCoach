@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V11",
   "baselineHead": "47482218e11503f7d9be460daaa301852df2753b",
   "newWebQueries": 77,
@@ -190,5 +190,12 @@
     }
   ],
   "evidenceCompleteCapabilityCount": 41,
-  "validation": "PRE_PROMOTION_LOCAL_SCHEMA_READY"
+  "validation": "PASS",
+  "promotion": {
+    "newAuthoritativeCapabilities": 41,
+    "newProcessedRecords": 11,
+    "authoritativeTotalAfter": 2571,
+    "checkpointProcessedAfter": 2619,
+    "checkpointRemainingAfter": 1216
+  }
 }
