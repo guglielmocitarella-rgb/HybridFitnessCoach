@@ -208,22 +208,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
-    "field": "balanceCoordinationRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-cm-bear-plank-shoulder-tap-balanceCoordinationRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
-    "field": "technicalDifficulty",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-bear-plank-shoulder-tap-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-bear-plank",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -237,6 +221,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-cm-bear-plank-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
+    "field": "balanceCoordinationRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-cm-bear-plank-shoulder-tap-balanceCoordinationRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-bear-plank-shoulder-tap-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -288,19 +288,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
-    "field": "technicalDifficulty",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "MODERATE",
-    "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "cm-cable-face-pull",
     "field": "technicalDifficulty",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-cm-cable-face-pull-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "cm-cable-face-pull-with-external-rotation",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-cm-cable-face-pull-with-external-rotation-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -1456,6 +1456,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-advanced-tuck-planche",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-advanced-tuck-planche-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -1469,14 +1477,6 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-advanced-tuck-planche-pushups-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-advanced-tuck-planche",
-    "field": "technicalDifficulty",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-advanced-tuck-planche-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2328,6 +2328,22 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-freestanding-handstand",
+    "field": "mobilityRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-freestanding-handstand-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-handstand",
+    "field": "technicalDifficulty",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-freestanding-handstand-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-freestanding-handstand-pushup",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2368,22 +2384,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-freestanding-handstand",
-    "field": "mobilityRequirement",
-    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-freestanding-handstand-mobilityRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-freestanding-handstand",
-    "field": "technicalDifficulty",
-    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-freestanding-handstand-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-frog-hop",
     "field": "mobilityRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2405,6 +2405,22 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-front-dip-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever",
+    "field": "strengthRequirement",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-front-lever-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever",
+    "field": "technicalDifficulty",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-front-lever-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2432,30 +2448,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-front-lever",
-    "field": "strengthRequirement",
-    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-front-lever-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-front-lever",
-    "field": "technicalDifficulty",
-    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-front-lever-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
-    "canonicalExerciseId": "ex-front-plank-with-rotation",
-    "field": "technicalDifficulty",
-    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "after": "MODERATE",
-    "provenanceId": "R5-ex-front-plank-with-rotation-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-front-plank",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2469,6 +2461,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-front-plank-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-front-plank-with-rotation",
+    "field": "technicalDifficulty",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-front-plank-with-rotation-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2504,19 +2504,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-german-hang-pullout",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-german-hang-pullout-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-german-hang",
     "field": "mobilityRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "HIGH",
     "provenanceId": "R5-ex-german-hang-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-german-hang-pullout",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-german-hang-pullout-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2536,19 +2536,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-half-lever-bicycles",
-    "field": "strengthRequirement",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-half-lever-bicycles-strengthRequirement",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-half-lever",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
     "provenanceId": "R5-ex-half-lever-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-half-lever-bicycles",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-half-lever-bicycles-strengthRequirement",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2584,14 +2584,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-handstand-lower-to-back-lever",
-    "field": "technicalDifficulty",
-    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "after": "VERY_HIGH",
-    "provenanceId": "R5-ex-handstand-lower-to-back-lever-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-handstand",
     "field": "balanceCoordinationRequirement",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -2613,6 +2605,14 @@
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "HIGH",
     "provenanceId": "R5-ex-handstand-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-handstand-lower-to-back-lever",
+    "field": "technicalDifficulty",
+    "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "after": "VERY_HIGH",
+    "provenanceId": "R5-ex-handstand-lower-to-back-lever-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2648,6 +2648,14 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-high-low-banded-chest-fly",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-high-low-banded-chest-fly-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-high-to-low-plank",
     "field": "technicalDifficulty",
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -2669,6 +2677,22 @@
     "before": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
     "after": "VERY_HIGH",
     "provenanceId": "R5-ex-human-flag-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-in-line-pull-up",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-in-line-pull-up-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-in-line-pull-up",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-in-line-pull-up-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2864,14 +2888,6 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-lunge-jump",
-    "field": "technicalDifficulty",
-    "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-lunge-jump-technicalDifficulty",
-    "confidence": "HIGH_CONFIDENCE"
-  },
-  {
     "canonicalExerciseId": "ex-lunge",
     "field": "balanceCoordinationRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2885,6 +2901,14 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "MODERATE",
     "provenanceId": "R5-ex-lunge-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-lunge-jump",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-lunge-jump-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2952,19 +2976,19 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-muscle-up-negatives",
-    "field": "mobilityRequirement",
+    "canonicalExerciseId": "ex-mid-cable-chest-fly",
+    "field": "technicalDifficulty",
     "before": "EVIDENCE_UNRESOLVED",
-    "after": "HIGH",
-    "provenanceId": "R5-ex-muscle-up-negatives-mobilityRequirement",
+    "after": "MODERATE",
+    "provenanceId": "R5-ex-mid-cable-chest-fly-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
-    "canonicalExerciseId": "ex-muscle-up-negatives",
+    "canonicalExerciseId": "ex-multidirectional-lunges",
     "field": "technicalDifficulty",
     "before": "EVIDENCE_UNRESOLVED",
     "after": "HIGH",
-    "provenanceId": "R5-ex-muscle-up-negatives-technicalDifficulty",
+    "provenanceId": "R5-ex-multidirectional-lunges-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
@@ -2984,6 +3008,38 @@
     "confidence": "HIGH_CONFIDENCE"
   },
   {
+    "canonicalExerciseId": "ex-muscle-up-negatives",
+    "field": "mobilityRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-muscle-up-negatives-mobilityRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-muscle-up-negatives",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-muscle-up-negatives-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-neck-and-shoulder-stretch",
+    "field": "strengthRequirement",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "VERY_LOW",
+    "provenanceId": "R5-ex-neck-and-shoulder-stretch-strengthRequirement",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-neck-and-shoulder-stretch",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-neck-and-shoulder-stretch-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
     "canonicalExerciseId": "ex-negative-chin-up",
     "field": "strengthRequirement",
     "before": "EVIDENCE_UNRESOLVED",
@@ -2997,6 +3053,30 @@
     "before": "EVIDENCE_UNRESOLVED",
     "after": "LOW",
     "provenanceId": "R5-ex-negative-chin-up-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-negative-hamstring-curl",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-negative-hamstring-curl-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-neutral-grip-horizontal-row",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "LOW",
+    "provenanceId": "R5-ex-neutral-grip-horizontal-row-technicalDifficulty",
+    "confidence": "HIGH_CONFIDENCE"
+  },
+  {
+    "canonicalExerciseId": "ex-non-kipping-clapping-pull-ups",
+    "field": "technicalDifficulty",
+    "before": "EVIDENCE_UNRESOLVED",
+    "after": "HIGH",
+    "provenanceId": "R5-ex-non-kipping-clapping-pull-ups-technicalDifficulty",
     "confidence": "HIGH_CONFIDENCE"
   },
   {
