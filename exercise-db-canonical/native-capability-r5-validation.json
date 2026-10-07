@@ -1,10 +1,10 @@
 {
-  "status": "CHECKPOINT_SHARDED_AUTHORITATIVE_VALIDATED",
+  "status": "DUPLICATE_PROVENANCE_REMEDIATION_VALIDATED",
   "initialResidual": 3835,
-  "processedCells": 2183,
-  "resolvedCells": 2135,
+  "processedCells": 2578,
+  "resolvedCells": 2530,
   "terminalUnresolved": 48,
-  "remainingUnprocessed": 1652,
+  "remainingUnprocessed": 1257,
   "researchedRecords": 599,
   "strengthPrescriptionDependentPreserved": 441,
   "nameOnlyInference": false,
@@ -26,5 +26,17 @@
     "routingViolationsHistorical": 11,
     "routingViolationsAdded": 0,
     "result": "PASS"
+  },
+  "duplicateProvenanceRemediation": {
+    "duplicateProvenanceIdsBefore": 7,
+    "duplicateProvenanceIdsAfter": 0,
+    "duplicateAuthoritativeKeysBefore": 7,
+    "duplicateAuthoritativeKeysAfter": 0,
+    "missing": 0,
+    "orphan": 0,
+    "semanticMutation": 0,
+    "checkpointArithmetic": "PASS",
+    "arithmetic": "2530 + 48 + 1257 = 3835",
+    "newResearch": false
   }
 }
