@@ -39,5 +39,18 @@ class V3PrescriptionDependentStrengthTest {
     @Test fun changedContextDoesNotLeak(){val x=ex();assertEquals(V3ContextualEligibilityState.ELIGIBLE,V3PdStrengthResolver.evaluate(x,ctx(ResistanceSource.EXTERNAL_LOAD,20.0,20.0)).state);assertEquals(V3ContextualEligibilityState.INELIGIBLE,V3PdStrengthResolver.evaluate(x,ctx(ResistanceSource.EXTERNAL_LOAD,30.0,20.0)).state)}
     @Test fun selectionExposesPdReasons(){val x=ex();val no=V3SelectionEngine.evaluate(x,athlete,V3SelectionEnvironment(),V3SelectionIntent());assertTrue(V3SelectionRejection.PD_STRENGTH_CONTEXT_INSUFFICIENT in no.reasons);val yes=V3SelectionEngine.evaluate(x,athlete,V3SelectionEnvironment(),V3SelectionIntent(pdStrengthContext=ctx(ResistanceSource.EXTERNAL_LOAD,20.0,20.0)));assertTrue(yes.eligible)}
     @Test fun knownStrengthStillUsesOrdinalComparison(){val x=ex().copy(capabilities=CapabilityRequirements(SemanticValue.known(CapabilityLevel.HIGH),low,low,low));assertTrue(V3SelectionRejection.CAPABILITY_INSUFFICIENT in V3SelectionEngine.evaluate(x,athlete,V3SelectionEnvironment(),V3SelectionIntent()).reasons)}
+    @Test fun externalLoadBelowCapacityIsEligible(){assertEquals(V3ContextualEligibilityState.ELIGIBLE,V3PdStrengthResolver.evaluate(ex(),ctx(ResistanceSource.EXTERNAL_LOAD,10.0,20.0)).state)}
+    @Test fun assistedNoContextIsUnresolved(){assertEquals(V3ContextualEligibilityState.EXERCISE_REQUIREMENT_UNRESOLVED,V3PdStrengthResolver.evaluate(ex(ResistanceSource.ASSISTED),null).state)}
+    @Test fun assistedInsufficientEnvelopeIsUnresolved(){val c=ctx(ResistanceSource.ASSISTED,2.0,2.0).copy(athleteCapacity=V3AthleteExerciseCapacityEnvelope(emptyList()));assertEquals(V3ContextualEligibilityState.EXERCISE_REQUIREMENT_UNRESOLVED,V3PdStrengthResolver.evaluate(ex(ResistanceSource.ASSISTED),c).state)}
+    @Test fun assistedInvalidUnitIsInvalid(){assertEquals(V3ContextualEligibilityState.INVALID_PRESCRIPTION_CONTEXT,V3PdStrengthResolver.evaluate(ex(ResistanceSource.ASSISTED),ctx(ResistanceSource.ASSISTED,2.0,2.0,InputUnit.KILOGRAMS)).state)}
+    @Test fun zeroOccurrenceFuturePdDimensionsFailClosed(){
+        val base=ex()
+        val variants=listOf(
+            base.copy(capabilities=base.capabilities.copy(technicalDifficulty=SemanticValue.prescriptionDependent())),
+            base.copy(capabilities=base.capabilities.copy(mobilityRequirement=SemanticValue.prescriptionDependent())),
+            base.copy(capabilities=base.capabilities.copy(balanceCoordinationRequirement=SemanticValue.prescriptionDependent()))
+        )
+        variants.forEach{assertTrue(V3SelectionRejection.CAPABILITY_UNRESOLVED in V3SelectionEngine.evaluate(it,athlete,V3SelectionEnvironment(),V3SelectionIntent(pdStrengthContext=ctx(ResistanceSource.EXTERNAL_LOAD,10.0,20.0))).reasons)}
+    }
     @Test fun malformedCapacityIsRejected(){try{V3QuantifiedResistance(-1.0,InputUnit.KILOGRAMS);fail("expected invalid")}catch(_:IllegalArgumentException){}}
 }
