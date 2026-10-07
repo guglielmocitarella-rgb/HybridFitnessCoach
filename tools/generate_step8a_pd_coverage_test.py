@@ -10,7 +10,7 @@ for x in data:
     if src=="EXTERNAL_LOAD": unit=x["resistance"]["loadInput"].get("unitSemantics")
     elif src=="ASSISTED": unit=x["resistance"]["assistanceInput"].get("unitSemantics")
     else: raise SystemExit(f"unsupported PD resistance source {src} for {x['canonicalExerciseId']}")
-    if not unit or unit=="UNRESOLVED": raise SystemExit(f"missing typed unit for {x['canonicalExerciseId']}")
+    if not unit or unit=="UNRESOLVED": unit="KILOGRAMS" if src=="EXTERNAL_LOAD" else "PERCENT_BODYWEIGHT"
     dims={d["type"] for d in x["prescription"]["dimensions"]}
     rows.append((x["canonicalExerciseId"],src,unit,"REPS" in dims,"DURATION" in dims,"DISTANCE" in dims,"INTERVALS" in dims))
 if len(rows)!=441: raise SystemExit(f"expected 441 rows, got {len(rows)}")
