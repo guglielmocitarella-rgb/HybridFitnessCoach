@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V15",
   "baselineHead": "49ad1be1f6bc5a2a93e03e7cae8329fbdd90043f",
   "note": "V15 source-family research staging. Existing authoritative decisions must be excluded losslessly before promotion.",
@@ -482,7 +482,11 @@
   "summary": {
     "stagedRecords": 26,
     "stagedCapabilities": 83,
-    "stagingState": "RECOVERABLE_NOT_AUTHORITATIVE"
-  },
-  "leasePrepared": true
+    "preexistingAuthoritativeCapabilities": 0,
+    "newAuthoritativeCapabilities": 83,
+    "newProcessedRecords": 26,
+    "capabilitiesPerQuery": 2.4411764705882355,
+    "validation": "PASS",
+    "stagingState": "PROMOTED_AUTHORITATIVE"
+  }
 }
