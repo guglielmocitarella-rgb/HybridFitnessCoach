@@ -72,6 +72,12 @@ class Step6BuilderTests(unittest.TestCase):
         out, _ = B.build_candidate(d, False)
         self.assertEqual(out[0]["capability"]["strengthRequirement"], "HIGH")
 
+    def test_apply_r5_scalar_from_persisted_disposition_without_patch(self):
+        d = base_data()
+        d["disposition"]["decisions"] = [decision("APPLY_R5_SCALAR", value="MODERATE")]
+        out, _ = B.build_candidate(d, False)
+        self.assertEqual(out[0]["capability"]["strengthRequirement"], "MODERATE")
+
     def test_exclude_does_not_mutate_unrelated_record(self):
         d = base_data()
         before = copy.deepcopy(d["candidate"])
