@@ -1,0 +1,86 @@
+{
+  "step": "STEP_8",
+  "status": "BLOCKED_MISSING_ENGINE_BOUNDARY",
+  "initialCheckpoint": "681963179d8dcac7a5fbb5a1f356aed4782013ef",
+  "actualExecutionBaseline": null,
+  "entryDrift": {
+    "checkpointIsAncestor": true,
+    "aheadCommitsBeforeStep8": 1,
+    "files": [
+      {
+        "path": "exercise-db-canonical/engine-readiness-validation-v3-6.json",
+        "additions": 1,
+        "deletions": 1,
+        "classification": "NON_INVALIDATING_VALIDATION_METADATA"
+      }
+    ]
+  },
+  "frozenCandidate": {
+    "path": "exercise-db-canonical/exercise-db-v3-final-candidate.json",
+    "expectedSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "lastAuthoritativeActualSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "records": 1087,
+    "unchangedByStep8": true
+  },
+  "selectionArchitecture": {
+    "productionV2": "PRODUCTION_V2",
+    "v3AssetLoader": "V3_SHADOW",
+    "v3SelectionEngine": "V3_SHADOW",
+    "step8Harness": "NOT_IMPLEMENTED_BECAUSE_REQUIRED_CONTRACT_BOUNDARY_IS_MISSING",
+    "productionV3SelectorExists": false
+  },
+  "discoveredSelectionCriticalInputs": [
+    "athlete four-capability profile",
+    "available equipment",
+    "assistanceAvailable",
+    "externalLoadAvailable",
+    "category intent",
+    "skill family/node intent",
+    "prescription-feasibility intent"
+  ],
+  "blockingFinding": {
+    "code": "MISSING_PRESCRIPTION_DEPENDENT_CAPABILITY_RESOLUTION_BOUNDARY",
+    "classification": "MISSING_ENGINE_BOUNDARY",
+    "canonicalPrescriptionDependentStates": 441,
+    "evidence": [
+      "V3SelectionIntent has no prescription context capable of resolving capability requirements",
+      "V3SelectionEngine.capabilityReasons rejects every non-KNOWN capability requirement as CAPABILITY_UNRESOLVED",
+      "V3SelectionEngine only checks ExercisePrescription feasibility; it does not resolve PRESCRIPTION_DEPENDENT capability states",
+      "Step 7A explicitly requires a prescription resolver before runner materialization, but that resolver is not implemented in the current V3 selection boundary"
+    ],
+    "requiredButUnexecutablePartitions": [
+      "valid prescription context resolving the capability dimension",
+      "insufficient prescription context for resolution",
+      "multiple relevant prescription inputs where supported",
+      "boundary prescription values where defined"
+    ],
+    "whyBlocking": "A Step 8 harness cannot faithfully test the mandatory PRESCRIPTION_DEPENDENT contract without inventing selection semantics or adding the missing production/native boundary, both forbidden in Step 8."
+  },
+  "matrix": {
+    "theoreticalCartesianSize": null,
+    "finalPlannedScenarios": 0,
+    "actualExecutedScenarios": 0,
+    "reasonNotExecuted": "Critical mandatory selection dimension cannot be represented by the current V3 engine contract; proceeding would test a fabricated contract."
+  },
+  "githubActions": {
+    "workflowPath": null,
+    "runId": null,
+    "conclusion": "NOT_RUN",
+    "reason": "No faithful full-matrix harness can be constructed until the missing prescription-dependent capability resolution boundary exists."
+  },
+  "immutability": {
+    "frozenCandidateChanged": false,
+    "step6FreezeReportChanged": false,
+    "step5DispositionChanged": false,
+    "authoritativeR5Changed": false,
+    "v2Changed": false,
+    "runtimeProductionCompositionChanged": false,
+    "productionSwitchPerformed": false
+  },
+  "filesChangedByStep8": [
+    "exercise-db-canonical/step8-massive-selection-validation.json"
+  ],
+  "warnings": [],
+  "nextGateRecommendation": "IMPLEMENT_MINIMUM_V3_PRESCRIPTION_DEPENDENT_CAPABILITY_RESOLUTION_BOUNDARY_THEN_RERUN_STEP_8",
+  "finalVerdict": "STEP_8_BLOCKED_MISSING_ENGINE_BOUNDARY"
+}
