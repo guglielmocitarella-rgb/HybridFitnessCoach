@@ -22,12 +22,15 @@ jobs:
         run: echo "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a  exercise-db-canonical/exercise-db-v3-final-candidate.json" | sha256sum -c -
       - name: Validate frozen Step 8A-S contract
         run: python3 tools/validate_step8a_pd_semantic_contract.py
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.6.0'
       - name: Compile and run native V3 Step 8A tests
-        run: ./gradlew :app:testDebugUnitTest --tests 'com.hybridfitnesscoach.app.domain.v3.*'
+        run: gradle :app:testDebugUnitTest --tests 'com.hybridfitnesscoach.app.domain.v3.*'
       - name: Step 8A machine validation
         run: python3 tools/validate_step8a_pd_boundary.py
       - name: Step 7B structural regression
-        run: python3 tools/validate_final_canonical_candidate_step7b.py --validate-existing
+        run: python3 tools/validate_final_canonical_candidate_step7b.py
       - name: Verify production isolation
         run: |
           git diff a3fed3667e6e542475405180ef075c1976906a96...HEAD -- app/src/main/assets app/src/main/java/com/hybridfitnesscoach/app/data app/src/main/java/com/hybridfitnesscoach/app/ui | tee /tmp/prod.diff
