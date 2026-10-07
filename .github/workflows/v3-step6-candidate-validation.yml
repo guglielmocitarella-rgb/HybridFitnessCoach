@@ -12,6 +12,8 @@ on:
     paths:
       - '.github/workflows/v3-step6-candidate-validation.yml'
       - 'tools/build_final_canonical_candidate_step6.py'
+      - 'tools/test_build_final_canonical_candidate_step6.py'
+      - 'tools/validate_step5_semantic_disposition.py'
 
 permissions:
   contents: read
