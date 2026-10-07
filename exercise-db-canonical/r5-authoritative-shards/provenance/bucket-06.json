@@ -5730,5 +5730,53 @@
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-two-arm-dumbbell-chest-press-with-band-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-unilateral-leg-extension",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "VERY_LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "https://www.acefitness.org/resources/everyone/exercise-library/",
+    "sourcePublisher": "ACE",
+    "sourceLocator": "Selectorized unilateral knee extension is externally stabilized, with minimal balance demand, limited mobility requirement and straightforward technique.",
+    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-unilateral-leg-extension-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-upright-row",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf",
+    "sourcePublisher": "ACE",
+    "sourceLocator": "ACE upright-row guidance uses a stable shoulder-width stance and controlled vertical pull to chest/chin height, with moderate shoulder ROM and technique demands.",
+    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-upright-row-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-v-up",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "https://www.acefitness.org/resources/everyone/exercise-library/242/v-ups/",
+    "sourcePublisher": "ACE",
+    "sourceLocator": "ACE classifies V-ups as intermediate and emphasizes abdominal bracing, unsupported trunk/leg positioning and controlled progression, creating meaningful balance and strength demands.",
+    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-v-up-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
   }
 ]
