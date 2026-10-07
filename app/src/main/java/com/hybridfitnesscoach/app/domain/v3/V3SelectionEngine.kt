@@ -17,7 +17,8 @@ data class V3SelectionIntent(
     val categories: Set<ExerciseCategoryV3> = emptySet(),
     val skillFamilyIds: Set<SkillTargetId> = emptySet(),
     val skillNodeIds: Set<SkillTargetId> = emptySet(),
-    val requirePrescriptionFeasibility: Boolean = false
+    val requirePrescriptionFeasibility: Boolean = false,
+    val pdStrengthContext: V3PdStrengthContext? = null
 )
 
 enum class V3SelectionRejection {
@@ -25,7 +26,10 @@ enum class V3SelectionRejection {
     EQUIPMENT_UNRESOLVED, EQUIPMENT_UNAVAILABLE,
     CAPABILITY_UNRESOLVED, CAPABILITY_INSUFFICIENT,
     SKILL_RELATION_UNRESOLVED, SKILL_MISMATCH,
-    PRESCRIPTION_UNRESOLVED
+    PRESCRIPTION_UNRESOLVED,
+    PD_STRENGTH_CONTEXT_INSUFFICIENT, PD_STRENGTH_CONTEXT_INVALID,
+    ATHLETE_CAPABILITY_UNKNOWN, CAPACITY_ENVELOPE_MISMATCH,
+    TERMINAL_CANONICAL_STATE, UNSUPPORTED_CONTEXT
 }
 
 data class V3Eligibility(val eligible:Boolean,val reasons:Set<V3SelectionRejection>)
@@ -39,7 +43,7 @@ object V3SelectionEngine {
         if(exercise.categoryState!=SemanticState.KNOWN) reasons+=V3SelectionRejection.CATEGORY_UNRESOLVED
         else if(intent.categories.isNotEmpty() && exercise.category !in intent.categories) reasons+=V3SelectionRejection.CATEGORY_MISMATCH
         reasons+=equipmentReasons(exercise.equipment,environment)
-        reasons+=capabilityReasons(exercise.capabilities,athlete)
+        reasons+=capabilityReasons(exercise,athlete,intent)
         reasons+=skillReasons(exercise.skillRelations,intent)
         if(intent.requirePrescriptionFeasibility && !prescriptionFeasible(exercise.prescription)) reasons+=V3SelectionRejection.PRESCRIPTION_UNRESOLVED
         return V3Eligibility(reasons.isEmpty(),reasons)
@@ -74,16 +78,39 @@ object V3SelectionEngine {
         return if(ok) emptySet() else setOf(V3SelectionRejection.EQUIPMENT_UNAVAILABLE)
     }
 
-    private fun capabilityReasons(r:CapabilityRequirements,a:V3AthleteCapabilities):Set<V3SelectionRejection> {
-        if(r.overallState !in setOf(SemanticState.KNOWN,SemanticState.NOT_APPLICABLE)) return setOf(V3SelectionRejection.CAPABILITY_UNRESOLVED)
-        val pairs=listOf(r.strengthRequirement to a.strength,r.technicalDifficulty to a.technical,r.mobilityRequirement to a.mobility,r.balanceCoordinationRequirement to a.balanceCoordination)
-        var unresolved=false; var insufficient=false
-        for((req,have) in pairs) {
-            if(req.state==SemanticState.NOT_APPLICABLE) continue
-            if(req.state!=SemanticState.KNOWN || have.state!=SemanticState.KNOWN){unresolved=true;continue}
-            if(have.value!!.ordinal<req.value!!.ordinal) insufficient=true
+    private fun capabilityReasons(exercise:ExerciseV3,a:V3AthleteCapabilities,intent:V3SelectionIntent):Set<V3SelectionRejection> {
+        val r=exercise.capabilities
+        val out=linkedSetOf<V3SelectionRejection>()
+        if(r.overallState !in setOf(SemanticState.KNOWN,SemanticState.NOT_APPLICABLE,SemanticState.PRESCRIPTION_DEPENDENT,SemanticState.EVIDENCE_UNRESOLVED)) out+=V3SelectionRejection.CAPABILITY_UNRESOLVED
+
+        when(r.strengthRequirement.state) {
+            SemanticState.NOT_APPLICABLE -> Unit
+            SemanticState.KNOWN -> if(a.strength.state!=SemanticState.KNOWN) out+=V3SelectionRejection.CAPABILITY_UNRESOLVED
+                else if(a.strength.value!!.ordinal<r.strengthRequirement.value!!.ordinal) out+=V3SelectionRejection.CAPABILITY_INSUFFICIENT
+            SemanticState.PRESCRIPTION_DEPENDENT -> {
+                val result=V3PdStrengthResolver.evaluate(exercise,intent.pdStrengthContext)
+                when(result.state) {
+                    V3ContextualEligibilityState.ELIGIBLE -> Unit
+                    V3ContextualEligibilityState.INELIGIBLE -> out+=V3SelectionRejection.CAPABILITY_INSUFFICIENT
+                    V3ContextualEligibilityState.EXERCISE_REQUIREMENT_UNRESOLVED ->
+                        out+=if(result.reason==V3PdReasonCode.CAPACITY_ENVELOPE_MISMATCH) V3SelectionRejection.CAPACITY_ENVELOPE_MISMATCH else V3SelectionRejection.PD_STRENGTH_CONTEXT_INSUFFICIENT
+                    V3ContextualEligibilityState.ATHLETE_CAPABILITY_UNKNOWN -> out+=V3SelectionRejection.ATHLETE_CAPABILITY_UNKNOWN
+                    V3ContextualEligibilityState.INVALID_PRESCRIPTION_CONTEXT -> out+=V3SelectionRejection.PD_STRENGTH_CONTEXT_INVALID
+                    V3ContextualEligibilityState.UNSUPPORTED_CONTEXT -> out+=V3SelectionRejection.UNSUPPORTED_CONTEXT
+                    V3ContextualEligibilityState.TERMINAL_CANONICAL_STATE -> out+=V3SelectionRejection.TERMINAL_CANONICAL_STATE
+                }
+            }
+            SemanticState.EVIDENCE_UNRESOLVED -> out+=V3SelectionRejection.TERMINAL_CANONICAL_STATE
+            else -> out+=V3SelectionRejection.CAPABILITY_UNRESOLVED
         }
-        return buildSet { if(unresolved)add(V3SelectionRejection.CAPABILITY_UNRESOLVED); if(insufficient)add(V3SelectionRejection.CAPABILITY_INSUFFICIENT) }
+
+        val others=listOf(r.technicalDifficulty to a.technical,r.mobilityRequirement to a.mobility,r.balanceCoordinationRequirement to a.balanceCoordination)
+        for((req,have) in others) {
+            if(req.state==SemanticState.NOT_APPLICABLE) continue
+            if(req.state!=SemanticState.KNOWN || have.state!=SemanticState.KNOWN){out+=V3SelectionRejection.CAPABILITY_UNRESOLVED;continue}
+            if(have.value!!.ordinal<req.value!!.ordinal) out+=V3SelectionRejection.CAPABILITY_INSUFFICIENT
+        }
+        return out
     }
 
     private fun skillReasons(relations:List<SkillRelation>,intent:V3SelectionIntent):Set<V3SelectionRejection> {
