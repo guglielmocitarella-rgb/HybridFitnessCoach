@@ -7,6 +7,8 @@ FAMILIES=("field-decisions","evidence","provenance","patch","research-log")
 CELL_KEYS={"field-decisions":"decision","evidence":"evidence","provenance":"provenance","patch":"patch"}
 SHARDS=Path("exercise-db-canonical/r5-authoritative-shards")
 CHECKPOINT=Path("exercise-db-canonical/native-capability-r5-checkpoint.json")
+UNIVERSE=Path("exercise-db-canonical/native-capability-r5-universe.json")
+TRUE_MISSING=Path("exercise-db-canonical/native-capability-r5-true-missing.json")
 TXN=Path(".r5-apply-batch-txn")
 LOCK=Path(".r5-apply-batch.lock")
 CORE=("processedResidualCells","resolvedCells","terminalUnresolvedCells","remainingCells","lastProcessedId")
@@ -20,6 +22,23 @@ def sha256(b): return hashlib.sha256(b).hexdigest()
 def gitblob(b): return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
 def sk(e): return "|".join((e["canonicalExerciseId"],e.get("field") or e.get("dimension") or "",e.get("provenanceId") or ""))
 def sortkey(e): return (e["canonicalExerciseId"],e.get("field") or e.get("dimension") or "",e.get("provenanceId") or "")
+def capkey(cid,dim): return f"{cid}::{dim}"
+def load_workset(root):
+    up=root/UNIVERSE; mp=root/TRUE_MISSING
+    if not up.exists() and not mp.exists(): return None
+    need(up.exists() and mp.exists(),"set-based workset is partially materialized")
+    u=json.loads(up.read_text()); m=json.loads(mp.read_text()); uk=u.get("semanticKeys"); mk=m.get("semanticKeys")
+    need(isinstance(uk,list) and len(uk)==len(set(uk)),"invalid/duplicate universe semantic keys")
+    need(isinstance(mk,list) and len(mk)==len(set(mk)),"invalid/duplicate TRUE_MISSING semantic keys")
+    us,ms=set(uk),set(mk); need(ms<=us,"TRUE_MISSING contains keys outside U_R5")
+    return us,ms,u,m
+def batch_capkeys(b):
+    out=set()
+    for r in b["records"]:
+        log=r["researchLog"]; cid=log["canonicalExerciseId"]
+        for c in r["cells"]: out.add(capkey(cid,c["decision"]["dimension"]))
+        for dim in log["fieldApplication"]["terminalUnresolved"]: out.add(capkey(cid,dim))
+    return out
 def fnv1a32_utf16(s):
     h=2166136261; raw=s.encode("utf-16-le")
     for i in range(0,len(raw),2): h=((h^int.from_bytes(raw[i:i+2],"little"))*16777619)&0xffffffff
@@ -107,7 +126,7 @@ def derive(cp,b,s):
     n["processedRecordIds"]=list(cp["processedRecordIds"])+ids
     n["processedResidualCells"]+=s["processedCells"]; n["resolvedCells"]+=s["resolvedCells"]; n["terminalUnresolvedCells"]+=s["terminalCells"]; n["remainingCells"]-=s["processedCells"]
     n["sourcesVisited"]+=len(ids); n["provenanceEntries"]+=s["resolvedCells"]; n["lastProcessedId"]=ids[-1]
-    need(n["remainingCells"]>=0 and n["processedResidualCells"]+n["remainingCells"]==n["initialResidualCells"] and n["resolvedCells"]+n["terminalUnresolvedCells"]==n["processedResidualCells"],"checkpoint arithmetic failure")
+    need(n["remainingCells"]>=0 and n["resolvedCells"]+n["terminalUnresolvedCells"]==n["processedResidualCells"],"checkpoint counter integrity failure")
     return n
 
 def git_head(root):
@@ -117,6 +136,14 @@ def clean(root):
 
 def build_plan(root,b):
     s=validate_batch(b); cp,rows,mans,raw=load_state(root); idx,bad,counts=inspect(rows); exp=b["expectedPreviousCheckpoint"]; after=derive(exp,b,s)
+    workset=load_workset(root); after_missing=None
+    if workset:
+        universe,missing,_,missing_doc=workset; bk=batch_capkeys(b)
+        need(len(bk)==s["processedCells"],"batch semantic-key count does not match processedCells")
+        outside=sorted(bk-universe); need(not outside,"R5 set guard: semantic key outside U_R5: "+",".join(outside[:8]))
+        stale=sorted(bk-missing); need(not stale,"R5 set guard: semantic key is not in current TRUE_MISSING: "+",".join(stale[:8]))
+        after_missing=sorted(missing-bk); after["remainingCells"]=len(after_missing)
+        ss=copy.deepcopy(cp.get("setBasedState") or {}); ss.update({"authoritative":True,"universeCells":len(universe),"trueMissingCells":len(after_missing),"remainingSourceOfTruth":"|TRUE_MISSING|","legacyCounterArithmeticAuthoritative":False}); after["setBasedState"]=ss
     payload={f:[] for f in FAMILIES}
     for r in b["records"]:
         payload["research-log"].append(r["researchLog"])
@@ -156,6 +183,8 @@ def build_plan(root,b):
         if isinstance(m.get("semanticComparison"),dict):
             m["semanticComparison"].update({"reconstructedEntryCount":totaln,"missing":0,"duplicate":0,"semanticMutation":0,"result":"PASS"})
         out[str(SHARDS/fam/"manifest.json")]=jbytes(m)
+    if workset:
+        rel=str(TRUE_MISSING); raw[rel]=(root/TRUE_MISSING).read_bytes(); md=copy.deepcopy(missing_doc); md["semanticKeys"]=after_missing; md["totalSemanticKeys"]=len(after_missing); md["duplicateSemanticKeys"]=0; out[rel]=jbytes(md)
     out[str(CHECKPOINT)]=jbytes(after)
     need(all(p in raw for p in out),"write escaped authoritative allowlist")
     return {"status":"PASS","mode":"APPLY_READY","batchId":sha256(canon(b)),"summary":s,"checkpointAfter":{k:after[k] for k in CORE},"preexistingRoutingViolations":len(bad),"touchedBuckets":{f:[f"{i:02x}" for i in sorted(v)] for f,v in touched.items() if v},"outputs":out,"old":{p:raw[p] for p in out}}

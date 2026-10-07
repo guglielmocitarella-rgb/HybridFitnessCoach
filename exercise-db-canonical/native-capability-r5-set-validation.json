@@ -1,0 +1,29 @@
+{
+  "version": "V3.10C-R5-SET-VALIDATION",
+  "baseline": "447605aa125bd5b652caa7f45acd6c8d5782b771",
+  "result": "PASS",
+  "counts": {
+    "universe": 3835,
+    "resolvedInUniverse": 3501,
+    "terminalInUniverse": 48,
+    "trueMissing": 286,
+    "authoritativeOutOfUniverse": 214
+  },
+  "invariants": {
+    "universeDuplicateKeys": 0,
+    "trueMissingDuplicateKeys": 0,
+    "resolvedTerminalOverlap": 0,
+    "resolvedTrueMissingOverlap": 0,
+    "terminalTrueMissingOverlap": 0,
+    "partitionUnionCount": 3835,
+    "partitionEqualsUniverse": true,
+    "trueMissingOutsideUniverse": 0,
+    "arithmetic": "3501 + 48 + 286 = 3835"
+  },
+  "guardPolicy": {
+    "promotionRequiresUniverseMembership": true,
+    "promotionRequiresCurrentTrueMissingMembership": true,
+    "rejectAlreadyClassified": true,
+    "remainingDerivedFromTrueMissing": true
+  }
+}

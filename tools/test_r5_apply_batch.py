@@ -217,4 +217,22 @@ class R5ApplyBatchTargetedTests(unittest.TestCase):
     def test_17_preexisting_research_routing_violation_is_preserved_not_global_failure(self):
         b=self.fx.batch(); p=A.build_plan(self.fx.root,b); self.assertEqual(p["preexistingRoutingViolations"],1); A.apply(self.fx.root,p); _,rows,_,_=A.load_state(self.fx.root); _,bad,_=A.inspect(rows); self.assertEqual(len(bad),1)
 
+
+class R5SetBasedGuardTests(unittest.TestCase):
+    def setUp(self): self.fx=FixtureRepo()
+    def tearDown(self): self.fx.close()
+    def materialize(self, universe, missing):
+        write_json(self.fx.root/A.UNIVERSE,{"semanticKeys":list(universe),"totalSemanticKeys":len(universe),"duplicateSemanticKeys":0})
+        write_json(self.fx.root/A.TRUE_MISSING,{"semanticKeys":list(missing),"totalSemanticKeys":len(missing),"duplicateSemanticKeys":0})
+    def test_set_guard_accepts_only_current_missing_and_derives_remaining(self):
+        self.materialize({"cm-target::timed","cm-target::loadRequired"},{"cm-target::timed","cm-target::loadRequired"})
+        p=A.build_plan(self.fx.root,self.fx.batch()); self.assertEqual(p["checkpointAfter"]["remainingCells"],0)
+        self.assertEqual(json.loads(p["outputs"][str(A.TRUE_MISSING)])["semanticKeys"],[])
+    def test_set_guard_rejects_out_of_universe(self):
+        self.materialize({"other::timed"},{"other::timed"})
+        with self.assertRaisesRegex(A.BatchError,"outside U_R5"): A.build_plan(self.fx.root,self.fx.batch())
+    def test_set_guard_rejects_already_classified_not_missing(self):
+        self.materialize({"cm-target::timed","cm-target::loadRequired"},set())
+        with self.assertRaisesRegex(A.BatchError,"not in current TRUE_MISSING"): A.build_plan(self.fx.root,self.fx.batch())
+
 if __name__=="__main__": unittest.main(verbosity=2)

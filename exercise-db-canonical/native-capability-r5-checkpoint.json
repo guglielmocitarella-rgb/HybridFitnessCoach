@@ -1052,11 +1052,11 @@
   "processedResidualCells": 3763,
   "resolvedCells": 3715,
   "terminalUnresolvedCells": 48,
-  "remainingCells": 72,
+  "remainingCells": 286,
   "sourcesVisited": 1107,
   "provenanceEntries": 3715,
   "lastProcessedId": "ex-wrist-push-up",
-  "validationState": "V25_PROMOTED_AUTHORITATIVE_DIFFERENTIAL_VALIDATED",
+  "validationState": "R5_SET_BASED_WORKSET_VALIDATED",
   "v10Promotion": {
     "stagedCapabilities": 80,
     "preexistingAuthoritativeCapabilities": 52,
@@ -1346,5 +1346,27 @@
     "stagingState": "PROMOTED_AUTHORITATIVE",
     "leaseReady": true,
     "overlapExcludedBeforeStaging": 0
+  },
+  "historicalCounterSnapshotBeforeSetBasedMaterialization": {
+    "processedResidualCells": 3763,
+    "resolvedCells": 3715,
+    "terminalUnresolvedCells": 48,
+    "remainingCells": 72,
+    "meaning": "legacy decrement-based checkpoint counters retained for audit; remainingCells below is now set-based authoritative"
+  },
+  "setBasedState": {
+    "authoritative": true,
+    "materializedAtHead": "447605aa125bd5b652caa7f45acd6c8d5782b771",
+    "universeArtifact": "exercise-db-canonical/native-capability-r5-universe.json",
+    "trueMissingArtifact": "exercise-db-canonical/native-capability-r5-true-missing.json",
+    "outOfUniverseArtifact": "exercise-db-canonical/native-capability-r5-authoritative-out-of-universe.json",
+    "validationArtifact": "exercise-db-canonical/native-capability-r5-set-validation.json",
+    "universeCells": 3835,
+    "resolvedInUniverse": 3501,
+    "terminalInUniverse": 48,
+    "trueMissingCells": 286,
+    "authoritativeOutOfUniverse": 214,
+    "remainingSourceOfTruth": "|TRUE_MISSING|",
+    "legacyCounterArithmeticAuthoritative": false
   }
 }
