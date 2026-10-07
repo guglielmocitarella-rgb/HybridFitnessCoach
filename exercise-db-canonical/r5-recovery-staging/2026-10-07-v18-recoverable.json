@@ -1,0 +1,460 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "R5/V18",
+  "baselineHead": "11a3ef3f71147ebaa67367eebef90f7db11216f3",
+  "note": "R5/V18 source-family research staging. FRESH true-missing capability decisions only; no authoritative replacement.",
+  "newWebQueries": 28,
+  "records": [
+    {
+      "canonicalExerciseId": "cm-bayesian-cable-curl",
+      "exerciseName": "Bayesian cable curl",
+      "source": {
+        "publisher": "NASM",
+        "title": "ACE/NASM biceps-curl family",
+        "tier": 2,
+        "locator": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-bayesian-style-dumbbell-curl",
+      "exerciseName": "Bayesian-style dumbbell curl",
+      "source": {
+        "publisher": "NASM",
+        "title": "ACE/NASM biceps-curl family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/44/seated-biceps-curl/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cable-drag-curl",
+      "exerciseName": "Cable drag curl",
+      "source": {
+        "publisher": "NASM",
+        "title": "ACE/NASM biceps-curl family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/322/standing-bicep-curl/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-compression-lift",
+      "exerciseName": "Compression lift",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE core/hip-flexion movement family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/?bodypart=1"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cuban-press-manubri",
+      "exerciseName": "Cuban press manubri",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE shoulder/rotator-cuff exercise family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-drag-curl-manubri",
+      "exerciseName": "Drag curl manubri",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE biceps-curl family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/44/seated-biceps-curl/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-pullover-dorsali",
+      "exerciseName": "Dumbbell pullover dorsali",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE back/shoulder dumbbell family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-rear-delt-fly",
+      "exerciseName": "Dumbbell rear delt fly",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE posterior-deltoid dumbbell family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-scaption",
+      "exerciseName": "Dumbbell scaption",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE shoulder/rotator-cuff family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dumbbell-seal-row",
+      "exerciseName": "Dumbbell seal row",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM supported-row family",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-machine-row-close-grip"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-easy-run",
+      "exerciseName": "Easy run",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE running warm-up guidance",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/february-2024/8566/get-it-done-4-fast-and-effective-workouts-from-ace-experts/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-high-cable-curl",
+      "exerciseName": "High cable curl",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM cable biceps curl with shoulder flexed",
+        "tier": 2,
+        "locator": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-high-knees",
+      "exerciseName": "High knees",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE high-knee running drill",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/february-2024/8566/get-it-done-4-fast-and-effective-workouts-from-ace-experts/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-high-row-macchina",
+      "exerciseName": "High row macchina",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM machine-row family",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-machine-row-close-grip"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-high-to-low-cable-fly",
+      "exerciseName": "High-to-low cable fly",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE cable/chest exercise family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hill-run",
+      "exerciseName": "Hill run",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE hill-running workout",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/5890/hill-running-workout/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hill-walk",
+      "exerciseName": "Hill walk",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE hill-running workout uphill-walk drill",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/5890/hill-running-workout/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hip-abduction-machine",
+      "exerciseName": "Hip abduction machine",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE hip-abductor machine guidance",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/7335/enhance-your-running-game-by-strengthening-your-hips/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hip-adduction-machine",
+      "exerciseName": "Hip adduction machine",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE hip-adduction movement family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/104/standing-hip-adduction/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hip-airplane",
+      "exerciseName": "Hip airplane",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM single-leg hip-control/balance family",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/single-leg-balance-reach-frontal-plane"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hip-cars",
+      "exerciseName": "Hip CARs",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE Controlled Articular Rotations",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/october-2024/8725/controlled-articular-rotations-shifting-mobility-into-high-gear/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hip-thrust",
+      "exerciseName": "Hip thrust",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE hip-extension/bridge family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/butt-hips/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hollow-body-hold",
+      "exerciseName": "Hollow body hold",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE core bracing/plank family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/7634/6-core-exercises-to-get-and-keep-strong-abs/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-hollow-body-march",
+      "exerciseName": "Hollow body march",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE core bracing with limb movement family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/7634/6-core-exercises-to-get-and-keep-strong-abs/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "summary": {
+    "stagedRecords": 24,
+    "stagedCapabilities": 81,
+    "preexistingAuthoritativeCapabilities": 0,
+    "newAuthoritativeCapabilities": 81,
+    "newProcessedRecords": 24,
+    "capabilitiesPerQuery": 2.892857142857143,
+    "validation": "PENDING_PROMOTION",
+    "stagingState": "RECOVERABLE_NOT_AUTHORITATIVE"
+  }
+}
