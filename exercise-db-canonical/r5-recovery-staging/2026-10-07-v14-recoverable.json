@@ -1,0 +1,395 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V14",
+  "baselineHead": "e9bab07eb04a2a0da26d859fd72fd34eba1a13f8",
+  "newWebQueries": 43,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-one-arm-kettlebell-clean",
+      "exerciseName": "One-Arm Kettlebell Clean",
+      "source": {
+        "publisher": "Human Kinetics / NSCA",
+        "locator": "https://us.humankinetics.com/blogs/excerpt/one-arm-kettlebell-press",
+        "finding": "NSCA technique links the one-arm press setup to the one-arm kettlebell clean; kettlebell clean execution is a coordinated hip-driven catch into a stable rack."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-kettlebell-press",
+      "exerciseName": "One-Arm Kettlebell Press",
+      "source": {
+        "publisher": "Human Kinetics / NSCA",
+        "locator": "https://us.humankinetics.com/blogs/excerpt/one-arm-kettlebell-press",
+        "finding": "NSCA describes unilateral overhead pressing with shoulder rotation, neutral spine, no lateral trunk flexion and controlled lowering."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-one-leg-push-up",
+      "exerciseName": "One-Arm One-Leg Push-Up",
+      "source": {
+        "publisher": "aermotion",
+        "locator": "https://www.youtube.com/watch?v=HxZz_7zELBw",
+        "finding": "The one-arm one-leg push-up is taught as an advanced unilateral bodyweight skill requiring strength, balance, core stability and coordination control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-overhead-dumbbell-triceps-extension",
+      "exerciseName": "One-Arm Overhead Dumbbell Triceps Extension",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/74/triceps-extension/",
+        "finding": "ACE's overhead triceps extension requires a braced stable stance, vertical upper arms and controlled elbow flexion/extension behind the head."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-pull-up",
+      "exerciseName": "One-Arm Pull-Up",
+      "source": {
+        "publisher": "Strive Up",
+        "locator": "https://strive-up.com/en/blog/one-arm-pull-up",
+        "finding": "The one-arm pull-up is described as a rare advanced bodyweight skill with extreme pulling strength, core stability, anti-rotation and shoulder-control demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-push-up",
+      "exerciseName": "One-Arm Push-Up",
+      "source": {
+        "publisher": "ExerciseDB-derived calisthenics reference",
+        "locator": "https://huggingface.co/datasets/RafaelJaime/calisthenics_exercises",
+        "finding": "The one-arm push-up is classified as a challenging unilateral push requiring exceptional upper-body strength, stability and core control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-reverse-pushdown",
+      "exerciseName": "One-Arm Reverse Pushdown",
+      "source": {
+        "publisher": "CriticalBody",
+        "locator": "https://criticalbody.com/one-arm-reverse-grip-tricep-pushdown/",
+        "finding": "The single-arm reverse cable pushdown is a beginner isolation movement with a stable stance, fixed elbow and controlled full elbow extension."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-rows",
+      "exerciseName": "One-Arm Rows",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf",
+        "finding": "ACE describes a one-arm cable row from a supported lunge stance with controlled elbow travel and slow return; unilateral pulling adds trunk stabilization without high mobility demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-straddle-elbow-lever",
+      "exerciseName": "One-Arm Straddle Elbow Lever",
+      "source": {
+        "publisher": "GymDaze",
+        "locator": "https://gym-daze.com/exercises/one-arm-straddle-elbow-lever",
+        "finding": "This advanced unilateral calisthenics hold is explicitly classified for stability and strength and requires balancing the body horizontally over one supporting arm in a straddle."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-straight-muscle-up",
+      "exerciseName": "One-Arm-Straight Muscle-Up",
+      "source": {
+        "publisher": "GymDaze",
+        "locator": "https://gym-daze.com/exercises/one-arm-straight-muscle-up",
+        "finding": "GymDaze classifies the one-arm-straight muscle-up as advanced and describes coordinated ring pulling, transition and pressing with asymmetric arm roles."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-leg-bent-l-sit",
+      "exerciseName": "One-Leg-Bent L-Sit",
+      "source": {
+        "publisher": "GMB Fitness",
+        "locator": "https://gmb.io/l-sit/",
+        "finding": "GMB's L-sit progression uses one-leg extension as the final stage before the full L-sit and emphasizes total-body tension, shoulder support, control and balance under shifting load."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-overhead-cable-triceps-extension",
+      "exerciseName": "Overhead Cable Triceps Extension",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/74/triceps-extension/",
+        "finding": "ACE's overhead extension uses a stable split stance, braced torso and controlled elbow motion with the upper arms maintained overhead."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-overhead-squat",
+      "exerciseName": "Overhead Squat",
+      "source": {
+        "publisher": "CrossFit",
+        "locator": "https://www.crossfit.com/essentials/the-overhead-squat",
+        "finding": "CrossFit describes the overhead squat as a foundational but demanding movement requiring bar balance, active shoulder support, stable midline and great functional flexibility across the body."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-parallel-bar-dip-eccentrics",
+      "exerciseName": "Parallel Bar Dip Eccentrics",
+      "source": {
+        "publisher": "Yogi Athletics",
+        "locator": "https://yogiathletics.com/library/parallel-bar-dip",
+        "finding": "Parallel-bar dips are rated intermediate and require locked-out support, controlled depth and shoulder depression; eccentric-only execution retains substantial bodyweight strength and control demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-parallel-bar-jumping-dips",
+      "exerciseName": "Parallel Bar Jumping Dips",
+      "source": {
+        "publisher": "Yogi Athletics",
+        "locator": "https://yogiathletics.com/library/parallel-bar-dip",
+        "finding": "The parallel-bar dip requires stable support and controlled shoulder/elbow mechanics; jumping assistance reduces the concentric strength requirement but preserves coordination and dip-position control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-parallel-knee-raise",
+      "exerciseName": "Parallel Knee Raise",
+      "source": {
+        "publisher": "Yogi Athletics",
+        "locator": "https://yogiathletics.com/library/hanging-knee-raise-bar",
+        "finding": "Knee raises require active shoulder support, trunk control, posterior pelvic tilt and suppression of swinging; parallel-bar support removes grip demand but retains body stabilization."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-parallel-leg-raise",
+      "exerciseName": "Parallel Leg Raise",
+      "source": {
+        "publisher": "GMB Fitness",
+        "locator": "https://gmb.io/l-sit/",
+        "finding": "Straight-leg supported raises share the L-sit's compression, locked-arm support and coordinated core/hip-flexor demand; straight legs increase mobility and strength demands over bent-knee support."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-parallel-squat",
+      "exerciseName": "Parallel Squat",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/7406/how-low-to-go-examining-squat-depth-from-a-safety-and-biomechanical-perspective/",
+        "finding": "ACE discusses the parallel squat as a standard squat depth governed by stable alignment, hip range of motion and neuromuscular control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-parallette-handstand",
+      "exerciseName": "Parallette Handstand",
+      "source": {
+        "publisher": "Hybrid Fitness Training",
+        "locator": "https://www.youtube.com/watch?v=Jei-jSAGdsY",
+        "finding": "Parallette handstands are taught through dedicated progressions, reflecting advanced inversion balance, shoulder strength, wrist/shoulder positioning and body-line control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-partial-press",
+      "exerciseName": "Partial Press",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/74/triceps-extension/",
+        "finding": "Partial-range pressing is a constrained pressing pattern; compared with full overhead work it reduces range demand while still requiring stable bracing and controlled pressing mechanics."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-partial-squat",
+      "exerciseName": "Partial Squat",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/4827/strength-exercises-that-can-change-your-life/",
+        "finding": "ACE contrasts loaded partial squats with full-range squats; partial squatting reduces range-of-motion demand while retaining squat alignment and control requirements."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-pec-deck-machine",
+      "exerciseName": "Pec Deck (Machine)",
+      "source": {
+        "publisher": "ExerciseForm",
+        "locator": "https://exerciseform.com/exercises/pec-deck/",
+        "finding": "The pec deck is classified as a beginner machine isolation exercise with an adjusted seat/pad setup and controlled fixed-path shoulder movement."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-pike-headstand-pushup",
+      "exerciseName": "Pike Headstand Pushup",
+      "source": {
+        "publisher": "NASM",
+        "locator": "https://www.nasm.org/resource-center/exercise-library/pike-push-up",
+        "finding": "NASM classifies the pike push-up as advanced and emphasizes shoulder strength, core bracing, inverted-V positioning and controlled head-to-floor pressing; the headstand-depth variant increases control demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "records": 23,
+    "capabilities": 83,
+    "capabilitiesPerQuery": 1.930232558139535
+  }
+}
