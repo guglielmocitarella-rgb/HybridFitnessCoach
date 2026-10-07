@@ -7,7 +7,7 @@ on:
       - tools/validate_final_canonical_candidate_step7b.py
       - .github/workflows/v3-step7b-structural-validation.yml
   workflow_dispatch:
-permissions:
+# execution revision 3\npermissions:
   contents: read
 jobs:
   validate:
