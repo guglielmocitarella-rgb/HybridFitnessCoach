@@ -1,0 +1,319 @@
+{
+  "contractVersion": "V3-STEP8AS-1",
+  "frozenCandidateSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+  "canonicalPdCount": 441,
+  "terminalCount": 48,
+  "architectureModelSelected": "MODEL_D_HYBRID_STRUCTURED_CONTEXTUAL",
+  "designBasis": "DESIGN_DECISION",
+  "capabilityContracts": {
+    "strengthRequirement": {
+      "canonicalPdCount": 441,
+      "mechanism": "DIRECT_CONTEXTUAL_PREDICATE_WITH_TYPED_CAPACITY_ENVELOPE",
+      "meaning": "PD means strength demand is not intrinsic to the exercise identity; it is determined by the concrete resistance/assistance prescription and athlete exercise-specific capacity under the same prescription dimensions.",
+      "requiredContext": [
+        "canonicalExerciseId",
+        "resistanceSource",
+        "prescriptionWorkDimensions",
+        "prescribedLoadOrAssistance",
+        "athleteExerciseCapacityEnvelope"
+      ],
+      "optionalContext": [
+        "variation",
+        "tempo",
+        "rangeOfMotion",
+        "laterality"
+      ],
+      "irrelevantContext": [
+        "legacyLevel",
+        "legacyDifficulty",
+        "V2CapabilityConversion"
+      ],
+      "evaluation": "For EXTERNAL_LOAD, compare prescribed load against athlete maximum validated feasible load for the same exercise and matched work/variation dimensions. For ASSISTED, compare prescribed assistance against the athlete minimum validated assistance required for the same matched dimensions. No cross-unit comparison is permitted.",
+      "resultType": "CONTEXTUAL_ELIGIBILITY",
+      "scalarization": "PROHIBITED",
+      "athleteComparison": "DIRECT_TYPED_COMPARISON",
+      "missing": "EXERCISE_REQUIREMENT_UNRESOLVED",
+      "invalid": "INVALID_PRESCRIPTION_CONTEXT",
+      "reasonCodes": [
+        "PD_STRENGTH_CONTEXT_RESOLVED",
+        "PD_STRENGTH_CONTEXT_INSUFFICIENT",
+        "PD_STRENGTH_CONTEXT_INVALID",
+        "ATHLETE_CAPABILITY_UNKNOWN",
+        "CAPACITY_ENVELOPE_MISMATCH"
+      ]
+    },
+    "technicalDifficulty": {
+      "canonicalPdCount": 0,
+      "mechanism": "STRUCTURED_CONTEXTUAL_REQUIREMENT_IF_FUTURE_PD",
+      "meaning": "If future canonical data marks technical difficulty PD, only technique-changing prescription variables may determine contextual demand.",
+      "requiredContext": [
+        "variationOrExecutionConstraint"
+      ],
+      "optionalContext": [
+        "tempo",
+        "rangeOfMotion",
+        "laterality"
+      ],
+      "irrelevantContext": [
+        "loadMagnitudeAlone",
+        "legacyLevel"
+      ],
+      "evaluation": "Current frozen candidate has no PD instances; KNOWN values remain ordinal. Future PD requires an explicit typed execution constraint and must fail unresolved when absent.",
+      "resultType": "TRANSIENT_STRUCTURED_REQUIREMENT_OR_ELIGIBILITY",
+      "scalarization": "PROHIBITED_UNLESS_FUTURE_CONTRACT_VERSION_EXPLICITLY_DEFINES_MAPPING",
+      "athleteComparison": "TYPED_OR_ORDINAL_WHEN_EXPLICITLY_RESOLVED",
+      "missing": "EXERCISE_REQUIREMENT_UNRESOLVED",
+      "invalid": "INVALID_PRESCRIPTION_CONTEXT",
+      "reasonCodes": [
+        "PD_TECH_CONTEXT_RESOLVED",
+        "PD_TECH_CONTEXT_INSUFFICIENT",
+        "PD_TECH_CONTEXT_INVALID"
+      ]
+    },
+    "mobilityRequirement": {
+      "canonicalPdCount": 0,
+      "mechanism": "STRUCTURED_CONTEXTUAL_REQUIREMENT_IF_FUTURE_PD",
+      "meaning": "If future canonical data marks mobility PD, contextual demand may vary only with typed range-of-motion or position constraints.",
+      "requiredContext": [
+        "rangeOfMotionOrPositionConstraint"
+      ],
+      "optionalContext": [
+        "variation",
+        "laterality"
+      ],
+      "irrelevantContext": [
+        "loadMagnitudeAlone",
+        "repsAlone",
+        "legacyLevel"
+      ],
+      "evaluation": "Current frozen candidate has no PD instances; future PD requires typed ROM/position context and otherwise fails unresolved.",
+      "resultType": "TRANSIENT_STRUCTURED_REQUIREMENT_OR_ELIGIBILITY",
+      "scalarization": "PROHIBITED_UNLESS_FUTURE_CONTRACT_VERSION_EXPLICITLY_DEFINES_MAPPING",
+      "athleteComparison": "TYPED_OR_ORDINAL_WHEN_EXPLICITLY_RESOLVED",
+      "missing": "EXERCISE_REQUIREMENT_UNRESOLVED",
+      "invalid": "INVALID_PRESCRIPTION_CONTEXT",
+      "reasonCodes": [
+        "PD_MOBILITY_CONTEXT_RESOLVED",
+        "PD_MOBILITY_CONTEXT_INSUFFICIENT",
+        "PD_MOBILITY_CONTEXT_INVALID"
+      ]
+    },
+    "balanceCoordinationRequirement": {
+      "canonicalPdCount": 0,
+      "mechanism": "STRUCTURED_CONTEXTUAL_REQUIREMENT_IF_FUTURE_PD",
+      "meaning": "If future canonical data marks balance/coordination PD, contextual demand may vary only with typed support, stability, laterality or execution constraints.",
+      "requiredContext": [
+        "supportOrStabilityConstraint"
+      ],
+      "optionalContext": [
+        "variation",
+        "laterality",
+        "tempo"
+      ],
+      "irrelevantContext": [
+        "loadMagnitudeAlone",
+        "legacyLevel"
+      ],
+      "evaluation": "Current frozen candidate has no PD instances; future PD requires typed stability/support context and otherwise fails unresolved.",
+      "resultType": "TRANSIENT_STRUCTURED_REQUIREMENT_OR_ELIGIBILITY",
+      "scalarization": "PROHIBITED_UNLESS_FUTURE_CONTRACT_VERSION_EXPLICITLY_DEFINES_MAPPING",
+      "athleteComparison": "TYPED_OR_ORDINAL_WHEN_EXPLICITLY_RESOLVED",
+      "missing": "EXERCISE_REQUIREMENT_UNRESOLVED",
+      "invalid": "INVALID_PRESCRIPTION_CONTEXT",
+      "reasonCodes": [
+        "PD_BALANCE_CONTEXT_RESOLVED",
+        "PD_BALANCE_CONTEXT_INSUFFICIENT",
+        "PD_BALANCE_CONTEXT_INVALID"
+      ]
+    }
+  },
+  "requiredContextFields": {
+    "existingV3": [
+      "canonicalExerciseId",
+      "resistance.source",
+      "ExercisePrescription work dimensions"
+    ],
+    "derivableV3": [],
+    "missingButRequiredV3": [
+      "prescribed quantitative LOAD/ASSISTANCE with typed unit for PD strength",
+      "athleteExerciseCapacityEnvelope matched by canonical exercise and prescription dimensions"
+    ],
+    "irrelevantToPd": [
+      "legacyLevel",
+      "legacy difficulty",
+      "V2 mappings"
+    ]
+  },
+  "outcomeStates": [
+    "ELIGIBLE",
+    "INELIGIBLE",
+    "EXERCISE_REQUIREMENT_UNRESOLVED",
+    "ATHLETE_CAPABILITY_UNKNOWN",
+    "INVALID_PRESCRIPTION_CONTEXT",
+    "UNSUPPORTED_CONTEXT",
+    "TERMINAL_CANONICAL_STATE"
+  ],
+  "scalarizationPolicy": {
+    "canonical": false,
+    "persisted": false,
+    "transientStrengthScalar": false,
+    "note": "Current 441 PD strength states use direct typed comparison; no CapabilityLevel is manufactured."
+  },
+  "terminalPolicy": {
+    "prescriptionDependentDistinctFromEvidenceUnresolved": true,
+    "terminalResolvableByPrescription": false
+  },
+  "canonicalImmutabilityPolicy": {
+    "canonicalPdRemainPd": true,
+    "writeBackResolvedValue": false,
+    "crossSessionLeakage": false,
+    "globalCanonicalizingCache": false
+  },
+  "v2DependencyPolicy": {
+    "V2_DEPENDENCY_FOR_PD_RESOLUTION": 0,
+    "legacyLevelAuthoritative": false
+  },
+  "step8ScenarioClasses": {
+    "NO_CONTEXT": "EXERCISE_REQUIREMENT_UNRESOLVED",
+    "SUFFICIENT_VALID_CONTEXT": "ELIGIBLE_OR_INELIGIBLE_BY_TYPED_COMPARISON",
+    "INSUFFICIENT_CONTEXT": "EXERCISE_REQUIREMENT_UNRESOLVED",
+    "INVALID_CONTEXT": "INVALID_PRESCRIPTION_CONTEXT",
+    "BOUNDARY_CONTEXT": "exact equality is eligible for EXTERNAL_LOAD; exact minimum required assistance is eligible for ASSISTED"
+  },
+  "contractTestVectors": [
+    {
+      "capability": "strengthRequirement",
+      "case": "known",
+      "canonical": "KNOWN:LOW",
+      "expected": "ordinary ordinal comparison"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "pd_external_equal",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "context": "load equals matched athlete capacity",
+      "expected": "ELIGIBLE"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "pd_external_above",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "context": "load exceeds matched athlete capacity",
+      "expected": "INELIGIBLE"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "pd_assisted_equal",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "context": "assistance equals athlete minimum required assistance",
+      "expected": "ELIGIBLE"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "no_context",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "EXERCISE_REQUIREMENT_UNRESOLVED"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "invalid_unit",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "INVALID_PRESCRIPTION_CONTEXT"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "athlete_unknown",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "ATHLETE_CAPABILITY_UNKNOWN"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "terminal",
+      "canonical": "EVIDENCE_UNRESOLVED",
+      "expected": "TERMINAL_CANONICAL_STATE"
+    },
+    {
+      "capability": "technicalDifficulty",
+      "case": "known",
+      "canonical": "KNOWN:LOW",
+      "expected": "ordinary ordinal comparison"
+    },
+    {
+      "capability": "technicalDifficulty",
+      "case": "future_pd_no_context",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "EXERCISE_REQUIREMENT_UNRESOLVED"
+    },
+    {
+      "capability": "mobilityRequirement",
+      "case": "known",
+      "canonical": "KNOWN:LOW",
+      "expected": "ordinary ordinal comparison"
+    },
+    {
+      "capability": "mobilityRequirement",
+      "case": "future_pd_no_context",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "EXERCISE_REQUIREMENT_UNRESOLVED"
+    },
+    {
+      "capability": "balanceCoordinationRequirement",
+      "case": "known",
+      "canonical": "KNOWN:LOW",
+      "expected": "ordinary ordinal comparison"
+    },
+    {
+      "capability": "balanceCoordinationRequirement",
+      "case": "future_pd_no_context",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "EXERCISE_REQUIREMENT_UNRESOLVED"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "deterministic_repeat",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "identical context produces identical result"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "context_change",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "changed load/assistance may change eligibility without canonical mutation"
+    },
+    {
+      "capability": "strengthRequirement",
+      "case": "no_v2_fallback",
+      "canonical": "PRESCRIPTION_DEPENDENT",
+      "expected": "no legacy/V2 lookup"
+    }
+  ],
+  "applicabilitySummary": {
+    "CONTRACT_COVERED": 441,
+    "CONTRACT_NOT_APPLICABLE": 0,
+    "CONTRACT_AMBIGUOUS": 0,
+    "mismatches": []
+  },
+  "pdDistribution": {
+    "strengthRequirement": 441,
+    "technicalDifficulty": 0,
+    "mobilityRequirement": 0,
+    "balanceCoordinationRequirement": 0,
+    "resistanceSource": {
+      "EXTERNAL_LOAD": 436,
+      "ASSISTED": 5
+    },
+    "category": {
+      "PUSH": 173,
+      "LEGS": 117,
+      "PULL": 93,
+      "OTHER": 31,
+      "CORE": 19,
+      "SKILL": 3,
+      "MOBILITY": 3,
+      "CARDIO": 2
+    }
+  },
+  "unresolvedDesignQuestions": [],
+  "blockingFindings": [],
+  "verdict": "STEP_8AS_COMPLETE_READY_FOR_STEP_8A_IMPLEMENTATION"
+}
