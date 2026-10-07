@@ -1,0 +1,194 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V11",
+  "baselineHead": "47482218e11503f7d9be460daaa301852df2753b",
+  "newWebQueries": 77,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-hang-power-clean",
+      "exerciseName": "Hang Power Clean",
+      "source": {
+        "publisher": "CrossFit",
+        "locator": "https://www.crossfit.com/essentials/the-hang-power-clean",
+        "finding": "Hang power clean uses rapid hip/leg extension, pull-under and partial front-squat reception; CrossFit explicitly describes technical complexity, coordination, balance, flexibility/mobility and sound technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-hang-power-snatch",
+      "exerciseName": "Hang Power Snatch",
+      "source": {
+        "publisher": "CrossFit",
+        "locator": "https://www.crossfit.com/essentials/the-hang-power-snatch",
+        "finding": "Hang power snatch moves a load from above the knees to overhead in one continuous motion; CrossFit explicitly calls technical demands high and describes flexibility/mobility, coordination, accuracy and balance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-kettlebell-front-squat",
+      "exerciseName": "Kettlebell Front Squat",
+      "source": {
+        "publisher": "NASM",
+        "locator": "https://www.nasm.org/resource-center/exercise-library/kettlebell-front-squat",
+        "finding": "Front-loaded squat requires controlled descent to about parallel, substantial core stability and postural control; NASM describes the movement as intermediate to advanced."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-front-plank-with-rotation",
+      "exerciseName": "Front Plank with Rotation",
+      "source": {
+        "publisher": "OPEX Fitness",
+        "locator": "https://www.opexfit.com/blog/the-10-best-bodyweight-core-exercises",
+        "finding": "Front plank rotates onto one arm into a side-plank position while maintaining a rigid trunk; exercise progression requires trunk stability and controlled rotation."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-high-to-low-plank",
+      "exerciseName": "High-to-Low Plank",
+      "source": {
+        "publisher": "Men's Journal",
+        "locator": "https://www.mensjournal.com/fitness/the-best-hiit-workout-for-beginners-to-burn-fat-mens-journal",
+        "finding": "High-to-low plank alternates forearm and hand support while maintaining an engaged core and plank body line, creating moderate upper-body/core control demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-handstand-lower-to-back-lever",
+      "exerciseName": "Handstand Lower to Back Lever",
+      "source": {
+        "publisher": "GymDaze",
+        "locator": "https://gym-daze.com/exercises/handstand-lower-to-back-lever",
+        "finding": "Expert rings transition from straight-body handstand through a controlled straight-arm lowering arc to a horizontal back lever; explicitly classified for coordination, stability and strength."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-iron-cross-to-back-lever",
+      "exerciseName": "Iron Cross to Back Lever",
+      "source": {
+        "publisher": "GymDaze",
+        "locator": "https://gym-daze.com/exercises/iron-cross-to-back-lever",
+        "finding": "Expert rings transition from iron cross to horizontal back lever with straight elbows, controlled shoulder transition and rigid body line; explicitly classified for stability and strength."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-hang-to-front-lever-row",
+      "exerciseName": "Hang to Front Lever Row",
+      "source": {
+        "publisher": "Calistree",
+        "locator": "https://calistree.app/exercise?id=e04o",
+        "finding": "From straight-arm hang, athlete pulls and angles the whole body to horizontal while keeping a fully straight body and reverses under control; strength skill with high body-control demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-hands-elevated-one-arm-pushup",
+      "exerciseName": "Hands-Elevated One-Arm Pushup",
+      "source": {
+        "publisher": "Vital Proteins",
+        "locator": "https://www.vitalproteins.com/blogs/fitness/how-to-do-one-arm-push-ups",
+        "finding": "Elevated one-arm push-up reduces bodyweight versus floor one-arm push-up but remains a unilateral pressing progression requiring anti-rotation and controlled single-arm support."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-hamstring-curl",
+      "exerciseName": "Hamstring Curl",
+      "source": {
+        "publisher": "NASM",
+        "locator": "https://www.nasm.org/resource-center/exercise-library/lying-leg-curl",
+        "finding": "Machine hamstring curl is a stable supported isolation exercise with controlled knee flexion/extension; NASM describes a safe stable environment and controlled movement for all fitness levels."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-heel-kicks",
+      "exerciseName": "Heel Kicks",
+      "source": {
+        "publisher": "Pure Sports Medicine",
+        "locator": "https://www.youtube.com/watch?v=J7VPWi9sazQ",
+        "finding": "Running drill performed from a slow jog with repeated heel-to-glute action; targets hamstrings/quads, flexibility, running mechanics and faster leg turnover."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    }
+  ],
+  "evidenceCompleteCapabilityCount": 41,
+  "validation": "PRE_PROMOTION_LOCAL_SCHEMA_READY"
+}
