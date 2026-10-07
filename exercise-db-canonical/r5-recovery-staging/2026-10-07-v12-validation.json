@@ -1,0 +1,23 @@
+{
+  "status": "V12_PROMOTION_VALIDATED",
+  "baselineHead": "6583e3f8d3de8fd24a5b05fcd9064e25fa041799",
+  "stagingCommit": "b0169618b33445d3202c98d29a98fb091c2b7513",
+  "stagedCapabilities": 80,
+  "promotedCapabilities": 80,
+  "stagedRecords": 20,
+  "newAuthoritativeCapabilities": 80,
+  "authoritativeUniqueBefore": 2571,
+  "authoritativeUniqueAfter": 2651,
+  "terminalUnique": 48,
+  "checkpointProcessedAfter": 2699,
+  "checkpointRemainingAfter": 1136,
+  "duplicateSemanticKeys": 0,
+  "duplicateProvenanceIds": 0,
+  "missing": 0,
+  "semanticMutation": 0,
+  "routingViolationsAdded": 0,
+  "candidateDbModified": false,
+  "runtimeDbModified": false,
+  "productionPathModified": false,
+  "result": "PASS"
+}
