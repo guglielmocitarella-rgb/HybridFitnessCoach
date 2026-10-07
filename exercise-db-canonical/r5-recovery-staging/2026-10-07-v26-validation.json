@@ -1,0 +1,32 @@
+{
+  "version": "R5/V26",
+  "status": "PASS",
+  "baselineHead": "07ff1e8f13cbeaa5b53ebc3f1346f242e026c09b",
+  "stagingCommit": "17b73f2d2501e24da85ff566dd945fa9859929e7",
+  "worksetArtifact": "exercise-db-canonical/native-capability-r5-true-missing.json",
+  "stagedRecords": 28,
+  "stagedCapabilities": 84,
+  "overlapExcluded": 0,
+  "freshCapabilities": 84,
+  "newTerminal": 0,
+  "setBasedGuard": {
+    "universeMembershipViolations": 0,
+    "currentTrueMissingMembershipViolations": 0,
+    "alreadyClassifiedViolations": 0,
+    "authoritativeOutOfUniverseTouched": 0,
+    "result": "PASS"
+  },
+  "authoritativeBefore": 3715,
+  "resolvedInUniverseBefore": 3501,
+  "terminalInUniverseBefore": 48,
+  "trueMissingBefore": 286,
+  "resolvedInUniverseAfter": 3585,
+  "terminalInUniverseAfter": 48,
+  "trueMissingAfter": 202,
+  "authoritativeOutOfUniverse": 214,
+  "duplicateProvenanceIds": 0,
+  "duplicateSemanticKeys": 0,
+  "routingViolationsAdded": 0,
+  "prescriptionDependentPreserved": 441,
+  "result": "PASS"
+}
