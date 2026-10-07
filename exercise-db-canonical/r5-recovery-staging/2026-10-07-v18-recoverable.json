@@ -1,5 +1,5 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "R5/V18",
   "baselineHead": "11a3ef3f71147ebaa67367eebef90f7db11216f3",
   "note": "R5/V18 source-family research staging. FRESH true-missing capability decisions only; no authoritative replacement.",
@@ -454,7 +454,7 @@
     "newAuthoritativeCapabilities": 81,
     "newProcessedRecords": 24,
     "capabilitiesPerQuery": 2.892857142857143,
-    "validation": "PENDING_PROMOTION",
-    "stagingState": "RECOVERABLE_NOT_AUTHORITATIVE"
+    "validation": "PASS",
+    "stagingState": "PROMOTED_AUTHORITATIVE"
   }
 }
