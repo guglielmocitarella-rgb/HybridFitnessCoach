@@ -2,6 +2,8 @@
 import argparse, collections, hashlib, json, pathlib, re, subprocess, sys, tempfile
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0,str(ROOT))
 C=ROOT/"exercise-db-canonical"
 EXPECTED_SHA="0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a"
 CAP_FIELDS=("strengthRequirement","technicalDifficulty","mobilityRequirement","balanceCoordinationRequirement")
