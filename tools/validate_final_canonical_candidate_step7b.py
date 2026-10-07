@@ -198,9 +198,12 @@ def main():
             if regen!=actual: add(errors,"NONDETERMINISTIC_REGENERATION","Temporary Step 6 regeneration is not byte-identical",frozen=actual,regenerated=regen)
         else: add(errors,"REGENERATION_MISSING","Requested regenerated candidate is missing")
 
-    # Legacy contamination: Step 6 builder is authoritative; forbidden fallback signatures are searched in it.
+    # Legacy contamination: Step 6 builder is authoritative; reject explicit fallback mechanisms only.
     builder=(ROOT/"tools/build_final_canonical_candidate_step6.py").read_text()
-    forbidden=["legacyLevel", "majority value", "first available value", "default scalar"]\n    found=[token for token in forbidden if token.lower() in builder.lower()]\n    if found: add(errors,"LEGACY_FALLBACK_CONTAMINATION","Potential unauthorized canonical fallback in Step 6 builder",patterns=found)
+    forbidden=["legacyLevel", "majority value", "first available value", "default scalar"]
+    found=[token for token in forbidden if token.lower() in builder.lower()]
+    if found:
+        add(errors,"LEGACY_FALLBACK_CONTAMINATION","Potential unauthorized canonical fallback in Step 6 builder",patterns=found)
 
     report={
       "step":"STEP_7B","candidate":{"path":str(p.relative_to(ROOT)),"expectedSha256":EXPECTED_SHA,"actualSha256":actual,"sizeBytes":len(raw),"records":len(recs),"uniqueCanonicalIds":len(idset),"duplicateCanonicalIds":len(dup)},
