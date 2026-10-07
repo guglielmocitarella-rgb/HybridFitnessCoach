@@ -1,0 +1,143 @@
+name: V3 Step 6 Candidate Validation
+
+on:
+  push:
+    branches:
+      - feature/exercise-db-v3
+    paths:
+      - '.github/workflows/v3-step6-candidate-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-step6-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout execution commit
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate Step 5 semantic disposition
+        run: python tools/validate_step5_semantic_disposition.py
+
+      - name: Run Step 6 builder tests
+        run: python tools/test_build_final_canonical_candidate_step6.py
+
+      - name: Build candidate twice independently
+        run: |
+          mkdir -p /tmp/step6-run1 /tmp/step6-run2
+          python tools/build_final_canonical_candidate_step6.py --output /tmp/step6-run1/final-candidate.json --report /tmp/step6-run1/report.json
+          python tools/build_final_canonical_candidate_step6.py --output /tmp/step6-run2/final-candidate.json --report /tmp/step6-run2/report.json
+
+      - name: Verify determinism and authoritative invariants
+        run: |
+          sha256sum /tmp/step6-run1/final-candidate.json /tmp/step6-run2/final-candidate.json
+          cmp /tmp/step6-run1/final-candidate.json /tmp/step6-run2/final-candidate.json
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          root = Path(".")
+          c = root / "exercise-db-canonical"
+          out1 = Path("/tmp/step6-run1/final-candidate.json")
+          out2 = Path("/tmp/step6-run2/final-candidate.json")
+          rep1 = json.loads(Path("/tmp/step6-run1/report.json").read_text())
+          rep2 = json.loads(Path("/tmp/step6-run2/report.json").read_text())
+          cand = json.loads(out1.read_text())
+          records = cand if isinstance(cand, list) else cand.get("exercises", cand.get("records", []))
+          ids = [r["canonicalExerciseId"] for r in records]
+
+          required = {
+              "sourceCandidateRecords": 1087,
+              "outputRecords": 1087,
+              "canonicalIdsUnique": 1087,
+              "duplicateIds": 0,
+              "r5ResolvedApplied": 3787,
+              "prescriptionDependentSource": 441,
+              "prescriptionDependentPreserved": 441,
+              "prescriptionDependentDropped": 0,
+              "accidentallyScalarized": 0,
+              "terminalAccounted": 48,
+              "orphanExcluded": 148,
+              "redundantNoOp": 2,
+              "unresolvedPrecedence": 0,
+              "trueMissing": 0,
+              "materializationParity": "3787/3787",
+              "buildConflictsErrors": [],
+          }
+          for report in (rep1, rep2):
+              for k, expected in required.items():
+                  actual = report.get(k)
+                  assert actual == expected, (k, actual, expected)
+
+          assert len(records) == 1087
+          assert len(ids) == len(set(ids)) == 1087
+
+          setv = json.loads((c / "native-capability-r5-set-validation.json").read_text())
+          assert setv["counts"] == {
+              "universe": 3835,
+              "resolvedInUniverse": 3787,
+              "terminalInUniverse": 48,
+              "trueMissing": 0,
+              "authoritativeOutOfUniverse": 214,
+          }
+          mat = json.loads((c / "native-capability-r5-materialization-validation.json").read_text())
+          assert mat["patch"]["inUniverseParity"] == "3787/3787"
+          disp = json.loads((c / "semantic-disposition-step5.json").read_text())
+          assert disp["counts"]["precedenceRequiredAfterDisposition"] == 0
+          assert disp["counts"]["globalPrescriptionDependent"] == 441
+
+          by_id = {r["canonicalExerciseId"]: r for r in records}
+          terminal = json.loads((c / "native-capability-r5-terminal-membership.json").read_text())["entries"]
+          assert len(terminal) == 48
+          terminal_accidentally_resolved = 0
+          for e in terminal:
+              eid, field = e["semanticKey"].split("::", 1)
+              if by_id[eid]["capability"].get(field) != "EVIDENCE_UNRESOLVED":
+                  terminal_accidentally_resolved += 1
+          assert terminal_accidentally_resolved == 0
+
+          h1 = hashlib.sha256(out1.read_bytes()).hexdigest()
+          h2 = hashlib.sha256(out2.read_bytes()).hexdigest()
+          assert h1 == h2
+          Path("/tmp/step6-sha256.txt").write_text(
+              f"{h1}  run1/final-candidate.json\n{h2}  run2/final-candidate.json\n"
+          )
+          print(json.dumps({
+              "result": "PASS",
+              "records": len(records),
+              "uniqueIds": len(set(ids)),
+              "duplicateIds": len(ids) - len(set(ids)),
+              "sha256Run1": h1,
+              "sha256Run2": h2,
+              "identical": True,
+              "terminalSource": 48,
+              "terminalAccounted": rep1["terminalAccounted"],
+              "terminalAccidentallyResolved": terminal_accidentally_resolved,
+              **required,
+          }, sort_keys=True))
+          PY
+
+      - name: Stage validation artifact
+        if: success()
+        run: |
+          mkdir -p /tmp/v3-step6-candidate-validation/run1 /tmp/v3-step6-candidate-validation/run2
+          cp /tmp/step6-run1/final-candidate.json /tmp/v3-step6-candidate-validation/run1/
+          cp /tmp/step6-run1/report.json /tmp/v3-step6-candidate-validation/run1/
+          cp /tmp/step6-run2/final-candidate.json /tmp/v3-step6-candidate-validation/run2/
+          cp /tmp/step6-run2/report.json /tmp/v3-step6-candidate-validation/run2/
+          cp /tmp/step6-sha256.txt /tmp/v3-step6-candidate-validation/SHA256SUMS.txt
+
+      - name: Upload validation artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v3-step6-candidate-validation
+          path: /tmp/v3-step6-candidate-validation/
+          if-no-files-found: error
+          retention-days: 14
