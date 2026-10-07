@@ -1,0 +1,410 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V16",
+  "baselineHead": "91cd20b3e9d75bb161368010a5c3ae5f9020e270",
+  "note": "V16 source-family research staging. Existing authoritative decisions must be excluded losslessly before promotion.",
+  "newWebQueries": 51,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-seated-stride-into-saw-stretch",
+      "exerciseName": "Seated Stride into Saw Stretch",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Seated Straddle Stretch",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/210/seated-straddle-stretch/",
+        "finding": "Beginner seated straddle stretch uses controlled hip flexion and extended knees to stretch thighs, hamstrings and back."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-unilateral-banded-leg-curl",
+      "exerciseName": "Seated Unilateral Banded Leg Curl",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM Exercise Library",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "Supported isolation patterns are beginner-level; unilateral seated leg-curl mechanics retain stable support and simple joint action."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seesaw-with-ball",
+      "exerciseName": "Seesaw with Ball",
+      "source": {
+        "publisher": "Mark Vella / Google Books",
+        "title": "Anatomy for Strength and Fitness Training for Women",
+        "tier": 3,
+        "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ",
+        "finding": "Reference explicitly includes Seesaw with Ball among illustrated strength/fitness exercises; ball use adds postural control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-segmental-rotation",
+      "exerciseName": "Segmental Rotation",
+      "source": {
+        "publisher": "Polestar Pilates",
+        "title": "Pilates method study — spine mobility",
+        "tier": 2,
+        "locator": "https://polestarpilates.com/wp-content/uploads/2019/04/the_effectiveness_of_the_pilates_method.pdf",
+        "finding": "Controlled segmental spinal movement is used to improve vertebral mobility and abdominal control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-shoulder-bridge",
+      "exerciseName": "Shoulder Bridge",
+      "source": {
+        "publisher": "Pilates PPM Academy",
+        "title": "Shoulder Bridge",
+        "tier": 3,
+        "locator": "https://old.posturalpilates.it/esercizio-shoulder-bridge-ponte-sulle-spalle/",
+        "finding": "Supine bridge uses planted feet, controlled pelvic/spinal lift and glute contraction with broad support."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-shoulder-press-machine",
+      "exerciseName": "Shoulder Press (Machine)",
+      "source": {
+        "publisher": "PowerliftingTechnique",
+        "title": "Shoulder Press Machine",
+        "tier": 3,
+        "locator": "https://powerliftingtechnique.com/shoulder-press-machine/",
+        "finding": "Machine shoulder press is easy to learn; seated support reduces balance demand while overhead shoulder range remains necessary."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-side-plank-with-rotation",
+      "exerciseName": "Side Plank with Rotation",
+      "source": {
+        "publisher": "Elite Performance Institute",
+        "title": "Side Plank With Rotation",
+        "tier": 3,
+        "locator": "https://elite-performance-institute.com/exercise-library/core-exercises/side-plank-with-rotation/",
+        "finding": "Combines lateral support with controlled thoracic rotation, anti-rotation strength, mobility and shoulder stability."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-calf-raise",
+      "exerciseName": "Single-Leg Calf Raise",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Standing Calf Raises - Wall",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/73/standing-calf-raises-wall/",
+        "finding": "ACE lists wall-supported calf raise as beginner and explicitly provides a single-leg variation."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-deadlift",
+      "exerciseName": "Single-Leg Deadlift",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Single-arm, Single-leg Romanian Dead Lift",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/127/single-arm-single-leg-romanian-dead-lift/",
+        "finding": "ACE classifies the single-arm single-leg RDL as advanced and explicitly requires one-leg balance during the hinge."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-dragon-flag",
+      "exerciseName": "Single-Leg Dragon Flag",
+      "source": {
+        "publisher": "Caliverse",
+        "title": "Single leg dragon flag raises",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/single-leg-dragon-flag-raises-1576",
+        "finding": "Single-leg dragon flag demands strict core bracing, hip stability and a rigid body line."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-front-lever",
+      "exerciseName": "Single-Leg Front Lever",
+      "source": {
+        "publisher": "CALI MOVE",
+        "title": "Front Lever Progression",
+        "tier": 3,
+        "locator": "https://blog.calimove.com/2026/09/15/front-lever-progression/",
+        "finding": "Single-leg front lever follows advanced tuck and precedes straddle/full lever, indicating substantial straight-arm strength and control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-glute-bridge",
+      "exerciseName": "Single-Leg Glute Bridge",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Glute Bridge: Single-Leg Progression",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/145/glute-bridge-single-leg-progression/",
+        "finding": "ACE classifies single-leg glute bridge progression as intermediate with abdominal stiffness and unilateral hip extension."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-kettlebell-romanian-deadlift",
+      "exerciseName": "Single-Leg Kettlebell Romanian Deadlift",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Single-arm, Single-leg Romanian Dead Lift",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/127/single-arm-single-leg-romanian-dead-lift/",
+        "finding": "Advanced unilateral loaded hinge explicitly requiring balance; kettlebell loading preserves the same capability demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-planche",
+      "exerciseName": "Single-Leg Planche",
+      "source": {
+        "publisher": "Calisthenics.com",
+        "title": "One-Leg Planche",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/one-leg-planche/",
+        "finding": "One-leg planche follows advanced tuck and precedes straddle/full planche, requiring full-bodyweight straight-arm support."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-squat",
+      "exerciseName": "Single-Leg Squat",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "What Is a Squat?",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/foundational-movement-squat-what-is-a-squat",
+        "finding": "Squatting requires significant mobility and motor control; unilateral execution further raises balance and technical demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-sit-up",
+      "exerciseName": "Sit-Up",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Crunch Time: Evidence-based Ab Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/8989/crunch-time-an-evidence-based-approach-to-training-the-abs/",
+        "finding": "Traditional floor abdominal flexion is a stable supported strength/endurance pattern."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-skin-the-cat",
+      "exerciseName": "Skin the Cat",
+      "source": {
+        "publisher": "CrossFit Journal",
+        "title": "Got Rings? Now What?",
+        "tier": 2,
+        "locator": "https://library.crossfit.com/free/pdf/44_06_GotRings_NowWhat.pdf",
+        "finding": "Skin-the-cat passes through inverted hang into deep shoulder extension and back out under control as a ring skill."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "VERY_HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-skippingjump-rope",
+      "exerciseName": "Skipping/Jump Rope",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Calorie-Burning Jump Rope Workout",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/5408/calorie-burning-jump-rope-workout/",
+        "finding": "Jump rope develops agility, hand-foot coordination, footwork and stability with beginner through advanced variations."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-spider-push-up",
+      "exerciseName": "Spider Push-Up",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM Exercise Library",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "Push-up is a basic pressing pattern; adding ipsilateral knee drive increases coordination and trunk control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-spine-foam-rolling",
+      "exerciseName": "Spine Foam Rolling",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Thoracic Mobility Exercises",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/7960/thoracic-mobility-exercises-to-address-shoulder-pain/",
+        "finding": "Foam-roller thoracic extension is supported mobility work using the roller as a wedge and controlled extension."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-spine-roll",
+      "exerciseName": "Spine Roll",
+      "source": {
+        "publisher": "Polestar Pilates",
+        "title": "Pilates method study — Spine roll",
+        "tier": 2,
+        "locator": "https://polestarpilates.com/wp-content/uploads/2019/04/the_effectiveness_of_the_pilates_method.pdf",
+        "finding": "Spine roll slowly rolls and unrolls vertebra by vertebra to improve spinal mobility and abdominal control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "stagedRecords": 21,
+    "stagedCapabilities": 80,
+    "stagingState": "RECOVERABLE_NOT_AUTHORITATIVE"
+  },
+  "leasePrepared": true
+}
