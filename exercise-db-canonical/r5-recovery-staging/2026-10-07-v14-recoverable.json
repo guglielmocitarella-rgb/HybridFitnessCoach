@@ -1,8 +1,8 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "V3.10C-R5-R-V14",
   "baselineHead": "e9bab07eb04a2a0da26d859fd72fd34eba1a13f8",
-  "newWebQueries": 43,
+  "newWebQueries": 46,
   "records": [
     {
       "canonicalExerciseId": "ex-one-arm-kettlebell-clean",
@@ -385,11 +385,67 @@
           "technicalDifficulty": "HIGH"
         }
       }
+    },
+    {
+      "canonicalExerciseId": "ex-pike-push-up",
+      "exerciseName": "Pike Push-Up",
+      "source": {
+        "publisher": "NASM",
+        "locator": "https://www.nasm.org/resource-center/exercise-library/pike-push-up",
+        "finding": "NASM describes the pike push-up as an advanced bodyweight shoulder press requiring core bracing, shoulder stability, controlled inverted-V positioning and strong pressing."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-piked-hamstring-curl",
+      "exerciseName": "Piked Hamstring Curl",
+      "source": {
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "locator": "https://studylib.net/doc/27226669/ashley-kalym---complete-calisthenics---reedited-2016",
+        "finding": "Complete Calisthenics presents the piked hamstring curl as the initial Nordic-style curl progression; hip piking reduces load and range while the athlete controls a high-tension eccentric/concentric hamstring curl."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-piriformis-foam-rolling",
+      "exerciseName": "Piriformis Foam Rolling",
+      "source": {
+        "publisher": "NASM",
+        "locator": "https://www.nasm.org/docs/default-source/pdf/nasm-guide-to-foam-rolling.pdf",
+        "finding": "NASM instructs seated posterior-hip foam rolling with one ankle crossed over the opposite knee, leaning into the target hip and slowly locating/holding a tender spot."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
     }
   ],
   "summary": {
-    "records": 23,
-    "capabilities": 83,
-    "capabilitiesPerQuery": 1.930232558139535
+    "stagedRecords": 26,
+    "stagedCapabilities": 94,
+    "preexistingAuthoritativeCapabilities": 12,
+    "newAuthoritativeCapabilities": 82,
+    "preexistingProcessedRecords": 3,
+    "newProcessedRecords": 23,
+    "capabilitiesPerQuery": 1.7826086956521738,
+    "validation": "PASS",
+    "stagingState": "PROMOTED_AUTHORITATIVE"
   }
 }
