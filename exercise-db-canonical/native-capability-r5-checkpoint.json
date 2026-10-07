@@ -1130,10 +1130,10 @@
   },
   "v20Promotion": {
     "stagedCapabilities": 81,
-    "preexistingAuthoritativeCapabilities": 15,
+    "preexistingAuthoritativeCapabilities": 0,
     "newAuthoritativeCapabilities": 81,
     "stagedRecords": 23,
-    "preexistingProcessedRecords": 4,
+    "preexistingProcessedRecords": 0,
     "newProcessedRecords": 23,
     "newWebQueries": 40,
     "capabilitiesPerQuery": 2.025,
@@ -1143,6 +1143,8 @@
     "routingViolationsAdded": 0,
     "prescriptionDependentPreserved": 441,
     "stagingState": "PROMOTED_AUTHORITATIVE",
-    "leaseReady": true
+    "leaseReady": true,
+    "overlapExcludedBeforeStaging": 15,
+    "overlapRecordsFullyExcluded": 4
   }
 }
