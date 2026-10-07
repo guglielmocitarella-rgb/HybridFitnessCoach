@@ -1,0 +1,100 @@
+{
+  "step": "STEP_8A-S",
+  "status": "FROZEN_SEMANTIC_CONTRACT",
+  "initialCheckpoint": "7f2a7ea0f79a6d2928826d32bfbf2cae2400dea6",
+  "entryDrift": {
+    "classification": "NON_INVALIDATING_VALIDATION_METADATA",
+    "aheadBy": 1,
+    "files": [
+      "exercise-db-canonical/engine-readiness-validation-v3-6.json"
+    ]
+  },
+  "frozenCandidate": {
+    "path": "exercise-db-canonical/exercise-db-v3-final-candidate.json",
+    "sha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "records": 1087,
+    "unchanged": true
+  },
+  "pdInventory": {
+    "total": 441,
+    "distribution": {
+      "strengthRequirement": 441,
+      "technicalDifficulty": 0,
+      "mobilityRequirement": 0,
+      "balanceCoordinationRequirement": 0
+    },
+    "resistanceSource": {
+      "EXTERNAL_LOAD": 436,
+      "ASSISTED": 5
+    }
+  },
+  "architecture": {
+    "modelsEvaluated": [
+      "A_SCALAR_RESOLUTION",
+      "B_DIRECT_CONTEXTUAL_PREDICATE",
+      "C_STRUCTURED_CONTEXTUAL_REQUIREMENT",
+      "D_HYBRID",
+      "E_OTHER"
+    ],
+    "selected": "D_HYBRID_STRUCTURED_CONTEXTUAL",
+    "strengthMechanism": "DIRECT_TYPED_CONTEXTUAL_PREDICATE",
+    "scalarization": "NO_FOR_CURRENT_PD",
+    "v2Dependency": 0
+  },
+  "applicability": {
+    "CONTRACT_COVERED": 441,
+    "CONTRACT_NOT_APPLICABLE": 0,
+    "CONTRACT_AMBIGUOUS": 0,
+    "mismatches": []
+  },
+  "terminal": {
+    "count": 48,
+    "prescriptionDependentDistinct": true,
+    "resolutionPermitted": false
+  },
+  "representability": {
+    "NO_CONTEXT": true,
+    "SUFFICIENT_VALID_CONTEXT": true,
+    "INSUFFICIENT_CONTEXT": true,
+    "INVALID_CONTEXT": true,
+    "boundaryContexts": true,
+    "allMandatoryPdDimensionsRepresentable": true
+  },
+  "contractOracle": {
+    "fixtureCount": 17,
+    "capabilityCoverage": [
+      "strengthRequirement",
+      "technicalDifficulty",
+      "mobilityRequirement",
+      "balanceCoordinationRequirement"
+    ],
+    "unresolvedCases": 0
+  },
+  "artifacts": {
+    "markdown": "exercise-db-canonical/step8a-pd-semantic-contract.md",
+    "json": "exercise-db-canonical/step8a-pd-semantic-contract.json",
+    "validator": "tools/validate_step8a_pd_semantic_contract.py",
+    "workflow": ".github/workflows/v3-step8a-semantic-contract-validation.yml",
+    "validationReport": "exercise-db-canonical/step8a-pd-semantic-contract-validation.json"
+  },
+  "firstValidationRun": {
+    "runId": 37680048442,
+    "conclusion": "success",
+    "artifactName": "v3-step8a-semantic-contract-validation",
+    "artifactId": 11508912494,
+    "artifactDigest": "sha256:f6c4bd2935d34e0377134e08252f1a1116637356d894fe2dbc82750cc827684b"
+  },
+  "productionIsolation": {
+    "v2Untouched": true,
+    "exerciseDbV2LoadUntouched": true,
+    "productionCompositionUntouched": true,
+    "frozenCandidateUntouched": true,
+    "resolverImplemented": false,
+    "productionSwitch": false,
+    "step8Executed": false,
+    "step9Started": false
+  },
+  "blockingFindings": [],
+  "nextGateRecommendation": "IMPLEMENT_STEP_8A_AGAINST_FROZEN_SEMANTIC_CONTRACT",
+  "verdict": "STEP_8AS_COMPLETE_READY_FOR_STEP_8A_IMPLEMENTATION"
+}
