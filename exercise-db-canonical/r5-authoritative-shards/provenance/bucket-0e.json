@@ -68,6 +68,23 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "cm-ab-wheel-rollout",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Best Abs Exercises: Science-Based Core Training That Delivers Results",
+    "sourcePublisher": "NASM",
+    "sourceLocator": "https://www.nasm.org/resource-center/blog/training/best-abs-exercises",
+    "evidenceSummary": "NASM reserves the rollout for clients with sufficient trunk stability and body awareness; the long-lever rollout requires controlled whole-body positioning.",
+    "reasoningRule": "Record-specific external evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-ab-wheel-rollout-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "cm-ab-wheel-rollout-da-piedi",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -99,23 +116,6 @@
     "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-cm-ab-wheel-rollout-in-ginocchio-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
-    "canonicalExerciseId": "cm-ab-wheel-rollout",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "newState": "KNOWN",
-    "value": "MODERATE",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "Best Abs Exercises: Science-Based Core Training That Delivers Results",
-    "sourcePublisher": "NASM",
-    "sourceLocator": "https://www.nasm.org/resource-center/blog/training/best-abs-exercises",
-    "evidenceSummary": "NASM reserves the rollout for clients with sufficient trunk stability and body awareness; the long-lever rollout requires controlled whole-body positioning.",
-    "reasoningRule": "Record-specific external evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-cm-ab-wheel-rollout-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -3213,6 +3213,23 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "cm-skater-hops",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Integrated no-equipment family",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/",
+    "evidenceSummary": "Integrated no-equipment family evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-skater-hops-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "cm-sliding-hamstring-curl",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -3281,6 +3298,74 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "cm-staggered-push-up",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Push-up with Staggered Hands",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/327/push-up-with-staggered-hands/",
+    "evidenceSummary": "Push-up with Staggered Hands evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-staggered-push-up-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "cm-step-down",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Unilateral lower-body family",
+    "sourcePublisher": "NASM",
+    "sourceLocator": "https://www.nasm.org/resource-center/exercise-library/bulgarian-split-squat",
+    "evidenceSummary": "Unilateral lower-body family evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-step-down-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "cm-straight-bar-dip",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Gymnastics pressing prerequisites",
+    "sourcePublisher": "CrossFit",
+    "sourceLocator": "https://www.crossfit.com/pro-coach/developing-a-muscle-up",
+    "evidenceSummary": "Gymnastics pressing prerequisites evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-straight-bar-dip-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "cm-straight-bar-dip",
+    "dimension": "strengthRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Gymnastics pressing prerequisites",
+    "sourcePublisher": "CrossFit",
+    "sourceLocator": "https://www.crossfit.com/pro-coach/developing-a-muscle-up",
+    "evidenceSummary": "Gymnastics pressing prerequisites evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-straight-bar-dip-strengthRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "cm-tempo-pull-up",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -3295,6 +3380,57 @@
     "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-cm-tempo-pull-up-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "cm-tibialis-raise",
+    "dimension": "mobilityRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Tibialis anterior family",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/legs-calves-and-shins/tibialis-anterior/",
+    "evidenceSummary": "Tibialis anterior family evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-tibialis-raise-mobilityRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "cm-tibialis-raise",
+    "dimension": "strengthRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "LOW",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Tibialis anterior family",
+    "sourcePublisher": "ACE Fitness",
+    "sourceLocator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/legs-calves-and-shins/tibialis-anterior/",
+    "evidenceSummary": "Tibialis anterior family evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-tibialis-raise-strengthRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "cm-toes-to-bar",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_SOURCE_FAMILY",
+    "sourceTier": 2,
+    "sourceTitle": "Toes-to-Bar Made Simple",
+    "sourcePublisher": "CrossFit",
+    "sourceLocator": "https://www.crossfit.com/essentials/crossfit-toes-to-bar-rx-plan",
+    "evidenceSummary": "Toes-to-Bar Made Simple evidence supports this movement family’s balance/coordination, mobility, strength and technical demands; the selected field value is classified under the existing five-level rubric.",
+    "reasoningRule": "Source-family external evidence assessed field-by-field; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-cm-toes-to-bar-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -3604,23 +3740,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-back-lever-pullout",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "newState": "KNOWN",
-    "value": "HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 3,
-    "sourceTitle": "Back Lever Pullout",
-    "sourcePublisher": "GymDaze",
-    "sourceLocator": "https://gym-daze.com/exercises/back-lever-pullout",
-    "evidenceSummary": "Advanced transition from horizontal back lever to inverted hang with straight elbows and rigid body line.",
-    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-back-lever-pullout-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-back-lever",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -3635,6 +3754,23 @@
     "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-back-lever-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Back Lever Pullout",
+    "sourcePublisher": "GymDaze",
+    "sourceLocator": "https://gym-daze.com/exercises/back-lever-pullout",
+    "evidenceSummary": "Advanced transition from horizontal back lever to inverted hang with straight elbows and rigid body line.",
+    "reasoningRule": "Record-specific source evidence assessed field-by-field against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-back-lever-pullout-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -5049,23 +5185,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-front-lever-pull-up",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "newState": "KNOWN",
-    "value": "HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 3,
-    "sourceTitle": "Front Lever Pull-Up",
-    "sourcePublisher": "CALISTHENICS.com",
-    "sourceLocator": "https://calisthenics.com/exercise/front-lever-pull-up/",
-    "evidenceSummary": "The movement must preserve a fully suspended horizontal body line while dynamically pulling and returning under control.",
-    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-front-lever-pull-up-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-front-lever",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -5080,6 +5199,23 @@
     "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-front-lever-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-up",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Front Lever Pull-Up",
+    "sourcePublisher": "CALISTHENICS.com",
+    "sourceLocator": "https://calisthenics.com/exercise/front-lever-pull-up/",
+    "evidenceSummary": "The movement must preserve a fully suspended horizontal body line while dynamically pulling and returning under control.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-front-lever-pull-up-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -5151,23 +5287,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-full-front-lever-rows",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "EVIDENCE_UNRESOLVED",
-    "newState": "KNOWN",
-    "value": "HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "Complete Calisthenics",
-    "sourcePublisher": "Ashley Kalym / Complete Calisthenics",
-    "sourceLocator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
-    "evidenceSummary": "Exercise-specific progression or execution evidence supports this capability classification.",
-    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-full-front-lever-rows-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-full-front-lever",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -5182,6 +5301,23 @@
     "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-full-front-lever-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-full-front-lever-rows",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Complete Calisthenics",
+    "sourcePublisher": "Ashley Kalym / Complete Calisthenics",
+    "sourceLocator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+    "evidenceSummary": "Exercise-specific progression or execution evidence supports this capability classification.",
+    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-full-front-lever-rows-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -5457,23 +5593,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-iron-cross-pullouts",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "EVIDENCE_UNRESOLVED",
-    "newState": "KNOWN",
-    "value": "VERY_HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 3,
-    "sourceTitle": "Iron Cross Pullouts capability evidence",
-    "sourcePublisher": "Beyond Movement",
-    "sourceLocator": "https://beyondmovement.com.au/skills/iron-cross",
-    "evidenceSummary": "Iron-cross progression guidance describes full-bodyweight straight-arm ring adduction with exceptional strength prerequisites, long tissue adaptation and strict straight-arm control.",
-    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-iron-cross-pullouts-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-iron-cross",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -5522,6 +5641,23 @@
     "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-iron-cross-technicalDifficulty",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-iron-cross-pullouts",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "VERY_HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 3,
+    "sourceTitle": "Iron Cross Pullouts capability evidence",
+    "sourcePublisher": "Beyond Movement",
+    "sourceLocator": "https://beyondmovement.com.au/skills/iron-cross",
+    "evidenceSummary": "Iron-cross progression guidance describes full-bodyweight straight-arm ring adduction with exceptional strength prerequisites, long tissue adaptation and strict straight-arm control.",
+    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-iron-cross-pullouts-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -5746,23 +5882,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-leg-press-calf-raise",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "EVIDENCE_UNRESOLVED",
-    "newState": "KNOWN",
-    "value": "VERY_LOW",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "Leg Press Calf Raise",
-    "sourcePublisher": "NASM",
-    "sourceLocator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise",
-    "evidenceSummary": "Stable guided calf isolation on leg press; full plantarflexion/dorsiflexion range and controlled high-load calf strength are emphasized.",
-    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-leg-press-calf-raise-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-leg-press",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -5777,6 +5896,23 @@
     "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-leg-press-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-leg-press-calf-raise",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "VERY_LOW",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Leg Press Calf Raise",
+    "sourcePublisher": "NASM",
+    "sourceLocator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise",
+    "evidenceSummary": "Stable guided calf isolation on leg press; full plantarflexion/dorsiflexion range and controlled high-load calf strength are emphasized.",
+    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-leg-press-calf-raise-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -6273,23 +6409,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-plank-pose-stabilization",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "EVIDENCE_UNRESOLVED",
-    "newState": "KNOWN",
-    "value": "MODERATE",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "NASM Exercise Library",
-    "sourcePublisher": "NASM",
-    "sourceLocator": "https://www.nasm.org/workout-exercise-guidance",
-    "evidenceSummary": "NASM lists the plank as a beginner core exercise; the static unsupported body line requires continuous trunk stabilization but little joint excursion.",
-    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-plank-pose-stabilization-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-plank",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -6304,6 +6423,23 @@
     "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-plank-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-plank-pose-stabilization",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "MODERATE",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "NASM Exercise Library",
+    "sourcePublisher": "NASM",
+    "sourceLocator": "https://www.nasm.org/workout-exercise-guidance",
+    "evidenceSummary": "NASM lists the plank as a beginner core exercise; the static unsupported body line requires continuous trunk stabilization but little joint excursion.",
+    "reasoningRule": "Record-specific source evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-plank-pose-stabilization-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -6579,23 +6715,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-rings-tuck-planche-pushups",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
-    "newState": "KNOWN",
-    "value": "VERY_HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "Overcoming Gravity 2nd Edition Exercise Charts",
-    "sourcePublisher": "Overcoming Gravity",
-    "sourceLocator": "https://docs.google.com/spreadsheets/d/19l4tVfdTJLheLMwZBYqcw1oeEBPRh8mxngqrCz2YnVg/edit",
-    "evidenceSummary": "Published progression charts explicitly enumerate ab-wheel and rings progressions by level, including ring rows, planche variants, ring dips, ring handstands/HSPU, L-sit, muscle-up and support progressions.",
-    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-rings-tuck-planche-pushups-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-rings-tuck-planche",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
@@ -6627,6 +6746,23 @@
     "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-rings-tuck-planche-technicalDifficulty",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
+    "canonicalExerciseId": "ex-rings-tuck-planche-pushups",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "UNKNOWN_TERMINAL_INSUFFICIENT_EVIDENCE",
+    "newState": "KNOWN",
+    "value": "VERY_HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "Overcoming Gravity 2nd Edition Exercise Charts",
+    "sourcePublisher": "Overcoming Gravity",
+    "sourceLocator": "https://docs.google.com/spreadsheets/d/19l4tVfdTJLheLMwZBYqcw1oeEBPRh8mxngqrCz2YnVg/edit",
+    "evidenceSummary": "Published progression charts explicitly enumerate ab-wheel and rings progressions by level, including ring rows, planche variants, ring dips, ring handstands/HSPU, L-sit, muscle-up and support progressions.",
+    "reasoningRule": "Record-specific external evidence assessed field-by-field against the existing five-level capability rubric; no name-only, legacyLevel, or cross-exercise transfer input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-rings-tuck-planche-pushups-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -7689,22 +7825,6 @@
     "researchVersion": "V3.10C-R5"
   },
   {
-    "canonicalExerciseId": "ex-superman-push-up",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "EVIDENCE_UNRESOLVED",
-    "newState": "KNOWN",
-    "value": "HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "https://www.acefitness.org/resources/pros/expert-articles/4943/total-body-plyometrics-workout/",
-    "sourcePublisher": "ACE",
-    "sourceLocator": "Explosive push-up family requires elite-level upper-body power, rapid landing control and advanced coordination.",
-    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-superman-push-up-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
     "canonicalExerciseId": "ex-superman",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -7769,6 +7889,22 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "ex-superman-push-up",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "https://www.acefitness.org/resources/pros/expert-articles/4943/total-body-plyometrics-workout/",
+    "sourcePublisher": "ACE",
+    "sourceLocator": "Explosive push-up family requires elite-level upper-body power, rapid landing control and advanced coordination.",
+    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-superman-push-up-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-supine-gluteal-stretch",
     "dimension": "mobilityRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -7801,6 +7937,22 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "ex-tuck-front-lever",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "https://stevenlow.org/overcoming-gravity/",
+    "sourcePublisher": "Steven Low",
+    "sourceLocator": "Tuck front-lever is a foundational lever progression requiring high pulling/core strength and coordinated body-line control.",
+    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-tuck-front-lever-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-tuck-front-lever-hold",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -7830,22 +7982,6 @@
     "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-tuck-front-lever-rows-balanceCoordinationRequirement",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
-    "canonicalExerciseId": "ex-tuck-front-lever",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "EVIDENCE_UNRESOLVED",
-    "newState": "KNOWN",
-    "value": "HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "https://stevenlow.org/overcoming-gravity/",
-    "sourcePublisher": "Steven Low",
-    "sourceLocator": "Tuck front-lever is a foundational lever progression requiring high pulling/core strength and coordinated body-line control.",
-    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-tuck-front-lever-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
@@ -8042,6 +8178,22 @@
     "researchVersion": "V3.10C-R5"
   },
   {
+    "canonicalExerciseId": "ex-wall-handstand",
+    "dimension": "balanceCoordinationRequirement",
+    "previousState": "EVIDENCE_UNRESOLVED",
+    "newState": "KNOWN",
+    "value": "HIGH",
+    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
+    "sourceTier": 2,
+    "sourceTitle": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+    "sourcePublisher": "CrossFit",
+    "sourceLocator": "CrossFit places wall handstand as a prerequisite for HSPU and emphasizes safe inverted support, shoulder strength/control and progression.",
+    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
+    "confidence": "HIGH_CONFIDENCE",
+    "provenanceId": "R5-ex-wall-handstand-balanceCoordinationRequirement",
+    "researchVersion": "V3.10C-R5"
+  },
+  {
     "canonicalExerciseId": "ex-wall-handstand-push-up",
     "dimension": "balanceCoordinationRequirement",
     "previousState": "EVIDENCE_UNRESOLVED",
@@ -8071,22 +8223,6 @@
     "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
     "confidence": "HIGH_CONFIDENCE",
     "provenanceId": "R5-ex-wall-handstand-push-up-technicalDifficulty",
-    "researchVersion": "V3.10C-R5"
-  },
-  {
-    "canonicalExerciseId": "ex-wall-handstand",
-    "dimension": "balanceCoordinationRequirement",
-    "previousState": "EVIDENCE_UNRESOLVED",
-    "newState": "KNOWN",
-    "value": "HIGH",
-    "evidenceType": "EXTERNAL_EXERCISE_SPECIFIC",
-    "sourceTier": 2,
-    "sourceTitle": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
-    "sourcePublisher": "CrossFit",
-    "sourceLocator": "CrossFit places wall handstand as a prerequisite for HSPU and emphasizes safe inverted support, shoulder strength/control and progression.",
-    "reasoningRule": "Record-specific or source-family evidence assessed against the existing five-level capability rubric; no name-only or legacyLevel input.",
-    "confidence": "HIGH_CONFIDENCE",
-    "provenanceId": "R5-ex-wall-handstand-balanceCoordinationRequirement",
     "researchVersion": "V3.10C-R5"
   },
   {
