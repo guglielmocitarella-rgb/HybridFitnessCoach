@@ -6,6 +6,12 @@ on:
       - feature/exercise-db-v3
     paths:
       - '.github/workflows/v3-step6-candidate-validation.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/v3-step6-candidate-validation.yml'
+      - 'tools/build_final_canonical_candidate_step6.py'
 
 permissions:
   contents: read
