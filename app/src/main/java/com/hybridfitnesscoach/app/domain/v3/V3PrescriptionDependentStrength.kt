@@ -102,7 +102,7 @@ object V3PdStrengthResolver {
             ResistanceSource.ASSISTED -> exercise.resistance.assistanceUnit.value
             else -> null
         }
-        if (expectedUnit == null || prescribed.unit != expectedUnit) return invalid()
+        if (expectedUnit != null && prescribed.unit != expectedUnit) return invalid()
 
         val envelope = context.athleteCapacity
             ?: return V3ContextualEligibility(V3ContextualEligibilityState.ATHLETE_CAPABILITY_UNKNOWN, V3PdReasonCode.ATHLETE_CAPABILITY_UNKNOWN)
