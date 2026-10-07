@@ -233,12 +233,13 @@ def build_candidate(data, enforce_repository_contract=True):
                 raise BuildError(f"KEEP_SEMANTIC_STATE target is not PRESCRIPTION_DEPENDENT: {key}")
             report["prescriptionDependentKeepActions"] += 1
         elif action == "APPLY_R5_SCALAR":
+            value = d.get("r5Value")
+            if value in (None, PD, UNRESOLVED):
+                raise BuildError(f"APPLY_R5_SCALAR missing/non-scalar persisted r5Value: {key}")
             p = patch_by_key.get(key)
-            if p is None:
-                raise BuildError(f"APPLY_R5_SCALAR missing authoritative R5 patch: {key}")
-            if p.get("after") != d.get("r5Value"):
+            if p is not None and p.get("after") != value:
                 raise BuildError(f"R5 scalar disagreement between patch/disposition: {key}")
-            record["capability"][field] = p["after"]
+            record["capability"][field] = value
         elif action == "IGNORE_AS_ALREADY_APPLIED":
             # A true no-op: require the candidate already to equal the persisted value.
             expected = d.get("r5Value")
