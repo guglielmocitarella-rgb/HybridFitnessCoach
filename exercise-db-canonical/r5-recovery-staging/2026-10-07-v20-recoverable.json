@@ -1,15 +1,16 @@
 {
-  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "status": "PROMOTED_AUTHORITATIVE",
   "version": "R5/V20",
   "baselineHead": "7b4221987b53b2e6c674db19070c4337d04da572",
   "note": "R5/V20 source-family research staging. FRESH true-missing capability decisions only; 12 preexisting authoritative capabilities were excluded losslessly before staging.",
   "newWebQueries": 40,
   "overlapExclusion": {
-    "capabilities": 12,
+    "capabilities": 15,
     "recordsFullyExcluded": [
       "cm-scapular-pull-up-hold",
       "cm-scapular-push-up",
-      "cm-scapular-wall-slide"
+      "cm-scapular-wall-slide",
+      "cm-single-arm-cable-chest-press"
     ],
     "policy": "preserve existing authoritative decisions; do not restage or replace"
   },
@@ -387,24 +388,6 @@
       }
     },
     {
-      "canonicalExerciseId": "cm-single-arm-cable-chest-press",
-      "exerciseName": "Single-arm cable chest press",
-      "source": {
-        "publisher": "ACE",
-        "title": "Single-arm Chest Press",
-        "tier": 2,
-        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/338/single-arm-chest-press/"
-      },
-      "fieldApplication": {
-        "resolved": {
-          "balanceCoordinationRequirement": "MODERATE",
-          "mobilityRequirement": "LOW",
-          "technicalDifficulty": "MODERATE"
-        },
-        "terminalUnresolved": []
-      }
-    },
-    {
       "canonicalExerciseId": "cm-single-arm-cable-curl",
       "exerciseName": "Single-arm cable curl",
       "source": {
@@ -460,10 +443,10 @@
     }
   ],
   "promotion": {
-    "stagedRecords": 24,
-    "stagedCapabilities": 84,
+    "stagedRecords": 23,
+    "stagedCapabilities": 81,
     "preexistingAuthoritativeCapabilities": 0,
-    "freshCapabilities": 84,
-    "validation": "PENDING"
+    "freshCapabilities": 81,
+    "validation": "PASS"
   }
 }
