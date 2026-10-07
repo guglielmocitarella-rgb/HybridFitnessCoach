@@ -1,0 +1,403 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V13",
+  "baselineHead": "05cc5c3e1f42efc3da8b47e471422b0cf98a8364",
+  "newWebQueries": 56,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-halting-deadlift",
+      "exerciseName": "Halting Deadlift",
+      "source": {
+        "publisher": "DeadliftWorkout",
+        "locator": "https://deadliftworkout.com/blog/halting-deadlift-guide",
+        "finding": "The halting deadlift is a controlled deadlift variation emphasizing first-pull position, rigid trunk and precise bar path."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-handstand-to-elbow-lever-to-handstand",
+      "exerciseName": "Handstand to Elbow Lever to Handstand",
+      "source": {
+        "publisher": "pigmie",
+        "locator": "https://www.youtube.com/watch?v=U2s9uJGG3fA",
+        "finding": "The elbow-lever-to-handstand transition is taught through progressions and combines inversion, pressing strength, balance and precise body-position control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-high-low-banded-chest-fly",
+      "exerciseName": "High-Low Banded Chest Fly",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/160/standing-chest-fly/",
+        "finding": "ACE classifies standing band/cable fly work as Intermediate and describes a controlled standing fly with core stabilization and shoulder-range control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-high-low-cable-chest-fly",
+      "exerciseName": "High-Low Cable Chest Fly",
+      "source": {
+        "publisher": "SmartWorkout",
+        "locator": "https://smartworkout.app/en/exercise-library/chest/high-low-cable-chest-fly",
+        "finding": "The high-low cable fly uses a standing split/stable stance and a controlled downward-inward shoulder-adduction arc under cable resistance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-hip-sled-machine",
+      "exerciseName": "Hip Sled (Machine)",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/154/seated-leg-press/",
+        "finding": "ACE rates the selectorized leg press Beginner; back support and fixed machine path minimize balance while controlled hip/knee flexion requires moderate usable ROM."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-in-line-pull-up",
+      "exerciseName": "In-Line Pull-Up",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/back/",
+        "finding": "ACE treats pull-up/chin-up patterns as loaded bodyweight pulling requiring scapular control; the unsupported hanging pattern adds body-line coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-low-pulley-curl",
+      "exerciseName": "Low-Pulley Curl",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/322/standing-bicep-curl/",
+        "finding": "ACE rates standing cable/band curls Beginner and describes simple controlled elbow flexion with elbows close to the torso."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-machine-cable-front-lat-pulldown",
+      "exerciseName": "Machine Cable Front Lat Pulldown",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/",
+        "finding": "ACE rates the seated machine lat pulldown Beginner; the supported setup minimizes balance while scapular depression and controlled pulling govern execution."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-machine-rear-deltoid-fly",
+      "exerciseName": "Machine Rear Deltoid Fly",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/128/kneeling-reverse-fly/",
+        "finding": "ACE rates reverse-fly cable work Intermediate and emphasizes braced torso, scapular positioning and a controlled shoulder arc."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-mid-cable-chest-fly",
+      "exerciseName": "Mid-Cable Chest Fly",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/160/standing-chest-fly/",
+        "finding": "ACE rates the standing cable fly Intermediate; it requires a stable stance, core bracing and controlled horizontal shoulder adduction."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-multidirectional-lunges",
+      "exerciseName": "Multidirectional Lunges",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/",
+        "finding": "ACE rates forward lunging Intermediate, explicitly requiring single-leg stabilization; multidirectional lunging extends that controlled stepping demand across planes."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-muscle-snatch",
+      "exerciseName": "Muscle Snatch",
+      "source": {
+        "publisher": "CrossFit",
+        "locator": "https://www.crossfit.com/essentials/the-muscle-snatch",
+        "finding": "CrossFit identifies the muscle snatch as a skill-transfer exercise for snatch first/second-pull capacity and positional awareness, continuing the bar overhead without a rebend."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-neck-and-shoulder-stretch",
+      "exerciseName": "Neck and Shoulder Stretch",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/202/lateral-neck-flexion/",
+        "finding": "ACE rates controlled neck stretching Beginner and describes slow, aligned range-of-motion work with minimal loading and balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-negative-hamstring-curl",
+      "exerciseName": "Negative Hamstring Curl",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/5616/6-functional-strength-and-conditioning-exercises-you-re-not-using-with-your-clients/",
+        "finding": "ACE describes Nordic hamstring work as high eccentric hamstring loading; controlled negative execution demands substantial posterior-chain strength and trunk control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-negative-tuck-front-lever",
+      "exerciseName": "Negative Tuck Front Lever",
+      "source": {
+        "publisher": "GMB Fitness",
+        "locator": "https://gmb.io/levers/",
+        "finding": "GMB presents tuck front-lever negatives as the first lever progression, emphasizing slow controlled lowering before static holds and harder lever stages."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-neutral-grip-horizontal-row",
+      "exerciseName": "Neutral-Grip Horizontal Row",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/",
+        "finding": "ACE rates the narrow-handle seated cable row Beginner and describes a stable straight-back pull with controlled elbow travel and slow return."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-neutral-grip-vertical-pulldown",
+      "exerciseName": "Neutral-Grip Vertical Pulldown",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/",
+        "finding": "ACE rates the supported seated pulldown Beginner and emphasizes scapular positioning and controlled vertical pulling with minimal balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-non-kipping-clapping-pull-ups",
+      "exerciseName": "Non-Kipping Clapping Pull-Ups",
+      "source": {
+        "publisher": "Caliverse",
+        "locator": "https://www.caliverse.app/exercises/clapping-pull-up-55",
+        "finding": "Caliverse describes the clapping pull-up as a hard explosive skill requiring high pulling force, timing, release/regrip coordination and controlled lowering."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-oblique-twist-with-plate-weight",
+      "exerciseName": "Oblique Twist with Plate Weight",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/47/seated-medicine-ball-trunk-rotations/",
+        "finding": "ACE rates loaded seated trunk rotation Beginner and describes braced upright posture with slow controlled rotation through end range."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-olympic-squat",
+      "exerciseName": "Olympic Squat",
+      "source": {
+        "publisher": "ACE",
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/legs-thighs/hamstrings/",
+        "finding": "ACE classifies loaded barbell squat work as Advanced; deep upright Olympic-style squatting adds substantial hip/ankle ROM and coordinated barbell control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-ab-wheel",
+      "exerciseName": "One-Arm Ab Wheel",
+      "source": {
+        "publisher": "GymDaze",
+        "locator": "https://gym-daze.com/exercises/one-arm-straight-leg-ab-wheel",
+        "finding": "GymDaze classifies the one-arm ab wheel as Expert and explicitly tags stability and strength; the unilateral long-lever rollout requires anti-rotation and strict trunk control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-dumbbell-row",
+      "exerciseName": "One-Arm Dumbbell Row",
+      "source": {
+        "publisher": "Verywell Fit",
+        "locator": "https://www.verywellfit.com/one-arm-dumbbell-row-3120040",
+        "finding": "The one-arm dumbbell row is rated Intermediate and uses a hinged staggered stance with unilateral pulling and core stability."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-dumbbell-snatch",
+      "exerciseName": "One-Arm Dumbbell Snatch",
+      "source": {
+        "publisher": "CrossFit",
+        "locator": "https://games.crossfit.com/workouts/regionals/2012",
+        "finding": "CrossFit requires a one-arm dumbbell snatch from ground to controlled overhead lockout; the explosive unilateral path requires coordination and overhead stability."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-one-arm-handstand",
+      "exerciseName": "One-Arm Handstand",
+      "source": {
+        "publisher": "GymnasticBodies",
+        "locator": "https://www.gymnasticbodies.com/forum/topic/484-one-arm-handstand-training/",
+        "finding": "GymnasticBodies guidance emphasizes continuous fingertip balance correction, body tightness and progressive weight transfer from two-hand support to a single hand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        }
+      }
+    }
+  ],
+  "evidenceCompleteCapabilityCount": 81,
+  "validation": "PRE_PROMOTION_EVIDENCE_COMPLETE"
+}
