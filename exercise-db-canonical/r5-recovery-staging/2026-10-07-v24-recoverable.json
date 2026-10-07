@@ -1,0 +1,427 @@
+{
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "version": "R5/V24",
+  "baselineHead": "dd517c73a7f27987bb901e2d88738080cef86ab8",
+  "note": "81 FRESH evidence-complete capabilities; research stopped at target and promotion prioritized.",
+  "newWebQueries": 12,
+  "overlapExclusion": {
+    "checkedBeforeStaging": true,
+    "excludedCapabilities": 0
+  },
+  "records": [
+    {
+      "canonicalExerciseId": "ex-walking-lunge-with-dumbbells",
+      "exerciseName": "Walking Lunge with Dumbbells",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/363/lunge/",
+        "tier": 2,
+        "locator": "ACE dumbbell lunge uses a controlled forward step and descent through a comfortable range; unilateral stepping requires postural control without advanced skill."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-balls",
+      "exerciseName": "Wall Balls",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/the-wall-ball",
+        "tier": 2,
+        "locator": "CrossFit describes the wall-ball as a deep front squat plus push press/throw requiring midline stabilization, considerable ROM, target accuracy, catching and coordinated core-to-extremity timing."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-handstand",
+      "exerciseName": "Wall Handstand",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "tier": 2,
+        "locator": "CrossFit places wall handstand as a prerequisite for HSPU and emphasizes safe inverted support, shoulder strength/control and progression."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-handstand-push-up",
+      "exerciseName": "Wall Handstand Push-Up",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "tier": 2,
+        "locator": "CrossFit requires established wall-handstand control plus pressing-strength prerequisites before strict HSPU, supporting high inversion/ROM demands and very high strength/technical demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-handstand-pushup",
+      "exerciseName": "Wall Handstand Pushup",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "tier": 2,
+        "locator": "CrossFit requires established wall-handstand control plus pressing-strength prerequisites before strict HSPU, supporting high inversion/ROM demands and very high strength/technical demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-headstand-pushup",
+      "exerciseName": "Wall Headstand Pushup",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://library.crossfit.com/premium/pdf/CFJ_November09_Collected.pdf",
+        "tier": 2,
+        "locator": "CrossFit gymnastics progression describes headstand push-ups as pressing from headstand to handstand; inversion and pressing demand substantial control, shoulder ROM and strength."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-headstand-pushup-eccentric",
+      "exerciseName": "Wall Headstand Pushup Eccentric",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://library.crossfit.com/premium/pdf/CFJ_November09_Collected.pdf",
+        "tier": 2,
+        "locator": "CrossFit gymnastics progression uses controlled headstand/handstand pressing and lowering; the eccentric variant retains inversion, shoulder ROM, pressing control and technical positioning demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-parallette-handstand-push-up",
+      "exerciseName": "Wall Parallette Handstand Push-Up",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "tier": 2,
+        "locator": "CrossFit HSPU progression requires wall-handstand control and substantial pressing strength; parallettes preserve inversion while increasing usable pressing ROM."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-push-up",
+      "exerciseName": "Wall Push-Up",
+      "source": {
+        "publisher": "NASM",
+        "title": "https://www.nasm.org/resource-center/exercise-library/modified-push-up",
+        "tier": 2,
+        "locator": "NASM presents modified push-up as an accessible beginner pressing progression with reduced load and difficulty; wall support further reduces loading and balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-sit",
+      "exerciseName": "Wall Sit",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "tier": 2,
+        "locator": "Wall-supported isometric squat-family positioning removes most balance demand while retaining knee/hip positioning and lower-body endurance/strength requirements."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-straddle-press-to-handstand-eccentrics",
+      "exerciseName": "Wall Straddle Press to Handstand Eccentrics",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/the-straddle-press",
+        "tier": 2,
+        "locator": "CrossFit describes straddle press-to-handstand as developing balance, coordination and full-body control; press progressions require shoulder opening, hip elevation, compression and controlled lowering."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "VERY_HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-supported-handstand",
+      "exerciseName": "Wall-Supported Handstand",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "tier": 2,
+        "locator": "Wall handstand is an explicit HSPU prerequisite; despite wall support, inversion requires active shoulder support, body control and overhead range."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wall-walk",
+      "exerciseName": "Wall Walk",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/the-wall-walk",
+        "tier": 2,
+        "locator": "CrossFit states wall walks challenge coordination and upper-body strength while maintaining handstand elements under multi-point support."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-weighted-dip",
+      "exerciseName": "Weighted Dip",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/the-ring-dip",
+        "tier": 2,
+        "locator": "Dip-family pressing requires upper-body strength, stability and control through shoulder extension; external load raises execution demand while support remains constrained."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-weighted-pistols",
+      "exerciseName": "Weighted Pistols",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/the-single-leg-squat",
+        "tier": 2,
+        "locator": "CrossFit identifies the pistol as advanced and requiring balance, coordination, considerable relative strength and great ankle/knee/hip flexibility; loading increases the challenge."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-weighted-pull-up",
+      "exerciseName": "Weighted Pull-Up",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/workout-tips-for-210909",
+        "tier": 2,
+        "locator": "CrossFit programs weighted pull-ups above strict and kipping variants in a pulling-stamina progression; added external load substantially increases pulling-strength demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-weighted-single-leg-squat",
+      "exerciseName": "Weighted Single-Leg Squat",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/the-single-leg-squat",
+        "tier": 2,
+        "locator": "CrossFit identifies single-leg squat as advanced with considerable balance, mobility and relative-strength requirements; external loading preserves and increases these demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wide-grip-pull-up",
+      "exerciseName": "Wide-Grip Pull-Up",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/pros/expert-articles/5565/4-moves-to-help-you-master-the-pull-up/",
+        "tier": 2,
+        "locator": "ACE describes unassisted pull-up as challenging, requiring back/arm strength, trunk stabilization and correct scapular packing; wide grip adds shoulder-position ROM demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wide-grip-push-up",
+      "exerciseName": "Wide-Grip Push-Up",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/blog/7038/body-weight-training-don-t-let-a-lack-of-equipment-keep-you-from-your-goals/",
+        "tier": 2,
+        "locator": "ACE includes wide-grip push-up as a standard scalable bodyweight exercise across beginner-to-advanced rep ranges."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wide-grip-vertical-pulldown",
+      "exerciseName": "Wide-Grip Vertical Pulldown",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/pros/expert-articles/5565/4-moves-to-help-you-master-the-pull-up/",
+        "tier": 2,
+        "locator": "ACE pull-up guidance emphasizes shoulder/scapular positioning and vertical pulling mechanics; supported pulldown reduces balance while wide grip retains shoulder-position demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-wide-ring-rows",
+      "exerciseName": "Wide Ring Rows",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://www.crossfit.com/essentials/the-ring-row",
+        "tier": 2,
+        "locator": "CrossFit states ring rows develop core and upper-body strength together with balance and coordination; ring stabilization adds active control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-window-wipers",
+      "exerciseName": "Window Wipers",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+        "tier": 2,
+        "locator": "CrossFit gymnastics material places windshield wipers as an auxiliary toes-to-bar drill and scales them by tuck; straight-leg hanging rotation requires substantial core strength, control and range."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "promotion": {
+    "state": "PENDING"
+  }
+}
