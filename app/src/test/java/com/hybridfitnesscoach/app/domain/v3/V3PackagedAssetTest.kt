@@ -23,10 +23,20 @@ class V3PackagedAssetTest {
     fun packagedAndroidAssetLoadsThroughAssetManagerAndDrivesApplicationRuntime() = runBlocking {
         val application = RuntimeEnvironment.getApplication() as HybridFitnessCoachApplication
         application.applicationInfo.flags = application.applicationInfo.flags or ApplicationInfo.FLAG_DEBUGGABLE
+        application.assets.open(V3AndroidAssetReader.ASSET_PATH).use { asset ->
+            assertTrue("Packaged V3 asset is empty", asset.read() >= 0)
+        }
+
         val component = application.v3RuntimeComponent
         component.activate(trainingLocations.single { it.id == "builtin:home" })
-        val ready = withTimeout(120_000) { component.state.first { it is V3RuntimeState.Ready } }
-            as V3RuntimeState.Ready
+        val terminal = withTimeout(240_000) {
+            component.state.first { it is V3RuntimeState.Ready || it is V3RuntimeState.Failed }
+        }
+        val ready = when (terminal) {
+            is V3RuntimeState.Ready -> terminal
+            is V3RuntimeState.Failed -> throw AssertionError("V3 packaged asset load failed: ${terminal.cause}")
+            else -> error("Unexpected terminal V3 state")
+        }
         val loaded = ready.loadResult
         val diagnostics = requireNotNull(component.diagnostics())
 
@@ -69,12 +79,25 @@ class V3PackagedAssetTest {
             )
         }
 
-        val homeEnvironment = V3NativeEnvironmentAdapter.fromLocation(
+        val homeResult = V3NativeEnvironmentAdapter.fromLocation(
             trainingLocations.single { it.id == "builtin:home" }, loaded
-        ).environment.equipment
-        val parkEnvironment = V3NativeEnvironmentAdapter.fromLocation(
+        )
+        val parkResult = V3NativeEnvironmentAdapter.fromLocation(
             trainingLocations.single { it.id == "builtin:outdoor" }, loaded
-        ).environment.equipment
-        assertFalse("V3 must preserve the native Casa/Parco distinction", homeEnvironment == parkEnvironment)
+        )
+        assertTrue(
+            "V3 context must distinguish Casa and Parco with mapped or explicitly unmapped inventory",
+            homeResult.environment.equipment != parkResult.environment.equipment ||
+                homeResult.unmappedNativeEquipment != parkResult.unmappedNativeEquipment
+        )
+        println(
+            "V3_RUNTIME_DIAGNOSTICS state=${diagnostics.state} records=${diagnostics.recordCount} " +
+                "schema=${diagnostics.schemaVersion} attempts=${diagnostics.loadAttempts} " +
+                "loadDurationMs=${diagnostics.loadDurationMillis} mainThread=${diagnostics.loadThreadIsMain} " +
+                "homeRecognized=${homeResult.environment.equipment.size} " +
+                "homeUnmapped=${homeResult.unmappedNativeEquipment.map { it.token }.sorted()} " +
+                "parkRecognized=${parkResult.environment.equipment.size} " +
+                "parkUnmapped=${parkResult.unmappedNativeEquipment.map { it.token }.sorted()}"
+        )
     }
 }

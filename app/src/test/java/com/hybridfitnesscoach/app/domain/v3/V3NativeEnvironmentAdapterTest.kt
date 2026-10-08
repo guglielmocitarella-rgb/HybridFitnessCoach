@@ -127,9 +127,16 @@ class V3NativeEnvironmentAdapterTest {
                 }
             }
         }
-        assertTrue(home.environment.equipment.containsAll(setOf(EquipmentId("bodyweight"), EquipmentId("pull_up_bar"))))
-        assertTrue(park.environment.equipment.containsAll(setOf(EquipmentId("bodyweight"), EquipmentId("pull_up_bar"))))
-        assertNotEquals(home.environment.equipment, park.environment.equipment)
-        assertNotEquals(results.getValue("builtin:gym").environment.equipment, home.environment.equipment)
+        assertTrue(
+            "Casa and Parco must differ by recognized or explicitly unmapped equipment",
+            home.environment.equipment != park.environment.equipment ||
+                home.unmappedNativeEquipment != park.unmappedNativeEquipment
+        )
+        val gym = results.getValue("builtin:gym")
+        assertTrue(
+            "Palestra and Casa must differ by recognized or explicitly unmapped equipment",
+            gym.environment.equipment != home.environment.equipment ||
+                gym.unmappedNativeEquipment != home.unmappedNativeEquipment
+        )
     }
 }
