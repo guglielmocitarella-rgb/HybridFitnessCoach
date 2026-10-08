@@ -1,4 +1,5 @@
-name: V3 Step 8 Massive Selection Harness (B0 scaffold)
+name: V3 Step 8 Massive Selection Validation
+
 on:
   push:
     branches: [feature/exercise-db-v3]
@@ -7,9 +8,14 @@ on:
       - 'app/src/test/java/com/hybridfitnesscoach/app/domain/v3/V3MassiveSelectionHarnessTest.kt'
       - '.github/workflows/v3-step8-massive-selection-validation.yml'
   workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
-  harness-scaffold:
+  massive-selection:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -22,18 +28,23 @@ jobs:
         run: python3 tools/validate_final_canonical_candidate_step7b.py
       - name: Step 8A-S semantic contract regression
         run: python3 tools/validate_step8a_pd_semantic_contract.py
-      - name: Step 8A boundary regression
+      - name: Step 8A native boundary regression
         run: python3 tools/validate_step8a_pd_boundary.py
-      - name: Generate deterministic planning manifest
+      - name: Generate executable deterministic matrix
         run: python3 tools/step8/generate_manifest.py
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.6.0'
-      - name: Run native V3 selector invariant tests
+      - name: Execute native V3 massive selection harness
         run: gradle :app:testDebugUnitTest --tests 'com.hybridfitnesscoach.app.domain.v3.V3MassiveSelectionHarnessTest'
-      - name: Upload planning artifacts
+      - name: Upload matrix and execution evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: v3-step8-b0-planning
-          path: build/step8/
+          name: v3-step8-massive-selection
+          if-no-files-found: error
+          path: |
+            build/step8/scenario-manifest.json
+            build/step8/inventory.json
+            build/step8/execution-report.json
+            app/build/test-results/testDebugUnitTest/
