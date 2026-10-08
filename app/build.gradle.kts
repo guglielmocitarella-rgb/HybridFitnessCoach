@@ -101,12 +101,11 @@ tasks.withType<Test>().configureEach {
         "hfc.v3.asset",
         layout.buildDirectory.file("generated/assets/canonicalV3/exercise-db-v3/exercises.json").get().asFile.absolutePath
     )
-}
-
-tasks.named<Test>("testDebugUnitTest") {
-    dependsOn("packageDebug")
-    systemProperty(
-        "hfc.v3.apk",
-        layout.buildDirectory.file("outputs/apk/debug/app-debug.apk").get().asFile.absolutePath
-    )
+    if (name == "testDebugUnitTest") {
+        dependsOn("packageDebug")
+        systemProperty(
+            "hfc.v3.apk",
+            layout.buildDirectory.file("outputs/apk/debug/app-debug.apk").get().asFile.absolutePath
+        )
+    }
 }
