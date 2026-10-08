@@ -1463,10 +1463,12 @@ private fun SkillDetailScreen(skillName: String, athlete: AthleteProfile, onDism
 }
 
 @Composable
-private fun Equipment(active: TrainingLocation, customProfiles: List<TrainingLocation>, select: (TrainingLocation) -> Unit, addProfile: (TrainingLocation) -> Unit, editProfile: (TrainingLocation,TrainingLocation)->Unit, deleteProfile:(TrainingLocation)->Unit) {
+internal fun Equipment(active: TrainingLocation, customProfiles: List<TrainingLocation>, select: (TrainingLocation) -> Unit, addProfile: (TrainingLocation) -> Unit, editProfile: (TrainingLocation,TrainingLocation)->Unit, deleteProfile:(TrainingLocation)->Unit) {
     var showCreator by remember { mutableStateOf(false) }
     var editing by remember { mutableStateOf<TrainingLocation?>(null) }
     var deleting by remember { mutableStateOf<TrainingLocation?>(null) }
+    // FlowScreen is an in-layout surface, so it must overlay the list in a Box.
+    Box(Modifier.fillMaxSize()) {
     Column {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
         customProfiles.forEach { p ->
@@ -1484,6 +1486,7 @@ private fun Equipment(active: TrainingLocation, customProfiles: List<TrainingLoc
     if(showCreator) TrainingLocationScreen(null,{showCreator=false}){created->addProfile(created);showCreator=false}
     editing?.let{old->TrainingLocationScreen(old,{editing=null}){updated->editProfile(old,updated);editing=null}}
     deleting?.let{p->AlertDialog(onDismissRequest={deleting=null},title={Text("Elimina profilo?")},text={Text("Vuoi eliminare "+p.name+"?")},confirmButton={Button(onClick={deleteProfile(p);deleting=null}){Text("ELIMINA")}},dismissButton={TextButton(onClick={deleting=null}){Text("ANNULLA")}})}
+    }
 }
 @Composable
 private fun Progress(athlete: AthleteProfile, sessions: List<SessionRecord>, onAthleteSave: (AthleteProfile) -> Unit, onDeleteSession: (Long) -> Unit, showAthleteProfile:Boolean=true) {
