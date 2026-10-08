@@ -37,6 +37,20 @@ jobs:
           gradle-version: '9.6.0'
       - name: Execute native V3 massive selection harness
         run: gradle :app:testDebugUnitTest --tests 'com.hybridfitnesscoach.app.domain.v3.V3MassiveSelectionHarnessTest'
+      - name: Print native harness failure details
+        if: failure()
+        run: |
+          python3 - <<'PY'
+          import glob
+          import xml.etree.ElementTree as ET
+          for path in glob.glob("app/build/test-results/testDebugUnitTest/TEST-*.xml"):
+              root = ET.parse(path).getroot()
+              for case in root.iter("testcase"):
+                  for failure in case.findall("failure"):
+                      print("FAILED TEST: " + case.get("classname", "") + "." + case.get("name", ""))
+                      print("MESSAGE: " + str(failure.get("message", "")))
+                      print(failure.text or "")
+          PY
       - name: Upload matrix and execution evidence
         if: always()
         uses: actions/upload-artifact@v4
