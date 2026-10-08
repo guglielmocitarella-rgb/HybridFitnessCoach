@@ -16,7 +16,8 @@ class V3RuntimeComponentTest {
         val pending = mutableListOf<Runnable>()
         val component = V3RuntimeComponent(
             assetReader = { loads++; emptyLoadedDatabase() },
-            executor = Executor { task -> pending.add(task) }
+            executor = Executor { task -> pending.add(task) },
+            diagnosticsEnabled = { true }
         )
 
         component.activate(location("home"))
@@ -37,7 +38,8 @@ class V3RuntimeComponentTest {
         var loads = 0
         val component = V3RuntimeComponent(
             assetReader = { loads++; emptyLoadedDatabase() },
-            executor = Executor { task -> task.run() }
+            executor = Executor { task -> task.run() },
+            diagnosticsEnabled = { true }
         )
 
         component.activate(location("home"))
@@ -56,7 +58,8 @@ class V3RuntimeComponentTest {
         val failure = V3AssetValidationException("invalid V3 asset")
         val component = V3RuntimeComponent(
             assetReader = { loads++; throw failure },
-            executor = Executor { task -> task.run() }
+            executor = Executor { task -> task.run() },
+            diagnosticsEnabled = { true }
         )
 
         component.activate(location("home"))
@@ -76,8 +79,8 @@ class V3RuntimeComponentTest {
         var loads = 0
         val reader = { loads++; emptyLoadedDatabase() }
         val executor = Executor { task -> task.run() }
-        val first = V3RuntimeComponent(reader, executor)
-        val recreated = V3RuntimeComponent(reader, executor)
+        val first = V3RuntimeComponent(reader, executor, diagnosticsEnabled = { true })
+        val recreated = V3RuntimeComponent(reader, executor, diagnosticsEnabled = { true })
 
         first.activate(location("home"))
         recreated.activate(location("home"))

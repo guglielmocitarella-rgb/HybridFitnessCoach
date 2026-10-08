@@ -1,7 +1,6 @@
 package com.hybridfitnesscoach.app.domain.v3
 
 import android.os.Looper
-import com.hybridfitnesscoach.app.BuildConfig
 import com.hybridfitnesscoach.app.TrainingLocation
 import java.util.concurrent.Executor
 import java.util.concurrent.ForkJoinPool
@@ -39,7 +38,8 @@ internal data class V3RuntimeDiagnostics(
  */
 internal class V3RuntimeComponent(
     private val assetReader: () -> V3LoadResult,
-    private val executor: Executor = ForkJoinPool.commonPool()
+    private val executor: Executor = ForkJoinPool.commonPool(),
+    private val diagnosticsEnabled: () -> Boolean = { false }
 ) {
     private val lock = Any()
     private val mutableState = MutableStateFlow<V3RuntimeState>(V3RuntimeState.NotStarted)
@@ -51,9 +51,9 @@ internal class V3RuntimeComponent(
     private var loadDurationMillis: Long? = null
     private var loadThreadIsMain: Boolean? = null
 
-    /** Runtime diagnostics are intentionally unavailable in release builds. */
+    /** Runtime diagnostics require an explicit debug-build or test gate. */
     fun diagnostics(): V3RuntimeDiagnostics? {
-        if (!BuildConfig.DEBUG) return null
+        if (!diagnosticsEnabled()) return null
         synchronized(lock) {
             val current = mutableState.value
             val ready = current as? V3RuntimeState.Ready

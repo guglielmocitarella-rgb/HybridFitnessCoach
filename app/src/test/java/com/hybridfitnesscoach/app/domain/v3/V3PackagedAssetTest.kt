@@ -1,5 +1,6 @@
 package com.hybridfitnesscoach.app.domain.v3
 
+import android.content.pm.ApplicationInfo
 import com.hybridfitnesscoach.app.HybridFitnessCoachApplication
 import com.hybridfitnesscoach.app.trainingLocations
 import kotlinx.coroutines.flow.first
@@ -21,6 +22,7 @@ class V3PackagedAssetTest {
     @Test
     fun packagedAndroidAssetLoadsThroughAssetManagerAndDrivesApplicationRuntime() = runBlocking {
         val application = RuntimeEnvironment.getApplication() as HybridFitnessCoachApplication
+        application.applicationInfo.flags = application.applicationInfo.flags or ApplicationInfo.FLAG_DEBUGGABLE
         val component = application.v3RuntimeComponent
         component.activate(trainingLocations.single { it.id == "builtin:home" })
         val ready = withTimeout(120_000) { component.state.first { it is V3RuntimeState.Ready } }
