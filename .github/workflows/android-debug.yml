@@ -76,6 +76,10 @@ jobs:
         with:
           gradle-version: '9.6.0'
 
+      - name: Generate Step 8 deterministic test manifest
+        if: steps.scope.outputs.run_android == 'true'
+        run: python3 tools/step8/generate_manifest.py
+
       - name: Run unit tests
         if: steps.scope.outputs.run_android == 'true'
         run: gradle :app:testDebugUnitTest
