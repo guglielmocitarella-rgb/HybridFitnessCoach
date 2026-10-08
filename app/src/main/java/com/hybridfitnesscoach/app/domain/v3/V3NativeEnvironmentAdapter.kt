@@ -52,6 +52,10 @@ internal object V3NativeEnvironmentAdapter {
      * The caller must obtain that vocabulary from the installed V3 data, not
      * infer it from native equipment labels.
      */
+    /** Uses only the vocabulary extracted from validated V3 runtime records. */
+    fun fromLocation(location: TrainingLocation?, loaded: V3LoadResult): V3NativeEnvironmentResult =
+        fromLocation(location, V3LoadedEquipmentVocabulary.from(loaded))
+
     fun fromLocation(
         location: TrainingLocation?,
         v3EquipmentVocabulary: Set<EquipmentId>
