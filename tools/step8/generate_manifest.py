@@ -75,20 +75,31 @@ def main():
     if len(records) != 1087 or len(set(ids)) != len(ids):
         raise SystemExit("canonical identity count or uniqueness mismatch")
     pd = [x for x in records if x["capability"]["strengthRequirement"] == "PRESCRIPTION_DEPENDENT"]
-    terminal = [x for x in records if x["capability"]["strengthRequirement"] == "EVIDENCE_UNRESOLVED"]
+    terminal_doc = json.loads((ROOT / "exercise-db-canonical/native-capability-r5-terminal-membership.json").read_text())
+    terminal = terminal_doc.get("entries", [])
     external = [x for x in pd if x["resistance"]["source"] == "EXTERNAL_LOAD"]
     assisted = [x for x in pd if x["resistance"]["source"] == "ASSISTED"]
     if (len(pd), len(terminal), len(external), len(assisted)) != (441, 48, 436, 5):
-        raise SystemExit("frozen PD/terminal inventory mismatch")
+        raise SystemExit("frozen PD/terminal membership inventory mismatch")
+    by_id = {x["canonicalExerciseId"]: x for x in records}
+    semantic_keys = [x.get("semanticKey") for x in terminal]
+    if len(set(semantic_keys)) != 48 or any(not key for key in semantic_keys):
+        raise SystemExit("terminal semantic-key membership is incomplete or duplicated")
+    for entry in terminal:
+        record = by_id.get(entry.get("canonicalExerciseId"))
+        dimension = entry.get("dimension")
+        if record is None or record["capability"].get(dimension) != "EVIDENCE_UNRESOLVED":
+            raise SystemExit("terminal membership disagrees with frozen candidate: " + str(entry))
     rows = []
     for record in sorted(pd, key=lambda x: x["canonicalExerciseId"]):
         rows.extend(pd_case(record, case) for case in PD_CASES)
-    for record in sorted(terminal, key=lambda x: x["canonicalExerciseId"]):
-        cid = record["canonicalExerciseId"]
-        rows.append({"scenarioId": cid + "::TERMINAL::WITH_CONTEXT",
-                     "canonicalExerciseId": cid, "axis": "TERMINAL", "case": "TERMINAL_WITH_CONTEXT",
+    for entry in sorted(terminal, key=lambda x: x["semanticKey"]):
+        cid = entry["canonicalExerciseId"]
+        dimension = entry["dimension"]
+        rows.append({"scenarioId": entry["semanticKey"] + "::TERMINAL_WITH_CONTEXT",
+                     "semanticKey": entry["semanticKey"], "canonicalExerciseId": cid,
+                     "dimension": dimension, "axis": "TERMINAL", "case": "TERMINAL_WITH_CONTEXT",
                      "coverageTags": ["TERMINAL", "NATIVE_ENGINE"],
-                     "context": {"prescription": None, "athleteCapacity": None},
                      "expectedState": "TERMINAL_CANONICAL_STATE",
                      "expectedReason": "TERMINAL_CANONICAL_STATE"})
     manifest = {"schema": "V3-STEP8-MATRIX-1", "candidateSha256": actual,

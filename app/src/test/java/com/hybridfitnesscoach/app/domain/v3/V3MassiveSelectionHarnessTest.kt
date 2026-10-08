@@ -54,21 +54,28 @@ class V3MassiveSelectionHarnessTest {
                 executedPd++
                 coveredPd.add(id)
             } else {
-                assertEquals("terminal state for " + row.getString("scenarioId"),
-                    "TERMINAL_CANONICAL_STATE",
-                    V3PdStrengthResolver.evaluate(exercise, terminalProbe(exercise)).state.name)
-                assertTrue("terminal rejection missing for " + id,
-                    V3SelectionRejection.TERMINAL_CANONICAL_STATE in
-                        V3SelectionEngine.evaluate(exercise, athlete, environment,
-                            V3SelectionIntent(pdStrengthContext = terminalProbe(exercise))).reasons)
+                val dimension = row.getString("dimension")
+                val semanticKey = row.getString("semanticKey")
+                assertEquals("terminal source membership for " + semanticKey,
+                    SemanticState.EVIDENCE_UNRESOLVED, capabilityState(exercise, dimension))
+                val terminalIntent = V3SelectionIntent(pdStrengthContext = terminalProbe(exercise))
+                val terminalDecision = V3SelectionEngine.evaluate(exercise, athlete, environment, terminalIntent)
+                assertTrue("terminal rejection missing for " + semanticKey,
+                    V3SelectionRejection.TERMINAL_CANONICAL_STATE in terminalDecision.reasons)
+                assertFalse("terminal semantic key became eligible: " + semanticKey, terminalDecision.eligible)
+                if (dimension == "strengthRequirement") {
+                    assertEquals("strength terminal resolver for " + semanticKey,
+                        "TERMINAL_CANONICAL_STATE",
+                        V3PdStrengthResolver.evaluate(exercise, terminalProbe(exercise)).state.name)
+                }
                 assertEquals("TERMINAL_CANONICAL_STATE", expectedState)
                 assertEquals("TERMINAL_CANONICAL_STATE", expectedReason)
                 executedTerminal++
-                coveredTerminal.add(id)
+                assertTrue("duplicate terminal key " + semanticKey, coveredTerminal.add(semanticKey))
             }
         }
         assertEquals("every PD canonical record traversed", 441, coveredPd.size)
-        assertEquals("every terminal canonical record traversed", 48, coveredTerminal.size)
+        assertEquals("every terminal semantic key traversed", 48, coveredTerminal.size)
         assertEquals(manifest.getInt("plannedPdScenarios"), executedPd)
         assertEquals(manifest.getInt("plannedTerminalScenarios"), executedTerminal)
 
@@ -115,6 +122,14 @@ class V3MassiveSelectionHarnessTest {
             }
             else -> fail("unexpected PD expected state " + expected)
         }
+    }
+
+    private fun capabilityState(x: ExerciseV3, dimension: String): SemanticState = when (dimension) {
+        "strengthRequirement" -> x.capabilities.strengthRequirement.state
+        "technicalDifficulty" -> x.capabilities.technicalDifficulty.state
+        "mobilityRequirement" -> x.capabilities.mobilityRequirement.state
+        "balanceCoordinationRequirement" -> x.capabilities.balanceCoordinationRequirement.state
+        else -> throw AssertionError("unknown terminal capability dimension " + dimension)
     }
 
     private fun parseContext(o: JSONObject?): V3PdStrengthContext? {

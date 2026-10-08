@@ -107,6 +107,7 @@ object V3SelectionEngine {
         val others=listOf(r.technicalDifficulty to a.technical,r.mobilityRequirement to a.mobility,r.balanceCoordinationRequirement to a.balanceCoordination)
         for((req,have) in others) {
             if(req.state==SemanticState.NOT_APPLICABLE) continue
+            if(req.state==SemanticState.EVIDENCE_UNRESOLVED){out+=V3SelectionRejection.TERMINAL_CANONICAL_STATE;continue}
             if(req.state!=SemanticState.KNOWN || have.state!=SemanticState.KNOWN){out+=V3SelectionRejection.CAPABILITY_UNRESOLVED;continue}
             if(have.value!!.ordinal<req.value!!.ordinal) out+=V3SelectionRejection.CAPABILITY_INSUFFICIENT
         }
