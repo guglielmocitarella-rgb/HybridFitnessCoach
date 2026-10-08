@@ -1857,7 +1857,7 @@ private fun V3DiagnosticsScreen(
                 val ready = state as com.hybridfitnesscoach.app.domain.v3.V3RuntimeState.Ready
                 item {
                     Text(
-                        "Attrezzature V3: " + ready.environment.environment.equipment.keys.joinToString()
+                        "Attrezzature V3: " + ready.environment.environment.equipment.joinToString { it.value }
                     )
                 }
                 item {
