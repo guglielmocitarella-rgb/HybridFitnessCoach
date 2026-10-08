@@ -58,6 +58,30 @@ class V3PackagedAssetTest {
         assertEquals(0, loaded.audit.silentSemanticLoss)
         val vocabulary = V3LoadedEquipmentVocabulary.from(loaded)
         assertTrue("V3 equipment vocabulary is empty", vocabulary.isNotEmpty())
+        assertFalse("BODYWEIGHT is implicit, not an invented equipment token", EquipmentId("bodyweight") in vocabulary)
+        val noEquipment = loaded.records.filter {
+            it.equipment.informationState == EquipmentInformationState.KNOWN &&
+                it.equipment.mode == EquipmentRequirementMode.NONE &&
+                it.resistance.source.value == ResistanceSource.BODYWEIGHT
+        }
+        assertTrue("The packaged canonical database must contain bodyweight exercises without equipment", noEquipment.isNotEmpty())
+        val high = SemanticValue.known(CapabilityLevel.HIGH)
+        noEquipment.forEach { exercise ->
+            val reasons = V3SelectionEngine.evaluate(exercise, V3AthleteCapabilities(high, high, high, high),
+                V3SelectionEnvironment(), V3SelectionIntent()).reasons
+            assertFalse("No-equipment bodyweight must not require a bodyweight inventory token",
+                V3SelectionRejection.EQUIPMENT_UNAVAILABLE in reasons || V3SelectionRejection.EQUIPMENT_UNRESOLVED in reasons)
+        }
+
+        val athleteContext = V3NativeAthleteContextAdapter.fromNative(
+            com.hybridfitnesscoach.app.AthleteProfile(name = "Runtime test", goal = "Forza", assessedPushCapacity = 2),
+            emptyList()
+        )
+        component.activate(trainingLocations.single { it.id == "builtin:home" }, athleteContext)
+        val personalized = component.state.value as V3RuntimeState.Ready
+        assertEquals(athleteContext, personalized.athleteContext)
+        org.junit.Assert.assertSame(loaded, personalized.loadResult)
+        assertEquals(1, requireNotNull(component.diagnostics()).loadAttempts)
 
         assertEquals("Ready", diagnostics.state)
         assertEquals("3.7", diagnostics.schemaVersion)
@@ -127,3 +151,4 @@ class V3PackagedAssetTest {
         assertTrue("Robolectric rejected the packaged APK asset path", (result as Number).toInt() > 0)
     }
 }
+

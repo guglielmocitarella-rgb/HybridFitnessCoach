@@ -13,7 +13,8 @@ internal sealed interface V3RuntimeState {
     data object Loading : V3RuntimeState
     data class Ready(
         val loadResult: V3LoadResult,
-        val environment: V3NativeEnvironmentResult
+        val environment: V3NativeEnvironmentResult,
+        val athleteContext: V3NativeAthleteContext? = null
     ) : V3RuntimeState
     data class Failed(val cause: Throwable) : V3RuntimeState
 }
@@ -33,8 +34,8 @@ internal data class V3RuntimeDiagnostics(
 )
 
 /**
- * Loads V3 at most once for this application-owned component. Profile changes only
- * rebuild the native environment from the already validated records.
+ * Loads V3 at most once for this application-owned component. Native context changes
+ * publish a new snapshot using the already validated records.
  */
 internal class V3RuntimeComponent(
     private val assetReader: () -> V3LoadResult,
@@ -47,6 +48,7 @@ internal class V3RuntimeComponent(
 
     private var started = false
     private var activeLocation: TrainingLocation? = null
+    private var activeAthleteContext: V3NativeAthleteContext? = null
     private var loadAttempts = 0
     private var loadDurationMillis: Long? = null
     private var loadThreadIsMain: Boolean? = null
@@ -78,13 +80,15 @@ internal class V3RuntimeComponent(
         }
     }
 
-    fun activate(location: TrainingLocation) {
+    fun activate(location: TrainingLocation, athleteContext: V3NativeAthleteContext? = null) {
         synchronized(lock) {
             activeLocation = location
+            if (athleteContext != null) activeAthleteContext = athleteContext
             val current = mutableState.value
             if (current is V3RuntimeState.Ready) {
                 mutableState.value = current.copy(
-                    environment = V3NativeEnvironmentAdapter.fromLocation(location, current.loadResult)
+                    environment = V3NativeEnvironmentAdapter.fromLocation(location, current.loadResult),
+                    athleteContext = activeAthleteContext
                 )
             }
             if (started) return
@@ -111,7 +115,8 @@ internal class V3RuntimeComponent(
                             onSuccess = { loaded ->
                                 V3RuntimeState.Ready(
                                     loaded,
-                                    V3NativeEnvironmentAdapter.fromLocation(activeLocation, loaded)
+                                    V3NativeEnvironmentAdapter.fromLocation(activeLocation, loaded),
+                                    activeAthleteContext
                                 )
                             },
                             onFailure = { failure -> V3RuntimeState.Failed(failure) }
@@ -124,3 +129,4 @@ internal class V3RuntimeComponent(
         }
     }
 }
+

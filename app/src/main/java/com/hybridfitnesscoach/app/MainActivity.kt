@@ -746,11 +746,12 @@ fun HybridFitnessApp() {
     val v3Runtime = remember(context.applicationContext) {
         (context.applicationContext as HybridFitnessCoachApplication).v3RuntimeComponent
     }
-    LaunchedEffect(activeProfile) {
-        v3Runtime.activate(activeProfile)
-    }
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
+    var v3ActivePlans by remember { mutableStateOf(store.loadEnabledTrainingPlans()) }
+    LaunchedEffect(sessions, tab) {
+        v3ActivePlans = store.loadEnabledTrainingPlans()
+    }
     var onboarding by remember { mutableStateOf(store.loadOnboardingDraft().step in 1..5 || (store.loadOnboardingDraft().step==0 && athlete.name.isBlank() && sessions.isEmpty() && store.loadTrainingPlans().isEmpty())) }
     var summary by remember { mutableStateOf<SessionRecord?>(null) }
     fun refreshProfile(){athlete=store.loadAthlete();customProfiles.clear();customProfiles.addAll(store.loadTrainingLocations());activeProfile=customProfiles.firstOrNull{it.id==store.loadActiveTrainingLocationId()} ?: trainingLocations.first()}
@@ -763,6 +764,19 @@ fun HybridFitnessApp() {
         if(active!=null && workoutLaunch!=null)workoutLaunch=resumeWorkoutLaunch(active)
     }
     val health=rememberHealthConnectState()
+    LaunchedEffect(activeProfile, athlete, sessions, v3ActivePlans, health.readiness) {
+        val athleteSnapshot = athlete
+        val historySnapshot = sessions
+        val planSnapshot = v3ActivePlans
+        val locationSnapshot = activeProfile
+        val readinessSnapshot = health.readiness
+        val athleteContext = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+            com.hybridfitnesscoach.app.domain.v3.V3NativeAthleteContextAdapter.fromNative(
+                athleteSnapshot, historySnapshot, planSnapshot, readinessSnapshot
+            )
+        }
+        v3Runtime.activate(locationSnapshot, athleteContext)
+    }
     fun requestWorkout(intent:WorkoutLaunchIntent) {
         val active=store.loadActiveWorkout()
         workoutLaunch=if(active!=null)resumeWorkoutLaunch(active) else if(intent.origin==WorkoutOrigin.SINGLE_EXERCISE){
@@ -892,7 +906,7 @@ fun HybridFitnessApp() {
                             onStartAdaptiveExtra={requestWorkout(WorkoutLaunchIntent(WorkoutOrigin.ADAPTIVE_EXTRA))},
                             onStartCustomWorkout={intent->requestWorkout(intent)}
                         )
-                        Tab.PLAN -> TrainingPlanScreen(store,sessions) { workout -> requestWorkout(WorkoutLaunchIntent(WorkoutOrigin.PLAN,plannedWorkoutId=workout.id)) }
+                        Tab.PLAN -> TrainingPlanScreen(store,sessions,onPlansChanged={v3ActivePlans=store.loadEnabledTrainingPlans()}) { workout -> requestWorkout(WorkoutLaunchIntent(WorkoutOrigin.PLAN,plannedWorkoutId=workout.id)) }
                         Tab.PROGRESS -> Progress(athlete,sessions,{updated->athlete=updated;store.saveAthlete(updated)},{timestamp->store.deleteSession(timestamp);sessions=store.loadSessions()},showAthleteProfile=false)
                         Tab.PROFILE -> ProfileHub(
                             v3Runtime=v3Runtime, debugDiagnostics=(context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0,
@@ -1109,13 +1123,16 @@ internal fun calendarStateMarker(state:PlannedWorkoutState):String=when(state){
 }
 
 @Composable
-private fun TrainingPlanScreen(store:AppStore,sessions:List<SessionRecord>,onStartWorkout:(PlannedWorkout)->Unit) {
+private fun TrainingPlanScreen(store:AppStore,sessions:List<SessionRecord>,onPlansChanged:()->Unit,onStartWorkout:(PlannedWorkout)->Unit) {
     Box(Modifier.fillMaxSize()) {
 
     val today=java.time.LocalDate.now().toEpochDay()
     var plans by remember { mutableStateOf(store.loadTrainingPlans()) }
     var plan by remember { mutableStateOf(store.loadTrainingPlans().firstOrNull()) }
     var enabledPlanIds by remember { mutableStateOf(store.loadEnabledTrainingPlanIds()) }
+    LaunchedEffect(plans, enabledPlanIds) {
+        onPlansChanged()
+    }
     LaunchedEffect(sessions) {
         plans=store.loadTrainingPlans()
         plan=plan?.let{selected->plans.firstOrNull{it.id==selected.id}}
@@ -1870,3 +1887,4 @@ private fun V3DiagnosticsScreen(
         }
     }
 }
+
