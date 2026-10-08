@@ -7,9 +7,26 @@ class RuntimeDomainModelV310ATest {
  @Test fun identityIsStableAndValidated(){ assertEquals(CanonicalExerciseId("ex:1"),CanonicalExerciseId("ex:1")); assertFails { CanonicalExerciseId(" ") } }
  @Test fun equipmentModesAndSuspensionTrainerAreLossless(){
    val s=V3Equipment.SUSPENSION_TRAINER; assertEquals("suspension_trainer",s.value)
+   // Only construct combinations admitted by the domain invariants. UNKNOWN is
+   // intentionally not a valid mode for KNOWN equipment information.
    EquipmentRequirementMode.values().forEach { mode ->
-     val e=if(mode==EquipmentRequirementMode.NONE) emptySet() else setOf(s)
-     assertEquals(mode,EquipmentRequirement(EquipmentInformationState.KNOWN,mode,e).mode)
+     if (mode == EquipmentRequirementMode.UNKNOWN) {
+       assertFails { EquipmentRequirement(EquipmentInformationState.KNOWN, mode) }
+     } else {
+       val requirement = when (mode) {
+         EquipmentRequirementMode.NONE -> EquipmentRequirement(EquipmentInformationState.KNOWN, mode)
+         EquipmentRequirementMode.REQUIRED, EquipmentRequirementMode.ONE_OF ->
+           EquipmentRequirement(EquipmentInformationState.KNOWN, mode, equipment = setOf(s))
+         EquipmentRequirementMode.OPTIONAL ->
+           EquipmentRequirement(EquipmentInformationState.KNOWN, mode, optional = setOf(s))
+         EquipmentRequirementMode.ASSISTED_BY ->
+           EquipmentRequirement(EquipmentInformationState.KNOWN, mode, assistance = setOf(s))
+         EquipmentRequirementMode.EXTERNAL_LOAD ->
+           EquipmentRequirement(EquipmentInformationState.KNOWN, mode, externalLoadSupport = true)
+         EquipmentRequirementMode.UNKNOWN -> error("handled above")
+       }
+       assertEquals(mode, requirement.mode)
+     }
    }
    assertEquals(EquipmentInformationState.UNKNOWN,EquipmentRequirement(EquipmentInformationState.UNKNOWN,EquipmentRequirementMode.REQUIRED).informationState)
  }
