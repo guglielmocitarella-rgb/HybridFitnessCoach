@@ -895,6 +895,7 @@ fun HybridFitnessApp() {
                         Tab.PLAN -> TrainingPlanScreen(store,sessions) { workout -> requestWorkout(WorkoutLaunchIntent(WorkoutOrigin.PLAN,plannedWorkoutId=workout.id)) }
                         Tab.PROGRESS -> Progress(athlete,sessions,{updated->athlete=updated;store.saveAthlete(updated)},{timestamp->store.deleteSession(timestamp);sessions=store.loadSessions()},showAthleteProfile=false)
                         Tab.PROFILE -> ProfileHub(
+                            v3Runtime=v3Runtime, debugDiagnostics=(context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0,
                             active=activeProfile,athlete=athlete,sessions=sessions,store=store,customProfiles=customProfiles,
                             onAthleteSave={updated->if(store.saveAthlete(updated))athlete=updated else android.widget.Toast.makeText(context,"Profilo non salvato: riprova.",android.widget.Toast.LENGTH_LONG).show()},
                             onOnboarding={if(store.loadOnboardingDraft().step==6)store.saveOnboardingDraft(OnboardingDraft());onboarding=true},
@@ -928,6 +929,7 @@ fun HybridFitnessApp() {
 
 @Composable
 private fun ProfileHub(
+    v3Runtime:com.hybridfitnesscoach.app.domain.v3.V3RuntimeComponent, debugDiagnostics:Boolean,
     active:TrainingLocation, athlete:AthleteProfile, sessions:List<SessionRecord>, store:AppStore,
     customProfiles:List<TrainingLocation>, onAthleteSave:(AthleteProfile)->Unit,
     selectLocation:(TrainingLocation)->Unit, addLocation:(TrainingLocation)->Unit,
@@ -941,7 +943,7 @@ private fun ProfileHub(
     Column(Modifier.fillMaxSize()) {
         Header("Profilo","Atleta, luoghi e libreria")
         LazyRow(Modifier.padding(horizontal=20.dp,vertical=4.dp),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
-            items(listOf("Profilo","Luoghi","Esercizi")) { item ->
+            items(listOf("Profilo","Luoghi","Esercizi") + if(debugDiagnostics) listOf("Diagnostica V3") else emptyList()) { item ->
                 FilterChip(selected=section==item,onClick={section=item},label={Text(item)})
             }
         }
@@ -970,6 +972,7 @@ private fun ProfileHub(
                 item { OutlinedButton(onClick=onOnboarding,modifier=Modifier.fillMaxWidth()){Text("CONFIGURAZIONE GUIDATA")}}
             }
             "Luoghi" -> Equipment(active,customProfiles,selectLocation,addLocation,editLocation,deleteLocation)
+            "Diagnostica V3" -> if(debugDiagnostics) V3DiagnosticsScreen(v3Runtime,active)
             else -> Library(active,athlete,sessions,onExecuteExercise,onStartWorkout)
         }
     }
@@ -1818,4 +1821,52 @@ internal fun TrainingLocationScreen(current: TrainingLocation? = null, onDismiss
         },
         dismissButton = { TextButton(onClick = onDismiss) { Text("ANNULLA") } }
     )
+}
+
+
+/** Debug-only, read-only view of the Application-owned V3 runtime. */
+@Composable
+private fun V3DiagnosticsScreen(
+    component: com.hybridfitnesscoach.app.domain.v3.V3RuntimeComponent,
+    active: TrainingLocation
+) {
+    val state by component.state.collectAsState()
+    // Reading diagnostics does not start loading; the existing Application component owns it.
+    val diagnostics = component.diagnostics()
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(20.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        item { Text("Diagnostica V3 — solo debug", fontSize = 20.sp, fontWeight = FontWeight.Bold) }
+        if (diagnostics == null) {
+            item { Text("Diagnostica non disponibile in questa build.") }
+        } else {
+            item { Text("Stato: ${diagnostics.state}", fontWeight = FontWeight.Bold) }
+            item { Text("Record caricati: ${diagnostics.recordCount}") }
+            item { Text("Schema: ${diagnostics.schemaVersion ?: "Non disponibile"}") }
+            item { Text("Tentativi di caricamento: ${diagnostics.loadAttempts}") }
+            item { Text("Durata: ${diagnostics.loadDurationMillis?.let { "${it} ms" } ?: "Non disponibile"}") }
+            item { Text("Caricamento sul thread UI: ${diagnostics.loadThreadIsMain?.toString() ?: "Non disponibile"}") }
+            item { Text("Luogo selezionato: ${active.name}") }
+            item { Text("Luogo runtime: ${diagnostics.activeLocationId ?: "Non disponibile"}") }
+            item { Text("Attrezzature riconosciute: ${diagnostics.recognizedEquipmentCount}") }
+            item { Text("Attrezzature native non mappate: ${diagnostics.unmappedNativeEquipmentCount}") }
+            item { Text("Errore: ${diagnostics.error ?: "Nessuno"}") }
+            if (state is com.hybridfitnesscoach.app.domain.v3.V3RuntimeState.Ready) {
+                val ready = state as com.hybridfitnesscoach.app.domain.v3.V3RuntimeState.Ready
+                item {
+                    Text(
+                        "Attrezzature V3: " + ready.environment.environment.equipment.keys.joinToString()
+                    )
+                }
+                item {
+                    Text(
+                        "Attrezzature native non mappate: " +
+                            ready.environment.unmappedNativeEquipment.joinToString()
+                    )
+                }
+            }
+        }
+    }
 }
