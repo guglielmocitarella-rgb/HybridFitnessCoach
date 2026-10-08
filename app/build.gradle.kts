@@ -59,27 +59,47 @@ dependencies {
 
 
 val canonicalV3 = rootProject.layout.projectDirectory.file("exercise-db-canonical/exercise-db-v3-9r-b-candidate.json")
-val generatedV3Assets = layout.buildDirectory.dir("generated/assets/canonicalV3")
 
-val generateCanonicalV3Asset = tasks.register<Copy>("generateCanonicalV3Asset") {
-    val source = canonicalV3.asFile
-    inputs.file(canonicalV3)
-    from(source)
-    into(generatedV3Assets.map { it.dir("exercise-db-v3") })
-    rename { "exercises.json" }
-    doFirst {
+abstract class GenerateCanonicalV3Asset : DefaultTask() {
+    @get:InputFile
+    @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val sourceJson: RegularFileProperty
+
+    @get:OutputDirectory
+    abstract val outputDirectory: DirectoryProperty
+
+    @TaskAction
+    fun generate() {
+        val source = sourceJson.get().asFile
         check(source.isFile) { "Required canonical V3 JSON missing: $source" }
         check(source.length() == 19050937L) {
             "Canonical V3 JSON size mismatch: ${source.length()} bytes, expected 19050937"
         }
+        val target = outputDirectory.get().file("exercise-db-v3/exercises.json").asFile
+        target.parentFile.mkdirs()
+        source.copyTo(target, overwrite = true)
     }
 }
 
-android.sourceSets.getByName("main").assets.srcDir(generatedV3Assets)
-tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }.configureEach {
-    dependsOn(generateCanonicalV3Asset)
+val generateCanonicalV3Asset = tasks.register<GenerateCanonicalV3Asset>("generateCanonicalV3Asset") {
+    sourceJson.set(canonicalV3)
+    outputDirectory.set(layout.buildDirectory.dir("generated/assets/canonicalV3"))
 }
+
+androidComponents {
+    onVariants(selector().all()) { variant ->
+        variant.sources.assets?.addGeneratedSourceDirectory(
+            generateCanonicalV3Asset,
+            GenerateCanonicalV3Asset::outputDirectory
+        )
+    }
+}
+
 tasks.withType<Test>().configureEach {
     dependsOn(generateCanonicalV3Asset)
-    systemProperty("hfc.v3.asset", generatedV3Assets.get().file("exercise-db-v3/exercises.json").asFile.absolutePath)
+    systemProperty(
+        "hfc.v3.asset",
+        generateCanonicalV3Asset.flatMap { it.outputDirectory }
+            .map { it.file("exercise-db-v3/exercises.json").asFile.absolutePath }.get()
+    )
 }
