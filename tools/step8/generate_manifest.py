@@ -137,6 +137,8 @@ def main():
                 "canonicalCount": len(records), "pdCount": len(pd),
                 "externalLoadPdCount": len(external), "assistedPdCount": len(assisted),
                 "terminalCount": len(terminal), "pdCasesPerExercise": len(PD_CASES),
+                "plannedPdScenarios": len(pd) * len(PD_CASES),
+                "plannedTerminalScenarios": len(terminal),
                 "plannedCount": len(rows), "scenarios": rows}
     payload = json.dumps(manifest, sort_keys=True, separators=(",", ":")).encode()
     OUT.mkdir(parents=True, exist_ok=True)
