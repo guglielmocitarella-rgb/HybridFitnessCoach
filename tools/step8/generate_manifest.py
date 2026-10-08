@@ -10,6 +10,22 @@ OUT = ROOT / "build/step8"
 PD_CASES = ("NO_CONTEXT", "INCOMPLETE_CONTEXT", "UNKNOWN_ATHLETE", "INVALID_CONTEXT",
             "CAPACITY_MISMATCH", "EQUAL_BOUNDARY", "BELOW_CAPACITY", "ABOVE_CAPACITY")
 
+def scenario_inputs(record, context):
+    eq = record["equipmentRequirement"]
+    equipment = sorted(set(eq.get("required", []) + eq.get("alternatives", []) +
+                           eq.get("optional", []) + eq.get("assistance", [])))
+    return {
+        "athleteCapabilities": {"strength": "VERY_HIGH", "technical": "VERY_HIGH",
+                                "mobility": "VERY_HIGH", "balanceCoordination": "VERY_HIGH"},
+        "environment": {"equipment": equipment, "assistanceAvailable": True,
+                        "externalLoadAvailable": True},
+        "equipmentRequirement": eq,
+        "selectionIntent": {"categories": [], "skillFamilyIds": [], "skillNodeIds": [],
+                            "requirePrescriptionFeasibility": False},
+        "prescriptionContext": context.get("prescription") if context else None,
+        "capacityEnvelope": context.get("athleteCapacity") if context else None,
+    }
+
 def pd_case(record, case):
     cid = record["canonicalExerciseId"]
     source = record["resistance"]["source"]
@@ -61,9 +77,12 @@ def pd_case(record, case):
         else:
             point["minimumRequiredAssistance"]["value"] = 2.0 if case == "BELOW_CAPACITY" else 0.0
         expected_state = "INELIGIBLE" if case == "BELOW_CAPACITY" else "ELIGIBLE"
-    return {"scenarioId": cid + "::PD::" + case, "canonicalExerciseId": cid,
-            "axis": "PD", "case": case, "coverageTags": ["PD", "NATIVE_ENGINE"],
-            "context": context, "expectedState": expected_state, "expectedReason": expected_reason}
+    row = {"scenarioId": cid + "::PD::" + case, "canonicalExerciseId": cid,
+           "axis": "PD", "case": case,
+           "coverageTags": ["PD", source, case, "NATIVE_ENGINE"],
+           "context": context, "expectedState": expected_state, "expectedReason": expected_reason}
+    row.update(scenario_inputs(record, context))
+    return row
 
 def main():
     raw = SOURCE.read_bytes()
@@ -96,12 +115,15 @@ def main():
     for entry in sorted(terminal, key=lambda x: x["semanticKey"]):
         cid = entry["canonicalExerciseId"]
         dimension = entry["dimension"]
-        rows.append({"scenarioId": entry["semanticKey"] + "::TERMINAL_WITH_CONTEXT",
-                     "semanticKey": entry["semanticKey"], "canonicalExerciseId": cid,
-                     "dimension": dimension, "axis": "TERMINAL", "case": "TERMINAL_WITH_CONTEXT",
-                     "coverageTags": ["TERMINAL", "NATIVE_ENGINE"],
-                     "expectedState": "TERMINAL_CANONICAL_STATE",
-                     "expectedReason": "TERMINAL_CANONICAL_STATE"})
+        record = by_id[cid]
+        row = {"scenarioId": entry["semanticKey"] + "::TERMINAL_WITH_CONTEXT",
+               "semanticKey": entry["semanticKey"], "canonicalExerciseId": cid,
+               "dimension": dimension, "axis": "TERMINAL", "case": "TERMINAL_WITH_CONTEXT",
+               "coverageTags": ["TERMINAL", dimension, "NATIVE_ENGINE"],
+               "context": None, "expectedState": "TERMINAL_CANONICAL_STATE",
+               "expectedReason": "TERMINAL_CANONICAL_STATE"}
+        row.update(scenario_inputs(record, None))
+        rows.append(row)
     manifest = {"schema": "V3-STEP8-MATRIX-1", "candidateSha256": actual,
                 "canonicalCount": len(records), "pdCount": len(pd),
                 "externalLoadPdCount": len(external), "assistedPdCount": len(assisted),

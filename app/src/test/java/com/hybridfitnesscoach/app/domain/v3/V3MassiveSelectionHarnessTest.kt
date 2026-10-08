@@ -37,12 +37,13 @@ class V3MassiveSelectionHarnessTest {
         for (i in 0 until scenarios.length()) {
             val row = scenarios.getJSONObject(i)
             val id = row.getString("canonicalExerciseId")
-            val exercise = byId[id] ?: fail("scenario references unknown canonical ID: " + id)
+            val exercise = byId[id] ?: throw AssertionError("scenario references unknown canonical ID: " + id)
             val axis = row.getString("axis")
             val context = parseContext(row.optJSONObject("context"))
-            val environment = fullyEquipped(exercise)
-            val intent = V3SelectionIntent(pdStrengthContext = context)
-            val decision = V3SelectionEngine.evaluate(exercise, athlete, environment, intent)
+            val scenarioAthlete = parseAthlete(row.getJSONObject("athleteCapabilities"))
+            val environment = parseEnvironment(row.getJSONObject("environment"))
+            val intent = parseIntent(row.getJSONObject("selectionIntent"), context)
+            val decision = V3SelectionEngine.evaluate(exercise, scenarioAthlete, environment, intent)
             val expectedState = row.getString("expectedState")
             val expectedReason = row.getString("expectedReason")
             if (axis == "PD") {
@@ -123,6 +124,29 @@ class V3MassiveSelectionHarnessTest {
             else -> fail("unexpected PD expected state " + expected)
         }
     }
+
+    private fun parseAthlete(o: JSONObject) = V3AthleteCapabilities(
+        SemanticValue.known(CapabilityLevel.valueOf(o.getString("strength"))),
+        SemanticValue.known(CapabilityLevel.valueOf(o.getString("technical"))),
+        SemanticValue.known(CapabilityLevel.valueOf(o.getString("mobility"))),
+        SemanticValue.known(CapabilityLevel.valueOf(o.getString("balanceCoordination")))
+    )
+
+    private fun parseEnvironment(o: JSONObject) = V3SelectionEnvironment(
+        equipment = strings(o.getJSONArray("equipment")).map(::EquipmentId).toSet(),
+        assistanceAvailable = o.getBoolean("assistanceAvailable"),
+        externalLoadAvailable = o.getBoolean("externalLoadAvailable")
+    )
+
+    private fun parseIntent(o: JSONObject, context: V3PdStrengthContext?) = V3SelectionIntent(
+        categories = strings(o.getJSONArray("categories")).map(::ExerciseCategoryV3).toSet(),
+        skillFamilyIds = strings(o.getJSONArray("skillFamilyIds")).map(::SkillTargetId).toSet(),
+        skillNodeIds = strings(o.getJSONArray("skillNodeIds")).map(::SkillTargetId).toSet(),
+        requirePrescriptionFeasibility = o.getBoolean("requirePrescriptionFeasibility"),
+        pdStrengthContext = context
+    )
+
+    private fun strings(a: JSONArray): List<String> = (0 until a.length()).map { a.getString(it) }
 
     private fun capabilityState(x: ExerciseV3, dimension: String): SemanticState = when (dimension) {
         "strengthRequirement" -> x.capabilities.strengthRequirement.state
@@ -221,7 +245,7 @@ class V3MassiveSelectionHarnessTest {
             checkEquipment(x, none, unresolved = unknown, unavailable = noneUnavailable)
             planned++; executed++
             if (!unknown && r.mode == EquipmentRequirementMode.REQUIRED && r.equipment.size > 1) {
-                val partial = V3SelectionEnvironment(equipment = r.equipment.dropLast(1).toSet(),
+                val partial = V3SelectionEnvironment(equipment = (r.equipment - r.equipment.last()),
                     assistanceAvailable = true, externalLoadAvailable = true)
                 checkEquipment(x, partial, unresolved = false, unavailable = true)
                 planned++; executed++
