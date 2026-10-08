@@ -89,7 +89,9 @@ data class SkillRelation(
     val evidence: String? = null,
     val source: String? = null,
     val sourceRecordId: String? = null,
-    val reason: String? = null
+    val reason: String? = null,
+    /** Canonical JSON for structured source provenance; kept separate from string references. */
+    val diagnosticProvenancePayload: String? = null
 )
 
 data class V3Version(val schemaVersion:String, val assetVersion:String? = null, val migrationVersion:String? = null) { init { require(schemaVersion.isNotBlank()) } }

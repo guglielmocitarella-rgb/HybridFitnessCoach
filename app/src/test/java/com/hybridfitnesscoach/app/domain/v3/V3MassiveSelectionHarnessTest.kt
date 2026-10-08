@@ -27,6 +27,7 @@ class V3MassiveSelectionHarnessTest {
         val manifest = JSONObject(manifestFile.readText())
         assertEquals("V3-STEP8-MATRIX-1", manifest.getString("schema"))
         assertEquals(1087, candidate.records.size)
+        assertEquals("native loader preserved all modeled semantics", 0, candidate.audit.silentSemanticLoss)
         assertEquals(441, manifest.getInt("pdCount"))
         assertEquals(436, manifest.getInt("externalLoadPdCount"))
         assertEquals(5, manifest.getInt("assistedPdCount"))

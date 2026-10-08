@@ -120,7 +120,22 @@ object V3AssetLoader {
             val relationType=enumToken<SkillRelationType>(o.requiredString("relationType"),"skillRelations[$i].relationType")
             val key="${targetType.name}|${targetId.value}|${relationType.name}"
             if(!relationSeen.add(key)) fail("duplicate skill relation $key for ${id.value}")
-            SkillRelation(targetType,targetId,relationType,EvidenceState.UNSPECIFIED,o.optionalString("provenance"),o.optionalString("confidence"),o.optionalString("evidence"),o.optionalString("source"),o.optionalString("sourceRecordId"),o.optionalString("reason"))
+            val provenance = o.optionalValue("provenance")
+            val provenanceRef = (provenance as? JStr)?.v
+            val provenancePayload = if (provenance != null && provenance != JNull && provenance !is JStr) provenance.toCanonicalJson() else null
+            SkillRelation(
+                targetType = targetType,
+                targetId = targetId,
+                relationType = relationType,
+                evidenceState = EvidenceState.UNSPECIFIED,
+                diagnosticProvenanceRef = provenanceRef,
+                confidence = o.optionalString("confidence"),
+                evidence = o.optionalString("evidence"),
+                source = o.optionalString("source"),
+                sourceRecordId = o.optionalString("sourceRecordId"),
+                reason = o.optionalString("reason"),
+                diagnosticProvenancePayload = provenancePayload
+            )
         }
 
         d.requiredObject("engineMetadata"); d.requiredObject("legacy"); d.requiredArray("unresolved"); d.requiredObject("provenance"); d.requiredStringArray("aliases"); d.requiredString("canonicalName")
@@ -159,7 +174,18 @@ object V3AssetLoader {
         val pr=d.requiredObject("prescription")
         check(state(pr.requiredString("state"),"pr.state")==x.prescription!!.sourceState,"prescription.state")
         check(pr.requiredArray("dimensions").map{it.obj("dim").requiredString("type")}==x.prescription.prescribed.map{it.dimension.name},"prescription.dimensions")
-        check(d.requiredArray("skillRelations").size==x.skillRelations.size,"skillRelations")
+        val relationDtos = d.requiredArray("skillRelations")
+        check(relationDtos.size==x.skillRelations.size,"skillRelations")
+        relationDtos.zip(x.skillRelations).forEachIndexed { i, (json, relation) ->
+            val source = json.obj("skillRelations[$i]").optionalValue("provenance")
+            val preserved = when (source) {
+                null, JNull -> relation.diagnosticProvenanceRef == null && relation.diagnosticProvenancePayload == null
+                is JStr -> relation.diagnosticProvenanceRef == source.v && relation.diagnosticProvenancePayload == null
+                else -> relation.diagnosticProvenanceRef == null &&
+                    relation.diagnosticProvenancePayload?.let { JsonParser(it).parse() == source } == true
+            }
+            check(preserved,"skillRelations[$i].provenance")
+        }
         return loss
     }
 
@@ -192,6 +218,7 @@ private data class JObj(val v:Map<String,J>):J {
     fun required(k:String):J=v[k]?:throw V3AssetValidationException("missing required field '$k'")
     fun requiredString(k:String)=required(k).str(k).also{if(it.isBlank()) throw V3AssetValidationException("blank required field '$k'")}
     fun optionalString(k:String)=when(val x=v[k]){null,JNull->null;else->x.str(k)}
+    fun optionalValue(k:String):J?=v[k]
     fun requiredObject(k:String)=required(k).obj(k)
     fun requiredArray(k:String)=required(k).arr(k)
     fun requiredStringArray(k:String)=requiredArray(k).mapIndexed{i,x->x.str("$k[$i]")}
@@ -206,6 +233,30 @@ private data object JNull:J
 private fun J.obj(path:String)=this as? JObj?:throw V3AssetValidationException("$path must be object")
 private fun J.arr(path:String)=(this as? JArr)?.v?:throw V3AssetValidationException("$path must be array")
 private fun J.str(path:String)=(this as? JStr)?.v?:throw V3AssetValidationException("$path must be string")
+private fun J.toCanonicalJson():String = when (this) {
+    is JObj -> v.entries.joinToString(prefix="{",postfix="}",separator=",") { jsonString(it.key) + ":" + it.value.toCanonicalJson() }
+    is JArr -> v.joinToString(prefix="[",postfix="]",separator=",") { it.toCanonicalJson() }
+    is JStr -> jsonString(v)
+    is JNum -> v.toString()
+    is JBool -> v.toString()
+    JNull -> "null"
+}
+private fun jsonString(value:String):String = buildString {
+    append('"')
+    value.forEach { c ->
+        when (c) {
+            '"' -> append("\\\"")
+            '\\' -> append("\\\\")
+            '\b' -> append("\\b")
+            '\u000c' -> append("\\f")
+            '\n' -> append("\\n")
+            '\r' -> append("\\r")
+            '\t' -> append("\\t")
+            else -> if (c.code < 0x20) append("\\u%04x".format(c.code)) else append(c)
+        }
+    }
+    append('"')
+}
 
 private class JsonParser(private val s:String){
     private var i=0

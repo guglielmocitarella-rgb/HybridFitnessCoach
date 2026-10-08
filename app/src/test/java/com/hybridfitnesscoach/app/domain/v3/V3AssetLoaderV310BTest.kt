@@ -7,17 +7,25 @@ class V3AssetLoaderV310BTest {
     private fun fixture(
         id:String="ex-1", equipmentMode:String="REQUIRED", equipmentState:String="KNOWN",
         equipment:String="\"suspension_trainer\"", capability:String="UNKNOWN",
-        targetType:String="NODE", relationType:String="DIRECT_PROGRESSION", schema:String="3.7"
+        targetType:String="NODE", relationType:String="DIRECT_PROGRESSION", schema:String="3.7", provenance:String="\"fixture\""
     )="""[
       {"schemaVersion":"$schema","canonicalExerciseId":"$id","canonicalName":"Test","aliases":[],"identityState":"KNOWN",
        "categoryGroup":{"state":"KNOWN","category":"PULL","group":null,"secondaryGroups":[],"groupState":"SCHEMA_UNRESOLVED"},
        "equipmentRequirement":{"state":"$equipmentState","mode":"$equipmentMode","required":[$equipment],"alternatives":[],"optional":[],"assistance":[],"externalLoadSupport":false},
        "resistance":{"state":"KNOWN","source":"BODYWEIGHT","loadInput":{"state":"NOT_APPLICABLE","unitSemantics":null},"assistanceInput":{"state":"NOT_APPLICABLE","unitSemantics":null},"quantification":"NOT_APPLICABLE"},
        "capability":{"state":"EVIDENCE_UNRESOLVED","strengthRequirement":"$capability","technicalDifficulty":"UNKNOWN","mobilityRequirement":"UNKNOWN","balanceCoordinationRequirement":"UNKNOWN","legacyLevel":null,"legacyLevelStatus":"UNKNOWN","migrationRule":"NO_BLIND_SCALAR_MAPPING"},
-       "skillRelations":[{"canonicalExerciseId":"$id","confidence":"HIGH","evidence":"fixture","provenance":"fixture","reason":"fixture","relationType":"$relationType","source":"fixture","sourceRecordId":"1","targetId":"node1","targetType":"$targetType"}],
+       "skillRelations":[{"canonicalExerciseId":"$id","confidence":"HIGH","evidence":"fixture","provenance":$provenance,"reason":"fixture","relationType":"$relationType","source":"fixture","sourceRecordId":"1","targetId":"node1","targetType":"$targetType"}],
        "prescription":{"state":"KNOWN","primaryMeasure":"REPS","dimensions":[{"type":"REPS","state":"KNOWN","source":"legacy.measure"}],"openEnded":false},
        "movementPatterns":{"state":"KNOWN","values":["VERTICAL_PULL"]},"engineMetadata":{},"legacy":{},"unresolved":[],"provenance":{}}
     ]"""
+
+    @Test fun structuredSkillProvenanceIsPreservedAsCanonicalJson() {
+        val json = """{"record":"r5-1","source":{"shard":"bucket-a"}}"""
+        val relation = V3AssetLoader.load(fixture(provenance=json),1).records.single().skillRelations.single()
+        assertNull(relation.diagnosticProvenanceRef)
+        assertEquals("""{"record":"r5-1","source":{"shard":"bucket-a"}}""",
+            relation.diagnosticProvenancePayload)
+    }
 
     @Test fun positiveMappingPreservesV3Semantics() {
         val result=V3AssetLoader.load(fixture(),1)
