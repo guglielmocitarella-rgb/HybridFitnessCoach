@@ -4,7 +4,6 @@ import android.content.pm.ApplicationInfo
 import com.hybridfitnesscoach.app.HybridFitnessCoachApplication
 import java.io.File
 import java.util.zip.ZipFile
-import org.robolectric.shadow.api.Shadow
 import com.hybridfitnesscoach.app.trainingLocations
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -134,21 +133,12 @@ class V3PackagedAssetTest {
     }
 
     private fun attachApkAssets(assetManager: android.content.res.AssetManager, apk: File) {
-        val shadow: Any = Shadow.extract(assetManager)
-        val method = generateSequence(shadow.javaClass as Class<*>?) { it.superclass }
-            .flatMap { it.declaredMethods.asSequence() }
-            .firstOrNull { candidate ->
-                (candidate.name == "addAssetPath" || candidate.name == "addAssetPathNative") &&
-                    candidate.parameterTypes.firstOrNull() == String::class.java &&
-                    candidate.parameterCount in 1..2
-            } ?: throw AssertionError("Robolectric AssetManager cannot attach APK assets")
-        method.isAccessible = true
-        val result = if (method.parameterCount == 1) {
-            method.invoke(shadow, apk.absolutePath)
-        } else {
-            method.invoke(shadow, apk.absolutePath, false)
-        }
-        assertTrue("Robolectric rejected the packaged APK asset path", (result as Number).toInt() > 0)
+        // Call the real SDK 28 hidden API. With Android resources enabled Robolectric
+        // uses the binary-resource shadow, which has no legacy addAssetPath method.
+        val method = android.content.res.AssetManager::class.java.getMethod(
+            "addAssetPath", String::class.java
+        )
+        val cookie = method.invoke(assetManager, apk.absolutePath) as Number
+        assertTrue("Robolectric rejected the packaged APK asset path", cookie.toInt() > 0)
     }
 }
-
