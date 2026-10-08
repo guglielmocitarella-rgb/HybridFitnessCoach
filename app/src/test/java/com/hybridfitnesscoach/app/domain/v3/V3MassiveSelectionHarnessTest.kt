@@ -19,7 +19,11 @@ class V3MassiveSelectionHarnessTest {
         val manifestFile = File(root, "build/step8/scenario-manifest.json")
         assertTrue("frozen candidate missing", candidateFile.isFile)
         assertTrue("generated manifest missing", manifestFile.isFile)
-        val candidate = V3AssetLoader.loadAuthoritative(candidateFile.readText())
+        val candidate = try {
+            V3AssetLoader.loadAuthoritative(candidateFile.readText())
+        } catch (e: V3AssetValidationException) {
+            throw AssertionError("frozen V3 candidate rejected by native loader: " + e.message, e)
+        }
         val manifest = JSONObject(manifestFile.readText())
         assertEquals("V3-STEP8-MATRIX-1", manifest.getString("schema"))
         assertEquals(1087, candidate.records.size)
