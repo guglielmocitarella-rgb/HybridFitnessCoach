@@ -93,9 +93,9 @@ class EquipmentEditorRegressionTest {
             compose.onNodeWithText("SALVA").assertIsDisplayed()
         }
         fun equipment(id: EquipmentId): SemanticsNodeInteraction {
-            val label = EquipmentCatalog.displayName(id)
-            compose.onNode(hasText(label) and hasAnySibling(isToggleable()), useUnmergedTree = true).performScrollTo()
-            return compose.onNode(isToggleable() and hasAnySibling(hasText(label)), useUnmergedTree = true)
+            val tag = "equipment-option-" + id.token
+            compose.onNodeWithTag("equipment-options").performScrollToNode(hasTestTag(tag))
+            return compose.onNodeWithTag(tag, useUnmergedTree = true)
         }
 
         open()

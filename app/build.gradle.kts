@@ -101,6 +101,7 @@ androidComponents {
 }
 
 tasks.withType<Test>().configureEach {
+    testLogging.exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
     dependsOn(generateCanonicalV3Asset)
     systemProperty(
         "hfc.v3.asset",

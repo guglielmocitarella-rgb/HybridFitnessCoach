@@ -20,7 +20,7 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(application = HybridFitnessCoachApplication::class)
+@Config(sdk = [28], application = HybridFitnessCoachApplication::class)
 class V3PackagedAssetTest {
     @Test
     fun packagedAndroidAssetLoadsThroughAssetManagerAndDrivesApplicationRuntime() = runBlocking {

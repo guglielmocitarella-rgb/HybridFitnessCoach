@@ -24,6 +24,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -1802,7 +1803,7 @@ internal fun TrainingLocationScreen(current: TrainingLocation? = null, onDismiss
         onDismissRequest = onDismiss,
         title = { Text(if(current==null)"Nuovo profilo attrezzatura" else "Modifica profilo attrezzatura") },
         text = {
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
+            LazyColumn(modifier = Modifier.fillMaxSize().testTag("equipment-options")) {
                 item {
                     OutlinedTextField(
                         value = name,
@@ -1821,6 +1822,7 @@ internal fun TrainingLocationScreen(current: TrainingLocation? = null, onDismiss
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Checkbox(
+                            modifier = Modifier.testTag("equipment-option-" + EquipmentCatalog.fromDisplayName(item)?.token),
                             checked = EquipmentCatalog.fromDisplayName(item)?.let { it in selected } == true,
                             onCheckedChange = { checked ->
                                 if (checked) {

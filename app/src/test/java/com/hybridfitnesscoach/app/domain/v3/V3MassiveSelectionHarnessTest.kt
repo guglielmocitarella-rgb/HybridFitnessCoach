@@ -6,9 +6,11 @@ import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import java.io.File
 
 @RunWith(RobolectricTestRunner::class)
+@Config(sdk = [28])
 class V3MassiveSelectionHarnessTest {
     private val high = SemanticValue.known(CapabilityLevel.VERY_HIGH)
     private val athlete = V3AthleteCapabilities(high, high, high, high)
