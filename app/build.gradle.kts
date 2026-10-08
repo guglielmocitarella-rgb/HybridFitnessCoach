@@ -36,6 +36,8 @@ android {
     }
 
     buildFeatures { compose = true }
+    // Robolectric Compose tests need the merged manifest, including the test host Activity.
+    testOptions { unitTests.isIncludeAndroidResources = true }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
