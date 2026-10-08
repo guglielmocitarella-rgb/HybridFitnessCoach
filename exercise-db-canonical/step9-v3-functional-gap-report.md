@@ -4,6 +4,12 @@ Baseline: `c1b315922d347c3048990d51ba094ab8b403d1a7`
 Frozen candidate SHA-256 verified: `0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a`  
 Scope: static functional audit. No Android test/CI was run because Step 9 changes diagnostics only.
 
+## Product decision superseding legacy-data requirements (2026-10-08)
+
+**Functional parity of capabilities, not output equivalence, is mandatory.** V3 must preserve or improve all useful functionality represented by the 22 audited areas; the V3-only production gate cannot waive missing workout generation, ranking, variety, prescription, skill, planning, Runner or new-data persistence.
+
+**Pre-V3 persisted data is disposable test data.** Existing active workouts, saved sessions/history, plans, progress and settings do not require compatibility readers, canonical-ID mapping, preservation or migration. Clean install or explicit reset at V3 cutover is acceptable. New V3 data MUST persist reliably. Any legacy-data preservation suggestions elsewhere in this static audit are historical findings, not binding requirements. See `step9-v3-integration-roadmap.md` for the updated gates.
+
 ## Executive verdict
 
 V3 is **not yet functionally complete enough for a production switch**, but the migration does not require replacing the whole application stack. V3 already provides validated asset loading, fail-closed eligibility, typed equipment/capability/skill/prescription semantics, explicit zero-pool states, deterministic ordering and a basic substitution primitive. Missing are the orchestration capabilities: athlete-context mapping, personalized ranking, durable variety, workout composition, contextual prescription/materialization, and V3 integration for skill/custom flows.

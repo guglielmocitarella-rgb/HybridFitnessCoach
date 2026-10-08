@@ -618,5 +618,16 @@
     "productionRuntimeModified": false,
     "runtimeModelsModified": false,
     "newV2DependencyAdded": false
+  },
+  "productDecision20261008": {
+    "authority": "User product requirement; supersedes Step 9 legacy-data migration recommendations, not factual audit observations",
+    "functionalContinuity": "MANDATORY: preserve or improve useful functionality in all 22 audited areas; algorithmic/output equivalence with V2 is not required",
+    "legacyDataCompatibilityRequired": false,
+    "legacyPersistedData": "Disposable test data: active workouts, sessions/history, plans, settings and skill progress may be reset at V3 cutover",
+    "legacyIdMappingRequired": false,
+    "legacyReadersRequired": false,
+    "newV3PersistenceRequired": true,
+    "finalRuntimeV2DependencyTarget": 0,
+    "productionSwitchGate": "All useful V2 capabilities implemented or improved in V3 and tested, all launch origins and new V3 persistence verified"
   }
 }

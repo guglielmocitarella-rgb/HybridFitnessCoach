@@ -2,6 +2,16 @@
 
 This roadmap separates functional completion, integration, user-data safety, production switch and V2 removal. Each block is small and independently verifiable.
 
+## Binding product decision — V3 functional continuity, clean break for test data (2026-10-08)
+
+This section supersedes all historical-data compatibility and migration requirements in the original Step 9 roadmap. The Step 9 audit findings remain historical evidence, not an implementation mandate.
+
+- **Functional continuity is mandatory:** V3 must retain or improve every useful V2 application capability identified by the 22-function audit. Equivalent outputs, algorithms and V2 runtime dependencies are not required.
+- **Old persisted application data is disposable:** existing saved sessions, history, active workouts, plans, skill progress and settings were test data. No legacy readers, old-ID mapping, upgrade fixtures, history migration or preservation of pre-V3 data is required.
+- **New V3 persistence is mandatory:** after the switch, new plans, sessions, actuals, skill progress and active workouts must save/restore correctly. A deliberate reset or clean install at cutover is acceptable; do not silently describe this as a nondestructive upgrade.
+- **V3-only end state:** no V2 selection, fallback or compatibility adapter in the final runtime. Reuse independent Runner, planning, readiness and storage logic where it preserves behavior.
+- **Production gate:** all 22 functional areas must have a documented V3 implementation or justified replacement and tests; cover automatic, custom, skill, library, plan and adaptive-extra origins, variety, zero-pool, prescriptions, Runner and new-data persistence before switching.
+
 ## Phase 1 — V3 functional completion
 
 - **Block:** G1 capability/context mapper.
@@ -18,21 +28,21 @@ This roadmap separates functional completion, integration, user-data safety, pro
 - **Block:** G7 substitution/custom integration.
 - **Completion gate:** All launch origins use V3 selection/ranking/composition while Runner stays stable.
 
-## Phase 3 — User-data safety and migration
+## Phase 3 — V3-native persistence and clean cutover
 
-- **Block:** G6 compatibility reader/mapping.
-- **Block:** fixtures for old active/history/skill nodes.
-- **Completion gate:** Existing data survives upgrade and historical reads need no V2 selector.
+- **Block:** Persist and restore NEW V3 workouts, session actuals, history, plans and skill progress using V3-native identities.
+- **Block:** Define explicit reset/clean-install behavior for disposable pre-V3 test data; no legacy migration or reader.
+- **Completion gate:** New V3 data survives app restart and process recreation; old test data may be discarded.
 
 ## Phase 4 — Production switch
 
 - **Block:** Load frozen V3 as runtime authority.
 - **Block:** disable V2 generation/loading paths after gates.
-- **Completion gate:** Production generation is V3-only with no data loss.
+- **Completion gate:** Production generation is V3-only and new V3 data is persistent; pre-V3 test data may be reset.
 
 ## Phase 5 — Final verification and V2 removal
 
-- **Block:** regression/migration/variety/device tests.
+- **Block:** functional-continuity/new-V3-persistence/variety/device tests.
 - **Block:** remove dead V2 selection/loader assets after compatibility separation.
 - **Completion gate:** No runtime V2 dependency remains and acceptance suites pass.
 
@@ -56,20 +66,20 @@ Move mastery focus, custom filters, pinned regeneration and substitution quality
 ### 10F — Plan materialization
 Keep the existing intent/calendar engine, but materialize planned sessions through the same V3 composer/prescriber. **Done when** plan execution and adaptive-extra workouts share one V3 pipeline.
 
-### 10G — Data compatibility gate
-Before switch, add versioned readers/mapping fixtures for legacy active workouts, session snapshots and stored skill-node IDs. Never rewrite historical actuals. **Done when** upgrade fixtures restore active work, render history, preserve plan ownership and safely represent unmapped identities.
+### 10G — V3-native persistence and reset gate
+Before switch, ensure new V3 active workouts, session actuals, history, plans and skill progress save/restore with V3 identities. Define a deliberate clean-cutover/reset policy for disposable pre-V3 test data; do not build legacy readers or mapping. **Done when** new V3 persistence and restart/process-recreation tests pass.
 
 ### 10H — Production switch
-Load the frozen V3 candidate as runtime authority and route all generation through V3. Keep compatibility readers only. **Done when** exact-SHA CI/device acceptance passes and no generation path calls V2.
+Load the frozen V3 candidate as runtime authority and route all generation through V3. No legacy compatibility readers are required. **Done when** exact-SHA CI/device acceptance passes and no generation path calls V2.
 
 ### 10I — Final verification and V2 removal
-Run regression, migration, zero-pool, variety and device tests; then remove dead V2 loader/selection assets/adapters. **Done when** repository search/tests show no runtime V2 dependency while old persisted records remain readable.
+Run functional-continuity, new-data persistence, zero-pool, variety and device tests; then remove dead V2 loader/selection assets/adapters. **Done when** repository search/tests show no runtime V2 dependency and new V3 data remains readable.
 
 ## Non-negotiable acceptance gates
 
 1. No silent empty workout: V3 zero-pool status reaches the caller.
-2. No destructive persistence migration and no regeneration of an active workout during upgrade.
-3. Historical snapshots remain historical truth when canonical exercises change.
+2. A deliberate reset of pre-V3 test data is allowed; no legacy migration requirement.
+3. New V3 workout/session snapshots and actuals must remain persistent and internally consistent.
 4. Personalized ranking is distinct from deterministic tie-breaking.
 5. Variety is measured dynamically; static analysis alone cannot certify the repetition issue solved.
 6. Production switch occurs only after all launch origins and plan materialization use V3.
