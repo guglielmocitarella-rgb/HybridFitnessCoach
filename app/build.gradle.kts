@@ -57,3 +57,29 @@ dependencies {
     testImplementation("org.robolectric:robolectric:4.16")
 }
 
+
+val canonicalV3 = rootProject.layout.projectDirectory.file("exercise-db-canonical/exercise-db-v3-9r-b-candidate.json")
+val generatedV3Assets = layout.buildDirectory.dir("generated/assets/canonicalV3")
+
+val generateCanonicalV3Asset = tasks.register<Copy>("generateCanonicalV3Asset") {
+    val source = canonicalV3.asFile
+    inputs.file(canonicalV3)
+    from(source)
+    into(generatedV3Assets.map { it.dir("exercise-db-v3") })
+    rename { "exercises.json" }
+    doFirst {
+        check(source.isFile) { "Required canonical V3 JSON missing: $source" }
+        check(source.length() == 19050937L) {
+            "Canonical V3 JSON size mismatch: ${source.length()} bytes, expected 19050937"
+        }
+    }
+}
+
+android.sourceSets.getByName("main").assets.srcDir(generatedV3Assets)
+tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }.configureEach {
+    dependsOn(generateCanonicalV3Asset)
+}
+tasks.withType<Test>().configureEach {
+    dependsOn(generateCanonicalV3Asset)
+    systemProperty("hfc.v3.asset", generatedV3Assets.get().file("exercise-db-v3/exercises.json").asFile.absolutePath)
+}
