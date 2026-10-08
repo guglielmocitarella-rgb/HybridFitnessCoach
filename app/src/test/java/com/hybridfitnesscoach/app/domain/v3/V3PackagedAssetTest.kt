@@ -4,7 +4,7 @@ import android.content.pm.ApplicationInfo
 import com.hybridfitnesscoach.app.HybridFitnessCoachApplication
 import java.io.File
 import java.util.zip.ZipFile
-import org.robolectric.Shadows
+import org.robolectric.shadow.api.Shadow
 import com.hybridfitnesscoach.app.trainingLocations
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -110,7 +110,7 @@ class V3PackagedAssetTest {
     }
 
     private fun attachApkAssets(assetManager: android.content.res.AssetManager, apk: File) {
-        val shadow = Shadows.shadowOf(assetManager)
+        val shadow: Any = Shadow.extract(assetManager)
         val method = generateSequence(shadow.javaClass as Class<*>?) { it.superclass }
             .flatMap { it.declaredMethods.asSequence() }
             .firstOrNull { candidate ->
