@@ -24,6 +24,7 @@ class V3RuntimeComponentTest {
         component.activate(location("gym"))
         assertEquals(0, loads)
         assertEquals(1, pending.size)
+        assertEquals(1, component.diagnostics()?.loadAttempts ?: 0)
 
         pending.single().run()
         val ready = component.state.value as V3RuntimeState.Ready
@@ -65,6 +66,9 @@ class V3RuntimeComponentTest {
         assertTrue(state is V3RuntimeState.Failed)
         assertSame(failure, (state as V3RuntimeState.Failed).cause)
         assertEquals(1, loads)
+        assertEquals(1, component.diagnostics()?.loadAttempts ?: 0)
+        assertEquals("Failed", component.diagnostics()?.state)
+        assertTrue(component.diagnostics()?.error?.contains("invalid V3 asset") == true)
     }
 
     @Test
