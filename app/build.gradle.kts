@@ -99,7 +99,6 @@ tasks.withType<Test>().configureEach {
     dependsOn(generateCanonicalV3Asset)
     systemProperty(
         "hfc.v3.asset",
-        generateCanonicalV3Asset.flatMap { it.outputDirectory }
-            .map { it.file("exercise-db-v3/exercises.json").asFile.absolutePath }.get()
+        layout.buildDirectory.file("generated/assets/canonicalV3/exercise-db-v3/exercises.json").get().asFile.absolutePath
     )
 }
