@@ -6,7 +6,7 @@ import com.hybridfitnesscoach.app.TrainingLocation
 /** A three-valued availability signal. UNKNOWN is never promoted to true. */
 enum class V3Availability { AVAILABLE, UNAVAILABLE, UNKNOWN }
 
-data class V3NativeEnvironmentResult(
+internal data class V3NativeEnvironmentResult(
     val locationId: String?,
     val environment: V3SelectionEnvironment,
     val unmappedNativeEquipment: Set<NativeEquipmentId>,
@@ -20,7 +20,7 @@ data class V3NativeEnvironmentResult(
  * A location's capabilities are an explicit inventory, not proof that a helper,
  * assisted machine, or load-adjustment facility is usable.
  */
-object V3NativeEnvironmentAdapter {
+internal object V3NativeEnvironmentAdapter {
     private val exactTokens: Map<NativeEquipmentId, EquipmentId> = mapOf(
         NativeEquipmentId.BODYWEIGHT to EquipmentId("bodyweight"),
         NativeEquipmentId.AB_WHEEL to EquipmentId("ab_wheel"),
