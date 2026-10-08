@@ -2,6 +2,9 @@ package com.hybridfitnesscoach.app.domain.v3
 
 import android.content.pm.ApplicationInfo
 import com.hybridfitnesscoach.app.HybridFitnessCoachApplication
+import java.io.File
+import java.util.zip.ZipFile
+import org.robolectric.Shadows
 import com.hybridfitnesscoach.app.trainingLocations
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -23,9 +26,14 @@ class V3PackagedAssetTest {
     fun packagedAndroidAssetLoadsThroughAssetManagerAndDrivesApplicationRuntime() = runBlocking {
         val application = RuntimeEnvironment.getApplication() as HybridFitnessCoachApplication
         application.applicationInfo.flags = application.applicationInfo.flags or ApplicationInfo.FLAG_DEBUGGABLE
-        application.assets.open(V3AndroidAssetReader.ASSET_PATH).use { asset ->
-            assertTrue("Packaged V3 asset is empty", asset.read() >= 0)
+        val apk = File(requireNotNull(System.getProperty("hfc.v3.apk")) { "Missing packaged debug APK property" })
+        assertTrue("Debug APK was not packaged before the runtime test", apk.isFile)
+        ZipFile(apk).use { archive ->
+            val entryName = "assets/${V3AndroidAssetReader.ASSET_PATH}"
+            val entry = requireNotNull(archive.getEntry(entryName)) { "V3 asset missing from APK: $entryName" }
+            assertTrue("Packaged V3 asset is empty", entry.size > 0L)
         }
+        attachApkAssets(application.assets, apk)
 
         val component = application.v3RuntimeComponent
         component.activate(trainingLocations.single { it.id == "builtin:home" })
@@ -99,5 +107,23 @@ class V3PackagedAssetTest {
                 "parkRecognized=${parkResult.environment.equipment.size} " +
                 "parkUnmapped=${parkResult.unmappedNativeEquipment.map { it.token }.sorted()}"
         )
+    }
+
+    private fun attachApkAssets(assetManager: android.content.res.AssetManager, apk: File) {
+        val shadow = Shadows.shadowOf(assetManager)
+        val method = generateSequence(shadow.javaClass as Class<*>?) { it.superclass }
+            .flatMap { it.declaredMethods.asSequence() }
+            .firstOrNull { candidate ->
+                (candidate.name == "addAssetPath" || candidate.name == "addAssetPathNative") &&
+                    candidate.parameterTypes.firstOrNull() == String::class.java &&
+                    candidate.parameterCount in 1..2
+            } ?: throw AssertionError("Robolectric AssetManager cannot attach APK assets")
+        method.isAccessible = true
+        val result = if (method.parameterCount == 1) {
+            method.invoke(shadow, apk.absolutePath)
+        } else {
+            method.invoke(shadow, apk.absolutePath, false)
+        }
+        assertTrue("Robolectric rejected the packaged APK asset path", (result as Number).toInt() > 0)
     }
 }
