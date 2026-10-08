@@ -22,7 +22,7 @@ class V3RuntimeComponentTest {
         component.activate(location("home"))
         assertSame(V3RuntimeState.Loading, component.state.value)
         component.activate(location("gym"))
-        assertEquals(1, loads)
+        assertEquals(0, loads)
         assertEquals(1, pending.size)
 
         pending.single().run()
