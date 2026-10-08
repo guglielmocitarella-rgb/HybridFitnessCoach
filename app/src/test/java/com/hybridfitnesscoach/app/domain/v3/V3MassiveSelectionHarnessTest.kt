@@ -37,6 +37,7 @@ class V3MassiveSelectionHarnessTest {
         assertEquals(manifest.getInt("plannedCount"), scenarios.length())
         var executedPd = 0
         var executedTerminal = 0
+        var syntheticUnitProbes = 0
         val coveredPd = linkedSetOf<String>()
         val coveredTerminal = linkedSetOf<String>()
         for (i in 0 until scenarios.length()) {
@@ -58,6 +59,7 @@ class V3MassiveSelectionHarnessTest {
                     V3PdStrengthResolver.evaluate(exercise, context).reason.name)
                 assertEngineReflectsPdOutcome(row.getString("scenarioId"), expectedState, decision)
                 executedPd++
+                if (row.getString("unitSource") != "CANONICAL") syntheticUnitProbes++
                 coveredPd.add(id)
             } else {
                 val dimension = row.getString("dimension")
@@ -93,6 +95,7 @@ class V3MassiveSelectionHarnessTest {
             .put("executed", executedPd + executedTerminal + equipmentCounts.second + skillCounts.second)
             .put("pdPlanned", manifest.getInt("plannedPdScenarios"))
             .put("pdExecuted", executedPd)
+            .put("pdScenariosUsingSyntheticUnitProbe", syntheticUnitProbes)
             .put("pdCanonicalCovered", coveredPd.size)
             .put("terminalPlanned", manifest.getInt("plannedTerminalScenarios"))
             .put("terminalExecuted", executedTerminal)

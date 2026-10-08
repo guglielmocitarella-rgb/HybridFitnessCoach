@@ -9,6 +9,14 @@ EXPECTED_SHA = "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a
 OUT = ROOT / "build/step8"
 PD_CASES = ("NO_CONTEXT", "INCOMPLETE_CONTEXT", "UNKNOWN_ATHLETE", "INVALID_CONTEXT",
             "CAPACITY_MISMATCH", "EQUAL_BOUNDARY", "BELOW_CAPACITY", "ABOVE_CAPACITY")
+INPUT_UNITS = {"REPETITIONS", "SECONDS", "METERS", "INTERVALS", "KILOGRAMS",
+               "POUNDS", "NEWTONS", "BAND_LEVEL", "MACHINE_LEVEL",
+               "PERCENT_BODYWEIGHT", "ARBITRARY_LEVEL"}
+
+def canonical_unit(record):
+    source = record["resistance"]["source"]
+    unit_path = "loadInput" if source == "EXTERNAL_LOAD" else "assistanceInput"
+    return record["resistance"][unit_path].get("unitSemantics")
 
 def scenario_inputs(record, context):
     eq = record["equipmentRequirement"]
@@ -30,9 +38,9 @@ def pd_case(record, case):
     cid = record["canonicalExerciseId"]
     source = record["resistance"]["source"]
     unit_path = "loadInput" if source == "EXTERNAL_LOAD" else "assistanceInput"
-    unit = record["resistance"][unit_path].get("unitSemantics")
-    if not unit:
-        raise ValueError("PD fixture requires a canonical typed unit: " + cid)
+    canonical_unit_token = record["resistance"][unit_path].get("unitSemantics")
+    unit_source = "CANONICAL" if canonical_unit_token in INPUT_UNITS else "SYNTHETIC_KILOGRAMS_PROBE"
+    unit = canonical_unit_token if unit_source == "CANONICAL" else "KILOGRAMS"
     work = {"reps": None, "durationSeconds": None, "distanceMeters": None, "intervals": None,
             "variation": None, "tempo": None, "rangeOfMotion": None, "laterality": None}
     dimension_fields = {"REPS": "reps", "DURATION": "durationSeconds",
@@ -79,7 +87,8 @@ def pd_case(record, case):
         expected_state = "INELIGIBLE" if case == "BELOW_CAPACITY" else "ELIGIBLE"
     row = {"scenarioId": cid + "::PD::" + case, "canonicalExerciseId": cid,
            "axis": "PD", "case": case,
-           "coverageTags": ["PD", source, case, "NATIVE_ENGINE"],
+           "coverageTags": ["PD", source, case, "NATIVE_ENGINE", unit_source],
+           "unitSource": unit_source, "canonicalUnitToken": canonical_unit_token,
            "context": context, "expectedState": expected_state, "expectedReason": expected_reason}
     row.update(scenario_inputs(record, context))
     return row
@@ -138,6 +147,7 @@ def main():
                  "terminalCount": len(terminal), "plannedNativeScenarios": len(rows),
                  "plannedPdScenarios": len(pd) * len(PD_CASES),
                  "plannedTerminalScenarios": len(terminal),
+                 "pdRecordsWithSyntheticUnitProbe": sum(canonical_unit(x) not in INPUT_UNITS for x in pd),
                  "manifestSha256": hashlib.sha256(payload).hexdigest(),
                  "testCapacityValuesAreSyntheticProbes": True}
     (OUT / "inventory.json").write_text(json.dumps(inventory, indent=2) + "\n")
