@@ -743,6 +743,12 @@ fun HybridFitnessApp() {
     var tab by remember { mutableStateOf(Tab.HOME) }
     val customProfiles = remember { mutableStateListOf<TrainingLocation>().apply { addAll(store.loadTrainingLocations()) } }
     var activeProfile by remember { mutableStateOf(customProfiles.firstOrNull { it.id == store.loadActiveTrainingLocationId() } ?: customProfiles.firstOrNull() ?: trainingLocations.first()) }
+    val v3Runtime = remember(context.applicationContext) {
+        (context.applicationContext as HybridFitnessCoachApplication).v3RuntimeComponent
+    }
+    LaunchedEffect(activeProfile) {
+        v3Runtime.activate(activeProfile)
+    }
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     var onboarding by remember { mutableStateOf(store.loadOnboardingDraft().step in 1..5 || (store.loadOnboardingDraft().step==0 && athlete.name.isBlank() && sessions.isEmpty() && store.loadTrainingPlans().isEmpty())) }
