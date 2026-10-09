@@ -5,11 +5,14 @@ import android.content.Context
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.test.assertDoesNotExist
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -143,12 +146,12 @@ class V3AthleteAssessmentScreenTest {
         compose.onNodeWithTag("v3-skill-progression-option-0").performScrollTo().performClick()
 
         compose.onNodeWithText("Tuck front lever").assertIsDisplayed()
-        compose.onNodeWithText("Dip assistite").assertDoesNotExist()
+        compose.onAllNodesWithText("Dip assistite").assertCountEquals(0)
         compose.onNodeWithText("Descrizione tecnica dettagliata non presente nel catalogo", substring = true)
             .performScrollTo().assertIsDisplayed()
         compose.onNodeWithText("Il catalogo non riporta prerequisiti per questa progressione.")
             .performScrollTo().assertIsDisplayed()
-        compose.onNodeWithText("front_tuck").assertDoesNotExist()
+        compose.onAllNodesWithText("front_tuck").assertCountEquals(0)
     }
 
     @Test fun selectedSkillUnknownIsSavedForItsOriginalNodeIdAndIsNotASectionSkip() {
@@ -167,7 +170,7 @@ class V3AthleteAssessmentScreenTest {
         assertEquals(V3AssessmentProvenance.UNKNOWN, row?.provenance)
         compose.onNodeWithText("Front lever · Tuck front lever: Sconosciuta", substring = true)
             .performScrollTo().assertIsDisplayed()
-        compose.onNodeWithText("La sezione è stata saltata per ora").assertDoesNotExist()
+        compose.onAllNodesWithText("La sezione è stata saltata per ora").assertCountEquals(0)
     }
 
     @Test fun skippingDoesNotDeletePreviouslySavedSkillOrOtherAssessments() {
