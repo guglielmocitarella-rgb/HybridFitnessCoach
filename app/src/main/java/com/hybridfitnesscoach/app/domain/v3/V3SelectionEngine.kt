@@ -18,7 +18,8 @@ data class V3SelectionIntent(
     val skillFamilyIds: Set<SkillTargetId> = emptySet(),
     val skillNodeIds: Set<SkillTargetId> = emptySet(),
     val requirePrescriptionFeasibility: Boolean = false,
-    val pdStrengthContext: V3PdStrengthContext? = null
+    val pdStrengthContext: V3PdStrengthContext? = null,
+    val movementRequirements: Map<V3MovementDimension, V3MovementLevel> = emptyMap()
 )
 
 enum class V3SelectionRejection {
@@ -29,7 +30,8 @@ enum class V3SelectionRejection {
     PRESCRIPTION_UNRESOLVED,
     PD_STRENGTH_CONTEXT_INSUFFICIENT, PD_STRENGTH_CONTEXT_INVALID,
     ATHLETE_CAPABILITY_UNKNOWN, CAPACITY_ENVELOPE_MISMATCH,
-    TERMINAL_CANONICAL_STATE, UNSUPPORTED_CONTEXT
+    TERMINAL_CANONICAL_STATE, UNSUPPORTED_CONTEXT,
+    ASSESSMENT_REQUIRED, ASSESSMENT_POLICY_UNRESOLVED, MOVEMENT_REQUIREMENT_UNRESOLVED
 }
 
 data class V3Eligibility(val eligible:Boolean,val reasons:Set<V3SelectionRejection>)

@@ -30,13 +30,26 @@ data class V3CapacityEnvelopePoint(
     val resistanceSource: ResistanceSource,
     val work: V3WorkDimensions,
     val maximumFeasibleLoad: V3QuantifiedResistance? = null,
-    val minimumRequiredAssistance: V3QuantifiedResistance? = null
+    val minimumRequiredAssistance: V3QuantifiedResistance? = null,
+    val provenance: V3AssessmentProvenance = V3AssessmentProvenance.UNKNOWN,
+    val protocolId: String? = null,
+    val protocolVersion: String? = null,
+    val observedAtEpochMs: Long? = null,
+    val evidenceId: String? = null
 ) {
     init {
         when (resistanceSource) {
             ResistanceSource.EXTERNAL_LOAD -> require(maximumFeasibleLoad != null && minimumRequiredAssistance == null)
             ResistanceSource.ASSISTED -> require(minimumRequiredAssistance != null && maximumFeasibleLoad == null)
             else -> require(maximumFeasibleLoad == null && minimumRequiredAssistance == null)
+        }
+        when (provenance) {
+            V3AssessmentProvenance.UNKNOWN, V3AssessmentProvenance.SELF_REPORTED ->
+                require(protocolId == null && protocolVersion == null && observedAtEpochMs == null && evidenceId == null)
+            V3AssessmentProvenance.DIRECT_ASSESSMENT, V3AssessmentProvenance.VERIFIED_DERIVATION -> {
+                require(!protocolId.isNullOrBlank() && !protocolVersion.isNullOrBlank())
+                require(observedAtEpochMs != null && observedAtEpochMs >= 0L && !evidenceId.isNullOrBlank())
+            }
         }
     }
 }

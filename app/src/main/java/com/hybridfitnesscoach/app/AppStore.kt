@@ -4,7 +4,16 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Xml
 import androidx.compose.runtime.mutableStateListOf
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentDimension
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentLevel
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentObservation
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentProvenance
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentRevision
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentSnapshot
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentTarget
+import com.hybridfitnesscoach.app.domain.v3.V3AssessmentVerification
 import java.io.File
+import java.util.UUID
 import org.json.JSONArray
 import org.json.JSONObject
 import org.xmlpull.v1.XmlPullParser
@@ -148,6 +157,7 @@ class AppStore(context: Context) {
         field(key, fallback) { it.getString(key, fallback) }
 
     private fun int(key: String, fallback: Int = 0): Int = field(key, fallback) { it.getInt(key, fallback) }
+    private fun long(key: String, fallback: Long = 0L): Long = field(key, fallback) { it.getLong(key, fallback) }
     private fun float(key: String): Float = field(key, 0f) { it.getFloat(key, 0f).also { v -> require(v.isFinite()) } }
 
     private fun validateStore() {
@@ -162,6 +172,7 @@ class AppStore(context: Context) {
         loadEnabledTrainingPlanIds()
         loadProgressionNodes()
         string("weight_history")
+        loadV3AssessmentHistory()
     }
 
     private fun write(edit: SharedPreferences.Editor.() -> Unit): Boolean {
@@ -211,11 +222,13 @@ class AppStore(context: Context) {
     fun saveAthlete(p: AthleteProfile):Boolean {
         val history = string("weight_history", "") ?: ""
         val previousWeight=float("athlete_weight")
+        val profileRevision = loadAthleteRevision()
         return write {
             putString("athlete_name", p.name)
                 .putString("athlete_current_goal",p.goal).putInt("athlete_current_days",p.daysPerWeek.coerceIn(1,7)).putString("athlete_current_skills",JSONArray(p.prioritySkills).toString())
                 .putInt("athlete_age", p.age).putFloat("athlete_height", p.heightCm)
                 .putFloat("athlete_weight", p.weightKg).putString("athlete_sex", p.sex)
+                .putLong("athlete_profile_revision", if (profileRevision == Long.MAX_VALUE) 1L else profileRevision + 1L)
                 .apply {
                     p.assessedTrainingExperience?.let{putInt("athlete_assessed_experience",it)} ?: remove("athlete_assessed_experience")
                     p.assessedPushCapacity?.let{putInt("athlete_assessed_push",it)} ?: remove("athlete_assessed_push")
@@ -232,6 +245,80 @@ class AppStore(context: Context) {
             if (p.weightKg > 0 && (previousWeight!=p.weightKg || history.isBlank())) putString("weight_history", ("${System.currentTimeMillis()}:${p.weightKg};" + history).take(4000))
         }
     }
+
+    fun loadAthleteRevision(): Long = long("athlete_profile_revision").coerceAtLeast(0L)
+
+    /** Append a guided self-report or explicit unknown answer without touching legacy profile fields. */
+    fun saveV3Assessment(
+        target: V3AssessmentTarget,
+        level: V3AssessmentLevel?,
+        assessedAtEpochMs: Long?,
+        recordedAtEpochMs: Long = System.currentTimeMillis()
+    ): Boolean {
+        val history = loadV3AssessmentHistory()
+        val snapshot = V3AssessmentSnapshot.fromHistory(history, profileRevision = 0L)
+        val current = snapshot.current(target)
+        val id = UUID.randomUUID().toString()
+        val row = if (level == null) {
+            V3AssessmentRevision(
+                id, target, null, V3AssessmentProvenance.UNKNOWN, V3AssessmentVerification.UNKNOWN,
+                null, recordedAtEpochMs, null, null, null, null, current?.id
+            )
+        } else {
+            require(assessedAtEpochMs != null) { "Known self-reported levels require an assessment date" }
+            V3AssessmentRevision(
+                id, target, level, V3AssessmentProvenance.SELF_REPORTED, V3AssessmentVerification.DECLARED,
+                assessedAtEpochMs, recordedAtEpochMs, "guided-self-report", "1", "G1-RUBRIC-0.1-DRAFT",
+                null, current?.id
+            )
+        }
+        return appendV3AssessmentRevision(row)
+    }
+
+    /** Persists a validated direct or reproducible derived row with its provenance unchanged. */
+    fun appendV3AssessmentRevision(row: V3AssessmentRevision): Boolean {
+        val history = loadV3AssessmentHistory()
+        val snapshot = V3AssessmentSnapshot.fromHistory(history, profileRevision = 0L)
+        if (snapshot.hasConflict(row.target) || history.any { it.id == row.id }) return false
+        if (row.supersedesId != snapshot.current(row.target)?.id) return false
+        val updated = history + row
+        V3AssessmentSnapshot.fromHistory(updated, profileRevision = 0L)
+        val envelope = JSONObject().put("schemaVersion", 1).put("items", JSONArray().apply {
+            updated.forEach { put(it.toJson()) }
+        })
+        return write { putString("v3_assessment_history", envelope.toString()) }
+    }
+
+    /** Append an invalidation event. The prior observed or derived row remains in history. */
+    fun invalidateV3Assessment(target: V3AssessmentTarget, reason: String, recordedAtEpochMs: Long = System.currentTimeMillis()): Boolean {
+        require(reason.isNotBlank())
+        val history = loadV3AssessmentHistory()
+        val snapshot = V3AssessmentSnapshot.fromHistory(history, profileRevision = 0L)
+        val current = snapshot.current(target) ?: return false
+        val row = V3AssessmentRevision(
+            UUID.randomUUID().toString(), target, null, V3AssessmentProvenance.UNKNOWN,
+            V3AssessmentVerification.INVALIDATED, null, recordedAtEpochMs, null, null, null, null,
+            current.id, reason.trim()
+        )
+        return appendV3AssessmentRevision(row)
+    }
+
+    fun loadV3AssessmentHistory(): List<V3AssessmentRevision> {
+        val raw = string("v3_assessment_history") ?: return emptyList()
+        return recovery.read("v3_assessment_history", emptyList()) {
+            val root = JSONObject(raw)
+            root.requireVersion(1)
+            val items = root.getJSONArray("items")
+            val rows = recovery.records(items, "v3_assessment_history.items") { item, _ ->
+                V3AssessmentRevision.fromJson(item)
+            }
+            V3AssessmentSnapshot.fromHistory(rows, profileRevision = 0L)
+            rows
+        }
+    }
+
+    fun loadV3AssessmentSnapshot(profileRevision: Long): V3AssessmentSnapshot =
+        V3AssessmentSnapshot.fromHistory(loadV3AssessmentHistory(), profileRevision)
 
     internal fun loadActiveTrainingLocationId(): String = string("active_training_location", trainingLocations.first().id) ?: trainingLocations.first().id
     internal fun loadLastUsedTrainingLocationId():String? = string("last_used_training_location")

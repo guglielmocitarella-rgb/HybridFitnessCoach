@@ -47,6 +47,27 @@ class V3PersonalizedRankingTest {
         assertTrue(result.decisions.all { V3SelectionRejection.CAPABILITY_UNRESOLVED in it.eligibility.reasons })
     }
 
+    @Test fun rankingCarriesThePersistedAssessmentRevisionIntoItsSnapshot() {
+        val dimensions = listOf(V3AssessmentDimension.STRENGTH, V3AssessmentDimension.TECHNICAL,
+            V3AssessmentDimension.MOBILITY, V3AssessmentDimension.BALANCE_COORDINATION)
+        val history = dimensions.mapIndexed { index, dimension ->
+            V3AssessmentRevision(
+                "assessment-$index", V3AssessmentTarget(dimension), V3AssessmentLevel.MODERATE,
+                V3AssessmentProvenance.SELF_REPORTED, V3AssessmentVerification.DECLARED,
+                now, now, "guided-self-report", "1", "G1-RUBRIC-0.1-DRAFT", null, null
+            )
+        }
+        val snapshot = V3AssessmentSnapshot.fromHistory(history, profileRevision = 42L)
+        val athlete = V3NativeAthleteContextAdapter.fromNative(AthleteProfile(goal = "Forza"), emptyList(),
+            assessmentSnapshot = snapshot)
+
+        val result = rank(loaded(exercise("assessed")), athlete)
+
+        assertEquals(4L, result.assessmentRevision)
+        assertEquals(42L, athlete.assessments?.profileRevision)
+        assertEquals(listOf(CanonicalExerciseId("assessed")), result.orderedEligible.map { it.canonicalId })
+    }
+
     @Test fun frozenCandidateWithRealNativeUnknownAssessmentsCannotInventAnEligiblePool() {
         val db = V3RankingRealFixtures.frozenCanonical()
         val native = V3NativeAthleteContextAdapter.fromNative(AthleteProfile(assessedTrainingExperience = 3), emptyList())

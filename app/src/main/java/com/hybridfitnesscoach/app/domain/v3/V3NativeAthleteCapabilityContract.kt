@@ -5,7 +5,7 @@ package com.hybridfitnesscoach.app.domain.v3
  * original 1..3 scale; they never imply a cross-cutting V3 capability level.
  * This is not a persisted athlete profile.
  */
-enum class V3AssessmentProvenance { DIRECT_ASSESSMENT, VERIFIED_DERIVATION }
+enum class V3AssessmentProvenance { SELF_REPORTED, DIRECT_ASSESSMENT, VERIFIED_DERIVATION, UNKNOWN }
 
 data class V3AssessedValue<T>(
     val semantic: SemanticValue<T>,
@@ -44,6 +44,11 @@ data class V3MovementAssessments(
         values[dimension] ?: V3AssessedValue.unknown()
 }
 
+/** New five-level movement capability scale; separate from legacy movement Int values. */
+data class V3MovementV3Assessments(
+    val values: Map<V3MovementDimension, V3AssessedValue<V3MovementLevel>> = emptyMap()
+)
+
 /** The four independent cross-cutting V3 assessments, without inferred defaults. */
 data class V3TransversalAssessments(
     val strength: V3AssessedValue<CapabilityLevel> = V3AssessedValue.unknown(),
@@ -62,8 +67,11 @@ data class V3TransversalAssessments(
 /** A non-persistent snapshot that preserves provenance and both distinct assessment axes. */
 data class V3NativeAthleteCapabilityContract(
     val movement: V3MovementAssessments = V3MovementAssessments(),
-    val transversal: V3TransversalAssessments = V3TransversalAssessments()
+    val transversal: V3TransversalAssessments = V3TransversalAssessments(),
+    val movementV3: V3MovementV3Assessments = V3MovementV3Assessments(),
+    val assessmentRevision: Long = 0L
 ) {
+    init { require(assessmentRevision >= 0L) }
     fun toV3AthleteCapabilities(): V3AthleteCapabilities =
         transversal.toV3AthleteCapabilities()
 }

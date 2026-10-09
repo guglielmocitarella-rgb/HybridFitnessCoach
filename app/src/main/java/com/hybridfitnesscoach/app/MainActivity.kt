@@ -751,6 +751,7 @@ fun HybridFitnessApp() {
     var athlete by remember { mutableStateOf(store.loadAthlete()) }
     var sessions by remember { mutableStateOf(store.loadSessions()) }
     var v3ActivePlans by remember { mutableStateOf(store.loadEnabledTrainingPlans()) }
+    var v3AssessmentRevision by remember { mutableLongStateOf(store.loadV3AssessmentSnapshot(store.loadAthleteRevision()).assessmentRevision) }
     LaunchedEffect(sessions, tab) {
         v3ActivePlans = store.loadEnabledTrainingPlans()
     }
@@ -766,15 +767,16 @@ fun HybridFitnessApp() {
         if(active!=null && workoutLaunch!=null)workoutLaunch=resumeWorkoutLaunch(active)
     }
     val health=rememberHealthConnectState()
-    LaunchedEffect(activeProfile, athlete, sessions, v3ActivePlans, health.readiness) {
+    LaunchedEffect(activeProfile, athlete, sessions, v3ActivePlans, health.readiness, v3AssessmentRevision) {
         val athleteSnapshot = athlete
         val historySnapshot = sessions
         val planSnapshot = v3ActivePlans
         val locationSnapshot = activeProfile
         val readinessSnapshot = health.readiness
+        val assessmentSnapshot = store.loadV3AssessmentSnapshot(store.loadAthleteRevision())
         val athleteContext = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
             com.hybridfitnesscoach.app.domain.v3.V3NativeAthleteContextAdapter.fromNative(
-                athleteSnapshot, historySnapshot, planSnapshot, readinessSnapshot
+                athleteSnapshot, historySnapshot, planSnapshot, readinessSnapshot, assessmentSnapshot
             )
         }
         v3Runtime.activate(locationSnapshot, athleteContext)
@@ -914,6 +916,7 @@ fun HybridFitnessApp() {
                             v3Runtime=v3Runtime, debugDiagnostics=(context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0,
                             active=activeProfile,athlete=athlete,sessions=sessions,store=store,customProfiles=customProfiles,
                             onAthleteSave={updated->if(store.saveAthlete(updated))athlete=updated else android.widget.Toast.makeText(context,"Profilo non salvato: riprova.",android.widget.Toast.LENGTH_LONG).show()},
+                            onV3AssessmentChanged={v3AssessmentRevision=store.loadV3AssessmentSnapshot(store.loadAthleteRevision()).assessmentRevision},
                             onOnboarding={if(store.loadOnboardingDraft().step==6)store.saveOnboardingDraft(OnboardingDraft());onboarding=true},
                             selectLocation={selected->activeProfile=selected;store.saveActiveTrainingLocationId(selected.id)},
                             addLocation={created->customProfiles.add(created);store.saveTrainingLocations(customProfiles);activeProfile=created;store.saveActiveTrainingLocationId(created.id)},
@@ -947,7 +950,7 @@ fun HybridFitnessApp() {
 private fun ProfileHub(
     v3Runtime:com.hybridfitnesscoach.app.domain.v3.V3RuntimeComponent, debugDiagnostics:Boolean,
     active:TrainingLocation, athlete:AthleteProfile, sessions:List<SessionRecord>, store:AppStore,
-    customProfiles:List<TrainingLocation>, onAthleteSave:(AthleteProfile)->Unit,
+    customProfiles:List<TrainingLocation>, onAthleteSave:(AthleteProfile)->Unit, onV3AssessmentChanged:()->Unit,
     selectLocation:(TrainingLocation)->Unit, addLocation:(TrainingLocation)->Unit,
     editLocation:(TrainingLocation,TrainingLocation)->Unit, deleteLocation:(TrainingLocation)->Unit,
     onExecuteExercise:(Exercise)->Unit, onStartWorkout:(WorkoutLaunchIntent)->Unit, onOnboarding:()->Unit
@@ -959,7 +962,7 @@ private fun ProfileHub(
     Column(Modifier.fillMaxSize()) {
         Header("Profilo","Atleta, luoghi e libreria")
         LazyRow(Modifier.padding(horizontal=20.dp,vertical=4.dp),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
-            items(listOf("Profilo","Luoghi","Esercizi") + if(debugDiagnostics) listOf("Diagnostica V3") else emptyList()) { item ->
+            items(listOf("Profilo","Luoghi","Esercizi","Valutazione V3") + if(debugDiagnostics) listOf("Diagnostica V3") else emptyList()) { item ->
                 FilterChip(selected=section==item,onClick={section=item},label={Text(item)})
             }
         }
@@ -988,6 +991,7 @@ private fun ProfileHub(
                 item { OutlinedButton(onClick=onOnboarding,modifier=Modifier.fillMaxWidth()){Text("CONFIGURAZIONE GUIDATA")}}
             }
             "Luoghi" -> Equipment(active,customProfiles,selectLocation,addLocation,editLocation,deleteLocation)
+            "Valutazione V3" -> V3AthleteAssessmentScreen(store, onClose={section="Profilo"}, onChanged=onV3AssessmentChanged)
             "Diagnostica V3" -> if(debugDiagnostics) V3DiagnosticsScreen(v3Runtime,active)
             else -> Library(active,athlete,sessions,onExecuteExercise,onStartWorkout)
         }

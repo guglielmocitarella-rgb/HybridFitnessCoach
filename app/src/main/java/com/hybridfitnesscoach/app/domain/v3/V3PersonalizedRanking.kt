@@ -25,6 +25,7 @@ internal data class V3RankedExercise(
 internal data class V3RankingEvaluation(
     val referenceTimeMillis: Long,
     val ruleVersion: String,
+    val assessmentRevision: Long,
     val orderedEligible: List<V3RankedExercise>,
     val decisions: List<V3RankedExercise>,
     val historyIdentityAudit: V3IdentityAudit,
@@ -72,7 +73,9 @@ internal object V3PersonalizedRanking {
         val plannedIds = planMatches.mapNotNull { it.canonicalId }.toSet()
         val capabilities = athlete.capabilities.toV3AthleteCapabilities()
         val decisions = load.records.sortedBy { it.id.value }.map { exercise ->
-            val eligibility = V3SelectionEngine.evaluate(exercise, capabilities, environment, intent)
+            val eligibility = athlete.assessments?.let { assessmentSnapshot ->
+                V3AssessmentEligibility.evaluate(exercise, assessmentSnapshot, environment, intent)
+            } ?: V3SelectionEngine.evaluate(exercise, capabilities, environment, intent)
             val unavailable = linkedSetOf<String>()
             val contributions = mutableListOf<V3ScoreContribution>()
             fun add(factor: String, points: Int, reason: String, source: String) {
@@ -162,7 +165,7 @@ internal object V3PersonalizedRanking {
                 "Already present in a pending plan within seven days", source(athlete.activePlans) + "; explicit canonical identity")
             V3RankedExercise(exercise.id, eligibility, contributions.sumOf { it.points }, contributions, unavailable)
         }
-        return V3RankingEvaluation(config.referenceTimeMillis, RULE_VERSION,
+        return V3RankingEvaluation(config.referenceTimeMillis, RULE_VERSION, athlete.assessments?.assessmentRevision ?: 0L,
             decisions.filter { it.eligibility.eligible }.sortedWith(
                 compareByDescending<V3RankedExercise> { requireNotNull(it.score) }.thenBy { it.canonicalId.value }),
             decisions, V3IdentityAudit.from(historyMatches), V3IdentityAudit.from(planMatches))

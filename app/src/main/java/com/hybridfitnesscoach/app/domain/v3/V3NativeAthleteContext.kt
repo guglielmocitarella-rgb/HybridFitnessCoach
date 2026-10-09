@@ -47,7 +47,8 @@ internal data class V3NativeAthleteContext(
     val skillProgress: V3ContextValue<List<SkillNodeProgress>>,
     val readiness: V3ContextValue<Int>,
     val recovery: V3ContextValue<Int> = V3ContextValue.unknown(),
-    val fatigue: V3ContextValue<Int> = V3ContextValue.unknown()
+    val fatigue: V3ContextValue<Int> = V3ContextValue.unknown(),
+    val assessments: V3AssessmentSnapshot? = null
 )
 
 internal object V3NativeAthleteContextAdapter {
@@ -56,7 +57,8 @@ internal object V3NativeAthleteContextAdapter {
         profile: AthleteProfile,
         sessions: List<SessionRecord>,
         activePlans: List<TrainingPlan> = emptyList(),
-        readiness: Int? = null
+        readiness: Int? = null,
+        assessmentSnapshot: V3AssessmentSnapshot? = null
     ): V3NativeAthleteContext {
         val history = sessions.toList()
         val recent = history.flatMap { session ->
@@ -105,7 +107,8 @@ internal object V3NativeAthleteContextAdapter {
             trainingExperience = profile.assessedTrainingExperience?.takeIf { it in 1..3 }?.let {
                 V3AssessedValue.direct(it)
             } ?: V3AssessedValue.unknown(),
-            capabilities = V3NativeAthleteProfileAdapter.fromProfile(profile),
+            capabilities = assessmentSnapshot?.let { V3AssessmentBridge.toCapabilityContract(it) }
+                ?: V3NativeAthleteProfileAdapter.fromProfile(profile),
             history = V3ContextValue.known(history, V3ContextProvenance.OBSERVED, "SessionRecord actual history"),
             recentExercises = V3ContextValue.known(recent, V3ContextProvenance.OBSERVED,
                 "SessionRecord: completed structured sets or explicit per-exercise actual counts"),
@@ -115,7 +118,8 @@ internal object V3NativeAthleteContextAdapter {
             readiness = readiness?.takeIf { it in 0..100 }?.let {
                 V3ContextValue.known(it, V3ContextProvenance.DERIVED_APP_RULE,
                     "HealthConnectState.readiness: DefaultHealthNormalizer + DefaultReadinessProvider")
-            } ?: V3ContextValue.unknown()
+            } ?: V3ContextValue.unknown(),
+            assessments = assessmentSnapshot
         )
     }
 }
