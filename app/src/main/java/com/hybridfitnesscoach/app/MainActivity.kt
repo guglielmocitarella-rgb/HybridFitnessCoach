@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 private val Accent = Color(0xFF3568E8)
 private val Bg = Color(0xFFF7F8FA)
@@ -1470,9 +1471,11 @@ internal fun Equipment(active: TrainingLocation, customProfiles: List<TrainingLo
     var deleting by remember { mutableStateOf<TrainingLocation?>(null) }
     // FlowScreen is an in-layout surface, so it must overlay the list in a Box.
     Box(Modifier.fillMaxSize()) {
-    Column {
+    Column(Modifier.fillMaxSize()) {
         Header("Profili attrezzatura", "Scegli dove ti alleni oggi")
-        customProfiles.forEach { p ->
+        OutlinedButton(onClick={showCreator=true},modifier=Modifier.padding(horizontal=20.dp).fillMaxWidth()){Icon(Icons.Default.Add,null);Spacer(Modifier.width(8.dp));Text("NUOVO PROFILO")}
+        LazyColumn(Modifier.weight(1f).fillMaxWidth().testTag("training-locations"), contentPadding=PaddingValues(vertical=6.dp)) {
+        items(customProfiles, key={it.id}) { p ->
                         Card(Modifier.padding(horizontal=20.dp,vertical=6.dp).fillMaxWidth().clickable{select(p)},colors=CardDefaults.cardColors(containerColor=if(p==active)Accent.copy(alpha=.10f) else Color.White)){
                 Row(Modifier.padding(18.dp),verticalAlignment=Alignment.CenterVertically){
                     Text(p.icon,fontSize=32.sp);Spacer(Modifier.width(14.dp))
@@ -1482,7 +1485,8 @@ internal fun Equipment(active: TrainingLocation, customProfiles: List<TrainingLo
                 }
             }
         }
-        if(customProfiles.isEmpty()) Text("Nessun profilo attrezzatura. Creane uno per generare workout.",color=Accent,modifier=Modifier.padding(horizontal=20.dp));OutlinedButton(onClick={showCreator=true},modifier=Modifier.padding(20.dp).fillMaxWidth()){Icon(Icons.Default.Add,null);Spacer(Modifier.width(8.dp));Text("NUOVO PROFILO")}
+        if(customProfiles.isEmpty()) item { Text("Nessun profilo attrezzatura. Creane uno per generare workout.",color=Accent,modifier=Modifier.padding(horizontal=20.dp)) }
+        }
     }
     if(showCreator) TrainingLocationScreen(null,{showCreator=false}){created->addProfile(created);showCreator=false}
     editing?.let{old->TrainingLocationScreen(old,{editing=null}){updated->editProfile(old,updated);editing=null}}
@@ -1795,7 +1799,8 @@ internal fun ExerciseDetailScreen(ex: Exercise, sessions: List<SessionRecord>, o
 
 @Composable
 internal fun TrainingLocationScreen(current: TrainingLocation? = null, onDismiss: () -> Unit, onCreate: (TrainingLocation) -> Unit) {
-    var name by remember(current) { mutableStateOf(current?.name ?: "") }
+    var name by rememberSaveable(current?.id) { mutableStateOf(current?.name ?: "") }
+    var icon by rememberSaveable(current?.id) { mutableStateOf(current?.icon ?: "📍") }
     val options = profileEquipmentOptions(exercises)
     val selected = remember(current) { mutableStateListOf<EquipmentId>().apply { addAll(current?.capabilities ?: emptySet()) } }
 
@@ -1812,6 +1817,18 @@ internal fun TrainingLocationScreen(current: TrainingLocation? = null, onDismiss
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth()
                     )
+                    if(current == null || current.kind == TrainingLocationKind.CUSTOM) {
+                        Text("Icona del luogo", fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 12.dp))
+                        // Include saved icons even when they are outside the current preset palette.
+                        (listOf(icon) + listOf("📍", "🏠", "🏋️", "🌳", "🏨", "🏢", "🏖️", "⛰️")).distinct().chunked(4).forEach { row ->
+                            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                row.forEach { choice ->
+                                    FilterChip(selected = icon == choice, onClick = { icon = choice },
+                                        label = { Text(choice) }, modifier = Modifier.testTag("location-icon-$choice"))
+                                }
+                            }
+                        }
+                    }
                     Text("Attrezzatura disponibile", fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 14.dp, bottom = 6.dp))
                 }
                 items(options) { item ->
@@ -1837,7 +1854,7 @@ internal fun TrainingLocationScreen(current: TrainingLocation? = null, onDismiss
         },
         confirmButton = {
             Button(
-                onClick = { onCreate(TrainingLocation(current?.id ?: "custom:"+System.currentTimeMillis(), name.trim(), "📍", TrainingLocationKind.CUSTOM, selected.toSet())) },
+                onClick = { onCreate(TrainingLocation(current?.id ?: "custom:"+java.util.UUID.randomUUID(), name.trim(), icon, current?.kind ?: TrainingLocationKind.CUSTOM, selected.toSet())) },
                 enabled = name.isNotBlank() && selected.isNotEmpty()
             ) { Text(if(current==null)"CREA" else "SALVA") }
         },
@@ -1853,6 +1870,10 @@ private fun V3DiagnosticsScreen(
     active: TrainingLocation
 ) {
     val state by component.state.collectAsState()
+    val rankingScope = rememberCoroutineScope()
+    var ranking by remember(state) { mutableStateOf<com.hybridfitnesscoach.app.domain.v3.V3RuntimeRankingResult?>(null) }
+    var rankingError by remember(state) { mutableStateOf<String?>(null) }
+    var rankingBusy by remember(state) { mutableStateOf(false) }
     // Reading diagnostics does not start loading; the existing Application component owns it.
     val diagnostics = component.diagnostics()
     LazyColumn(
@@ -1887,6 +1908,41 @@ private fun V3DiagnosticsScreen(
                         "Attrezzature native non mappate: " +
                             ready.environment.unmappedNativeEquipment.joinToString()
                     )
+                }
+                item {
+                    OutlinedButton(enabled = !rankingBusy && ready.athleteContext != null, onClick = {
+                        rankingBusy = true
+                        rankingError = null
+                        component.rank(com.hybridfitnesscoach.app.domain.v3.V3RankingConfig(System.currentTimeMillis()))
+                            .whenComplete { result, failure ->
+                                rankingScope.launch {
+                                    if (component.state.value == ready) {
+                                        rankingBusy = false
+                                        if (failure != null) rankingError = failure.message
+                                        else if (component.isCurrent(result)) ranking = result
+                                    }
+                                }
+                            }
+                    }) { Text(if(rankingBusy) "VALUTAZIONE…" else "VALUTA RANKING V3") }
+                    Text("Solo diagnostica: non genera allenamenti. Generatore produttivo V2.")
+                }
+                rankingError?.let { message -> item { Text("Errore ranking: $message") } }
+                ranking?.evaluation?.let { evaluation ->
+                    item {
+                        Text("Eleggibili: ${evaluation.orderedEligible.size} / ${evaluation.decisions.size}")
+                        Text("Storico: ${evaluation.historyIdentityAudit.matched} associati, ${evaluation.historyIdentityAudit.ambiguous} ambigui, ${evaluation.historyIdentityAudit.unresolved} non risolti")
+                        Text("Piani: ${evaluation.planIdentityAudit.matched} associati, ${evaluation.planIdentityAudit.ambiguous} ambigui, ${evaluation.planIdentityAudit.unresolved} non risolti")
+                    }
+                    if(evaluation.orderedEligible.isEmpty()) item {
+                        Text("Pool vuoto: nessun vincolo è stato rilassato. Capacità o contesto non verificati possono escludere gli esercizi.")
+                    }
+                    items(evaluation.orderedEligible.take(5), key={it.canonicalId.value}) { result ->
+                        Text("${result.canonicalId.value} — ${result.score}", fontWeight=FontWeight.Bold)
+                        result.contributions.forEach { contribution ->
+                            Text("${contribution.factor}: ${contribution.points} • ${contribution.reason}", fontSize=12.sp)
+                        }
+                        Text("Segnali non disponibili: ${result.unavailableSignals.joinToString()}", fontSize=12.sp)
+                    }
                 }
             }
         }

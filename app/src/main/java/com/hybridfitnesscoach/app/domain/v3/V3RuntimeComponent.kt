@@ -3,6 +3,7 @@ package com.hybridfitnesscoach.app.domain.v3
 import android.os.Looper
 import com.hybridfitnesscoach.app.TrainingLocation
 import java.util.concurrent.Executor
+import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ForkJoinPool
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,7 +15,8 @@ internal sealed interface V3RuntimeState {
     data class Ready(
         val loadResult: V3LoadResult,
         val environment: V3NativeEnvironmentResult,
-        val athleteContext: V3NativeAthleteContext? = null
+        val athleteContext: V3NativeAthleteContext? = null,
+        val contextRevision: Long = 0
     ) : V3RuntimeState
     data class Failed(val cause: Throwable) : V3RuntimeState
 }
@@ -33,6 +35,12 @@ internal data class V3RuntimeDiagnostics(
     val loadThreadIsMain: Boolean?
 )
 
+internal data class V3RuntimeRankingResult(
+    val contextRevision: Long,
+    val locationId: String?,
+    val evaluation: V3RankingEvaluation
+)
+
 /**
  * Loads V3 at most once for this application-owned component. Native context changes
  * publish a new snapshot using the already validated records.
@@ -49,6 +57,7 @@ internal class V3RuntimeComponent(
     private var started = false
     private var activeLocation: TrainingLocation? = null
     private var activeAthleteContext: V3NativeAthleteContext? = null
+    private var contextRevision = 0L
     private var loadAttempts = 0
     private var loadDurationMillis: Long? = null
     private var loadThreadIsMain: Boolean? = null
@@ -82,13 +91,15 @@ internal class V3RuntimeComponent(
 
     fun activate(location: TrainingLocation, athleteContext: V3NativeAthleteContext? = null) {
         synchronized(lock) {
+            if (activeLocation != location || (athleteContext != null && activeAthleteContext != athleteContext)) contextRevision++
             activeLocation = location
             if (athleteContext != null) activeAthleteContext = athleteContext
             val current = mutableState.value
             if (current is V3RuntimeState.Ready) {
                 mutableState.value = current.copy(
                     environment = V3NativeEnvironmentAdapter.fromLocation(location, current.loadResult),
-                    athleteContext = activeAthleteContext
+                    athleteContext = activeAthleteContext,
+                    contextRevision = contextRevision
                 )
             }
             if (started) return
@@ -116,7 +127,8 @@ internal class V3RuntimeComponent(
                                 V3RuntimeState.Ready(
                                     loaded,
                                     V3NativeEnvironmentAdapter.fromLocation(activeLocation, loaded),
-                                    activeAthleteContext
+                                    activeAthleteContext,
+                                    contextRevision
                                 )
                             },
                             onFailure = { failure -> V3RuntimeState.Failed(failure) }
@@ -127,6 +139,36 @@ internal class V3RuntimeComponent(
                 mutableState.value = V3RuntimeState.Failed(failure)
             }
         }
+    }
+
+    /** Snapshot under lock, score on the existing worker executor, never reload the asset. */
+    fun rank(config: V3RankingConfig, intent: V3SelectionIntent = V3SelectionIntent()): CompletableFuture<V3RuntimeRankingResult> {
+        val future = CompletableFuture<V3RuntimeRankingResult>()
+        val snapshot = synchronized(lock) { mutableState.value as? V3RuntimeState.Ready }
+        val athlete = snapshot?.athleteContext
+        if (snapshot == null || athlete == null) {
+            future.completeExceptionally(IllegalStateException("V3 database and athlete context must be Ready"))
+            return future
+        }
+        try {
+            executor.execute {
+                try {
+                    future.complete(V3RuntimeRankingResult(snapshot.contextRevision, snapshot.environment.locationId,
+                        V3PersonalizedRanking.evaluate(snapshot.loadResult, snapshot.environment.environment, athlete, config, intent)))
+                } catch (failure: Exception) {
+                    future.completeExceptionally(failure)
+                }
+            }
+        } catch (failure: Exception) {
+            future.completeExceptionally(failure)
+        }
+        return future
+    }
+
+    /** Callers must discard a completed evaluation when its native context has changed. */
+    fun isCurrent(result: V3RuntimeRankingResult): Boolean = synchronized(lock) {
+        val current = mutableState.value as? V3RuntimeState.Ready
+        current != null && current.contextRevision == result.contextRevision
     }
 }
 

@@ -37,9 +37,55 @@ class EquipmentEditorRegressionTest {
     @Test fun parkEditorRoundTrip() = roundTrip(trainingLocations.single { it.kind == TrainingLocationKind.OUTDOOR })
     @Test fun gymEditorRoundTrip() = roundTrip(trainingLocations.single { it.kind == TrainingLocationKind.GYM })
     @Test fun customEditorRoundTrip() = roundTrip(
-        TrainingLocation("custom:regression", "Hotel", "📍", TrainingLocationKind.CUSTOM,
+        TrainingLocation("custom:regression", "Hotel", "🚀", TrainingLocationKind.CUSTOM,
             setOf(EquipmentId.BODYWEIGHT, EquipmentId.PULL_UP_BAR))
     )
+
+    @Test fun manyLocationsScrollAndAddRemainsReachable() {
+        val profiles = (1..30).map {
+            TrainingLocation("custom:$it", "Luogo $it", "🏠", TrainingLocationKind.CUSTOM,
+                setOf(EquipmentId.BODYWEIGHT))
+        }
+        var selected: TrainingLocation? = null
+        compose.setContent {
+            MaterialTheme {
+                Equipment(profiles.first(), profiles, { selected = it }, {}, { _, _ -> }, {})
+            }
+        }
+        compose.onNodeWithText("NUOVO PROFILO").assertIsDisplayed()
+        compose.onNodeWithTag("training-locations").performScrollToNode(hasText("Luogo 30"))
+        compose.onNodeWithText("Luogo 30").assertIsDisplayed().performClick()
+        assertEquals(profiles.last(), selected)
+        compose.onNodeWithText("NUOVO PROFILO").assertIsDisplayed().performClick()
+        compose.onNodeWithText("Nuovo profilo attrezzatura").assertIsDisplayed()
+        compose.onNodeWithText("ANNULLA").performClick()
+    }
+
+    @Test fun threeCustomLocationsHaveDistinctIdsAndPersistSelectedIcons() {
+        val store = AppStore(context)
+        val profiles = mutableStateListOf<TrainingLocation>()
+        compose.setContent {
+            MaterialTheme {
+                Equipment(trainingLocations.first(), profiles, {},
+                    { profiles.add(it); assertTrue(store.saveTrainingLocations(profiles)) },
+                    { _, _ -> }, {})
+            }
+        }
+        repeat(3) { index ->
+            compose.onNodeWithText("NUOVO PROFILO").performClick()
+            compose.onNodeWithText("Nome (es. Hotel)").performTextInput("Hotel $index")
+            compose.onNodeWithTag("equipment-options").performScrollToNode(hasTestTag("location-icon-🏠"))
+            compose.onNodeWithTag("location-icon-🏠").performClick()
+            compose.onNodeWithTag("equipment-options").performScrollToNode(hasTestTag("equipment-option-bodyweight"))
+            compose.onNodeWithTag("equipment-option-bodyweight", useUnmergedTree = true).performClick()
+            compose.onNodeWithText("CREA").performClick()
+        }
+        compose.runOnIdle {
+            assertEquals(3, profiles.map { it.id }.distinct().size)
+            assertTrue(profiles.all { it.icon == "🏠" && it.kind == TrainingLocationKind.CUSTOM })
+            assertEquals(profiles.toList(), AppStore(context).loadTrainingLocations())
+        }
+    }
 
     private fun roundTrip(original: TrainingLocation) {
         val store = AppStore(context)
@@ -99,6 +145,10 @@ class EquipmentEditorRegressionTest {
         }
 
         open()
+        if(original.kind == TrainingLocationKind.CUSTOM) {
+            compose.onNodeWithTag("equipment-options").performScrollToNode(hasTestTag("location-icon-🏠"))
+            compose.onNodeWithTag("location-icon-🏠").performClick()
+        }
         equipment(EquipmentId.BODYWEIGHT).assertIsOn().performClick().assertIsOff()
         compose.onNodeWithText("ANNULLA").performClick()
         compose.onNodeWithText("Modifica profilo attrezzatura").assertDoesNotExist()
@@ -115,6 +165,9 @@ class EquipmentEditorRegressionTest {
         compose.runOnIdle {
             assertEquals(1, saves)
             assertEquals(original.id, active.value.id)
+            assertEquals(original.kind, active.value.kind)
+            assertEquals(original.icon, active.value.icon)
+            assertEquals(original.name, active.value.name)
             assertEquals(original.capabilities - EquipmentId.BODYWEIGHT + added, active.value.capabilities)
             val recreated = AppStore(context)
             val restored = recreated.loadTrainingLocations()

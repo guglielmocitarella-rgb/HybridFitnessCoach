@@ -7,7 +7,8 @@ data class V3LoadAudit(
     val uniqueIds: Int, val missingIds: Int, val duplicateIds: Int, val rejected: Int,
     val silentSemanticLoss: Int, val buildTimeOnlyFields: Set<String>
 )
-data class V3LoadResult(val records: List<ExerciseV3>, val audit: V3LoadAudit)
+data class V3LoadResult(val records: List<ExerciseV3>, val audit: V3LoadAudit,
+    val identityEvidence: List<V3IdentityEvidence> = emptyList())
 
 /** Isolated V3.10B boundary. No production repository, DI, selection or persistence code references this loader. */
 object V3AssetLoader {
@@ -30,7 +31,15 @@ object V3AssetLoader {
         val mapped = dtos.map { dto -> validateAndMap(dto, expectedSchemaVersion) }
         val losses = dtos.zip(mapped).flatMap { (dto, domain) -> lossAudit(dto, domain) }
         if (losses.isNotEmpty()) fail("silent semantic loss: ${losses.take(8).joinToString()}")
-        return V3LoadResult(mapped, V3LoadAudit(rows.size, dtos.size, dtos.size, mapped.size, ids.toSet().size, 0, 0, 0, 0, BUILD_TIME_ONLY_FIELDS))
+        // Ranking needs explicit native identity links. Keep only these fields, not a second
+        // legacy catalog, aliases, or probabilistic runtimeModelNames matches.
+        val identityEvidence = dtos.zip(mapped).filter { it.second.identityState == SemanticState.KNOWN }.map { (dto, domain) ->
+            val legacy = dto.requiredObject("legacy")
+            V3IdentityEvidence(domain.id,
+                setOfNotNull(legacy.optionalString("id")?.takeIf(String::isNotBlank)),
+                setOfNotNull(legacy.optionalString("runtimeName")?.takeIf(String::isNotBlank)))
+        }
+        return V3LoadResult(mapped, V3LoadAudit(rows.size, dtos.size, dtos.size, mapped.size, ids.toSet().size, 0, 0, 0, 0, BUILD_TIME_ONLY_FIELDS), identityEvidence)
     }
 
     private fun validateAndMap(d: V3ExerciseDto, schema: String): ExerciseV3 {
