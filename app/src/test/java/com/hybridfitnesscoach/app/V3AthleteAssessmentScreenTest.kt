@@ -88,7 +88,7 @@ class V3AthleteAssessmentScreenTest {
         assertTrue(store.loadV3AssessmentHistory().none { it.target.dimension == V3AssessmentDimension.SKILL })
         compose.onNodeWithText("Nessuna skill valutata: la sezione è stata saltata per ora", substring = true)
             .performScrollTo().assertIsDisplayed()
-        compose.onNodeWithText("Sconosciuta · Non so / non l'ho provata", substring = true)
+        compose.onNodeWithText("Forza: Sconosciuta · Non so / non l'ho provata", substring = true)
             .performScrollTo().assertIsDisplayed()
 
         compose.onNodeWithTag("v3-assessment-finish").performScrollTo().performClick()
