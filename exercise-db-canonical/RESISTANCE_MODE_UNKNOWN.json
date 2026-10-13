@@ -1,0 +1,5785 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": "exercise-db-canonical.json",
+  "filter": "resistanceMode == UNKNOWN",
+  "count": 111,
+  "records": [
+    {
+      "id": "ex-4-point-burpee",
+      "canonicalNameEn": "4-Point Burpee",
+      "family": "CONDITIONING",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "4-Point Burpee",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 41"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "4-Point Burpee",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 41"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "4-Point Burpee",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 41"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-arch",
+      "canonicalNameEn": "Arch",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Arch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Arch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Arch",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-arm-circling",
+      "canonicalNameEn": "Arm Circling",
+      "family": "GENERAL",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Arm Circling",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 28"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Arm Circling",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 28"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Arm Circling",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 28"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-asian-squat",
+      "canonicalNameEn": "Asian Squat",
+      "family": "SQUAT",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Asian Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Asian Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Asian Squat",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-assisted-leg-raise",
+      "canonicalNameEn": "Assisted Leg Raise",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 28"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 28"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "ULTIMATE_CAL_COLLECTION",
+          "source_name": "Assisted Leg Raise",
+          "evidence_type": "EXERCISE_SECTION",
+          "locator": "The Gym-Less Workout exercise/progression section 28"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-assisted-pistol-squat",
+      "canonicalNameEn": "Assisted Pistol Squat",
+      "family": "SINGLE_LEG_SQUAT",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Pistol Squat",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 25"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Pistol Squat",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 25"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "ULTIMATE_CAL_COLLECTION",
+          "source_name": "Assisted Pistol Squat",
+          "evidence_type": "EXERCISE_SECTION",
+          "locator": "The Gym-Less Workout exercise/progression section 25"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-assisted-pull-up",
+      "canonicalNameEn": "Assisted Pull-Up",
+      "family": "PULL_UP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "vertical-pull"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Pull-Up",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 4"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Pull-Up",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 4"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "ULTIMATE_CAL_COLLECTION",
+          "source_name": "Assisted Pull-Up",
+          "evidence_type": "EXERCISE_SECTION",
+          "locator": "The Gym-Less Workout exercise/progression section 4"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-back-foot-elevated-split-squat",
+      "canonicalNameEn": "Back Foot Elevated Split Squat",
+      "family": "LEG",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Back Foot Elevated Split Squat",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Back Foot Elevated Split Squat",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Back Foot Elevated Split Squat",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-ball-shoulder-stretch",
+      "canonicalNameEn": "Ball Shoulder Stretch",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Ball Shoulder Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 78"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Ball Shoulder Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 78"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Ball Shoulder Stretch",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 78"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-bastards",
+      "canonicalNameEn": "Bastards",
+      "family": "CONDITIONING",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Bastards",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Bastards",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Bastards",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-bench-step",
+      "canonicalNameEn": "Bench Step",
+      "family": "STEP_UP",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [
+        "bench"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bench Step",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 35"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "NAME_EXPLICIT_EQUIPMENT_RULE",
+        "source": {
+          "source_id": "CANONICAL_NAME_EQUIPMENT_RULE",
+          "evidence_type": "EXPLICIT_NAME_TOKEN",
+          "locator": "Bench Step"
+        }
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Bench Step",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 35"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-bend-and-reach",
+      "canonicalNameEn": "Bend and Reach",
+      "family": "TOTAL_BODY_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bend and Reach",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 3"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bend and Reach",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 3"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Bend and Reach",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 3"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-bent-leg-good-morning",
+      "canonicalNameEn": "Bent Leg Good Morning",
+      "family": "HINGE",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "hinge"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bent Leg Good Morning",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 19"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bent Leg Good Morning",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 19"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Bent Leg Good Morning",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 19"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-bodyweight-leaning-side-abdominal",
+      "canonicalNameEn": "Bodyweight Leaning Side Abdominal",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bodyweight Leaning Side Abdominal",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 12"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bodyweight Leaning Side Abdominal",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 12"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Bodyweight Leaning Side Abdominal",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 12"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-bodyweight-sit-ups",
+      "canonicalNameEn": "Bodyweight Sit-Ups",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bodyweight Sit-Ups",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 16"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bodyweight Sit-Ups",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 16"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Bodyweight Sit-Ups",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 16"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-boxer",
+      "canonicalNameEn": "Boxer",
+      "family": "GENERAL",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Boxer",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 26"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Boxer",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 26"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Boxer",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 26"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-butterfly-mount",
+      "canonicalNameEn": "Butterfly Mount",
+      "family": "SKILL",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Butterfly Mount",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Butterfly Mount",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Butterfly Mount",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-candlestick",
+      "canonicalNameEn": "Candlestick",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Candlestick",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Candlestick",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Candlestick",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-cat-cow-kneeling-crunch",
+      "canonicalNameEn": "Cat-Cow Kneeling Crunch",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Cat-Cow Kneeling Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Cat-Cow Kneeling Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Cat-Cow Kneeling Crunch",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-chair-pose-squat",
+      "canonicalNameEn": "Chair Pose Squat",
+      "family": "SQUAT",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Chair Pose Squat",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 4"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Chair Pose Squat",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 4"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Chair Pose Squat",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 4"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-chest-and-shoulder-stretch",
+      "canonicalNameEn": "Chest and Shoulder Stretch",
+      "family": "SHOULDER_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Chest and Shoulder Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Chest and Shoulder Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Chest and Shoulder Stretch",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-deep-push-up",
+      "canonicalNameEn": "Deep Push-Up",
+      "family": "PUSH_UP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "horizontal-push"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Deep Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Deep Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Deep Push-Up",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-dish",
+      "canonicalNameEn": "Dish",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Dish",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Dish",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Dish",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-double-leg-abdominal-press",
+      "canonicalNameEn": "Double-Leg Abdominal Press",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Double-Leg Abdominal Press",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 38"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Double-Leg Abdominal Press",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 38"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Double-Leg Abdominal Press",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 38"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-double-leg-bridge-with-shoulder-flexion",
+      "canonicalNameEn": "Double Leg Bridge with Shoulder Flexion",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Double Leg Bridge with Shoulder Flexion",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 13"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Double Leg Bridge with Shoulder Flexion",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 13"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Double Leg Bridge with Shoulder Flexion",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 13"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-dragon-flag-swimmers",
+      "canonicalNameEn": "Dragon-Flag Swimmers",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Dragon-Flag Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Dragon-Flag Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Dragon-Flag Swimmers",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-dynamic-prone-plank",
+      "canonicalNameEn": "Dynamic Prone Plank",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Dynamic Prone Plank",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 33"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Dynamic Prone Plank",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 33"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Dynamic Prone Plank",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 33"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+      "canonicalNameEn": "Elevated Straddle Stand Straddle Press to Handstand",
+      "family": "HANDSTAND",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-extended-plank",
+      "canonicalNameEn": "Extended Plank",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Extended Plank",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Extended Plank",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Extended Plank",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-facing-away-standing-crunch",
+      "canonicalNameEn": "Facing-Away Standing Crunch",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Facing-Away Standing Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Facing-Away Standing Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Facing-Away Standing Crunch",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-forward-fold",
+      "canonicalNameEn": "Forward Fold",
+      "family": "MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Forward Fold",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Forward Fold",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Forward Fold",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-forward-stability-ball-roll",
+      "canonicalNameEn": "Forward Stability Ball Roll",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [
+        "stability_ball"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Forward Stability Ball Roll",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 10"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Forward Stability Ball Roll",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 10"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Forward Stability Ball Roll",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 10"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-freestanding-lateral-lunge",
+      "canonicalNameEn": "Freestanding Lateral Lunge",
+      "family": "LUNGE",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Freestanding Lateral Lunge",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 34"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Freestanding Lateral Lunge",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 34"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Freestanding Lateral Lunge",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 34"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-frog-hop",
+      "canonicalNameEn": "Frog Hop",
+      "family": "LOWER_BODY_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Frog Hop",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Frog Hop",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Frog Hop",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-front-deltoid-shoulder-press",
+      "canonicalNameEn": "Front Deltoid Shoulder Press",
+      "family": "SHOULDER",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Deltoid Shoulder Press",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Deltoid Shoulder Press",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Front Deltoid Shoulder Press",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-front-foot-elevated-split-squat",
+      "canonicalNameEn": "Front Foot Elevated Split Squat",
+      "family": "LEG",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Foot Elevated Split Squat",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Foot Elevated Split Squat",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Front Foot Elevated Split Squat",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-glute-stretch",
+      "canonicalNameEn": "Glute Stretch",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Glute Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Glute Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Glute Stretch",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-groin-stretch",
+      "canonicalNameEn": "Groin Stretch",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Groin Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Groin Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Groin Stretch",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-half-lever-swimmers",
+      "canonicalNameEn": "Half-Lever Swimmers",
+      "family": "HALF_LEVER",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Half-Lever Swimmers",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-hamstring-stretch",
+      "canonicalNameEn": "Hamstring Stretch",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Hamstring Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Hamstring Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Hamstring Stretch",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-hands-elevated-one-arm-pushup",
+      "canonicalNameEn": "Hands-Elevated One-Arm Pushup",
+      "family": "PUSH_UP",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "horizontal-push"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Hands-Elevated One-Arm Pushup",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Hands-Elevated One-Arm Pushup",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Hands-Elevated One-Arm Pushup",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-heel-kicks",
+      "canonicalNameEn": "Heel Kicks",
+      "family": "CONDITIONING",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Heel Kicks",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 8"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Heel Kicks",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 8"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Heel Kicks",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 8"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-jogging-and-running",
+      "canonicalNameEn": "Jogging and Running",
+      "family": "CARDIO",
+      "movementType": "AEROBIC",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Jogging and Running",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 66"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Jogging and Running",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 66"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Jogging and Running",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 66"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-judo-push-up",
+      "canonicalNameEn": "Judo Push-Up",
+      "family": "PUSH_UP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "horizontal-push"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Judo Push-Up",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 20"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Judo Push-Up",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 20"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Judo Push-Up",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 20"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-knee-circles",
+      "canonicalNameEn": "Knee Circles",
+      "family": "LOWER_BODY_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Knee Circles",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Knee Circles",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Knee Circles",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-knee-ups",
+      "canonicalNameEn": "Knee-Ups",
+      "family": "CONDITIONING",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Knee-Ups",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 7"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Knee-Ups",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 7"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Knee-Ups",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 7"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-lalanne-push-up",
+      "canonicalNameEn": "LaLanne Push-Up",
+      "family": "PUSH_UP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "horizontal-push"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "LaLanne Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "LaLanne Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "LaLanne Push-Up",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-low-alternating-wave-with-battle-ropes",
+      "canonicalNameEn": "Low Alternating Wave with Battle Ropes",
+      "family": "CONDITIONING",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [
+        "battle_ropes",
+        "rope"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Low Alternating Wave with Battle Ropes",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 31"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Low Alternating Wave with Battle Ropes",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 31"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Low Alternating Wave with Battle Ropes",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 31"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-lunge-to-row",
+      "canonicalNameEn": "Lunge to Row",
+      "family": "LUNGE",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Lunge to Row",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 6"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Lunge to Row",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 6"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Lunge to Row",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 6"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-lying-leg-extension",
+      "canonicalNameEn": "Lying Leg Extension",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Lying Leg Extension",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Lying Leg Extension",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Lying Leg Extension",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-lying-leg-raise",
+      "canonicalNameEn": "Lying Leg Raise",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Lying Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 27"
+          },
+          {
+            "source_id": "CAL_BEGINNER_150",
+            "source_name": "Leg Raises",
+            "evidence_type": "INDEX_HEADING",
+            "locator": "Index exercise 5"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Lying Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 27"
+          },
+          {
+            "source_id": "CAL_BEGINNER_150",
+            "source_name": "Leg Raises",
+            "evidence_type": "INDEX_HEADING",
+            "locator": "Index exercise 5"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "ULTIMATE_CAL_COLLECTION",
+          "source_name": "Lying Leg Raise",
+          "evidence_type": "EXERCISE_SECTION",
+          "locator": "The Gym-Less Workout exercise/progression section 27"
+        },
+        {
+          "source_id": "CAL_BEGINNER_150",
+          "source_name": "Leg Raises",
+          "evidence_type": "INDEX_HEADING",
+          "locator": "Index exercise 5"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-lying-triceps-extension",
+      "canonicalNameEn": "Lying Triceps Extension",
+      "family": "TRICEPS",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "DELAVIER3",
+            "source_name": "Lying Triceps Extension",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 15"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "DELAVIER3",
+            "source_name": "Lying Triceps Extension",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 15"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "DELAVIER3",
+          "source_name": "Lying Triceps Extension",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 15"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-neck-and-shoulder-stretch",
+      "canonicalNameEn": "Neck and Shoulder Stretch",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Neck and Shoulder Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 75"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Neck and Shoulder Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 75"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Neck and Shoulder Stretch",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 75"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-negative-dragon-flag",
+      "canonicalNameEn": "Negative Dragon Flag",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 14"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 14"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Negative Dragon Flag",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "COMPLETE_CAL1",
+          "source_name": "Negative Dragon Flag",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 14"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-neutral-grip-horizontal-row",
+      "canonicalNameEn": "Neutral-Grip Horizontal Row",
+      "family": "BACK",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Neutral-Grip Horizontal Row",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Neutral-Grip Horizontal Row",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Neutral-Grip Horizontal Row",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-normal-muscle-up",
+      "canonicalNameEn": "Normal Muscle-Up",
+      "family": "MUSCLE_UP",
+      "movementType": "SKILL",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Normal Muscle-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "CAL_BEGINNER_150",
+            "source_name": "Muscle-Up",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 2"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Muscle-up",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Muscle-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        },
+        "observedValue": "Rings",
+        "mapping": "canonical normal muscle-up is kept identity-ambiguous for runtime linkage, while the cited source independently establishes rings as equipment"
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [
+        {
+          "source_id": "APP_MODEL_9B8A41C",
+          "source_name": "Muscle-up",
+          "evidence_type": "APP_MODEL_ENTRY",
+          "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Normal Muscle-Up",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "CAL_BEGINNER_150",
+          "source_name": "Muscle-Up",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 2"
+        },
+        {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Muscle-up",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://library.crossfit.com/free/pdf/Muscle-upNov02.pdf"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": [
+          {
+            "source": {
+              "source_id": "APP_MODEL_9B8A41C",
+              "source_name": "Muscle-up",
+              "evidence_type": "APP_MODEL_ENTRY",
+              "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+            },
+            "snapshot": {
+              "name": "Muscle-up",
+              "group": "Dorso / Core",
+              "equipmentLabel": "Sbarra",
+              "equipmentRequired": [
+                "pull_up_bar"
+              ],
+              "level": "Avanzato",
+              "skills": [
+                "Muscle-up"
+              ],
+              "role": "Progressione",
+              "setRestSec": 120,
+              "exerciseRestSec": 120,
+              "secondaryGroups": [
+                "Core"
+              ],
+              "movementPattern": "horizontal-push",
+              "category": "SKILL",
+              "intensity": 5,
+              "systemicFatigue": 5,
+              "technicalComplexity": 3,
+              "measure": "REPS",
+              "laterality": "BILATERAL",
+              "resistanceMode": "BODYWEIGHT",
+              "progressionKey": null,
+              "targetSets": 3,
+              "targetValue": 6.0,
+              "intervalRestSec": null
+            },
+            "fieldProvenance": {
+              "name": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "group": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "equipmentLabel": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "equipmentRequired": {
+                "status": "APP_EQUIPMENT_LABEL_RULE",
+                "source_id": "APP_EQUIPMENT_LABEL_RULE",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/EquipmentCatalog.kt <- app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146"
+              },
+              "level": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "skills": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "role": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "setRestSec": {
+                "status": "APP_MODEL_DEFAULT_RULE",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:recommendedSetRest"
+              },
+              "exerciseRestSec": {
+                "status": "APP_MODEL_DEFAULT_RULE",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:recommendedSetRest"
+              },
+              "secondaryGroups": {
+                "status": "APP_EXERCISE_METADATA_RULE",
+                "source_id": "APP_EXERCISE_METADATA",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/ExerciseMetadata.kt@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "movementPattern": {
+                "status": "APP_EXERCISE_METADATA_RULE",
+                "source_id": "APP_EXERCISE_METADATA",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/ExerciseMetadata.kt@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "category": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "intensity": {
+                "status": "APP_MODEL_DEFAULT",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:Exercise.intensity"
+              },
+              "systemicFatigue": {
+                "status": "APP_MODEL_DEFAULT",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:Exercise.systemicFatigue"
+              },
+              "technicalComplexity": {
+                "status": "APP_EXERCISE_METADATA_RULE",
+                "source_id": "APP_EXERCISE_METADATA",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/ExerciseMetadata.kt@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "measure": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "laterality": {
+                "status": "APP_MODEL_DEFAULT",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:Exercise.laterality"
+              },
+              "resistanceMode": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "progressionKey": {
+                "status": "APP_MODEL_DEFAULT",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:Exercise.progressionKey"
+              },
+              "targetSets": {
+                "status": "APP_MODEL_DEFAULT",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:Exercise.targetSets"
+              },
+              "targetValue": {
+                "status": "APP_MODEL_ENTRY",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:146@9b8a41cfe5c7ee007f37219f9987a843f3ae3911"
+              },
+              "intervalRestSec": {
+                "status": "APP_MODEL_DEFAULT",
+                "source_id": "APP_MODEL_9B8A41C",
+                "locator": "app/src/main/java/com/hybridfitnesscoach/app/MainActivity.kt:Exercise.intervalRestSec"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ex-oblique-twist-with-plate-weight",
+      "canonicalNameEn": "Oblique Twist with Plate Weight",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Oblique Twist with Plate Weight",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Oblique Twist with Plate Weight",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Oblique Twist with Plate Weight",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-one-arm-straddle-elbow-lever",
+      "canonicalNameEn": "One-Arm Straddle Elbow Lever",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "One-Arm Straddle Elbow Lever",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "One-Arm Straddle Elbow Lever",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "One-Arm Straddle Elbow Lever",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-parallel-leg-raise",
+      "canonicalNameEn": "Parallel Leg Raise",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Parallel Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 30"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Parallel Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 30"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "ULTIMATE_CAL_COLLECTION",
+          "source_name": "Parallel Leg Raise",
+          "evidence_type": "EXERCISE_SECTION",
+          "locator": "The Gym-Less Workout exercise/progression section 30"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-parallel-squat",
+      "canonicalNameEn": "Parallel Squat",
+      "family": "SQUAT",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Parallel Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Parallel Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Parallel Squat",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-prone-bench-rear-deltoid-raise",
+      "canonicalNameEn": "Prone Bench Rear Deltoid Raise",
+      "family": "SHOULDER",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [
+        "bench"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Prone Bench Rear Deltoid Raise",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "NAME_EXPLICIT_EQUIPMENT_RULE",
+        "source": {
+          "source_id": "CANONICAL_NAME_EQUIPMENT_RULE",
+          "evidence_type": "EXPLICIT_NAME_TOKEN",
+          "locator": "Prone Bench Rear Deltoid Raise"
+        }
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Prone Bench Rear Deltoid Raise",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-rear-support",
+      "canonicalNameEn": "Rear Support",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rear Support",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rear Support",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Rear Support",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-rollovers-into-straddle-sit",
+      "canonicalNameEn": "Rollovers into Straddle Sit",
+      "family": "LOWER_BODY_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rollovers into Straddle Sit",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rollovers into Straddle Sit",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Rollovers into Straddle Sit",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-rope-triceps-pushdown",
+      "canonicalNameEn": "Rope Triceps Pushdown",
+      "family": "ARM",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [
+        "rope"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Rope Triceps Pushdown",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Rope Triceps Pushdown",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Rope Triceps Pushdown",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-rotator-cuff-stretch",
+      "canonicalNameEn": "Rotator-Cuff Stretch",
+      "family": "SHOULDER_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rotator-Cuff Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rotator-Cuff Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Rotator-Cuff Stretch",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-rows",
+      "canonicalNameEn": "Rows",
+      "family": "PULL_UP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "horizontal-pull"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rows",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rows",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Rows",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-russian-twist",
+      "canonicalNameEn": "Russian Twist",
+      "family": "GENERAL",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Russian Twist",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 37"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Russian Twist",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 37"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Russian Twist",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 37"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-scalene-stretch",
+      "canonicalNameEn": "Scalene Stretch",
+      "family": "MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Scalene Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Scalene Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Scalene Stretch",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-scapula-dip",
+      "canonicalNameEn": "Scapula Dip",
+      "family": "SCAPULAR_CONTROL",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [
+        "dip_bars"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula Dip",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Scapula Dip",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 2"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula Dip",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Scapula Dip",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 2"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Scapula Dip",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "COMPLETE_CAL1",
+          "source_name": "Scapula Dip",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 2"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-scapula-foam-rolling",
+      "canonicalNameEn": "Scapula Foam Rolling",
+      "family": "SMR",
+      "movementType": "SMR",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "recovery"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula Foam Rolling",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula Foam Rolling",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Scapula Foam Rolling",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-scapula-one-arm-pull-up",
+      "canonicalNameEn": "Scapula One-Arm Pull-Up",
+      "family": "SCAPULAR_CONTROL",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula One-Arm Pull-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula One-Arm Pull-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Scapula One-Arm Pull-Up",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-scapula-pull-up",
+      "canonicalNameEn": "Scapula Pull-Up",
+      "family": "SCAPULAR_CONTROL",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [
+        "pull_up_bar"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula Pull-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Scapula Pull-Up",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 3"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Scapula Pull-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Scapula Pull-Up",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 3"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Scapula Pull-Up",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "COMPLETE_CAL1",
+          "source_name": "Scapula Pull-Up",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 3"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-seated-stride-into-saw-stretch",
+      "canonicalNameEn": "Seated Stride into Saw Stretch",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Seated Stride into Saw Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 5"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Seated Stride into Saw Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 5"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Seated Stride into Saw Stretch",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 5"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-seesaw-with-ball",
+      "canonicalNameEn": "Seesaw with Ball",
+      "family": "LOWER_BODY",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [
+        "stability_ball"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Seesaw with Ball",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 37"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
+        },
+        "observedValue": "Seesaw with ball in illustrated strength/fitness exercise reference",
+        "mapping": "exact named ball exercise; canonical stability_ball"
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Seesaw with Ball",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 37"
+        },
+        {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Mark Vella — Anatomy for Strength and Fitness Training for Women",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://books.google.com/books/about/Anatomy_for_Strength_and_Fitness_Trainin.html?id=eJg_EQAAQBAJ"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-segmental-rotation",
+      "canonicalNameEn": "Segmental Rotation",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Segmental Rotation",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 35"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Segmental Rotation",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 35"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Segmental Rotation",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 35"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-shoulder-dislocates",
+      "canonicalNameEn": "Shoulder Dislocates",
+      "family": "SHOULDER_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Shoulder Dislocates",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Shoulder Dislocates",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Shoulder Dislocates",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-side-leans",
+      "canonicalNameEn": "Side Leans",
+      "family": "TRUNK_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Side Leans",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Side Leans",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Side Leans",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-side-to-side-hip-rolls",
+      "canonicalNameEn": "Side-to-Side Hip Rolls",
+      "family": "TRUNK_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Side-to-Side Hip Rolls",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 68"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Side-to-Side Hip Rolls",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 68"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Side-to-Side Hip Rolls",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 68"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-side-to-side-squat",
+      "canonicalNameEn": "Side-to-Side Squat",
+      "family": "SQUAT",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Side-to-Side Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Side-to-Side Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Side-to-Side Squat",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-single-leg-dragon-flag",
+      "canonicalNameEn": "Single-Leg Dragon Flag",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 13"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 13"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Single-Leg Dragon Flag",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "COMPLETE_CAL1",
+          "source_name": "Single-Leg Dragon Flag",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 13"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-skippingjump-rope",
+      "canonicalNameEn": "Skipping/Jump Rope",
+      "family": "CARDIO",
+      "movementType": "AEROBIC",
+      "equipmentRequired": [
+        "rope"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Skipping/Jump Rope",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 65"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Skipping/Jump Rope",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 65"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Skipping/Jump Rope",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 65"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-spider-push-up",
+      "canonicalNameEn": "Spider Push-Up",
+      "family": "PUSH_UP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "horizontal-push"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Spider Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Spider Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Spider Push-Up",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-spine-roll",
+      "canonicalNameEn": "Spine Roll",
+      "family": "TRUNK_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Spine Roll",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 80"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Spine Roll",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 80"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Spine Roll",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 80"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-sprinter-sit-up",
+      "canonicalNameEn": "Sprinter Sit-Up",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Sprinter Sit-Up",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 31"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Sprinter Sit-Up",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 31"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Sprinter Sit-Up",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 31"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-sprints",
+      "canonicalNameEn": "Sprints",
+      "family": "CONDITIONING",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Sprints",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Sprints",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Sprints",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-stability-ball-jackknife",
+      "canonicalNameEn": "Stability Ball Jackknife",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [
+        "stability_ball"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Stability Ball Jackknife",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 58"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Stability Ball Jackknife",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 58"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "NSCA_TECH",
+          "source_name": "Stability Ball Jackknife",
+          "evidence_type": "EXERCISE_HEADING",
+          "locator": "Exercise Technique Manual; exercise heading 58"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-stability-ball-rollout",
+      "canonicalNameEn": "Stability Ball Rollout",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [
+        "stability_ball"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Stability Ball Rollout",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 56"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Stability Ball Rollout",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 56"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "NSCA_TECH",
+          "source_name": "Stability Ball Rollout",
+          "evidence_type": "EXERCISE_HEADING",
+          "locator": "Exercise Technique Manual; exercise heading 56"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-stair-climb-with-biceps-curl",
+      "canonicalNameEn": "Stair Climb with Biceps Curl",
+      "family": "GENERAL",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Stair Climb with Biceps Curl",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 14"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Stair Climb with Biceps Curl",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 14"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "CAL_BEGINNER_50",
+          "source_name": "Stair Climb with Biceps Curl",
+          "evidence_type": "TOC_EXERCISE",
+          "locator": "Exercise list; item 14"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-standing-squat-bosu-balance-trainer",
+      "canonicalNameEn": "Standing Squat (BOSU Balance Trainer)",
+      "family": "SQUAT",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [
+        "bosu"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Standing Squat (BOSU Balance Trainer)",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 18"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Standing Squat (BOSU Balance Trainer)",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 18"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Standing Squat (BOSU Balance Trainer)",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 18"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-star-jumps",
+      "canonicalNameEn": "Star Jumps",
+      "family": "CONDITIONING",
+      "movementType": "CONDITIONING",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "conditioning"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Star Jumps",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Star Jumps",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Star Jumps",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-stir-the-pot-swiss-ball",
+      "canonicalNameEn": "Stir-the-Pot Swiss Ball",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [
+        "stability_ball"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Stir-the-Pot Swiss Ball",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Stir-the-Pot Swiss Ball",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Stir-the-Pot Swiss Ball",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-straddle-flag",
+      "canonicalNameEn": "Straddle Flag",
+      "family": "HUMAN_FLAG",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Straddle Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Straddle Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Straddle Flag",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-supine-legs-to-chest",
+      "canonicalNameEn": "Supine Legs to Chest",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Supine Legs to Chest",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 67"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Supine Legs to Chest",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 67"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Supine Legs to Chest",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 67"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-supine-lying-single-leg-hamstring-stretch",
+      "canonicalNameEn": "Supine Lying Single-Leg Hamstring Stretch",
+      "family": "STRETCH",
+      "movementType": "FLEXIBILITY",
+      "equipmentRequired": [
+        "rings"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Supine Lying Single-Leg Hamstring Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 70"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Supine Lying Single-Leg Hamstring Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 70"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Supine Lying Single-Leg Hamstring Stretch",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 70"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-transverse-abdominal-ball-crunch",
+      "canonicalNameEn": "Transverse Abdominal Ball Crunch",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [
+        "stability_ball"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Transverse Abdominal Ball Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "V2_DIRECT",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Transverse Abdominal Ball Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Transverse Abdominal Ball Crunch",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-transverse-activation-in-4-point-kneeling",
+      "canonicalNameEn": "Transverse Activation in 4-Point Kneeling",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Transverse Activation in 4-Point Kneeling",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 9"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Transverse Activation in 4-Point Kneeling",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 9"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Transverse Activation in 4-Point Kneeling",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 9"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-tuck-half-lever",
+      "canonicalNameEn": "Tuck Half Lever",
+      "family": "HALF_LEVER",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tuck Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tuck Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Tuck Half Lever",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-tucked-dragon-flag",
+      "canonicalNameEn": "Tucked Dragon Flag",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 12"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 12"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Tucked Dragon Flag",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "COMPLETE_CAL1",
+          "source_name": "Tucked Dragon Flag",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 12"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-tucked-flag",
+      "canonicalNameEn": "Tucked Flag",
+      "family": "HUMAN_FLAG",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Tucked Flag",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-two-arm-elbow-lever",
+      "canonicalNameEn": "Two-Arm Elbow Lever",
+      "family": "CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "core-control"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Two-Arm Elbow Lever",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Two-Arm Elbow Lever",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Two-Arm Elbow Lever",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-unilateral-cross-body-triceps-extension",
+      "canonicalNameEn": "Unilateral Cross-Body Triceps Extension",
+      "family": "ARM",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Unilateral Cross-Body Triceps Extension",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Unilateral Cross-Body Triceps Extension",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "SCIENCE_STRENGTH",
+          "source_name": "Unilateral Cross-Body Triceps Extension",
+          "evidence_type": "INDEX",
+          "locator": "Science of Strength Training index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-vertical-flag",
+      "canonicalNameEn": "Vertical Flag",
+      "family": "HUMAN_FLAG",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Vertical Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Vertical Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Vertical Flag",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-vertical-human-flag",
+      "canonicalNameEn": "Vertical Human Flag",
+      "family": "HUMAN_FLAG",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Vertical Human Flag",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 37"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Vertical Human Flag",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 37"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "ULTIMATE_CAL_COLLECTION",
+          "source_name": "Vertical Human Flag",
+          "evidence_type": "EXERCISE_SECTION",
+          "locator": "The Gym-Less Workout exercise/progression section 37"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-vertical-pulls",
+      "canonicalNameEn": "Vertical Pulls",
+      "family": "FRONT_LEVER",
+      "movementType": "SKILL",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Vertical Pulls",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Vertical Pulls",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Vertical Pulls",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-walking-arm-swings",
+      "canonicalNameEn": "Walking Arm Swings",
+      "family": "SHOULDER_MOBILITY",
+      "movementType": "MOBILITY",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "mobility"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Walking Arm Swings",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 6"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Walking Arm Swings",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 6"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "VELLA_ANATOMY",
+          "source_name": "Walking Arm Swings",
+          "evidence_type": "TOC_HEADING",
+          "locator": "Part 2: Exercises; item 6"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-weighted-dip",
+      "canonicalNameEn": "Weighted Dip",
+      "family": "DIP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [
+        "dip_bars"
+      ],
+      "equipmentStatus": "KNOWN",
+      "level": null,
+      "movementPattern": [
+        "vertical-push"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Weighted Dip",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 20"
+          },
+          {
+            "source_id": "ACE_EXERCISE_LIBRARY",
+            "source_name": "Parallel-bar Dip",
+            "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+            "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "EXTERNAL_SOURCE_DIRECT",
+        "confidence": "HIGH",
+        "source": {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Parallel-bar Dip",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        },
+        "observedValue": "Parallel bars plus external load",
+        "mapping": "canonical weighted dip retained in fixed-bar dip family; source distinguishes ring dip"
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "ULTIMATE_CAL_COLLECTION",
+          "source_name": "Weighted Dip",
+          "evidence_type": "EXERCISE_SECTION",
+          "locator": "The Gym-Less Workout exercise/progression section 20"
+        },
+        {
+          "source_id": "ACE_EXERCISE_LIBRARY",
+          "source_name": "Parallel-bar Dip",
+          "evidence_type": "TECHNICAL_SOURCE_EQUIPMENT_EVIDENCE",
+          "locator": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-weighted-pistols",
+      "canonicalNameEn": "Weighted Pistols",
+      "family": "SQUAT",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Weighted Pistols",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Weighted Pistols",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "OVERCOMING_GRAVITY",
+          "source_name": "Weighted Pistols",
+          "evidence_type": "LEVEL_HEADING",
+          "locator": "Chapters 24-27 progression charts"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-weighted-single-leg-squat",
+      "canonicalNameEn": "Weighted Single-Leg Squat",
+      "family": "SINGLE_LEG_SQUAT",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "knee-dominant"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Weighted Single-Leg Squat",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Weighted Single-Leg Squat",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Weighted Single-Leg Squat",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-window-wipers",
+      "canonicalNameEn": "Window Wipers",
+      "family": "HANGING_CORE",
+      "movementType": "CORE",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Window Wipers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "CAL_BEGINNER_150",
+            "source_name": "Windshield Wiper",
+            "evidence_type": "INDEX_HEADING",
+            "locator": "Index exercise 6"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Window Wipers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "CAL_BEGINNER_150",
+            "source_name": "Windshield Wiper",
+            "evidence_type": "INDEX_HEADING",
+            "locator": "Index exercise 6"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Window Wipers",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "CAL_BEGINNER_150",
+          "source_name": "Windshield Wiper",
+          "evidence_type": "INDEX_HEADING",
+          "locator": "Index exercise 6"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-wrist-extension",
+      "canonicalNameEn": "Wrist Extension",
+      "family": "FOREARM",
+      "movementType": "STRENGTH",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Wrist Extension",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 51"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Wrist Extension",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 51"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "NSCA_TECH",
+          "source_name": "Wrist Extension",
+          "evidence_type": "EXERCISE_HEADING",
+          "locator": "Exercise Technique Manual; exercise heading 51"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    },
+    {
+      "id": "ex-wrist-push-up",
+      "canonicalNameEn": "Wrist Push-Up",
+      "family": "PUSH_UP",
+      "movementType": "CALISTHENICS",
+      "equipmentRequired": [],
+      "equipmentStatus": "UNKNOWN",
+      "level": null,
+      "movementPattern": [
+        "horizontal-push"
+      ],
+      "resistanceMode": "UNKNOWN",
+      "resistanceModeProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Wrist Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Wrist Push-Up",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 5"
+          }
+        ]
+      },
+      "equipmentProvenance": {
+        "status": "UNKNOWN",
+        "source": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Wrist Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Wrist Push-Up",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 5"
+          }
+        ]
+      },
+      "identitySource": "EXERCISE_DB_V2",
+      "modelSourceRefs": [],
+      "sources": [
+        {
+          "source_id": "COMPLETE_CAL2",
+          "source_name": "Wrist Push-Up",
+          "evidence_type": "INDEX",
+          "locator": "Complete Calisthenics 2e index"
+        },
+        {
+          "source_id": "COMPLETE_CAL1",
+          "source_name": "Wrist Push-Up",
+          "evidence_type": "SOURCE_HEADING",
+          "locator": "Source exercise heading 5"
+        }
+      ],
+      "applicationMetadata": {
+        "sourceEntries": [],
+        "ambiguousSourceEntries": []
+      }
+    }
+  ]
+}

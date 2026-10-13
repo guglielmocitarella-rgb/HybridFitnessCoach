@@ -1,13 +1,17 @@
 name: Android APK
 
 on:
+  # Feature branches are validated by pull_request only, avoiding duplicate CI runs.
+  # Signed release builds remain available on main pushes and manual workflow_dispatch.
   push:
     branches:
       - main
-      - 'feature/**'
   pull_request:
     branches:
       - main
+    # PR #14 / feature/v0.9.5 is intentionally frozen while DB V3 is completed on PR #15.
+    branches-ignore:
+      - feature/v0.9.5
   workflow_dispatch:
 
 concurrency:
@@ -32,6 +36,12 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.6.0'
+
+      - name: Run unit tests
+        run: gradle :app:testDebugUnitTest
+
+      - name: Run Android lint
+        run: gradle :app:lintDebug
 
       - name: Restore signing keystore
         if: ${{ github.event_name != 'pull_request' }}
@@ -61,10 +71,18 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v4
         with:
-          name: HybridFitnessCoach-v0.7-signed
+          name: HybridFitnessCoach-v0.9.5-signed
           path: app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
 
       - name: Build PR debug APK
         if: ${{ github.event_name == 'pull_request' }}
         run: gradle :app:assembleDebug
+
+      - name: Upload PR debug APK
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: HybridFitnessCoach-v0.9.5-device-test
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

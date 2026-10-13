@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "strategy": "RECORD_FIRST_ENRICHMENT",
+  "selectionBlocker": "resistanceMode UNKNOWN",
+  "batch": "resistance-band-known-equipment",
+  "screenedResistanceUnknown": 165,
+  "count": 15,
+  "records": [
+    {
+      "id": "ex-banded-biceps-curl",
+      "canonicalNameEn": "Banded Biceps Curl",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "pull-accessory"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-chest-press",
+      "canonicalNameEn": "Banded Chest Press",
+      "missingFieldsBefore": [
+        "level",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-deadlift",
+      "canonicalNameEn": "Banded Deadlift",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "hinge"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-deltoid-row",
+      "canonicalNameEn": "Banded Deltoid Row",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "horizontal-pull"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-external-rotation",
+      "canonicalNameEn": "Banded External Rotation",
+      "missingFieldsBefore": [
+        "level",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-front-raise",
+      "canonicalNameEn": "Banded Front Raise",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "push-accessory"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-lateral-raise",
+      "canonicalNameEn": "Banded Lateral Raise",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "push-accessory"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-lying-leg-extension",
+      "canonicalNameEn": "Banded Lying Leg Extension",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "knee-dominant"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-triceps-extension",
+      "canonicalNameEn": "Banded Triceps Extension",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "push-accessory"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-unilateral-triceps-extension",
+      "canonicalNameEn": "Banded Unilateral Triceps Extension",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "push-accessory"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-banded-upright-row",
+      "canonicalNameEn": "Banded Upright Row",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "vertical-pull"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-high-low-banded-chest-fly",
+      "canonicalNameEn": "High-Low Banded Chest Fly",
+      "missingFieldsBefore": [
+        "level",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-it-band-foam-rolling",
+      "canonicalNameEn": "IT-Band Foam Rolling",
+      "missingFieldsBefore": [
+        "level",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "equipment",
+          "value": [
+            "foam_roller"
+          ],
+          "confidence": "HIGH",
+          "evidence": "ACE exercise-specific IT Band Foam Rolling technique",
+          "source": "ACE_IT_BAND_SELF_CARE"
+        },
+        {
+          "field": "resistanceMode",
+          "value": "NONE",
+          "confidence": "HIGH",
+          "evidence": "ACE exercise-specific foam rolling/SMR technique",
+          "source": "ACE_IT_BAND_SELF_CARE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-rotator-cuff-stabilization-with-theraband",
+      "canonicalNameEn": "Rotator Cuff Stabilization with TheraBand",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "mobility"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    },
+    {
+      "id": "ex-seated-unilateral-banded-leg-curl",
+      "canonicalNameEn": "Seated Unilateral Banded Leg Curl",
+      "missingFieldsBefore": [
+        "level",
+        "movementPattern",
+        "resistanceMode",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "EXTERNAL_LOAD",
+          "confidence": "HIGH",
+          "evidence": "verified resistance_band equipment",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "knee-dominant"
+          ],
+          "confidence": "HIGH",
+          "evidence": "canonical movement identity plus reviewed family mechanics",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false,
+      "exclusionReason": null
+    }
+  ],
+  "summary": {
+    "recordsAnalyzed": 15,
+    "recordsFullyComplete": 0,
+    "fieldsResolvedTotal": 27,
+    "resistanceModeResolved": 15,
+    "movementPatternResolved": 11,
+    "recordsStillPartial": 15
+  }
+}

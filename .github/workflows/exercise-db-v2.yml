@@ -1,0 +1,25 @@
+name: Exercise DB v2
+on:
+  push:
+    branches-ignore:
+      - feature/v0.9.5
+    paths:
+      - 'exercise-db-v2/**'
+      - 'tools/build_exercise_db.py'
+      - 'tools/validate_exercise_db.py'
+      - 'tests/test_exercise_db_v2.py'
+      - '.github/workflows/exercise-db-v2.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Deterministic build and validation
+        run: python tools/build_exercise_db.py
+      - name: Unit tests
+        run: python -m unittest tests/test_exercise_db_v2.py -v
+      - name: Verify clean deterministic rebuild
+        run: git diff --exit-code -- exercise-db-v2

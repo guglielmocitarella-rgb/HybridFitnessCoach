@@ -1,0 +1,570 @@
+package com.hybridfitnesscoach.app
+import org.junit.Assert.*
+import org.junit.Test
+class V091PlanningTest {
+ private val source=EvidenceRef("test-source","Synthetic test source","section","p.1",EvidenceType.GUIDELINE)
+ @Test fun prescriptionCannotExistWithoutEvidence(){assertThrows(IllegalArgumentException::class.java){SourcePrescriptionBaseline(3,8.0,restSeconds=120,evidence=emptyList())}}
+ @Test fun contextualPrescriptionKeepsProvenanceAndDeloadsDeterministically(){val base=SourcePrescriptionBaseline(4,8.0,100.0,8.0,180,evidence=listOf(source));val out=ContextualPrescriptionEngine.prescribe(base,PrescriptionContext("Forza",2,8,0.8,30));assertEquals(AdaptiveDecision.DELOAD,out.progressionSuggestion);assertTrue(out.sets<base.sets);assertTrue(out.loadKg!!<base.loadKg!!);assertEquals(source,out.evidence.single())}
+ @Test fun multiWeekPlanCreatesDatedNonAliasedSessions(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1005,4,setOf(1,3,5)){week,session->listOf(ex.copy(name="Test w"+week+" s"+session))};assertEquals(12,plan.workouts.size);assertEquals(4,plan.weeks);assertEquals(12,plan.workouts.map{it.id}.distinct().size);assertEquals(12,plan.workouts.map{it.exercises.first().name}.distinct().size);assertEquals(listOf(1005L,1007L,1009L),plan.workouts.take(3).map{it.epochDay})}
+ @Test fun reschedulePreservesOriginalDateAndFlagsRecoveryConflict(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1005,1,setOf(1,3)){_,_->listOf(ex)};val moved=TrainingPlanEngine.reschedule(plan,"p-w1-s1",1007,minimumGapDays=2);val item=moved.workouts.first{it.id=="p-w1-s1"};assertEquals(1005,item.originalEpochDay);assertEquals(1007,item.epochDay);assertEquals(PlannedWorkoutState.RESCHEDULED,item.state);assertNotNull(item.adaptationReason)}
+ @Test fun skippedWorkoutRemainsInCalendar(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.schedule("p",1000,1,setOf(1)){_,_->listOf(ex)};val skipped=TrainingPlanEngine.skip(plan,"p-w1-s1");assertEquals(PlannedWorkoutState.SKIPPED,skipped.workouts.single().state)}
+ @Test fun scheduleUsesWeekdaysWhenStartIsWednesday(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val wednesday=java.time.LocalDate.of(2026,9,30).toEpochDay();val plan=TrainingPlanEngine.schedule("wed",wednesday,2,setOf(1,3,5)){_,_->listOf(ex)};assertEquals(listOf(0L,2L,5L,7L,9L,12L),plan.workouts.map{it.epochDay-wednesday})}
+ @Test fun immediatePlanStartsTodayAndSpreadsSessions(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val today=java.time.LocalDate.of(2026,9,30).toEpochDay();for(frequency in 2..5){val plan=TrainingPlanEngine.scheduleImmediately("p",today,2,frequency){_,_->listOf(ex)};assertEquals(today,plan.workouts.first().epochDay);assertEquals(frequency*2,plan.workouts.size);assertEquals(plan.workouts.size,plan.workouts.map{it.epochDay}.distinct().size);assertTrue(plan.workouts.zipWithNext().all{(a,b)->a.epochDay<b.epochDay})}}
+ @Test fun immediatePlanRespectsExplicitUnavailableToday(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val today=java.time.LocalDate.of(2026,9,30).toEpochDay();val plan=TrainingPlanEngine.scheduleImmediately("p",today,1,2,setOf(1,5)){_,_->listOf(ex)};assertEquals(today+2,plan.workouts.first().epochDay)}
+ @Test fun actualCompletionMovesOnlyConflictingNextSession(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1005,1,2){_,_->listOf(ex)};val first=plan.workouts.first();val next=plan.workouts[1];val update=AdaptiveScheduler.complete(plan,first.id,next.epochDay,minimumGapDays=2);assertEquals(PlannedWorkoutState.COMPLETED,update.plan.workouts.first{it.id==first.id}.state);assertEquals(next.epochDay,update.plan.workouts.first{it.id==first.id}.actualExecutionEpochDay);assertEquals(next.originalEpochDay,update.plan.workouts.first{it.id==next.id}.originalEpochDay);assertEquals(next.epochDay+2,update.plan.workouts.first{it.id==next.id}.epochDay);assertEquals(1,update.decisions.size);assertEquals(ScheduleAction.MOVE_LATER,update.decisions.single().action)}
+ @Test fun onTimeCompletionKeepsFutureCalendar(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1005,1,3){_,_->listOf(ex)};val update=AdaptiveScheduler.complete(plan,plan.workouts.first().id,1005,minimumGapDays=2);assertTrue(update.decisions.isEmpty());assertEquals(plan.workouts.drop(1),update.plan.workouts.drop(1))}
+ @Test fun delayedCompletionDoesNotStackThreeSessions(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1005,1,3){_,_->listOf(ex)};val update=AdaptiveScheduler.complete(plan,plan.workouts.first().id,1007,minimumGapDays=2);assertEquals(listOf(1005L,1009L,1011L),update.plan.workouts.map{it.epochDay});assertEquals(listOf(ScheduleAction.MOVE_LATER,ScheduleAction.MOVE_LATER),update.decisions.map{it.action});assertEquals(3,update.plan.workouts.map{it.id}.distinct().size)}
+ @Test fun exerciseStatsUseOnlyActualCompletedSets(){val sets=listOf(WorkoutSetState(0,actualReps=8,actualLoadKg=20.0,completed=true),WorkoutSetState(1,actualReps=12,actualLoadKg=40.0,completed=false));val entry=SessionRecord(1000,"Palestra",1,2,structuredExercises=listOf(WorkoutExerciseState("Curl",sets=sets)));val stats=ExerciseStatistics.fromHistory("Curl",listOf(entry));assertEquals(1,stats.completedSets);assertEquals(8,stats.totalReps);assertEquals(160.0,stats.totalLoadVolumeKg,0.001);assertEquals(20.0,stats.maxLoadKg!!,0.001);assertEquals(1,stats.sessions)}
+ @Test fun exerciseStatsHandleLegacyHistoryWithoutStructuredSets(){val legacy=SessionRecord(1000,"Palestra",2,2,exerciseNames=listOf("Curl"));val stats=ExerciseStatistics.fromHistory("Curl",listOf(legacy));assertEquals(0,stats.completedSets);assertEquals(0,stats.totalReps);assertEquals(0.0,stats.totalLoadVolumeKg,0.001)}
+ @Test fun videoCatalogOnlyExposesVerifiedEntries(){val verified=ExerciseVideo("Curl","https://example.org/curl","Example","curl",verificationState=VideoVerificationState.VERIFIED);val pending=ExerciseVideo("Squat","https://example.org/squat","Example","squat",verificationState=VideoVerificationState.PENDING);assertEquals(verified,ExerciseVideoCatalog.findVerified("Curl",listOf(verified,pending)));assertNull(ExerciseVideoCatalog.findVerified("Squat",listOf(verified,pending)));assertNull(ExerciseVideoCatalog.findVerified("Unknown",listOf(verified,pending)))}
+ @Test fun skippedWorkoutDoesNotAutomaticallyStackOrDeleteFutureSessions(){val ex=Exercise("Test","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1005,2,3){_,_->listOf(ex)};val update=AdaptiveScheduler.skip(plan,plan.workouts.first().id);assertEquals(PlannedWorkoutState.SKIPPED,update.plan.workouts.first().state);assertEquals(plan.workouts.drop(1),update.plan.workouts.drop(1));assertEquals(ScheduleAction.SKIP,update.decisions.single().action);assertEquals(plan.workouts.size,update.plan.workouts.size)}
+
+ @Test fun unlinkedSessionNeverConsumesPlanByExerciseOverlap(){val plan=TrainingPlan("p",1000,1,2,listOf(PlannedWorkout("near",1000,0,0,emptyList(),intent=PlannedSessionIntent("Forza")),PlannedWorkout("match",1005,0,1,emptyList(),intent=PlannedSessionIntent("Forza"))));val session=SessionRecord(0,"Palestra",3,3,exerciseNames=listOf("A","B","C"));assertNull(PlannedWorkoutReconciler.findCandidate(plan,session,1000));assertEquals(plan,PlannedWorkoutReconciler.complete(plan,session,1000,2).plan)}
+ @Test fun reconcilerRequiresExplicitPlanLinkRatherThanExerciseOverlap(){val plan=TrainingPlan("p",1000,1,1,listOf(PlannedWorkout("w",1000,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))));val session=SessionRecord(0,"Palestra",1,1,exerciseNames=listOf("B"));val update=PlannedWorkoutReconciler.complete(plan,session,1000,2);assertEquals(plan,update.plan);assertTrue(update.decisions.isEmpty())}
+ @Test fun reconcilerCompletesMatchedWorkoutAndPreservesImmutableOriginalDate(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val first=plan.workouts.first();val session=SessionRecord(0,"Palestra",1,1,exerciseNames=listOf("A"),plannedWorkoutId=first.id);val update=PlannedWorkoutReconciler.complete(plan,session,1002,2);val done=update.plan.workouts.first{it.id==first.id};assertEquals(PlannedWorkoutState.COMPLETED,done.state);assertEquals(1000,done.originalEpochDay);assertEquals(1002L,done.actualExecutionEpochDay)}
+ @Test fun customSessionCannotConsumePlannedWorkoutByExerciseOverlap(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val custom=SessionRecord(0,"Personalizzato • Core",1,1,exerciseNames=listOf("A"));assertNull(PlannedWorkoutReconciler.findCandidate(plan,custom,1000));assertEquals(plan,PlannedWorkoutReconciler.complete(plan,custom,1000,2).plan)}
+ @Test fun ambiguousUnlinkedSessionDoesNotCompleteFuturePlan(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val session=SessionRecord(0,"Palestra",1,1,exerciseNames=listOf("A"));assertNull(PlannedWorkoutReconciler.findCandidate(plan,session,1002))}
+ @Test fun reconcilerRecordsPartiallyExecutedWorkoutAsPartial(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};val first=plan.workouts.first();val session=SessionRecord(0,"Palestra",1,3,exerciseNames=listOf("A"),plannedWorkoutId=first.id);val update=PlannedWorkoutReconciler.complete(plan,session,1000,0);assertEquals(PlannedWorkoutState.PARTIAL,update.plan.workouts.first().state);assertEquals(1000L,update.plan.workouts.first().actualExecutionEpochDay)}
+ @Test fun plannedExerciseHistoryIntroducesControlledVariety(){val profile=trainingLocations.first{it.name=="Palestra"};val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2);val first=generateWorkout(profile,athlete,emptyList());assertTrue(first.isNotEmpty());val second=generateWorkout(profile,athlete,emptyList(),avoidPlannedNames=first.map{it.name}.toSet());assertTrue(second.isNotEmpty());assertNotEquals(first.map{it.name},second.map{it.name});assertTrue(second.all{locationCompatible(it,profile)})}
+ @Test fun completedOrPartialWorkoutCannotBeRescheduled(){val a=Exercise("A","Core","Corpo libero","Principiante");val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(a)};for(state in listOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL)){val locked=plan.copy(workouts=plan.workouts.mapIndexed{index,w->if(index==0)w.copy(state=state,actualExecutionEpochDay=1001L)else w});assertEquals(locked,TrainingPlanEngine.reschedule(locked,locked.workouts.first().id,1010));assertEquals(locked,TrainingPlanEngine.skip(locked,locked.workouts.first().id))}}
+ @Test fun deletingOnlyLinkedSessionReopensPlanEntryWithoutChangingOtherDates(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val plan=TrainingPlanEngine.scheduleImmediately("p",1000,1,2){_,_->listOf(ex)}
+  val first=plan.workouts.first()
+  val completed=plan.copy(workouts=plan.workouts.map{if(it.id==first.id)it.copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=1001L)else it})
+  val deleted=SessionRecord(1,"Palestra",1,1,plannedWorkoutId=first.id)
+  val restored=PlannedWorkoutReconciler.afterDeletion(completed,deleted,emptyList())
+  assertEquals(PlannedWorkoutState.PLANNED,restored.workouts.first().state)
+  assertNull(restored.workouts.first().actualExecutionEpochDay)
+  assertEquals(completed.workouts.drop(1),restored.workouts.drop(1))
+  assertEquals(completed,PlannedWorkoutReconciler.afterDeletion(completed,deleted,listOf(deleted.copy(timestamp=2))))
+ }
+
+ @Test fun adaptiveCoachReadsPlanAndSuppressesAdvanceAfterDisruption(){
+  val now=1_800_000_000_000L
+  val sessions=listOf(
+   SessionRecord(now-86_400_000,"Palestra",10,10,workoutRpe=7,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=10,completed=true))))),
+   SessionRecord(now-2*86_400_000,"Palestra",10,10,workoutRpe=7,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=10,completed=true)))))
+  )
+  val today=java.time.Instant.ofEpochMilli(now).atZone(java.time.ZoneOffset.UTC).toLocalDate().toEpochDay()
+  val disrupted=TrainingPlan("p",today-7,2,2,listOf(
+   PlannedWorkout("done",today-2,0,0,emptyList(),state=PlannedWorkoutState.COMPLETED,intent=PlannedSessionIntent("Forza")),
+   PlannedWorkout("skip",today-1,0,1,emptyList(),state=PlannedWorkoutState.SKIPPED,intent=PlannedSessionIntent("Forza")),
+   PlannedWorkout("next",today+2,1,0,emptyList(),intent=PlannedSessionIntent("Forza"))
+  ))
+  val historyOnly=coachingContext(sessions,readiness=90,now=now)
+  assertEquals(ProgressionDecision.ADVANCE,historyOnly.plan.decision)
+  val combined=coachingContext(sessions,90,listOf(disrupted),today,now)
+  assertEquals(ProgressionDecision.MAINTAIN,combined.plan.decision)
+  assertEquals(1,combined.planDisruptions)
+  assertEquals(1,combined.upcomingSessions)
+  assertTrue(combined.plan.notes.any{it.startsWith("Piani attivi:")})
+ }
+ @Test fun adaptiveCoachNeverCreatesProgressionFromPlanAlone(){
+  val plan=TrainingPlan("p",1000,1,1,listOf(PlannedWorkout("next",1001,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))))
+  val combined=coachingContext(emptyList(),90,listOf(plan),1000)
+  assertNotEquals(ProgressionDecision.ADVANCE,combined.plan.decision)
+  assertEquals(1,combined.upcomingSessions)
+ }
+
+ @Test fun schedulingRejectsZeroWeeksAndZeroTrainingDays(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,0,setOf(1)){_,_->listOf(ex)}}
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,emptySet()){_,_->listOf(ex)}}
+ }
+ @Test fun oneWeekOneDayCreatesExactlyOneStableWorkout(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val plan=TrainingPlanEngine.schedule("p",1000,1,setOf(java.time.LocalDate.ofEpochDay(1000).dayOfWeek.value)){_,_->listOf(ex)}
+  assertEquals(1,plan.workouts.size);assertEquals(1000L,plan.workouts.single().epochDay);assertEquals("p-w1-s1",plan.workouts.single().id)
+ }
+ @Test fun completionPreservesWorkoutIdentityAcrossAdaptiveMoves(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val plan=TrainingPlanEngine.scheduleImmediately("p",1000,2,2){_,_->listOf(ex)}
+  val ids=plan.workouts.map{it.id}
+  val update=AdaptiveScheduler.complete(plan,ids.first(),1004,2)
+  assertEquals(ids,update.plan.workouts.map{it.id})
+  assertEquals(ids.size,update.plan.workouts.map{it.id}.distinct().size)
+ }
+
+ @Test fun evidenceAuditClaimsOnlyVerifiedGeneralResistancePrescriptionCoverage(){
+  val audit=ExerciseEvidenceRegistry.audit(exercises)
+  assertEquals(exercises.distinctBy{it.name}.size,audit.totalExercises)
+  assertTrue(audit.exercisesWithAnyEvidence>0)
+  assertEquals(audit.exercisesWithAnyEvidence,audit.exercisesWithPrescriptionEvidence)
+  assertEquals(0,audit.completeExercises)
+  assertTrue(audit.missingExerciseNames.isNotEmpty())
+ }
+ @Test fun acsmGeneralEvidenceIsPrescriptionOnlyAndNotTechniqueEvidence(){
+  val resistance=Exercise("Synthetic squat","Gambe","Bilanciere","Base",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val evidence=ExerciseEvidenceRegistry.evidenceFor(resistance)!!
+  assertEquals(2,evidence.prescription.size);assertTrue(evidence.prescription.any{it.sourceId=="acsm-2026-resistance-training-position-stand"})
+  assertTrue(evidence.technique.isEmpty())
+  assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
+ }
+ @Test fun evidenceRegistryDefaultsToNoneInsteadOfInventingProvenance(){
+  assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage(Exercise("__unknown__","Altro","Nessuna","Base",category=ExerciseCategory.OTHER,resistanceMode=ResistanceMode.NONE)))
+  assertNull(ExerciseEvidenceRegistry.evidenceFor("__unknown__"))
+ }
+
+ @Test fun resistanceEvidenceExposesSourceLocationForExerciseDetail(){
+  val resistance=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val sources=ExerciseEvidenceRegistry.evidenceFor(resistance)!!.prescription
+  assertTrue(sources.all{it.sourceTitle.contains("ACSM",ignoreCase=true) || it.sourceId.startsWith("acsm-")})
+  assertTrue(sources.any{it.section!!.contains("Resistance Training") && it.pageOrLocation!!.contains("353")})
+  assertTrue(sources.any{it.sourceId=="acsm-2026-resistance-training-position-stand"})
+  assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(resistance))
+ }
+
+ @Test fun contextualPrescriptionIsFailClosedWithoutVerifiedNumericBaseline(){
+  val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val context=PrescriptionContext("Forza",2,3,0.95,90)
+  val baseline=SourcePrescriptionBaselineRegistry.baselineFor(ex,context)
+  assertNotNull(baseline)
+  assertEquals(3,baseline!!.sets)
+  assertEquals(6.0,baseline.repsOrDuration,0.001)
+  assertEquals(180,baseline.restSeconds)
+  assertNotNull(SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,context))
+ }
+ @Test fun generalPrescriptionEvidenceDoesNotBecomeNumericBaseline(){
+  val ex=Exercise("Synthetic squat","Gambe","Bilanciere","Base",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  assertEquals(EvidenceCoverage.PRESCRIPTION_ONLY,ExerciseEvidenceRegistry.coverage(ex))
+  val context=PrescriptionContext("Ipertrofia",2,4,0.8,70)
+  assertNotNull(SourcePrescriptionBaselineRegistry.baselineFor(ex,context))
+ }
+
+ @Test fun acsmBeginnerBaselineUsesSupportedGeneralPublicRange(){
+  val ex=Exercise("Synthetic row","Dorso","Cavi","Principiante",category=ExerciseCategory.PULL,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val c=PrescriptionContext("Benessere",1,4,null,70)
+  val b=SourcePrescriptionBaselineRegistry.baselineFor(ex,c)!!
+  assertEquals(2,b.sets);assertEquals(10.0,b.repsOrDuration,0.001);assertEquals(120,b.restSeconds)
+ }
+ @Test fun nonResistanceAndNonRepExercisesRemainOutsideRtBaseline(){
+  val cardio=Exercise("Run","Cardio","Corpo libero","Principiante",category=ExerciseCategory.CARDIO,measure=ExerciseMeasure.DURATION,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val c=PrescriptionContext("Benessere",1,4,null,70)
+  assertNull(SourcePrescriptionBaselineRegistry.baselineFor(cardio,c))
+ }
+
+ @Test fun verifiedPrescriptionProducesRunnerTargetsWithinSourceBaseline(){
+  val ex=Exercise("Synthetic press","Petto","Bilanciere","Base",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.EXTERNAL_LOAD)
+  val c=PrescriptionContext("Forza",2,3,null,85)
+  val p=SourcePrescriptionBaselineRegistry.prescribeIfVerified(ex,c)!!
+  assertEquals(3,p.sets);assertEquals(6.0,p.repsOrDuration,0.001);assertEquals(180,p.restSeconds)
+  assertTrue(p.evidence.any{it.sourceTitle.contains("ACSM")})
+ }
+ @Test fun bodyweightMobilityDoesNotInheritResistanceEvidenceOrNumericTargets(){
+  val mobility=Exercise("Synthetic mobility","Mobilità","Corpo libero","Principiante",category=ExerciseCategory.MOBILITY,measure=ExerciseMeasure.REPS,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val context=PrescriptionContext("Forza",1,3,null,80)
+  assertEquals(EvidenceCoverage.NONE,ExerciseEvidenceRegistry.coverage(mobility))
+  assertNull(SourcePrescriptionBaselineRegistry.baselineFor(mobility,context))
+ }
+ @Test fun videoAuditReportsRealCatalogCoverageWithoutInventingMissingVideos(){
+  val audit=ExerciseVideoCatalog.audit(exercises)
+  assertEquals(exercises.distinctBy{it.name}.size,audit.totalExercises)
+  assertEquals(1,audit.verifiedExercises)
+  assertTrue("Plank" !in audit.missingExerciseNames)
+  assertTrue(audit.missingExerciseNames.isNotEmpty())
+  assertTrue(audit.duplicateVerifiedExerciseNames.isEmpty())
+  assertTrue(audit.invalidVerifiedExerciseNames.isEmpty())
+ }
+ @Test fun videoAuditRejectsMalformedVerifiedAndDetectsDuplicateMappings(){
+  val malformed=ExerciseVideo("Push-up","http://invalid","Provider","id",verificationState=VideoVerificationState.VERIFIED)
+  val duplicate=listOf(
+   ExerciseVideo("Plank","https://example.org/a","Provider","a",verificationState=VideoVerificationState.VERIFIED),
+   ExerciseVideo("plank","https://example.org/b","Provider","b",verificationState=VideoVerificationState.VERIFIED),
+   malformed
+  )
+  val audit=ExerciseVideoCatalog.audit(exercises,duplicate)
+  assertTrue("plank" in audit.duplicateVerifiedExerciseNames)
+  assertEquals(listOf("Push-up"),audit.invalidVerifiedExerciseNames)
+  assertNull(ExerciseVideoCatalog.findVerified("Push-up",duplicate))
+ }
+
+ @Test fun calendarSupportsFullFiftyTwoWeekBoundaryWithoutDuplicateIdsOrDates(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  val start=java.time.LocalDate.of(2026,9,30).toEpochDay()
+  val plan=TrainingPlanEngine.scheduleImmediately("year",start,52,7){_,_->listOf(ex)}
+  assertEquals(364,plan.workouts.size)
+  assertEquals(364,plan.workouts.map{it.id}.distinct().size)
+  assertEquals(364,plan.workouts.map{it.epochDay}.distinct().size)
+  assertEquals(start,plan.workouts.first().epochDay)
+  assertEquals(start+363,plan.workouts.last().epochDay)
+ }
+ @Test fun calendarRejectsMoreThanFiftyTwoWeeksAndInvalidWeekdays(){
+  val ex=Exercise("A","Core","Corpo libero","Principiante")
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.scheduleImmediately("p",1000,53,3){_,_->listOf(ex)}}
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,setOf(0,1)){_,_->listOf(ex)}}
+  assertThrows(IllegalArgumentException::class.java){TrainingPlanEngine.schedule("p",1000,1,setOf(1,8)){_,_->listOf(ex)}}
+ }
+
+ @Test fun planConfigurationDefaultsAreIndependentFromAthleteProfile(){
+  val athlete=AthleteProfile(goal="Calisthenics",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=6,prioritySkills=listOf("Front lever"))
+  val config=PlanConfiguration.defaults()
+  assertEquals("Fitness generale",config.goal)
+  assertEquals(3,config.daysPerWeek)
+  assertTrue(config.prioritySkills.isEmpty())
+  assertEquals(8,config.weeks)
+  assertEquals(3,config.trainingDays.size)
+  assertEquals("Calisthenics",athlete.goal)
+ }
+ @Test fun explicitPlanConfigurationDoesNotMutateAthleteProfile(){
+  val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=3,prioritySkills=listOf("Front lever"))
+  val config=PlanConfiguration("Ipertrofia",12,2,setOf(2,5),emptyList()).validated()
+  assertEquals("Forza",athlete.goal)
+  assertEquals(3,athlete.daysPerWeek)
+  assertEquals("Ipertrofia",config.goal)
+  assertEquals(12,config.weeks)
+  assertEquals(setOf(2,5),config.trainingDays)
+ }
+ @Test fun planConfigurationRoundTripsFromPlanOwnedMetadata(){
+  val plan=TrainingPlan("p",1000,12,2,emptyList(),"Calisthenics",setOf(2,5),listOf("Front lever"))
+  val config=PlanConfiguration.fromPlan(plan)
+  assertEquals("Calisthenics",config.goal)
+  assertEquals(12,config.weeks)
+  assertEquals(2,config.daysPerWeek)
+  assertEquals(setOf(2,5),config.trainingDays)
+  assertEquals(listOf("Front lever"),config.prioritySkills)
+ }
+ @Test fun planConfigurationRejectsMismatchedCalendarDays(){
+  assertThrows(IllegalArgumentException::class.java){
+   PlanConfiguration(goal="Forza",weeks=8,daysPerWeek=3,trainingDays=setOf(1,3),prioritySkills=emptyList()).validated()
+  }
+ }
+
+ @Test fun configuredPlanGenerationPreservesConfigurationAcrossCalendar(){
+  val profile=trainingLocations.first{it.name=="Palestra"}
+  val athlete=AthleteProfile(goal="Forza",assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,daysPerWeek=3)
+  val config=PlanConfiguration("Forza",2,2,setOf(2,5),emptyList()).validated()
+  val start=java.time.LocalDate.of(2026,10,1).toEpochDay()
+  val plan=generateTrainingPlan("cfg",start,config)
+  assertEquals(2,plan.weeks);assertEquals(2,plan.daysPerWeek);assertEquals("Forza",plan.goal);assertEquals(setOf(2,5),plan.trainingDays);assertTrue(plan.prioritySkills.isEmpty());assertEquals(4,plan.workouts.size)
+  assertTrue(plan.workouts.all{java.time.LocalDate.ofEpochDay(it.epochDay).dayOfWeek.value in config.trainingDays})
+  assertTrue(plan.workouts.all{it.exercises.isEmpty() && it.intent!=null})
+ }
+ @Test fun aggregateTodayLookupKeepsIntentPlansDistinct(){
+  val today=2000L
+  val a=TrainingPlan("a",today,1,1,listOf(PlannedWorkout("a-today",today,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))),goal="Forza")
+  val b=TrainingPlan("b",today,1,1,listOf(PlannedWorkout("b-today",today,0,0,emptyList(),intent=PlannedSessionIntent("Calisthenics"))),goal="Calisthenics")
+  val resolved=todayPlannedWorkouts(listOf(a,b),today)
+  assertEquals(2,resolved.size)
+  assertEquals(setOf("a-today","b-today"),resolved.map{it.second.id}.toSet())
+ }
+
+ @Test fun capabilitySelectionHasIndependentStableLevels(){
+CapabilityDimension.entries.forEach{d->(1..3).forEach{n->assertEquals(n,AthleteProfile().withCapability(d,n).toCapabilityProfile().levelFor(d))}}
+ }
+ @Test fun assessedLevelConstrainsGeneratedPlanDifficulty(){
+val athlete=AthleteProfile(assessedPushCapacity=1,assessedPullCapacity=1)
+ val plan=generateTrainingPlan("assessment",20_000,PlanConfiguration("Forza",1,2,setOf(1,4),emptyList()))
+ val realized=materializePlannedSession(plan.workouts.first(),trainingLocations.first{it.name=="Palestra"},athlete,emptyList(),80)
+ assertTrue(realized.exercises.isNotEmpty())
+ assertTrue(realized.exercises.all{levelScore(it.level)<=capabilityLevelFor(it,athlete.toCapabilityProfile())})
+ }
+ @Test fun capabilityAssessmentRejectsNegativeLevels(){
+CapabilityDimension.entries.forEach{d->assertThrows(IllegalArgumentException::class.java){AthleteProfile().withCapability(d,-1)}}
+ }
+
+
+ @Test fun locationDomainUsesCanonicalCapabilitiesInsteadOfDisplayAliases(){
+  val machine=Exercise("Machine test","Gambe","Macchine","Intermedio")
+  val gym=trainingLocations.first{it.kind==TrainingLocationKind.GYM}
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  assertTrue(locationCompatible(machine,gym))
+  assertFalse(locationCompatible(machine,outdoor))
+  assertEquals("builtin:gym",gym.id)
+ }
+ @Test fun generatedPlanCarriesLocationIndependentSessionIntent(){
+  val profile=trainingLocations.first{it.name=="Palestra"}
+  val config=PlanConfiguration("Forza",1,2,setOf(1,4),listOf("Front lever")).validated()
+  val plan=generateTrainingPlan("intent",20_000,config)
+  assertTrue(plan.workouts.all{it.intent!=null})
+  assertTrue(plan.workouts.all{it.intent!!.goal=="Forza" && it.intent!!.prioritySkills==listOf("Front lever")})
+  assertTrue(plan.workouts.all{it.intent!!.sequenceInWeek==it.sequenceInWeek})
+  assertTrue(plan.workouts.all{it.intent!!.focusCategories.isEmpty()}) // no focus inferred from location-bound snapshots
+  assertTrue(plan.workouts.all{it.exercises.isEmpty() && it.intent!=null}) // future plan stores intent only
+ }
+ @Test fun plannedSessionIntentValidationNormalizesMetadataWithoutLocation(){
+  val intent=PlannedSessionIntent("  Forza  ",listOf("Front lever","Front lever"," "),setOf(ExerciseCategory.PULL),1).validated()
+  assertEquals("Forza",intent.goal);assertEquals(listOf("Front lever"),intent.prioritySkills)
+  assertEquals(setOf(ExerciseCategory.PULL),intent.focusCategories);assertEquals(1,intent.sequenceInWeek)
+ }
+
+ @Test fun plannedIntentMaterializesAgainstExecutionLocation(){
+  val machine=Exercise("Location machine","Gambe","Macchine","Intermedio",role="Forza",category=ExerciseCategory.LEGS)
+  val body=Exercise("Location body","Gambe","Corpo libero","Intermedio",role="Forza",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val planned=PlannedWorkout("p",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza",emptyList(),emptySet(),0))
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedSquatCapacity=2),emptyList(),80,listOf(machine,body))
+  assertTrue(realized.exercises.isNotEmpty())
+  assertTrue(realized.exercises.all{locationCompatible(it,outdoor)})
+  assertFalse(realized.exercises.any{it.name==machine.name})
+ }
+ @Test fun plannedSessionWithoutIntentIsRejected(){
+  val planned=PlannedWorkout("invalid",20_000,0,0,emptyList(),intent=null)
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  assertThrows(IllegalArgumentException::class.java){
+   materializePlannedSession(planned,outdoor,AthleteProfile(),emptyList(),80)
+  }
+ }
+
+ @Test fun materializerNeverFallsBackToIncompatibleSnapshotWhenIntentExists(){
+  val machine=Exercise("Only machine","Gambe","Macchine","Intermedio",role="Forza")
+  val planned=PlannedWorkout("intent",20_000,0,0,listOf(machine),intent=PlannedSessionIntent("Forza"))
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val realized=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedSquatCapacity=2),emptyList(),80,listOf(machine))
+  assertTrue(realized.exercises.isEmpty())
+ }
+
+ @Test fun builtInTrainingLocationHasStableCanonicalIdentity(){
+  val gym=trainingLocations.first{it.name=="Palestra"}
+  assertEquals("builtin:gym",gym.id)
+  assertEquals(TrainingLocationKind.GYM,gym.kind)
+ }
+ @Test fun customTrainingLocationUsesOnlyExplicitCanonicalCapabilities(){
+  val custom=TrainingLocation("custom:garage","Garage","🚗",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT,EquipmentId.DUMBBELL))
+  assertEquals(TrainingLocationKind.CUSTOM,custom.kind)
+  assertEquals(setOf(EquipmentId.BODYWEIGHT,EquipmentId.DUMBBELL),custom.capabilities)
+ }
+ @Test fun realizationKeepsPlanIdentitySeparateFromRunnerExercises(){
+  val body=Exercise("Body new","Gambe","Corpo libero","Intermedio",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val planned=PlannedWorkout("identity",20_000,1,2,emptyList(),intent=PlannedSessionIntent("Forza",sequenceInWeek=2))
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val realization=materializePlannedSession(planned,outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2,assessedSquatCapacity=2),emptyList(),80,listOf(body))
+  assertEquals(planned.id,realization.plannedWorkoutId)
+  assertTrue(planned.exercises.isEmpty())
+  assertEquals(listOf(body.name),realization.exercises.map{it.name})
+ }
+
+ @Test fun materializerHonorsExplicitCustomCapabilitiesWithoutImplicitBodyweight(){
+  val body=Exercise("Body implicit","Core","Corpo libero","Intermedio",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val dumbbell=Exercise("DB explicit","Spalle","Manubri","Intermedio",role="Forza")
+  val location=TrainingLocation("custom:db","Garage","🚗",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
+  val planned=PlannedWorkout("custom-cap",20_000,0,0,listOf(body),intent=PlannedSessionIntent("Forza"))
+  val realized=materializePlannedSession(planned,location,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),80,listOf(body,dumbbell))
+  assertTrue(realized.exercises.isNotEmpty())
+  assertTrue(realized.exercises.all{it.name==dumbbell.name})
+  assertFalse(realized.exercises.any{it.name==body.name})
+ }
+
+ @Test fun activeWorkoutRecoveryWinsOverRequestedPlanLaunch(){
+  val active=WorkoutSessionState("active",1L,"Palestra",emptyList(),workoutRpe=5)
+  val requested=PlannedWorkout("requested",20_000,0,0,listOf(Exercise("X","Core","Corpo libero","Principiante")))
+  val launch=resolveWorkoutLaunch(active,requested)
+  assertTrue(launch.resumeActive)
+  assertNull(launch.plannedWorkout)
+ }
+ @Test fun requestedPlanLaunchesWhenThereIsNoActiveRecovery(){
+  val requested=PlannedWorkout("requested",20_000,0,0,listOf(Exercise("X","Core","Corpo libero","Principiante")))
+  val launch=resolveWorkoutLaunch(null,requested)
+  assertFalse(launch.resumeActive)
+  assertEquals(requested,launch.plannedWorkout)
+ }
+
+ @Test fun canonicalLocationCompatibilityRequiresExplicitBodyweightCapability(){
+  val body=Exercise("Body contract","Core","Corpo libero","Principiante",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val withoutBodyweight=TrainingLocation("custom:no-body","Garage","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
+  val withBodyweight=withoutBodyweight.copy(capabilities=setOf(EquipmentId.DUMBBELL,EquipmentId.BODYWEIGHT))
+  assertFalse(locationCompatible(body,withoutBodyweight))
+  assertTrue(locationCompatible(body,withBodyweight))
+ }
+
+ @Test fun customWorkoutPoolUsesCanonicalLocationCapabilities(){
+  val body=Exercise("Pool body","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val dumbbell=Exercise("Pool dumbbell","Spalle","Manubri","Principiante",role="Forza")
+  val machine=Exercise("Pool machine","Gambe","Macchine","Principiante",role="Forza")
+  val location=TrainingLocation("custom:db","Garage","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.DUMBBELL))
+  val pool=customWorkoutCandidatePool(location,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,dumbbell,machine))
+  assertEquals(listOf(dumbbell.name),pool.map{it.name})
+ }
+ @Test fun customWorkoutPoolBuiltInLocationKeepsExplicitBodyweight(){
+  val body=Exercise("Pool outdoor body","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val machine=Exercise("Pool outdoor machine","Gambe","Macchine","Principiante",role="Forza")
+  val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val pool=customWorkoutCandidatePool(outdoor,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(body,machine))
+  assertEquals(listOf(body.name),pool.map{it.name})
+ }
+
+ @Test fun customWorkoutLibraryEquipmentFilterIntersectsWithLocation(){
+  val dumbbell=Exercise("Filter dumbbell","Spalle","Manubri","Principiante",role="Forza")
+  val barbell=Exercise("Filter barbell","Gambe","Bilanciere","Principiante",role="Forza")
+  val gym=trainingLocations.first{it.kind==TrainingLocationKind.GYM}
+  val pool=customWorkoutCandidatePool(gym,AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2),emptyList(),"Parti del corpo",emptyList(),emptyList(),listOf(dumbbell,barbell),listOf("Manubri"))
+  assertEquals(listOf(dumbbell.name),pool.map{it.name})
+ }
+
+ @Test fun capabilityProfileFailsClosedWithoutAssessmentAndUsesAssessedDimensions(){
+val empty=AthleteProfile().toCapabilityProfile();assertTrue(CapabilityDimension.entries.all{empty.levelFor(it)==null})
+ val c=AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=1,assessedPullCapacity=2).toCapabilityProfile()
+ assertEquals(3,c.trainingExperience);assertEquals(1,c.pushCapacity);assertEquals(2,c.pullCapacity);assertNull(c.verticalPushCapacity)
+ }
+ @Test fun canonicalGeneratorRequiresLocationCapabilityAndAthleteCapability(){
+  val easy=Exercise("Capability easy","Core","Corpo libero","Principiante",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val hard=Exercise("Capability hard","Core","Corpo libero","Avanzato",role="Forza",resistanceMode=ResistanceMode.BODYWEIGHT)
+  val dumbbell=Exercise("Capability dumbbell","Spalle","Manubri","Principiante",role="Forza")
+  val home=TrainingLocation("test:body","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
+  val generated=generateWorkoutFromCatalogue(listOf(easy,hard,dumbbell),home,AthleteProfile(assessedTrainingExperience=1,assessedPushCapacity=1,assessedPullCapacity=1),CapabilityProfile(),emptyList())
+  assertTrue(generated.any{it.name==easy.name})
+  assertFalse(generated.any{it.name==hard.name})
+  assertFalse(generated.any{it.name==dumbbell.name})
+ }
+
+ @Test fun capabilityAssessmentChangesOnlyTheChosenDimension(){
+CapabilityDimension.entries.forEach{d->
+ val profile=AthleteProfile().withCapability(d,3)
+ assertEquals(3,profile.toCapabilityProfile().levelFor(d))
+ assertTrue(CapabilityDimension.entries.filter{it!=d}.all{profile.toCapabilityProfile().levelFor(it)==null})
+ }
+ }
+ @Test fun assessedBodyweightCapabilityCanDifferBetweenPushAndPull(){
+  val push=Exercise("Push-up avanzato","Petto","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val pull=Exercise("Pull-up avanzato","Dorso","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PULL,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val body=TrainingLocation("test:body-cap","Test","",TrainingLocationKind.CUSTOM,setOf(EquipmentId.BODYWEIGHT))
+  val capability=CapabilityProfile(trainingExperience=3,pushCapacity=1,pullCapacity=3)
+  val generated=generateWorkoutFromCatalogue(listOf(push,pull),body,AthleteProfile(assessedTrainingExperience=3,assessedPushCapacity=3,assessedPullCapacity=3),capability,emptyList())
+  assertFalse(generated.any{it.name==push.name})
+  assertTrue(generated.any{it.name==pull.name})
+ }
+ @Test fun unassessedCapabilityFailsClosedForBodyweightFamilies(){
+  val push=Exercise("Push-up unassessed","Petto","Corpo libero","Avanzato",role="Forza",category=ExerciseCategory.PUSH,resistanceMode=ResistanceMode.BODYWEIGHT)
+  assertEquals(1,capabilityLevelFor(push,CapabilityProfile(trainingExperience=3)))
+ }
+
+
+ @Test fun planCreationIsLocationIndependentAndStoresOnlyIntent(){
+  val config=PlanConfiguration("Forza",2,2,setOf(1,4),emptyList()).validated()
+  val plan=generateTrainingPlan("independent",20_000,config)
+  assertTrue(plan.workouts.all{it.exercises.isEmpty()});assertTrue(plan.workouts.all{it.intent?.goal=="Forza"})
+ }
+ @Test fun samePlanIntentMaterializesByExecutionLocation(){
+  val machine=Exercise("Machine legs","Gambe","Macchine","Intermedio",role="Forza",category=ExerciseCategory.LEGS)
+  val body=Exercise("Body legs","Gambe","Corpo libero","Intermedio",role="Forza",category=ExerciseCategory.LEGS,resistanceMode=ResistanceMode.BODYWEIGHT)
+  val planned=generateTrainingPlan("loc",20_000,PlanConfiguration("Forza",1,1,setOf(1),emptyList())).workouts.first()
+  val athlete=AthleteProfile(assessedTrainingExperience=2,assessedPushCapacity=2,assessedPullCapacity=2)
+  val gym=trainingLocations.first{it.kind==TrainingLocationKind.GYM};val outdoor=trainingLocations.first{it.kind==TrainingLocationKind.OUTDOOR}
+  val gymRealized=materializePlannedSession(planned,gym,athlete,emptyList(),80,listOf(machine,body))
+  val outdoorRealized=materializePlannedSession(planned,outdoor,athlete,emptyList(),80,listOf(machine,body))
+  assertTrue(gymRealized.exercises.all{locationCompatible(it,gym)});assertTrue(outdoorRealized.exercises.all{locationCompatible(it,outdoor)})
+  assertFalse(outdoorRealized.exercises.any{it.name==machine.name})
+ }
+ @Test fun futureRegenerationEditsConfigurationButProtectsExecutedEvidence(){
+  val base=generateTrainingPlan("edit",1000,PlanConfiguration("Forza",2,2,setOf(1,4),emptyList()))
+  val completed=base.workouts.first().copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=1000,exercises=listOf(Exercise("Evidence","Core","Corpo libero","Principiante")))
+  val source=base.copy(workouts=base.workouts.map{if(it.id==completed.id)completed else it})
+  val changed=regenerateFuturePlan(source,PlanConfiguration("Calisthenics",2,3,setOf(1,3,5),listOf("Front lever")),1001)
+  assertEquals(completed,changed.workouts.first{it.id==completed.id})
+  assertEquals("Calisthenics",changed.goal);assertEquals(3,changed.daysPerWeek);assertEquals(setOf(1,3,5),changed.trainingDays);assertEquals(listOf("Front lever"),changed.prioritySkills)
+  assertTrue(changed.workouts.filter{it.epochDay>=1001 && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL}.all{it.exercises.isEmpty() && it.intent?.goal=="Calisthenics"})
+ }
+ @Test fun futureRegenerationProtectsPartialAndPastSessions(){
+  val base=generateTrainingPlan("boundary",1000,PlanConfiguration("Forza",2,2,setOf(1,4),emptyList()))
+  val past=base.workouts[0].copy(epochDay=999,originalEpochDay=999)
+  val partial=base.workouts[1].copy(state=PlannedWorkoutState.PARTIAL,actualExecutionEpochDay=1002,exercises=listOf(Exercise("Partial evidence","Core","Corpo libero","Principiante")))
+  val source=base.copy(workouts=listOf(past,partial)+base.workouts.drop(2))
+  val changed=regenerateFuturePlan(source,PlanConfiguration("Ipertrofia",2,2,setOf(2,5),emptyList()),1000)
+  assertTrue(past in changed.workouts);assertTrue(partial in changed.workouts)
+ }
+
+ @Test fun futureRegenerationKeepsOriginalPlanHorizon(){
+  val base=generateTrainingPlan("horizon",1000,PlanConfiguration("Forza",4,2,setOf(1,4),emptyList()))
+  val changed=regenerateFuturePlan(base,PlanConfiguration("Forza",4,3,setOf(1,3,5),emptyList()),1014)
+  assertTrue(changed.workouts.filter{it.epochDay>=1014}.all{it.epochDay<1028})
+  assertEquals(6,changed.workouts.count{it.epochDay>=1014})
+ }
+
+ @Test fun futureRegenerationUsesConfiguredWeekdaysInsideOriginalHorizon(){
+  val start=java.time.LocalDate.of(2026,10,1).toEpochDay()
+  val base=generateTrainingPlan("weekday",start,PlanConfiguration("Forza",3,2,setOf(1,4),emptyList()))
+  val today=start+5
+  val changed=regenerateFuturePlan(base,PlanConfiguration("Forza",3,2,setOf(2,6),emptyList()),today)
+  val future=changed.workouts.filter{it.epochDay>=today && it.state in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED)}
+  assertTrue(future.all{java.time.LocalDate.ofEpochDay(it.epochDay).dayOfWeek.value in setOf(2,6)})
+  assertTrue(future.all{it.epochDay<start+21})
+  assertTrue(future.all{it.weekIndex==((it.epochDay-start)/7L).toInt()})
+ }
+ @Test fun futureRegenerationPreservesSkippedDecision(){
+  val base=generateTrainingPlan("skip-edit",1000,PlanConfiguration("Forza",2,2,setOf(1,4),emptyList()))
+  val skipped=base.workouts.last().copy(state=PlannedWorkoutState.SKIPPED)
+  val source=base.copy(workouts=base.workouts.map{if(it.id==skipped.id)skipped else it})
+  val changed=regenerateFuturePlan(source,PlanConfiguration("Ipertrofia",2,3,setOf(1,3,5),emptyList()),1000)
+  assertEquals(skipped,changed.workouts.first{it.id==skipped.id})
+  assertEquals(1,changed.workouts.count{it.epochDay==skipped.epochDay})
+ }
+ @Test fun futureRegenerationCoversEachEditableField(){
+  val base=generateTrainingPlan("fields",1000,PlanConfiguration("Forza",3,2,setOf(1,4),emptyList()))
+  val changed=regenerateFuturePlan(base,PlanConfiguration("Calisthenics",3,3,setOf(2,4,6),listOf("Front lever")),1000)
+  assertEquals("Calisthenics",changed.goal);assertEquals(3,changed.daysPerWeek);assertEquals(setOf(2,4,6),changed.trainingDays);assertEquals(listOf("Front lever"),changed.prioritySkills)
+  assertTrue(changed.workouts.all{it.intent?.goal=="Calisthenics" && it.intent?.prioritySkills==listOf("Front lever")})
+ }
+
+ @Test fun adaptiveCoachAcceptanceMatrixWorksWithoutPlanOrHealthConnect(){
+  val now=1_800_000_000_000L
+  val fresh=coachingContext(emptyList(),readiness=null,now=now)
+  assertEquals(0,fresh.evidenceSessions);assertNull(fresh.readiness);assertNotEquals(ProgressionDecision.ADVANCE,fresh.plan.decision)
+  assertTrue(fresh.plan.notes.any{it.contains("Calibrazione iniziale")})
+  val history=listOf(
+   SessionRecord(now-86_400_000,"Palestra",3,3,workoutRpe=6,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=8,completed=true))))),
+   SessionRecord(now-2*86_400_000,"Palestra",3,3,workoutRpe=6,structuredExercises=listOf(WorkoutExerciseState("A",sets=listOf(WorkoutSetState(0,actualReps=8,completed=true)))))
+  )
+  val historyOnly=coachingContext(history,readiness=null,now=now)
+  assertEquals(2,historyOnly.evidenceSessions);assertNull(historyOnly.readiness);assertTrue(historyOnly.plan.notes.any{it.contains("2 workout recenti")})
+  val today=java.time.Instant.ofEpochMilli(now).atZone(java.time.ZoneOffset.UTC).toLocalDate().toEpochDay()
+  val plan=TrainingPlan("f08",today,1,1,listOf(PlannedWorkout("next",today+1,0,0,emptyList(),intent=PlannedSessionIntent("Forza"))))
+  val withPlan=coachingContext(history,null,listOf(plan),today,now)
+  assertEquals(historyOnly.evidenceSessions,withPlan.evidenceSessions);assertEquals(1,withPlan.upcomingSessions);assertTrue(withPlan.plan.notes.any{it.startsWith("Piani attivi:")})
+ }
+
+ @Test fun calendarMonthStateBuildsStableMondayFirstSixWeekGrid(){
+  val may1=java.time.LocalDate.of(2026,5,1).toEpochDay()
+  val plan=TrainingPlan("cal",may1,1,2,listOf(
+   PlannedWorkout("a",may1,0,0,emptyList(),state=PlannedWorkoutState.PLANNED),
+   PlannedWorkout("b",may1,0,1,emptyList(),state=PlannedWorkoutState.RESCHEDULED)
+  ))
+  val state=calendarMonthState(plan,2026,5,may1)
+  assertEquals(42,state.days.size);assertEquals(java.time.DayOfWeek.MONDAY,java.time.LocalDate.ofEpochDay(state.days.first().epochDay).dayOfWeek)
+  assertEquals("Maggio 2026",state.title)
+  val day=state.days.first{it.epochDay==may1};assertTrue(day.inMonth);assertTrue(day.isToday);assertEquals(listOf("a","b"),day.workouts.map{it.id})
+ }
+ @Test fun calendarMonthStateExposesEveryPlanStatusWithoutMutatingDomain(){
+  val start=java.time.LocalDate.of(2026,6,1).toEpochDay()
+  val states=PlannedWorkoutState.values().toList()
+  val workouts=states.mapIndexed{i,s->PlannedWorkout("s$i",start+i,0,i,emptyList(),state=s)}
+  val plan=TrainingPlan("states",start,1,5,workouts)
+  val month=calendarMonthState(plan,2026,6,start+10)
+  assertEquals(states.toSet(),month.days.flatMap{it.states}.toSet());assertEquals(workouts,plan.workouts)
+ }
+ @Test fun calendarMonthNavigationCrossesYearBoundariesDeterministically(){
+  assertEquals(2027 to 1,shiftCalendarMonth(2026,12,1));assertEquals(2025 to 12,shiftCalendarMonth(2026,1,-1))
+ }
+ @Test fun calendarReflectsCascadeRestoreAndCompletedProtection(){
+  val start=java.time.LocalDate.of(2026,7,6).toEpochDay()
+  val base=TrainingPlanEngine.schedule("calendar-actions",start,2,setOf(1,3)){_,_->emptyList()}
+  val moved=TrainingPlanEngine.reschedule(base,base.workouts.first().id,start+2,minimumGapDays=1)
+  assertTrue(calendarMonthState(moved,2026,7,start).days.any{day->day.workouts.any{it.id==base.workouts.first().id&&it.state==PlannedWorkoutState.RESCHEDULED}})
+  val restored=TrainingPlanEngine.restoreOriginalDate(moved,base.workouts.first().id,0)
+  assertEquals(base.workouts.map{it.epochDay},restored.workouts.map{it.epochDay})
+  val completed=base.copy(workouts=base.workouts.mapIndexed{i,w->if(i==0)w.copy(state=PlannedWorkoutState.COMPLETED,actualExecutionEpochDay=w.epochDay)else w})
+  assertEquals(completed,TrainingPlanEngine.reschedule(completed,completed.workouts.first().id,start+5))
+ }
+
+ @Test fun calendarLabelsAndMarkersCoverEveryState(){
+  PlannedWorkoutState.values().forEach{state->assertTrue(calendarStateLabel(state).isNotBlank());assertTrue(calendarStateMarker(state).isNotBlank())}
+ }
+
+  @Test fun calendarLegendCoversEveryDomainStateIncludingAdapted(){
+   assertEquals(PlannedWorkoutState.values().toSet(),calendarLegendStates.toSet())
+  }
+  @Test fun calendarActionsAreExplicitForEveryWorkoutState(){
+   fun workout(state:PlannedWorkoutState,moved:Boolean=false)=PlannedWorkout("x",if(moved)101L else 100L,0,0,emptyList(),state=state,originalEpochDay=100L,intent=PlannedSessionIntent("Forza"))
+   listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED).forEach{state->
+    val a=calendarWorkoutActions(workout(state,moved=state==PlannedWorkoutState.RESCHEDULED))
+    assertTrue(a.canStart);assertTrue(a.canSkip);assertTrue(a.canReschedule)
+   }
+   val skipped=calendarWorkoutActions(workout(PlannedWorkoutState.SKIPPED))
+   assertFalse(skipped.canStart);assertFalse(skipped.canSkip);assertTrue(skipped.canReschedule)
+   listOf(PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL).forEach{state->
+    val a=calendarWorkoutActions(workout(state,true))
+    assertFalse(a.canStart);assertFalse(a.canSkip);assertFalse(a.canReschedule);assertFalse(a.canRestoreOriginalDate)
+   }
+   assertTrue(calendarWorkoutActions(workout(PlannedWorkoutState.RESCHEDULED,true)).canRestoreOriginalDate)
+   assertFalse(calendarWorkoutActions(workout(PlannedWorkoutState.PLANNED)).canRestoreOriginalDate)
+  }
+}

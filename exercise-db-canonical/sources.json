@@ -1,0 +1,143 @@
+[
+  {
+    "source_id": "ACSM12",
+    "title": "ACSM's Guidelines for Exercise Testing and Prescription, 12th ed.",
+    "primary_use": "exercise prescription; safety; aerobic/resistance programming"
+  },
+  {
+    "source_id": "CAL_BEGINNER_150",
+    "title": "Calisthenics for Beginners — 150 Exercises (Simone Roccafoglie)",
+    "primary_use": "bodyweight repertoire"
+  },
+  {
+    "source_id": "CAL_BEGINNER_50",
+    "title": "Calisthenics for Beginners — 50 Exercises (Richard Anthony)",
+    "primary_use": "beginner bodyweight repertoire"
+  },
+  {
+    "source_id": "COMPLETE_CAL1",
+    "title": "Complete Calisthenics: The Ultimate Guide to Bodyweight Exercise",
+    "primary_use": "calisthenics cross-check"
+  },
+  {
+    "source_id": "COMPLETE_CAL2",
+    "title": "Complete Calisthenics: The Ultimate Guide to Bodyweight Exercise, 2nd ed.",
+    "primary_use": "calisthenics exercises; progressions; mobility; conditioning"
+  },
+  {
+    "source_id": "DELAVIER3",
+    "title": "Strength Training Anatomy, 3rd ed.",
+    "primary_use": "anatomy; muscles; resistance exercise variations"
+  },
+  {
+    "source_id": "NSCA_ESS5",
+    "title": "Essentials of Strength Training and Conditioning, 5th ed.",
+    "primary_use": "programming; biomechanics; resistance; power; plyometrics"
+  },
+  {
+    "source_id": "NSCA_TECH",
+    "title": "Exercise Technique Manual for Resistance Training",
+    "primary_use": "exercise technique; setup; cues; spotting"
+  },
+  {
+    "source_id": "OVERCOMING_GRAVITY",
+    "title": "Overcoming Gravity",
+    "primary_use": "bodyweight/gymnastics progressions; programming"
+  },
+  {
+    "source_id": "SCHOENFELD_HYP2",
+    "title": "Science and Development of Muscle Hypertrophy, 2nd ed.",
+    "primary_use": "hypertrophy programming; exercise selection; volume; rest"
+  },
+  {
+    "source_id": "SCIENCE_STRENGTH",
+    "title": "Science of Strength Training",
+    "primary_use": "anatomy; exercise repertoire; technique"
+  },
+  {
+    "source_id": "STARTING_STRENGTH3",
+    "title": "Starting Strength: Basic Barbell Training, 3rd ed.",
+    "primary_use": "barbell technique; squat; press; deadlift; bench; clean"
+  },
+  {
+    "source_id": "ULTIMATE_CAL_COLLECTION",
+    "title": "The Ultimate Calisthenics Collection (Milo Kemp)",
+    "primary_use": "calisthenics variations; progressions; mobility"
+  },
+  {
+    "source_id": "VELLA_ANATOMY",
+    "title": "New Anatomy for Strength & Fitness Training",
+    "primary_use": "anatomy; exercise repertoire; technique"
+  },
+  {
+    "source_id": "APP_MODEL_9B8A41C",
+    "title": "Hybrid Fitness Coach v0.9.5 current exercise model at baseline 9b8a41c",
+    "primary_use": "Provenance for the app's runtime labels and explicitly stored programming metadata; not exercise-science or technique evidence."
+  },
+  {
+    "source_id": "CANONICAL_NAME_EQUIPMENT_RULE",
+    "title": "Explicit equipment terms in canonical exercise names",
+    "primary_use": "Conservative equipment inference only when a name explicitly identifies a recognized implement; does not establish technique or instructions."
+  },
+  {
+    "source_id": "V2_MOVEMENT_TYPE_PATTERN_RULE",
+    "title": "Top-level pattern from explicit Exercise DB V2 movement type",
+    "primary_use": "Conservative high-level classification only: flexibility/mobility to mobility, SMR to recovery, and aerobic/conditioning to conditioning."
+  },
+  {
+    "source_id": "V2_FAMILY_PATTERN_RULE",
+    "title": "Whitelisted Exercise DB V2 family-to-pattern rules",
+    "primary_use": "Infer broad movement patterns from selected movement families, with name-based exceptions for mixed pull-up/push-up families and explicit vertical chest press labels."
+  },
+  {
+    "source_id": "APP_EXERCISE_METADATA",
+    "title": "Legacy runtime metadata completion rules",
+    "primary_use": "Records the exact withExerciseMetadata category, movement-pattern, resistance-mode, secondary-group, and technical-complexity rules. These are app-model metadata, not exercise-science evidence."
+  },
+  {
+    "source_id": "APP_V2_ADAPTER_RULE",
+    "title": "Exercise DB V2 to legacy runtime adapter",
+    "primary_use": "Documents app-model category, group, role, and fallback handling in ExerciseDbV2.toLegacyExercise; does not add exercise-science claims."
+  },
+  {
+    "source_id": "APP_SKILL_CATALOG",
+    "title": "Active SkillCatalog node and alias mapping",
+    "primary_use": "Provenance for stable SkillCatalog IDs resolved from runtime exercise names and the active node/alias catalogue."
+  },
+  {
+    "source_id": "V2_EQUIPMENT_RESISTANCE_RULE",
+    "title": "V2 recognized external equipment to resistance mode",
+    "primary_use": "Maps an explicit recognized external-load equipment token to EXTERNAL_LOAD; it does not assign resistance mode when equipment is unknown."
+  },
+  {
+    "source_id": "V2_TYPE_RESISTANCE_RULE",
+    "title": "V2 bodyweight movement-type resistance fallback",
+    "primary_use": "Maps CALISTHENICS or SKILL with known equipment requirements to BODYWEIGHT; unknown equipment does not satisfy the rule."
+  },
+  {
+    "source_id": "APP_EQUIPMENT_LABEL_RULE",
+    "title": "Runtime equipment display-label to canonical token mapping",
+    "primary_use": "Maps explicit runtime EquipmentCatalog labels and documented aliases to stable equipment tokens; the app equipment catalog remains the source of supported capabilities."
+  },
+  {
+    "source_id": "ACE_IT_BAND_SELF_CARE",
+    "title": "ACE — How to Self-Care for the IT Band",
+    "primary_use": "Exercise-specific evidence for IT Band Foam Rolling equipment and SMR semantics.",
+    "url": "https://www.acefitness.org/resources/pros/expert-articles/5043/how-to-self-care-for-the-it-band/"
+  },
+  {
+    "source_id": "CROSSFIT_TECHNICAL",
+    "title": "CrossFit movement and technical guides",
+    "primary_use": "Exercise-specific setup, execution, coaching cues, common faults, equipment and load semantics."
+  },
+  {
+    "source_id": "ACE_TECHNICAL",
+    "title": "ACE exercise-specific technical articles",
+    "primary_use": "Exercise-specific setup, execution, coaching cues, equipment and movement semantics when directly described."
+  },
+  {
+    "source_id": "ACE_EXERCISE_LIBRARY",
+    "title": "ACE Fitness Exercise Library",
+    "primary_use": "Exercise-specific equipment, difficulty, and technique descriptions from the American Council on Exercise exercise library."
+  }
+]

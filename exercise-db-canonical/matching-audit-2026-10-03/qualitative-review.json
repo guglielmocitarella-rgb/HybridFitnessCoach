@@ -1,0 +1,18 @@
+{
+  "reviewed_checkpoint": "0870-0939.json",
+  "sample_basis": "representative persisted rows across HIGH_PROBABILITY, AMBIGUOUS and NO_MATCH",
+  "high_probability_examples": [
+    "Pseudo-Planche Push-Up",
+    "Pull-Up",
+    "Push Jerk",
+    "Push Press"
+  ],
+  "ambiguous_patterns": [
+    "equipment_disjoint exact-name candidates",
+    "lexical near-neighbour variants such as Pause Pull-Up"
+  ],
+  "no_match_sampled": true,
+  "systematic_error_found": false,
+  "manual_edge_case": "Alias semantics may collapse closely related named variants such as Push Jerk / Power Jerk; retain manual review and do not promote to CERTAIN.",
+  "matcher_change_required": false
+}

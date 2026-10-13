@@ -1,0 +1,24 @@
+# Source coverage — Exercise DB v2
+
+This report is a completion gate. A registered source is **INGESTED** only when a versioned raw inventory exists and its accepted movements have been merged into the canonical artifact with provenance.
+
+| source_id | status | raw inventory |
+|---|---|---|
+| COMPLETE_CAL2 | INGESTED | raw/complete_calisthenics_2e.tsv |
+| STARTING_STRENGTH3 | INGESTED | raw/starting_strength_3e.tsv |
+| SCIENCE_STRENGTH | INGESTED | raw/science_strength.tsv |
+| VELLA_ANATOMY | INGESTED | raw/vella_anatomy.tsv |
+| NSCA_TECH | INGESTED | raw/nsca_technique.tsv |
+| ACSM12 | GUIDANCE_INGESTED | programming_guidance.json |
+| NSCA_ESS5 | GUIDANCE_INGESTED | programming_guidance.json |
+| SCHOENFELD_HYP2 | GUIDANCE_INGESTED | programming_guidance.json |
+| DELAVIER3 | INGESTED | raw/delavier3.tsv |
+| OVERCOMING_GRAVITY | INGESTED | raw/overcoming_gravity.tsv |
+| COMPLETE_CAL1 | INGESTED | raw/complete_calisthenics_1e.tsv |
+| CAL_BEGINNER_50 | INGESTED | raw/calisthenics_beginner_50.tsv |
+| CAL_BEGINNER_150 | INGESTED | raw/calisthenics_beginner_150.tsv |
+| ULTIMATE_CAL_COLLECTION | INGESTED | raw/ultimate_cal_collection.tsv |
+
+Completion gate satisfied: every registered exercise-repertoire source has a versioned inventory merged with exercise-specific provenance, and `tools/validate_exercise_db.py` now fails CI if any raw inventory row is not materialized in canonical provenance. The generic `Static Stretch` section heading was removed from the raw exercise inventory because it is not an exercise record. Guidance-only sources have materialized source-scoped programming evidence. Videos remain deferred by design.
+
+Current canonical count is derived from exercises.json, never from a target number.

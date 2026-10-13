@@ -1,0 +1,104 @@
+name: Canonical Exercise DB
+
+
+
+
+
+
+
+
+
+
+
+on:
+  # PR #14 / feature/v0.9.5 is frozen. Keep manual execution available,
+  # but disable automatic push-triggered canonical regeneration.
+  workflow_dispatch:
+
+# Frozen legacy workflow: no automatic jobs until PR #14 is explicitly resumed.
+    paths:
+      - 'exercise-db-canonical/external-enrichment.json'
+      - 'exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json'
+      - 'exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json'
+      - 'exercise-db-canonical/RESISTANCE_MODE_NONE_CANDIDATES.json'
+      - 'exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_GENERAL_CANDIDATES.json'
+      - 'exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_01.json'
+      - 'exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_02.json'
+      - 'exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_03.json'
+      - 'exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_04_SOURCE.json'
+      - 'tools/build_exercise_db_canonical.py'
+      - 'tools/validate_exercise_db_canonical.py'
+      - 'tests/test_exercise_db_canonical.py'
+      - '.github/workflows/exercise-db-canonical.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: canonical-exercise-db-feature-v0-9-5
+  cancel-in-progress: false
+
+jobs:
+  validate-and-regenerate:
+    if: github.ref == 'refs/heads/feature/v0.9.5'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v4
+        with:
+          ref: feature/v0.9.5
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Canonical DB tests
+        run: python -m unittest tests/test_exercise_db_canonical.py -v
+
+      - name: Regenerate canonical artifacts
+        run: python tools/build_exercise_db_canonical.py
+
+      - name: Validate canonical DB
+        run: python tools/validate_exercise_db_canonical.py
+
+      - name: Assert release gate remains closed
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('exercise-db-canonical/VALIDATION_REPORT.json').read_text())
+          assert report['ok'] is True
+          assert report['releaseReady'] is False
+          PY
+
+      - name: Regenerate deterministic gzip artifacts
+        run: |
+          gzip -n -c exercise-db-canonical/exercise-db-canonical.json > exercise-db-canonical/exercise-db-canonical.json.gz
+          gzip -n -c exercise-db-canonical/exercise-db-canonical-audit.json > exercise-db-canonical/exercise-db-canonical-audit.json.gz
+          gzip -t exercise-db-canonical/exercise-db-canonical.json.gz
+          gzip -t exercise-db-canonical/exercise-db-canonical-audit.json.gz
+
+      - name: Commit generated artifacts only
+        shell: bash
+        run: |
+          set -euo pipefail
+          REMOTE_SHA="$(git ls-remote origin refs/heads/feature/v0.9.5 | cut -f1)"
+          LOCAL_SHA="$(git rev-parse HEAD)"
+          if [ "$REMOTE_SHA" != "$LOCAL_SHA" ]; then
+            echo "Branch advanced during validation; refusing to publish stale generated artifacts."
+            exit 1
+          fi
+
+          git add --             exercise-db-canonical/exercise-db-canonical.json             exercise-db-canonical/exercise-db-canonical-audit.json             exercise-db-canonical/VALIDATION_REPORT.json             exercise-db-canonical/RESISTANCE_MODE_UNKNOWN.json             exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_CANDIDATES.json             exercise-db-canonical/RESISTANCE_MODE_NONE_CANDIDATES.json             exercise-db-canonical/RESISTANCE_MODE_BODYWEIGHT_GENERAL_CANDIDATES.json             exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_01.json             exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_02.json             exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_03.json             exercise-db-canonical/RECORD_FIRST_ENRICHMENT_BATCH_04.json             exercise-db-canonical/sources.json             exercise-db-canonical/exercise-db-canonical.json.gz             exercise-db-canonical/exercise-db-canonical-audit.json.gz
+
+          if git diff --cached --quiet; then
+            echo "Generated artifacts already match inputs."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "build(exercise-db): regenerate canonical artifacts [skip ci]"
+          git push origin HEAD:feature/v0.9.5
