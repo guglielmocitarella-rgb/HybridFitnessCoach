@@ -1,0 +1,660 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V7",
+  "baselineHead": "4a63b77c3faf8e56a3e54367447543b0c524d5e8",
+  "newWebQueries": 42,
+  "evidenceCompleteCapabilityCount": 148,
+  "recordCount": 37,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-russian-twist",
+      "exerciseName": "Russian Twist",
+      "source": {
+        "title": "Russian Twist",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/russian-twist",
+        "finding": "Dynamic torso rotation with controlled postural alignment; NASM classifies it intermediate and describes rotational strength, mobility and continuous core control."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-side-plank",
+      "exerciseName": "Side Plank",
+      "source": {
+        "title": "Side Plank",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/side-plank",
+        "finding": "Isometric lateral core stabilization requiring straight-line alignment and prevention of hip sag/torso rotation; NASM classifies side plank beginner."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-machine-row-close-grip",
+      "exerciseName": "Seated Machine Row Close Grip",
+      "source": {
+        "title": "Seated Machine Row Close Grip",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-machine-row-close-grip",
+        "finding": "Guided machine row with supported setup, controlled scapular retraction and stable posture; NASM library classifies it beginner."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-floor-bridge",
+      "exerciseName": "Floor Bridge",
+      "source": {
+        "title": "Floor Bridge",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/floor-bridge",
+        "finding": "Supine supported hip-extension exercise emphasizing glute strength, core bracing and level hip alignment; NASM classifies it beginner."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-chest-press-machine",
+      "exerciseName": "Chest Press Machine",
+      "source": {
+        "title": "Chest Press Machine",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/chest-press-machine",
+        "finding": "Guided seated press with back support and predetermined path, explicitly reducing balance demands while developing chest pressing strength; NASM classifies it beginner."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-lunge-jump",
+      "exerciseName": "Lunge Jump",
+      "source": {
+        "title": "Lunge Jump",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/lunge-jump",
+        "finding": "Advanced plyometric alternating-lunge jump requiring explosive unilateral strength, dynamic balance, controlled landing and torso control."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-squat-jump",
+      "exerciseName": "Squat Jump",
+      "source": {
+        "title": "Squat Jump",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/squat-jump",
+        "finding": "Plyometric squat-to-jump requiring adequate lower-body strength, bilateral balance and controlled landing mechanics; NASM library classifies it intermediate."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-press",
+      "exerciseName": "Single-Leg Press",
+      "source": {
+        "title": "Single-Leg Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/single-leg-press",
+        "finding": "Guided unilateral leg press develops single-leg strength while machine support explicitly reduces balance demand; controlled knee tracking remains required."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-leg-press-calf-raise",
+      "exerciseName": "Leg Press Calf Raise",
+      "source": {
+        "title": "Leg Press Calf Raise",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press-calf-raise",
+        "finding": "Stable guided calf isolation on leg press; full plantarflexion/dorsiflexion range and controlled high-load calf strength are emphasized."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-leg-curl",
+      "exerciseName": "Seated Leg Curl",
+      "source": {
+        "title": "Seated Leg Curl",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-leg-curl",
+        "finding": "Supported machine hamstring isolation with stable back support and controlled knee flexion; intended for all fitness levels."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-seated-leg-curl",
+      "exerciseName": "Single-Leg Seated Leg Curl",
+      "source": {
+        "title": "Single-Leg Seated Leg Curl",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/single-leg-seated-leg-curl",
+        "finding": "Stable unilateral machine curl for individual hamstring strength; controlled knee position and asymmetry management are emphasized."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-tubing-row",
+      "exerciseName": "Standing Tubing Row",
+      "source": {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists Standing Tubing Row as a beginner upper/mid-back band exercise; standing posture requires controlled alignment but external support demand remains low."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-close-grip-bench-press",
+      "exerciseName": "Close Grip Bench Press",
+      "source": {
+        "title": "Close Grip Bench Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/close-grip-bench-press",
+        "finding": "Supported barbell press emphasizing triceps strength, narrower grip positioning and controlled bar path; NASM library classifies the movement beginner."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-two-arm-standing-cable-fly",
+      "exerciseName": "Two-Arm Standing Cable Fly",
+      "source": {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists Two-Arm Standing Cable Fly as beginner; standing bilateral cable adduction requires postural stabilization and controlled shoulder range."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-bench-dips",
+      "exerciseName": "Bench Dips",
+      "source": {
+        "title": "Bench Dips",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/bench-dips",
+        "finding": "Bodyweight bench-supported triceps press requiring controlled shoulder/elbow range and torso stability; NASM describes it as intermediate."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-arm-dumbbell-chest-press",
+      "exerciseName": "Single-Arm Dumbbell Chest Press",
+      "source": {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM classifies the supported unilateral dumbbell chest press intermediate; unilateral loading adds trunk stabilization while bench support limits balance demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-two-arm-dumbbell-chest-press-with-band",
+      "exerciseName": "Two-Arm Dumbbell Chest Press with Band",
+      "source": {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM classifies the band-resisted supported dumbbell press intermediate; variable resistance requires controlled pressing mechanics."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-arm-incline-dumbbell-chest-press",
+      "exerciseName": "Single-Arm Incline Dumbbell Chest Press",
+      "source": {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM classifies this supported unilateral incline press intermediate; unilateral load requires trunk control and shoulder pressing range."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-two-arm-incline-dumbbell-chest-press",
+      "exerciseName": "Two-Arm Incline Dumbbell Chest Press",
+      "source": {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists the supported bilateral incline dumbbell press as beginner; bench support limits balance while shoulder/chest range remains controlled."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-lying-leg-curl-single-leg",
+      "exerciseName": "Lying Leg Curl Single Leg",
+      "source": {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists single-leg lying leg curl as beginner; machine support minimizes balance while unilateral hamstring flexion is controlled."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-single-leg-squat-to-row",
+      "exerciseName": "Single-Leg Squat to Row",
+      "source": {
+        "title": "Single-Leg Squat to Row",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/single-leg-squat-to-row",
+        "finding": "Advanced compound unilateral squat plus row explicitly requiring excellent balance, proprioception, core stability and simultaneous strength/control."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-iron-cross",
+      "exerciseName": "Iron Cross",
+      "source": {
+        "title": "Iron Cross",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/iron-cross",
+        "finding": "Advanced/elite isometric hold demanding exceptional shoulder stability, extreme strength and body-position control on bars or rings."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-bench-press-with-bands",
+      "exerciseName": "Barbell Bench Press with Bands",
+      "source": {
+        "title": "Barbell Bench Press with Bands",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists this variable-resistance barbell bench variation as advanced; bench support limits balance but band tension increases loading/control complexity."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-barbell-bench-press-with-chains",
+      "exerciseName": "Barbell Bench Press with Chains",
+      "source": {
+        "title": "Barbell Bench Press with Chains",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists this variable-resistance barbell bench variation as advanced; chain loading changes through the range and requires controlled bar path."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-incline-barbell-bench-press",
+      "exerciseName": "Incline Barbell Bench Press",
+      "source": {
+        "title": "Incline Barbell Bench Press",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists supported incline barbell bench press as intermediate, with controlled shoulder/chest pressing range and stable bench support."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-foam-roll-calves",
+      "exerciseName": "Foam Roll Calves",
+      "source": {
+        "title": "Foam Roll Calves",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-calves",
+        "finding": "Self-myofascial release for calf tightness and ankle mobility; seated hand support and slow controlled rolling make strength demand minimal."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-foam-roll-latissimus-dorsi",
+      "exerciseName": "Foam Roll Latissimus Dorsi",
+      "source": {
+        "title": "Foam Roll Latissimus Dorsi",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-latissimus-dorsi",
+        "finding": "Side-supported self-myofascial release explicitly aimed at lat/shoulder mobility with slow controlled rolling and low strength demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-butterfly-stretch",
+      "exerciseName": "Static Butterfly Stretch",
+      "source": {
+        "title": "Static Butterfly Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies the groin-focused static butterfly stretch beginner; static supported mobility task has minimal strength/coordination demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-latissimus-dorsi-ball-stretch",
+      "exerciseName": "Static Latissimus Dorsi Ball Stretch",
+      "source": {
+        "title": "Static Latissimus Dorsi Ball Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies this stability-ball lat mobility stretch beginner; mobility is the primary requirement with minimal strength demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-seated-calf-stretch",
+      "exerciseName": "Static Seated Calf Stretch",
+      "source": {
+        "title": "Static Seated Calf Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies the seated calf stretch beginner; seated supported ankle/calf mobility with negligible strength and balance demand."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-static-standing-adductor-stretch",
+      "exerciseName": "Static Standing Adductor Stretch",
+      "source": {
+        "title": "Static Standing Adductor Stretch",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM library classifies standing adductor stretch beginner; primary demand is groin mobility with modest standing postural control."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-kettlebell-crush-curl-with-squat",
+      "exerciseName": "Kettlebell Crush Curl with Squat",
+      "source": {
+        "title": "Kettlebell Crush Curl with Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists the integrated kettlebell curl-plus-squat movement beginner; combines squat positioning with upper-body resistance and bilateral control."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-prisoner-squat",
+      "exerciseName": "Prisoner Squat",
+      "source": {
+        "title": "Prisoner Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists bodyweight prisoner squat beginner; bilateral squat requires basic hip/ankle range and lower-body strength with low coordination complexity."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-dumbbell-front-squat",
+      "exerciseName": "Dumbbell Front Squat",
+      "source": {
+        "title": "Dumbbell Front Squat",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists dumbbell front squat beginner; front-loaded bilateral squat requires controlled hip/knee/ankle range and moderate strength."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-reverse-crunch-to-knee-up-with-rotation",
+      "exerciseName": "Reverse Crunch to Knee Up With Rotation",
+      "source": {
+        "title": "Reverse Crunch to Knee Up With Rotation",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/reverse-crunch-to-knee-up-with-rotation",
+        "finding": "NASM classifies this multi-planar core exercise intermediate; combines hip flexion and rotation with controlled alignment."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straight-arm-plank",
+      "exerciseName": "Straight-Arm Plank",
+      "source": {
+        "title": "Straight-Arm Plank",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/straight-arm-plank",
+        "finding": "NASM describes a straight-arm isometric plank with shoulder/core stabilization and notes greater core demand than forearm plank while retaining simple alignment."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-plank-walkup",
+      "exerciseName": "Plank Walkup",
+      "source": {
+        "title": "Plank Walkup",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/plank-walkup",
+        "finding": "NASM classifies dynamic forearm-to-straight-arm plank transitions intermediate, explicitly requiring anti-rotation control and shoulder stability."
+      },
+      "fieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    }
+  ],
+  "note": "V7 cumulative anti-loss staging. ex-curl intentionally skipped as known residue. Candidate/runtime/production untouched.",
+  "promotedCapabilityCount": 148,
+  "promotedRecordCount": 37,
+  "promotionValidation": {
+    "result": "PASS",
+    "duplicateGate": "BASELINE_DUPLICATES_PRESERVED_NO_NEW_VIOLATIONS",
+    "baselineDuplicateIdCount": 7,
+    "candidateDuplicateIdCount": 7,
+    "newDuplicateIds": 0,
+    "multiplicityIncreases": 0,
+    "integrityCounts": {
+      "fieldDecisions": 2283,
+      "evidence": 2283,
+      "provenance": 2283,
+      "patch": 2283,
+      "researchLog": 636
+    },
+    "routingViolationsHistorical": 11,
+    "newRoutingViolations": 0,
+    "prescriptionDependent": 441
+  }
+}

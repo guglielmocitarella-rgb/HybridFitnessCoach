@@ -1,0 +1,35 @@
+{
+  "eligibility": [
+    "identity",
+    "categoryGroup",
+    "equipmentRequirement",
+    "capability"
+  ],
+  "equipmentLocation": [
+    "equipmentRequirement"
+  ],
+  "capabilityGating": [
+    "capability"
+  ],
+  "prescription": [
+    "resistance",
+    "prescription"
+  ],
+  "skillSelection": [
+    "skillRelations"
+  ],
+  "progression": [
+    "skillRelations",
+    "engineMetadata"
+  ],
+  "sequencing": [
+    "movementPatterns",
+    "categoryGroup"
+  ],
+  "varietySubstitution": [
+    "engineMetadata",
+    "movementPatterns",
+    "equipmentRequirement"
+  ],
+  "implementationStatus": "SPEC_ONLY"
+}

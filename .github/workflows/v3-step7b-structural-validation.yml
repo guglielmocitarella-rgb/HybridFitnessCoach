@@ -1,0 +1,41 @@
+name: V3 Step 7B Structural Validation
+on:
+  push:
+    branches:
+      - feature/exercise-db-v3
+    paths:
+      - tools/validate_final_canonical_candidate_step7b.py
+      - .github/workflows/v3-step7b-structural-validation.yml
+  workflow_dispatch:
+# execution revision 5
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Verify frozen candidate and run Step 7B
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXPECTED=0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a
+          test "$(sha256sum exercise-db-canonical/exercise-db-v3-final-candidate.json | awk '{print $1}')" = "$EXPECTED"
+          python tools/build_final_canonical_candidate_step6.py --output /tmp/step7b-regenerated.json --report /tmp/step7b-regeneration-report.json
+          set +e
+          python tools/validate_final_canonical_candidate_step7b.py --regenerated /tmp/step7b-regenerated.json --report exercise-db-canonical/step7b-structural-validation.json
+          STATUS=$?
+          set -e
+          python -m unittest tools.test_build_final_canonical_candidate_step6
+          exit $STATUS
+      - name: Upload Step 7B report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v3-step7b-structural-validation
+          path: |
+            exercise-db-canonical/step7b-structural-validation.json
+            /tmp/step7b-regeneration-report.json
+          if-no-files-found: warn

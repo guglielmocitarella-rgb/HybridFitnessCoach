@@ -1,0 +1,452 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "R5/V20",
+  "baselineHead": "7b4221987b53b2e6c674db19070c4337d04da572",
+  "note": "R5/V20 source-family research staging. FRESH true-missing capability decisions only; 12 preexisting authoritative capabilities were excluded losslessly before staging.",
+  "newWebQueries": 40,
+  "overlapExclusion": {
+    "capabilities": 15,
+    "recordsFullyExcluded": [
+      "cm-scapular-pull-up-hold",
+      "cm-scapular-push-up",
+      "cm-scapular-wall-slide",
+      "cm-single-arm-cable-chest-press"
+    ],
+    "policy": "preserve existing authoritative decisions; do not restage or replace"
+  },
+  "records": [
+    {
+      "canonicalExerciseId": "cm-rkc-plank",
+      "exerciseName": "RKC plank",
+      "source": {
+        "publisher": "ACE",
+        "title": "Front Plank / braced-core plank family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-romanian-deadlift-tempo",
+      "exerciseName": "Romanian deadlift tempo",
+      "source": {
+        "publisher": "ACE",
+        "title": "The Romanian Deadlift",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/may-2025/8865/the-ace-do-it-better-series-the-romanian-deadlift/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-rope-hammer-curl",
+      "exerciseName": "Rope hammer curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Hammer Curl / cable-curl family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-rope-pushdown",
+      "exerciseName": "Rope pushdown",
+      "source": {
+        "publisher": "ACE",
+        "title": "Triceps Pushdowns",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/185/triceps-pushdowns/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-rotazioni-toraciche-quadrupedia",
+      "exerciseName": "Rotazioni toraciche quadrupedia",
+      "source": {
+        "publisher": "ACE",
+        "title": "Side-lying Arm Rolls / controlled thoracic-rotation family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/223/side-lying-arm-rolls/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-scapular-cars",
+      "exerciseName": "Scapular CARs",
+      "source": {
+        "publisher": "ACE",
+        "title": "Shoulder Stability-Mobility Series",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/237/shoulder-stability-mobility-series-i-y-t-w-formations/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-scapular-pull-up",
+      "exerciseName": "Scapular pull-up",
+      "source": {
+        "publisher": "ACE",
+        "title": "Pull-up / scapular-control family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/back/latissimus-dorsi(lats)/?page=2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-scissor-kicks",
+      "exerciseName": "Scissor kicks",
+      "source": {
+        "publisher": "ACE",
+        "title": "Core stabilization / abdominal family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/abs/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-seal-row-bilanciere",
+      "exerciseName": "Seal row bilanciere",
+      "source": {
+        "publisher": "ACE",
+        "title": "Seated/support-row family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-seated-cable-row",
+      "exerciseName": "Seated cable row",
+      "source": {
+        "publisher": "ACE",
+        "title": "Seated Row",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/48/seated-row/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-seated-calf-raise-machine",
+      "exerciseName": "Seated calf raise machine",
+      "source": {
+        "publisher": "ACE",
+        "title": "Calf Raise machine family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/294/calf-raise/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-shoulder-cars",
+      "exerciseName": "Shoulder CARs",
+      "source": {
+        "publisher": "ACE",
+        "title": "Shoulder Stability-Mobility Series",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/237/shoulder-stability-mobility-series-i-y-t-w-formations/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-shoulder-press-manubri",
+      "exerciseName": "Shoulder press manubri",
+      "source": {
+        "publisher": "ACE",
+        "title": "Seated Shoulder Press / dumbbell-press family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/43/seated-shoulder-press/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-shrimp-squat",
+      "exerciseName": "Shrimp squat",
+      "source": {
+        "publisher": "ACE",
+        "title": "Single Leg Squat progression family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/136/single-leg-squat/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-shrimp-squat-assistito",
+      "exerciseName": "Shrimp squat assistito",
+      "source": {
+        "publisher": "ACE",
+        "title": "Assisted single-leg squat family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/265/partner-assisted-bodyweight-squats/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-shrug-manubri",
+      "exerciseName": "Shrug manubri",
+      "source": {
+        "publisher": "ACE",
+        "title": "Standing Shrug",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/75/standing-shrug/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-shuttle-run",
+      "exerciseName": "Shuttle run",
+      "source": {
+        "publisher": "NSCA",
+        "title": "5-10-5 Shuttle / change-of-direction ability",
+        "tier": 2,
+        "locator": "https://www.nsca.com/education/articles/kinetic-select/assessing-agility-using-the-t-test-5-10-5-shuttle-and-illinois-test/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-side-plank-hip-lift",
+      "exerciseName": "Side plank hip lift",
+      "source": {
+        "publisher": "ACE",
+        "title": "Side Plank with Straight Leg / hip-lift family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/101/side-plank-with-straight-leg/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-side-plank-reach-through",
+      "exerciseName": "Side plank reach-through",
+      "source": {
+        "publisher": "ACE",
+        "title": "Side-plank rotation / reach family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6402/5-ab-exercises-no-crunches-no-equipment/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-side-plank-star",
+      "exerciseName": "Side plank star",
+      "source": {
+        "publisher": "ACE",
+        "title": "Side Plank With Star Crunch",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/6402/5-ab-exercises-no-crunches-no-equipment/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-cable-curl",
+      "exerciseName": "Single-arm cable curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Standing Bicep Curl / unilateral cable-curl family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/322/standing-bicep-curl/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-cable-fly",
+      "exerciseName": "Single-arm cable fly",
+      "source": {
+        "publisher": "ACE",
+        "title": "Standing Chest Fly / unilateral cable-fly family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/160/standing-chest-fly/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-cable-pushdown",
+      "exerciseName": "Single-arm cable pushdown",
+      "source": {
+        "publisher": "ACE",
+        "title": "Triceps Pushdowns / unilateral variation",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/185/triceps-pushdowns/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "promotion": {
+    "stagedRecords": 23,
+    "stagedCapabilities": 81,
+    "preexistingAuthoritativeCapabilities": 0,
+    "freshCapabilities": 81,
+    "validation": "PASS"
+  }
+}

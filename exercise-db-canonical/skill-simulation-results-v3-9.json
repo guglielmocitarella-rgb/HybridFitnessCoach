@@ -1,0 +1,1246 @@
+[
+  {
+    "nodeId": "pullup_strict",
+    "family": "Muscle-up",
+    "prerequisites": [
+      "Trazioni prone"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-trazioni-prone",
+      "ex-pull-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pullup_chest",
+    "family": "Muscle-up",
+    "prerequisites": [
+      "pullup_strict"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-chest-to-bar-pull-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "muscleup_negative",
+    "family": "Muscle-up",
+    "prerequisites": [
+      "pullup_chest",
+      "Muscle-up negativo"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-muscle-up-negativo"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "muscleup_band",
+    "family": "Muscle-up",
+    "prerequisites": [
+      "muscleup_negative"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-band-assisted-muscle-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "muscleup_strict",
+    "family": "Muscle-up",
+    "prerequisites": [
+      "muscleup_band"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-muscle-up",
+      "ex-normal-muscle-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "handstand_wall",
+    "family": "Handstand",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-wall-handstand"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "handstand_wall_shoulder_tap",
+    "family": "Handstand",
+    "prerequisites": [
+      "handstand_wall",
+      "Handstand shoulder taps"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-handstand-shoulder-taps"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "handstand_freestanding",
+    "family": "Handstand",
+    "prerequisites": [
+      "handstand_wall_shoulder_tap"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-freestanding-handstand-hold",
+      "ex-freestanding-handstand"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "backlever_tuck",
+    "family": "Back Lever",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-back-lever-tuck",
+      "ex-tuck-back-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "backlever_advanced_tuck",
+    "family": "Back Lever",
+    "prerequisites": [
+      "backlever_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-back-lever-advanced-tuck",
+      "ex-advanced-tuck-back-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "backlever_straddle",
+    "family": "Back Lever",
+    "prerequisites": [
+      "backlever_advanced_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-straddle-back-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "backlever_full",
+    "family": "Back Lever",
+    "prerequisites": [
+      "backlever_straddle"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-back-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "flag_vertical",
+    "family": "Human Flag",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-vertical-flag-hold"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "flag_tuck",
+    "family": "Human Flag",
+    "prerequisites": [
+      "flag_vertical"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-human-flag-tuck"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "flag_straddle",
+    "family": "Human Flag",
+    "prerequisites": [
+      "flag_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-straddle-human-flag"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "flag_full",
+    "family": "Human Flag",
+    "prerequisites": [
+      "flag_straddle"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-human-flag"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "lsit_tuck",
+    "family": "L-sit / V-sit",
+    "prerequisites": [
+      "L-sit tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-l-sit-tuck",
+      "ex-tuck-l-sit"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "lsit_full",
+    "family": "L-sit / V-sit",
+    "prerequisites": [
+      "lsit_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-l-sit"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "vsit_compression",
+    "family": "L-sit / V-sit",
+    "prerequisites": [
+      "lsit_full"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-compression-lift"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "vsit_hold",
+    "family": "L-sit / V-sit",
+    "prerequisites": [
+      "vsit_compression"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-v-sit"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pistol_box",
+    "family": "Pistol Squat",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-box-pistol-squat"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pistol_assisted",
+    "family": "Pistol Squat",
+    "prerequisites": [
+      "pistol_box",
+      "Pistol squat assistito"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-pistol-squat-assistito",
+      "ex-assisted-pistol-squat"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pistol_full",
+    "family": "Pistol Squat",
+    "prerequisites": [
+      "pistol_assisted"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-pistol-squat"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "front_tuck",
+    "family": "Front lever",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-tuck-front-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "front_adv_tuck",
+    "family": "Front lever",
+    "prerequisites": [
+      "front_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-advanced-tuck-front-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "front_one_leg",
+    "family": "Front lever",
+    "prerequisites": [
+      "front_adv_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-one-leg-front-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "front_straddle",
+    "family": "Front lever",
+    "prerequisites": [
+      "front_one_leg"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-straddle-front-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "front_full",
+    "family": "Front lever",
+    "prerequisites": [
+      "front_straddle"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-full-front-lever"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "planche_frog",
+    "family": "Planche",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-frog-stand"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "planche_tuck",
+    "family": "Planche",
+    "prerequisites": [
+      "planche_frog"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-tuck-planche"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "planche_adv_tuck",
+    "family": "Planche",
+    "prerequisites": [
+      "planche_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-advanced-tuck-planche"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "planche_straddle",
+    "family": "Planche",
+    "prerequisites": [
+      "planche_adv_tuck"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-straddle-planche"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "planche_full",
+    "family": "Planche",
+    "prerequisites": [
+      "planche_straddle"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-full-planche"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pull_1",
+    "family": "Trazioni",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-australian-pull-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pull_2",
+    "family": "Trazioni",
+    "prerequisites": [
+      "pull_1"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-trazioni-prone"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pull_3",
+    "family": "Trazioni",
+    "prerequisites": [
+      "pull_2"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-chest-to-bar-pull-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "pull_4",
+    "family": "Trazioni",
+    "prerequisites": [
+      "pull_3"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-trazioni-zavorrate"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dip_1",
+    "family": "Dip",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-dip-assistite"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dip_2",
+    "family": "Dip",
+    "prerequisites": [
+      "dip_1"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-dip-alle-parallele"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dip_3",
+    "family": "Dip",
+    "prerequisites": [
+      "dip_2"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-dip-profondi"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dip_4",
+    "family": "Dip",
+    "prerequisites": [
+      "dip_3"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-dip-zavorrate"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "hspu_1",
+    "family": "Handstand push-up",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-pike-push-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "hspu_2",
+    "family": "Handstand push-up",
+    "prerequisites": [
+      "hspu_1"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-elevated-pike-push-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "hspu_3",
+    "family": "Handstand push-up",
+    "prerequisites": [
+      "hspu_2"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-wall-handstand-push-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "hspu_4",
+    "family": "Handstand push-up",
+    "prerequisites": [
+      "hspu_3"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-handstand-push-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dragon_1",
+    "family": "Dragon flag",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-reverse-crunch"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dragon_2",
+    "family": "Dragon flag",
+    "prerequisites": [
+      "dragon_1"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-dragon-flag-negativa"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dragon_3",
+    "family": "Dragon flag",
+    "prerequisites": [
+      "dragon_2"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-tuck-dragon-flag"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "dragon_4",
+    "family": "Dragon flag",
+    "prerequisites": [
+      "dragon_3"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-dragon-flag"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "shrimp_1",
+    "family": "Shrimp squat",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-split-squat"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "shrimp_2",
+    "family": "Shrimp squat",
+    "prerequisites": [
+      "shrimp_1"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-shrimp-squat-assistito"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "shrimp_3",
+    "family": "Shrimp squat",
+    "prerequisites": [
+      "shrimp_2"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-shrimp-squat"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oap_1",
+    "family": "One arm pull-up",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-archer-pull-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oap_2",
+    "family": "One arm pull-up",
+    "prerequisites": [
+      "oap_1"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-typewriter-pull-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oap_3",
+    "family": "One arm pull-up",
+    "prerequisites": [
+      "oap_2"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-one-arm-eccentric"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oap_4",
+    "family": "One arm pull-up",
+    "prerequisites": [
+      "oap_3"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-one-arm-pull-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oapu_1",
+    "family": "One arm push-up",
+    "prerequisites": [],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-incline-one-arm-push-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oapu_2",
+    "family": "One arm push-up",
+    "prerequisites": [
+      "oapu_1"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-archer-push-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oapu_3",
+    "family": "One arm push-up",
+    "prerequisites": [
+      "oapu_2"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "cm-one-arm-negative"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  },
+  {
+    "nodeId": "oapu_4",
+    "family": "One arm push-up",
+    "prerequisites": [
+      "oapu_3"
+    ],
+    "athleteState": "BELOW_PREREQUISITE/SATISFIED/TRAINABLE/MASTERED",
+    "candidateExercises": [
+      "ex-one-arm-push-up"
+    ],
+    "eligibleExercises": [],
+    "selectedExercises": [],
+    "progressionAvailable": false,
+    "regressionAvailable": false,
+    "builderAvailable": false,
+    "prescriptionValid": true,
+    "equipmentCompatible": null,
+    "capabilityCompatible": null,
+    "simulationStatus": "SIMULATION_PASS",
+    "failureReason": null
+  }
+]

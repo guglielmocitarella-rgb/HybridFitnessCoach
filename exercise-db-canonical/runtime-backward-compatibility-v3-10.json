@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "3.10",
+  "policy": "read old + write versioned new; no destructive rewrite",
+  "classes": {
+    "UNCHANGED": [
+      "profile demographics",
+      "plan ids/dates"
+    ],
+    "MIGRATABLE_LOSSLESS": [
+      "known canonical progressionKey references"
+    ],
+    "MIGRATABLE_WITH_DEFAULT": [
+      "display-only legacy metadata"
+    ],
+    "REQUIRES_COMPATIBILITY_ADAPTER": [
+      "name-only exercise references",
+      "active/resume snapshots",
+      "history exercise names",
+      "legacy level/equipment text"
+    ],
+    "NOT_MIGRATABLE": []
+  },
+  "blockers": []
+}

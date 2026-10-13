@@ -1,0 +1,46 @@
+name: V3 Step 8A-S Semantic Contract Validation
+on:
+  push:
+    branches: [ feature/exercise-db-v3 ]
+    paths:
+      - 'exercise-db-canonical/step8a-pd-semantic-contract.*'
+      - 'tools/validate_step8a_pd_semantic_contract.py'
+      - '.github/workflows/v3-step8a-semantic-contract-validation.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate frozen candidate and semantic contract
+        run: python3 tools/validate_step8a_pd_semantic_contract.py
+      - name: Recheck Step 7B immutable structural gates
+        run: |
+          python3 - <<'PY'
+          import json
+          x=json.load(open('exercise-db-canonical/step7b-structural-validation.json'))
+          assert x['schemaValidation']['result']=='PASS'
+          assert x['capabilities']['PRESCRIPTION_DEPENDENT']==441
+          assert x['capabilities']['EVIDENCE_UNRESOLVED']==48
+          assert x['immutability']['frozenCandidateChanged'] is False
+          print('STEP7B_CRITICAL_GATES_PASS')
+          PY
+      - name: Verify V2 dependency policy and terminal separation
+        run: |
+          python3 - <<'PY'
+          import json
+          c=json.load(open('exercise-db-canonical/step8a-pd-semantic-contract.json'))
+          assert c['v2DependencyPolicy']['V2_DEPENDENCY_FOR_PD_RESOLUTION']==0
+          assert c['terminalPolicy']['prescriptionDependentDistinctFromEvidenceUnresolved'] is True
+          assert c['terminalPolicy']['terminalResolvableByPrescription'] is False
+          print('V3_ONLY_AND_TERMINAL_SEPARATION_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v3-step8a-semantic-contract-validation
+          path: |
+            exercise-db-canonical/step8a-pd-semantic-contract.md
+            exercise-db-canonical/step8a-pd-semantic-contract.json
+            exercise-db-canonical/step8a-pd-semantic-contract-validation.json

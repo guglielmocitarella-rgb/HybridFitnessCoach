@@ -1,0 +1,21 @@
+name: V3.10C R5 shard R4 ledger
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths: [tools/shard_r4_capability_ledger.py]
+permissions: {contents: write}
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: feature/exercise-db-v3, fetch-depth: 1}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python tools/shard_r4_capability_ledger.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exercise-db-canonical/r4-ledger-shards/
+          git commit -m "v3.10c-r5: persist lossless R4 ledger shards [skip ci]"
+          git push origin HEAD:feature/exercise-db-v3

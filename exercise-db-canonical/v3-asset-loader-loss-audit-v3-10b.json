@@ -1,0 +1,39 @@
+{
+  "phase": "V3.10B",
+  "silentSemanticLoss": 0,
+  "mappedCriticalDomains": [
+    "identity",
+    "category",
+    "group",
+    "equipmentRequirement",
+    "resistance",
+    "loadInput",
+    "assistanceInput",
+    "capability",
+    "legacyLevel",
+    "movementPatterns",
+    "prescription",
+    "skillRelations"
+  ],
+  "preservedUnresolvedStates": [
+    "UNKNOWN",
+    "NOT_APPLICABLE",
+    "VARIABLE",
+    "PRESCRIPTION_DEPENDENT",
+    "VARIANT_DEPENDENT",
+    "EVIDENCE_UNRESOLVED",
+    "SCHEMA_UNRESOLVED",
+    "IDENTITY_PROBLEM"
+  ],
+  "buildTimeOnlyFields": [
+    "canonicalName",
+    "aliases",
+    "engineMetadata",
+    "legacy",
+    "unresolved",
+    "provenance"
+  ],
+  "policy": "Build-time-only payload remains authoritative in the candidate and is structurally required by the loader; it is not silently reinterpreted as runtime semantics.",
+  "levelToCapabilityMapping": false,
+  "unknownTokenFallback": false
+}

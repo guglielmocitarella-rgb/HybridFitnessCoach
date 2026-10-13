@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "version": "V3.10C-R5-R-V10",
+  "stagedCapabilities": 80,
+  "stagedRecords": 20,
+  "differential": {
+    "newCapabilityEntries": 28,
+    "duplicateSemanticCapabilitiesSkipped": 52,
+    "newProcessedRecords": 7,
+    "preexistingProcessedRecordsInStaging": 13,
+    "authoritativeCapabilityTotal": 2537,
+    "researchLogTotal": 704
+  },
+  "integrity": {
+    "fieldDecisions": 2537,
+    "evidence": 2537,
+    "provenance": 2537,
+    "patch": 2537,
+    "cardinalityMatch": true,
+    "duplicateInsertion": false,
+    "candidateDbModified": false,
+    "runtimeDbModified": false,
+    "productionPathModified": false,
+    "workflowModified": false,
+    "actionsStarted": false
+  },
+  "result": "PROMOTION_DIFFERENTIAL_VALIDATED"
+}

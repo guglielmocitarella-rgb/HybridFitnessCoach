@@ -1,0 +1,33 @@
+{
+  "counts": {
+    "SUPPORTED": 2,
+    "SUPPORTED_WITH_LOSS": 3,
+    "SCHEMA_DEPENDENT": 1
+  },
+  "rows": [
+    {
+      "dimension": "reps",
+      "status": "SUPPORTED"
+    },
+    {
+      "dimension": "duration",
+      "status": "SUPPORTED"
+    },
+    {
+      "dimension": "load",
+      "status": "SUPPORTED_WITH_LOSS"
+    },
+    {
+      "dimension": "assistance",
+      "status": "SUPPORTED_WITH_LOSS"
+    },
+    {
+      "dimension": "distance",
+      "status": "SUPPORTED_WITH_LOSS"
+    },
+    {
+      "dimension": "multi-dimensional",
+      "status": "SCHEMA_DEPENDENT"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "phase": "V3.10C",
+  "differences": [
+    {
+      "id": "V310C-D1",
+      "classification": "UNEXPECTED_SELECTION_DRIFT",
+      "domain": "CAPABILITY",
+      "baseline": "V3.9R-B residual simulation permits legacyLevel fallback when native four-capability requirements are unresolved",
+      "nativeV3": "legacy level fallback forbidden; unresolved selection-critical capability fails closed",
+      "impact": "authoritative 630/10 baseline cannot be claimed for native V3 selection until capability semantics/data are resolved",
+      "severity": "S1"
+    }
+  ],
+  "globalUnknownRelaxation": false,
+  "legacyLevelFallbackIntroduced": false
+}

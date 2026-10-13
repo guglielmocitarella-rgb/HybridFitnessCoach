@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "strategy": "RECORD_FIRST_ENRICHMENT",
+  "selectionBlocker": "resistanceMode UNKNOWN",
+  "selectionMethod": "temporary multi-field score over all 127 residual candidates",
+  "screenedResistanceUnknown": 127,
+  "batch": "multi-field-scored-03",
+  "count": 15,
+  "records": [
+    {
+      "id": "ex-angled-half-lever",
+      "canonicalNameEn": "Angled Half Lever",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "core-control"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "equipment",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-box-jumps",
+      "canonicalNameEn": "Box Jumps",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "knee-dominant"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        },
+        {
+          "field": "level",
+          "value": "Intermedio",
+          "confidence": "HIGH",
+          "source": "ACE_EXERCISE_LIBRARY"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-floor-half-lever",
+      "canonicalNameEn": "Floor Half Lever",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "core-control"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "equipment",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-half-lever",
+      "canonicalNameEn": "Half Lever",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "core-control"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "equipment",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-half-lever-bicycles",
+      "canonicalNameEn": "Half-Lever Bicycles",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "core-control"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "equipment",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-half-lever-extensions",
+      "canonicalNameEn": "Half-Lever Extensions",
+      "missingFieldsBefore": [
+        "equipment",
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "core-control"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "equipment",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-hamstring-ball-curl",
+      "canonicalNameEn": "Hamstring Ball Curl",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "hinge"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        },
+        {
+          "field": "level",
+          "value": "Intermedio",
+          "confidence": "HIGH",
+          "source": "ACE_EXERCISE_LIBRARY"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-medicine-ball-clean",
+      "canonicalNameEn": "Medicine Ball Clean",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "movementPattern",
+          "value": [
+            "hinge"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-muscle-up",
+      "canonicalNameEn": "Muscle-Up",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-normal-muscle-up",
+      "canonicalNameEn": "Normal Muscle-Up",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "skillLink",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-stability-ball-abdominal-crunch",
+      "canonicalNameEn": "Stability Ball Abdominal Crunch",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "level",
+          "value": "Principiante",
+          "confidence": "HIGH",
+          "source": "ACE_EXERCISE_LIBRARY"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-stability-ball-bridge-to-curl",
+      "canonicalNameEn": "Stability Ball Bridge to Curl",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "hinge"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-stability-ball-pike",
+      "canonicalNameEn": "Stability Ball Pike",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "level",
+          "value": "Avanzato",
+          "confidence": "HIGH",
+          "source": "ACE_EXERCISE_LIBRARY"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-stability-ball-reverse-back-extension",
+      "canonicalNameEn": "Stability Ball Reverse Back Extension",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "movementPattern",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [
+        {
+          "field": "resistanceMode",
+          "value": "BODYWEIGHT",
+          "confidence": "HIGH",
+          "source": "V2_EQUIPMENT_RESISTANCE_RULE"
+        },
+        {
+          "field": "movementPattern",
+          "value": [
+            "hinge"
+          ],
+          "confidence": "HIGH",
+          "source": "V2_FAMILY_PATTERN_RULE"
+        },
+        {
+          "field": "level",
+          "value": "Avanzato",
+          "confidence": "HIGH",
+          "source": "ACE_EXERCISE_LIBRARY"
+        }
+      ],
+      "remainingIncompleteFields": [
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    },
+    {
+      "id": "ex-weighted-dip",
+      "canonicalNameEn": "Weighted Dip",
+      "missingFieldsBefore": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "resolvedFields": [],
+      "remainingIncompleteFields": [
+        "resistanceMode",
+        "level",
+        "techniqueCuesIt",
+        "commonErrorsIt"
+      ],
+      "fullyComplete": false
+    }
+  ],
+  "summary": {
+    "recordsAnalyzed": 15,
+    "recordsFullyComplete": 0,
+    "fieldsResolvedTotal": 26,
+    "equipmentResolved": 0,
+    "resistanceModeResolved": 11,
+    "movementPatternResolved": 10,
+    "levelResolved": 5,
+    "skillLinkResolved": 0,
+    "descriptionResolved": 0,
+    "setupResolved": 0,
+    "executionResolved": 0,
+    "techniqueCuesResolved": 0,
+    "commonErrorsResolved": 0,
+    "recordsStillPartial": 15
+  }
+}

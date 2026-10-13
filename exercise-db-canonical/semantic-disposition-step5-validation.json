@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "V3.10C-STEP5-VALIDATION-1",
+  "result": "PASS",
+  "baseline": {
+    "universe": 3835,
+    "resolvedInUniverse": 3787,
+    "terminalInUniverse": 48,
+    "trueMissing": 0,
+    "materializedAuthoritativeInUniverse": "3787/3787"
+  },
+  "semanticDisposition": {
+    "prescriptionDependentVsScalar": {
+      "found": 55,
+      "resolved": 55,
+      "blockers": 0
+    },
+    "r3VsR5": {
+      "found": 9,
+      "resolved": 9,
+      "blockers": 0
+    },
+    "precedenceRequired": 0
+  },
+  "prescriptionDependentAudit": {
+    "expected": 441,
+    "observed": 441,
+    "preserved": 441,
+    "anomalies": 0,
+    "schemaCompatibility": "PASS",
+    "candidateBuilderCompatibility": "PASS"
+  },
+  "orphanRedundant": {
+    "orphan": 148,
+    "orphanDisposition": "EXCLUDED_NO_TARGET",
+    "redundant": 2,
+    "redundantDisposition": "NO_OP"
+  },
+  "research": {
+    "newQueries": 0,
+    "newProvenance": 0
+  },
+  "determinism": "validator computes stable SHA-256 over sorted disposition tuples; run twice must match"
+}

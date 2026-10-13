@@ -1,0 +1,422 @@
+package com.hybridfitnesscoach.app
+import kotlin.math.roundToInt
+enum class EvidenceType { GUIDELINE, TEXTBOOK, TECHNIQUE_MANUAL, PROGRESSION_REFERENCE, INTERNAL_OBSERVATION }
+data class EvidenceRef(val sourceId:String,val sourceTitle:String,val section:String?=null,val pageOrLocation:String?=null,val evidenceType:EvidenceType)
+data class ExerciseEvidence(val exerciseName:String,val technique:List<EvidenceRef> = emptyList(),val anatomy:List<EvidenceRef> = emptyList(),val prescription:List<EvidenceRef> = emptyList(),val progression:List<EvidenceRef> = emptyList()){val all:List<EvidenceRef> get()=(technique+anatomy+prescription+progression).distinct()}
+enum class EvidenceCoverage { NONE, TECHNIQUE_ONLY, PRESCRIPTION_ONLY, PARTIAL, COMPLETE }
+data class EvidenceAudit(val totalExercises:Int,val exercisesWithAnyEvidence:Int,val exercisesWithPrescriptionEvidence:Int,val completeExercises:Int,val missingExerciseNames:List<String>) {
+ val anyCoveragePercent:Int get()=if(totalExercises==0)100 else exercisesWithAnyEvidence*100/totalExercises
+ val prescriptionCoveragePercent:Int get()=if(totalExercises==0)100 else exercisesWithPrescriptionEvidence*100/totalExercises
+ val completeCoveragePercent:Int get()=if(totalExercises==0)100 else completeExercises*100/totalExercises
+}
+private fun isEligibleResistanceExercise(exercise:Exercise):Boolean =
+ exercise.measure==ExerciseMeasure.REPS &&
+ exercise.category in setOf(ExerciseCategory.PUSH,ExerciseCategory.PULL,ExerciseCategory.LEGS,ExerciseCategory.CORE) &&
+ exercise.resistanceMode!=ResistanceMode.NONE
+object ExerciseEvidenceRegistry {
+ private val entries:Map<String,ExerciseEvidence> = emptyMap()
+ private val acsmResistancePrescription=EvidenceRef(
+  sourceId="acsm-getp-12-ch5-rt",
+  sourceTitle="ACSM's Guidelines for Exercise Testing and Prescription, 12th ed.",
+  section="Chapter 5 — Resistance Training: frequency and volume recommendations",
+  pageOrLocation="physical PDF pages 353 and 360",
+  evidenceType=EvidenceType.GUIDELINE
+ )
+ private val acsm2026ResistancePositionStand=EvidenceRef(
+  sourceId="acsm-2026-resistance-training-position-stand",
+  sourceTitle="Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews",
+  section="ACSM Position Stand — general resistance-training prescription",
+  pageOrLocation="ACSM official Position Stand, published 2026",
+  evidenceType=EvidenceType.GUIDELINE
+ )
+ private fun isResistanceExercise(exercise:Exercise):Boolean = isEligibleResistanceExercise(exercise)
+ fun evidenceFor(exerciseName:String):ExerciseEvidence?=entries[exerciseName]
+ fun evidenceFor(exercise:Exercise):ExerciseEvidence? {
+  entries[exercise.name]?.let{return it}
+  return if(isResistanceExercise(exercise)) ExerciseEvidence(exercise.name,prescription=listOf(acsmResistancePrescription,acsm2026ResistancePositionStand)) else null
+ }
+ fun coverage(exercise:Exercise):EvidenceCoverage {
+  val e=evidenceFor(exercise)?:return EvidenceCoverage.NONE
+  val technique=e.technique.isNotEmpty() || e.anatomy.isNotEmpty()
+  val prescription=e.prescription.isNotEmpty()
+  val progression=e.progression.isNotEmpty()
+  return when {
+   technique && prescription && progression->EvidenceCoverage.COMPLETE
+   technique && prescription->EvidenceCoverage.PARTIAL
+   technique->EvidenceCoverage.TECHNIQUE_ONLY
+   prescription->EvidenceCoverage.PRESCRIPTION_ONLY
+   else->EvidenceCoverage.NONE
+  }
+ }
+ fun audit(catalog:List<Exercise>):EvidenceAudit {
+  val unique=catalog.distinctBy{it.name}
+  val covered=unique.filter{evidenceFor(it)?.all?.isNotEmpty()==true}
+  val prescription=unique.filter{evidenceFor(it)?.prescription?.isNotEmpty()==true}
+  val complete=unique.filter{coverage(it)==EvidenceCoverage.COMPLETE}
+  return EvidenceAudit(unique.size,covered.size,prescription.size,complete.size,unique.filter{evidenceFor(it)?.all?.isNotEmpty()!=true}.map{it.name}.sorted())
+ }
+}
+
+data class PrescriptionContext(val goal:String,val capabilityLevel:Int,val fatigue:Int,val recentPerformance:Double?,val recoveryStatus:Int?)
+data class SourcePrescriptionBaseline(val sets:Int,val repsOrDuration:Double,val loadKg:Double?=null,val rirOrRpe:Double?=null,val restSeconds:Int,val tempo:String?=null,val evidence:List<EvidenceRef>){init{require(sets>0);require(repsOrDuration>0);require(restSeconds>0);require(evidence.isNotEmpty()){"A source-based baseline requires provenance"}}}
+object SourcePrescriptionBaselineRegistry {
+ private val compatibilityEvidence=EvidenceRef(
+  sourceId="ACSM12",
+  sourceTitle="ACSM's Guidelines for Exercise Testing and Prescription, 12th ed.",
+  section="Chapter 5 — Resistance Training",
+  pageOrLocation="Table 5.7",
+  evidenceType=EvidenceType.GUIDELINE
+ )
+ private fun evidenceFor(rule:ExerciseV2Guidance):EvidenceRef {
+  val source=ExerciseDbV2.sourceById(rule.sourceId)
+  return EvidenceRef(rule.sourceId,source?.title?:rule.sourceId,rule.scope,source?.locator,EvidenceType.GUIDELINE)
+ }
+ private fun restRule(scope:String):ExerciseV2Guidance? =
+  ExerciseDbV2.installedProgrammingGuidance().firstOrNull{it.scope.equals(scope,true)}
+ private fun restSeconds(rule:ExerciseV2Guidance?,preferred:Int):Int? {
+  if(rule==null)return null
+  val min=rule.guidance["min_seconds"]?.first
+  val max=rule.guidance["max_seconds"]?.last
+  return when {
+   min!=null && max!=null -> preferred.coerceIn(min,max)
+   min!=null -> maxOf(preferred,min)
+   max!=null -> minOf(preferred,max)
+   else -> null
+  }
+ }
+ fun baselineFor(exercise:Exercise,context:PrescriptionContext):SourcePrescriptionBaseline? {
+  if(!isEligibleResistanceExercise(exercise)) return null
+  val level=context.capabilityLevel.coerceIn(1,3)
+  val goal=context.goal.lowercase()
+  val scope=when {
+   goal.contains("forza")->"max_strength:resistance_training"
+   goal.contains("ipertrof")->"strength_endurance_or_hypertrophy:resistance_training"
+   else->null
+  }
+  val rule=scope?.let(::restRule)
+  val evidence=rule?.let{listOf(evidenceFor(it))}?:listOf(compatibilityEvidence)
+  return when {
+   level==1 -> SourcePrescriptionBaseline(2,10.0,null,null,restSeconds(rule,120)?:120,null,evidence)
+   goal.contains("ipertrof") -> SourcePrescriptionBaseline(3,10.0,null,null,restSeconds(rule,120)?:120,null,evidence)
+   goal.contains("forza") -> SourcePrescriptionBaseline(3,6.0,null,null,restSeconds(rule,180)?:180,null,evidence)
+   else -> null
+  }
+ }
+ fun prescribeIfVerified(exercise:Exercise,context:PrescriptionContext):ContextualPrescription? =
+  baselineFor(exercise,context)?.let{ContextualPrescriptionEngine.prescribe(it,context)}
+}
+
+
+data class ContextualPrescription(val sets:Int,val repsOrDuration:Double,val loadKg:Double?,val rirOrRpe:Double?,val restSeconds:Int,val tempo:String?,val progressionSuggestion:AdaptiveDecision,val evidence:List<EvidenceRef>,val explanation:String)
+object ContextualPrescriptionEngine {
+ fun prescribe(base:SourcePrescriptionBaseline,context:PrescriptionContext):ContextualPrescription{
+  val recovery=context.recoveryStatus?.coerceIn(0,100);val performance=context.recentPerformance?.coerceIn(0.0,1.0)
+  val decision=when{recovery!=null&&recovery<45->AdaptiveDecision.DELOAD;context.fatigue>=8||(performance!=null&&performance<0.65)->AdaptiveDecision.REGRESS;recovery!=null&&recovery>=70&&context.fatigue<=5&&(performance?:0.0)>=0.90->AdaptiveDecision.PROGRESS;else->AdaptiveDecision.MAINTAIN}
+  val setFactor=when(decision){AdaptiveDecision.DELOAD->0.70;AdaptiveDecision.REGRESS->0.85;else->1.0};val targetFactor=when(decision){AdaptiveDecision.DELOAD->0.90;AdaptiveDecision.REGRESS->0.95;AdaptiveDecision.PROGRESS->1.025;AdaptiveDecision.MAINTAIN->1.0};val restFactor=when(decision){AdaptiveDecision.DELOAD->1.10;AdaptiveDecision.REGRESS->1.05;else->1.0}
+  return ContextualPrescription((base.sets*setFactor).roundToInt().coerceAtLeast(1),(base.repsOrDuration*targetFactor).coerceAtLeast(1.0),base.loadKg?.let{(it*targetFactor*2.0).roundToInt()/2.0},base.rirOrRpe,(base.restSeconds*restFactor).roundToInt().coerceAtLeast(base.restSeconds),base.tempo,decision,base.evidence,when(decision){AdaptiveDecision.PROGRESS->"Baseline source-based adattata per trend positivo stabile";AdaptiveDecision.MAINTAIN->"Baseline source-based mantenuta";AdaptiveDecision.REGRESS->"Baseline source-based ridotta per performance/fatica";AdaptiveDecision.DELOAD->"Baseline source-based ridotta per recupero insufficiente"})
+ }
+}
+enum class PlannedWorkoutState { PLANNED, COMPLETED, PARTIAL, SKIPPED, RESCHEDULED, ADAPTED }
+data class PlannedSessionIntent(
+ val goal:String,
+ val prioritySkills:List<String> = emptyList(),
+ val focusCategories:Set<ExerciseCategory> = emptySet(),
+ val sequenceInWeek:Int = 0
+) {
+ init { require(sequenceInWeek>=0) }
+ fun validated():PlannedSessionIntent = copy(
+  goal=normalizePlanGoal(goal),
+  prioritySkills=prioritySkills.map(String::trim).filter(String::isNotBlank).distinct()
+ )
+}
+data class PlannedWorkout(val id:String,val epochDay:Long,val weekIndex:Int,val sequenceInWeek:Int,val exercises:List<Exercise>,val state:PlannedWorkoutState=PlannedWorkoutState.PLANNED,val originalEpochDay:Long=epochDay,val adaptationReason:String?=null,val actualExecutionEpochDay:Long?=null,val intent:PlannedSessionIntent?=null)
+data class TrainingPlan(val id:String,val startEpochDay:Long,val weeks:Int,val daysPerWeek:Int,val workouts:List<PlannedWorkout>,val goal:String="Fitness generale",val trainingDays:Set<Int> = defaultTrainingDays(daysPerWeek),val prioritySkills:List<String> = emptyList())
+data class CalendarDayState(val epochDay:Long,val inMonth:Boolean,val isToday:Boolean,val workouts:List<PlannedWorkout>) {
+ val states:Set<PlannedWorkoutState> get()=workouts.map{it.state}.toSet()
+}
+data class CalendarMonthState(val year:Int,val month:Int,val title:String,val days:List<CalendarDayState>) {
+ init { require(days.size==42) }
+}
+data class CalendarWorkoutActions(val canStart:Boolean,val canSkip:Boolean,val canReschedule:Boolean,val canRestoreOriginalDate:Boolean)
+internal fun calendarWorkoutActions(workout:PlannedWorkout):CalendarWorkoutActions {
+ val historical=workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL
+ val skipped=workout.state==PlannedWorkoutState.SKIPPED
+ return CalendarWorkoutActions(!historical&&!skipped,!historical&&!skipped,!historical,!historical&&workout.epochDay!=workout.originalEpochDay)
+}
+internal val calendarLegendStates=listOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED,PlannedWorkoutState.ADAPTED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL,PlannedWorkoutState.SKIPPED)
+
+internal fun calendarMonthState(plan:TrainingPlan,year:Int,month:Int,today:Long):CalendarMonthState {
+ val first=java.time.LocalDate.of(year,month,1)
+ val gridStart=first.minusDays((first.dayOfWeek.value-1).toLong())
+ val days=(0L until 42L).map{offset->
+  val date=gridStart.plusDays(offset);val epoch=date.toEpochDay()
+  CalendarDayState(epoch,date.monthValue==month,epoch==today,plan.workouts.filter{it.epochDay==epoch}.sortedWith(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek}))
+ }
+ val title=first.month.getDisplayName(java.time.format.TextStyle.FULL,java.util.Locale.ITALIAN).replaceFirstChar{it.uppercase()}
+ return CalendarMonthState(year,month,"$title $year",days)
+}
+internal fun shiftCalendarMonth(year:Int,month:Int,delta:Int):Pair<Int,Int> {
+ val shifted=java.time.YearMonth.of(year,month).plusMonths(delta.toLong())
+ return shifted.year to shifted.monthValue
+}
+data class PreviewNavigationState(val exerciseName:String?,val scrollIndex:Int)
+internal fun previewNavigationAfterGeneration(generated:List<Exercise>):PreviewNavigationState =
+ PreviewNavigationState(generated.firstOrNull()?.name,if(generated.isEmpty())-1 else 0)
+enum class HomePlanStatus { NO_PLAN, TODAY, UPCOMING, NO_FUTURE }
+data class HomePlanState(
+ val active:Boolean,
+ val todayWorkout:PlannedWorkout?,
+ val nextWorkout:PlannedWorkout?,
+ val status:HomePlanStatus,
+ val primaryLabel:String,
+ val secondaryLabel:String?
+)
+internal fun deriveHomePlanState(plan:TrainingPlan?,today:Long):HomePlanState {
+ if(plan==null)return HomePlanState(false,null,null,HomePlanStatus.NO_PLAN,"Nessun programma attivo",null)
+ val actionable=plan.workouts.filter{
+  it.state !in setOf(PlannedWorkoutState.SKIPPED,PlannedWorkoutState.COMPLETED,PlannedWorkoutState.PARTIAL)
+ }
+ val todayWorkout=actionable
+  .filter{it.epochDay==today}
+  .minWithOrNull(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek})
+ val nextWorkout=actionable
+  .filter{it.epochDay>today}
+  .minWithOrNull(compareBy<PlannedWorkout>{it.epochDay}.thenBy{it.weekIndex}.thenBy{it.sequenceInWeek})
+ val status=when {
+  todayWorkout!=null -> HomePlanStatus.TODAY
+  nextWorkout!=null -> HomePlanStatus.UPCOMING
+  else -> HomePlanStatus.NO_FUTURE
+ }
+ val primary=when(status) {
+  HomePlanStatus.TODAY -> "Sessione di oggi"
+  HomePlanStatus.UPCOMING -> "Nessuna sessione pianificata per oggi"
+  HomePlanStatus.NO_FUTURE -> "Programma senza sessioni future"
+  HomePlanStatus.NO_PLAN -> "Nessun programma attivo"
+ }
+ val secondary=nextWorkout?.let{"Prossima sessione disponibile"}
+ return HomePlanState(true,todayWorkout,nextWorkout,status,primary,secondary)
+}
+
+data class PlanConfiguration(
+ val goal:String,
+ val weeks:Int=8,
+ val daysPerWeek:Int,
+ val trainingDays:Set<Int>,
+ val prioritySkills:List<String>
+) {
+ fun validated():PlanConfiguration {
+  require(weeks in 1..52)
+  require(daysPerWeek in 1..7)
+  require(trainingDays.size==daysPerWeek)
+  require(trainingDays.all{it in 1..7})
+  return copy(
+   goal=normalizePlanGoal(goal),
+   prioritySkills=prioritySkills.map{it.trim()}.filter{it.isNotBlank()}.distinct()
+  )
+ }
+ companion object {
+  fun defaults(weeks:Int=8,daysPerWeek:Int=3):PlanConfiguration {
+   val frequency=daysPerWeek.coerceIn(1,7)
+   return PlanConfiguration(
+    goal="Fitness generale",
+    weeks=weeks.coerceIn(1,52),
+    daysPerWeek=frequency,
+    trainingDays=defaultTrainingDays(frequency),
+    prioritySkills=emptyList()
+   ).validated()
+  }
+  fun fromPlan(plan:TrainingPlan):PlanConfiguration = PlanConfiguration(
+   goal=plan.goal,
+   weeks=plan.weeks,
+   daysPerWeek=plan.daysPerWeek,
+   trainingDays=plan.trainingDays,
+   prioritySkills=plan.prioritySkills
+  ).validated()
+ }
+}
+internal fun normalizePlanGoal(goal:String):String =
+ if(goal.isBlank()) "Fitness generale" else goal.trim()
+internal fun defaultTrainingDays(daysPerWeek:Int):Set<Int> {
+ require(daysPerWeek in 1..7)
+ return (0 until daysPerWeek).map{index->1+(index*7/daysPerWeek)}.toSet()
+}
+internal fun regenerateFuturePlan(plan:TrainingPlan,configuration:PlanConfiguration,today:Long):TrainingPlan {
+ val valid=configuration.validated()
+ val protected=plan.workouts.filter{
+  it.epochDay<today || it.state !in setOf(PlannedWorkoutState.PLANNED,PlannedWorkoutState.RESCHEDULED)
+ }
+ val protectedDates=protected.map{it.epochDay}.toSet()
+ val planEndExclusive=plan.startEpochDay+valid.weeks*7L
+ val futureStart=maxOf(today,plan.startEpochDay)
+ val regenerated=if(futureStart>=planEndExclusive) emptyList() else
+  (futureStart until planEndExclusive).filter{epochDay->
+   epochDay !in protectedDates && java.time.LocalDate.ofEpochDay(epochDay).dayOfWeek.value in valid.trainingDays
+  }.map{epochDay->
+   val weekIndex=((epochDay-plan.startEpochDay)/7L).toInt()
+   val weekStart=plan.startEpochDay+weekIndex*7L
+   val sequence=(weekStart until epochDay).count{day->
+    java.time.LocalDate.ofEpochDay(day).dayOfWeek.value in valid.trainingDays
+   }
+   PlannedWorkout(
+    id=plan.id+"-r"+epochDay,
+    epochDay=epochDay,
+    weekIndex=weekIndex,
+    sequenceInWeek=sequence,
+    exercises=emptyList(),
+    intent=PlannedSessionIntent(valid.goal,valid.prioritySkills,emptySet(),sequence).validated()
+   )
+  }
+ return plan.copy(
+  weeks=valid.weeks,daysPerWeek=valid.daysPerWeek,goal=valid.goal,trainingDays=valid.trainingDays,prioritySkills=valid.prioritySkills,
+  workouts=(protected+regenerated).sortedWith(compareBy<PlannedWorkout>{it.epochDay}.thenBy{it.weekIndex}.thenBy{it.sequenceInWeek})
+ )
+}
+internal fun AthleteProfile.forPlan(configuration:PlanConfiguration):AthleteProfile {
+ val valid=configuration.validated()
+ return copy(goal=valid.goal,daysPerWeek=valid.daysPerWeek,prioritySkills=valid.prioritySkills)
+}
+object TrainingPlanEngine {
+ fun schedule(planId:String,startEpochDay:Long,weeks:Int,trainingDays:Set<Int>,workoutFactory:(week:Int,session:Int)->List<Exercise>):TrainingPlan{
+  require(weeks in 1..52);require(trainingDays.isNotEmpty());require(trainingDays.all{it in 1..7});val startDayOfWeek=java.time.LocalDate.ofEpochDay(startEpochDay).dayOfWeek.value;val sorted=trainingDays.sortedBy{(it-startDayOfWeek+7)%7}
+  val workouts=buildList{for(week in 0 until weeks)sorted.forEachIndexed{session,dayOfWeek->val offset=((dayOfWeek-startDayOfWeek+7)%7)+week*7L;add(PlannedWorkout(planId+"-w"+(week+1)+"-s"+(session+1),startEpochDay+offset,week,session,workoutFactory(week,session)))}}
+  return TrainingPlan(planId,startEpochDay,weeks,sorted.size,workouts)
+ }
+ /** Creates an initial calendar from the creation date. Recovery-based changes belong to AdaptiveScheduler. */
+ fun scheduleImmediately(planId:String,startEpochDay:Long,weeks:Int,sessionsPerWeek:Int,availableWeekdays:Set<Int>?=null,workoutFactory:(week:Int,session:Int)->List<Exercise>):TrainingPlan{
+  require(weeks in 1..52);require(sessionsPerWeek in 1..7)
+  require(availableWeekdays==null || (availableWeekdays.size>=sessionsPerWeek && availableWeekdays.all{it in 1..7}))
+  val workouts=buildList{
+   for(week in 0 until weeks){
+    val weekStart=startEpochDay+week*7L
+    val candidateDays=(0..6).filter{offset->availableWeekdays==null || java.time.LocalDate.ofEpochDay(weekStart+offset).dayOfWeek.value in availableWeekdays}
+    val selected=if(availableWeekdays==null)(0 until sessionsPerWeek).map{it*7/sessionsPerWeek} else candidateDays.take(sessionsPerWeek)
+    selected.forEachIndexed{session,offset->add(PlannedWorkout(planId+"-w"+(week+1)+"-s"+(session+1),weekStart+offset,week,session,workoutFactory(week,session)))}
+   }
+  }
+  return TrainingPlan(planId,startEpochDay,weeks,sessionsPerWeek,workouts)
+ }
+ fun reschedule(plan:TrainingPlan,workoutId:String,newEpochDay:Long,minimumGapDays:Int=1):TrainingPlan {
+  require(minimumGapDays>=0)
+  val ordered=plan.workouts.sortedWith(compareBy<PlannedWorkout>{it.weekIndex}.thenBy{it.sequenceInWeek})
+  val pending=ordered.filter{it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL && (it.state!=PlannedWorkoutState.SKIPPED || it.id==workoutId)}
+  val index=pending.indexOfFirst{it.id==workoutId}
+  if(index<0)return plan
+  val occupied=ordered.filter{it !in pending}.map{it.epochDay}.toSet()
+  fun gap(a:PlannedWorkout,b:PlannedWorkout)=maxOf(1L,minimumGapDays.toLong(),b.originalEpochDay-a.originalEpochDay)
+  fun freeDate(date:Long):Long {var day=date;while(day in occupied)day++;return day}
+  val changes=mutableMapOf<String,PlannedWorkout>()
+  var preceding=pending.getOrNull(index-1)
+  val targetOriginal=pending[index].originalEpochDay
+  val cascadeDelta=newEpochDay-targetOriginal
+  pending.drop(index).forEachIndexed { offset,item ->
+   // Rebuild the edited suffix from immutable original dates. This makes the
+   // cascade reversible: restoring any session also restores every later
+   // pending session to its original relative position.
+   val requested=if(offset==0)newEpochDay else item.originalEpochDay+cascadeDelta
+   val earliest=preceding?.let{it.epochDay+gap(it,item)}?:requested
+   val date=freeDate(maxOf(requested,earliest))
+   val updated=if(date==item.epochDay)item else item.copy(
+    epochDay=date,
+    state=if(date==item.originalEpochDay)PlannedWorkoutState.PLANNED else PlannedWorkoutState.RESCHEDULED,
+    adaptationReason="Sequenza e intervalli del programma preservati"
+   )
+   changes[item.id]=updated
+   preceding=updated
+  }
+  return plan.copy(workouts=ordered.map{changes[it.id]?:it})
+ }
+ fun restoreOriginalDate(plan:TrainingPlan,workoutId:String,minimumGapDays:Int=0):TrainingPlan {
+  val target=plan.workouts.firstOrNull{it.id==workoutId}?:return plan
+  if(target.state==PlannedWorkoutState.COMPLETED || target.state==PlannedWorkoutState.PARTIAL)return plan
+  return reschedule(plan,workoutId,target.originalEpochDay,minimumGapDays)
+ }
+ fun skip(plan:TrainingPlan,workoutId:String):TrainingPlan=plan.copy(workouts=plan.workouts.map{if(it.id==workoutId && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL)it.copy(state=PlannedWorkoutState.SKIPPED)else it})
+}
+
+enum class ScheduleAction { KEEP_DATE, MOVE_EARLIER, MOVE_LATER, SKIP, RESCHEDULE, ADAPT_SESSION }
+data class ScheduleDecision(val workoutId:String,val originalDate:Long,val currentDate:Long,val suggestedDate:Long,val action:ScheduleAction,val reason:String)
+data class ScheduleUpdate(val plan:TrainingPlan,val decisions:List<ScheduleDecision>)
+
+object PlannedWorkoutReconciler {
+ fun afterDeletion(plan:TrainingPlan,deleted:SessionRecord,remaining:List<SessionRecord>):TrainingPlan {
+  val id=deleted.plannedWorkoutId ?: return plan
+  if(remaining.any{it.plannedWorkoutId==id})return plan
+  return plan.copy(workouts=plan.workouts.map{workout->
+   if(workout.id==id && (workout.state==PlannedWorkoutState.COMPLETED || workout.state==PlannedWorkoutState.PARTIAL))
+    workout.copy(state=if(workout.epochDay!=workout.originalEpochDay) PlannedWorkoutState.RESCHEDULED else PlannedWorkoutState.PLANNED,actualExecutionEpochDay=null)
+   else workout
+  })
+ }
+ fun findCandidate(plan:TrainingPlan,session:SessionRecord,executionEpochDay:Long):PlannedWorkout? {
+  if(session.completedSets<=0 || session.profileName.startsWith("Personalizzato",ignoreCase=true))return null
+  val id=session.plannedWorkoutId ?: return null
+  return plan.workouts.firstOrNull{
+   it.id==id && (it.state==PlannedWorkoutState.PLANNED || it.state==PlannedWorkoutState.RESCHEDULED)
+  }
+ }
+ fun complete(plan:TrainingPlan,session:SessionRecord,executionEpochDay:Long,minimumGapDays:Int):ScheduleUpdate {
+  val target=findCandidate(plan,session,executionEpochDay) ?: return ScheduleUpdate(plan,emptyList())
+  return AdaptiveScheduler.complete(plan,target.id,executionEpochDay,minimumGapDays,if(session.completedSets<session.totalSets)PlannedWorkoutState.PARTIAL else PlannedWorkoutState.COMPLETED)
+ }
+}
+object AdaptiveScheduler {
+ fun skip(plan:TrainingPlan,workoutId:String):ScheduleUpdate {
+  val item=plan.workouts.firstOrNull{it.id==workoutId}?:return ScheduleUpdate(plan,emptyList())
+  if(item.state==PlannedWorkoutState.SKIPPED || item.state==PlannedWorkoutState.COMPLETED || item.state==PlannedWorkoutState.PARTIAL)return ScheduleUpdate(plan,emptyList())
+  val updated=plan.copy(workouts=plan.workouts.map{if(it.id==workoutId)it.copy(state=PlannedWorkoutState.SKIPPED)else it})
+  return ScheduleUpdate(updated,listOf(ScheduleDecision(item.id,item.originalEpochDay,item.epochDay,item.epochDay,ScheduleAction.SKIP,"Sessione saltata; piano successivo mantenuto")))
+ }
+ /** minimumGapDays must come from the caller's validated recovery prescription. */
+ fun complete(plan:TrainingPlan,workoutId:String,actualEpochDay:Long,minimumGapDays:Int,completionState:PlannedWorkoutState=PlannedWorkoutState.COMPLETED):ScheduleUpdate {
+  require(completionState==PlannedWorkoutState.COMPLETED || completionState==PlannedWorkoutState.PARTIAL)
+  require(minimumGapDays>=0)
+  val target=plan.workouts.firstOrNull{it.id==workoutId}?:return ScheduleUpdate(plan,emptyList())
+  if(target.state==PlannedWorkoutState.COMPLETED || target.state==PlannedWorkoutState.PARTIAL)return ScheduleUpdate(plan,emptyList())
+  val future=plan.workouts.filter{it.id!=workoutId && it.state!=PlannedWorkoutState.COMPLETED && it.state!=PlannedWorkoutState.PARTIAL && it.state!=PlannedWorkoutState.SKIPPED && it.epochDay>=target.epochDay}.sortedBy{it.epochDay}
+  val decisions=mutableListOf<ScheduleDecision>()
+  var precedingDate=actualEpochDay
+  for(next in future){
+   val suggested=maxOf(next.epochDay,precedingDate+minimumGapDays)
+   if(suggested>next.epochDay)decisions.add(ScheduleDecision(next.id,next.originalEpochDay,next.epochDay,suggested,ScheduleAction.MOVE_LATER,"Recupero dopo la sessione eseguita"))
+   precedingDate=suggested
+  }
+  val moves=decisions.associateBy{it.workoutId}
+  val changed=plan.workouts.map{item->val decision=moves[item.id];when{
+   item.id==workoutId->item.copy(state=completionState,actualExecutionEpochDay=actualEpochDay)
+   decision!=null->item.copy(epochDay=decision.suggestedDate,state=PlannedWorkoutState.RESCHEDULED,adaptationReason=decision.reason)
+   else->item
+  }}
+  return ScheduleUpdate(plan.copy(workouts=changed),decisions)
+ }
+}
+
+data class ExerciseStats(val sessions:Int,val completedSets:Int,val totalReps:Int,val totalSeconds:Int,val totalLoadVolumeKg:Double,val maxLoadKg:Double?)
+object ExerciseStatistics {
+ fun fromHistory(exerciseName:String,history:List<SessionRecord>):ExerciseStats {
+  val entries=history.flatMap{session->session.structuredExercises.filter{it.exerciseName.equals(exerciseName,ignoreCase=true)}.map{session.timestamp to it}}
+  val sets=entries.flatMap{(_,exercise)->exercise.sets.filter{it.completed}}
+  val loads=sets.mapNotNull{it.actualLoadKg}
+  return ExerciseStats(entries.map{it.first}.distinct().size,sets.size,sets.sumOf{it.actualReps?:0},sets.sumOf{it.actualSeconds?:0},sets.sumOf{(it.actualReps?:0)*(it.actualLoadKg?:0.0)},loads.maxOrNull())
+ }
+}
+
+enum class VideoVerificationState { PENDING, VERIFIED, REJECTED }
+data class ExerciseVideo(val exerciseName:String,val videoUrl:String,val videoProvider:String,val videoId:String,val thumbnailUrl:String?=null,val verificationState:VideoVerificationState=VideoVerificationState.PENDING)
+data class ExerciseVideoAudit(val totalExercises:Int,val verifiedExercises:Int,val missingExerciseNames:List<String>,val duplicateVerifiedExerciseNames:List<String>,val invalidVerifiedExerciseNames:List<String>)
+object ExerciseVideoCatalog {
+ val verifiedEntries:List<ExerciseVideo> = listOf(
+  ExerciseVideo("Plank","https://www.youtube.com/watch?v=Vdcy7VrRluA","ACE Fitness","Vdcy7VrRluA",verificationState=VideoVerificationState.VERIFIED)
+ )
+ private fun isStructurallyVerified(entry:ExerciseVideo):Boolean =
+  entry.verificationState==VideoVerificationState.VERIFIED && entry.videoUrl.startsWith("https://") && entry.videoProvider.isNotBlank() && entry.videoId.isNotBlank()
+ fun findVerified(name:String,entries:List<ExerciseVideo>):ExerciseVideo? =
+  entries.firstOrNull{it.exerciseName.equals(name,ignoreCase=true) && isStructurallyVerified(it)}
+ fun audit(exercises:List<Exercise>,entries:List<ExerciseVideo> = verifiedEntries):ExerciseVideoAudit {
+  val names=exercises.map{it.name}.distinct()
+  val verified=entries.filter(::isStructurallyVerified)
+  val duplicate=verified.groupBy{it.exerciseName.lowercase()}.filterValues{it.size>1}.keys.sorted()
+  val invalid=entries.filter{it.verificationState==VideoVerificationState.VERIFIED && !isStructurallyVerified(it)}.map{it.exerciseName}.distinct().sorted()
+  val covered=names.filter{name->verified.any{it.exerciseName.equals(name,ignoreCase=true)}}.toSet()
+  return ExerciseVideoAudit(names.size,covered.size,names.filterNot{it in covered}.sorted(),duplicate,invalid)
+ }
+}

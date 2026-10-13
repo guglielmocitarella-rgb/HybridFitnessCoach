@@ -1,0 +1,65 @@
+{
+  "validatedCommit": "a98ad715e569617a1226eca8e608a7a634254cfc",
+  "executionEnvironment": "github-actions",
+  "canonicalCount": 1087,
+  "canonicalUnique": 1087,
+  "canonicalMissing": 0,
+  "canonicalDuplicates": 0,
+  "historical500Meaning": "INSTRUCTION_COMPLETENESS_500",
+  "measureDistribution": {
+    "REPS": 889,
+    "SECONDS": 128,
+    "DURATION": 64,
+    "DISTANCE": 5,
+    "INTERVALS": 1
+  },
+  "worksetCount": 190,
+  "worksetUnique": 190,
+  "issueCount": 194,
+  "issuesByType": {
+    "RESISTANCE_INTERACTION_UNRESOLVED": 111,
+    "POSSIBLE_MOBILITY_AS_REPS": 8,
+    "POSSIBLE_HOLD_AS_REPS": 63,
+    "POSSIBLE_LOCOMOTION_AS_REPS": 12
+  },
+  "recordsPatched": 0,
+  "fieldsPatched": 0,
+  "patchesByField": {},
+  "certainPatches": 0,
+  "highConfidencePatches": 0,
+  "unresolvedCount": 194,
+  "unresolvedByReason": {
+    "UNRESOLVED_SCHEMA_DECISION_REQUIRED": 111,
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 83
+  },
+  "provenanceCoverage": 1,
+  "compatibilityMatrixResult": "PASS",
+  "runnerGapCounts": {
+    "SUPPORTED": 3,
+    "SUPPORTED_WITH_LOSS": 3,
+    "SCHEMA_DEPENDENT": 1,
+    "NOT_SUPPORTED": 1
+  },
+  "progressionGapCounts": {
+    "SUPPORTED": 2,
+    "SUPPORTED_WITH_LOSS": 3,
+    "SCHEMA_DEPENDENT": 1
+  },
+  "validatorCommand": "python tools/validate_exercise_db_canonical.py",
+  "validatorResult": "PASS",
+  "testCommand": "python -m unittest discover -s tests -p 'test_*.py' -v",
+  "testsExecuted": 78,
+  "testsPassed": 78,
+  "testsFailed": 0,
+  "testsErrors": 0,
+  "qualityReviewSampleSize": 1087,
+  "qualityReviewResult": "PASS_CONSERVATIVE",
+  "falsePositivesFound": 0,
+  "systematicIssuesFound": 4,
+  "correctionsApplied": 0,
+  "CI used": true,
+  "CI run ID": 37211507854,
+  "validated CI commit": "a98ad715e569617a1226eca8e608a7a634254cfc",
+  "temporaryWorkflowRemoved": true,
+  "domainStatus": "CLOSED_WITH_DOCUMENTED_UNRESOLVED"
+}

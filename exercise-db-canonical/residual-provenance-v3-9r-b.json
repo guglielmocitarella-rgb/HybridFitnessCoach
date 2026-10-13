@@ -1,0 +1,18 @@
+[
+  {
+    "ruleId": "V39RB-R1",
+    "target": "simulation environment equipment tokens",
+    "before": [
+      "pull-up bar",
+      "resistance band",
+      "assisted pull-up machine"
+    ],
+    "after": [
+      "pull_up_bar",
+      "resistance_band",
+      "assisted_pull_up_machine"
+    ],
+    "confidence": "HIGH",
+    "rationale": "Align fixture vocabulary with canonical equipment tokens; no production/runtime/data semantics changed."
+  }
+]

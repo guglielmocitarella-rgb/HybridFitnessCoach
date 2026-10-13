@@ -1,0 +1,13 @@
+{
+  "policy": "V3 native capability when fully evidenced; otherwise explicit audited legacy compatibility only",
+  "dimensionsPreserved": [
+    "strengthRequirement",
+    "technicalDifficulty",
+    "mobilityRequirement",
+    "balanceCoordinationRequirement"
+  ],
+  "blindLegacyMapping": false,
+  "emptyScenarios": 30,
+  "scenarioCount": 640,
+  "status": "NOT_READY_BLOCKED"
+}

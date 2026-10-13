@@ -1,0 +1,633 @@
+{
+  "schemaVersion": "1.0",
+  "baselineCommit": "c1b315922d347c3048990d51ba094ab8b403d1a7",
+  "frozenCandidateSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+  "auditedFunctions": [
+    "MainActivity.installExerciseDbV2/generateWorkout/generateWorkoutFromCatalogue/materializePlannedSession/generateTrainingPlan/onCreate/recoveryScores",
+    "ExerciseDbV2.load/toLegacyExercise/progressionRelations/resolveLegacy",
+    "WorkoutInfrastructure.customWorkoutCandidatePool/skillWorkoutFocusNames/applySkillMasteryPrescription/regenerateSkillWorkout/effectiveRunnerPrescription/effectiveAutomaticExercises/plannedWeekExercises/WorkoutRunnerEngine",
+    "V091Planning.SourcePrescriptionBaselineRegistry/ContextualPrescriptionEngine/TrainingPlanEngine/AdaptiveScheduler/ExerciseStatistics",
+    "CapabilityDimensions.AthleteProfile.toCapabilityProfile/capabilityLevelFor",
+    "EquipmentCatalog.requirementsFor",
+    "AppStore profile/location/active-workout/plans/sessions/progression persistence",
+    "V3AssetLoader",
+    "V3SelectionEngine.evaluate/pool/deterministicOrder/validSubstitutes",
+    "ExerciseV3Domain"
+  ],
+  "coverageMatrix": [
+    {
+      "id": "catalog_loading",
+      "index": 1,
+      "functionality": "Caricamento catalogo",
+      "classification": "V3_NATIVE_COMPLETE",
+      "entryPoint": "V3AssetLoader; MainActivity.onCreate",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "V3AssetLoader loads and validates ExerciseV3; runtime onCreate still installs V2.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "V3_NATIVE_COMPLETE",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "equipment_filtering",
+      "index": 2,
+      "functionality": "Filtraggio attrezzatura",
+      "classification": "V3_NATIVE_COMPLETE",
+      "entryPoint": "V3SelectionEngine.equipmentReasons",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "V3 equipment eligibility handles NONE, REQUIRED, OPTIONAL, ONE_OF, ASSISTED_BY and EXTERNAL_LOAD fail-closed.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "V3_NATIVE_COMPLETE",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "capabilities",
+      "index": 3,
+      "functionality": "Capacità fisiche e tecniche",
+      "classification": "REQUIRES_V3_ADAPTATION",
+      "entryPoint": "V3SelectionEngine; CapabilityDimensions",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "V3 evaluates strength/technical/mobility/balance, but no AthleteProfile -> V3AthleteCapabilities runtime mapper exists and current profile axes differ.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_ADAPTATION",
+      "gaps": [
+        "V3 evaluates strength/technical/mobility/balance, but no AthleteProfile -> V3AthleteCapabilities runtime mapper exists and current profile axes differ."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "skills_progressions",
+      "index": 4,
+      "functionality": "Skill e progressioni",
+      "classification": "V3_NATIVE_PARTIAL",
+      "entryPoint": "V3SelectionEngine.skillReasons; WorkoutInfrastructure",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "V3 typed skill relations filter family/node intent; current mastery/progression still derives from SkillCatalog/ProgressionEngine and history.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "V3_NATIVE_PARTIAL",
+      "gaps": [
+        "V3 typed skill relations filter family/node intent; current mastery/progression still derives from SkillCatalog/ProgressionEngine and history."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "athlete_goals",
+      "index": 5,
+      "functionality": "Obiettivi atleta",
+      "classification": "REQUIRES_V3_IMPLEMENTATION",
+      "entryPoint": "MainActivity.generateWorkoutFromCatalogue",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Current generator changes role priority by AthleteProfile.goal; V3 intent has categories/skill targets but no goal-aware ranking/composition.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_IMPLEMENTATION",
+      "gaps": [
+        "Current generator changes role priority by AthleteProfile.goal; V3 intent has categories/skill targets but no goal-aware ranking/composition."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "muscle_recovery",
+      "index": 6,
+      "functionality": "Recupero muscolare",
+      "classification": "REUSABLE_V2_INDEPENDENT",
+      "entryPoint": "MainActivity.recoveryScores",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "recoveryScores derives muscle fatigue from persisted structured snapshots/history; only its live-catalogue fallback is currently catalogue-bound.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REUSABLE_V2_INDEPENDENT",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "fatigue_readiness",
+      "index": 7,
+      "functionality": "Fatica e readiness",
+      "classification": "REUSABLE_V2_INDEPENDENT",
+      "entryPoint": "WorkoutInfrastructure; V091Planning",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Readiness/adaptive decisions and contextual prescription consume generic session/readiness signals.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REUSABLE_V2_INDEPENDENT",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "exercise_history",
+      "index": 8,
+      "functionality": "Storico esercizi",
+      "classification": "REUSABLE_V2_INDEPENDENT",
+      "entryPoint": "AppStore; ExerciseStatistics",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "SessionRecord structured actuals and ExerciseStatistics are selector-independent after materialization.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REUSABLE_V2_INDEPENDENT",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "repeat_penalty",
+      "index": 9,
+      "functionality": "Penalizzazione ripetizioni",
+      "classification": "REQUIRES_V3_ADAPTATION",
+      "entryPoint": "MainActivity.generateWorkoutFromCatalogue",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Current generator applies a last-3-session name penalty; V3 has no history-aware score.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_ADAPTATION",
+      "gaps": [
+        "Current generator applies a last-3-session name penalty; V3 has no history-aware score."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "ranking_priority",
+      "index": 10,
+      "functionality": "Ranking e priorità",
+      "classification": "REQUIRES_V3_IMPLEMENTATION",
+      "entryPoint": "MainActivity.generateWorkoutFromCatalogue; V3SelectionEngine.deterministicOrder",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Current generator has personalized weighted ordering; V3 deterministicOrder is only stable seeded ordering.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_IMPLEMENTATION",
+      "gaps": [
+        "Current generator has personalized weighted ordering; V3 deterministicOrder is only stable seeded ordering."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "diversification",
+      "index": 11,
+      "functionality": "Diversificazione proposte",
+      "classification": "REQUIRES_V3_IMPLEMENTATION",
+      "entryPoint": "V3SelectionEngine",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "V3 has no variety memory or diversity objective; current variety is incidental to penalties/pool composition.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_IMPLEMENTATION",
+      "gaps": [
+        "V3 has no variety memory or diversity objective; current variety is incidental to penalties/pool composition."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "workout_composition",
+      "index": 12,
+      "functionality": "Composizione workout",
+      "classification": "REQUIRES_V3_IMPLEMENTATION",
+      "entryPoint": "MainActivity.generateWorkoutFromCatalogue",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Current generator fills a session by goal roles/skill focus then sequences/coaches it; V3 pool does not compose workouts.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_IMPLEMENTATION",
+      "gaps": [
+        "Current generator fills a session by goal roles/skill focus then sequences/coaches it; V3 pool does not compose workouts."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "duration_volume",
+      "index": 13,
+      "functionality": "Durata e volume allenamento",
+      "classification": "REQUIRES_V3_ADAPTATION",
+      "entryPoint": "WorkoutInfrastructure",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Launch intent carries duration and current prescriptions/periodization carry volume; V3 lacks a session-level duration/volume budgeter.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_ADAPTATION",
+      "gaps": [
+        "Launch intent carries duration and current prescriptions/periodization carry volume; V3 lacks a session-level duration/volume budgeter."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "prescription",
+      "index": 14,
+      "functionality": "Prescrizione serie, ripetizioni, tempo, carico e recupero",
+      "classification": "V3_NATIVE_PARTIAL",
+      "entryPoint": "ExerciseV3Domain; V3SelectionEngine; effectiveRunnerPrescription",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "V3 has typed prescription dimensions and PD strength resolution; no native contextual set/rest/load materializer equivalent to current runtime.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "V3_NATIVE_PARTIAL",
+      "gaps": [
+        "V3 has typed prescription dimensions and PD strength resolution; no native contextual set/rest/load materializer equivalent to current runtime."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "custom_workouts",
+      "index": 15,
+      "functionality": "Allenamenti personalizzati",
+      "classification": "REQUIRES_V3_ADAPTATION",
+      "entryPoint": "customWorkoutCandidatePool; regenerateSkillWorkout",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Current custom/skill/library pools and regeneration operate on Exercise and current skill mastery.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_ADAPTATION",
+      "gaps": [
+        "Current custom/skill/library pools and regeneration operate on Exercise and current skill mastery."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "plan_generation",
+      "index": 16,
+      "functionality": "Generazione piani",
+      "classification": "REUSABLE_V2_INDEPENDENT",
+      "entryPoint": "TrainingPlanEngine; generateTrainingPlan",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "TrainingPlanEngine schedules intent/calendar independently of V2; concrete exercises are materialized later.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REUSABLE_V2_INDEPENDENT",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "session_materialization",
+      "index": 17,
+      "functionality": "Materializzazione sessioni",
+      "classification": "REQUIRES_V3_ADAPTATION",
+      "entryPoint": "materializePlannedSession; AppStore",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Current planned-session realization regenerates from Exercise catalogue and snapshots legacy Exercise.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_ADAPTATION",
+      "gaps": [
+        "Current planned-session realization regenerates from Exercise catalogue and snapshots legacy Exercise."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "workout_adaptation",
+      "index": 18,
+      "functionality": "Adattamento allenamenti",
+      "classification": "REUSABLE_V2_INDEPENDENT",
+      "entryPoint": "WorkoutInfrastructure; V091Planning",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "AdaptiveCoach, ContextualPrescriptionEngine and AdaptiveScheduler are reusable policy/history components; exercise-facing boundaries need V3 inputs.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REUSABLE_V2_INDEPENDENT",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "substitution",
+      "index": 19,
+      "functionality": "Sostituzione esercizi",
+      "classification": "V3_NATIVE_PARTIAL",
+      "entryPoint": "V3SelectionEngine.validSubstitutes",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "validSubstitutes enforces V3 eligibility and same category but lacks movement/family/goal/history quality ranking.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "V3_NATIVE_PARTIAL",
+      "gaps": [
+        "validSubstitutes enforces V3 eligibility and same category but lacks movement/family/goal/history quality ranking."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "runner_history",
+      "index": 20,
+      "functionality": "Runner e storico",
+      "classification": "REUSABLE_V2_INDEPENDENT",
+      "entryPoint": "WorkoutRunnerEngine; AppStore",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Runner executes materialized targets/snapshots and history stores actuals; selection is not required during execution.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REUSABLE_V2_INDEPENDENT",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "persistence_user_data",
+      "index": 21,
+      "functionality": "Persistence e dati utente",
+      "classification": "REQUIRES_V3_ADAPTATION",
+      "entryPoint": "AppStore",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "Profile/plans are mostly selector-independent; active/history snapshots serialize Exercise and progressionKey and need compatibility mapping/read paths.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "REQUIRES_V3_ADAPTATION",
+      "gaps": [
+        "Profile/plans are mostly selector-independent; active/history snapshots serialize Exercise and progressionKey and need compatibility mapping/read paths."
+      ],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    },
+    {
+      "id": "zero_pool",
+      "index": 22,
+      "functionality": "Gestione casi senza esercizi eleggibili",
+      "classification": "V3_NATIVE_COMPLETE",
+      "entryPoint": "V3SelectionEngine.pool",
+      "dataUsed": "Profile/location/history/readiness/catalogue as applicable; see evidence.",
+      "observableBehavior": "V3 pool explicitly distinguishes VALID_POOL, LEGITIMATE_ZERO_POOL and INVALID_ZERO_POOL and exposes rejection reasons.",
+      "v2OrLegacyDependency": "Classification distinguishes current model/loader coupling from reusable semantics.",
+      "v3Availability": "V3_NATIVE_COMPLETE",
+      "gaps": [],
+      "v3TransitionRequirement": "Preserve useful behavior through a native V3 boundary; no permanent V2 fallback."
+    }
+  ],
+  "coverageCounts": {
+    "V3_NATIVE_COMPLETE": 3,
+    "REQUIRES_V3_ADAPTATION": 6,
+    "V3_NATIVE_PARTIAL": 3,
+    "REQUIRES_V3_IMPLEMENTATION": 4,
+    "REUSABLE_V2_INDEPENDENT": 6
+  },
+  "gaps": [
+    {
+      "id": "G1",
+      "function": "Athlete profile to V3 capability context",
+      "evidence": "AthleteProfile.toCapabilityProfile maps legacy movement axes; V3 expects strength/technical/mobility/balance semantic values plus PD context.",
+      "available": "V3 capability requirements and PD resolver",
+      "toBuild": "Pure profile/context mapper with explicit unknown semantics and PD inputs",
+      "dependencies": [
+        "AthleteProfile",
+        "V3AthleteCapabilities",
+        "V3PdStrengthContext"
+      ],
+      "priority": "P0",
+      "tests": [
+        "axis mapping",
+        "unknown fail-closed",
+        "PD context"
+      ],
+      "acceptance": "All V3 eligibility requests derive capabilities without legacy levelScore/capabilityLevelFor."
+    },
+    {
+      "id": "G2",
+      "function": "History-aware personalized ranking",
+      "evidence": "Current generator scores repetition, muscle recovery, priority skill and planned-name avoidance; V3 deterministicOrder is not personalized.",
+      "available": "Eligible V3 pool plus deterministic tie-breaker",
+      "toBuild": "Explainable V3 ranking using goal/history/recovery/readiness/skill/plan context",
+      "dependencies": [
+        "G1",
+        "SessionRecord",
+        "recovery/readiness"
+      ],
+      "priority": "P0",
+      "tests": [
+        "recent penalty",
+        "recovery penalty",
+        "goal/skill priority",
+        "deterministic ties"
+      ],
+      "acceptance": "Ranking is personalized, deterministic for equal context and exposes score reasons."
+    },
+    {
+      "id": "G3",
+      "function": "Diversity memory and workout composition",
+      "evidence": "V3 pool returns eligible exercises only; current generator composes up to six and diversity is a score/order side effect.",
+      "available": "V3 pool and future ranking",
+      "toBuild": "Composer with balance, duplicate-family limits, duration/volume budget, bounded variety memory and explicit relaxation",
+      "dependencies": [
+        "G2",
+        "V3 metadata",
+        "launch intent"
+      ],
+      "priority": "P0",
+      "tests": [
+        "multi-session diversity",
+        "small pool",
+        "movement balance",
+        "duration budget"
+      ],
+      "acceptance": "Complete workouts are produced when feasible and constraint relaxation is explainable."
+    },
+    {
+      "id": "G4",
+      "function": "Native V3 prescription/materialization",
+      "evidence": "V3 prescription describes dimensions; current effectiveRunnerPrescription/plannedExerciseState create executable sets/rest and contextual adaptation.",
+      "available": "V3 dimensions and PD resolver",
+      "toBuild": "V3 contextual prescription resolver and Runner materializer for reps/time/distance/load/assistance/rest/open-ended",
+      "dependencies": [
+        "G1",
+        "G3",
+        "Runner state"
+      ],
+      "priority": "P0",
+      "tests": [
+        "all measures",
+        "required load/assistance",
+        "open-ended",
+        "readiness",
+        "restore"
+      ],
+      "acceptance": "Composed V3 workouts materialize executable Runner state without V2/legacy prescription functions."
+    },
+    {
+      "id": "G5",
+      "function": "Skill mastery/progression bridge",
+      "evidence": "Current SkillCatalog/ProgressionEngine derives mastery from history; V3 skill relations currently filter targets.",
+      "available": "Typed V3 skill relations",
+      "toBuild": "Canonical V3 mastery/focus resolver and progression-aware ranking/prescription",
+      "dependencies": [
+        "history",
+        "V3 relations",
+        "G2",
+        "G4"
+      ],
+      "priority": "P1",
+      "tests": [
+        "locked/available/in-progress/mastered",
+        "progress/regress",
+        "equipment/location"
+      ],
+      "acceptance": "Skill workouts select reachable canonical nodes without V2."
+    },
+    {
+      "id": "G6",
+      "function": "User-data identity compatibility",
+      "evidence": "Active/history structured exercises contain name, exerciseId/progressionKey and full legacy Exercise snapshot; plans persist intent rather than concrete exercises.",
+      "available": "Canonical V3 IDs and StoreRecovery",
+      "toBuild": "Legacy snapshot reader plus canonical mapping policy; preserve raw historical snapshot",
+      "dependencies": [
+        "canonical mapping",
+        "AppStore codecs"
+      ],
+      "priority": "P0 before switch",
+      "tests": [
+        "old active restore",
+        "old history",
+        "unknown legacy identity",
+        "plan intent",
+        "no destructive rewrite"
+      ],
+      "acceptance": "Existing data stays readable/executable where appropriate without a V2 selector."
+    },
+    {
+      "id": "G7",
+      "function": "V3 custom/library/substitution integration",
+      "evidence": "Current custom/regeneration paths use Exercise; V3 substitution quality is category-only.",
+      "available": "V3 eligibility and validSubstitutes",
+      "toBuild": "V3 custom filters, skill focus and quality-aware substitution ranking",
+      "dependencies": [
+        "G2",
+        "G3",
+        "G5"
+      ],
+      "priority": "P1",
+      "tests": [
+        "custom filters",
+        "skill focus",
+        "pinned items",
+        "semantic substitutions"
+      ],
+      "acceptance": "All launch origins resolve through V3-only selection/composition."
+    },
+    {
+      "id": "G8",
+      "function": "Zero-pool UX/diagnostics bridge",
+      "evidence": "V3 distinguishes legitimate and invalid zero pools with rejection reasons; current runtime flows do not consume that status.",
+      "available": "V3SelectionPool status/rejections",
+      "toBuild": "Application relaxation/error policy and user-facing diagnostic mapping",
+      "dependencies": [
+        "G3",
+        "launch flows"
+      ],
+      "priority": "P1",
+      "tests": [
+        "legitimate empty",
+        "invalid context",
+        "equipment/capability explanation"
+      ],
+      "acceptance": "No silent empty workout; caller distinguishes legitimate empty intent from invalid context."
+    }
+  ],
+  "repetitionAnalysis": {
+    "observedInCode": [
+      "Current automatic generation counts names in the three most recent sessions and applies +45 per occurrence.",
+      "Muscle recovery penalties are 140/85/40 below recovery thresholds 40/60/80.",
+      "Priority skill subtracts 70 and avoidPlannedNames adds 100.",
+      "Location/equipment and capability filtering happen before ranking, so location changes can materially shrink/change the pool.",
+      "After numeric score, preferred role order is used; V3 deterministicOrder has no history memory."
+    ],
+    "hypothesisRequiringTest": [
+      "A narrow location pool may dominate repeat penalties and cause repeated exercises.",
+      "Equal score/role candidates may repeatedly favor a stable subset.",
+      "Three-session name memory may be too short for desired long-horizon variety."
+    ],
+    "notSupportedByEvidence": [
+      "Static analysis does not prove a user-visible repetition bug or quantify frequency.",
+      "Static analysis does not prove location is the sole cause."
+    ],
+    "futureTests": [
+      "Generate at least 20 sessions per representative location and measure exercise/family recurrence.",
+      "Change location while holding profile/history constant.",
+      "Inject recent history and verify rank movement.",
+      "Simulate recovery over time and verify re-entry.",
+      "Verify deterministic replay for identical context and controlled change when history changes.",
+      "Test small pools and distinguish intentional from avoidable repeats."
+    ]
+  },
+  "userDataRisks": [
+    {
+      "area": "Athlete profile and locations",
+      "risk": "LOW",
+      "handling": "Keep directly; map capabilities/equipment into V3 requests without destructive migration."
+    },
+    {
+      "area": "Training plans",
+      "risk": "LOW",
+      "handling": "Keep intent/schedule directly; materialize through V3 after switch."
+    },
+    {
+      "area": "Active workout",
+      "risk": "HIGH",
+      "handling": "Restore from persisted snapshot; map identity only for future references; never regenerate mid-workout."
+    },
+    {
+      "area": "Session history",
+      "risk": "HIGH",
+      "handling": "Keep immutable actuals and legacy snapshots readable; add canonical mapping/read compatibility; no V2 selector required for display."
+    },
+    {
+      "area": "Skill progression keys",
+      "risk": "MEDIUM",
+      "handling": "Map stored skill_node_* IDs explicitly to V3 family/node identities before switch."
+    },
+    {
+      "area": "Unknown/retired references",
+      "risk": "MEDIUM",
+      "handling": "Preserve historical label/snapshot and mark unmapped identity; never drop or silently substitute."
+    }
+  ],
+  "implementationPhases": [
+    {
+      "phase": 1,
+      "name": "V3 functional completion",
+      "blocks": [
+        "G1 capability/context mapper",
+        "G2 ranking/explanations",
+        "G3 diversity/composer",
+        "G4 prescription/materializer",
+        "G5 skill bridge",
+        "G8 zero-pool policy"
+      ],
+      "completion": "V3 creates executable workouts from profile+context+history without V2."
+    },
+    {
+      "phase": 2,
+      "name": "Workout-generation integration",
+      "blocks": [
+        "Route automatic/custom/skill/library/plan materialization through V3",
+        "G7 substitution/custom integration"
+      ],
+      "completion": "All launch origins use V3 selection/ranking/composition while Runner stays stable."
+    },
+    {
+      "phase": 3,
+      "name": "User-data safety and migration",
+      "blocks": [
+        "G6 compatibility reader/mapping",
+        "fixtures for old active/history/skill nodes"
+      ],
+      "completion": "Existing data survives upgrade and historical reads need no V2 selector."
+    },
+    {
+      "phase": 4,
+      "name": "Production switch",
+      "blocks": [
+        "Load frozen V3 as runtime authority",
+        "disable V2 generation/loading paths after gates"
+      ],
+      "completion": "Production generation is V3-only with no data loss."
+    },
+    {
+      "phase": 5,
+      "name": "Final verification and V2 removal",
+      "blocks": [
+        "regression/migration/variety/device tests",
+        "remove dead V2 selection/loader assets after compatibility separation"
+      ],
+      "completion": "No runtime V2 dependency remains and acceptance suites pass."
+    }
+  ],
+  "unresolvedQuestions": [
+    "Exact legacy progressionKey/name -> V3 canonical ID mapping coverage must be measured before production switch.",
+    "Desired diversity horizon/weights require dynamic acceptance criteria.",
+    "Runner-facing V3 snapshot representation remains an implementation decision."
+  ],
+  "verdict": "STEP_9_FUNCTIONAL_AUDIT_COMPLETE",
+  "validation": {
+    "staticAuditOnly": true,
+    "androidTestsRun": false,
+    "newCiRun": false,
+    "candidateSha256VerifiedAtEntry": true,
+    "productionRuntimeModified": false,
+    "runtimeModelsModified": false,
+    "newV2DependencyAdded": false
+  },
+  "productDecision20261008": {
+    "authority": "User product requirement; supersedes Step 9 legacy-data migration recommendations, not factual audit observations",
+    "functionalContinuity": "MANDATORY: preserve or improve useful functionality in all 22 audited areas; algorithmic/output equivalence with V2 is not required",
+    "legacyDataCompatibilityRequired": false,
+    "legacyPersistedData": "Disposable test data: active workouts, sessions/history, plans, settings and skill progress may be reset at V3 cutover",
+    "legacyIdMappingRequired": false,
+    "legacyReadersRequired": false,
+    "newV3PersistenceRequired": true,
+    "finalRuntimeV2DependencyTarget": 0,
+    "productionSwitchGate": "All useful V2 capabilities implemented or improved in V3 and tested, all launch origins and new V3 persistence verified"
+  }
+}

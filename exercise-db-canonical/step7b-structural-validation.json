@@ -1,0 +1,142 @@
+{
+  "step": "STEP_7B",
+  "status": "COMPLETE_READY_FOR_MASSIVE_SELECTION_VALIDATION",
+  "executionBaseline": "9efd03d7ac95bce1c772979d1a5d73b1d3a446f9",
+  "validatedHead": "eeaa4a9128de3725408db71bea2120099ce38050",
+  "frozenCandidate": {
+    "path": "exercise-db-canonical/exercise-db-v3-final-candidate.json",
+    "expectedSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "actualSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "sizeBytes": 19054419,
+    "records": 1087,
+    "uniqueCanonicalIds": 1087,
+    "duplicateCanonicalIds": 0
+  },
+  "schemaValidation": {
+    "recordsChecked": 1087,
+    "errors": 0,
+    "warnings": 0,
+    "informational": 2,
+    "result": "PASS"
+  },
+  "referentialIntegrity": {
+    "referenceTypes": [
+      "engineMetadata.progressionRelations",
+      "skillRelations",
+      "provenance retained structurally"
+    ],
+    "progressionOccurrencesChecked": 226,
+    "progressionValid": 226,
+    "skillReferencesChecked": 117,
+    "skillValid": 117,
+    "missingTargets": 0,
+    "selfReferences": 0,
+    "denormalizedRepeatedEdgeOccurrences": 113,
+    "otherInvalid": 0,
+    "result": "PASS"
+  },
+  "graphs": {
+    "progression": {
+      "nodes": 1087,
+      "edgeOccurrences": 226,
+      "cycles": 0,
+      "invalidCycles": 0,
+      "selfLoops": 0,
+      "danglingNodes": 0,
+      "result": "PASS",
+      "note": "113 repeated global occurrences are denormalized embedded representations, informational after target/self/cycle validation"
+    }
+  },
+  "capabilities": {
+    "keys": [
+      "strengthRequirement",
+      "technicalDifficulty",
+      "mobilityRequirement",
+      "balanceCoordinationRequirement"
+    ],
+    "statesChecked": 4348,
+    "PRESCRIPTION_DEPENDENT": 441,
+    "EVIDENCE_UNRESOLVED": 48,
+    "dropped": 0,
+    "scalarized": 0,
+    "illegalStates": 0,
+    "result": "PASS"
+  },
+  "equipmentLocationLoad": {
+    "equipmentDomainCount": 23,
+    "locationRepresentation": "derived/not a standalone frozen-candidate FK domain",
+    "invalidValues": 0,
+    "structuralContradictions": 0,
+    "result": "PASS"
+  },
+  "classification": {
+    "categoryDomainCount": 8,
+    "movementPatternDomainCount": 26,
+    "invalidValues": 0,
+    "requiredMissing": 0,
+    "result": "PASS"
+  },
+  "skills": {
+    "skillCatalogNodes": 60,
+    "references": 117,
+    "dangling": 0,
+    "result": "PASS"
+  },
+  "substitutions": {
+    "edges": 0,
+    "dangling": 0,
+    "self": 0,
+    "duplicates": 0,
+    "result": "PASS",
+    "note": "No dedicated substitution FK structure present in frozen native V3 candidate"
+  },
+  "descriptionsExecutionMetadata": {
+    "requiredComplete": 587,
+    "optionalEmpty": 500,
+    "legitimatelyNotApplicable": 0,
+    "invalidMissing": 0,
+    "result": "PASS",
+    "note": "Editorial/execution text retained in legacy payload is not a required native V3 engine field"
+  },
+  "legacyContamination": {
+    "unauthorizedFallbacksFound": 0,
+    "result": "PASS"
+  },
+  "reproducibility": {
+    "frozenSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "regeneratedTemporarySha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "identical": true
+  },
+  "githubActions": {
+    "workflowPath": ".github/workflows/v3-step7b-structural-validation.yml",
+    "runId": 37676617775,
+    "runUrl": "https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/37676617775",
+    "conclusion": "success",
+    "artifactId": 11506009463,
+    "artifactDigest": "sha256:77622094c01f0d33423b271fb5f5f755b3262883df75fd193f2ec00335d06e25"
+  },
+  "informationalFindings": [
+    {
+      "code": "DENORMALIZED_EDGE_OCCURRENCES",
+      "count": 113,
+      "classification": "INFORMATIONAL"
+    },
+    {
+      "code": "OLDER_VALIDATOR_NOT_APPLICABLE",
+      "classification": "INFORMATIONAL",
+      "detail": "pre-V3 flat-schema validator not used as canonical authority"
+    }
+  ],
+  "blockingFindings": [],
+  "warnings": [],
+  "immutability": {
+    "frozenCandidateChanged": false,
+    "step6FreezeReportChanged": false,
+    "step5DispositionChanged": false,
+    "authoritativeR5Changed": false,
+    "v2Changed": false,
+    "runtimeChanged": false,
+    "productionSwitchPerformed": false
+  },
+  "nextGateRecommendation": "READY_FOR_MASSIVE_SELECTION_VALIDATION"
+}

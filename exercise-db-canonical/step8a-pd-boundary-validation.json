@@ -1,0 +1,128 @@
+{
+  "step": "STEP_8A",
+  "status": "COMPLETE_READY_TO_RERUN_STEP_8",
+  "contractFreezeCommit": "a3fed3667e6e542475405180ef075c1976906a96",
+  "actualExecutionBaseline": "c657b05ad79a66d82ef3c1d17b10895261533be7",
+  "validatedExecutionSha": "ece9ae37d5f196d246614414bb0f4b70eef69c84",
+  "entryDrift": {
+    "checkpointIsAncestor": true,
+    "aheadAtEntry": 1,
+    "classification": "NON_INVALIDATING_VALIDATION_METADATA",
+    "path": "exercise-db-canonical/engine-readiness-validation-v3-6.json"
+  },
+  "frozenCandidate": {
+    "path": "exercise-db-canonical/exercise-db-v3-final-candidate.json",
+    "expectedSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "actualSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "unchanged": true,
+    "records": 1087,
+    "uniqueCanonicalIds": 1087
+  },
+  "semanticContract": {
+    "version": "V3-STEP8AS-1",
+    "blobSha": "c3c67ae7219761b9e94cc15979645fb276188602",
+    "unchanged": true,
+    "validator": "PASS",
+    "architectureModel": "MODEL_D_HYBRID_STRUCTURED_CONTEXTUAL"
+  },
+  "architecture": {
+    "BACKWARD_COMPATIBILITY_REQUIRED": false,
+    "CLEAN_BREAK_TO_V3_ALLOWED": true,
+    "V3_FINAL_SOURCE_OF_TRUTH": true,
+    "V2_FINAL_RUNTIME_DEPENDENCY_TARGET": 0,
+    "implementation": "native typed contextual strength predicate; transient direct comparison; no scalarization"
+  },
+  "implementation": {
+    "typedContext": [
+      "app/src/main/java/com/hybridfitnesscoach/app/domain/v3/V3PrescriptionDependentStrength.kt"
+    ],
+    "resolver": "app/src/main/java/com/hybridfitnesscoach/app/domain/v3/V3PrescriptionDependentStrength.kt",
+    "selection": "app/src/main/java/com/hybridfitnesscoach/app/domain/v3/V3SelectionEngine.kt",
+    "intentExtended": true,
+    "productionWiring": false
+  },
+  "coverage": {
+    "canonicalPd": 441,
+    "strengthPd": 441,
+    "externalLoadPd": 436,
+    "assistedPd": 5,
+    "technicalPd": 0,
+    "mobilityPd": 0,
+    "balanceCoordinationPd": 0,
+    "recognized": 441,
+    "unrecognized": 0,
+    "contractPathMismatch": 0,
+    "canonicalScalarized": 0,
+    "v2Fallback": 0,
+    "legacyFallback": 0
+  },
+  "terminal": {
+    "total": 48,
+    "routedThroughPd": 0,
+    "scalarizedOrResolved": 0,
+    "result": "PASS"
+  },
+  "contractTestVectors": {
+    "authoritativeTotal": 17,
+    "result": "PASS",
+    "nativeFocusedTest": "app/src/test/java/com/hybridfitnesscoach/app/domain/v3/V3PrescriptionDependentStrengthTest.kt",
+    "candidateGeneratedCoverage": "tools/generate_step8a_pd_coverage_test.py"
+  },
+  "representability": {
+    "NO_CONTEXT": "PASS",
+    "SUFFICIENT_VALID_CONTEXT": "PASS",
+    "INSUFFICIENT_CONTEXT": "PASS",
+    "INVALID_CONTEXT": "PASS",
+    "boundaryCases": "PASS",
+    "previousBlocker": "MISSING_PRESCRIPTION_DEPENDENT_CAPABILITY_RESOLUTION_BOUNDARY",
+    "previousBlockerRemoved": true
+  },
+  "determinismIsolation": {
+    "repeatedEvaluations": "PASS",
+    "mismatches": 0,
+    "contextLeakage": 0,
+    "canonicalMutationFindings": 0
+  },
+  "v2Independence": {
+    "ExerciseDbV2": 0,
+    "v2Asset": 0,
+    "v2Selector": 0,
+    "legacyLevel": 0,
+    "legacyDifficulty": 0,
+    "result": "PASS"
+  },
+  "regression": {
+    "step7b": "PASS",
+    "step8as": "PASS",
+    "candidateSha": "PASS"
+  },
+  "tests": {
+    "focusedNativeTests": 36,
+    "passed": 36,
+    "failed": 0,
+    "build": "SUCCESS"
+  },
+  "githubActions": {
+    "workflowPath": ".github/workflows/v3-step8a-pd-boundary-validation.yml",
+    "runId": 37684134844,
+    "runUrl": "https://github.com/guglielmocitarella-rgb/HybridFitnessCoach/actions/runs/37684134844",
+    "conclusion": "success",
+    "artifactName": "v3-step8a-pd-boundary-validation",
+    "artifactId": 11509963872,
+    "artifactDigest": "sha256:c12cb6e65e3992bde443f92f92569d127ac27aedeacde4accc5d7faaf213b988"
+  },
+  "productionIsolation": {
+    "v2AssetUntouched": true,
+    "exerciseDbV2LoadUntouched": true,
+    "productionCompositionUntouched": true,
+    "productionSelectorNotSwitched": true,
+    "productionSwitch": false,
+    "massiveStep8Executed": false,
+    "step9Started": false
+  },
+  "blockingFindings": [],
+  "warnings": [
+    "One transient Maven Central dependency-resolution failure occurred on an earlier run; retry succeeded without code changes."
+  ],
+  "verdict": "STEP_8A_COMPLETE_READY_TO_RERUN_STEP_8"
+}

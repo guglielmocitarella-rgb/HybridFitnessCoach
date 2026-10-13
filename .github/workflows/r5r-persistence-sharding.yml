@@ -1,0 +1,27 @@
+name: R5-R persistence sharding guard V2
+on:
+  push:
+    branches: [feature/exercise-db-v3]
+    paths:
+      - 'exercise-db-canonical/r5-authoritative-shards/**'
+      - 'exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md'
+      - '.github/workflows/r5r-persistence-sharding.yml'
+
+concurrency:
+  group: r5r-persistence-sharding-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate real sharded layout
+        run: python3 exercise-db-canonical/r5-authoritative-shards/validate_guard_v2.py
+      - name: Connector false-empty regression contract
+        run: |
+          grep -q 'content=""' exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md
+          grep -q 'FNV1a32' exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md
+          grep -q 'five families' exercise-db-canonical/R5_R_PERSISTENCE_GUARD.md

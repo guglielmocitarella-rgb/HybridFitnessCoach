@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "V3.10C-R5-R-PS-2",
+  "status": "MATERIALIZATION_REMEDIATED",
+  "sourceArtifact": "exercise-db-canonical/r5-authoritative-shards/patch",
+  "sourceBaselineCommit": "8b9cdfbfe1ff3d47bf55e4ae5a8b4ad14c50b15c",
+  "partitionAlgorithm": "FNV1a32 semantic-key mod 16",
+  "partitionAlgorithmVersion": 1,
+  "orderingKeyRule": [
+    "canonicalExerciseId",
+    "field-or-dimension",
+    "provenanceId"
+  ],
+  "shardCount": 16,
+  "totalEntryCount": 3992,
+  "semanticComparison": {
+    "reconstructedEntryCount": 3992,
+    "missing": 0,
+    "duplicate": 0,
+    "semanticMutation": 0,
+    "result": "PASS"
+  },
+  "shards": [
+    {
+      "index": 0,
+      "filename": "bucket-00.json",
+      "entryCount": 781,
+      "byteSize": 209247,
+      "gitBlobSha": "33994c0e695465e3cdd7b03a20e5baebc2fc238d"
+    },
+    {
+      "index": 1,
+      "filename": "bucket-01.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 2,
+      "filename": "bucket-02.json",
+      "entryCount": 286,
+      "byteSize": 78287,
+      "gitBlobSha": "6433b196202b1ed5320de1d2ec3e7d3e6510a0ef"
+    },
+    {
+      "index": 3,
+      "filename": "bucket-03.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 4,
+      "filename": "bucket-04.json",
+      "entryCount": 506,
+      "byteSize": 136366,
+      "gitBlobSha": "d2ac71baee0bf5ac73bc70d975fb26e90bc9e6c6"
+    },
+    {
+      "index": 5,
+      "filename": "bucket-05.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 6,
+      "filename": "bucket-06.json",
+      "entryCount": 378,
+      "byteSize": 104969,
+      "gitBlobSha": "b6ea4af83024594ac6f7178939891b8d7478b7a4"
+    },
+    {
+      "index": 7,
+      "filename": "bucket-07.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 8,
+      "filename": "bucket-08.json",
+      "entryCount": 559,
+      "byteSize": 150970,
+      "gitBlobSha": "327c99816a60a0c71a7545c7c5ac01df8a1c6507"
+    },
+    {
+      "index": 9,
+      "filename": "bucket-09.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 10,
+      "filename": "bucket-0a.json",
+      "entryCount": 326,
+      "byteSize": 89983,
+      "gitBlobSha": "efe51e3a32fb7104e69c2367404a145cbeb50c75"
+    },
+    {
+      "index": 11,
+      "filename": "bucket-0b.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 12,
+      "filename": "bucket-0c.json",
+      "entryCount": 639,
+      "byteSize": 171844,
+      "gitBlobSha": "6f353d6913dee8d0433688dbc775bad62f3a1aa0"
+    },
+    {
+      "index": 13,
+      "filename": "bucket-0d.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 14,
+      "filename": "bucket-0e.json",
+      "entryCount": 517,
+      "byteSize": 144505,
+      "gitBlobSha": "ff3369cbd1f6caeba9693a0f9c882c6a9c91943d"
+    },
+    {
+      "index": 15,
+      "filename": "bucket-0f.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    }
+  ],
+  "materializationRemediation": {
+    "patchBefore": 2814,
+    "patchInUniverseAdded": 1178,
+    "patchAfter": 3992,
+    "inUniverseParity": "3787/3787",
+    "outOfUniverseNotAdded": 9,
+    "newResearch": false,
+    "authoritativeDecisionMutation": 0
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "R5/V21",
+  "baselineHead": "b8f8ed3ee48b03efe92f1dd58c4f134a4ec92e7b",
+  "note": "R5/V21 source-family research staging. FRESH true-missing capability decisions only; existing authoritative decisions excluded losslessly before staging.",
+  "newWebQueries": 16,
+  "overlapExclusion": {
+    "capabilities": 0,
+    "keys": [],
+    "policy": "preserve existing authoritative decisions; do not restage or replace"
+  },
+  "records": [
+    {
+      "canonicalExerciseId": "ex-double-leg-bridge-with-shoulder-flexion",
+      "exerciseName": "Double Leg Bridge with Shoulder Flexion",
+      "source": {
+        "publisher": "Glute Bridge / stability family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/49/glute-bridge/",
+        "tier": 2,
+        "locator": "Bridge-family evidence supports low strength, controlled trunk/shoulder coordination and moderate shoulder mobility."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-dumbbell-seated-overhead-tricep-extension-on-a-ball",
+      "exerciseName": "Dumbbell Seated Overhead Tricep Extension on a Ball",
+      "source": {
+        "publisher": "Stability-ball resistance family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/stability-ball/",
+        "tier": 2,
+        "locator": "Loaded overhead triceps work on an unstable ball adds balance/stabilization demand to moderate loaded arm work."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-facing-away-standing-crunch",
+      "exerciseName": "Facing-Away Standing Crunch",
+      "source": {
+        "publisher": "Abdominal cable/crunch family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/abs/",
+        "tier": 2,
+        "locator": "Standing loaded trunk flexion requires moderate core force and postural control with low mobility demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-forward-stability-ball-roll",
+      "exerciseName": "Forward Stability Ball Roll",
+      "source": {
+        "publisher": "Stability Ball Prone Walkout / rollout family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/62/stability-ball-prone-walkout/",
+        "tier": 2,
+        "locator": "ACE describes rigid core control on an unstable ball and explicitly notes increased balance challenge."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-freestanding-barbell-plie-squats",
+      "exerciseName": "Freestanding Barbell Plié Squats",
+      "source": {
+        "publisher": "Barbell squat/deadlift family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/6/deadlift/",
+        "tier": 2,
+        "locator": "Loaded wide-stance lower-body pattern requires substantial force, hip mobility and controlled barbell mechanics."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-press",
+      "exerciseName": "Press",
+      "source": {
+        "publisher": "Shoulder Press",
+        "title": "https://www.crossfit.com/essentials/the-shoulder-press",
+        "tier": 2,
+        "locator": "CrossFit describes raw upper-body/core strength, shoulder flexibility and focused technique for the standing press."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-step-up-with-dumbbells",
+      "exerciseName": "Step Up with Dumbbells",
+      "source": {
+        "publisher": "Step-up",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/28/step-up/",
+        "tier": 2,
+        "locator": "ACE documents dumbbell step-ups with unilateral loading, alignment control and single-leg progression."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stiff-leg-deadlift",
+      "exerciseName": "Stiff-Leg Deadlift",
+      "source": {
+        "publisher": "Deadlift / stiff-leg hinge family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/6/deadlift/",
+        "tier": 2,
+        "locator": "Advanced loaded hinge evidence supports high strength, posterior-chain mobility and technical demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stiff-legged-deadlift",
+      "exerciseName": "Stiff-Legged Deadlift",
+      "source": {
+        "publisher": "Deadlift / stiff-leg hinge family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/6/deadlift/",
+        "tier": 2,
+        "locator": "Advanced loaded hinge evidence supports high strength, posterior-chain mobility and technical demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stir-the-pot-swiss-ball",
+      "exerciseName": "Stir-the-Pot Swiss Ball",
+      "source": {
+        "publisher": "Stir the Pot / stability-ball plank",
+        "title": "https://www.acefitness.org/continuing-education/prosource/february-2014/3680/reality-check-are-planks-really-the-best-core-exercise/",
+        "tier": 2,
+        "locator": "ACE describes a stable plank maintained while circling the elbows on a ball; larger circles increase intensity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-flag",
+      "exerciseName": "Straddle Flag",
+      "source": {
+        "publisher": "Overcoming Gravity progression charts",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Advanced gymnastics/bodyweight progression evidence supports very high strength, technique and coordination demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-front-lever-rows",
+      "exerciseName": "Straddle Front Lever Rows",
+      "source": {
+        "publisher": "Overcoming Gravity progression charts",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Front-lever progression plus dynamic rowing requires very high pulling/core strength and advanced body control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-l-sit",
+      "exerciseName": "Straddle L-Sit",
+      "source": {
+        "publisher": "Overcoming Gravity progression charts",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "L-sit progression evidence supports high compression strength, hip mobility and technical body control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-one-arm-pushup",
+      "exerciseName": "Straddle One-Arm Pushup",
+      "source": {
+        "publisher": "Overcoming Gravity bodyweight strength progressions",
+        "title": "https://stevenlow.org/the-fundamentals-of-bodyweight-strength-training/",
+        "tier": 2,
+        "locator": "Advanced unilateral pushing progression requires very high relative strength and substantial anti-rotation control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-one-arm-rows",
+      "exerciseName": "Straddle One-Arm Rows",
+      "source": {
+        "publisher": "Overcoming Gravity bodyweight strength progressions",
+        "title": "https://stevenlow.org/the-fundamentals-of-bodyweight-strength-training/",
+        "tier": 2,
+        "locator": "Advanced unilateral pulling progression requires very high relative strength and substantial body control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-or-pike-stand-press-to-handstand",
+      "exerciseName": "Straddle or Pike Stand Press to Handstand",
+      "source": {
+        "publisher": "Overcoming Gravity progression charts",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Press-to-handstand progression combines exceptional compression/shoulder strength, mobility, balance and technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "VERY_HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straddle-planche-pushups",
+      "exerciseName": "Straddle Planche Pushups",
+      "source": {
+        "publisher": "Overcoming Gravity progression charts",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Dynamic straddle-planche pressing is an advanced planche progression with exceptional strength and body-control demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straight-arm-frog-stand",
+      "exerciseName": "Straight-Arm Frog Stand",
+      "source": {
+        "publisher": "Overcoming Gravity progression charts",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Straight-arm planche-family balance work requires high shoulder strength and coordinated balance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-straight-body-one-arm-pushup",
+      "exerciseName": "Straight-Body One-Arm Pushup",
+      "source": {
+        "publisher": "Overcoming Gravity bodyweight strength progressions",
+        "title": "https://stevenlow.org/the-fundamentals-of-bodyweight-strength-training/",
+        "tier": 2,
+        "locator": "Strict unilateral push-up work requires very high relative strength and anti-rotation body control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-strict-bar-muscle-ups",
+      "exerciseName": "Strict Bar Muscle-Ups",
+      "source": {
+        "publisher": "The Strict Bar Muscle-Up",
+        "title": "https://www.crossfit.com/essentials/the-strict-bar-muscle-up",
+        "tier": 2,
+        "locator": "CrossFit describes the strict bar muscle-up as especially challenging, requiring a high pull and precise delayed transition."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-sumo-dead-lift-high-pull",
+      "exerciseName": "Sumo Dead Lift High Pull",
+      "source": {
+        "publisher": "Sumo Deadlift High Pull",
+        "title": "https://www.crossfit.com/essentials/the-sumo-deadlift-high-pull",
+        "tier": 2,
+        "locator": "CrossFit requires coordinated rapid hip extension, shrug and arm pull with controlled setup and bar path."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "promotion": {
+    "stagedRecords": 21,
+    "stagedCapabilities": 84,
+    "preexistingAuthoritativeCapabilities": 0,
+    "freshCapabilities": 84,
+    "validation": "PASS"
+  }
+}

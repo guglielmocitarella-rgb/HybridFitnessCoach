@@ -1,0 +1,445 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V10",
+  "baselineHead": "10c2d41070db996508b4347ce08cb3e0c399a67a",
+  "note": "V10 staging promoted differentially; semantic duplicates were not reinserted.",
+  "newWebQueryGroups": 8,
+  "dimensions": [
+    "balanceCoordinationRequirement",
+    "mobilityRequirement",
+    "strengthRequirement",
+    "technicalDifficulty"
+  ],
+  "records": [
+    {
+      "canonicalExerciseId": "cm-scapular-pull-up-hold",
+      "exerciseName": "Scapular pull-up hold",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/ring-scapula-pull-up/",
+        "finding": "Foundational low-difficulty scapular activation/strength drill; straight arms, scapular depression/retraction, core tension and controlled body position."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-knee-raise-pull-up",
+      "exerciseName": "Knee-raise pull-up",
+      "source": {
+        "publisher": "BODi / NASM",
+        "locator": "https://www.bodi.com/blog/how-to-get-better-at-pull-ups ; https://www.nasm.org/resource-center/blog/training/best-abs-exercises",
+        "finding": "Combines a strict pull-up with a knee raise; requires pull-up strength plus controlled hanging knee raise, trunk stabilization and minimized swing."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-neutral-grip-pull-up",
+      "exerciseName": "Neutral-grip pull-up",
+      "source": {
+        "publisher": "Catalyst Athletics",
+        "locator": "https://www.catalystathletics.com/exercise/864/Neutral-Grip-Pull-Up/",
+        "finding": "Full-bodyweight vertical pull using neutral handles; controlled full ROM, scapular retraction/depression and shoulder opening; scalable by assistance or added load."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-commando-pull-up",
+      "exerciseName": "Commando pull-up",
+      "source": {
+        "publisher": "seto",
+        "locator": "https://seto.fit/exercises/commando-pull-up/",
+        "finding": "Advanced close-grip pull-up with alternating head side and asymmetric hand position, requiring body control through a full bodyweight pull."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-mixed-grip-pull-up",
+      "exerciseName": "Mixed-grip pull-up",
+      "source": {
+        "publisher": "Kysero",
+        "locator": "https://kysero.io/exercise-library/mixed-grip-pull-up/",
+        "finding": "Intermediate asymmetric vertical pull; one pronated and one supinated hand, controlled hang, slow lowering and explicit anti-rotation requirement."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-pause-pull-up",
+      "exerciseName": "Pause pull-up",
+      "source": {
+        "publisher": "Caliverse / Calisthenics Association",
+        "locator": "https://www.caliverse.app/exercises/paused-pull-up-1273 ; https://calisthenicsassociation.org/lessons/weighted-pull-up-technique-breakdown",
+        "finding": "Pull-up variation with deliberate isometric pause; removes momentum and adds control demand at the sticking point while retaining full bodyweight pulling."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-tempo-pull-up",
+      "exerciseName": "Tempo pull-up",
+      "source": {
+        "publisher": "Lifting Tempo",
+        "locator": "https://www.liftingtempo.com/tempo/pull-up",
+        "finding": "Strict pull-up under prescribed slow tempo, long eccentric and dead-hang pause; demands sustained pulling strength, scapular control, core stability and precise pacing."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-eccentric-pull-up",
+      "exerciseName": "Eccentric pull-up",
+      "source": {
+        "publisher": "Australian Strength and Conditioning Association",
+        "locator": "https://www.strengthandconditioning.org/exercise-highlight/2299-eccentric-pull-up",
+        "finding": "Eccentric-only pull-up progression used to develop upper-body strength and body control; slow controlled descent with stable torso and minimized swing."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-isometric-pull-up-hold",
+      "exerciseName": "Isometric pull-up hold",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/three-position-isometric-pull-up-holds/",
+        "finding": "Moderate-difficulty strength drill requiring sustained pull-up positions, grip endurance, scapular control, shoulder stability and full-body tension."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-pike-hold",
+      "exerciseName": "Pike hold",
+      "source": {
+        "publisher": "Caliverse",
+        "locator": "https://www.caliverse.app/exercises/pike-hold-1346",
+        "finding": "Easy-level isometric inverted-V bodyweight position developing shoulder stability, core strength and upper-body endurance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-downward-dog-shoulder-tap",
+      "exerciseName": "Downward dog shoulder tap",
+      "source": {
+        "publisher": "seto",
+        "locator": "https://seto.fit/exercises/pike-shoulder-tap/",
+        "finding": "Pike/downward-dog shoulder tap shifts bodyweight onto one arm and requires alternating taps without hip rotation; intermediate control demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-handstand-wall-walk",
+      "exerciseName": "Handstand wall walk",
+      "source": {
+        "publisher": "ACRO Physical Therapy",
+        "locator": "https://www.acropt.com/blog/2018/5/13/handstand-wall-walks",
+        "finding": "Controlled inversion drill that trains proprioception, handstand balance/form and shoulder strength; arms stay straight, scapulae active and trunk controlled."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-pike-shoulder-tap",
+      "exerciseName": "Pike shoulder tap",
+      "source": {
+        "publisher": "seto",
+        "locator": "https://seto.fit/exercises/pike-shoulder-tap/",
+        "finding": "Intermediate pike shoulder tap loading one arm while resisting trunk rotation and maintaining an inverted-V position."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-dive-bomber-push-up",
+      "exerciseName": "Dive bomber push-up",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/dive-bomber-push-up/",
+        "finding": "Intermediate dynamic push-up variation sweeping from pike through multiple body positions; builds upper-body strength while demanding shoulder/chest/lower-back mobility and controlled transitions."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-wall-handstand-weight-shift",
+      "exerciseName": "Wall handstand weight shift",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/chest-to-wall-handstand-weight-shifts/",
+        "finding": "Intermediate handstand drill: controlled lateral transfer toward one arm while inverted, with straight elbows, elevated shoulders, stable trunk and anti-rotation control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-cossack-squat",
+      "exerciseName": "Cossack squat",
+      "source": {
+        "publisher": "Healthline / StrengthLog",
+        "locator": "https://www.healthline.com/health/fitness-exercise/cossack-squat ; https://www.strengthlog.com/cossack-squat/",
+        "finding": "Deep lateral unilateral squat explicitly testing strength plus hip, knee and ankle mobility; also challenges balance/flexibility and requires controlled deep side-to-side loading."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-sliding-hamstring-curl",
+      "exerciseName": "Sliding hamstring curl",
+      "source": {
+        "publisher": "CALISTHENICS.com",
+        "locator": "https://calisthenics.com/exercise/sliding-hamstring-curl/",
+        "finding": "Intermediate posterior-chain strength exercise: bridge position maintained while hamstrings control knee extension and flexion through sliding heels; core and hip stability required."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-nordic-curl-eccentric",
+      "exerciseName": "Nordic curl eccentric",
+      "source": {
+        "publisher": "Movviva",
+        "locator": "https://movviva.com/exercises/nordic-curl-eccentric",
+        "finding": "Eccentric Nordic requires anchored knees, rigid knee-to-head line and slow hamstring-controlled lowering; hands catch lightly and return may be assisted."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-scapular-push-up",
+      "exerciseName": "Scapular push-up",
+      "source": {
+        "publisher": "HomeFit Atlas / ACE-derived exercise library",
+        "locator": "https://homefitnessatlas.com/exercises/scapular-push-up",
+        "finding": "Beginner shoulder-blade control exercise in push-up support: move scapulae while elbows remain straight; progression is via range, hold or load."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-wall-handstand-shrug",
+      "exerciseName": "Wall handstand shrug",
+      "source": {
+        "publisher": "Pocket Fit",
+        "locator": "https://www.pocket-fit.app/exercises/wall-assisted-handstand-hold",
+        "finding": "Wall-supported inverted bodyweight support with small scapular elevations; wall assists balance but shoulders support bodyweight overhead and scapulae move under load."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    }
+  ],
+  "evidenceCompleteCapabilityCount": 80,
+  "querySourceAssociation": [
+    {
+      "family": "scapular/pull-up-combination",
+      "records": [
+        "cm-scapular-pull-up-hold",
+        "cm-knee-raise-pull-up"
+      ],
+      "queryGroup": 1
+    },
+    {
+      "family": "pull-up grip variants",
+      "records": [
+        "cm-neutral-grip-pull-up",
+        "cm-commando-pull-up",
+        "cm-mixed-grip-pull-up"
+      ],
+      "queryGroup": 2
+    },
+    {
+      "family": "pull-up tempo/isometric/eccentric variants",
+      "records": [
+        "cm-pause-pull-up",
+        "cm-tempo-pull-up",
+        "cm-eccentric-pull-up",
+        "cm-isometric-pull-up-hold"
+      ],
+      "queryGroup": 3
+    },
+    {
+      "family": "pike/handstand push-control variants",
+      "records": [
+        "cm-pike-hold",
+        "cm-downward-dog-shoulder-tap",
+        "cm-handstand-wall-walk",
+        "cm-pike-shoulder-tap",
+        "cm-dive-bomber-push-up"
+      ],
+      "queryGroup": 4
+    },
+    {
+      "family": "handstand weight-transfer/scapular variants",
+      "records": [
+        "cm-wall-handstand-weight-shift",
+        "cm-wall-handstand-shrug"
+      ],
+      "queryGroup": 5
+    },
+    {
+      "family": "lateral squat mobility-strength",
+      "records": [
+        "cm-cossack-squat"
+      ],
+      "queryGroup": 6
+    },
+    {
+      "family": "hamstring eccentric/slider curl",
+      "records": [
+        "cm-sliding-hamstring-curl",
+        "cm-nordic-curl-eccentric"
+      ],
+      "queryGroup": 7
+    },
+    {
+      "family": "scapular push control",
+      "records": [
+        "cm-scapular-push-up"
+      ],
+      "queryGroup": 8
+    }
+  ],
+  "promotion": {
+    "stagedCapabilities": 80,
+    "authoritativeNewCapabilities": 28,
+    "semanticDuplicatesSkipped": 52,
+    "newProcessedRecords": 7,
+    "authoritativeCapabilityTotal": 2537,
+    "researchLogTotal": 704,
+    "validation": "PASS",
+    "finalCardinality": 2537,
+    "provenanceDuplicateIds": 7,
+    "routingViolationsAdded": 0,
+    "prescriptionDependentPreserved": 441
+  },
+  "promotionValidation": {
+    "result": "FAIL",
+    "reason": "Staged tranche is not disjoint from existing authoritative provenance; promotion attempt detected pre-existing provenance IDs. Authoritative shard writes from the aborted attempt were rolled back before checkpoint.",
+    "checkpointAdvanced": false,
+    "authoritativeCountsAdvanced": false
+  }
+}

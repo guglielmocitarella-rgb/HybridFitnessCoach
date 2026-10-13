@@ -1,0 +1,108 @@
+{
+  "step": "STEP_8A",
+  "status": "BLOCKED_MISSING_SEMANTIC_CONTRACT",
+  "initialCheckpoint": "9ca73cfee9eb4561b4b1a2be3935134204f8019d",
+  "actualExecutionBaseline": "03cf998728b33186664662478d02316cc1a7b695",
+  "entryDrift": {
+    "checkpointIsAncestor": true,
+    "aheadCommits": 1,
+    "files": [
+      {
+        "path": "exercise-db-canonical/engine-readiness-validation-v3-6.json",
+        "additions": 1,
+        "deletions": 1,
+        "classification": "NON_INVALIDATING_VALIDATION_METADATA"
+      }
+    ]
+  },
+  "frozenCandidate": {
+    "path": "exercise-db-canonical/exercise-db-v3-final-candidate.json",
+    "expectedSha256": "0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a",
+    "verifiedBy": "Step 6/7B exact SHA plus ancestry/diff proof that no candidate file changed after the last authoritative verification",
+    "unchanged": true,
+    "records": 1087,
+    "uniqueCanonicalIds": 1087,
+    "prescriptionDependentStates": 441,
+    "terminalEvidenceUnresolvedStates": 48
+  },
+  "architectureTarget": {
+    "v3SourceOfTruth": true,
+    "backwardCompatibilityRequirement": false,
+    "v2UsedAsSemanticAuthority": false
+  },
+  "contractDiscovery": {
+    "canonicalRequirement": "SemanticValue<CapabilityLevel> with KNOWN/PRESCRIPTION_DEPENDENT/EVIDENCE_UNRESOLVED kept distinct",
+    "athleteCapability": "V3AthleteCapabilities with four independent SemanticValue<CapabilityLevel> dimensions",
+    "prescription": "ExercisePrescription containing typed PrescribedValue dimensions REPS/DURATION/DISTANCE/INTERVALS/LOAD/ASSISTANCE/DISTANCE_TIME/ATTEMPT/QUALITY/OPEN_ENDED",
+    "selectionIntent": "V3SelectionIntent has no prescription context",
+    "currentCapabilityComparison": "V3SelectionEngine.capabilityReasons compares KNOWN CapabilityLevel ordinals and rejects every non-KNOWN requirement as CAPABILITY_UNRESOLVED",
+    "currentPrescriptionHandling": "prescriptionFeasible only checks presence/source/openEnded/non-empty; it does not resolve capability requirements",
+    "legacyFinding": "legacy CapabilityDimensions/CapabilityPrescriptionContractTest contains movement/profile and legacy exercise logic, but no evidence establishes it as native V3 prescription-dependent capability semantics"
+  },
+  "semanticSufficiency": [
+    {
+      "dimension": "strengthRequirement",
+      "canonicalPdCount": "part of aggregate 441; existing authoritative validation artifacts do not persist a per-dimension split",
+      "classification": "CONTRACT_PARTIAL",
+      "exists": "PD state, CapabilityLevel domain, athlete strength value, typed prescription values",
+      "missing": "native V3 rule mapping explicit prescription context to required strength CapabilityLevel"
+    },
+    {
+      "dimension": "technicalDifficulty",
+      "canonicalPdCount": "part of aggregate 441; existing authoritative validation artifacts do not persist a per-dimension split",
+      "classification": "CONTRACT_PARTIAL",
+      "exists": "PD state, CapabilityLevel domain, athlete technical value, typed prescription values",
+      "missing": "native V3 rule mapping explicit prescription context to required technical CapabilityLevel"
+    },
+    {
+      "dimension": "mobilityRequirement",
+      "canonicalPdCount": "part of aggregate 441; existing authoritative validation artifacts do not persist a per-dimension split",
+      "classification": "CONTRACT_PARTIAL",
+      "exists": "PD state, CapabilityLevel domain, athlete mobility value, typed prescription values",
+      "missing": "native V3 rule mapping explicit prescription context to required mobility CapabilityLevel"
+    },
+    {
+      "dimension": "balanceCoordinationRequirement",
+      "canonicalPdCount": "part of aggregate 441; existing authoritative validation artifacts do not persist a per-dimension split",
+      "classification": "CONTRACT_PARTIAL",
+      "exists": "PD state, CapabilityLevel domain, athlete balanceCoordination value, typed prescription values",
+      "missing": "native V3 rule mapping explicit prescription context to required balance/coordination CapabilityLevel"
+    }
+  ],
+  "affectedCanonicalPdStates": 441,
+  "implementation": {
+    "performed": false,
+    "reason": "At least one mandatory PD-bearing capability dimension is CONTRACT_PARTIAL; implementing resolution would require inventing or adopting unsupported semantics.",
+    "resolverPath": null,
+    "selectionContractChanges": [],
+    "canonicalMutation": false,
+    "legacyFallback": false,
+    "v2Fallback": false
+  },
+  "minimumExplicitDesignDecisionRequired": "Define and authorize native V3 semantics for how explicit prescription context resolves each PRESCRIPTION_DEPENDENT capability dimension to a comparable capability requirement (or define a non-scalar native comparison contract), including valid/insufficient/invalid context rules. The decision must be V3-native and independently justified, not copied from V2/legacy solely for compatibility.",
+  "prohibitedShortcutsRejected": [
+    "legacyLevel fallback",
+    "legacy difficulty fallback",
+    "V2 selector fallback",
+    "arbitrary default CapabilityLevel",
+    "general-fitness inference",
+    "web-derived thresholds"
+  ],
+  "githubActions": {
+    "runId": null,
+    "conclusion": "NOT_RUN",
+    "reason": "Semantic sufficiency stop condition occurs before implementation/validation workflow; no speculative resolver was committed."
+  },
+  "productionIsolation": {
+    "v2AssetUntouched": true,
+    "exerciseDbV2LoadUntouched": true,
+    "productionCompositionUntouched": true,
+    "productionSelectorRemainsV2": true,
+    "v3ProductionSwitchPerformed": false
+  },
+  "blockingFindings": [
+    "MISSING_NATIVE_V3_PRESCRIPTION_DEPENDENT_CAPABILITY_RESOLUTION_SEMANTICS"
+  ],
+  "nextGateRecommendation": "AUTHOR_EXPLICIT_NATIVE_V3_PD_SEMANTIC_CONTRACT_THEN_RERUN_STEP_8A",
+  "verdict": "STEP_8A_BLOCKED_MISSING_SEMANTIC_CONTRACT"
+}

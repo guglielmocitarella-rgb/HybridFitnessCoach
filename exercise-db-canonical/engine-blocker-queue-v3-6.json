@@ -1,0 +1,82 @@
+[
+  {
+    "id": "P0-IDENTITY",
+    "priority": "P0",
+    "domain": "identity",
+    "affectedRecords": 0,
+    "consequence": "unstable binding",
+    "action": "resolve identity defects",
+    "dependency": null,
+    "completionCriterion": "0"
+  },
+  {
+    "id": "P1-EQUIPMENT",
+    "priority": "P1",
+    "domain": "equipment/location",
+    "affectedRecords": 102,
+    "consequence": "false eligibility/coverage loss",
+    "action": "typed equipment schema then remediation",
+    "dependency": "SCHEMA-EQUIPMENT",
+    "completionCriterion": "representable or safely excluded"
+  },
+  {
+    "id": "P1-RESISTANCE-PRESCRIPTION",
+    "priority": "P1",
+    "domain": "resistance/prescription",
+    "affectedRecords": 190,
+    "consequence": "wrong load/assistance/targets",
+    "action": "typed resistance/load/prescription",
+    "dependency": "SCHEMA-RESISTANCE + SCHEMA-PRESCRIPTION",
+    "completionCriterion": "no unsafe ambiguity"
+  },
+  {
+    "id": "P1-CAPABILITY",
+    "priority": "P1",
+    "domain": "capability",
+    "affectedRecords": 438,
+    "consequence": "false gating",
+    "action": "capability contract",
+    "dependency": "SCHEMA-CAPABILITY",
+    "completionCriterion": "fail-safe capability"
+  },
+  {
+    "id": "P1-SKILL",
+    "priority": "P1",
+    "domain": "skill",
+    "affectedRecords": 145,
+    "consequence": "no compatible exercise/wrong path",
+    "action": "typed SkillNode bridge",
+    "dependency": "SCHEMA-SKILL",
+    "completionCriterion": "15 families/60 nodes audited"
+  },
+  {
+    "id": "P3-GROUP",
+    "priority": "P3",
+    "domain": "category/group",
+    "affectedRecords": 1087,
+    "consequence": "derived recovery semantics",
+    "action": "explicit mapping",
+    "dependency": "SCHEMA-CATEGORY-GROUP",
+    "completionCriterion": "deterministic adapter"
+  },
+  {
+    "id": "P4-MOVEMENT",
+    "priority": "P4",
+    "domain": "movement",
+    "affectedRecords": 176,
+    "consequence": "variety degradation",
+    "action": "multi-pattern schema",
+    "dependency": "SCHEMA-MOVEMENT",
+    "completionCriterion": "acceptable coverage"
+  },
+  {
+    "id": "P5-EDITORIAL",
+    "priority": "P5",
+    "domain": "editorial/media",
+    "affectedRecords": 1087,
+    "consequence": "none for engine gate",
+    "action": "defer Phase B",
+    "dependency": null,
+    "completionCriterion": "not engine gate"
+  }
+]

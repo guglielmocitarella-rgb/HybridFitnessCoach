@@ -1,0 +1,429 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "R5/V19",
+  "baselineHead": "e40c947338bb384792e02407d8be61f87532ce4a",
+  "note": "R5/V19 source-family research staging. FRESH true-missing capability decisions only; no authoritative replacement.",
+  "newWebQueries": 19,
+  "records": [
+    {
+      "canonicalExerciseId": "cm-reverse-cable-curl",
+      "exerciseName": "Reverse cable curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Reverse biceps-curl / cable-curl family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/biceps/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-reverse-crunch",
+      "exerciseName": "Reverse crunch",
+      "source": {
+        "publisher": "ACE",
+        "title": "Reverse Ab Crunch / core family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/abs/transverse-abdominus/?page=4"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-reverse-curl",
+      "exerciseName": "Reverse curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Reverse Bicep Curl",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/biceps/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-reverse-dumbbell-curl",
+      "exerciseName": "Reverse dumbbell curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Reverse-curl / dumbbell-curl family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/biceps/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-reverse-grip-pushdown",
+      "exerciseName": "Reverse-grip pushdown",
+      "source": {
+        "publisher": "ACE",
+        "title": "Triceps Pushdowns",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/185/triceps-pushdowns/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-reverse-lunge",
+      "exerciseName": "Reverse lunge",
+      "source": {
+        "publisher": "ACE",
+        "title": "Reverse Lunge",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/319/reverse-lunge/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-reverse-lunge-corpo-libero",
+      "exerciseName": "Reverse lunge corpo libero",
+      "source": {
+        "publisher": "ACE",
+        "title": "Reverse-lunge family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/319/reverse-lunge/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-archer-row",
+      "exerciseName": "Ring archer row",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring foundation / row-control family",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-chest-fly",
+      "exerciseName": "Ring chest fly",
+      "source": {
+        "publisher": "ACE",
+        "title": "TRX suspended upper-body family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/trx/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-chin-up",
+      "exerciseName": "Ring chin-up",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring pull-up / false-grip foundation family",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-dip",
+      "exerciseName": "Ring dip",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring dip / muscle-up foundation",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-muscle-up-rx-plan"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-face-pull",
+      "exerciseName": "Ring face pull",
+      "source": {
+        "publisher": "ACE",
+        "title": "TRX suspended row family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/92/trx-reg-single-arm-row/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-muscle-up-transition",
+      "exerciseName": "Ring muscle-up transition",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring muscle-up transition",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-muscle-up-rx-plan"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-pull-up",
+      "exerciseName": "Ring pull-up",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring pull-up foundation",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-push-up",
+      "exerciseName": "Ring push-up",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring push-up foundation",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-push-up-deep",
+      "exerciseName": "Ring push-up deep",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring push-up / deep controlled ring family",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-reverse-fly",
+      "exerciseName": "Ring reverse fly",
+      "source": {
+        "publisher": "ACE",
+        "title": "TRX suspended row/rear-shoulder family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/92/trx-reg-single-arm-row/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-row",
+      "exerciseName": "Ring row",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring row foundation",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-scapular-pull-up",
+      "exerciseName": "Ring scapular pull-up",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring pull-up/support control family",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-support-hold",
+      "exerciseName": "Ring support hold",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring support hold",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-triceps-extension",
+      "exerciseName": "Ring triceps extension",
+      "source": {
+        "publisher": "ACE",
+        "title": "TRX suspended upper-body family",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/trx/"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ring-turnout-support",
+      "exerciseName": "Ring turnout support",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring support / turnout-control family",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/crossfit-ring-training-part-2"
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "promotion": {
+    "stagedRecords": 22,
+    "stagedCapabilities": 83,
+    "preexistingAuthoritativeCapabilities": 0,
+    "freshCapabilities": 83,
+    "validation": "PASS"
+  }
+}

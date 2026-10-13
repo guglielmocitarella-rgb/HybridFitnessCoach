@@ -1,0 +1,945 @@
+[
+  {
+    "canonicalExerciseId": "cm-ab-wheel-rollout-diagonale",
+    "exerciseName": "Ab Wheel rollout diagonale",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Advanced Ab Wheel Variations",
+        "publisher": "Changfeng Fitness",
+        "tier": 4,
+        "locator": "https://www.changfengfitness.com/news/what-are-the-best-abdominal-wheel-exercises-for-advanced-users.html",
+        "finding": "Diagonal rollout alternates center, right and left paths; source describes it as an advanced multi-plane ab-wheel variation improving coordination and control under fatigue."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-barbell-split-squat",
+    "exerciseName": "Barbell split squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Barbell Split Squat",
+        "publisher": "Muscle & Fitness",
+        "tier": 3,
+        "locator": "https://www.muscleandfitness.com/exercise/workouts/leg-exercises/barbell-split-squat/",
+        "finding": "Intermediate staggered-stance barbell single-leg strength exercise explicitly described as improving balance and stability on both sides."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-bear-plank-shoulder-tap",
+    "exerciseName": "Bear plank shoulder tap",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bear Crawl Exercise / Shoulder-Tap Progression",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/",
+        "finding": "ACE bear-crawl mechanics require a hovering quadruped base, contralateral control and level hips/shoulders; removing one hand for a shoulder tap increases anti-rotation strength and coordination demands."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-bird-dog-controllato",
+    "exerciseName": "Bird dog controllato",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bird Dog",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/bird-dog",
+        "finding": "NASM describes bird dog as an accessible all-levels core-stability exercise requiring slow controlled contralateral arm/leg extension, anti-rotation stability and coordinated movement."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-chest-fly-manubri",
+    "exerciseName": "Chest fly manubri",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Stability Ball Dumbbell Fly",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/155/stability-ball-dumbbell-fly/",
+        "finding": "ACE fly mechanics use a controlled wide arm arc with elbows slightly bent and shoulder/scapular control; on a bench the support removes the stability-ball balance demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-close-grip-cable-row",
+    "exerciseName": "Close-grip cable row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Seated Cable Row",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-cable-row",
+        "finding": "NASM seated cable row is a supported pulling pattern using stable posture, scapular retraction and controlled elbow movement; close grip does not materially increase balance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-corsa-continua",
+    "exerciseName": "Corsa continua",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Running Basics and Training",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/blog/6404/how-to-start-running/",
+        "finding": "ACE presents continuous running as a fundamental locomotor cardiovascular activity, progressing duration gradually with relaxed efficient form rather than complex technique."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-double-kettlebell-clean",
+    "exerciseName": "Double kettlebell clean",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kettlebell Clean",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/348/kettlebell-clean/",
+        "finding": "ACE classifies kettlebell clean Advanced and describes an explosive hip-driven movement requiring coordinated acceleration and controlled rack reception; double bells preserve the same technical pattern bilaterally."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-face-pull-elastico",
+    "exerciseName": "Face pull elastico",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Band Face Pull",
+        "publisher": "Crucible Fit",
+        "tier": 3,
+        "locator": "https://www.cruciblefit.com/exercises/band-face-pull",
+        "finding": "Exercise-specific guide rates band face pull Beginner: stable shoulder-width stance, band anchored around eye level, controlled high-elbow pull with external rotation and no torso lean."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-foam-roller-polpacci",
+    "exerciseName": "Foam Roller polpacci",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Foam Roll Calves",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/foam-roll-calves",
+        "finding": "NASM describes calf foam rolling as ideal for all fitness levels: seated, hands support the body and lift hips slightly while the roller moves slowly from below the knee toward the ankle to improve ankle mobility."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-handstand-kick-up",
+    "exerciseName": "Handstand kick-up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Handstand kick-up / handstand progression",
+        "publisher": "CrossFit",
+        "tier": 3,
+        "locator": "https://www.crossfit.com/essentials/crossfit-handstand-walking-rx-plan",
+        "finding": "Kick-up transitions from split to stacked inversion and requires finding handstand balance; wall drills scale confidence, strength and technique."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-jumping-muscle-up",
+    "exerciseName": "Jumping muscle-up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Jumping Muscle-Up",
+        "publisher": "Caliverse",
+        "tier": 3,
+        "locator": "https://www.caliverse.app/exercises/jumping-muscle-up-113",
+        "finding": "Medium-difficulty assisted muscle-up progression: jump plus explosive pull, transition over bar and dip; assistance reduces raw strength demand while preserving transition sequencing/skill."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-kettlebell-clean",
+    "exerciseName": "Kettlebell clean",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kettlebell Clean",
+        "publisher": "Yogi Athletics",
+        "tier": 3,
+        "locator": "https://yogiathletics.com/library/kettlebell-clean",
+        "finding": "Intermediate hip-driven ballistic pull into rack; bell must travel close and hand spear through handle to avoid forearm impact, requiring timing and load control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-neutral-grip-lat-pulldown",
+    "exerciseName": "Neutral-grip lat pulldown",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lat Pulldown with Neutral Grip",
+        "publisher": "StrengthLog",
+        "tier": 2,
+        "locator": "https://www.strengthlog.com/lat-pulldown-with-neutral-grip/",
+        "finding": "Seated neutral-grip cable pulldown with thighs secured under support; pull to upper chest and return slowly to full arm extension."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-paused-deadlift",
+    "exerciseName": "Paused Deadlift",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Pause Deadlift",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/pause-deadlift/",
+        "finding": "Braced pull with motionless pause just above floor then controlled completion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-prone-t-raise",
+    "exerciseName": "Prone T raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Prone Scapular (Shoulder) Stabilization Series - I, Y, T, W, O Formation",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/249/prone-scapular-shoulder-stabilization-series-i-y-t-w-o-formation/",
+        "finding": "ACE rates the prone scapular stabilization series Intermediate; the T position is performed prone with braced trunk, scapular depression/retraction and controlled arm lift to 90 degrees."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-renegade-row",
+    "exerciseName": "Renegade row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Renegade Row",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/355/renegade-row/",
+        "finding": "ACE rates the renegade row Advanced. It is performed from a straight-body plank on dumbbells while one hand rows at a time, requiring the athlete to keep the trunk flat and stable while alternating support."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-stretch-pettorale-al-muro",
+    "exerciseName": "Stretch pettorale al muro",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Wall Chest Stretch",
+        "publisher": "BSR Physical Therapy",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=c3TbQiFLiro",
+        "finding": "Physical-therapy exercise guidance identifies the wall chest stretch as a chest-muscle stretch used to promote upright posture; the wall provides external support during the static mobility drill."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-archer-pull-up",
+    "exerciseName": "Archer Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Archer Pull-Up",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/archer-pull-up/",
+        "finding": "High-difficulty skill/strength vertical pull: pull diagonally toward one hand while the opposite arm straightens; requires strict pull-up foundation, unilateral strength, shoulder control, core bracing and control of rotation/swing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-assisted-single-leg-squat",
+    "exerciseName": "Assisted Single-Leg Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Assisted Single-Leg Squat",
+        "publisher": "U.S. Army H2F",
+        "tier": 1,
+        "locator": "https://www.armyprt.com/h2f/suspension-training-drill-2/",
+        "finding": "Suspension trainer assists balance, squat depth and thigh load during a controlled single-leg squat."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-back-clap-push-up",
+    "exerciseName": "Back-Clap Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How To Do A BACK CLAP PUSH UP | Exercise Demonstration Video and Guide",
+        "publisher": "Live Lean TV Daily Exercises",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=A1h1P50-VFk",
+        "finding": "Advanced plyometric push-up requiring explosive takeoff, a behind-the-back clap while airborne, rapid hand recovery and a controlled soft landing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-barbell-triceps-press",
+    "exerciseName": "Barbell Triceps Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Barbell Triceps Press",
+        "publisher": "Anatomy for Strength and Fitness Training",
+        "tier": 2,
+        "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/11.pdf",
+        "finding": "Barbell compound press explicitly classified intermediate to advanced; controlled pressing with elbows kept in."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bend-and-reach",
+    "exerciseName": "Bend and Reach",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bend and Reach",
+        "publisher": "U.S. Army H2F Academy",
+        "tier": 1,
+        "locator": "https://www.youtube.com/watch?v=4yofbopcNG8",
+        "finding": "Slow preparation drill developing squat-and-reach ability and moving hips/spine through full flexion."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-bodyweightair-squat",
+    "exerciseName": "Bodyweight/Air Squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bodyweight/Air Squat",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.unm.edu/~lkravitz/Extra%2014/BodyweightACELK.pdf",
+        "finding": "ACE bodyweight interval guidance places air squats in an entry-level muscular-endurance workout."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-candlestick",
+    "exerciseName": "Candlestick",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Candlestick",
+        "publisher": "CrossFit",
+        "tier": 1,
+        "locator": "https://www.crossfit.com/essentials/candlestick-drills",
+        "finding": "Basic gymnastics roll from standing/squat into shoulder-supported candlestick; develops core strength, body awareness and control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-clap-push-up",
+    "exerciseName": "Clap Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Clap Push-Up: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/clap-push-up/",
+        "finding": "Plyometric push-up requiring explosive takeoff, an airborne clap and controlled re-landing while maintaining a rigid body line."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-contralateral-limb-raises",
+    "exerciseName": "Contralateral Limb Raises",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Contralateral Limb Raises",
+        "publisher": "ACE Fitness",
+        "tier": 1,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/53/contralateral-limb-raises/",
+        "finding": "ACE classifies the exercise as Beginner; prone supported setup with slow opposite arm/leg raises while the core stabilizes the spine and torso."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-deep-push-up",
+    "exerciseName": "Deep Push Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Deep Push Up: How To, Muscles Worked & Form",
+        "publisher": "GymImpulse",
+        "tier": 4,
+        "locator": "https://gymimpulse.com/exercise/deep-push-up",
+        "finding": "Exact deep push-up: dumbbells as elevated handles, longer ROM below hand level, rigid plank, controlled landing/press; more demanding than standard push-up due to longer range and balance on handles."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-bent-over-row",
+    "exerciseName": "Dumbbell Bent-Over Row",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bent-Over Dumbbell Row: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-properly-perform-the-dumbbell-bent-over-row-3498295",
+        "finding": "Two-arm row from a fixed hip hinge; legs stay stationary, core engaged, spine neutral; source notes stance adjustments can make balance easier. Requires maintaining about a 45-degree hip hinge with neutral spine throughout the set. Source labels the exercise Intermediate and emphasizes neutral spine, fixed hinge, controlled wrists and avoiding lower-body movement."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-seated-shoulder-press",
+    "exerciseName": "Dumbbell Seated Shoulder Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dumbbell Seated Shoulder Press",
+        "publisher": "GymImpulse",
+        "tier": 3,
+        "locator": "https://gymimpulse.com/exercise/dumbbell-seated-shoulder-press",
+        "finding": "Beginner-suitable bilateral overhead press from a seated back-supported position; bench stabilizes torso while arms press from shoulder height overhead."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-freestanding-handstand-with-one-arm-support",
+    "exerciseName": "Freestanding Handstand with One-Arm Support",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Freestanding Handstand with One-Arm Support",
+        "publisher": "BodyTree",
+        "tier": 3,
+        "locator": "https://bodytree.app/exercises/one-arm-handstand-support",
+        "finding": "Advanced bridge to one-arm handstand requiring a reliable 60-second freestanding handstand, lateral weight shift, single-wrist balance, active shoulder elevation and high-frequency skill practice."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-incline-dumbbell-bench-press",
+    "exerciseName": "Incline Dumbbell Bench Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Incline Dumbbell Press",
+        "publisher": "Helthy",
+        "tier": 3,
+        "locator": "https://www.helthy.app/exercises/incline-dumbbell-press",
+        "finding": "Beginner incline dumbbell press performed on a bench; independent dumbbells require shoulder control while the bench supports the torso."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-jumping-squat",
+    "exerciseName": "Jumping Squat",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Squat Jump",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/squat-jump",
+        "finding": "Fundamental plyometric squat jump develops explosive lower-body power and requires controlled squat depth, symmetric takeoff and landing mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-kettlebell-swing",
+    "exerciseName": "Kettlebell Swing",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Kettlebell Swing Tutorial",
+        "publisher": "Brittany van Schravendijk",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=1Qi0NQW89Oc",
+        "finding": "Swing requires learned hinge mechanics, timing, leg drive, arm position, breathing and backswing progression; source explicitly says mastering it takes time and progression."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-l-sit-pull-up",
+    "exerciseName": "L-Sit Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "L-Sit Pull-Up – Muscles Worked, Exercise Demo, and Benefits",
+        "publisher": "BarBend",
+        "tier": 3,
+        "locator": "https://barbend.com/l-sit-pull-up/",
+        "finding": "Advanced bodyweight combination requiring pull-up strength plus sustained L-sit core control and midline stability throughout the repetition."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-pull-up",
+    "exerciseName": "Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists Pull-Up as intermediate and Push-Up as beginner, with bodyweight strength/stability demands and explicit movement classifications."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-push-presspush-jerk",
+    "exerciseName": "Push Press/Push Jerk",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "CrossFit Movements & Exercise List",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/crossfit-movements",
+        "finding": "CrossFit movement library explicitly catalogs the named weightlifting and bodyweight movements and their technical movement standards/resources."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-rings-advanced-tuck-planche-pushups",
+    "exerciseName": "Rings Advanced Tuck Planche Pushups",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Overcoming Gravity 2nd Edition Exercise Charts",
+        "publisher": "Overcoming Gravity",
+        "tier": 2,
+        "locator": "https://docs.google.com/spreadsheets/d/19l4tVfdTJLheLMwZBYqcw1oeEBPRh8mxngqrCz2YnVg/edit",
+        "finding": "Published progression charts explicitly enumerate ab-wheel and rings progressions by level, including ring rows, planche variants, ring dips, ring handstands/HSPU, L-sit, muscle-up and support progressions."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-russian-twist",
+    "exerciseName": "Russian Twist",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Russian Twist",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/russian-twist",
+        "finding": "Dynamic torso rotation with controlled postural alignment; NASM classifies it intermediate and describes rotational strength, mobility and continuous core control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-standing-tubing-row",
+    "exerciseName": "Standing Tubing Row",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists Standing Tubing Row as a beginner upper/mid-back band exercise; standing posture requires controlled alignment but external support demand remains low."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  }
+]

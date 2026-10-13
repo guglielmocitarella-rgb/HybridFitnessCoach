@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "V3.10C-R5-R-STAGING-1",
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "leaseBaseHead": "dbd565c1819eeee8b49a9b83672e3036c7ab6ffb",
+  "authoritativeCheckpoint": {
+    "processed": 1626,
+    "resolved": 1581,
+    "terminal": 45,
+    "remaining": 2209,
+    "lastProcessedId": "ex-crunch",
+    "researchLog": 447,
+    "provenance": 1581
+  },
+  "window": {
+    "firstRecord": "ex-curl",
+    "lastRecord": "ex-deep-squat-position",
+    "records": 8,
+    "newWebQueries": 18,
+    "notes": "Research/semantic decisions staged because session/tool-call pressure made another full multi-shard transaction unsafe. Must be revalidated against current authoritative state before materialization.",
+    "recordsData": [
+      {
+        "id": "ex-curl",
+        "name": "Curl",
+        "identityStatus": "IDENTITY_NOT_CONFIRMED_TERMINAL",
+        "resolved": {},
+        "terminal": [
+          "technicalDifficulty",
+          "mobilityRequirement",
+          "balanceCoordinationRequirement"
+        ],
+        "finding": "Generic canonical name Curl is under-specified; no exercise-specific identity source in this window justified selecting a specific curl variant."
+      },
+      {
+        "id": "ex-deadbug",
+        "name": "Deadbug",
+        "identityStatus": "IDENTITY_CONFIRMED",
+        "source": {
+          "title": "Dead Bug",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/dead-bug"
+        },
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminal": [],
+        "finding": "NASM describes an accessible all-levels supine core-stability exercise using opposite arm/leg movement while maintaining spinal control."
+      },
+      {
+        "id": "ex-deadlift",
+        "name": "Deadlift",
+        "identityStatus": "IDENTITY_CONFIRMED",
+        "source": {
+          "title": "Barbell Deadlift",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/barbell-deadlift"
+        },
+        "resolved": {
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminal": [],
+        "finding": "NASM describes an advanced heavy compound hip hinge requiring powerful bracing, neutral-spine control, coordinated hip/knee extension and controlled bar path."
+      },
+      {
+        "id": "ex-deadlift-from-blocks",
+        "name": "Deadlift from Blocks",
+        "identityStatus": "IDENTITY_CONFIRMED",
+        "source": {
+          "title": "Barbell Deadlift From Blocks: How to, Muscles & Form",
+          "publisher": "Crucible",
+          "tier": 3,
+          "locator": "https://www.cruciblefit.com/exercises/barbell-deadlift-from-blocks"
+        },
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminal": [],
+        "finding": "Intermediate compound deadlift from an elevated bar position; reduced range of motion with controlled hip hinge and heavy loading."
+      },
+      {
+        "id": "ex-decline-abdominal-crunch",
+        "name": "Decline Abdominal Crunch",
+        "identityStatus": "IDENTITY_CONFIRMED",
+        "source": {
+          "title": "Decline Crunch",
+          "publisher": "Catalyst Athletics",
+          "tier": 2,
+          "locator": "https://www.catalystathletics.com/exercise/704/Decline-Crunch/"
+        },
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        },
+        "terminal": [],
+        "finding": "Simple decline-bench trunk-flexion exercise with feet anchored and continuous abdominal tension; controlled curl without hip hinging."
+      },
+      {
+        "id": "ex-decline-push-up",
+        "name": "Decline Push-Up",
+        "identityStatus": "IDENTITY_CONFIRMED",
+        "source": {
+          "title": "Decline Push-Up",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/decline-push-up"
+        },
+        "resolved": {
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        },
+        "terminal": [],
+        "finding": "NASM describes an advanced feet-elevated push-up that increases pressing load and requires excellent core stability and pressing control."
+      },
+      {
+        "id": "ex-deep-push-up",
+        "name": "Deep Push-Up",
+        "identityStatus": "IDENTITY_NOT_CONFIRMED_TERMINAL",
+        "resolved": {},
+        "terminal": [
+          "strengthRequirement",
+          "technicalDifficulty",
+          "mobilityRequirement",
+          "balanceCoordinationRequirement"
+        ],
+        "finding": "No exact exercise-specific source for the canonical Deep Push-Up identity was established in the bounded search window."
+      },
+      {
+        "id": "ex-deep-squat-position",
+        "name": "Deep-Squat Position",
+        "identityStatus": "IDENTITY_NOT_CONFIRMED_TERMINAL",
+        "resolved": {},
+        "terminal": [
+          "strengthRequirement",
+          "technicalDifficulty"
+        ],
+        "finding": "No exact exercise-specific source for the canonical Deep-Squat Position identity was established in the bounded search window."
+      }
+    ]
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V17",
+  "baselineHead": "df28081c86eac1bd3161ca29c8eba7d0568d2134",
+  "note": "V17 source-family research staging. Existing authoritative decisions must be excluded losslessly before promotion.",
+  "newWebQueries": 30,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-split-jerk",
+      "exerciseName": "Split Jerk",
+      "source": {
+        "publisher": "The Clean and Jerk",
+        "title": "https://www.crossfit.com/essentials/the-clean-and-jerk",
+        "tier": 2,
+        "locator": "Split jerk uses rapid dip-drive, split receiving footwork and overhead stabilization; CrossFit describes high technical demands plus flexibility, coordination and balance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-sprinter-sit-up",
+      "exerciseName": "Sprinter Sit-Up",
+      "source": {
+        "publisher": "ACE Exercise Library — abdominal training",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/abs/",
+        "tier": 2,
+        "locator": "Dynamic floor abdominal work is supported and stable; alternating sprinter-style limb action adds trunk control and coordination beyond a basic crunch."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-sprints",
+      "exerciseName": "Sprints",
+      "source": {
+        "publisher": "ACE Exercise Library — running and integrated lower-body drills",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/legs-thighs/hamstrings/",
+        "tier": 2,
+        "locator": "Explosive running drills require repeated single-leg support, rapid lower-limb cycling and high force production."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-squat",
+      "exerciseName": "Squat",
+      "source": {
+        "publisher": "Bodyweight Squat",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/",
+        "tier": 2,
+        "locator": "ACE classifies the bodyweight squat as beginner and specifies controlled hip/knee motion, heel contact and knee/foot alignment."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-squat-push-press",
+      "exerciseName": "Squat Push Press",
+      "source": {
+        "publisher": "Front Squat to Overhead Press / advanced integrated exercise family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/experience/advanced/",
+        "tier": 2,
+        "locator": "ACE lists front-squat-to-overhead-press patterns as advanced integrated work, combining squat mobility with coordinated overhead drive."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-squat-thrust",
+      "exerciseName": "Squat Thrust",
+      "source": {
+        "publisher": "Burpee / integrated exercise family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/experience/advanced/",
+        "tier": 2,
+        "locator": "Squat-thrust/burpee-family transitions combine squat, plank support and rapid position changes, increasing whole-body coordination and strength demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stability-ball-abdominal-crunch",
+      "exerciseName": "Stability Ball Abdominal Crunch",
+      "source": {
+        "publisher": "Stability Ball Exercise Library",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/stability-ball/",
+        "tier": 2,
+        "locator": "ACE stability-ball core work uses an unstable support surface; abdominal flexion remains moderate in strength and technique demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stability-ball-bridge-to-curl",
+      "exerciseName": "Stability Ball Bridge to Curl",
+      "source": {
+        "publisher": "Stability Ball Hamstring Curl / Glute Bridge",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/stability-ball/",
+        "tier": 2,
+        "locator": "ACE lists stability-ball glute bridge and hamstring curl as intermediate, combining hip extension, knee flexion and ball control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stability-ball-jackknife",
+      "exerciseName": "Stability Ball Jackknife",
+      "source": {
+        "publisher": "Stability Ball Knee Tucks / advanced stability-ball core family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/stability-ball/",
+        "tier": 2,
+        "locator": "ACE classifies stability-ball knee-tuck patterns as advanced; plank support plus ball travel raises trunk strength and control demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stability-ball-pike",
+      "exerciseName": "Stability Ball Pike",
+      "source": {
+        "publisher": "Stability Ball Pikes",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/61/stability-ball-pikes/",
+        "tier": 2,
+        "locator": "ACE classifies the pike as advanced and requires a rigid plank progressing to an inverted hip-flexed position with extended limbs on the ball."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stability-ball-reverse-back-extension",
+      "exerciseName": "Stability Ball Reverse Back Extension",
+      "source": {
+        "publisher": "Stability Ball Reverse Extensions",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/stability-ball/",
+        "tier": 2,
+        "locator": "ACE classifies stability-ball reverse extensions as advanced, reflecting substantial posterior-chain control on an unstable surface."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stability-ball-rollout",
+      "exerciseName": "Stability Ball Rollout",
+      "source": {
+        "publisher": "Stability Ball Prone Walkout / rollout family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/stability-ball/",
+        "tier": 2,
+        "locator": "ACE stability-ball walkout/rollout-family work requires sustained trunk stiffness while the support point moves away from the body."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stair-climb-with-biceps-curl",
+      "exerciseName": "Stair Climb with Biceps Curl",
+      "source": {
+        "publisher": "Step-up and Biceps Curl exercise families",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/28/step-up/",
+        "tier": 2,
+        "locator": "Combining repeated step-up mechanics with a curl adds dual-task coordination; the step-up itself is beginner-level with controlled single-leg loading."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-barbell-curl",
+      "exerciseName": "Standing Barbell Curl",
+      "source": {
+        "publisher": "Bicep Curl",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/barbell/",
+        "tier": 2,
+        "locator": "ACE lists barbell biceps curl as intermediate; standing bilateral curling has limited balance and mobility demands but requires controlled elbow mechanics."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-cable-glute-kickback",
+      "exerciseName": "Standing Cable Glute Kickback",
+      "source": {
+        "publisher": "Cable/standing hip-extension exercise family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/butt-hips/",
+        "tier": 2,
+        "locator": "Standing unilateral hip-extension patterns require stance-leg stabilization and controlled hip motion against resistance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-cable-pullover",
+      "exerciseName": "Standing Cable Pullover",
+      "source": {
+        "publisher": "Pullover exercise family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/bench/",
+        "tier": 2,
+        "locator": "ACE pullover patterns use controlled shoulder extension/flexion through a substantial arc; standing cable execution adds modest postural control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-calf-heel-raise-machine",
+      "exerciseName": "Standing Calf (Heel) Raise (Machine)",
+      "source": {
+        "publisher": "Calf Raise — selectorized machine",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/weight-machines-selectorized/",
+        "tier": 2,
+        "locator": "ACE lists machine calf raise as beginner; machine support minimizes balance while ankle plantarflexion is simple and constrained."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-chest-and-anterior-shoulder-stretch",
+      "exerciseName": "Standing Chest and Anterior Shoulder Stretch",
+      "source": {
+        "publisher": "Standing Chest Stretch",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/209/standing-chest-stretch/",
+        "tier": 2,
+        "locator": "ACE classifies standing chest stretch as beginner and describes shoulder external rotation/retraction with optional anterior-deltoid stretch; strength demand is minimal."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-jump-and-reach",
+      "exerciseName": "Standing Jump and Reach",
+      "source": {
+        "publisher": "Forward Linear Jumps / jump training family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/",
+        "tier": 2,
+        "locator": "ACE jump drills emphasize coordinated takeoff and landing with lower-body triple extension, supporting moderate balance, mobility and strength requirements."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-side-stretch",
+      "exerciseName": "Standing Side Stretch",
+      "source": {
+        "publisher": "ACE Exercise Library — mobility/stretch family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "tier": 2,
+        "locator": "Standing side-bending stretch is a low-load mobility drill; the primary demand is controlled lateral trunk range rather than strength or skill."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-squat-bosu-balance-trainer",
+      "exerciseName": "Standing Squat (BOSU Balance Trainer)",
+      "source": {
+        "publisher": "BOSU Squat Jumps",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/117/bosu-sup-reg-sup-squat-jumps/",
+        "tier": 2,
+        "locator": "ACE BOSU squat-jump instruction stresses balance support, landing control and prior mastery of regular squats; static BOSU squatting retains elevated stability/technical demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-torso-rotations",
+      "exerciseName": "Standing Torso Rotations",
+      "source": {
+        "publisher": "ACE Ab Exercise Library — standing trunk rotations",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/abs/",
+        "tier": 2,
+        "locator": "ACE explicitly includes standing trunk rotations in its abdominal exercise collection; unloaded rotation is primarily a controlled mobility pattern with low strength demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-triceps-stretch",
+      "exerciseName": "Standing Triceps Stretch",
+      "source": {
+        "publisher": "ACE Exercise Library — beginner stretch family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/experience/beginner/",
+        "tier": 2,
+        "locator": "Standing overhead triceps stretching is a supported low-load mobility pattern; primary demand is shoulder/elbow range rather than strength or coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "HIGH",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-standing-unilateral-leg-curl",
+      "exerciseName": "Standing Unilateral Leg Curl",
+      "source": {
+        "publisher": "Hamstring curl / unilateral standing family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/legs-thighs/hamstrings/",
+        "tier": 2,
+        "locator": "Unilateral standing knee flexion requires stance-leg stabilization while the moving leg performs a simple hamstring curl through controlled range."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-star-jumps",
+      "exerciseName": "Star Jumps",
+      "source": {
+        "publisher": "Jump training family",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/equipment/no-equipment/",
+        "tier": 2,
+        "locator": "ACE jump drills require coordinated takeoff/landing and explosive lower-body extension; star-jump limb abduction adds whole-body coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-stationary-lunge-with-dumbbells",
+      "exerciseName": "Stationary Lunge with Dumbbells",
+      "source": {
+        "publisher": "Forward Lunge",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/",
+        "tier": 2,
+        "locator": "ACE rates forward lunge intermediate and explicitly requires single-leg stabilization, controlled hip/knee lowering and alignment; dumbbells preserve these demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "stagedRecords": 26,
+    "stagedCapabilities": 81,
+    "preexistingAuthoritativeCapabilities": 0,
+    "newAuthoritativeCapabilities": 81,
+    "newProcessedRecords": 26,
+    "capabilitiesPerQuery": 2.7,
+    "validation": "PASS",
+    "stagingState": "PROMOTED_AUTHORITATIVE"
+  }
+}

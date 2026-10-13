@@ -1,0 +1,90 @@
+[
+  {
+    "id": "HOME_BODYWEIGHT",
+    "location": "HOME",
+    "equipment": [],
+    "assistance": false,
+    "externalLoad": false
+  },
+  {
+    "id": "HOME_BAR",
+    "location": "HOME",
+    "equipment": [
+      "pull-up bar"
+    ],
+    "assistance": false,
+    "externalLoad": false
+  },
+  {
+    "id": "HOME_DUMBBELLS",
+    "location": "HOME",
+    "equipment": [
+      "dumbbell"
+    ],
+    "assistance": false,
+    "externalLoad": true
+  },
+  {
+    "id": "HOME_BANDS",
+    "location": "HOME",
+    "equipment": [
+      "resistance band"
+    ],
+    "assistance": true,
+    "externalLoad": false
+  },
+  {
+    "id": "HOME_BENCH_DB",
+    "location": "HOME",
+    "equipment": [
+      "bench",
+      "dumbbell"
+    ],
+    "assistance": false,
+    "externalLoad": true
+  },
+  {
+    "id": "GYM_STANDARD",
+    "location": "GYM",
+    "equipment": [
+      "barbell",
+      "dumbbell",
+      "bench",
+      "cable",
+      "machine",
+      "pull-up bar"
+    ],
+    "assistance": false,
+    "externalLoad": true
+  },
+  {
+    "id": "GYM_SUSPENSION",
+    "location": "GYM",
+    "equipment": [
+      "barbell",
+      "dumbbell",
+      "bench",
+      "cable",
+      "machine",
+      "pull-up bar",
+      "suspension trainer"
+    ],
+    "assistance": false,
+    "externalLoad": true
+  },
+  {
+    "id": "GYM_ASSISTED",
+    "location": "GYM",
+    "equipment": [
+      "barbell",
+      "dumbbell",
+      "bench",
+      "cable",
+      "machine",
+      "pull-up bar",
+      "assisted pull-up machine"
+    ],
+    "assistance": true,
+    "externalLoad": true
+  }
+]

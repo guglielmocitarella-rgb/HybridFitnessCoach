@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "V3.10C-R5-R-PS-2",
+  "status": "PASS",
+  "validatedRemoteHead": "5a7e2d04a2052ad4bf4180804865e8d8797f2f99",
+  "rootCause": "CONNECTOR_TRANSPORT_SIZE_LIMIT / MONOLITHIC_INCREMENTAL_PERSISTENCE_SCALABILITY_GAP",
+  "realDataLoss": false,
+  "preExistingEvidenceGap": {
+    "cells": 31,
+    "recovered": 31,
+    "notRecoverable": 0,
+    "newResearch": false
+  },
+  "families": {
+    "field-decisions": 1124,
+    "evidence": 1124,
+    "provenance": 1124,
+    "research-log": 308,
+    "patch": 1124
+  },
+  "shardsPerFamily": 16,
+  "partition": "FNV1a32 semantic-key mod 16",
+  "missing": 0,
+  "duplicate": 0,
+  "conflictingEntry": 0,
+  "unexpectedSemanticMutation": 0,
+  "orphanDecision": 0,
+  "orphanEvidence": 0,
+  "orphanProvenance": 0,
+  "referentialIntegrity": "PASS",
+  "manifestIntegrity": "PASS",
+  "guardV2Regression": "PASS_BY_REMOTE_STRUCTURE_AND_VALIDATOR_CONTRACT",
+  "checkpoint": {
+    "processed": 1143,
+    "resolved": 1124,
+    "terminalUnresolved": 19,
+    "unprocessed": 2692,
+    "provenance": 1124,
+    "lastProcessed": "cm-kettlebell-goblet-squat"
+  },
+  "prescriptionDependentPreserved": 441,
+  "runtimeDbModified": false,
+  "productionPathModified": false
+}

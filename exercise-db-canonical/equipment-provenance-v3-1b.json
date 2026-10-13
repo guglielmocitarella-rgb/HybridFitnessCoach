@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "3.1B",
+  "sourceHead": "f7bfae98d7f677cc003249dc5e6c5f5a4dc37c43",
+  "count": 14,
+  "records": [
+    {
+      "provenanceId": "v3.1b-equipment-001",
+      "canonicalId": "ex-assisted-pull-up",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN",
+      "source": "ACE — 4 Moves to Help You Master the Pull-up",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/pros/expert-articles/5565/4-moves-to-help-you-master-the-pull-up/",
+      "evidence": "ACE describes the Assisted Pull-up using a pull-up bar with a super band; ACE also documents an assisted pull-up machine as an assistance path.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific technical guidance establishes the base support and valid assistance mechanisms.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-002",
+      "canonicalId": "ex-assisted-pull-up",
+      "field": "equipmentRequired",
+      "oldValue": [],
+      "newValue": [
+        "pull_up_bar"
+      ],
+      "source": "ACE — 4 Moves to Help You Master the Pull-up",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/pros/expert-articles/5565/4-moves-to-help-you-master-the-pull-up/",
+      "evidence": "ACE describes the Assisted Pull-up using a pull-up bar with a super band; ACE also documents an assisted pull-up machine as an assistance path.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific technical guidance establishes the base support and valid assistance mechanisms.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-003",
+      "canonicalId": "ex-assisted-pull-up",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "ASSISTED_BY",
+        "required": [
+          "pull_up_bar"
+        ],
+        "assistanceAlternatives": [
+          [
+            "resistance_band"
+          ],
+          [
+            "machine"
+          ]
+        ]
+      },
+      "source": "ACE — 4 Moves to Help You Master the Pull-up",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/pros/expert-articles/5565/4-moves-to-help-you-master-the-pull-up/",
+      "evidence": "ACE describes the Assisted Pull-up using a pull-up bar with a super band; ACE also documents an assisted pull-up machine as an assistance path.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific technical guidance establishes the base support and valid assistance mechanisms.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-004",
+      "canonicalId": "ex-assisted-single-leg-squat",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "ASSISTED_BY",
+        "required": [],
+        "assistanceAlternatives": [
+          [
+            "partner"
+          ]
+        ]
+      },
+      "source": "external-enrichment.json / ACE Exercise Library",
+      "sourceRecordId_url": "https://www.acefitness.org/resources/everyone/exercise-library/265/partner-assisted-bodyweight-squats/",
+      "evidence": "Persisted HIGH-confidence enrichment maps the exact single-leg assisted variation to ACE Partner Assisted Bodyweight Squats and records No Equipment.",
+      "confidence": "HIGH",
+      "reason": "Existing V3 evidence establishes partner assistance without apparatus.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-005",
+      "canonicalId": "ex-back-foot-elevated-split-squat",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN",
+      "source": "REP Fitness — Bulgarian Split Squats",
+      "sourceRecordId_url": "https://bg.repfitness.com/blogs/training/bulgarian-split-squats-how-to",
+      "evidence": "REP Fitness describes the rear-foot-elevated/Bulgarian split squat with the back foot propped on a weight bench; independent technical descriptions also use a box as the elevated support.",
+      "confidence": "HIGH",
+      "reason": "The exercise requires an elevated rear-foot support, but the support is not uniquely a bench.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-006",
+      "canonicalId": "ex-back-foot-elevated-split-squat",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "ONE_OF",
+        "required": [],
+        "alternatives": [
+          [
+            "bench"
+          ],
+          [
+            "box"
+          ]
+        ]
+      },
+      "source": "REP Fitness — Bulgarian Split Squats",
+      "sourceRecordId_url": "https://bg.repfitness.com/blogs/training/bulgarian-split-squats-how-to",
+      "evidence": "REP Fitness describes the rear-foot-elevated/Bulgarian split squat with the back foot propped on a weight bench; independent technical descriptions also use a box as the elevated support.",
+      "confidence": "HIGH",
+      "reason": "The exercise requires an elevated rear-foot support, but the support is not uniquely a bench.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-007",
+      "canonicalId": "ex-scapula-foam-rolling",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN",
+      "source": "ACE — Activity-specific warm-up and mobility drills",
+      "sourceRecordId_url": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/",
+      "evidence": "ACE's foam-roll thoracic-spine drill instructs lying on a foam roller while abducting the scapulae; this directly supports foam-roller apparatus for scapular-region foam rolling.",
+      "confidence": "HIGH",
+      "reason": "Technical source directly ties scapular positioning/upper-back rolling to a foam roller.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-008",
+      "canonicalId": "ex-scapula-foam-rolling",
+      "field": "equipmentRequired",
+      "oldValue": [],
+      "newValue": [
+        "foam_roller"
+      ],
+      "source": "ACE — Activity-specific warm-up and mobility drills",
+      "sourceRecordId_url": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/",
+      "evidence": "ACE's foam-roll thoracic-spine drill instructs lying on a foam roller while abducting the scapulae; this directly supports foam-roller apparatus for scapular-region foam rolling.",
+      "confidence": "HIGH",
+      "reason": "Technical source directly ties scapular positioning/upper-back rolling to a foam roller.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-009",
+      "canonicalId": "ex-scapula-foam-rolling",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "REQUIRED",
+        "required": [
+          "foam_roller"
+        ]
+      },
+      "source": "ACE — Activity-specific warm-up and mobility drills",
+      "sourceRecordId_url": "https://www.acefitness.org/certifiednewsarticle/2910/a-detailed-guide-to-designing-activity-specific-warm-up-and-mobility-drills/",
+      "evidence": "ACE's foam-roll thoracic-spine drill instructs lying on a foam roller while abducting the scapulae; this directly supports foam-roller apparatus for scapular-region foam rolling.",
+      "confidence": "HIGH",
+      "reason": "Technical source directly ties scapular positioning/upper-back rolling to a foam roller.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-010",
+      "canonicalId": "ex-weighted-pistols",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN",
+      "source": "CrossFit — weighted pistol / single-leg squat guidance",
+      "sourceRecordId_url": "https://library.crossfit.com/premium/pdf/56_07_Crane_Dip_Pistol.pdf",
+      "evidence": "CrossFit's pistol progression explicitly describes weighted one-leg squats and kettlebell loading; current CrossFit programming also uses weighted pistol/single-leg-squat variants with external implements.",
+      "confidence": "HIGH",
+      "reason": "External load is certain; implement is a modality choice, not a single mandatory token.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-011",
+      "canonicalId": "ex-weighted-pistols",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "EXTERNAL_LOAD",
+        "required": [],
+        "externalLoadAlternatives": [
+          [
+            "kettlebell"
+          ],
+          [
+            "dumbbell"
+          ]
+        ]
+      },
+      "source": "CrossFit — weighted pistol / single-leg squat guidance",
+      "sourceRecordId_url": "https://library.crossfit.com/premium/pdf/56_07_Crane_Dip_Pistol.pdf",
+      "evidence": "CrossFit's pistol progression explicitly describes weighted one-leg squats and kettlebell loading; current CrossFit programming also uses weighted pistol/single-leg-squat variants with external implements.",
+      "confidence": "HIGH",
+      "reason": "External load is certain; implement is a modality choice, not a single mandatory token.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-012",
+      "canonicalId": "ex-weighted-single-leg-squat",
+      "field": "equipmentStatus",
+      "oldValue": "UNKNOWN",
+      "newValue": "KNOWN",
+      "source": "CrossFit Workout 2025-09-05",
+      "sourceRecordId_url": "https://www.crossfit.com/workout/2025/09",
+      "evidence": "CrossFit programs alternating weighted single-leg squats with a specified dumbbell load and describes reducing/removing that load for scaling.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific current technical programming directly establishes external dumbbell loading.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-013",
+      "canonicalId": "ex-weighted-single-leg-squat",
+      "field": "equipmentRequired",
+      "oldValue": [],
+      "newValue": [
+        "dumbbell"
+      ],
+      "source": "CrossFit Workout 2025-09-05",
+      "sourceRecordId_url": "https://www.crossfit.com/workout/2025/09",
+      "evidence": "CrossFit programs alternating weighted single-leg squats with a specified dumbbell load and describes reducing/removing that load for scaling.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific current technical programming directly establishes external dumbbell loading.",
+      "version": "V3.1B"
+    },
+    {
+      "provenanceId": "v3.1b-equipment-014",
+      "canonicalId": "ex-weighted-single-leg-squat",
+      "field": "equipmentRequirement",
+      "oldValue": null,
+      "newValue": {
+        "status": "KNOWN",
+        "mode": "EXTERNAL_LOAD",
+        "required": [
+          "dumbbell"
+        ],
+        "externalLoadAlternatives": [
+          [
+            "dumbbell"
+          ],
+          [
+            "kettlebell"
+          ]
+        ]
+      },
+      "source": "CrossFit Workout 2025-09-05",
+      "sourceRecordId_url": "https://www.crossfit.com/workout/2025/09",
+      "evidence": "CrossFit programs alternating weighted single-leg squats with a specified dumbbell load and describes reducing/removing that load for scaling.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific current technical programming directly establishes external dumbbell loading.",
+      "version": "V3.1B"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "dimension": "identity",
+    "class": "REQUIRED_FOR_ALL",
+    "impact": "persistence",
+    "fallback": "fail-closed"
+  },
+  {
+    "dimension": "category",
+    "class": "REQUIRED_FOR_ALL",
+    "impact": "selection",
+    "fallback": "fail-closed"
+  },
+  {
+    "dimension": "group",
+    "class": "REQUIRED_FOR_ALL",
+    "impact": "recovery/body-part",
+    "fallback": "mapping-required"
+  },
+  {
+    "dimension": "equipment",
+    "class": "REQUIRED_FOR_ALL",
+    "impact": "location",
+    "fallback": "fail-closed"
+  },
+  {
+    "dimension": "resistance",
+    "class": "REQUIRED_CONDITIONALLY",
+    "impact": "load/assistance",
+    "fallback": "fail-closed"
+  },
+  {
+    "dimension": "measure",
+    "class": "REQUIRED_FOR_ALL",
+    "impact": "Runner",
+    "fallback": "fail-closed"
+  },
+  {
+    "dimension": "prescription",
+    "class": "REQUIRED_CONDITIONALLY",
+    "impact": "targets",
+    "fallback": "schema-required"
+  },
+  {
+    "dimension": "capability",
+    "class": "REQUIRED_CONDITIONALLY",
+    "impact": "eligibility/progression",
+    "fallback": "fail-closed"
+  },
+  {
+    "dimension": "skillRelations",
+    "class": "REQUIRED_CONDITIONALLY",
+    "impact": "skill progression",
+    "fallback": "fail-closed"
+  },
+  {
+    "dimension": "movementPattern",
+    "class": "OPTIONAL_ENGINE_ENHANCING",
+    "impact": "sequencing",
+    "fallback": "safe-degrade"
+  },
+  {
+    "dimension": "family",
+    "class": "OPTIONAL_ENGINE_ENHANCING",
+    "impact": "variety",
+    "fallback": "safe-degrade"
+  },
+  {
+    "dimension": "laterality",
+    "class": "OPTIONAL_ENGINE_ENHANCING",
+    "impact": "variant semantics",
+    "fallback": "safe-degrade"
+  },
+  {
+    "dimension": "isometric",
+    "class": "OPTIONAL_ENGINE_ENHANCING",
+    "impact": "variant semantics",
+    "fallback": "safe-degrade"
+  },
+  {
+    "dimension": "muscleMetadata",
+    "class": "OPTIONAL_ENGINE_ENHANCING",
+    "impact": "future recovery",
+    "fallback": "safe-degrade"
+  },
+  {
+    "dimension": "editorial/media",
+    "class": "NOT_REQUIRED_FOR_ENGINE",
+    "impact": "presentation",
+    "fallback": "n/a"
+  }
+]

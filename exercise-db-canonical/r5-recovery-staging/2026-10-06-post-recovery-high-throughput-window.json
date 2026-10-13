@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "V3.10C-R5-R-STAGING-1",
+  "status": "RECOVERABLE_NOT_AUTHORITATIVE",
+  "leaseBaseHead": "7715ca7669e2cfa1a315d464f0d6211932c0a963",
+  "authoritativeCheckpointBeforeWindow": {
+    "processed": 1644,
+    "resolved": 1599,
+    "terminal": 45,
+    "remaining": 2191,
+    "researchLog": 452,
+    "provenance": 1599
+  },
+  "window": {
+    "newWebQueries": 34,
+    "materializedInSameCheckpoint": [
+      "ex-diamond-push-up",
+      "ex-dip",
+      "ex-donkey-kick",
+      "ex-double-leg-abdominal-press",
+      "ex-dragon-flag"
+    ],
+    "remainingResearch": [
+      {
+        "id": "ex-double-clap-push-up",
+        "sources": [
+          {
+            "title": "Clapping Push-Up: Develop Explosive Power | Plyo Guide",
+            "publisher": "Calisthenics Hub",
+            "locator": "https://www.calisthenics-hub.com/workouts/clapping-push-up",
+            "finding": "Source explicitly places Double Clap Push-Up as the harder progression after Clapping Push-Up; clapping push-ups require explosive takeoff, airborne hand action, controlled landing and rigid core."
+          },
+          {
+            "title": "How To Do A Double Clap Push Up",
+            "publisher": "OfficialBarstarzz",
+            "locator": "https://www.youtube.com/watch?v=qF4axyFgZ14",
+            "finding": "Exact exercise tutorial/progression identified; textual search result confirms the video is specifically about the double clap push-up."
+          }
+        ],
+        "candidateDecision": "NOT_MATERIALIZED_SOURCE_DETAIL_INCOMPLETE"
+      },
+      {
+        "id": "ex-dumbbell-biceps-curl",
+        "sources": [
+          {
+            "title": "How to Dumbbell Curl: Muscles Worked & Proper Form",
+            "publisher": "StrengthLog",
+            "locator": "https://www.strengthlog.com/dumbbell-curl/",
+            "finding": "Exact dumbbell curl: standing bilateral underhand dumbbells, controlled elbow flexion, elbows kept near sides, no swinging or momentum."
+          }
+        ],
+        "candidateDecision": "RESEARCHED_NOT_MATERIALIZED_WINDOW_BOUNDARY"
+      },
+      {
+        "id": "ex-dish",
+        "sources": [],
+        "candidateDecision": "NO_EXACT_SOURCE_ESTABLISHED"
+      },
+      {
+        "id": "ex-double-leg-bridge-with-shoulder-flexion",
+        "sources": [],
+        "candidateDecision": "NO_EXACT_SOURCE_ESTABLISHED"
+      },
+      {
+        "id": "ex-dragon-flag-swimmers",
+        "sources": [],
+        "candidateDecision": "NO_EXACT_SOURCE_ESTABLISHED"
+      },
+      {
+        "id": "ex-dumbbell-bench-press",
+        "sources": [],
+        "candidateDecision": "EXACT_SOURCE_NOT_ESTABLISHED"
+      },
+      {
+        "id": "ex-dumbbell-bent-over-row",
+        "sources": [],
+        "candidateDecision": "EXACT_SOURCE_NOT_ESTABLISHED"
+      }
+    ],
+    "notes": "Persisted at 34-query boundary. Do not treat remainingResearch as authoritative capability decisions; revalidate against current ledger before materialization. No query from the prior 18-query recovery staging was repeated."
+  }
+}

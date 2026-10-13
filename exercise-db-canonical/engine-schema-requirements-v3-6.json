@@ -1,0 +1,65 @@
+[
+  {
+    "id": "SCHEMA-EQUIPMENT",
+    "currentModel": "equipmentRequired + equipmentStatus",
+    "limitation": "NONE/REQUIRED/OPTIONAL/ONE_OF/ASSISTED_BY/EXTERNAL_LOAD not representable",
+    "proposedV3Concept": "typed equipment requirement",
+    "engineConsequence": "false location eligibility",
+    "migrationRequirement": "EquipmentCatalog/location adapter",
+    "openDecision": true
+  },
+  {
+    "id": "SCHEMA-RESISTANCE",
+    "currentModel": "resistanceMode",
+    "limitation": "resistance source conflated with kg load/assistance input",
+    "proposedV3Concept": "separate resistance source/load input",
+    "engineConsequence": "wrong Runner input",
+    "migrationRequirement": "runtime/prescription adapter",
+    "openDecision": true
+  },
+  {
+    "id": "SCHEMA-CAPABILITY",
+    "currentModel": "scalar level",
+    "limitation": "unknown behaves as advanced; multidimensional capability absent",
+    "proposedV3Concept": "capability requirements",
+    "engineConsequence": "false gating",
+    "migrationRequirement": "selection capability model",
+    "openDecision": true
+  },
+  {
+    "id": "SCHEMA-SKILL",
+    "currentModel": "skillIds + legacy aliases",
+    "limitation": "typed relations not runtime source of truth",
+    "proposedV3Concept": "typed Exercise-SkillNode relations",
+    "engineConsequence": "empty/wrong skill paths",
+    "migrationRequirement": "SkillCatalog bridge",
+    "openDecision": true
+  },
+  {
+    "id": "SCHEMA-CATEGORY-GROUP",
+    "currentModel": "derived group/secondaryGroups",
+    "limitation": "category != recovery group",
+    "proposedV3Concept": "explicit category/group mapping",
+    "engineConsequence": "recovery/body-part bias",
+    "migrationRequirement": "deterministic adapter",
+    "openDecision": true
+  },
+  {
+    "id": "SCHEMA-PRESCRIPTION",
+    "currentModel": "single measure + app rules",
+    "limitation": "multidimensional prescriptions not representable",
+    "proposedV3Concept": "primary measure + typed dimensions",
+    "engineConsequence": "lossy targets",
+    "migrationRequirement": "Runner/prescription adapter",
+    "openDecision": true
+  },
+  {
+    "id": "SCHEMA-MOVEMENT",
+    "currentModel": "single runtime pattern",
+    "limitation": "V3 multi-value; 176 missing",
+    "proposedV3Concept": "multi-pattern semantics",
+    "engineConsequence": "variety degradation",
+    "migrationRequirement": "sequencing adapter",
+    "openDecision": true
+  }
+]

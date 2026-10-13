@@ -1,0 +1,231 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V4",
+  "baselineHead": "611cd3eb104a621932cca98f5815005ccc63f27b",
+  "baselineCheckpoint": {
+    "processed": 1739,
+    "resolved": 1691,
+    "terminal": 48,
+    "unprocessed": 2096,
+    "provenance": 1691,
+    "researchLog": 480
+  },
+  "newWebQueries": 27,
+  "sourceFamilyBatching": true,
+  "evidenceCompleteCount": 46,
+  "records": [
+    {
+      "id": "ex-dumbbell-flat-bench-flyes",
+      "source": {
+        "title": "Dumbbell Flat Bench Flyes: Form Guide, Muscles Worked & Programming",
+        "publisher": "The Workout Mag",
+        "tier": 3,
+        "locator": "https://theworkoutmag.com/training/dumbbell-flat-bench-flyes-form-guide"
+      },
+      "finding": "Flat-bench supported isolation fly; feet planted, scapulae set, controlled wide arc and emphasized eccentric control through a large chest/shoulder stretch.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-dumbbell-rear-deltoid-fly",
+      "source": {
+        "title": "Dumbbell Rear Delt Fly",
+        "publisher": "IronYou",
+        "tier": 3,
+        "locator": "https://www.ironyou.app/exercises/dumbbell-rear-delt-fly/"
+      },
+      "finding": "Beginner rear-delt fly using a stable hinged or chest-supported torso, soft elbows, controlled horizontal shoulder abduction and no torso swing.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-dumbbell-seated-shoulder-press",
+      "source": {
+        "title": "Dumbbell Seated Shoulder Press",
+        "publisher": "GymImpulse",
+        "tier": 3,
+        "locator": "https://gymimpulse.com/exercise/dumbbell-seated-shoulder-press"
+      },
+      "finding": "Beginner-suitable bilateral overhead press from a seated back-supported position; bench stabilizes torso while arms press from shoulder height overhead.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-dumbbell-squat",
+      "source": {
+        "title": "How to Do Dumbbell Squat: Muscles Worked & Proper Form",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/dumbbell-squat/"
+      },
+      "finding": "Shoulder-width bilateral dumbbell squat with light core brace and descent as deep as possible; source explicitly says it is easy to learn and suitable for beginners.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+      "source": {
+        "title": "Press to Handstand",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/press-to-handstand/"
+      },
+      "finding": "High-difficulty straight-arm straddle press to freestanding handstand requiring straight-arm shoulder strength, active compression, flexibility, balance and coordination without jumping.",
+      "decisions": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-extended-plank",
+      "source": {
+        "title": "Extended Plank: Form, Muscles Worked, Target Reps & Variations",
+        "publisher": "Fitbod",
+        "tier": 3,
+        "locator": "https://fitbod.me/exercises/extended-plank"
+      },
+      "finding": "Intermediate bodyweight plank variation with arms farther forward, significantly increased instability and core engagement required to maintain rigid alignment.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-ez-bar-biceps-curl",
+      "source": {
+        "title": "EZ Bar Biceps Curl",
+        "publisher": "IronYou",
+        "tier": 3,
+        "locator": "https://www.ironyou.app/exercises/ez-bar-biceps-curl/"
+      },
+      "finding": "Beginner standing EZ-bar curl: brace torso, keep upper arms mostly still, flex elbows through a comfortable range and lower under control without swinging.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      }
+    },
+    {
+      "id": "ex-face-pull-machine",
+      "source": {
+        "title": "Face Pull (Machine)",
+        "publisher": "NSCA",
+        "tier": 1,
+        "locator": "https://www.nsca.com/education/articles/kinetic-select/face-pull-machine/"
+      },
+      "finding": "Stable parallel stance at a high-pulley machine; sequential scapular retraction, shoulder horizontal abduction, elbow flexion and external rotation while maintaining fixed torso/head position.",
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-false-grip-muscle-up",
+      "source": {
+        "title": "Muscle up technique, step by step",
+        "publisher": "Calisthenics.dk",
+        "tier": 3,
+        "locator": "https://calisthenics.dk/en/guides/muscle-up-technique"
+      },
+      "finding": "Muscle-up requires false grip, explosive pull to lower chest, aggressive transition and press to straight arms; readiness tests require 10 strict pull-ups, 10 full-depth dips and an explosive chest-height pull.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-finger-assisted-one-arm-pull-up",
+      "source": {
+        "title": "Finger-Assisted One Arm Pull Up Progressions",
+        "publisher": "Simple Calisthenics",
+        "tier": 3,
+        "locator": "https://www.simple-calisthenics.com/exercises/fingerAssistedOneArmPullUpProgressions"
+      },
+      "finding": "Progression reduces assisting fingers from four to one; near-full bodyweight is borne by the working arm, strict 2-3 second eccentrics are required, and anti-rotation/core bracing demand rises as assistance falls.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-finger-pull-up",
+      "source": {
+        "title": "Finger Pull Ups: Form Guide, Grip Progressions & Programming",
+        "publisher": "The Workout Mag",
+        "tier": 3,
+        "locator": "https://theworkoutmag.com/training-guide/finger-pull-ups-form-guide-progressions"
+      },
+      "finding": "Advanced bodyweight pull-up performed with finger-only or reduced-finger contact, placing extreme stress on finger flexor tendons/pulleys and requiring controlled hanging and pulling.",
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-fingertip-push-up",
+      "source": {
+        "title": "Fingertip Push-Up: Proper Form, Muscles Worked, Benefits & Safety",
+        "publisher": "Bodybuilding Wizard",
+        "tier": 3,
+        "locator": "https://bodybuilding-wizard.com/fingertip-push-up/"
+      },
+      "finding": "Advanced push-up variation supporting bodyweight on fingertips; develops finger strength, hand stability, wrist control and upper-body pushing strength under extended weight-bearing finger position.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-flat-back-front-lever",
+      "source": {
+        "title": "Complete Calisthenics Guide",
+        "publisher": "Complete Calisthenics / StudyLib mirror",
+        "tier": 3,
+        "locator": "https://studylib.net/doc/27226669/ashley-kalym---complete-calisthenics---reedited-2016"
+      },
+      "finding": "Flat-back front lever is explicitly described as extremely difficult relative to tuck front lever: flattening the back lengthens the core and moves more bodyweight away from the hands, forcing greater back/core force while elbows stay straight and hips align with shoulders.",
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      }
+    }
+  ],
+  "promotedCapabilityCount": 46,
+  "promotedRecordCount": 13,
+  "finalCheckpoint": {
+    "processed": 1785,
+    "resolved": 1737,
+    "terminal": 48,
+    "unprocessed": 2050,
+    "provenance": 1737,
+    "researchLog": 493
+  },
+  "promotionNote": "Promoted via chunked Git-object preparation; checkpoint included only in final complete tree."
+}

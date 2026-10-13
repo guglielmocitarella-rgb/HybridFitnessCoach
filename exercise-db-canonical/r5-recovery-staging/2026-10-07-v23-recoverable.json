@@ -1,0 +1,448 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "R5/V23",
+  "baselineHead": "c0d805a441aa6511e0b4b62ff9bfffaed895fb44",
+  "note": "R5/V23 source-family research staging. FRESH true-missing capability decisions only; existing authoritative decisions excluded losslessly before staging.",
+  "newWebQueries": 12,
+  "overlapExclusion": {
+    "capabilities": 0,
+    "keys": [],
+    "policy": "preserve existing authoritative decisions; do not restage or replace"
+  },
+  "records": [
+    {
+      "canonicalExerciseId": "ex-tuck-one-leg-front-lever",
+      "exerciseName": "Tuck One-Leg Front Lever",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tuck/one-leg front-lever progression requires advanced straight-arm pulling strength and precise body-line control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-planche",
+      "exerciseName": "Tuck Planche",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tuck planche is an advanced straight-arm support progression requiring substantial shoulder strength and coordinated body-line control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tuck-planche-pushups",
+      "exerciseName": "Tuck Planche Pushups",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Dynamic tuck-planche pressing adds very high pressing strength and technical control to the planche support position."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tucked-dragon-flag",
+      "exerciseName": "Tucked Dragon Flag",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tucked dragon-flag progression requires strong anti-extension/core control with reduced lever length but still advanced technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-tucked-flag",
+      "exerciseName": "Tucked Flag",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Tucked flag progression requires high lateral-chain/shoulder strength and coordinated rigid-body control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-turkish-get-up",
+      "exerciseName": "Turkish Get-Up",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/388/turkish-get-up/",
+        "tier": 2,
+        "locator": "ACE classifies the Turkish get-up as advanced; it moves through multiple planes from floor to standing under an overhead load and requires substantial coordination, stability and mobility."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-two-arm-elbow-lever",
+      "exerciseName": "Two-Arm Elbow Lever",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Elbow-lever family is a bodyweight balance/support skill requiring substantial upper-body tension, balance and controlled positioning."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-two-arm-kettlebell-swing",
+      "exerciseName": "Two-Arm Kettlebell Swing",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/continuing-education/certified/january-2025/8788/the-ace-do-it-better-series-the-two-handed-kettlebell-swing/",
+        "tier": 2,
+        "locator": "ACE describes the two-handed swing as an explosive hip hinge requiring spinal control, abdominal bracing, timing and coordinated force transfer."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-typewriter-pull-up",
+      "exerciseName": "Typewriter Pull-Up",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Advanced pull-up variation shifts laterally under load, increasing unilateral pulling strength and coordinated shoulder/scapular control."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-unilateral-cable-lateral-raise",
+      "exerciseName": "Unilateral Cable Lateral Raise",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "tier": 2,
+        "locator": "ACE cable exercise library supports controlled single-joint resistance work; unilateral standing execution adds modest stabilization while shoulder range remains the primary mobility demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-unilateral-cross-body-triceps-extension",
+      "exerciseName": "Unilateral Cross-Body Triceps Extension",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/body-part/arms/triceps/",
+        "tier": 2,
+        "locator": "ACE triceps exercise guidance supports controlled elbow-extension patterns; cross-body unilateral execution requires moderate shoulder positioning but remains a straightforward isolation technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-unilateral-cuffed-leg-extension",
+      "exerciseName": "Unilateral Cuffed Leg Extension",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "tier": 2,
+        "locator": "Supported unilateral leg-extension resistance work has low balance and mobility demands with simple controlled knee-extension technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-unilateral-dumbbell-bench-press",
+      "exerciseName": "Unilateral Dumbbell Bench Press",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/19/chest-press/",
+        "tier": 2,
+        "locator": "ACE bench press guidance emphasizes supported supine pressing, scapular control and neutral spine; unilateral loading increases anti-rotation stabilization without changing the basic press pattern."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-unilateral-leg-extension",
+      "exerciseName": "Unilateral Leg Extension",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "tier": 2,
+        "locator": "Selectorized unilateral knee extension is externally stabilized, with minimal balance demand, limited mobility requirement and straightforward technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-upper-back-stretch",
+      "exerciseName": "Upper-Back Stretch",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/getfit/rubrbndwkout.pdf",
+        "tier": 2,
+        "locator": "ACE upper-back mobility guidance uses controlled scapular/upper-back positioning with minimal force production and simple technique."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-upright-row",
+      "exerciseName": "Upright Row",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf",
+        "tier": 2,
+        "locator": "ACE upright-row guidance uses a stable shoulder-width stance and controlled vertical pull to chest/chin height, with moderate shoulder ROM and technique demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-upright-rows-with-ez-bar",
+      "exerciseName": "Upright Rows with EZ Bar",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/cp/pdfs/CertifiedNews/AugSept09Cert.pdf",
+        "tier": 2,
+        "locator": "EZ-bar variant retains the stable upright-row pattern and controlled vertical pull, with moderate shoulder ROM and technique demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-v-up",
+      "exerciseName": "V-Up",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/242/v-ups/",
+        "tier": 2,
+        "locator": "ACE classifies V-ups as intermediate and emphasizes abdominal bracing, unsupported trunk/leg positioning and controlled progression, creating meaningful balance and strength demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-vertical-chest-press-machine",
+      "exerciseName": "Vertical Chest Press (Machine)",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/resources/everyone/exercise-library/188/seated-chest-press/",
+        "tier": 2,
+        "locator": "ACE classifies the seated machine chest press as beginner; backrest and machine path stabilize the body while controlled pressing uses modest shoulder range."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-vertical-flag",
+      "exerciseName": "Vertical Flag",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Vertical flag is an advanced flag-family bodyweight skill requiring extreme lateral-chain/shoulder strength, whole-body tension and precise coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-vertical-human-flag",
+      "exerciseName": "Vertical Human Flag",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Vertical human-flag variation is an advanced flag skill requiring very high relative strength, rigid-body control and coordinated opposing-arm force."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "VERY_HIGH",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-vertical-pulls",
+      "exerciseName": "Vertical Pulls",
+      "source": {
+        "publisher": "Steven Low",
+        "title": "https://stevenlow.org/overcoming-gravity/",
+        "tier": 2,
+        "locator": "Vertical bodyweight pulling requires substantial pulling strength and scapular control with moderate coordination and shoulder range demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-walking-arm-swings",
+      "exerciseName": "Walking Arm Swings",
+      "source": {
+        "publisher": "ACE",
+        "title": "https://www.acefitness.org/continuing-education/prosource/may-2015/5379/do-it-better-dynamic-warm-ups/",
+        "tier": 2,
+        "locator": "ACE dynamic warm-up guidance describes integrated low-load movements used to improve mobility, stability, balance and coordination; walking arm swings fit this low-strength dynamic warm-up family."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "promotion": {
+    "stagedRecords": 23,
+    "stagedCapabilities": 80,
+    "preexistingAuthoritativeCapabilities": 0,
+    "freshCapabilities": 80,
+    "validation": "PASS",
+    "promotedAuthoritative": 80,
+    "authoritativeFinal": 3552
+  }
+}

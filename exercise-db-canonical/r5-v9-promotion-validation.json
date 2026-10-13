@@ -1,0 +1,52 @@
+{
+  "version": "V3.10C-R5-R-V9",
+  "result": "PASS",
+  "promotion": "AUTHORITATIVE_CANDIDATE_VALIDATED",
+  "stagingCommit": "6d1c564ae9e521e5563967189f04a7266ced8dab",
+  "recordsStaged": 26,
+  "recordsPromoted": 26,
+  "capabilitiesStaged": 100,
+  "capabilitiesPromoted": 100,
+  "resolvedPromoted": 100,
+  "terminalPromoted": 0,
+  "residue": 0,
+  "newWebQueriesAlreadyPerformed": 24,
+  "duplicateProvenanceGate": {
+    "baselineDuplicateIdCount": 7,
+    "candidateDuplicateIdCount": 7,
+    "newDuplicateIds": [],
+    "multiplicityIncreases": [],
+    "result": "BASELINE_DUPLICATES_PRESERVED_NO_NEW_VIOLATIONS"
+  },
+  "checkpoint": {
+    "processed": 2557,
+    "resolved": 2509,
+    "terminal": 48,
+    "unprocessed": 1278,
+    "provenance": 2509,
+    "researchLog": 694
+  },
+  "integrity": {
+    "fieldDecisions": 2509,
+    "evidence": 2509,
+    "provenance": 2509,
+    "patch": 2509,
+    "missing": 0,
+    "referentialIntegrity": "PASS",
+    "newSemanticDuplicates": 0
+  },
+  "routing": {
+    "historicalViolations": 11,
+    "newViolations": 0
+  },
+  "prescriptionDependent": 441,
+  "candidateDbModified": false,
+  "runtimeDbModified": false,
+  "productionPathModified": false,
+  "stagingRecovery": {
+    "materialCorruptionDetected": true,
+    "placeholderDuplicatesRemoved": 9,
+    "missingBucket02CapabilitiesRecovered": 4,
+    "researchRepeated": false
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "version": "V3.10C-R5",
+  "status": "RESEARCH_ONLY_NOT_PROCESSED",
+  "baseCheckpointHead": "4c064598d0b7355e7ce86ba192eedc9e34f200d6",
+  "records": [
+    {
+      "canonicalExerciseId": "cm-kettlebell-romanian-deadlift",
+      "exerciseName": "Kettlebell Romanian deadlift",
+      "sources": [
+        {
+          "title": "Romanian Deadlift Barbell",
+          "publisher": "NASM",
+          "tier": 2,
+          "locator": "https://www.nasm.org/resource-center/exercise-library/romanian-deadlift-barbell",
+          "finding": "RDL is a bilateral closed-chain hip hinge requiring neutral spine, slight knee bend and descent to hamstring stretch/mid-shin; emphasizes controlled hinge mechanics."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-romanian-deadlift-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-romanian-deadlift-mobilityRequirement",
+        "R5-cm-kettlebell-romanian-deadlift-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-single-leg-deadlift",
+      "exerciseName": "Kettlebell single-leg deadlift",
+      "sources": [
+        {
+          "title": "Kettlebell Single Leg Deadlift",
+          "publisher": "Kettlebells Workouts / Greg Brookes",
+          "tier": 3,
+          "locator": "https://kettlebellsworkouts.com/kettlebell-single-leg-deadlift/",
+          "finding": "Single-leg kettlebell deadlift is more challenging than traditional deadlift and explicitly requires good core strength, hip mobility, balance and coordination."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-single-leg-deadlift-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-single-leg-deadlift-mobilityRequirement",
+        "R5-cm-kettlebell-single-leg-deadlift-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-snatch",
+      "exerciseName": "Kettlebell snatch",
+      "sources": [
+        {
+          "title": "The Kettlebell Snatch",
+          "publisher": "CrossFit",
+          "tier": 1,
+          "locator": "https://www.crossfit.com/essentials/the-kettlebell-snatch",
+          "finding": "CrossFit explicitly describes great technique, flexibility, complex joint coordination, accuracy and balance; movement travels from backswing through explosive launch to overhead lockout."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-snatch-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-snatch-mobilityRequirement",
+        "R5-cm-kettlebell-snatch-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-step-up",
+      "exerciseName": "Kettlebell step-up",
+      "sources": [
+        {
+          "title": "Step-up",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/exercise-library/28/step-up/",
+          "finding": "ACE rates loaded dumbbell step-up Beginner; requires controlled unilateral stepping, knee/foot alignment and weight transfer, with single-leg stand described as a progression."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-step-up-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-step-up-mobilityRequirement",
+        "R5-cm-kettlebell-step-up-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-sumo-deadlift",
+      "exerciseName": "Kettlebell sumo deadlift",
+      "sources": [
+        {
+          "title": "What Is a Deadlift?",
+          "publisher": "CrossFit",
+          "tier": 1,
+          "locator": "https://www.crossfit.com/essentials/foundational-movement-deadlift-what-is-a-deadlift",
+          "finding": "CrossFit identifies sumo deadlift as a wide-stance deadlift sharing midline stabilization and frontal-plane balance; kettlebells are explicitly supported implements and the wider stance facilitates upright pulling."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-sumo-deadlift-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-sumo-deadlift-mobilityRequirement",
+        "R5-cm-kettlebell-sumo-deadlift-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-thruster",
+      "exerciseName": "Kettlebell thruster",
+      "sources": [
+        {
+          "title": "The Thruster",
+          "publisher": "CrossFit",
+          "tier": 1,
+          "locator": "https://www.crossfit.com/essentials/the-thruster",
+          "finding": "CrossFit states thruster develops full-body coordination, uses a large range of motion combining full front squat and overhead press, and requires proper timing; kettlebells are an explicit variation."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-thruster-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-thruster-mobilityRequirement",
+        "R5-cm-kettlebell-thruster-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-walking-lunge",
+      "exerciseName": "Kettlebell walking lunge",
+      "sources": [
+        {
+          "title": "Kettlebell Walking Lunge",
+          "publisher": "Verywell Fit",
+          "tier": 3,
+          "locator": "https://www.verywellfit.com/kettlebell-leg-exercises-5218501",
+          "finding": "Exercise-specific walking lunge guidance notes kettlebells challenge balance, with braced core, controlled alternating forward steps and near-parallel lunge depth."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-walking-lunge-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-walking-lunge-mobilityRequirement",
+        "R5-cm-kettlebell-walking-lunge-technicalDifficulty"
+      ]
+    },
+    {
+      "canonicalExerciseId": "cm-kettlebell-windmill",
+      "exerciseName": "Kettlebell windmill",
+      "sources": [
+        {
+          "title": "Nontraditional Core Exercises",
+          "publisher": "ACE Fitness",
+          "tier": 3,
+          "locator": "https://www.acefitness.org/resources/everyone/blog/6953/nontraditional-core-exercises-for-a-more-productive-workout/",
+          "finding": "ACE windmill requires staggered foot orientation, visual tracking of the overhead arm, hip hinge with long neutral spine, slow controlled motion and progression from low-held to overhead kettlebell."
+        }
+      ],
+      "candidateFieldApplication": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "provenanceIds": [
+        "R5-cm-kettlebell-windmill-balanceCoordinationRequirement",
+        "R5-cm-kettlebell-windmill-mobilityRequirement",
+        "R5-cm-kettlebell-windmill-technicalDifficulty"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1608 @@
+{
+  "schemaVersion": "3.1C",
+  "sourceHead": "ee6b41710f93f20a7325319639aae8f776785365",
+  "derivedFrom": [
+    "equipment-evidence-resolution-v3-1b.json",
+    "equipment-manual-review-v3-1b.json",
+    "equipment-field-patch-v3-1b.json",
+    "equipment-provenance-v3-1b.json"
+  ],
+  "integrity": {
+    "canonical": 1087,
+    "matching": "1087/1087",
+    "residualInput": 95,
+    "residualUnique": 95,
+    "previouslyResolvedExcluded": 6
+  },
+  "policy": "Evidence-first; unresolved is final when ambiguity, schema limits, identity uncertainty, or insufficient field evidence remains.",
+  "classificationCounts": {
+    "UNRESOLVED_INTRINSICALLY_AMBIGUOUS": 32,
+    "UNRESOLVED_INSUFFICIENT_EVIDENCE": 39,
+    "RESOLVED_BODYWEIGHT": 3,
+    "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM": 9,
+    "RESOLVED_NO_EQUIPMENT": 4,
+    "UNRESOLVED_SCHEMA_DECISION_REQUIRED": 8
+  },
+  "clusterCounts": {
+    "E_ASSISTED": 7,
+    "A_SPECIFIC_NAME_SOURCE_MISSING": 20,
+    "D_EXERCISE_FAMILY_VARIANT": 47,
+    "K_POSSIBLE_CANONICAL_ALIAS_OR_IDENTITY": 5,
+    "J_GENUINELY_EQUIPMENT_INDEPENDENT": 5,
+    "B_GENERIC_MULTIPLE_IMPLEMENTATIONS": 7,
+    "C_EQUIPMENT_IMPLICIT_BIOMECHANICS": 2,
+    "F_WEIGHTED_BODYWEIGHT": 1,
+    "L_OTHER": 1
+  },
+  "records": [
+    {
+      "canonicalId": "cm-nordic-curl-assistito",
+      "canonicalName": "Nordic curl assistito",
+      "cluster": "E_ASSISTED",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "cm-one-arm-push-up-assistito",
+      "canonicalName": "One arm push-up assistito",
+      "cluster": "E_ASSISTED",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "cm-pistol-squat-assistito",
+      "canonicalName": "Pistol squat assistito",
+      "cluster": "E_ASSISTED",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "cm-shrimp-squat-assistito",
+      "canonicalName": "Shrimp squat assistito",
+      "cluster": "E_ASSISTED",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "cm-sissy-squat-assistito",
+      "canonicalName": "Sissy squat assistito",
+      "cluster": "E_ASSISTED",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-4-point-burpee",
+      "canonicalName": "4-Point Burpee",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-angled-half-lever",
+      "canonicalName": "Angled Half Lever",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-arch",
+      "canonicalName": "Arch",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-arm-circling",
+      "canonicalName": "Arm Circling",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-asian-squat",
+      "canonicalName": "Asian Squat",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "RESOLVED_BODYWEIGHT",
+      "requirement": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "source": {
+        "tier": 2,
+        "name": "Harvard Health — Get low with deep squats",
+        "url": "https://www.health.harvard.edu/exercise-and-fitness/try-this-get-low-with-deep-squats"
+      },
+      "evidence": "Harvard Health identifies the deep low squat as the posture commonly known as the Asian squat and describes dropping into, holding, and rising from the squat without apparatus.",
+      "conflict": "No substantial conflicting apparatus interpretation found for the canonical identity.",
+      "confidence": "HIGH",
+      "reason": "The identified exercise is a self-supported deep squat; apparatus is not structurally required.",
+      "engineConsequence": "No apparatus gate should block this exercise; location semantics must treat NONE as non-blocking.",
+      "failClosed": false
+    },
+    {
+      "canonicalId": "ex-assisted-leg-raise",
+      "canonicalName": "Assisted Leg Raise",
+      "cluster": "E_ASSISTED",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-assisted-pistol-squat",
+      "canonicalName": "Assisted Pistol Squat",
+      "cluster": "E_ASSISTED",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-ball-shoulder-stretch",
+      "canonicalName": "Ball Shoulder Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-bastards",
+      "canonicalName": "Bastards",
+      "cluster": "K_POSSIBLE_CANONICAL_ALIAS_OR_IDENTITY",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-bend-and-reach",
+      "canonicalName": "Bend and Reach",
+      "cluster": "J_GENUINELY_EQUIPMENT_INDEPENDENT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "RESOLVED_NO_EQUIPMENT",
+      "requirement": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "source": {
+        "tier": 1,
+        "name": "U.S. Army ATP 7-22.01 — Bend and Reach",
+        "url": "https://h2f.army.mil/Portals/141/pdfs/physical/ATP%207-22.01.pdf"
+      },
+      "evidence": "Official Army doctrine defines the complete Bend and Reach starting position and movement using only the body and ground; no apparatus is part of the standardized exercise.",
+      "conflict": "No substantial conflicting apparatus interpretation found for the canonical identity.",
+      "confidence": "CERTAIN",
+      "reason": "The official standardized movement is equipment-independent.",
+      "engineConsequence": "No apparatus gate should block this exercise; location semantics must treat NONE as non-blocking.",
+      "failClosed": false
+    },
+    {
+      "canonicalId": "ex-bent-leg-good-morning",
+      "canonicalName": "Bent Leg Good Morning",
+      "cluster": "B_GENERIC_MULTIPLE_IMPLEMENTATIONS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-boxer",
+      "canonicalName": "Boxer",
+      "cluster": "C_EQUIPMENT_IMPLICIT_BIOMECHANICS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-butterfly-mount",
+      "canonicalName": "Butterfly Mount",
+      "cluster": "K_POSSIBLE_CANONICAL_ALIAS_OR_IDENTITY",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-candlestick",
+      "canonicalName": "Candlestick",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-cat-cow-kneeling-crunch",
+      "canonicalName": "Cat-Cow Kneeling Crunch",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-chair-pose-squat",
+      "canonicalName": "Chair Pose Squat",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "RESOLVED_BODYWEIGHT",
+      "requirement": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "source": {
+        "tier": 2,
+        "name": "ACE — A Beginner's Guide to Sun Salutations",
+        "url": "https://www.acefitness.org/resources/everyone/blog/6835/a-beginner-s-guide-to-sun-salutations/"
+      },
+      "evidence": "ACE describes Chair by lowering the hips with body weight in the heels and placing the hands on thighs, in prayer, or reaching forward; a physical chair is not part of the movement.",
+      "conflict": "No substantial conflicting apparatus interpretation found for the canonical identity.",
+      "confidence": "HIGH",
+      "reason": "The canonical wording denotes the yoga chair-position squat, not use of chair apparatus.",
+      "engineConsequence": "No apparatus gate should block this exercise; location semantics must treat NONE as non-blocking.",
+      "failClosed": false
+    },
+    {
+      "canonicalId": "ex-chest-and-shoulder-stretch",
+      "canonicalName": "Chest and Shoulder Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-deep-push-up",
+      "canonicalName": "Deep Push-Up",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-dish",
+      "canonicalName": "Dish",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-double-leg-abdominal-press",
+      "canonicalName": "Double-Leg Abdominal Press",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-double-leg-bridge-with-shoulder-flexion",
+      "canonicalName": "Double Leg Bridge with Shoulder Flexion",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-dragon-flag-swimmers",
+      "canonicalName": "Dragon-Flag Swimmers",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-dynamic-prone-plank",
+      "canonicalName": "Dynamic Prone Plank",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+      "canonicalName": "Elevated Straddle Stand Straddle Press to Handstand",
+      "cluster": "C_EQUIPMENT_IMPLICIT_BIOMECHANICS",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-extended-plank",
+      "canonicalName": "Extended Plank",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-facing-away-standing-crunch",
+      "canonicalName": "Facing-Away Standing Crunch",
+      "cluster": "K_POSSIBLE_CANONICAL_ALIAS_OR_IDENTITY",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-floor-half-lever",
+      "canonicalName": "Floor Half Lever",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-forward-fold",
+      "canonicalName": "Forward Fold",
+      "cluster": "J_GENUINELY_EQUIPMENT_INDEPENDENT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "RESOLVED_NO_EQUIPMENT",
+      "requirement": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "source": {
+        "tier": 2,
+        "name": "ACE — A Beginner's Guide to Sun Salutations",
+        "url": "https://www.acefitness.org/resources/everyone/blog/6835/a-beginner-s-guide-to-sun-salutations/"
+      },
+      "evidence": "ACE describes Forward Fold using body position and optional hand placement on the floor, shins or thighs, with no implement required.",
+      "conflict": "No substantial conflicting apparatus interpretation found for the canonical identity.",
+      "confidence": "HIGH",
+      "reason": "The technical description establishes a floor/body-position movement without required apparatus.",
+      "engineConsequence": "No apparatus gate should block this exercise; location semantics must treat NONE as non-blocking.",
+      "failClosed": false
+    },
+    {
+      "canonicalId": "ex-freestanding-lateral-lunge",
+      "canonicalName": "Freestanding Lateral Lunge",
+      "cluster": "B_GENERIC_MULTIPLE_IMPLEMENTATIONS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-frog-hop",
+      "canonicalName": "Frog Hop",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-front-deltoid-shoulder-press",
+      "canonicalName": "Front Deltoid Shoulder Press",
+      "cluster": "K_POSSIBLE_CANONICAL_ALIAS_OR_IDENTITY",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-front-foot-elevated-split-squat",
+      "canonicalName": "Front Foot Elevated Split Squat",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-glute-stretch",
+      "canonicalName": "Glute Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-groin-stretch",
+      "canonicalName": "Groin Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-half-lever",
+      "canonicalName": "Half Lever",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-half-lever-bicycles",
+      "canonicalName": "Half-Lever Bicycles",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-half-lever-extensions",
+      "canonicalName": "Half-Lever Extensions",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-half-lever-swimmers",
+      "canonicalName": "Half-Lever Swimmers",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-hands-elevated-one-arm-pushup",
+      "canonicalName": "Hands-Elevated One-Arm Pushup",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-heel-kicks",
+      "canonicalName": "Heel Kicks",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-jogging-and-running",
+      "canonicalName": "Jogging and Running",
+      "cluster": "J_GENUINELY_EQUIPMENT_INDEPENDENT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "RESOLVED_NO_EQUIPMENT",
+      "requirement": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "source": {
+        "tier": 2,
+        "name": "American Heart Association — Endurance Exercise (Aerobic)",
+        "url": "https://www.heart.org/en/healthy-living/exercise-and-physical-activity/fitness-basics/endurance-exercise-aerobic"
+      },
+      "evidence": "AHA lists walking and jogging as endurance activities themselves, distinct from equipment-dependent examples such as biking and jumping rope.",
+      "conflict": "No substantial conflicting apparatus interpretation found for the canonical identity.",
+      "confidence": "HIGH",
+      "reason": "Jogging/running is locomotion and does not structurally require exercise apparatus.",
+      "engineConsequence": "No apparatus gate should block this exercise; location semantics must treat NONE as non-blocking.",
+      "failClosed": false
+    },
+    {
+      "canonicalId": "ex-judo-push-up",
+      "canonicalName": "Judo Push-Up",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-knee-circles",
+      "canonicalName": "Knee Circles",
+      "cluster": "B_GENERIC_MULTIPLE_IMPLEMENTATIONS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-knee-ups",
+      "canonicalName": "Knee-Ups",
+      "cluster": "K_POSSIBLE_CANONICAL_ALIAS_OR_IDENTITY",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-lalanne-push-up",
+      "canonicalName": "LaLanne Push-Up",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-lunge-to-row",
+      "canonicalName": "Lunge to Row",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-lying-leg-extension",
+      "canonicalName": "Lying Leg Extension",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-lying-leg-raise",
+      "canonicalName": "Lying Leg Raise",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-lying-triceps-extension",
+      "canonicalName": "Lying Triceps Extension",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-neck-and-shoulder-stretch",
+      "canonicalName": "Neck and Shoulder Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-negative-dragon-flag",
+      "canonicalName": "Negative Dragon Flag",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-neutral-grip-horizontal-row",
+      "canonicalName": "Neutral-Grip Horizontal Row",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-oblique-twist-with-plate-weight",
+      "canonicalName": "Oblique Twist with Plate Weight",
+      "cluster": "F_WEIGHTED_BODYWEIGHT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-one-arm-straddle-elbow-lever",
+      "canonicalName": "One-Arm Straddle Elbow Lever",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-parallel-leg-raise",
+      "canonicalName": "Parallel Leg Raise",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-parallel-squat",
+      "canonicalName": "Parallel Squat",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-rear-support",
+      "canonicalName": "Rear Support",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-rollovers-into-straddle-sit",
+      "canonicalName": "Rollovers into Straddle Sit",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-rotator-cuff-stretch",
+      "canonicalName": "Rotator-Cuff Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-rows",
+      "canonicalName": "Rows",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-russian-twist",
+      "canonicalName": "Russian Twist",
+      "cluster": "B_GENERIC_MULTIPLE_IMPLEMENTATIONS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-scalene-stretch",
+      "canonicalName": "Scalene Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-seated-stride-into-saw-stretch",
+      "canonicalName": "Seated Stride into Saw Stretch",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-segmental-rotation",
+      "canonicalName": "Segmental Rotation",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-shoulder-dislocates",
+      "canonicalName": "Shoulder Dislocates",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-side-leans",
+      "canonicalName": "Side Leans",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-side-to-side-hip-rolls",
+      "canonicalName": "Side-to-Side Hip Rolls",
+      "cluster": "B_GENERIC_MULTIPLE_IMPLEMENTATIONS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-side-to-side-squat",
+      "canonicalName": "Side-to-Side Squat",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-single-leg-dragon-flag",
+      "canonicalName": "Single-Leg Dragon Flag",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-spider-push-up",
+      "canonicalName": "Spider Push-Up",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-spine-roll",
+      "canonicalName": "Spine Roll",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-sprinter-sit-up",
+      "canonicalName": "Sprinter Sit-Up",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-sprints",
+      "canonicalName": "Sprints",
+      "cluster": "J_GENUINELY_EQUIPMENT_INDEPENDENT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "RESOLVED_NO_EQUIPMENT",
+      "requirement": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "source": {
+        "tier": 2,
+        "name": "NSCA — Basics of Strength and Conditioning Manual",
+        "url": "https://www.nsca.com/contentassets/116c55d64e1343d2b264e05aaf158a91/basics_of_strength_and_conditioning_manual.pdf"
+      },
+      "evidence": "NSCA prescribes 50-yard and hollow sprint drills as running intervals over distance; the sprint itself requires no exercise implement.",
+      "conflict": "No substantial conflicting apparatus interpretation found for the canonical identity.",
+      "confidence": "HIGH",
+      "reason": "The canonical locomotion movement is equipment-independent; timing or distance markers are not structural exercise apparatus.",
+      "engineConsequence": "No apparatus gate should block this exercise; location semantics must treat NONE as non-blocking.",
+      "failClosed": false
+    },
+    {
+      "canonicalId": "ex-stair-climb-with-biceps-curl",
+      "canonicalName": "Stair Climb with Biceps Curl",
+      "cluster": "L_OTHER",
+      "priorClassification": "REQUIRES_MANUAL_REVIEW",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-star-jumps",
+      "canonicalName": "Star Jumps",
+      "cluster": "J_GENUINELY_EQUIPMENT_INDEPENDENT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "RESOLVED_BODYWEIGHT",
+      "requirement": {
+        "status": "KNOWN",
+        "mode": "NONE",
+        "required": []
+      },
+      "source": {
+        "tier": 2,
+        "name": "American Heart Association — Create a Circuit Home Workout",
+        "url": "https://www.heart.org/en/healthy-living/exercise-and-physical-activity/getting-active/create-a-circuit-home-workout"
+      },
+      "evidence": "AHA explicitly presents Star jumps in a home circuit that can be performed without any special equipment.",
+      "conflict": "No substantial conflicting apparatus interpretation found for the canonical identity.",
+      "confidence": "HIGH",
+      "reason": "Exercise-specific inclusion in a no-special-equipment circuit establishes no required apparatus.",
+      "engineConsequence": "No apparatus gate should block this exercise; location semantics must treat NONE as non-blocking.",
+      "failClosed": false
+    },
+    {
+      "canonicalId": "ex-straddle-flag",
+      "canonicalName": "Straddle Flag",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-supine-legs-to-chest",
+      "canonicalName": "Supine Legs to Chest",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-transverse-activation-in-4-point-kneeling",
+      "canonicalName": "Transverse Activation in 4-Point Kneeling",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-tuck-half-lever",
+      "canonicalName": "Tuck Half Lever",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-tucked-dragon-flag",
+      "canonicalName": "Tucked Dragon Flag",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-tucked-flag",
+      "canonicalName": "Tucked Flag",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-two-arm-elbow-lever",
+      "canonicalName": "Two-Arm Elbow Lever",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-unilateral-cross-body-triceps-extension",
+      "canonicalName": "Unilateral Cross-Body Triceps Extension",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-vertical-flag",
+      "canonicalName": "Vertical Flag",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-vertical-human-flag",
+      "canonicalName": "Vertical Human Flag",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_SCHEMA_DECISION_REQUIRED",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Reliable technique descriptions require a support/anchor concept that is not represented safely by the current recognized equipment token set; remapping to a nearby token would be lossy.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-vertical-pulls",
+      "canonicalName": "Vertical Pulls",
+      "cluster": "A_SPECIFIC_NAME_SOURCE_MISSING",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_INSUFFICIENT_EVIDENCE",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "Available evidence does not establish a single field-level equipment interpretation with the required confidence.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-walking-arm-swings",
+      "canonicalName": "Walking Arm Swings",
+      "cluster": "B_GENERIC_MULTIPLE_IMPLEMENTATIONS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-window-wipers",
+      "canonicalName": "Window Wipers",
+      "cluster": "B_GENERIC_MULTIPLE_IMPLEMENTATIONS",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-wrist-extension",
+      "canonicalName": "Wrist Extension",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "NO_RELIABLE_EVIDENCE",
+      "finalClassification": "UNRESOLVED_CANONICAL_IDENTITY_PROBLEM",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": null,
+      "confidence": null,
+      "reason": "The canonical label is too broad or overloaded to bind confidently to one exercise identity and equipment contract.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    },
+    {
+      "canonicalId": "ex-wrist-push-up",
+      "canonicalName": "Wrist Push-Up",
+      "cluster": "D_EXERCISE_FAMILY_VARIANT",
+      "priorClassification": "REMAINS_AMBIGUOUS",
+      "finalClassification": "UNRESOLVED_INTRINSICALLY_AMBIGUOUS",
+      "evidenceChecked": [
+        "V3.1B persisted source/matching evidence",
+        "V3.1C targeted family/name review"
+      ],
+      "conflict": "Multiple valid implementations remain plausible.",
+      "confidence": null,
+      "reason": "The canonical name admits multiple materially different implementations/equipment choices; choosing one would create a false restriction or false eligibility.",
+      "engineConsequence": "Fail closed for equipment/location selection until a field-level requirement is resolved or schema/identity is corrected.",
+      "failClosed": true
+    }
+  ]
+}

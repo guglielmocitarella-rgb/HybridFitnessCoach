@@ -1,0 +1,23 @@
+[
+  {
+    "clusterId": "V39RB-C1",
+    "cause": "SCENARIO_CONTRACT_PROBLEM",
+    "environments": [
+      "HOME_BAR",
+      "HOME_BANDS"
+    ],
+    "intent": "PULL",
+    "scenarioCount": 20,
+    "resolution": "Normalize simulator fixture equipment tokens to canonical underscore vocabulary."
+  },
+  {
+    "clusterId": "V39RB-C2",
+    "cause": "LEGITIMATE_ZERO_POOL",
+    "environments": [
+      "HOME_BODYWEIGHT"
+    ],
+    "intent": "PULL",
+    "scenarioCount": 10,
+    "resolution": "Preserve zero pool; no equipment/capability relaxation."
+  }
+]

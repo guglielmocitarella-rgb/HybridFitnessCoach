@@ -1,0 +1,27 @@
+{
+  "phase": "V3.10C",
+  "targetedTestsAdded": 16,
+  "localRepositoryTestExecution": "NOT_EXECUTED_REPOSITORY_NOT_MATERIALIZED",
+  "fullCandidateSelectionRerun": "DEFERRED_MANDATORY_PRE_PRODUCTION",
+  "baseline": {
+    "validPool": 630,
+    "legitimateZeroPool": 10,
+    "runs": 64000
+  },
+  "checks": {
+    "productionPathModified": false,
+    "runtimeDbSwitched": false,
+    "runnerModified": false,
+    "persistenceModified": false,
+    "candidateModified": false,
+    "workflowsModified": false,
+    "githubActionsIntentionallyStarted": 0
+  },
+  "severity": {
+    "S0": 0,
+    "S1": 1,
+    "S2": 1,
+    "S3": 0
+  },
+  "status": "SELECTION_REMEDIATION_REQUIRED"
+}

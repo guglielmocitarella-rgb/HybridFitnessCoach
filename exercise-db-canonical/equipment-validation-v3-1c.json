@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "3.1C",
+  "validatedCommit": "9cc28486d65518e1679da2cdce26007438ead726",
+  "workflowRunId": 37150227664,
+  "workflowName": "Exercise DB V3.1C validation",
+  "result": "PASS",
+  "steps": {
+    "jsonSyntax": "PASS",
+    "v3CanonicalValidator": "PASS",
+    "canonicalRegression": {
+      "result": "PASS",
+      "tests": 26
+    },
+    "equipmentV31CRegression": {
+      "result": "PASS",
+      "tests": 4
+    },
+    "integrity": {
+      "result": "PASS",
+      "canonical": 1087,
+      "unique": 1087,
+      "duplicates": 0
+    }
+  },
+  "validatorBaseline": {
+    "releaseReady": false,
+    "equipmentUnknown": 97,
+    "equipmentUnsupportedByApp": 18,
+    "note": "Expected because V3.1C is additive patch-only and runtime/canonical DB was not rewritten."
+  },
+  "validatorFix": {
+    "file": "tools/validate_exercise_db_canonical.py",
+    "change": "Repair double-escaped EquipmentCatalog regex so the validator can execute.",
+    "strictnessReduced": false
+  },
+  "domainDecision": "SUFFICIENTLY_CLOSED_FOR_NEXT_DOMAIN_WITH_FAIL_CLOSED_UNRESOLVED"
+}

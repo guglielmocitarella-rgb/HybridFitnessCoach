@@ -1,0 +1,101 @@
+{
+  "phase": "V3.10B",
+  "records": 1087,
+  "equipment": {
+    "state": {
+      "EVIDENCE_UNRESOLVED": 90,
+      "KNOWN": 997
+    },
+    "mode": {
+      "UNKNOWN": 90,
+      "REQUIRED": 710,
+      "NONE": 287
+    },
+    "suspensionTrainerRecords": 18
+  },
+  "resistance": {
+    "state": {
+      "KNOWN": 1054,
+      "EVIDENCE_UNRESOLVED": 33
+    },
+    "source": {
+      "BODYWEIGHT": 550,
+      "EXTERNAL_LOAD": 436,
+      "NONE": 63,
+      "UNKNOWN": 33,
+      "ASSISTED": 5
+    },
+    "loadState": {
+      "NOT_APPLICABLE": 651,
+      "SCHEMA_UNRESOLVED": 436
+    },
+    "assistanceState": {
+      "NOT_APPLICABLE": 1082,
+      "SCHEMA_UNRESOLVED": 5
+    }
+  },
+  "capability": {
+    "overallState": {
+      "EVIDENCE_UNRESOLVED": 438,
+      "SCHEMA_UNRESOLVED": 649
+    },
+    "strengthRequirement": {
+      "UNKNOWN": 1087
+    },
+    "technicalDifficulty": {
+      "UNKNOWN": 1087
+    },
+    "mobilityRequirement": {
+      "UNKNOWN": 1087
+    },
+    "balanceCoordinationRequirement": {
+      "UNKNOWN": 1087
+    }
+  },
+  "category": {
+    "CARDIO": 42,
+    "SKILL": 204,
+    "CORE": 130,
+    "MOBILITY": 109,
+    "OTHER": 45,
+    "LEGS": 165,
+    "PUSH": 251,
+    "PULL": 141
+  },
+  "groupState": {
+    "SCHEMA_UNRESOLVED": 1087
+  },
+  "movementState": {
+    "KNOWN": 911,
+    "UNKNOWN": 176
+  },
+  "prescription": {
+    "state": {
+      "KNOWN": 959,
+      "EVIDENCE_UNRESOLVED": 128
+    },
+    "dimensions": {
+      "REPS": 889,
+      "DURATION": 64,
+      "DISTANCE": 5,
+      "INTERVALS": 1
+    }
+  },
+  "skillRelations": {
+    "total": 117,
+    "relationType": {
+      "SKILL_ITSELF": 67,
+      "DIRECT_PROGRESSION": 19,
+      "STRENGTH_BUILDER": 25,
+      "DIRECT_REGRESSION": 6
+    },
+    "targetType": {
+      "NODE": 67,
+      "FAMILY": 50
+    }
+  },
+  "unresolved": {
+    "records": 1052,
+    "entries": 1927
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-HIGH-THROUGHPUT-V3",
+  "baselineHead": "04cb0a7850ec32090d279401d9da997c252f5751",
+  "baselineCheckpoint": {
+    "processed": 1714,
+    "resolved": 1666,
+    "terminal": 48,
+    "unprocessed": 2121,
+    "provenance": 1666,
+    "researchLog": 473
+  },
+  "evidenceCompleteCount": 25,
+  "records": [
+    {
+      "id": "ex-dumbbell-renegade-row",
+      "source": {
+        "title": "Renegade Row",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/355/renegade-row/"
+      },
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-frog-stand",
+      "source": {
+        "title": "Frog Stand",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/frog-stand/"
+      },
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-front-lever",
+      "source": {
+        "title": "Front Lever",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/front-lever/"
+      },
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-front-lever-pull-up",
+      "source": {
+        "title": "Front Lever Pull-Up",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/front-lever-pull-up/"
+      },
+      "decisions": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      }
+    },
+    {
+      "id": "ex-german-hang",
+      "source": {
+        "title": "German Hang",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/german-hang/"
+      },
+      "decisions": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      }
+    },
+    {
+      "id": "ex-good-morning",
+      "source": {
+        "title": "Good Mornings",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/good-mornings"
+      },
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      }
+    },
+    {
+      "id": "ex-hammer-curl",
+      "source": {
+        "title": "Hammer Curl",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/10/hammer-curl/"
+      },
+      "decisions": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      }
+    }
+  ],
+  "newWebQueries": 11,
+  "sourceFamilyBatching": true,
+  "note": "Evidence-complete cumulative staging created because connector/code-mode execution hit its per-script tool-call ceiling during attempted atomic authoritative materialization. Authoritative checkpoint intentionally unchanged; resume by promoting this staging fail-closed.",
+  "promotedCapabilityCount": 25,
+  "promotedRecordCount": 7,
+  "finalCheckpoint": {
+    "processed": 1739,
+    "resolved": 1691,
+    "terminal": 48,
+    "unprocessed": 2096,
+    "provenance": 1691,
+    "researchLog": 480
+  },
+  "promotionNote": "Promoted losslessly via chunked Git-object preparation; authoritative checkpoint advanced only in final complete tree."
+}

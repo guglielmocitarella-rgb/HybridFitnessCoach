@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "status": "INTEGRATION_READY",
+  "canonical_movements": 587,
+  "progression_edges": 113,
+  "sources_registered": 14,
+  "movement_types": {
+    "AEROBIC": 2,
+    "CALISTHENICS": 92,
+    "CONDITIONING": 17,
+    "CORE": 71,
+    "FLEXIBILITY": 26,
+    "MOBILITY": 26,
+    "PLYOMETRIC": 4,
+    "POWER": 17,
+    "SKILL": 157,
+    "SMR": 6,
+    "STRENGTH": 169
+  },
+  "confidence": {
+    "HIGH": 167,
+    "MEDIUM": 420
+  },
+  "validation_status": "CI_GREEN",
+  "build_output": "exercise-db-v2/exercises.json",
+  "videos": "DEFERRED",
+  "rc2_isolation": true,
+  "notes": [
+    "Canonical artifact is materialized and manifest counts are derived from the current reviewed dataset.",
+    "The previous 673/215 counts were not retained because their canonical artifacts were unavailable and are not treated as authoritative.",
+    "Unsupported cues/errors/contraindications remain empty rather than invented.",
+    "Rest guidance remains source/context scoped and is not copied generically onto exercise records.",
+    "All 14 registered sources have versioned exercise inventory or source-scoped programming guidance; video remains deferred."
+  ],
+  "programming_guidelines": 17,
+  "source_evidence_coverage": 14,
+  "progression_output": "exercise-db-v2/progressions.json",
+  "programming_output": "exercise-db-v2/programming_guidance.json"
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "3.10",
+  "baseline": {
+    "records": 1087,
+    "validPools": 630,
+    "legitimateZeroPools": 10,
+    "runs": 64000,
+    "skillNodes": "60/60"
+  },
+  "suites": [
+    "schema-integrity",
+    "equipment-modes-and-unknown",
+    "four-capabilities-no-level-map",
+    "selection-640x100",
+    "prescription-multidimensional",
+    "skill-typed-relations",
+    "persistence-backcompat",
+    "runner-prescribed-actual",
+    "non-db-regression"
+  ],
+  "required": {
+    "S0": 0,
+    "S1": 0
+  }
+}

@@ -1,0 +1,492 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V15",
+  "baselineHead": "49ad1be1f6bc5a2a93e03e7cae8329fbdd90043f",
+  "note": "V15 source-family research staging. Existing authoritative decisions must be excluded losslessly before promotion.",
+  "newWebQueries": 34,
+  "records": [
+    {
+      "canonicalExerciseId": "ex-plank-pose-stabilization",
+      "exerciseName": "Plank Pose Stabilization",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM Exercise Library",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM lists the plank as a beginner core exercise; the static unsupported body line requires continuous trunk stabilization but little joint excursion."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-preacher-curl",
+      "exerciseName": "Preacher Curl",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "StrengthLog Exercise Directory / technique guides",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/exercise-directory/",
+        "finding": "StrengthLog's exercise directory treats preacher-curl variants as supported biceps isolation; the bench fixes the upper arm and removes meaningful balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-prone-bench-rear-deltoid-raise",
+      "exerciseName": "Prone Bench Rear Deltoid Raise",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "Reverse Dumbbell Flyes on Incline Bench",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/reverse-dumbbell-flyes-on-incline-bench/",
+        "finding": "The incline/prone bench supplies external support while the arms perform a controlled rear-delt fly, reducing whole-body stabilization and balance requirements."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-pushdown",
+      "exerciseName": "Pushdown",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "Tricep Pushdown With Bar",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/tricep-pushdown-with-bar/",
+        "finding": "StrengthLog describes a stable cable isolation movement with elbows pinned to the sides and controlled elbow extension."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-rack-pull",
+      "exerciseName": "Rack Pull",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "Rack Pull",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/rack-pull/",
+        "finding": "Rack pull is a shortened-range deadlift from elevated supports; bracing and neutral-spine hip extension remain technique-critical while range and balance demands are reduced."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-reverse-barbell-curl",
+      "exerciseName": "Reverse Barbell Curl",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "StrengthLog Exercise Directory / technique guides",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/exercise-directory/",
+        "finding": "StrengthLog describes a strict standing elbow-flexion isolation exercise with a pronated grip and controlled bar path."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-reverse-fly",
+      "exerciseName": "Reverse Fly",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "Reverse Dumbbell Flyes on Incline Bench",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/reverse-dumbbell-flyes-on-incline-bench/",
+        "finding": "StrengthLog describes controlled rear-delt/rotator-cuff abduction with light loads; the supported variation further reduces stabilization demands."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-reverse-pushdown",
+      "exerciseName": "Reverse Pushdown",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "Tricep Pushdown With Bar",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/tricep-pushdown-with-bar/",
+        "finding": "The reverse-grip pushdown preserves the same stable cable elbow-extension pattern; grip changes but the supported cable path and low balance demand remain."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-reverse-wrist-curl",
+      "exerciseName": "Reverse Wrist Curl",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "StrengthLog Exercise Directory / technique guides",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/exercise-directory/",
+        "finding": "StrengthLog's exercise family classifies wrist-curl work as localized forearm isolation with the forearms supported and minimal whole-body coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-rings-wide-dips",
+      "exerciseName": "Rings Wide Dips",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "Ring training and strict gymnastics scaling resources",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/workout-tips-for-210426",
+        "finding": "CrossFit treats strict ring dips as demanding gymnastics pushing and scales them to assisted/jumping variants; free rings add substantial shoulder stabilization and coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "HIGH",
+          "technicalDifficulty": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-rings-wide-handstand-pushup",
+      "exerciseName": "Rings Wide Handstand Pushup",
+      "source": {
+        "publisher": "CrossFit",
+        "title": "HSPU and You: Master the Movement",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/hspu-and-you-master-the-movement",
+        "finding": "CrossFit requires a staged handstand-push-up progression with prior pressing, handstand and ring-dip capacity; performing the skill on free rings adds instability beyond the standard HSPU."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_HIGH",
+          "technicalDifficulty": "VERY_HIGH",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "VERY_HIGH"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-romanian-deadlift",
+      "exerciseName": "Romanian Deadlift",
+      "source": {
+        "publisher": "NASM",
+        "title": "Romanian Deadlift Barbell",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/romanian-deadlift-barbell",
+        "finding": "NASM describes controlled hip hinging to a hamstring stretch with neutral-spine maintenance; it is an intermediate free-weight posterior-chain movement."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-rope-triceps-pushdown",
+      "exerciseName": "Rope Triceps Pushdown",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "Tricep Pushdown With Rope",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/tricep-pushdown-with-rope/",
+        "finding": "StrengthLog describes rope pushdown as an easy-to-focus triceps isolation exercise on a stable cable station with controlled elbow extension."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-rotator-cuff-stabilization-with-theraband",
+      "exerciseName": "Rotator Cuff Stabilization with TheraBand",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM Exercise Library",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM's band/tube exercise family uses controlled shoulder rotation and stabilization with light resistance; execution prioritizes alignment and shoulder control rather than whole-body balance."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-scalene-stretch",
+      "exerciseName": "Scalene Stretch",
+      "source": {
+        "publisher": "Physitrack",
+        "title": "Scalene Stretch",
+        "tier": 2,
+        "locator": "https://www.physitrack.com/exercise-library/how-to-perform-the-scalene-stretch-exercise",
+        "finding": "Physitrack describes a supported seated/standing neck stretch using gentle head tilt and shoulder anchoring, with negligible strength or balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-barbell-shoulder-press",
+      "exerciseName": "Seated Barbell Shoulder Press",
+      "source": {
+        "publisher": "PureGym",
+        "title": "Seated Shoulder Press",
+        "tier": 3,
+        "locator": "https://www.puregym.com/exercises/arms-and-shoulders/shoulder-press/seated-shoulder-press/",
+        "finding": "PureGym describes the seated press with back support, controlled overhead range and reduced stability demand compared with standing pressing."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-bent-over-dumbbell-raises-on-ball",
+      "exerciseName": "Seated Bent-Over Dumbbell Raises on Ball",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Stability Ball 101",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/about-ace/press-room/press-releases/365/ace-fitness-tools-of-the-trade-stability-ball-101the-ball-is-an-effective-tool-for-stretching-and-mobility-exercises/",
+        "finding": "ACE describes the stability ball as a tool that adds postural/stability demand while supporting controlled mobility and resistance exercise."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-calf-raise",
+      "exerciseName": "Seated Calf Raise",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "Seated Calf Raise",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/seated-calf-raise/",
+        "finding": "StrengthLog describes a seated machine isolation movement consisting of controlled ankle plantarflexion with the body supported."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-dumbbell-shoulder-press",
+      "exerciseName": "Seated Dumbbell Shoulder Press",
+      "source": {
+        "publisher": "PureGym",
+        "title": "Seated Shoulder Press",
+        "tier": 3,
+        "locator": "https://www.puregym.com/exercises/arms-and-shoulders/shoulder-press/seated-shoulder-press/",
+        "finding": "PureGym notes that seated bench support reduces stability demands; independent dumbbells still require controlled overhead shoulder positioning."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-dumbbell-triceps-extension",
+      "exerciseName": "Seated Dumbbell Triceps Extension",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "StrengthLog Exercise Directory / technique guides",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/exercise-directory/",
+        "finding": "StrengthLog's overhead triceps-extension guidance emphasizes controlled elbow flexion/extension and a deep overhead stretch; sitting removes meaningful balance demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-ez-bar-triceps-extension",
+      "exerciseName": "Seated EZ-Bar Triceps Extension",
+      "source": {
+        "publisher": "StrengthLog",
+        "title": "StrengthLog Exercise Directory / technique guides",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/exercise-directory/",
+        "finding": "The supported seated overhead triceps-extension family requires controlled elbow motion and overhead shoulder range but little whole-body coordination."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-leg-press-machine",
+      "exerciseName": "Seated Leg Press (Machine)",
+      "source": {
+        "publisher": "NASM",
+        "title": "Leg Press",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/leg-press",
+        "finding": "NASM describes the leg press as a beginner machine exercise with a guided path, back support and reduced balance demands; controlled knee/hip range remains necessary."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-low-cable-pulley-rows",
+      "exerciseName": "Seated Low Cable Pulley Rows",
+      "source": {
+        "publisher": "NASM",
+        "title": "Seated Machine Row Close Grip",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-machine-row-close-grip",
+        "finding": "NASM describes seated machine/cable rowing as suitable for all fitness levels with feet and torso stabilized and a guided pulling pattern."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-rotation",
+      "exerciseName": "Seated Rotation",
+      "source": {
+        "publisher": "NASM",
+        "title": "NASM Exercise Library",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "Seated rotational mobility work is supported by the seat and uses controlled trunk rotation; its primary demand is available rotational range rather than external strength."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "MODERATE"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-row-machine",
+      "exerciseName": "Seated Row (Machine)",
+      "source": {
+        "publisher": "NASM",
+        "title": "Seated Machine Row Close Grip",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/seated-machine-row-close-grip",
+        "finding": "NASM explicitly describes the seated machine row as a stable guided pulling exercise suitable for all fitness levels."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "LOW",
+          "balanceCoordinationRequirement": "VERY_LOW"
+        }
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-seated-side-stretch-on-ball",
+      "exerciseName": "Seated Side Stretch on Ball",
+      "source": {
+        "publisher": "ACE Fitness",
+        "title": "Stability Ball 101",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/about-ace/press-room/press-releases/365/ace-fitness-tools-of-the-trade-stability-ball-101the-ball-is-an-effective-tool-for-stretching-and-mobility-exercises/",
+        "finding": "ACE recommends stability-ball side stretching as a mobility exercise; the ball increases postural control requirements while the task remains low-strength."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "strengthRequirement": "VERY_LOW",
+          "technicalDifficulty": "LOW",
+          "mobilityRequirement": "HIGH",
+          "balanceCoordinationRequirement": "MODERATE"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "stagedRecords": 26,
+    "stagedCapabilities": 83,
+    "preexistingAuthoritativeCapabilities": 0,
+    "newAuthoritativeCapabilities": 83,
+    "newProcessedRecords": 26,
+    "capabilitiesPerQuery": 2.4411764705882355,
+    "validation": "PASS",
+    "stagingState": "PROMOTED_AUTHORITATIVE"
+  }
+}

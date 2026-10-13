@@ -1,0 +1,227 @@
+[
+  {
+    "ruleId": "R3-TECH-DYNAMIC",
+    "capability": "technicalDifficulty",
+    "inputEvidenceType": "EXERCISE_SPECIFIC_REPOSITORY_TEXT",
+    "conditions": {
+      "explicitTerms": [
+        "inverted",
+        "inversion",
+        "body control",
+        "sequencing",
+        "multi-phase",
+        "timing",
+        "explosive",
+        "plyometric",
+        "catch position"
+      ],
+      "excludedEvidence": [
+        "name",
+        "aliases",
+        "legacyLevel",
+        "existing capability"
+      ]
+    },
+    "exceptions": "conflict/identity ambiguity/contradiction => do not apply",
+    "output": "HIGH",
+    "confidencePolicy": "HIGH_CONFIDENCE",
+    "rationale": "Deterministic evidence extraction; no name-only inference.",
+    "sourceBasis": [
+      "repository source-derived exercise text",
+      "ACE IFT/mobility framework",
+      "NSCA balance progression framework"
+    ],
+    "tests": [
+      "name/alias excluded",
+      "legacyLevel excluded",
+      "capability excluded"
+    ]
+  },
+  {
+    "ruleId": "R3-TECH-CONTROL",
+    "capability": "technicalDifficulty",
+    "inputEvidenceType": "EXERCISE_SPECIFIC_REPOSITORY_TEXT",
+    "conditions": {
+      "explicitTerms": [
+        "controlled motion",
+        "proper sequencing",
+        "coordination",
+        "precision",
+        "bar path",
+        "maintain alignment",
+        "stabilize"
+      ],
+      "excludedEvidence": [
+        "name",
+        "aliases",
+        "legacyLevel",
+        "existing capability"
+      ]
+    },
+    "exceptions": "conflict/identity ambiguity/contradiction => do not apply",
+    "output": "MODERATE",
+    "confidencePolicy": "HIGH_CONFIDENCE",
+    "rationale": "Deterministic evidence extraction; no name-only inference.",
+    "sourceBasis": [
+      "repository source-derived exercise text",
+      "ACE IFT/mobility framework",
+      "NSCA balance progression framework"
+    ],
+    "tests": [
+      "name/alias excluded",
+      "legacyLevel excluded",
+      "capability excluded"
+    ]
+  },
+  {
+    "ruleId": "R3-MOBILITY-ROM-HIGH",
+    "capability": "mobilityRequirement",
+    "inputEvidenceType": "EXERCISE_SPECIFIC_REPOSITORY_TEXT",
+    "conditions": {
+      "explicitTerms": [
+        "deep squat",
+        "full depth",
+        "overhead position",
+        "shoulder flexion",
+        "external rotation",
+        "wrist extension",
+        "thoracic extension",
+        "thoracic rotation",
+        "ankle dorsiflexion",
+        "hip external rotation",
+        "hip internal rotation",
+        "hamstring flexibility",
+        "full range of motion"
+      ],
+      "excludedEvidence": [
+        "name",
+        "aliases",
+        "legacyLevel",
+        "existing capability"
+      ]
+    },
+    "exceptions": "conflict/identity ambiguity/contradiction => do not apply",
+    "output": "HIGH",
+    "confidencePolicy": "HIGH_CONFIDENCE",
+    "rationale": "Deterministic evidence extraction; no name-only inference.",
+    "sourceBasis": [
+      "repository source-derived exercise text",
+      "ACE IFT/mobility framework",
+      "NSCA balance progression framework"
+    ],
+    "tests": [
+      "name/alias excluded",
+      "legacyLevel excluded",
+      "capability excluded"
+    ]
+  },
+  {
+    "ruleId": "R3-MOBILITY-ROM",
+    "capability": "mobilityRequirement",
+    "inputEvidenceType": "EXERCISE_SPECIFIC_REPOSITORY_TEXT",
+    "conditions": {
+      "explicitTerms": [
+        "range of motion",
+        "mobility required",
+        "flexibility required",
+        "rotate through",
+        "reach overhead"
+      ],
+      "excludedEvidence": [
+        "name",
+        "aliases",
+        "legacyLevel",
+        "existing capability"
+      ]
+    },
+    "exceptions": "conflict/identity ambiguity/contradiction => do not apply",
+    "output": "MODERATE",
+    "confidencePolicy": "HIGH_CONFIDENCE",
+    "rationale": "Deterministic evidence extraction; no name-only inference.",
+    "sourceBasis": [
+      "repository source-derived exercise text",
+      "ACE IFT/mobility framework",
+      "NSCA balance progression framework"
+    ],
+    "tests": [
+      "name/alias excluded",
+      "legacyLevel excluded",
+      "capability excluded"
+    ]
+  },
+  {
+    "ruleId": "R3-BALANCE-HIGH",
+    "capability": "balanceCoordinationRequirement",
+    "inputEvidenceType": "EXERCISE_SPECIFIC_REPOSITORY_TEXT",
+    "conditions": {
+      "explicitTerms": [
+        "unstable surface",
+        "balance board",
+        "bosu",
+        "stability ball",
+        "maintain balance",
+        "dynamic balance",
+        "inverted position",
+        "inversion",
+        "proprioceptive"
+      ],
+      "excludedEvidence": [
+        "name",
+        "aliases",
+        "legacyLevel",
+        "existing capability"
+      ]
+    },
+    "exceptions": "conflict/identity ambiguity/contradiction => do not apply",
+    "output": "HIGH",
+    "confidencePolicy": "HIGH_CONFIDENCE",
+    "rationale": "Deterministic evidence extraction; no name-only inference.",
+    "sourceBasis": [
+      "repository source-derived exercise text",
+      "ACE IFT/mobility framework",
+      "NSCA balance progression framework"
+    ],
+    "tests": [
+      "name/alias excluded",
+      "legacyLevel excluded",
+      "capability excluded"
+    ]
+  },
+  {
+    "ruleId": "R3-BALANCE-COORD",
+    "capability": "balanceCoordinationRequirement",
+    "inputEvidenceType": "EXERCISE_SPECIFIC_REPOSITORY_TEXT",
+    "conditions": {
+      "explicitTerms": [
+        "coordination",
+        "contralateral",
+        "cross-body",
+        "opposite arm",
+        "opposite leg",
+        "single-leg balance",
+        "maintain stability",
+        "center of gravity"
+      ],
+      "excludedEvidence": [
+        "name",
+        "aliases",
+        "legacyLevel",
+        "existing capability"
+      ]
+    },
+    "exceptions": "conflict/identity ambiguity/contradiction => do not apply",
+    "output": "MODERATE",
+    "confidencePolicy": "HIGH_CONFIDENCE",
+    "rationale": "Deterministic evidence extraction; no name-only inference.",
+    "sourceBasis": [
+      "repository source-derived exercise text",
+      "ACE IFT/mobility framework",
+      "NSCA balance progression framework"
+    ],
+    "tests": [
+      "name/alias excluded",
+      "legacyLevel excluded",
+      "capability excluded"
+    ]
+  }
+]

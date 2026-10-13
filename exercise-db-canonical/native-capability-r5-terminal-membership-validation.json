@@ -1,0 +1,59 @@
+{
+  "version": "V3.10C-R5-TERMINAL-MEMBERSHIP-RECOVERY-VALIDATION",
+  "result": "PASS",
+  "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020",
+  "checks": {
+    "terminalCounter": 48,
+    "existingMaterialized": 32,
+    "recovered": 16,
+    "totalMembership": 48,
+    "uniqueMembership": 48,
+    "inCanonicalR5Universe": 48,
+    "notInCanonicalR5Universe": 0,
+    "authoritativeOverlap": 0,
+    "existingRecoveredOverlap": 0,
+    "authoritativeDecisionFilesModified": false,
+    "webResearch": false
+  },
+  "counterHistory": {
+    "initial": "24 processed = 16 resolved + 8 terminal",
+    "preReconciliation": 30,
+    "reconciliationCommit": "1ca495efd4f3bcf9cd4b7072e286abef143787a8",
+    "postReconciliation": 19,
+    "laterIncrements": [
+      {
+        "commit": "87ebbda5c559227a6a8befd7e9d562f189d792d2",
+        "from": 19,
+        "to": 22
+      },
+      {
+        "commit": "84b968f50ffb730b190389b27c8a64904be0d00d",
+        "from": 22,
+        "to": 32
+      },
+      {
+        "commit": "8c31f902a512d013c608520b3b3a0d1d54c6517a",
+        "from": 32,
+        "to": 35
+      },
+      {
+        "commit": "5c7b93be9e579acc0b1bcfca2b800520b063302f",
+        "from": 35,
+        "to": 45
+      },
+      {
+        "commit": "0ffd236607142c6576666b3c8f743f04754de830",
+        "from": 45,
+        "to": 48
+      }
+    ]
+  },
+  "recoveryProof": {
+    "postReconciliationTerminal": 19,
+    "fieldScopedAlreadyMaterializedAtThatHistoricalPoint": 3,
+    "wholeRecordTerminalRecords": 4,
+    "dimensionsPerRecord": 4,
+    "recoveredSemanticKeys": "4 * 4 = 16",
+    "arithmetic": "32 existing + 16 recovered = 48"
+  }
+}

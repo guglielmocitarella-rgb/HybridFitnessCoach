@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "V3.10C-R5-R-PS-2",
+  "status": "AUTHORITATIVE_AFTER_V29_PROMOTION",
+  "sourceArtifact": "exercise-db-canonical/native-capability-r5-evidence.json",
+  "sourceBaselineCommit": "4b386107e64d470e0c93b0425170dd481021fbbc",
+  "sourceBaselineBlob": "4d2fd8c2672d34446bbcbe751c5cc46fe8ce6bb4",
+  "partitionAlgorithm": "FNV1a32 semantic-key mod 16",
+  "partitionAlgorithmVersion": 1,
+  "orderingKeyRule": [
+    "canonicalExerciseId",
+    "field-or-dimension",
+    "provenanceId"
+  ],
+  "shardCount": 16,
+  "totalEntryCount": 4001,
+  "semanticComparison": {
+    "reconstructedEntryCount": 4001,
+    "missing": 0,
+    "duplicate": 0,
+    "semanticMutation": 0,
+    "result": "PASS"
+  },
+  "shards": [
+    {
+      "index": 0,
+      "filename": "bucket-00.json",
+      "entryCount": 783,
+      "byteSize": 750451,
+      "gitBlobSha": "4a308f5fbc26d8bb3ee5cb09a7fa1ba752955536"
+    },
+    {
+      "index": 1,
+      "filename": "bucket-01.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 2,
+      "filename": "bucket-02.json",
+      "entryCount": 286,
+      "byteSize": 273398,
+      "gitBlobSha": "0579c799223b5681af9b136ba5e15a6e73c4f0be"
+    },
+    {
+      "index": 3,
+      "filename": "bucket-03.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 4,
+      "filename": "bucket-04.json",
+      "entryCount": 507,
+      "byteSize": 485381,
+      "gitBlobSha": "464ed6a392f8c9bbcae79d346cac342c10ad4e83"
+    },
+    {
+      "index": 5,
+      "filename": "bucket-05.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 6,
+      "filename": "bucket-06.json",
+      "entryCount": 379,
+      "byteSize": 365063,
+      "gitBlobSha": "7fb935b78da799bf088cd0f5d35c059f85220fe2"
+    },
+    {
+      "index": 7,
+      "filename": "bucket-07.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 8,
+      "filename": "bucket-08.json",
+      "entryCount": 563,
+      "byteSize": 538611,
+      "gitBlobSha": "f99d01b39bd778c114bd545548079e9e36d31195"
+    },
+    {
+      "index": 9,
+      "filename": "bucket-09.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 10,
+      "filename": "bucket-0a.json",
+      "entryCount": 326,
+      "byteSize": 316650,
+      "gitBlobSha": "ea442474fb3c02a76a7a2da1dbafaf3317337b8c"
+    },
+    {
+      "index": 11,
+      "filename": "bucket-0b.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 12,
+      "filename": "bucket-0c.json",
+      "entryCount": 640,
+      "byteSize": 612268,
+      "gitBlobSha": "5e15150a1ac7f7cd7e77a9c992da5fab08030cb7"
+    },
+    {
+      "index": 13,
+      "filename": "bucket-0d.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    },
+    {
+      "index": 14,
+      "filename": "bucket-0e.json",
+      "entryCount": 517,
+      "byteSize": 497180,
+      "gitBlobSha": "9e1902fedcb285eab0bc23ce2c10e899fea32ae3"
+    },
+    {
+      "index": 15,
+      "filename": "bucket-0f.json",
+      "entryCount": 0,
+      "byteSize": 3,
+      "gitBlobSha": "fe51488c7066f6687ef680d6bfaa4f7768ef205c"
+    }
+  ],
+  "integrityRemediation": {
+    "recoveredEntries": 31,
+    "from": "persisted field-decision + provenance + research-log source trail",
+    "newResearch": false,
+    "duplicateProvenanceBefore": 7,
+    "duplicateProvenanceAfter": 0,
+    "duplicateSemanticKeysBefore": 7,
+    "duplicateSemanticKeysAfter": 0,
+    "selectionRule": "retain first already-authoritative entry per canonicalExerciseId|field/dimension; remove later historical replay collision",
+    "semanticMutation": 0
+  }
+}

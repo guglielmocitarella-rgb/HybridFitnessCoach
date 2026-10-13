@@ -1,0 +1,561 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "R5/V26",
+  "baselineHead": "07ff1e8f13cbeaa5b53ebc3f1346f242e026c09b",
+  "workset": "native-capability-r5-true-missing.json",
+  "note": "84 FRESH evidence-complete capabilities selected exclusively from persisted TRUE_MISSING; source-family research prioritized.",
+  "newWebQueries": 12,
+  "overlapExclusion": {
+    "checkedBeforeStaging": true,
+    "excludedCapabilities": 0
+  },
+  "records": [
+    {
+      "canonicalExerciseId": "cm-single-arm-cable-row",
+      "exerciseName": "Single-arm Cable Row",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-cable-shoulder-press",
+      "exerciseName": "Single-arm Cable Shoulder Press",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-dumbbell-shoulder-press",
+      "exerciseName": "Single-arm Dumbbell Shoulder Press",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-lat-pulldown",
+      "exerciseName": "Single-arm Lat Pulldown",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-overhead-cable-extension",
+      "exerciseName": "Single-arm Overhead Cable Extension",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-overhead-dumbbell-extension",
+      "exerciseName": "Single-arm Overhead Dumbbell Extension",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-arm-supported-row",
+      "exerciseName": "Single-arm Supported Row",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-leg-dumbbell-calf-raise",
+      "exerciseName": "Single-leg Dumbbell Calf Raise",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-leg-leg-curl",
+      "exerciseName": "Single-leg Leg Curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-leg-leg-extension",
+      "exerciseName": "Single-leg Leg Extension",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-leg-leg-press",
+      "exerciseName": "Single-leg Leg Press",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-single-leg-romanian-deadlift",
+      "exerciseName": "Single-leg Romanian Deadlift",
+      "source": {
+        "publisher": "ACE",
+        "title": "ACE Exercise Library — difficulty/equipment reference",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/",
+        "evidenceSummary": "ACE Exercise Library provides equipment, movement descriptions and experience difficulty across dumbbell, cable, machine and no-equipment resistance exercises; used as source-family corroboration for technical, mobility and balance/coordination demand."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "HIGH",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "HIGH"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-skull-crusher",
+      "exerciseName": "Skull Crusher",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-smith-machine-calf-raise",
+      "exerciseName": "Smith Machine Calf Raise",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-smith-machine-reverse-lunge",
+      "exerciseName": "Smith Machine Reverse Lunge",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-smith-machine-split-squat",
+      "exerciseName": "Smith Machine Split Squat",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-smith-machine-squat",
+      "exerciseName": "Smith Machine Squat",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-spider-curl-manubri",
+      "exerciseName": "Dumbbell Spider Curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-split-stance-cable-press",
+      "exerciseName": "Split-stance Cable Press",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-squeeze-press",
+      "exerciseName": "Squeeze Press",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-standing-cable-crunch",
+      "exerciseName": "Standing Cable Crunch",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-standing-cable-press",
+      "exerciseName": "Standing Cable Press",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-standing-calf-raise-machine",
+      "exerciseName": "Standing Calf Raise Machine",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "LOW"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-standing-leg-curl",
+      "exerciseName": "Standing Leg Curl",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "LOW",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-straight-arm-pulldown",
+      "exerciseName": "Straight-arm Pulldown",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-two-dumbbell-bent-over-row",
+      "exerciseName": "Two-dumbbell Bent-over Row",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "MODERATE",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-underhand-lat-pulldown",
+      "exerciseName": "Underhand Lat Pulldown",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-wide-grip-lat-pulldown",
+      "exerciseName": "Wide-grip Lat Pulldown",
+      "source": {
+        "publisher": "ACE",
+        "title": "Short on Time? Try Reciprocal Superset Training",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/certified/june-2024/8648/short-on-time-try-reciprocal-superset-training/",
+        "evidenceSummary": "ACE resistance-training guidance explicitly programs machine/free-weight, unilateral/bilateral, cable and dumbbell families including shoulder press, lat pull-down, leg press, deadlift, split squat, standing/single-leg hamstring curl, calf raise, straight-arm pulldown and rows; field values are classified against the existing five-level capability rubric from support/stability, unilateral demand and exercise complexity."
+      },
+      "fieldApplication": {
+        "resolved": {
+          "balanceCoordinationRequirement": "LOW",
+          "mobilityRequirement": "MODERATE",
+          "technicalDifficulty": "MODERATE"
+        },
+        "terminalUnresolved": []
+      }
+    }
+  ],
+  "summary": {
+    "records": 28,
+    "stagedCapabilities": 84,
+    "freshCapabilities": 84,
+    "newTerminal": 0
+  },
+  "promotion": {
+    "freshCapabilities": 84,
+    "newTerminal": 0,
+    "resolvedInUniverseAfter": 3585,
+    "terminalInUniverseAfter": 48,
+    "trueMissingAfter": 202,
+    "authoritativeOutOfUniverse": 214,
+    "validation": "PASS"
+  }
+}

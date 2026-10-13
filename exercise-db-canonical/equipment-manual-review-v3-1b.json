@@ -1,0 +1,2378 @@
+{
+  "schemaVersion": "3.1B",
+  "sourceHead": "f7bfae98d7f677cc003249dc5e6c5f5a4dc37c43",
+  "count": 95,
+  "records": [
+    {
+      "canonicalId": "cm-nordic-curl-assistito",
+      "canonicalName": "Nordic curl assistito",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "ASSISTED_MOVEMENT",
+      "existingEvidence": {
+        "source": "APP_MODEL",
+        "family": null,
+        "movementType": null,
+        "appGroup": "Gambe",
+        "appEquipmentLabel": "Corpo libero",
+        "sourceRefs": []
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "cm-one-arm-push-up-assistito",
+      "canonicalName": "One arm push-up assistito",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "ASSISTED_MOVEMENT",
+      "existingEvidence": {
+        "source": "APP_MODEL",
+        "family": null,
+        "movementType": null,
+        "appGroup": "Petto / Tricipiti / Core",
+        "appEquipmentLabel": "Corpo libero",
+        "sourceRefs": []
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "cm-pistol-squat-assistito",
+      "canonicalName": "Pistol squat assistito",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "ASSISTED_MOVEMENT",
+      "existingEvidence": {
+        "source": "APP_MODEL",
+        "family": null,
+        "movementType": null,
+        "appGroup": "Gambe",
+        "appEquipmentLabel": "Corpo libero",
+        "sourceRefs": []
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "cm-shrimp-squat-assistito",
+      "canonicalName": "Shrimp squat assistito",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "ASSISTED_MOVEMENT",
+      "existingEvidence": {
+        "source": "APP_MODEL",
+        "family": null,
+        "movementType": null,
+        "appGroup": "Gambe",
+        "appEquipmentLabel": "Corpo libero",
+        "sourceRefs": []
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "cm-sissy-squat-assistito",
+      "canonicalName": "Sissy squat assistito",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "ASSISTED_MOVEMENT",
+      "existingEvidence": {
+        "source": "APP_MODEL",
+        "family": null,
+        "movementType": null,
+        "appGroup": "Gambe",
+        "appEquipmentLabel": "Corpo libero",
+        "sourceRefs": []
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-4-point-burpee",
+      "canonicalName": "4-Point Burpee",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "4-Point Burpee",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 41"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-angled-half-lever",
+      "canonicalName": "Angled Half Lever",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Angled Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-arch",
+      "canonicalName": "Arch",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Arch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-arm-circling",
+      "canonicalName": "Arm Circling",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "GENERAL",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Arm Circling",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 28"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-asian-squat",
+      "canonicalName": "Asian Squat",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SQUAT",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Asian Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-assisted-leg-raise",
+      "canonicalName": "Assisted Leg Raise",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "ASSISTED_MOVEMENT",
+      "unknownClassification": "SCHEMA_SEMANTICS_PROBLEM",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 28"
+          }
+        ]
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-assisted-pistol-squat",
+      "canonicalName": "Assisted Pistol Squat",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "ASSISTED_MOVEMENT",
+      "unknownClassification": "SCHEMA_SEMANTICS_PROBLEM",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SINGLE_LEG_SQUAT",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Assisted Pistol Squat",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 25"
+          }
+        ]
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-ball-shoulder-stretch",
+      "canonicalName": "Ball Shoulder Stretch",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "MISSING_EQUIPMENT_DATA",
+      "unknownClassification": "RESOLVABLE_WITH_REVIEW",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "STRETCH",
+        "movementType": "FLEXIBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Ball Shoulder Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 78"
+          }
+        ]
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-bastards",
+      "canonicalName": "Bastards",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Bastards",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-bend-and-reach",
+      "canonicalName": "Bend and Reach",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "TOTAL_BODY_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bend and Reach",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 3"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-bent-leg-good-morning",
+      "canonicalName": "Bent Leg Good Morning",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HINGE",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Bent Leg Good Morning",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 19"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-boxer",
+      "canonicalName": "Boxer",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "GENERAL",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Boxer",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 26"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-butterfly-mount",
+      "canonicalName": "Butterfly Mount",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SKILL",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Butterfly Mount",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-candlestick",
+      "canonicalName": "Candlestick",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Candlestick",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-cat-cow-kneeling-crunch",
+      "canonicalName": "Cat-Cow Kneeling Crunch",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Cat-Cow Kneeling Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-chair-pose-squat",
+      "canonicalName": "Chair Pose Squat",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "MISSING_EQUIPMENT_DATA",
+      "unknownClassification": "RESOLVABLE_WITH_REVIEW",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SQUAT",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Chair Pose Squat",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 4"
+          }
+        ]
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-chest-and-shoulder-stretch",
+      "canonicalName": "Chest and Shoulder Stretch",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SHOULDER_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Chest and Shoulder Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-deep-push-up",
+      "canonicalName": "Deep Push-Up",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "PUSH_UP",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Deep Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-dish",
+      "canonicalName": "Dish",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Dish",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-double-leg-abdominal-press",
+      "canonicalName": "Double-Leg Abdominal Press",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Double-Leg Abdominal Press",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 38"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-double-leg-bridge-with-shoulder-flexion",
+      "canonicalName": "Double Leg Bridge with Shoulder Flexion",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Double Leg Bridge with Shoulder Flexion",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 13"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-dragon-flag-swimmers",
+      "canonicalName": "Dragon-Flag Swimmers",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Dragon-Flag Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-dynamic-prone-plank",
+      "canonicalName": "Dynamic Prone Plank",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Dynamic Prone Plank",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 33"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-elevated-straddle-stand-straddle-press-to-handstand",
+      "canonicalName": "Elevated Straddle Stand Straddle Press to Handstand",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HANDSTAND",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Elevated Straddle Stand Straddle Press to Handstand",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-extended-plank",
+      "canonicalName": "Extended Plank",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Extended Plank",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-facing-away-standing-crunch",
+      "canonicalName": "Facing-Away Standing Crunch",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Facing-Away Standing Crunch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-floor-half-lever",
+      "canonicalName": "Floor Half Lever",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Floor Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-forward-fold",
+      "canonicalName": "Forward Fold",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Forward Fold",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-freestanding-lateral-lunge",
+      "canonicalName": "Freestanding Lateral Lunge",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "LUNGE",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Freestanding Lateral Lunge",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 34"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-frog-hop",
+      "canonicalName": "Frog Hop",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "LOWER_BODY_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Frog Hop",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-front-deltoid-shoulder-press",
+      "canonicalName": "Front Deltoid Shoulder Press",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SHOULDER",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Deltoid Shoulder Press",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-front-foot-elevated-split-squat",
+      "canonicalName": "Front Foot Elevated Split Squat",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "LEG",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Front Foot Elevated Split Squat",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-glute-stretch",
+      "canonicalName": "Glute Stretch",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "STRETCH",
+        "movementType": "FLEXIBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Glute Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-groin-stretch",
+      "canonicalName": "Groin Stretch",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "STRETCH",
+        "movementType": "FLEXIBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Groin Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-half-lever",
+      "canonicalName": "Half Lever",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-half-lever-bicycles",
+      "canonicalName": "Half-Lever Bicycles",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Bicycles",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-half-lever-extensions",
+      "canonicalName": "Half-Lever Extensions",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Extensions",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-half-lever-swimmers",
+      "canonicalName": "Half-Lever Swimmers",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Half-Lever Swimmers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-hands-elevated-one-arm-pushup",
+      "canonicalName": "Hands-Elevated One-Arm Pushup",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "PUSH_UP",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Hands-Elevated One-Arm Pushup",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-heel-kicks",
+      "canonicalName": "Heel Kicks",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Heel Kicks",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 8"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-jogging-and-running",
+      "canonicalName": "Jogging and Running",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CARDIO",
+        "movementType": "AEROBIC",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Jogging and Running",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 66"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-judo-push-up",
+      "canonicalName": "Judo Push-Up",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "PUSH_UP",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Judo Push-Up",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 20"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-knee-circles",
+      "canonicalName": "Knee Circles",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "LOWER_BODY_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Knee Circles",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-knee-ups",
+      "canonicalName": "Knee-Ups",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Knee-Ups",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 7"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-lalanne-push-up",
+      "canonicalName": "LaLanne Push-Up",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "PUSH_UP",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "LaLanne Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-lunge-to-row",
+      "canonicalName": "Lunge to Row",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "LUNGE",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Lunge to Row",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 6"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-lying-leg-extension",
+      "canonicalName": "Lying Leg Extension",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Lying Leg Extension",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-lying-leg-raise",
+      "canonicalName": "Lying Leg Raise",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Lying Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 27"
+          },
+          {
+            "source_id": "CAL_BEGINNER_150",
+            "source_name": "Leg Raises",
+            "evidence_type": "INDEX_HEADING",
+            "locator": "Index exercise 5"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-lying-triceps-extension",
+      "canonicalName": "Lying Triceps Extension",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "TRICEPS",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "DELAVIER3",
+            "source_name": "Lying Triceps Extension",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 15"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-neck-and-shoulder-stretch",
+      "canonicalName": "Neck and Shoulder Stretch",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "STRETCH",
+        "movementType": "FLEXIBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Neck and Shoulder Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 75"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-negative-dragon-flag",
+      "canonicalName": "Negative Dragon Flag",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Negative Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 14"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-neutral-grip-horizontal-row",
+      "canonicalName": "Neutral-Grip Horizontal Row",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "BACK",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Neutral-Grip Horizontal Row",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-oblique-twist-with-plate-weight",
+      "canonicalName": "Oblique Twist with Plate Weight",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Oblique Twist with Plate Weight",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-one-arm-straddle-elbow-lever",
+      "canonicalName": "One-Arm Straddle Elbow Lever",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "One-Arm Straddle Elbow Lever",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-parallel-leg-raise",
+      "canonicalName": "Parallel Leg Raise",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Parallel Leg Raise",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 30"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-parallel-squat",
+      "canonicalName": "Parallel Squat",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SQUAT",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Parallel Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-rear-support",
+      "canonicalName": "Rear Support",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rear Support",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-rollovers-into-straddle-sit",
+      "canonicalName": "Rollovers into Straddle Sit",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "LOWER_BODY_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rollovers into Straddle Sit",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-rotator-cuff-stretch",
+      "canonicalName": "Rotator-Cuff Stretch",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SHOULDER_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rotator-Cuff Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-rows",
+      "canonicalName": "Rows",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "PULL_UP",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Rows",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-russian-twist",
+      "canonicalName": "Russian Twist",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "GENERAL",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Russian Twist",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 37"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-scalene-stretch",
+      "canonicalName": "Scalene Stretch",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Scalene Stretch",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-seated-stride-into-saw-stretch",
+      "canonicalName": "Seated Stride into Saw Stretch",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "STRETCH",
+        "movementType": "FLEXIBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Seated Stride into Saw Stretch",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 5"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-segmental-rotation",
+      "canonicalName": "Segmental Rotation",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Segmental Rotation",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 35"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-shoulder-dislocates",
+      "canonicalName": "Shoulder Dislocates",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SHOULDER_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Shoulder Dislocates",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-side-leans",
+      "canonicalName": "Side Leans",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "TRUNK_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Side Leans",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-side-to-side-hip-rolls",
+      "canonicalName": "Side-to-Side Hip Rolls",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "TRUNK_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Side-to-Side Hip Rolls",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 68"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-side-to-side-squat",
+      "canonicalName": "Side-to-Side Squat",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SQUAT",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Side-to-Side Squat",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-single-leg-dragon-flag",
+      "canonicalName": "Single-Leg Dragon Flag",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Single-Leg Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 13"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-spider-push-up",
+      "canonicalName": "Spider Push-Up",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "PUSH_UP",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Spider Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-spine-roll",
+      "canonicalName": "Spine Roll",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "TRUNK_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Spine Roll",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 80"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-sprinter-sit-up",
+      "canonicalName": "Sprinter Sit-Up",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Sprinter Sit-Up",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 31"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-sprints",
+      "canonicalName": "Sprints",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Sprints",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-stair-climb-with-biceps-curl",
+      "canonicalName": "Stair Climb with Biceps Curl",
+      "classification": "REQUIRES_MANUAL_REVIEW",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "MISSING_EQUIPMENT_DATA",
+      "unknownClassification": "RESOLVABLE_WITH_REVIEW",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "GENERAL",
+        "movementType": "CONDITIONING",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "CAL_BEGINNER_50",
+            "source_name": "Stair Climb with Biceps Curl",
+            "evidence_type": "TOC_EXERCISE",
+            "locator": "Exercise list; item 14"
+          }
+        ]
+      },
+      "reason": "Existing evidence identifies a semantic problem but does not establish a sufficiently specific apparatus/assistance requirement.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-star-jumps",
+      "canonicalName": "Star Jumps",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CONDITIONING",
+        "movementType": "CONDITIONING",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Star Jumps",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-straddle-flag",
+      "canonicalName": "Straddle Flag",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Straddle Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-supine-legs-to-chest",
+      "canonicalName": "Supine Legs to Chest",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "STRETCH",
+        "movementType": "FLEXIBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Supine Legs to Chest",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 67"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-transverse-activation-in-4-point-kneeling",
+      "canonicalName": "Transverse Activation in 4-Point Kneeling",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Transverse Activation in 4-Point Kneeling",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 9"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-tuck-half-lever",
+      "canonicalName": "Tuck Half Lever",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HALF_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tuck Half Lever",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-tucked-dragon-flag",
+      "canonicalName": "Tucked Dragon Flag",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Tucked Dragon Flag",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 12"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-tucked-flag",
+      "canonicalName": "Tucked Flag",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Tucked Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-two-arm-elbow-lever",
+      "canonicalName": "Two-Arm Elbow Lever",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "OVERCOMING_GRAVITY",
+            "source_name": "Two-Arm Elbow Lever",
+            "evidence_type": "LEVEL_HEADING",
+            "locator": "Chapters 24-27 progression charts"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-unilateral-cross-body-triceps-extension",
+      "canonicalName": "Unilateral Cross-Body Triceps Extension",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "ARM",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "SCIENCE_STRENGTH",
+            "source_name": "Unilateral Cross-Body Triceps Extension",
+            "evidence_type": "INDEX",
+            "locator": "Science of Strength Training index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-vertical-flag",
+      "canonicalName": "Vertical Flag",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Vertical Flag",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-vertical-human-flag",
+      "canonicalName": "Vertical Human Flag",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HUMAN_FLAG",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "ULTIMATE_CAL_COLLECTION",
+            "source_name": "Vertical Human Flag",
+            "evidence_type": "EXERCISE_SECTION",
+            "locator": "The Gym-Less Workout exercise/progression section 37"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-vertical-pulls",
+      "canonicalName": "Vertical Pulls",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "FRONT_LEVER",
+        "movementType": "SKILL",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Vertical Pulls",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-walking-arm-swings",
+      "canonicalName": "Walking Arm Swings",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "SHOULDER_MOBILITY",
+        "movementType": "MOBILITY",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "VELLA_ANATOMY",
+            "source_name": "Walking Arm Swings",
+            "evidence_type": "TOC_HEADING",
+            "locator": "Part 2: Exercises; item 6"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-window-wipers",
+      "canonicalName": "Window Wipers",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "HANGING_CORE",
+        "movementType": "CORE",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Window Wipers",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "CAL_BEGINNER_150",
+            "source_name": "Windshield Wiper",
+            "evidence_type": "INDEX_HEADING",
+            "locator": "Index exercise 6"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    },
+    {
+      "canonicalId": "ex-wrist-extension",
+      "canonicalName": "Wrist Extension",
+      "classification": "NO_RELIABLE_EVIDENCE",
+      "matchingClass": "NO_MATCH",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "FOREARM",
+        "movementType": "STRENGTH",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "NSCA_TECH",
+            "source_name": "Wrist Extension",
+            "evidence_type": "EXERCISE_HEADING",
+            "locator": "Exercise Technique Manual; exercise heading 51"
+          }
+        ]
+      },
+      "reason": "Persisted source reference establishes exercise identity only; no reliable field-level equipment evidence was found.",
+      "nextAction": "EXTERNAL_RESEARCH"
+    },
+    {
+      "canonicalId": "ex-wrist-push-up",
+      "canonicalName": "Wrist Push-Up",
+      "classification": "REMAINS_AMBIGUOUS",
+      "matchingClass": "AMBIGUOUS",
+      "v31aClassification": "SEMANTICALLY_AMBIGUOUS",
+      "unknownClassification": "REQUIRES_EXTERNAL_RESEARCH",
+      "existingEvidence": {
+        "source": "V2",
+        "family": "PUSH_UP",
+        "movementType": "CALISTHENICS",
+        "appGroup": null,
+        "appEquipmentLabel": null,
+        "sources": [
+          {
+            "source_id": "COMPLETE_CAL2",
+            "source_name": "Wrist Push-Up",
+            "evidence_type": "INDEX",
+            "locator": "Complete Calisthenics 2e index"
+          },
+          {
+            "source_id": "COMPLETE_CAL1",
+            "source_name": "Wrist Push-Up",
+            "evidence_type": "SOURCE_HEADING",
+            "locator": "Source exercise heading 5"
+          }
+        ]
+      },
+      "reason": "Persisted evidence does not disambiguate equipment semantics at field level; ambiguous matching is not promoted.",
+      "nextAction": "MANUAL_FIELD_REVIEW"
+    }
+  ]
+}

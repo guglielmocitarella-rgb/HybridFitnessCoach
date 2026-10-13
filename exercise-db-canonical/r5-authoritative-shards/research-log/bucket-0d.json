@@ -1,0 +1,1067 @@
+[
+  {
+    "canonicalExerciseId": "cm-45-degree-leg-press",
+    "exerciseName": "45-degree leg press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "45-Degree Leg Press: Correct Form, Foot Placement and Mistakes",
+        "publisher": "DAWT",
+        "tier": 3,
+        "locator": "https://www.dawtmilano.com/en/exercises/45-degree-leg-press/",
+        "finding": "Machine-supported 45-degree leg press keeps back and hips fixed to the pad and explicitly removes balance demand; controlled depth and knee tracking remain the main technique constraints."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-ab-wheel-standing-eccentric",
+    "exerciseName": "Ab Wheel standing eccentric",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Standing Eccentric Forward Ab Wheel Rollout",
+        "publisher": "AccelerateSP",
+        "tier": 3,
+        "locator": "https://www.youtube.com/watch?v=QtD8skWoQss",
+        "finding": "Standing eccentric rollout starts from standing and lowers slowly toward plank/floor with knees straight, core engaged and shoulder stability, stopping at the lowest controllable range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-affondi",
+    "exerciseName": "Affondi",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "How To Do Lunges and Muscles Worked",
+        "publisher": "Cleveland Clinic",
+        "tier": 2,
+        "locator": "https://health.clevelandclinic.org/lunges-muscles-worked",
+        "finding": "Sports-medicine guidance notes lunges are challenging for beginners because they require single-leg strength, coordination and proficiency; controlled forward-lunge form is emphasized."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-band-chest-press",
+    "exerciseName": "Band chest press",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Resistance-Band Chest Press Exercise",
+        "publisher": "InjuryAtlas",
+        "tier": 2,
+        "locator": "https://injuryatlas.ca/encyclopedia/chest-pecs/exercises/resistance-band-chest-press/",
+        "finding": "Physiotherapist-reviewed beginner bilateral resistance-band horizontal press with stable anchor and controlled chest/triceps/shoulder action."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-barbell-reverse-lunge",
+    "exerciseName": "Barbell reverse lunge",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Reverse Lunge",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/319/reverse-lunge/",
+        "finding": "ACE classifies the barbell reverse lunge Intermediate and prescribes a loaded backward step, controlled lowering toward the floor, upright chest and return to standing."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-cable-anti-rotation-hold",
+    "exerciseName": "Cable anti-rotation hold",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Core Stability Exercises: Targeting Progressive Core Training",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://blog.nasm.org/progressive-core-training",
+        "finding": "NASM places cable anti-rotation/Pallof work in core stabilization: side-anchored resistance, bilateral stance, braced core and glutes, with the goal of preventing trunk/pelvis rotation."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-cable-scaption",
+    "exerciseName": "Cable scaption",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Shoulder Scaption",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/162/shoulder-scaption/",
+        "finding": "ACE scaption uses a stable standing base and controlled arm elevation in the scapular plane, emphasizing posture and shoulder control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-curl-martello",
+    "exerciseName": "Curl martello",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Hammer Curl",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/hammer-curl",
+        "finding": "NASM hammer curl is a beginner isolated elbow-flexion exercise performed with neutral grip, stable posture and controlled range."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-deep-squat-hold",
+    "exerciseName": "Deep squat hold",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Bodyweight Squat",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/",
+        "finding": "ACE squat guidance requires controlled bilateral stance and alignment through hip/knee flexion; a sustained deep position increases positional control demand but does not add external load."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dip-alle-parallele",
+    "exerciseName": "Dip alle parallele",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Triceps Dip",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/189/triceps-dip/",
+        "finding": "ACE parallel-bar triceps dip requires supporting full bodyweight through the arms, controlled elbow/shoulder flexion and stable suspended body position."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dip-assistite",
+    "exerciseName": "Dip assistite",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Assisted Dip",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/assisted-dip",
+        "finding": "NASM presents assisted dip as a regression of the dip using machine assistance, with controlled elbow flexion/extension and stable shoulder positioning."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dive-bomber-push-up",
+    "exerciseName": "Dive bomber push-up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dive Bomber Push-Up",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/87/dive-bomber-push-up/",
+        "finding": "ACE presents dive-bomber push-up as an advanced push-up variation moving dynamically between pike/downward-facing and extended positions, demanding upper-body strength, shoulder/hip mobility and coordinated whole-body control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dumbbell-fly",
+    "exerciseName": "Dumbbell fly",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Dumbbell Chest Fly",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/41/chest-fly/",
+        "finding": "ACE rates dumbbell chest fly Beginner; performed supine on a bench with stable body support and controlled shoulder horizontal abduction/adduction, requiring moderate shoulder range but little balance."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-dumbbell-lateral-lunge",
+    "exerciseName": "Dumbbell lateral lunge",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lateral Lunge",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/364/lateral-lunge/",
+        "finding": "ACE rates lateral lunge Intermediate and requires a wide lateral step, hip hinge/flexion on one side, knee-foot alignment and controlled return; dumbbells add load without simplifying the frontal-plane control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-elevated-pike-shoulder-tap",
+    "exerciseName": "Elevated pike shoulder tap",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Pike Shoulder Tap - Legs Elevated",
+        "publisher": "[P]rehab",
+        "tier": 3,
+        "locator": "https://library.theprehabguys.com/vimeo-video/pike-shoulder-tap-legs-elevated/",
+        "finding": "Exercise-specific legs-elevated pike shoulder tap: feet elevated, hips raised into a pike, legs kept straight, alternating one-arm opposite-shoulder taps; core/shoulders work while hamstrings are stretched and single-arm support demands control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-face-pull-cavo",
+    "exerciseName": "Face pull cavo",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Face Pull",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/face-pull",
+        "finding": "NASM describes an Intermediate cable face pull from a stable standing stance, pulling a rope from eye height toward the face to develop posterior shoulder/upper-back strength and shoulder stability."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-foam-roller-quadricipiti",
+    "exerciseName": "Foam roller quadricipiti",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Quad Foam Rolling",
+        "publisher": "Muscle & Strength",
+        "tier": 3,
+        "locator": "https://www.muscleandstrength.com/exercises/foam-rolling-quads",
+        "finding": "Exercise-specific guide classifies quad foam rolling Beginner/SMR: prone with roller under the thigh and upper body supported on the forearms, using slow controlled rolling for quadriceps mobility/recovery."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-foam-roller-triceps",
+    "exerciseName": "Foam Roller triceps",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Foam Roller Triceps Roll",
+        "publisher": "Athlemove",
+        "tier": 3,
+        "locator": "https://athlemove.com/exercises/foam-roller-triceps-roll",
+        "finding": "Beginner-level self-myofascial release; explicitly needs no strength base, uses top hand and foot for support, and requires comfortable overhead arm reach."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-kettlebell-clean-and-squat",
+    "exerciseName": "Kettlebell clean and squat",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Single-arm kettlebell circuit — Clean and Squat",
+        "publisher": "EVO Fitness",
+        "tier": 3,
+        "locator": "https://evofitness.at/en/blog/move/singlearm-kettlebell-circuit/",
+        "finding": "Exercise explicitly combines explosive kettlebell clean into rack with a squat performed to individual flexibility/mobility, requiring sequencing and controlled rack position."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-lateral-lunge-corpo-libero",
+    "exerciseName": "Lateral lunge corpo libero",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Lateral Lunge",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/364/lateral-lunge/",
+        "finding": "ACE labels lateral lunge intermediate and describes lateral stepping, hip-back descent and controlled return; related ACE guidance identifies balance and flexibility demands."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-leg-raise",
+    "exerciseName": "Leg raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Hanging Leg Raises: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 3,
+        "locator": "https://www.verywellfit.com/how-to-do-the-hanging-leg-raise-3498232",
+        "finding": "High-level hanging leg raise requires controlled abdominal/hip-flexor effort, shoulders down and no swinging."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-meadows-row-bilanciere-landmine",
+    "exerciseName": "Meadows row bilanciere landmine",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Exercise Technique: The Landmine Row",
+        "publisher": "NSCA Strength and Conditioning Journal",
+        "tier": 1,
+        "locator": "https://www.researchgate.net/publication/365629162_Exercise_Technique_The_Landmine_Row",
+        "finding": "Meadows-row-specific landmine setup: perpendicular split stance, hip hinge, supported nonworking arm, pronated sleeve grip."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "cm-power-walk",
+    "exerciseName": "Power walk",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Walking Pads: Health Benefits and Usage Guidelines",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/resources/pros/expert-articles/8855/walking-pads-health-benefits-and-usage-guidelines/",
+        "finding": "ACE describes brisk walking around 2.5–4 mph as accessible cardiovascular activity with increased attentional demand as pace rises but no specialized skill requirement."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "VERY_LOW",
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-alternate-arm-and-leg-raises-on-ball",
+    "exerciseName": "Alternate Arm and Leg Raises on Ball",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Alternate Arm and Leg Raises on Ball",
+        "publisher": "Anyang University / KOCW",
+        "tier": 3,
+        "locator": "https://kocw-n.xcache.kinxcdn.com/data/document/2024/anyang/kimdukjung0205/10.pdf",
+        "finding": "The exact stability-ball exercise is labeled Intermediate to Advanced and instructs prone support on the ball with abdominal stabilization while raising the opposite arm and leg."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": [
+        "mobilityRequirement"
+      ]
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-assisted-dip",
+    "exerciseName": "Assisted Dip",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Assisted Dips: Proper Form, Variations, and Common Mistakes",
+        "publisher": "Verywell Fit",
+        "tier": 2,
+        "locator": "https://www.verywellfit.com/how-to-do-assisted-pullups-and-dips-3498284",
+        "finding": "Beginner assisted-machine dip uses adjustable upward assistance, supported platform and controlled lowering to about 90 degrees."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-assisted-leg-raise",
+    "exerciseName": "Assisted Leg Raise",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Assisted Leg Raise",
+        "publisher": "bit by bit",
+        "tier": 3,
+        "locator": "https://www.bitbybit.fit/exercises",
+        "finding": "Library classifies Assisted Leg Raise as Intermediate; supported lying execution trains hip flexors/quadriceps and core pattern."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-back-lever-pullout",
+    "exerciseName": "Back Lever Pullout",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Back Lever Pullout",
+        "publisher": "GymDaze",
+        "tier": 3,
+        "locator": "https://gym-daze.com/exercises/back-lever-pullout",
+        "finding": "Advanced transition from horizontal back lever to inverted hang with straight elbows and rigid body line."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-banded-biceps-curl",
+    "exerciseName": "Banded Biceps Curl",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Banded Biceps Curl",
+        "publisher": "Lonero",
+        "tier": 3,
+        "locator": "https://lonero.app/exercises/banded-biceps-curl?lang=it",
+        "finding": "Beginner resistance-band isolation curl with fixed elbows and controlled return."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "VERY_LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-barbell-standing-shoulder-press",
+    "exerciseName": "Standing Shoulder Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Standing Shoulder Press",
+        "publisher": "ACE Fitness",
+        "tier": 3,
+        "locator": "https://www.acefitness.org/resources/everyone/exercise-library/71/standing-shoulder-press/",
+        "finding": "ACE classifies standing barbell shoulder press as Advanced."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-cable-unilateral-triceps-pressdown",
+    "exerciseName": "Cable Unilateral Triceps Pressdown",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Cable Unilateral Triceps Pressdown",
+        "publisher": "STR8",
+        "tier": 3,
+        "locator": "https://str8app.com/exercises/cable-crossover/",
+        "finding": "Beginner cable isolation extension; unilateral constant-tension triceps work."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-calf-stretch",
+    "exerciseName": "Calf Stretch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Calf Stretch",
+        "publisher": "ACE Fitness",
+        "tier": 2,
+        "locator": "https://www.acefitness.org/continuing-education/prosource/june-2015/5414/stretching-techniques-for-alleviating-muscle-and-joint-pain-part-2/",
+        "finding": "Passive standing calf stretch using staggered stance and ground support, held gently 20–30 seconds."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "VERY_LOW",
+        "technicalDifficulty": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-decline-abdominal-crunch",
+    "exerciseName": "Decline Abdominal Crunch",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Decline Crunch",
+        "publisher": "Catalyst Athletics",
+        "tier": 2,
+        "locator": "https://www.catalystathletics.com/exercise/704/Decline-Crunch/",
+        "finding": "Simple decline-bench trunk-flexion exercise with feet anchored and continuous abdominal tension; controlled curl without hip hinging."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "strengthRequirement": "LOW",
+        "technicalDifficulty": "LOW",
+        "mobilityRequirement": "LOW",
+        "balanceCoordinationRequirement": "VERY_LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dragon-flag-swimmers",
+    "exerciseName": "ex-dragon-flag-swimmers",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Exercise-specific progression or execution evidence supports this capability classification."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-dumbbell-windmill",
+    "exerciseName": "Dumbbell Windmill",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Windmill Exercise: What It Is and How To Perform It",
+        "publisher": "Cleveland Clinic",
+        "tier": 1,
+        "locator": "https://health.clevelandclinic.org/windmill-exercise",
+        "finding": "Windmill can use a dumbbell; full-body core/hips/shoulders movement, explicitly not for beginners, with form, overhead alignment and available flexibility emphasized."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "technicalDifficulty": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "balanceCoordinationRequirement": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-front-lever-pull-up",
+    "exerciseName": "Front Lever Pull-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "Front Lever Pull-Up",
+        "publisher": "CALISTHENICS.com",
+        "tier": 3,
+        "locator": "https://calisthenics.com/exercise/front-lever-pull-up/",
+        "finding": "The source classifies Front Lever Pull-Up as elite difficulty and requires a fully suspended horizontal straight-body lever, false grip, dynamic elbow flexion/extension, controlled return, and prior full-lever/shorter-lever pulling readiness."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-handstand-push-up",
+    "exerciseName": "Handstand Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "The Strict Handstand Push-Up / Gymnastics Training Guide",
+        "publisher": "CrossFit",
+        "tier": 2,
+        "locator": "https://www.crossfit.com/essentials/the-strict-handstand-push-up",
+        "finding": "HSPU integrates strength and balance; controlled tripod descent, active overhead position and pressing back to handstand demand substantial shoulder/triceps strength and technique."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "HIGH",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-lunge-jump",
+    "exerciseName": "Lunge Jump",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Lunge Jump",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/lunge-jump",
+        "finding": "Advanced plyometric alternating-lunge jump requiring explosive unilateral strength, dynamic balance, controlled landing and torso control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-machine-shoulder-press",
+    "exerciseName": "Machine Shoulder Press",
+    "identityStatus": "IDENTITY_CONFIRMED",
+    "sources": [
+      {
+        "title": "How to Do Machine Shoulder Press",
+        "publisher": "StrengthLog",
+        "tier": 3,
+        "locator": "https://www.strengthlog.com/machine-shoulder-press/",
+        "finding": "Machine press explicitly offers more stability and less balance/coordination demand than free-weight shoulder presses and is easy to learn for beginners."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_LOW",
+        "mobilityRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-one-arm-push-up",
+    "exerciseName": "ex-one-arm-push-up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Complete Calisthenics",
+        "publisher": "Ashley Kalym / Complete Calisthenics",
+        "tier": 2,
+        "locator": "https://dokumen.pub/complete-calisthenics-the-ultimate-guide-to-bodyweight-exercise-kindle-edition-1905367546-9781905367542.html",
+        "finding": "Exercise-specific progression or execution evidence supports this capability classification."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-planche-lean",
+    "exerciseName": "Planche Lean",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Planche Progression",
+        "publisher": "GMB Fitness",
+        "tier": 2,
+        "locator": "https://gmb.io/planche/",
+        "finding": "Basic planche lean starts from plank and shifts shoulders beyond wrists while feet remain supported; it is the first progression toward unsupported planche strength/control."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-planche-push-up",
+    "exerciseName": "Planche Push-Up",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Planche Push-Ups",
+        "publisher": "Pull Gravity",
+        "tier": 3,
+        "locator": "https://pullgravity.com/exercises/push-ups/planche-push-ups/",
+        "finding": "Push-up is performed with feet airborne in planche, entire bodyweight supported on hands; source explicitly notes great strength and high balance demand."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "VERY_HIGH",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "VERY_HIGH",
+        "technicalDifficulty": "VERY_HIGH"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-reverse-crunch-to-knee-up-with-rotation",
+    "exerciseName": "Reverse Crunch to Knee Up With Rotation",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Reverse Crunch to Knee Up With Rotation",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/reverse-crunch-to-knee-up-with-rotation",
+        "finding": "NASM classifies this multi-planar core exercise intermediate; combines hip flexion and rotation with controlled alignment."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "MODERATE",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-side-plank",
+    "exerciseName": "Side Plank",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Side Plank",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/side-plank",
+        "finding": "Isometric lateral core stabilization requiring straight-line alignment and prevention of hip sag/torso rotation; NASM classifies side plank beginner."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "MODERATE",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "LOW"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-single-leg-seated-leg-curl",
+    "exerciseName": "Single-Leg Seated Leg Curl",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "Single-Leg Seated Leg Curl",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/resource-center/exercise-library/single-leg-seated-leg-curl",
+        "finding": "Stable unilateral machine curl for individual hamstring strength; controlled knee position and asymmetry management are emphasized."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "MODERATE",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  },
+  {
+    "canonicalExerciseId": "ex-two-arm-dumbbell-chest-press-with-band",
+    "exerciseName": "Two-Arm Dumbbell Chest Press with Band",
+    "identityStatus": "IDENTITY_CONFIRMED_WITH_VARIANT_SCOPE",
+    "sources": [
+      {
+        "title": "NASM Exercise Library",
+        "publisher": "NASM",
+        "tier": 2,
+        "locator": "https://www.nasm.org/workout-exercise-guidance",
+        "finding": "NASM classifies the band-resisted supported dumbbell press intermediate; variable resistance requires controlled pressing mechanics."
+      }
+    ],
+    "decision": "FIELD_APPLICATION_COMPLETED",
+    "fieldApplication": {
+      "resolved": {
+        "balanceCoordinationRequirement": "LOW",
+        "mobilityRequirement": "LOW",
+        "strengthRequirement": "HIGH",
+        "technicalDifficulty": "MODERATE"
+      },
+      "terminalUnresolved": []
+    }
+  }
+]

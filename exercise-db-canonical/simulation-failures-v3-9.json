@@ -1,0 +1,10 @@
+[
+  {
+    "failureId": "V39-F-002",
+    "severity": "S2_MATERIAL_DEGRADATION",
+    "failureClass": "RUNTIME_MODEL_GAP",
+    "scenarioIds": [],
+    "rootCause": "Current runtime cannot natively consume all V3 structured semantics.",
+    "requiredRemediation": "Separate future runtime integration design / migration plan."
+  }
+]

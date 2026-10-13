@@ -1,0 +1,182 @@
+{
+  "status": "PROMOTED_AUTHORITATIVE",
+  "version": "V3.10C-R5-R-V9",
+  "baselineHead": "ff0939e48dda5bf2db51b69bc26711766d70336b",
+  "newWebQueries": 24,
+  "recordCount": 26,
+  "evidenceCompleteCapabilityCount": 100,
+  "dimensions": [
+    "balanceCoordinationRequirement",
+    "mobilityRequirement",
+    "strengthRequirement",
+    "technicalDifficulty"
+  ],
+  "records": {
+    "ex-dragon-flag-swimmers": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-explosive-pull-up": [
+      "MODERATE",
+      "MODERATE",
+      "VERY_HIGH",
+      null
+    ],
+    "ex-flat-back-planche": [
+      "VERY_HIGH",
+      "HIGH",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-freestanding-handstand-pushup": [
+      "VERY_HIGH",
+      "HIGH",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-full-front-lever-rows": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-full-planche-pushups": [
+      "VERY_HIGH",
+      "HIGH",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-german-hang-pullout": [
+      "HIGH",
+      "VERY_HIGH",
+      "HIGH",
+      "HIGH"
+    ],
+    "ex-glute-stretch": [
+      "VERY_LOW",
+      "MODERATE",
+      "VERY_LOW",
+      "VERY_LOW"
+    ],
+    "ex-groin-stretch": [
+      "LOW",
+      "HIGH",
+      "VERY_LOW",
+      "LOW"
+    ],
+    "ex-half-lever": [
+      "HIGH",
+      "MODERATE",
+      "HIGH",
+      "HIGH"
+    ],
+    "ex-half-lever-bicycles": [
+      "HIGH",
+      "MODERATE",
+      "HIGH",
+      "HIGH"
+    ],
+    "ex-half-lever-extensions": [
+      "HIGH",
+      "MODERATE",
+      "HIGH",
+      "HIGH"
+    ],
+    "ex-half-lever-swimmers": [
+      "HIGH",
+      "MODERATE",
+      "HIGH",
+      "HIGH"
+    ],
+    "ex-hamstring-stretch": [
+      "VERY_LOW",
+      "HIGH",
+      "VERY_LOW",
+      "VERY_LOW"
+    ],
+    "ex-hanging-knee-raise": [
+      "MODERATE",
+      "MODERATE",
+      "MODERATE",
+      "MODERATE"
+    ],
+    "ex-horizontal-pull-up": [
+      "LOW",
+      "LOW",
+      "MODERATE",
+      "LOW"
+    ],
+    "ex-hip-flexor-stretch": [
+      null,
+      "HIGH",
+      "VERY_LOW",
+      "LOW"
+    ],
+    "ex-jump-squat": [
+      "MODERATE",
+      "MODERATE",
+      "HIGH",
+      null
+    ],
+    "ex-negative-dragon-flag": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "HIGH"
+    ],
+    "ex-negative-one-arm-pull-up": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "HIGH"
+    ],
+    "ex-normal-muscle-up": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-one-arm-pull-up": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-one-arm-push-up": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "HIGH"
+    ],
+    "ex-one-arm-one-leg-push-up": [
+      "VERY_HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ],
+    "ex-front-lever-pull-to-inverted-hang": [
+      "HIGH",
+      "MODERATE",
+      "VERY_HIGH",
+      null
+    ],
+    "ex-one-arm-dip": [
+      "VERY_HIGH",
+      "HIGH",
+      "VERY_HIGH",
+      "VERY_HIGH"
+    ]
+  },
+  "promotedFrom": "6d1c564ae9e521e5563967189f04a7266ced8dab",
+  "authoritativeCounts": {
+    "records": 26,
+    "capabilities": 100,
+    "resolved": 100,
+    "terminal": 0,
+    "residue": 0
+  },
+  "validation": "PASS",
+  "checkpointState": "CHECKPOINT_SHARDED_AUTHORITATIVE_VALIDATED"
+}

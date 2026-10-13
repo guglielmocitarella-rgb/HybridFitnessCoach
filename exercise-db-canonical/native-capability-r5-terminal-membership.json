@@ -1,0 +1,634 @@
+{
+  "version": "V3.10C-R5-TERMINAL-MEMBERSHIP-RECOVERY",
+  "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020",
+  "terminalCounter": 48,
+  "existingMaterializedCount": 32,
+  "recoveredCount": 16,
+  "totalMembershipCount": 48,
+  "entries": [
+    {
+      "canonicalExerciseId": "ex-advanced-tuck-planche-pushups",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-advanced-tuck-planche-pushups::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-child-stretch",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-child-stretch::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-child-stretch",
+      "dimension": "strengthRequirement",
+      "semanticKey": "ex-child-stretch::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-child-stretch",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "ex-child-stretch::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-advanced-tuck-front-lever-rows",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-advanced-tuck-front-lever-rows::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-45-degree-forward-lean-dips",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-45-degree-forward-lean-dips::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-45-degree-forward-lean-dips",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "ex-45-degree-forward-lean-dips::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-eccentric-rollout",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "cm-ab-wheel-eccentric-rollout::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-ab-wheel-eccentrics",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-ab-wheel-eccentrics::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-ab-wheel-eccentrics",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "ex-ab-wheel-eccentrics::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-double-clap-push-up",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-double-clap-push-up::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-cat-cow-kneeling-crunch",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-cat-cow-kneeling-crunch::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-cat-cow-kneeling-crunch",
+      "dimension": "strengthRequirement",
+      "semanticKey": "ex-cat-cow-kneeling-crunch::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-cat-cow-kneeling-crunch",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "ex-cat-cow-kneeling-crunch::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-chest-roll-straight-body-press-to-handstand",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "ex-chest-roll-straight-body-press-to-handstand::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-chest-roll-straight-body-press-to-handstand",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-chest-roll-straight-body-press-to-handstand::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-chest-roll-straight-body-press-to-handstand",
+      "dimension": "strengthRequirement",
+      "semanticKey": "ex-chest-roll-straight-body-press-to-handstand::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-chest-roll-straight-body-press-to-handstand",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "ex-chest-roll-straight-body-press-to-handstand::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-alternating-front-lever",
+      "dimension": "strengthRequirement",
+      "semanticKey": "ex-alternating-front-lever::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-alternating-front-lever",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "ex-alternating-front-lever::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-alternating-front-lever",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-alternating-front-lever::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-alternating-front-lever",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "ex-alternating-front-lever::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-pushdown-cavo",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "cm-pushdown-cavo::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-pushdown-cavo",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "cm-pushdown-cavo::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-pushdown-cavo",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "cm-pushdown-cavo::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-alternate-arm-and-leg-raises-on-ball",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-alternate-arm-and-leg-raises-on-ball::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-advanced-tuck-front-lever",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-advanced-tuck-front-lever::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-asian-squat",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "ex-asian-squat::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-asian-squat",
+      "dimension": "strengthRequirement",
+      "semanticKey": "ex-asian-squat::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-asian-squat",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "ex-asian-squat::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-deep-squat-position",
+      "dimension": "strengthRequirement",
+      "semanticKey": "ex-deep-squat-position::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-deep-squat-position",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "ex-deep-squat-position::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "EXISTING_MATERIALIZED",
+      "proof": {
+        "artifact": "exercise-db-canonical/r5-authoritative-shards/research-log/bucket-*.json",
+        "baseline": "b8c6b6d2f380253e4ae75b39b4c760b8e806c020"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-90-degree-push-up",
+      "dimension": "strengthRequirement",
+      "semanticKey": "ex-90-degree-push-up::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-90-degree-push-up",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "ex-90-degree-push-up::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-90-degree-push-up",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "ex-90-degree-push-up::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "ex-90-degree-push-up",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "ex-90-degree-push-up::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-narrow-knee-rollout",
+      "dimension": "strengthRequirement",
+      "semanticKey": "cm-ab-wheel-narrow-knee-rollout::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-narrow-knee-rollout",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "cm-ab-wheel-narrow-knee-rollout::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-narrow-knee-rollout",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "cm-ab-wheel-narrow-knee-rollout::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-narrow-knee-rollout",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "cm-ab-wheel-narrow-knee-rollout::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-rollout-to-plank",
+      "dimension": "strengthRequirement",
+      "semanticKey": "cm-ab-wheel-rollout-to-plank::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-rollout-to-plank",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "cm-ab-wheel-rollout-to-plank::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-rollout-to-plank",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "cm-ab-wheel-rollout-to-plank::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-rollout-to-plank",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "cm-ab-wheel-rollout-to-plank::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-wide-knee-rollout",
+      "dimension": "strengthRequirement",
+      "semanticKey": "cm-ab-wheel-wide-knee-rollout::strengthRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-wide-knee-rollout",
+      "dimension": "technicalDifficulty",
+      "semanticKey": "cm-ab-wheel-wide-knee-rollout::technicalDifficulty",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-wide-knee-rollout",
+      "dimension": "mobilityRequirement",
+      "semanticKey": "cm-ab-wheel-wide-knee-rollout::mobilityRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    },
+    {
+      "canonicalExerciseId": "cm-ab-wheel-wide-knee-rollout",
+      "dimension": "balanceCoordinationRequirement",
+      "semanticKey": "cm-ab-wheel-wide-knee-rollout::balanceCoordinationRequirement",
+      "status": "TERMINAL_UNRESOLVED",
+      "membershipOrigin": "RECOVERED_HISTORICAL_WHOLE_RECORD_TERMINAL",
+      "proof": {
+        "r5HistoricalArtifact": "exercise-db-canonical/native-capability-r5-research-log.json",
+        "r5HistoricalCommit": "5f233f2b9b7956d93c9163aa9ed9c0ba15cb6d77",
+        "r5HistoricalBlob": "1e0a06bf4aea3ef9fd9399d110b888c28d26a7aa",
+        "r5RecordDecision": "TERMINAL_UNRESOLVED (whole record; zero resolved fields)",
+        "r3UniverseArtifact": "exercise-db-canonical/capability-residual-workset-v3-10c-r3.json",
+        "r3UniverseBlob": "93f129c63228314575df6f7733f22370b527a4fa",
+        "r3ResolvedPatchArtifact": "exercise-db-canonical/capability-field-patch-v3-10c-r3.json",
+        "r3ResolvedPatchBlob": "d9a47d839acbed5811ff041647b4569495a369b9"
+      }
+    }
+  ]
+}
