@@ -1,5 +1,18 @@
 # Hybrid Fitness Coach — Project Status
 
+## Coordination addendum — 2026-10-13
+
+**Active integration workstream:** `feature/v3-integration-v095-stabilization` (created from official V3 PR #15 head `f2698fc2ec51472a34d12502a3b74d89322ec186`). **Decision:** `docs/decisions/2026-10-13-v3-v095-consolidation.md`. **Full branch inventory and logical archive candidates:** `docs/branch-archive-inventory-2026-10-13.md`.
+
+The **correct final V3 candidate** is `exercise-db-canonical/exercise-db-v3-final-candidate.json`, frozen Step 6 SHA-256 `0a48dd6b6a3f128d28d168004976aeb989361fde6b4aba8cff6c3ac0e196911a`, 1,087 unique IDs. The Android shadow packaging is **still pointed at obsolete** `exercise-db-v3-9r-b-candidate.json`; this must be fixed and verified against actual APK contents in the next implementation gate. V2 remains the production workout generator. No V3 production cutover or new physical-device acceptance is claimed.
+
+The V29 R5 backup `a280a6b...` is complete but historical; `feature/exercise-db-v3` contains 121 further commits. The Oct 10 `work/v3-r5-candidate-consolidation` branch carries five unmerged read-only diagnostic/manifest commits and is retained for review; **its final candidate DB blob matches** the official V3 line. PR #14 and PR #15 remain draft; `main` remains unchanged. The device findings below still define acceptance until retested. Branches are **classified for logical archive only**: none has been deleted or retagged.
+
+The pre-existing 2026-10-07 product/R5 status is retained below as historical context. Its statement that the candidate still awaited finalization is superseded by the Step 6 freeze report and this addendum; **runtime integration remains incomplete**.
+
+---
+
+
 **Version:** v0.9.5 (versionCode 95)  
 **Product branch:** `feature/v0.9.5` — PR #14, draft  
 **Last green device-test baseline:** `551c28535c01a28371fd2df2de975dc8265ecc0e` — Android APK #872 SUCCESS  
